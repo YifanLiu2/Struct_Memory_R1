@@ -1,0 +1,220 @@
+\documentclass{article}
+
+
+% if you need to pass options to natbib, use, e.g.:
+%     \PassOptionsToPackage{numbers, compress}{natbib}
+% before loading neurips_2023
+
+
+% ready for submission
+\usepackage[preprint]{neurips_2023}
+
+
+% to compile a preprint version, e.g., for submission to arXiv, add add the
+% [preprint] option:
+%     \usepackage[preprint]{neurips_2023}
+
+
+% to compile a camera-ready version, add the [final] option, e.g.:
+%     \usepackage[final]{neurips_2023}
+
+
+% to avoid loading the natbib package, add option nonatbib:
+%    \usepackage[nonatbib]{neurips_2023}
+
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{xcolor}         % colors
+
+\title{Proposal for 
+Structured Memory-R1}
+
+% The \author macro works with any number of authors. There are two commands
+% used to separate the names and addresses of multiple authors: \And and \AND.
+%
+% Using \And between authors leaves it to LaTeX to determine where to break the
+% lines. Using \AND forces a line break at that point. So, if LaTeX puts 3 of 4
+% authors names on the first line, and the last on the second line, try using
+% \AND instead of \And before the third author name.
+
+
+\author{Yifan Liu\And Liam Gallagher\And David Courtis\And Jiazhou Liang}
+  % examples of more authors
+  % \And
+  % Coauthor \\
+  % Affiliation \\
+  % Address \\
+  % \texttt{email} \\
+  % \AND
+  % Coauthor \\
+  % Affiliation \\
+  % Address \\
+  % \texttt{email} \\
+  % \And
+  % Coauthor \\
+  % Affiliation \\
+  % Address \\
+  % \texttt{email} \\
+  % \And
+  % Coauthor \\
+  % Affiliation \\
+  % Address \\
+  % \texttt{email} \\
+
+
+
+\begin{document}
+
+
+\maketitle
+
+\section{Motivational Background}
+Large language models have evolved from static text generators into interactive agents that engage in multi-turn dialogue, tool use, and long-horizon reasoning. In these settings, memory plays a central role: agents must retain user preferences, task constraints, and intermediate state in order to respond coherently and consistently over time. Consequently, recent systems increasingly augment LLMs with external memory modules, including vector databases, and interaction histories.\\
+
+Despite this progress, most existing memory-augmented LLMs treat memory access as a static or heuristic process~\citep{lewis2020retrieval}. Memory is typically retrieved via similarity search or rule-based triggers~\citep{khandelwal2020generalization}, even when memory is structured, and its usage is largely decoupled from the model’s reasoning process. As a result, current approaches often suffer from over-retrieval, under-utilization of relevant information, and brittle behavior when memory contains stale or weakly relevant entries. More fundamentally, these systems lack a mechanism to learn when, how, and at what level of structure or abstraction memory should be accessed in a task-dependent manner.\\
+
+Recent work, most notably \citet{jin2025search}, addresses this limitation by treating search as an explicit action within the model’s reasoning process and training a policy over reasoning–search trajectories using relative reinforcement learning. By comparing alternative trajectories for the same query, Search-R1 learns when search is beneficial without relying on absolute reward calibration. Motivated by this paradigm, recent efforts have begun to explore similar ideas for memory usage~\citep{yan2025memory}. However, existing approaches operate over flat or unstructured memory and do not address the challenges of structured memory access.\\
+
+In this work, we observe that memory access is structurally analogous to search, with the key difference that memory operates over an agent’s internal, persistent, and often structured state~\citep{park2023generative}, rather than an external corpus. In contrast to search over unstructured documents, memory access in practical systems involves navigating, selecting, and aggregating over structured representations, such as profiles, task hierarchies, and interaction histories. Both search and memory access involve non-differentiable decisions that trade off informativeness, cost, and downstream performance. This motivates \emph{Structured Memory-R1}, which draws direct inspiration from Search-R1 and applies relative reinforcement learning to structured memory access and manipulation. We treat memory usage as a sequence of explicit, structure-aware actions during generation and optimize these decisions by comparing alternative structured memory–interaction trajectories under relative judgments.\\
+
+\section{Problem Definition}
+
+We consider an LLM-based agent augmented with an external memory system that persists across interactions. The objective is to learn a policy that controls memory access, that is, when and how memory should be queried or manipulated, in order to improve downstream task performance over time.
+
+\subsection{Structured Memory Representation}
+
+Let $\mathcal{M}_t$ denote the memory state at interaction turn $t$.  
+Recent work, notably Memory-R1 (Yan et al., 2025), has shown that RL can effectively train agents to manage flat external memory banks. However, flat representations treat all memory entries as independent, discarding the hierarchical and relational structure often present in real-world user state (e.g., a dietary preference nested under a user profile, or a hotel booking linked to a specific trip). We hypothesize that exposing this structure to the policy enables more selective retrieval and reduces over-retrieval of irrelevant entries.
+
+We therefore represent $\mathcal{M}_t$ as a rooted tree
+\[
+\mathcal{M}_t = (V_t, E_t, r),
+\]
+where each node $v \in V_t$ corresponds to a memory unit (e.g., a user preference, constraint, or task attribute), edges $E_t$ encode hierarchical or semantic relations, and $r$ is the root. The memory state may be read-only or mutable, allowing $\mathcal{M}_t$ to evolve across turns.
+
+\subsection{Interaction Model}
+
+At turn $t$, the agent observes a user input $x_t$ together with the current memory state $\mathcal{M}_t$.  
+The agent produces a response $y_t$ by executing a trajectory of actions
+$
+\tau_t = (a_{t,1}, a_{t,2}, \ldots, a_{t,L}),
+$
+where each action $a_{t,i} \in \mathcal{A}$ is drawn from an augmented action space that includes both language generation actions and explicit \emph{memory actions} (e.g., structured memory queries or updates).
+
+We denote by $\pi_\theta$ a stochastic policy over such trajectories:
+$
+\tau_t \sim \pi_\theta(\cdot \mid x_t, \mathcal{M}_t).
+$
+
+% \subsection{Learning Signal}
+
+% The quality of a trajectory $\tau_t$ is not given by an absolute scalar reward. Instead, for a fixed context $(x_t, \mathcal{M}_t)$, we assume access to a \emph{relative preference signal} over multiple sampled trajectories:
+% \[
+% \tau_t^{(i)} \succ \tau_t^{(j)},
+% \]
+% indicating that trajectory $\tau_t^{(i)}$ is preferred to $\tau_t^{(j)}$ according to criteria such as correctness, consistency, personalization, and efficiency.
+
+\subsection{Learning Signal}
+
+For a fixed context $(x_t, \mathcal{M}_t)$, we sample a group of $K$ trajectories and assign each a scalar reward $r(\tau_t^{(k)})$ based on downstream criteria such as correctness, consistency, and personalization. Rather than using these rewards as absolute training signals, we compute a \emph{group-relative advantage} for each trajectory:
+\[
+\hat{A}^{(k)} = \frac{r(\tau_t^{(k)}) - \mu}{\sigma}, \quad \mu = \frac{1}{K}\sum_{k=1}^{K} r(\tau_t^{(k)}), \quad \sigma = \mathrm{std}\!\left(\{r(\tau_t^{(k)})\}_{k=1}^{K}\right),
+\]
+so that only the relative quality of trajectories within the same group drives learning.
+
+\subsection{Objective}
+
+The learning objective is to optimize the policy $\pi_\theta$ such that, for interaction contexts $(x_t, \mathcal{M}_t)$ drawn from the data distribution,
+\[
+\mathbb{P}_{\tau^{(i)}, \tau^{(j)} \sim \pi_\theta}
+\big[ \tau^{(i)} \succ \tau^{(j)} \big]
+\]
+is maximized when $\tau^{(i)}$ corresponds to more effective memory usage.
+
+\paragraph{Problem Statement.}
+Given a distribution over interaction contexts $(x_t, \mathcal{M}_t)$ and relative preferences over alternative memory-interaction trajectories, learn a policy $\pi_\theta$ that controls structured memory access to generate trajectories that are preferred relative to alternatives. This formulation treats memory usage as a sequential decision problem and enables optimization via relative reinforcement learning without requiring an explicit scalar reward function.
+
+
+\section{Proposed Methodology}
+
+The core idea of Structured Memory-R1 is to treat memory usage as a sequence of explicit actions interleaved with language generation. Structured Memory-R1 is directly inspired by Search-R1, but operates on an agent’s internal or persistent memory state rather than an external corpus. For a given interaction context, the agent samples multiple \emph{memory-interaction trajectories}, each corresponding to a different strategy for accessing structured memory. These trajectories are evaluated using relative judgments and the policy is optimized to prefer trajectories that exhibit more effective memory usage.
+
+\subsection{Memory-Interaction Trajectories}
+Given a user input $x_t$ and memory state $\mathcal{M}_t$, the policy $\pi_\theta$ samples a set of trajectories
+\[
+\{ \tau_t^{(1)}, \ldots, \tau_t^{(K)} \} \sim \pi_\theta(\cdot \mid x_t, \mathcal{M}_t),
+\]
+where each trajectory is
+$\tau_t^{(k)} = (a_{t,1}^{(k)}, \ldots, a_{t,L}^{(k)})$
+
+consists of both language actions and explicit memory actions. Memory actions may include structured memory queries, subtree traversal, aggregation, or memory updates, depending on the memory representation.
+
+\subsection{Relative Evaluation and Optimization}
+
+For each context $(x_t, \mathcal{M}_t)$, the sampled trajectories are compared using a relative preference signal:
+\[
+\tau_t^{(i)} \succ \tau_t^{(j)},
+\]
+indicating that trajectory $\tau_t^{(i)}$ is preferred to $\tau_t^{(j)}$ according to criteria such as correctness, consistency, personalization quality, and efficiency.
+
+We then compute a \emph{group-relative advantage} for each trajectory based on its rank within the group and update the policy using a KL-regularized policy gradient objective, following the Group Relative Policy Optimization paradigm. This encourages the policy to increase the likelihood of memory strategies that perform well relative to alternatives, while remaining close to a reference policy.
+
+\subsection{Illustrative Example}
+
+We illustrate Structured Memory-R1 with a simplified example using a structured memory state. Suppose the agent maintains the following memory tree:
+\[
+\texttt{User/Profile/Diet = Vegetarian}, \quad
+\texttt{User/Trips/Tokyo}.
+\]
+
+Given the user query:
+\emph{``Can you recommend a restaurant for tonight?''}
+
+Structured Memory-R1 samples multiple trajectories:
+
+\paragraph{Trajectory $\tau_1$ (No memory access).}
+The agent does not query memory and produces a generic recommendation.
+
+\paragraph{Trajectory $\tau_2$ (Targeted memory access).}
+The agent queries the subtree \texttt{/User/Profile/Diet}, identifies a vegetarian preference, and produces a personalized recommendation.
+
+\paragraph{Trajectory $\tau_3$ (Over-expansive memory access).}
+The agent traverses a large portion of the memory tree, incorporating weak or irrelevant signals (e.g., past travel history) into the response.
+
+A relative evaluator ranks these trajectories as:
+$
+\tau_2 \succ \tau_3 \succ \tau_1.
+$
+
+Structured Memory-R1 updates the policy to favor targeted, high-utility memory access (as in $\tau_2$), while discouraging both under-use ($\tau_1$) and over-use ($\tau_3$) of memory.
+
+
+\section{Contributions}
+
+We introduce Struct Structured Memory-R1, a reinforcement learning framework that formulates structured memory access in LLM-based agents as a sequential decision problem. 
+
+Drawing inspiration from Search-R1 and Structured Memory-R1, we extend reinforcement learning with verifiable rewards from external information retrieval and unstructured memory, to hierarchical memory for long-context scenarios.
+
+We adopt a group-relative policy-optimization approach that provides stable, interpretable learning signals for memory-control decisions.
+
+
+\section{Role of Members}
+
+\begin{itemize}
+    \item Yifan: Method Design, Paper Writing
+    \item Liam: Experiment, Evaluation
+    \item David: Method Implementation, Evaluation
+    \item Joe: Experiment, Paper Writing
+\end{itemize}
+\newpage
+\bibliographystyle{plainnat}
+\bibliography{reference}
+
+\end{document}

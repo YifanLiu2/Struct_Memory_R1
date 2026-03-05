@@ -1,275 +1,266 @@
-# Search-R1: Train your LLMs to reason and call a search engine with reinforcement learning
+# Structured Memory-R1
 
-<div align="center">
-  <img src="https://raw.githubusercontent.com/PeterGriffinJin/Search-R1/main/public/logo.png" alt="logo" width="300"/>
-</div>
+**RL-Based Memory Management for Structured Memory in LLM Agents**
 
-<p align="center">
-  <a href="https://arxiv.org/abs/2503.09516">
-    <img src="https://img.shields.io/badge/Paper1-blue?style=for-the-badge" alt="Button1"/>
-  </a>
-  <a href="https://arxiv.org/abs/2505.15117">
-    <img src="https://img.shields.io/badge/Paper2-green?style=for-the-badge" alt="Button2"/>
-  </a>
-  <a href="https://huggingface.co/collections/PeterJinGo/search-r1-67d1a021202731cb065740f5">
-    <img src="https://img.shields.io/badge/Resources-orange?style=for-the-badge" alt="Button3"/>
-  </a>
-  <a href="https://x.com/BowenJin13/status/1895544294473109889">
-    <img src="https://img.shields.io/badge/Tweet-red?style=for-the-badge" alt="Button4"/>
-  </a>
-  <a href="https://wandb.ai/peterjin/Search-R1-v0.2">
-    <img src="https://img.shields.io/badge/Logs-purple?style=for-the-badge" alt="Button5"/>
-  </a>
-</p>
+Yifan Liu, Liam Gallagher, David Courtis, Jiazhou Liang  
+University of Toronto &middot; MIE1630 Winter 2026
 
+> **Report:** [`struct_memory_R1_latex/implementation.pdf`](struct_memory_R1_latex/implementation.pdf) &middot; **Proposal:** [`struct_memory_R1_latex/main_neurips.tex`](struct_memory_R1_latex/main_neurips.tex)
 
-<!-- <strong>Search-R1</strong> is a reinforcement learning framework for <em>training reasoning and searching (tool-call) interleaved LLMs</em>.  -->
-<!-- We built upon [veRL](https://github.com/volcengine/verl). -->
-**Search-R1** is a reinforcement learning framework designed for training **reasoning-and-searching interleaved LLMs**—language models that learn to reason and make tool calls (e.g., to search engines) in a coordinated manner.
+---
 
-<!-- It can be seen as an extension of <strong>DeepSeek-R1(-Zero)</strong> with interleaved search engine calling and an opensource RL training-based solution for <strong>OpenAI DeepResearch</strong>. -->
-Built upon [veRL](https://github.com/volcengine/verl), Search-R1 extends the ideas of **DeepSeek-R1(-Zero)** by incorporating interleaved search engine access and provides a fully open-source RL training pipeline. It serves as an alternative and open solution to **OpenAI DeepResearch**, enabling research and development in tool-augmented LLM reasoning.
+## 1 &ensp; Motivation
 
-<!-- Through RL (rule-based outcome reward), the 3B **base** LLM (both Qwen2.5-3b-base and Llama3.2-3b-base) develops reasoning and search engine calling abilities all on its own. -->
+LLM agents increasingly maintain external memory across interactions, yet most systems treat memory access as a static, heuristic process.  
+[Search-R1](https://github.com/PeterGriffinJin/Search-R1) showed that reinforcement learning (GRPO) can teach an LLM *when and how* to issue search queries; [Memory-R1](https://arxiv.org/abs/2508.19828) applied the same idea to flat memory banks.  
+**Structured Memory-R1** takes the next step: we train agents with RL to navigate *tree-structured* memory, where nodes are organized in compositional hierarchies (e.g. `Itinerary -> Day -> POI`) rather than treated as an unordered bag of entries.
 
-We support different RL methods (e.g., PPO, GRPO, reinforce), different LLMs (e.g., llama3, Qwen2.5, etc) and different search engines (e.g., local sparse/dense retrievers and online search engines).
-
-Paper: [link1](https://arxiv.org/pdf/2503.09516), [link2](https://arxiv.org/abs/2505.15117); Model and data: [link](https://huggingface.co/collections/PeterJinGo/search-r1-67d1a021202731cb065740f5); Twitter thread: [link](https://x.com/BowenJin13/status/1895544294473109889); Full experiment log: [prelim](https://wandb.ai/peterjin/Search-R1-open); [v0.1](https://wandb.ai/peterjin/Search-R1-nq_hotpotqa_train); [v0.2](https://wandb.ai/peterjin/Search-R1-v0.2); [v0.3](https://wandb.ai/peterjin/Search-R1-v0.3). Details about these logs and methods can be find [here](https://github.com/PeterGriffinJin/Search-R1/blob/main/docs/experiment_log.md).
-
-
-![single-turn](public/main.png)
-
-## News
-
-- [2025.10] Search-R1 is featured by Thinking Machines Lab's first product [Tinker](https://github.com/thinking-machines-lab/tinker-cookbook)! Details: [Document](https://github.com/thinking-machines-lab/tinker-cookbook/tree/main/tinker_cookbook/recipes/tool_use/search).
-- [2025.7] Search-R1 is supported by [SkyRL](https://github.com/NovaSky-AI/SkyRL)! Detailed instructions: [code](https://github.com/NovaSky-AI/SkyRL/tree/main/skyrl-train/examples/search), [Document](https://novasky-ai.notion.site/skyrl-searchr1).
-- [2025.6] Search-R1 is now integrated into the latest version of veRL and can take advantage of its most up-to-date features! Detailed instructions: [veRL](https://verl.readthedocs.io/en/latest/sglang_multiturn/search_tool_example.html), [English Document](https://github.com/zhaochenyang20/Awesome-ML-SYS-Tutorial/blob/main/rlhf/verl/multi-turn/tool_examples/verl-multiturn-searchR1-like.md), [Chinese Document](https://github.com/zhaochenyang20/Awesome-ML-SYS-Tutorial/blob/main/rlhf/verl/multi-turn/tool_examples/verl-multiturn-searchR1-like_ZH.md).
-- [2025.5] The second [paper](https://arxiv.org/abs/2505.15117) conducting detailed empirical studies is published with logs: [v0.3](https://wandb.ai/peterjin/Search-R1-v0.3). 
-- [2025.4] We support [multinode](https://github.com/PeterGriffinJin/Search-R1/blob/main/docs/multinode.md) training for 30B+ LLMs!
-- [2025.4] We support [different search engines](https://github.com/PeterGriffinJin/Search-R1/blob/main/docs/retriever.md) including sparse local retriever, dense local retriever with ANN indexing and online search engines!
-- [2025.3] The first Search-R1 [paper](https://arxiv.org/pdf/2503.09516) is published with the logs: [v0.1](https://wandb.ai/peterjin/Search-R1-nq_hotpotqa_train); [v0.2](https://wandb.ai/peterjin/Search-R1-v0.2).
-- [2025.2] We opensource Search-R1 codebase with [preliminary results](https://wandb.ai/peterjin/Search-R1-open).
-
-## Links
-
-- [Installation](#installation)
-- [Quick start](#quick-start)
-- [Preliminary results](#preliminary-results)
-- [Inference](#inference)
-- [Use your own dataset](#use-your-own-dataset)
-- [Use your own search engine](#use-your-own-search-engine)
-- [Features](#features)
-- [Ackowledge](#acknowledge)
-- [Citations](#citations)
-
-## Installation
-
-### Search-r1 environment
-```bash
-conda create -n searchr1 python=3.9
-conda activate searchr1
-# install torch [or you can skip this step and let vllm to install the correct version for you]
-pip install torch==2.4.0 --index-url https://download.pytorch.org/whl/cu121
-# install vllm
-pip3 install vllm==0.6.3 # or you can install 0.5.4, 0.4.2 and 0.3.1
-
-# verl
-pip install -e .
-
-# flash attention 2
-pip3 install flash-attn --no-build-isolation
-pip install wandb
-```
-
-### Retriever environment (optional)
-If you would like to call a local retriever as the search engine, you can install the environment as follows. (We recommend using a seperate environment.)
-```bash
-conda create -n retriever python=3.10
-conda activate retriever
-
-# we recommend installing torch with conda for faiss-gpu
-conda install pytorch==2.4.0 torchvision==0.19.0 torchaudio==2.4.0 pytorch-cuda=12.1 -c pytorch -c nvidia
-pip install transformers datasets pyserini
-
-## install the gpu version faiss to guarantee efficient RL rollout
-conda install -c pytorch -c nvidia faiss-gpu=1.8.0
-
-## API function
-pip install uvicorn fastapi
-```
-
-
-## Quick start
-
-Train a reasoning + search LLM on NQ dataset with e5 as the retriever and wikipedia as the corpus.
-
-(1) Download the indexing and corpus.
-```bash
-save_path=/the/path/to/save
-python scripts/download.py --save_path $save_path
-cat $save_path/part_* > $save_path/e5_Flat.index
-gzip -d $save_path/wiki-18.jsonl.gz
-```
-
-(2) Process the NQ dataset.
-```bash
-python scripts/data_process/nq_search.py
-```
-
-(3) Launch a local retrieval server.
-```bash
-conda activate retriever
-bash retrieval_launch.sh
-```
-
-(4) Run RL training (PPO) with Llama-3.2-3b-base.
-```bash
-conda activate searchr1
-bash train_ppo.sh
-```
-
-## Preliminary results
-
-(1) The base model (llama3.2-3b-base) learns to call the search engine and obtain improved performance.
-
-![llama-3b](public/llama32-3b.png)
-
-
-(2) The base model (Qwen2.5-7b-base) can learn to conduct multi-turn search engine calling and reasoning with RL.
-
-![multi-turn](public/multi-turn.png)
-
-## Inference
-#### You can play with the trained Search-R1 model with your own question.
-(1) Launch a local retrieval server.
-```bash
-conda activate retriever
-bash retrieval_launch.sh
-```
-
-(2) Run inference.
-```bash
-conda activate searchr1
-python infer.py
-```
-You can modify the ```question``` on line 7 to something you're interested in.
-
-## Use your own dataset
-
-### QA data
-For each question-answer sample, it should be a dictionary containing the desired content as below:
+The core loop is identical to Search-R1, with one substitution:
 
 ```
-data = {
-        "data_source": data_source,
-        "prompt": [{
-            "role": "user",
-            "content": question,
-        }],
-        "ability": "fact-reasoning",
-        "reward_model": {
-            "style": "rule",
-            "ground_truth": solution
-        },
-        "extra_info": {
-            'split': split,
-            'index': idx,
-        }
-    }
+User question
+    |
+    v
+LLM reasons in <think>...</think>
+    |
+    v
+LLM emits  <memory> natural-language query </memory>      (was <search>)
+    |
+    v
+Memory server returns relevant entries / subtrees
+    |
+    v
+Results injected as  <information>...</information>
+    |
+    v
+LLM continues reasoning  -- or --  emits <answer>...</answer>
 ```
 
-You can refer to ```scripts/data_process/nq_search.py``` for a concrete data processing example.
+The policy is optimized with **Group Relative Policy Optimization (GRPO)**: for each question we sample K trajectories, score them with exact-match reward, and update the policy using group-normalized advantages. Tokens inside `<information>` blocks are masked from the policy loss.
 
-### Corpora
+---
 
-It is recommended to make your corpus a jsonl file, where each line (a dictionary with "id" key and "contents" key) corresponds to one passage. You can refer to ```example/corpus.jsonl``` for an example.
+## 2 &ensp; Methods Compared
 
-The "id" key corresponds to the passage id, while the "contents" key corresponds to the passage content ('"' + title + '"\n' + text).
-For example:
+| Method | RL? | Memory Type | Description |
+|---|---|---|---|
+| **In-Context Memory** | No | Flat | Entire memory serialized into the LLM prompt |
+| **Semantic XPath** | No | Structured | LLM generates XPath-style queries executed over the tree ([paper](https://github.com/D3Mlab/SemanticXpath-Chat)) |
+| **Memory-R1 (Flat)** | GRPO | Flat | RL-trained agent queries a flat memory bank |
+| **Struct Memory-R1** | GRPO | Structured | RL-trained agent queries tree-structured memory |
+
+In-Context Memory and Semantic XPath are implemented as non-RL baselines and discussed in the report. The codebase implements the two RL methods.
+
+---
+
+## 3 &ensp; Repository Structure
+
 ```
-{"id": "0", "contents": "Evan Morris Evan L. Morris (January 26, 1977 \u2013 July 9, 2015) was a lobbyist for Genentech and its parent corporation Roche in Washington."}
-...
-{"id": "100", "contents": "Three years later, when the United States Exploring Expedition to little-known portions of the globe was organised under Charles Wilkes, Hale was recommended, while yet an undergraduate."}
-...
+.
+├── memory_r1/                          # === Our implementation ===
+│   ├── memory_tree.py                  #   MemoryNode / MemoryTree (rooted tree data model)
+│   ├── flat_memory.py                  #   FlatMemoryStore (list + cosine similarity)
+│   ├── memory_server.py                #   FastAPI retrieval server (POST /retrieve)
+│   ├── llm_agent/
+│   │   └── generation.py               #   MemoryLLMGenerationManager (multi-turn agent loop)
+│   └── data/
+│       ├── itinerary.json              #   Travel itinerary domain  (20 QA pairs)
+│       ├── todo.json                   #   To-do list domain        (20 QA pairs)
+│       ├── mealkit.json                #   Meal-kit domain          (20 QA pairs)
+│       └── locomo_converter.py         #   LoCoMo -> structured tree converter
+│
+├── scripts/data_process/
+│   └── memory_data.py                  #   QA data -> parquet (training-ready format)
+│
+├── train_memory_grpo.sh                #   GRPO training launcher
+│
+├── verl/                               # === veRL RL framework (upstream dependency) ===
+│   ├── trainer/
+│   │   ├── main_memory.py              #   * Training entry point (MemoryRewardManager)
+│   │   ├── main_ppo.py                 #   Original Search-R1 entry point
+│   │   ├── ppo/ray_trainer.py          #   Core GRPO / PPO loop (Ray-based)
+│   │   └── config/ppo_trainer.yaml     #   Default Hydra config
+│   └── utils/reward_score/
+│       └── qa_em.py                    #   Exact-match / sub-EM scoring
+│
+├── search_r1/                          # === Search-R1 base framework (upstream dependency) ===
+│   ├── llm_agent/
+│   │   ├── generation.py               #   LLMGenerationManager (original search version)
+│   │   └── tensor_helper.py            #   Tensor padding / masking utilities (shared)
+│   └── search/
+│       └── retrieval_server.py         #   Original corpus retrieval server
+│
+├── struct_memory_R1_latex/             # === Report & proposal ===
+│   ├── implementation.tex / .pdf       #   Intermediate implementation report
+│   ├── main_neurips.tex                #   Project proposal
+│   ├── reference.bib                   #   Bibliography
+│   └── neurips_2023.sty                #   NeurIPS style
+│
+├── requirements.txt                    # Python dependencies
+├── setup.py / pyproject.toml           # Package installation
+└── LICENSE                             # Apache 2.0
 ```
 
-**Index your corpora (optional).**
-If you would like to use a local retriever as the search engine, you can index your own corpus by:
-```
-bash search_r1/search/build_index.sh
-```
-You can change ```retriever_name``` and ```retriever_model``` to your interested off-the-shelf retriever.
+Files marked with **\*** are new; everything under `verl/` and `search_r1/` is reused from Search-R1 unless noted.
 
-## Use your own search engine
+---
 
-Our codebase supports local sparse retriever (e.g., BM25), local dense retriever (both flat indexing with GPUs and ANN indexing with CPUs) and online search engine (e.g., Google, Bing, etc). More details can be found [here](https://github.com/PeterGriffinJin/Search-R1/tree/main/docs/retriever.md).
+## 4 &ensp; Key Components
 
-The main philosophy is to launch a local or remote search engine server separately from the main RL training pipeline. 
+### 4.1 &ensp; Memory Data Model (`memory_r1/memory_tree.py`)
 
-The LLM can call the search engine by calling the search API (e.g., "http://127.0.0.1:8000/retrieve").
+Memory is represented as a rooted tree **M = (V, E, r)**:
 
-You can refer to ```search_r1/search/retriever_server.py``` for an example of launching a local retriever server.
+- **`MemoryNode`** &mdash; dataclass with `node_id`, `node_type`, `attributes` (dict of text), `children`, `parent`.
+- **`MemoryTree`** &mdash; wraps the root node with an ID index and provides:
+  - `keyword_search(query, topk)` &mdash; token-overlap scoring over all nodes
+  - `subtree_search(query, topk)` &mdash; returns formatted subtrees for top matches
+  - `semantic_navigate(query)` &mdash; type-aware navigation (parses node types from the query)
+  - `to_flat_entries()` &mdash; flatten the tree for the flat-memory baseline
+  - `to_json()` / `from_json()` &mdash; JSON serialization
 
-## Features
-- Support local sparse retrievers (e.g., BM25). ✔️
-- Support local dense retrievers (both flat indexing and ANN indexing) ✔️
-- Support google search / bing search / brave search API and others. ✔️
-- Support off-the-shelf neural rerankers. ✔️
-- Support different RL methods (e.g., PPO, GRPO, reinforce). ✔️
-- Support different LLMs (e.g., llama3, Qwen2.5, etc). ✔️
+### 4.2 &ensp; Flat Memory Store (`memory_r1/flat_memory.py`)
 
-## Acknowledge
+- **`FlatMemoryStore`** &mdash; list of `MemoryEntry` objects with keyword or embedding-based top-k retrieval.
+- Accepts an optional `embedding_fn` for dense retrieval; falls back to keyword overlap when none is provided.
 
-The concept of Search-R1 is inspired by [Deepseek-R1](https://github.com/deepseek-ai/DeepSeek-R1) and [TinyZero](https://github.com/Jiayi-Pan/TinyZero/tree/main).
-Its implementation is built upon [veRL](https://github.com/volcengine/verl) and [RAGEN](https://github.com/ZihanWang314/RAGEN/tree/main). 
-We sincerely appreciate the efforts of these teams for their contributions to open-source research and development.
+### 4.3 &ensp; Memory Retrieval Server (`memory_r1/memory_server.py`)
 
-## Awesome work powered or inspired by Search-R1
+FastAPI server exposing `POST /retrieve` with the same request schema as Search-R1's retrieval server:
 
-- [DeepResearcher](https://github.com/GAIR-NLP/DeepResearcher): Scaling Deep Research via Reinforcement Learning in Real-world Environments. [![[code]](https://img.shields.io/github/stars/GAIR-NLP/DeepResearcher)](https://github.com/GAIR-NLP/DeepResearcher)
-- [Multimodal-Search-R1](https://github.com/EvolvingLMMs-Lab/multimodal-search-r1): Incentivizing LMMs to Search. [![[code]](https://img.shields.io/github/stars/EvolvingLMMs-Lab/multimodal-search-r1)](https://github.com/EvolvingLMMs-Lab/multimodal-search-r1)
-- [OTC](https://arxiv.org/pdf/2504.14870): Optimal Tool Calls via Reinforcement Learning.
-- [ZeroSearch](https://github.com/Alibaba-NLP/ZeroSearch): Incentivize the Search Capability of LLMs without Searching. [![[code]](https://img.shields.io/github/stars/Alibaba-NLP/ZeroSearch)](https://github.com/Alibaba-NLP/ZeroSearch)
-- [IKEA](https://github.com/hzy312/knowledge-r1): Reinforced Internal-External Knowledge Synergistic Reasoning for Efficient Adaptive Search Agent. [![[code]](https://img.shields.io/github/stars/hzy312/knowledge-r1)](https://github.com/hzy312/knowledge-r1)
-- [Scent of Knowledge](https://arxiv.org/abs/2505.09316): Optimizing Search-Enhanced Reasoning with Information Foraging.
-- [AutoRefine](https://www.arxiv.org/pdf/2505.11277): Search and Refine During Think. [![[code]](https://img.shields.io/github/stars/syr-cn/AutoRefine)](https://github.com/syr-cn/AutoRefine)
-- [O^2-Searcher](https://arxiv.org/pdf/2505.16582): A Searching-based Agent Model for Open-Domain Open-Ended Question Answering. [![[code]](https://img.shields.io/github/stars/Acade-Mate/O2-Searcher)](https://github.com/Acade-Mate/O2-Searcher)
-- [MaskSearch](https://arxiv.org/pdf/2505.20285): A Universal Pre-Training Framework to Enhance Agentic Search Capability. [![[code]](https://img.shields.io/github/stars/Alibaba-NLP/MaskSearch)](https://github.com/Alibaba-NLP/MaskSearch)
-- [VRAG-RL](https://arxiv.org/abs/2505.22019): Vision-Perception-Based RAG for Visually Rich Information Understanding. [![[code]](https://img.shields.io/github/stars/Alibaba-NLP/VRAG)](https://github.com/Alibaba-NLP/VRAG)
-- [R1-Code-Interpreter](https://arxiv.org/abs/2505.21668): Training LLMs to Reason with Code via SFT and RL. [![[code]](https://img.shields.io/github/stars/yongchao98/R1-Code-Interpreter)](https://github.com/yongchao98/R1-Code-Interpreter)
-- [R-Search](https://arxiv.org/abs/2506.04185): Empowering LLM Reasoning with Search via Multi-Reward Reinforcement Learning. [![[code]](https://img.shields.io/github/stars/QingFei1/R-Search)](https://github.com/QingFei1/R-Search)
-- [StepSearch](https://arxiv.org/pdf/2505.15107): Igniting LLMs Search Ability via Step-Wise Proximal Policy Optimization. [![[code]](https://img.shields.io/github/stars/Zillwang/StepSearch)](https://github.com/Zillwang/StepSearch)
-- [SimpleTIR](https://simpletir.notion.site/report): Stable End-to-End Reinforcement Learning for Multi-Turn Tool-Integrated Reasoning. [![[code]](https://img.shields.io/github/stars/ltzheng/SimpleTIR)](https://github.com/ltzheng/SimpleTIR)
-- [Router-R1](https://arxiv.org/pdf/2506.09033): Teaching LLMs Multi-Round Routing and Aggregation via Reinforcement Learning. [![[code]](https://img.shields.io/github/stars/ulab-uiuc/Router-R1)](https://github.com/ulab-uiuc/Router-R1)
-- [SkyRL](https://skyrl.readthedocs.io/en/latest/): A Modular Full-stack RL Library for LLMs. [![[code]](https://img.shields.io/github/stars/NovaSky-AI/SkyRL)](https://github.com/NovaSky-AI/SkyRL)
-- [ASearcher](https://arxiv.org/abs/2508.07976): Large-Scale RL for Search Agents. [![[code]](https://img.shields.io/github/stars/inclusionAI/ASearcher)](https://github.com/inclusionAI/ASearcher)
-- [ParallelSearch](https://www.arxiv.org/abs/2508.09303): Decompose Query and Search Sub-queries in Parallel with RL. [![[code]](https://img.shields.io/github/stars/Tree-Shu-Zhao/ParallelSearch)](https://github.com/Tree-Shu-Zhao/ParallelSearch)
-- [AutoTIR](https://arxiv.org/pdf/2507.21836): Autonomous Tools Integrated Reasoning via Reinforcement Learning. [![[code]](https://img.shields.io/github/stars/weiyifan1023/AutoTIR)](https://github.com/weiyifan1023/AutoTIR)
-- [verl-tool](https://arxiv.org/pdf/2509.01055): A version of verl to support diverse tool use. [![[code]](https://img.shields.io/github/stars/TIGER-AI-Lab/verl-tool)](https://github.com/TIGER-AI-Lab/verl-tool)
-- [Tree-GRPO](https://arxiv.org/abs/2509.21240): Tree Search for LLM Agent Reinforcement Learning. [![[code]](https://img.shields.io/github/stars/AMAP-ML/Tree-GRPO)](https://github.com/AMAP-ML/Tree-GRPO)
-- [EviNote-RAG](https://arxiv.org/abs/2509.00877): Enhancing RAG Models via Answer-Supportive Evidence Notes. [![[code]](https://img.shields.io/github/stars/Da1yuqin/EviNoteRAG)](https://github.com/Da1yuqin/EviNoteRAG)
-- [GlobalRAG](https://arxiv.org/pdf/2510.20548v1): GlobalRAG: Enhancing Global Reasoning in Multi-hop Question Answering via Reinforcement Learning. [![[code]](https://img.shields.io/github/stars/CarnegieBin/GlobalRAG)](https://github.com/CarnegieBin/GlobalRAG)
-
-
-
-
-
-## Citations
-
-```bibtex
-@article{jin2025search,
-  title={Search-r1: Training llms to reason and leverage search engines with reinforcement learning},
-  author={Jin, Bowen and Zeng, Hansi and Yue, Zhenrui and Yoon, Jinsung and Arik, Sercan and Wang, Dong and Zamani, Hamed and Han, Jiawei},
-  journal={arXiv preprint arXiv:2503.09516},
-  year={2025}
+```json
+{
+  "queries": ["conference sessions on day 2"],
+  "topk": 3,
+  "return_scores": true,
+  "memory_type": "structured"
 }
 ```
 
-```bibtex
-@article{jin2025empirical,
-  title={An Empirical Study on Reinforcement Learning for Reasoning-Search Interleaved LLM Agents},
-  author={Jin, Bowen and Yoon, Jinsung and Kargupta, Priyanka and Arik, Sercan O and Han, Jiawei},
-  journal={arXiv preprint arXiv:2505.15117},
-  year={2025}
-}
+Supports both `"flat"` and `"structured"` memory types. Can be loaded with any domain JSON at startup.
+
+### 4.4 &ensp; LLM Agent Loop (`memory_r1/llm_agent/generation.py`)
+
+`MemoryLLMGenerationManager` adapts Search-R1's `LLMGenerationManager`:
+
+| What changed | Detail |
+|---|---|
+| Action tags | `<search>` / `</search>` &rarr; `<memory>` / `</memory>` |
+| Environment step | `batch_search()` &rarr; `batch_memory_retrieve()` (calls the memory server) |
+| Result formatting | `_passages2string()` &rarr; `_memory_results_to_string()` (includes tree paths for structured mode) |
+| Config | `GenerationConfig` &rarr; `MemoryGenerationConfig` (adds `memory_url`, `memory_type`) |
+
+Everything else&mdash;the multi-turn `run_llm_loop`, rolling-state updates, info masking, GPU-padding wrapper, final output composition&mdash;is identical to Search-R1.
+
+### 4.5 &ensp; Reward & Training (`verl/trainer/main_memory.py`)
+
+- **`MemoryRewardManager`** &mdash; scores trajectories using:
+  - *Substring exact match* for QA datasets (`locomo`, `locomo_structured`)
+  - *Constraint pass rate* for structured domains (`itinerary`, `todo`, `mealkit`)
+  - A small format bonus (+0.1) when the agent correctly uses `<memory>` tags
+- Training is launched with `train_memory_grpo.sh`, which calls `verl.trainer.main_memory` under GRPO with state masking on `<information>` blocks.
+
+---
+
+## 5 &ensp; Evaluation Data
+
+### Semantic XPath Domains (curated)
+
+Three domains from the [Semantic XPath](https://github.com/D3Mlab/SemanticXpath-Chat) evaluation setup, each stored as a JSON file containing the memory tree and 20 QA pairs:
+
+| Domain | Schema | Example question |
+|---|---|---|
+| Travel Itinerary | `Itinerary -> Version -> Day -> POI` | *Which day is packed with conference sessions?* |
+| To-Do List | `TodoList -> Category -> Project -> Task` | *What high-priority tasks are still pending?* |
+| Meal Kit | `MealPlan -> Day -> Meal -> Option` | *Which breakfast on Monday is vegetarian and gluten-free?* |
+
+### Structured LoCoMo (converted)
+
+The [LoCoMo](https://arxiv.org/abs/2402.17753) multi-session dialogue benchmark, converted into structured trees:
+
 ```
+Dialogue -> Session -> Topic -> MemoryEntry
+```
+
+The converter (`memory_r1/data/locomo_converter.py`) also produces a flat version for the Memory-R1 baseline. LoCoMo's existing QA pairs are reused for evaluation.
+
+---
+
+## 6 &ensp; Quick Start
+
+### Prerequisites
+
+- Python 3.10+
+- CUDA-capable GPUs (8x recommended for GRPO training)
+- `pip install -e . && pip install -r requirements.txt`
+
+### Step 1 &mdash; Prepare training data
+
+```bash
+python scripts/data_process/memory_data.py \
+    --data_dir memory_r1/data \
+    --output_dir data/memory_train
+```
+
+This reads the domain JSONs, applies the memory prompt template, and writes `train.parquet` / `test.parquet`.
+
+### Step 2 &mdash; Launch the memory server
+
+In a **separate terminal**:
+
+```bash
+# Structured memory (e.g. itinerary domain)
+python -m memory_r1.memory_server \
+    --structured_memory_path memory_r1/data/itinerary.json \
+    --port 8000
+
+# Flat memory (e.g. LoCoMo)
+python -m memory_r1.memory_server \
+    --flat_memory_path memory_r1/data/locomo/locomo_flat.json \
+    --port 8000
+```
+
+### Step 3 &mdash; Train with GRPO
+
+```bash
+bash train_memory_grpo.sh
+```
+
+Key config knobs (edit the script or pass as overrides):
+
+| Parameter | Default | Meaning |
+|---|---|---|
+| `BASE_MODEL` | `Qwen/Qwen2.5-3B` | HuggingFace model ID |
+| `MEMORY_TYPE` | `structured` | `flat` or `structured` |
+| `max_turns` | `3` | Max memory-query rounds per trajectory |
+| `retriever.topk` | `5` | Entries returned per query |
+| `actor_rollout_ref.rollout.n_agent` | `5` | GRPO group size K |
+| `trainer.total_training_steps` | `500` | Total GRPO steps |
+
+---
+
+## 7 &ensp; Reproducibility
+
+| Mechanism | Detail |
+|---|---|
+| **Fixed seed** | `random.seed(42)` in data processing |
+| **Deterministic data** | All 60 QA pairs and memory trees are checked into `memory_r1/data/` |
+| **Pinned config** | Training hyperparameters are explicit in `train_memory_grpo.sh` |
+| **State masking** | `<information>` blocks are masked from the policy gradient (same as Search-R1) |
+| **GRPO** | Group-relative advantages remove the need for absolute reward calibration |
+
+---
+
+## 8 &ensp; Acknowledgments
+
+This project builds on the following open-source work:
+
+- [Search-R1](https://github.com/PeterGriffinJin/Search-R1) (Jin et al., 2025) &mdash; RL for search-augmented LLMs
+- [Memory-R1](https://arxiv.org/abs/2508.19828) (Yan et al., 2025) &mdash; RL for flat memory management
+- [Semantic XPath](https://github.com/D3Mlab/SemanticXpath-Chat) (Liu et al., 2026) &mdash; Structured memory access for ConvAI
+- [veRL / HybridFlow](https://github.com/volcengine/verl) (Sheng et al., 2025) &mdash; RL training framework for LLMs
+- [LoCoMo](https://arxiv.org/abs/2402.17753) (Maharana et al., 2024) &mdash; Long-term conversational memory benchmark
+
+## License
+
+Apache 2.0 (inherited from Search-R1 / veRL).
