@@ -40,7 +40,7 @@
 \newtheorem{remark}{Remark}[section]
 \newtheorem{example}{Example}[section]
 
-\title{Structured Memory-R1: Intermediate Implementation Report}
+\title{Struct Memory-R1: Intermediate Implementation Report}
 
 \author{
   Yifan Liu \And Liam Gallagher \And David Courtis \And Jiazhou Liang
@@ -86,15 +86,15 @@ At turn $t$ ($1 \le t \le T$), the following exchange occurs:
 
 The objective is to learn a policy $\pi_\theta$ that controls memory access when and how memory should be queried to improve downstream task performance. 
 
-\section{Structured Memory-R1}
+\section{Struct Memory-R1}
 
-Recent work, notably Search-R1~\citep{jin2025search}  and Memory-R1~\citep{yan2025memory}, has shown that RL can effectively train agents to manage flat external memory banks.
+Recent work, notably Search-R1~\citep{jin2025search}  and Memory-R1~\citep{yan2025memory}\footnote{Memory-R1 does not provide a public codebase. We built a publicly available implementation at \url{https://github.com/YifanLiu2/Struct_Memory_R1.git}.}, has shown that RL can effectively train agents to manage flat external memory banks.
 A \emph{flat memory state} is an unordered collection of $N$ memory entries:
 \[
 M_t^{\text{flat}} = \{m_1, m_2, \ldots, m_N\}, \quad m_i = (\text{key}_i,\; \text{attributes}_i),
 \]
 where each entry $m_i$ consists of a textual key, a textual attribute, and optional metadata.
-However, flat representations treat all memory entries as independent, discarding the hierarchical and relational structure often present in real-world user state (e.g., a dietary preference nested under a user profile, or a hotel booking linked to a specific trip). We hypothesize that exposing this structure to the policy enables more selective retrieval and reduces over-retrieval of irrelevant entries. Therefore, we proposed \emph{Structured Memory-R1}. 
+However, flat representations treat all memory entries as independent, discarding the hierarchical and relational structure often present in real-world user state (e.g., a dietary preference nested under a user profile, or a hotel booking linked to a specific trip). We hypothesize that exposing this structure to the policy enables more selective retrieval and reduces over-retrieval of irrelevant entries. Therefore, we proposed \emph{Struct Memory-R1}. 
 
 \subsection{Memory States}
 
@@ -188,227 +188,141 @@ Distillation surfaces only the entries most relevant to $q$, reducing noise and 
 
 \subsection{System Architecture}
 
-Our implementation faithfully follows the Memory-R1 two-agent architecture~\citep{yan2025memory}, with extensions for tree-structured memory. The system consists of five main components:
-
-\paragraph{Memory Data Model.}
-We implement two memory representations:
-\begin{enumerate}
-    \item \textbf{Flat Memory} (Memory-R1): A list-based memory bank with keyword and embedding-based top-$k$ retrieval, where each entry is a text string with ID and optional metadata. Supports ADD, UPDATE, DELETE, and NOOP operations.
-    \item \textbf{Structured Memory} (Struct Memory-R1): A rooted tree where each node has a type, textual attributes, and parent--child edges. ADD operations specify a \texttt{parent\_id} to position new nodes in the hierarchy. This supports compositional hierarchies (e.g., \texttt{Itinerary} $\to$ \texttt{Day} $\to$ \texttt{POI}) and session-based hierarchies (e.g., \texttt{Dialogue} $\to$ \texttt{Session} $\to$ \texttt{MemoryEntry}).
-\end{enumerate}
-
-\paragraph{Memory Manager Agent (Stage 1).}
-Following the Memory-R1 paper, the Memory Manager is an RL-trained agent that processes each dialogue turn and decides how to update the memory bank. For each extracted fact and its related retrieved memories, the manager outputs one of four operations:
-\begin{itemize}[nosep]
-    \item \textsc{ADD}: Insert a new entry (flat) or a new node at a specified parent (tree).
-    \item \textsc{UPDATE}: Merge new information into an existing entry, preserving the more detailed version.
-    \item \textsc{DELETE}: Remove an outdated or contradictory entry.
-    \item \textsc{NOOP}: No change needed (fact already present or irrelevant).
-\end{itemize}
-The output is structured JSON, enabling deterministic parsing and application to the memory bank. For the tree variant, ADD operations include \texttt{parent\_id} and \texttt{node\_type}, requiring the manager to make structural placement decisions.
-
-\paragraph{Answer Agent (Stage 2).}
-The Answer Agent receives a question and top-60 retrieved memories from the bank, applies a \emph{Memory Distillation} policy to select the most relevant entries, and generates a concise answer ($<$5--6 words). This two-step filtering mitigates the ``lost in the middle'' problem~\citep{liu2024lost} where LLMs degrade when relevant information is buried among distractors.
-
-\paragraph{Two-Stage Training.}
-Both agents are trained independently with GRPO:
-\begin{enumerate}[nosep]
-    \item \textbf{Memory Manager training}: The Answer Agent is frozen. The reward for each candidate operation set is the EM score of the frozen Answer Agent's response given the updated memory bank.
-    \item \textbf{Answer Agent training}: The Memory Manager is frozen. Memory banks are rebuilt using the trained manager, and the Answer Agent is trained with EM reward between its predicted and gold answers.
-\end{enumerate}
-This decoupled training avoids attribution ambiguity while enabling both agents to co-adapt across alternating training phases.
-
-\paragraph{Data Construction Pipeline.}
-Following the paper's Algorithms 1--2, we use GPT-4o-mini to extract facts from each LoCoMo dialogue turn, build temporal memory banks from preceding turns, and create separate training parquet files for both agents. Retrieval uses embedding similarity over the memory bank.
+We have implemented both Memory-R1 (flat memory) and Struct Memory-R1 (tree-structured memory) following the two-agent architecture described in Section~2. The full implementation, including the Memory Manager, Answer Agent, data construction pipeline, GRPO training scripts, evaluation metrics, and end-to-end inference pipeline, is publicly available at: \url{https://github.com/YifanLiu2/Struct_Memory_R1.git}.
 
 \subsection{Data Curation}
 
-We prepare evaluation data from two sources:
+We prepare data from two sources, corresponding to an in-distribution training/evaluation benchmark and three out-of-distribution (OOD) evaluation datasets.
 
-\paragraph{Semantic XPath Domains.}
-Following the evaluation setup in Semantic XPath~\citep{semanticxpath2026}, we curate structured memory trees for three conversational AI domains:
-\begin{itemize}
-    \item \textbf{Travel Itinerary}: A 7-day San Diego trip plan with the schema \texttt{Itinerary} $\to$ \texttt{Version} $\to$ \texttt{Day} $\to$ \texttt{POI}. Each POI has attributes including name, time, category, description, and cost.
-    \item \textbf{To-Do List}: A structured task list with 5 categories (Work, Household, Personal, Finance, Social), each containing projects with tasks annotated with status, deadline, and priority.
-    \item \textbf{Meal Kit Recommendation}: A 7-day family meal plan with per-member dietary restrictions and 3 options per meal time, annotated with ingredients, calories, and allergen information.
+\paragraph{LoCoMo (In-Distribution).}
+We use the LoCoMo benchmark~\citep{maharana2024evaluating}, a long multi-session dialogue dataset consisting of 10 conversations ($\sim$600 turns, $\sim$26k tokens each) annotated with QA pairs spanning single-hop, multi-hop, open-domain, and temporal reasoning. We adapt LoCoMo for both flat and structured memory:
+\begin{itemize}[nosep]
+    \item \textbf{Flat LoCoMo}: Following Memory-R1, we use GPT-4o-mini to extract facts from dialogue turns and build temporal memory banks. We split the QA pairs into train / validation / test following Memory-R1's 1:1:8 ratio.
+    \item \textbf{Structured LoCoMo}: We convert the same dialogues into tree-structured memory using the schema: \texttt{Conversation} $\to$ \texttt{Speaker}/\texttt{Session} $\to$ \texttt{Observation}/\texttt{Summary}/\texttt{Event}/\texttt{Turn}. \texttt{Speaker} nodes aggregate persistent observations; \texttt{Session} nodes preserve the temporal record with derived summaries and events.
 \end{itemize}
-Each domain includes 20 curated QA pairs spanning single-hop, multi-hop, and reasoning question types. These data files serve both as the structured memory state for the memory server and as the source of training/evaluation QA pairs.
 
-\paragraph{Structured LoCoMo.}
-We convert the LoCoMo benchmark~\citep{maharana2024evaluating}, a 
-long multi-session dialogue dataset, into structured memory trees. 
-The dataset consists of 10 long-term conversations, each annotated 
-with question-answer pairs and containing: sessions of speaker turns 
-with timestamps, per-session event summaries, per-session prose 
-summaries, and per-session observations : speaker-attributed, 
-turn-grounded atomic claims such as \textit{``Caroline is researching 
-adoption agencies''} (D2:8). We use the following schema:
-
-\dirtree{%
-.1 Conversation.
-.2 Speaker (name).
-.3 Observation (text, source\_dia\_id, session\_id).
-.2 Session (session\_id, datetime).
-.3 Summary (text).
-.3 Event (speaker, description).
-.3 Turn (dia\_id, speaker, text, image\_caption).
-}
-
-\texttt{Speaker} nodes aggregate persistent observations about each 
-participant across all sessions. \texttt{Session} nodes preserve the 
-raw conversational record alongside two levels of derived structure: 
-dense prose \texttt{Summary} nodes, which enable efficient 
-session-level semantic filtering, and sparse \texttt{Event} nodes 
-capturing key milestones. The dataset's gold observations map 
-directly to \texttt{Observation} nodes, providing supervision for 
-memory construction without requiring LLM-based extraction.
-
-This schema supports two natural query patterns. \textit{Profile 
-queries} retrieve persistent facts about a speaker directly from 
-their observation nodes:
+\paragraph{Semantic XPath Domains (OOD).}
+Following the evaluation setup in Semantic XPath~\citep{semanticxpath2026}, we use three curated structured memory domains as out-of-distribution test sets:
+\begin{itemize}[nosep]
+    \item \textbf{Travel Itinerary}: Schema \texttt{Itinerary} $\to$ \texttt{Version} $\to$ \texttt{Day} $\to$ \texttt{POI} (20 QA pairs).
+    \item \textbf{To-Do List}: Schema \texttt{TodoList} $\to$ \texttt{Category} $\to$ \texttt{Project} $\to$ \texttt{Task} (20 QA pairs).
+    \item \textbf{Meal Kit}: Schema \texttt{MealPlan} $\to$ \texttt{Day} $\to$ \texttt{Meal} $\to$ \texttt{Option} (20 QA pairs).
+\end{itemize}
+These domains test generalization to unseen tree schemas and question types not present in the LoCoMo training data.
 
 
+
+
+
+
+
+
+
+\subsection{Baselines and Methods}
+
+
+
+We compare six methods, organized into non-RL baselines and RL-trained agents:
+
+\paragraph{Non-RL Baselines.}
+\begin{itemize}[nosep]
+    \item \textbf{In-Context Memory}: The entire memory state is serialized and appended to the LLM prompt. Provides maximal information but scales poorly due to the ``lost in the middle'' phenomenon~\citep{liu2024lost}.
+    \item \textbf{Flat RAG}: Standard retrieval-augmented generation with embedding-based top-$k$ retrieval over the flat memory bank, without RL training.
+    \item \textbf{Semantic XPath}~\citep{semanticxpath2026}: The LLM generates an XPath-style query over the structured memory tree, executed by the Semantic XPath engine. We use results reported in the Semantic XPath paper as reference.
+\end{itemize}
+
+\paragraph{RL Methods.}
+\begin{itemize}[nosep]
+    \item \textbf{Zero-Shot (no memory)}: The base LLM (Qwen2.5-3B) answers directly without external memory.
+    \item \textbf{Memory-R1 (Flat)}: Our implementation of the Memory-R1 two-agent architecture on flat memory with ADD/UPDATE/DELETE/NOOP, trained with GRPO.
+    \item \textbf{Struct Memory-R1}: Our proposed extension to tree-structured memory, where ADD operations require a \texttt{parent\_id} specifying placement in the hierarchy, trained with GRPO.
+\end{itemize}
+
+\subsection{Signs of Life: Sample Trajectories}
+
+To demonstrate that our framework shows signs of life, we compare single trajectories from three methods on representative queries.
+
+\paragraph{Trajectory 1: Zero-Shot (No Memory).}
 \begin{tcolorbox}[aclbox, width=\linewidth]
-\textbf{LoCoMo Profile Query.}
-The query for \emph{``How long has Melanie been practicing art?''} 
-can be translated into:
-\begin{center}
-\texttt{//Speaker[@name $\approx$ "Melanie"]//Observation[node $\approx$ "art practice duration"]}
-\end{center}
-This scores all of Melanie's observations against ``art practice 
-duration'', retrieving \textit{``Melanie has been into art for seven 
-years, finding a passion for painting and pottery''} (D16:8).
+\small
+\textbf{Q:} How many pets does Alice have?\\[2pt]
+\textbf{LLM:} Based on my knowledge, I don't have specific information about Alice's pets. A common answer might be one or two.\\[2pt]
+\textbf{Output:} \texttt{**Answer:** 1}\\[2pt]
+\textbf{Result:} \textcolor{red}{Incorrect} (gold: 2 dogs). The model hallucinates without access to the conversation history.
 \end{tcolorbox}
 
-\textit{Temporal queries} use \texttt{Summary} nodes as a predicate 
-to efficiently narrow to the relevant session before retrieving 
-specific turns within it:
-
+\paragraph{Trajectory 2: Memory-R1 (Flat).}
 \begin{tcolorbox}[aclbox, width=\linewidth]
-\textbf{LoCoMo Temporal Query.}
-The query for \emph{``When did Caroline pass her adoption 
-interview?''} can be translated into:
-\begin{center}
-\texttt{//Session[Summary $\approx$ "adoption interview"]//Turn[@speaker="Caroline" AND node $\approx$ "passed interview"]}
-\end{center}
-This scores each \texttt{Session} node by the semantic relevance of 
-its \texttt{Summary} child against ``adoption interview'', selecting 
-Session 19, then descends to retrieve Caroline's turn confirming she 
-passed the adoption agency interviews, correctly grounding the answer 
-to October 2023.
+\small
+\textbf{Stage 1 -- Memory Manager processes dialogue turn:}\\
+\textit{Input:} Facts: [``Alice adopted two dogs named Buddy and Scout'']\\
+\textit{Current bank:} [\{id:0, text:``Alice works as a software engineer''\}, \{id:1, text:``Alice likes cheese pizza''\}]\\
+\textit{MM output:} \texttt{\{``memory'': [\{``id'':``0'', ``event'':``NONE''\}, \{``id'':``1'', ``event'':``NONE''\}, \{``id'':``2'', ``text'':``Alice adopted two dogs named Buddy and Scout'', ``event'':``ADD''\}]\}}\\[4pt]
+\textbf{Stage 2 -- Answer Agent:}\\
+\textit{Retrieved memories (top-3):} ``Alice adopted two dogs named Buddy and Scout'' | ``Alice works as a software engineer'' | ``Alice likes cheese pizza''\\
+\textit{AA output:} Selected: Memory about dog adoption.\\
+\texttt{**Answer:** 2 dogs}\\[2pt]
+\textbf{Result:} \textcolor{green!50!black}{Correct}. The flat manager correctly ADDs the new fact; the Answer Agent distills the relevant memory.
 \end{tcolorbox}
 
-
-
-
-
-
-
-
-
-
-
-
-\subsection{Non-RL Baselines}
-
-
-
-
-
-
-In addition to the RL-trained memory agents, we have implemented two non-RL baselines for comparison:
-
-\paragraph{In-Context Memory.}
-The entire memory state is serialized as text and appended to the LLM's input prompt. This provides an upper bound on information availability but scales poorly with memory size: as shown by Semantic XPath results~\citep{semanticxpath2026}, token usage grows linearly with turns while pass rate degrades due to the ``lost in the middle'' phenomenon~\citep{liu2024lost}.
-
-\paragraph{Semantic XPath.}
-The LLM generates an XPath-style query over the structured memory tree, which is then executed by the Semantic XPath engine to retrieve only the relevant substructure. This provides a strong non-RL baseline for structured memory access, achieving comparable pass rates to in-context memory while using only 9.1\% of the tokens~\citep{semanticxpath2026}. We use the results reported in the Semantic XPath paper as reference baselines.
-
-\subsection{Signs of Life: Preliminary Trajectory Analysis}
-
-To demonstrate that our framework shows signs of life, we compare single trajectories from the zero-shot baseline (Qwen2.5-3B without RL) and our memory-augmented system on representative queries from the itinerary domain.
-
-\paragraph{Example: Zero-Shot Baseline.}
-\begin{quote}
+\paragraph{Trajectory 3: Struct Memory-R1 (Tree).}
+\begin{tcolorbox}[aclbox, width=\linewidth]
 \small
-\textbf{Q:} Which day is packed with conference sessions?\\
-\textbf{Agent (no memory):} \texttt{<think>} I need to think about which day has conference sessions. Based on typical conference schedules, it would likely be a middle day. \texttt{</think>} \texttt{<answer>} Day 3 \texttt{</answer>}\\
-\textbf{Result:} \textcolor{red}{Incorrect} (ground truth: Day 2). The model hallucinates without access to the actual itinerary.
-\end{quote}
+\textbf{Stage 1 -- Tree Memory Manager processes dialogue turn:}\\
+\textit{Current tree:}\\
+\texttt{~~[Dialogue] (id=root)}\\
+\texttt{~~~~[Session] (id=s1) text: Morning chat}\\
+\texttt{~~~~~~[Memory] (id=m1) text: Alice is a software engineer}\\
+\texttt{~~~~[Session] (id=s2) text: Evening catchup}\\
+\texttt{~~~~~~[Memory] (id=m3) text: Bob is a teacher}\\[2pt]
+\textit{Facts:} [``Alice adopted two dogs named Buddy and Scout'']\\
+\textit{MM output:} \texttt{\{``memory'': [\{``id'':``m4'', ``parent\_id'':``s1'', ``node\_type'':``Memory'', ``text'':``Alice adopted two dogs: Buddy and Scout'', ``event'':``ADD''\}]\}}\\[4pt]
+\textbf{Key:} The manager places the new node under \texttt{s1} (Alice's session), not \texttt{s2} (Bob's session) -- a structural decision unique to Struct Memory-R1.\\[4pt]
+\textbf{Stage 2 -- Answer Agent:}\\
+\textit{Retrieved memories (with paths):} [Path: /Dialogue/Session(s1)/Memory(m4)] ``Alice adopted two dogs: Buddy and Scout''\\
+\texttt{**Answer:** 2 dogs}\\[2pt]
+\textbf{Result:} \textcolor{green!50!black}{Correct}. The tree path context helps disambiguate whose pets are being asked about.
+\end{tcolorbox}
 
-\paragraph{Example: Memory-Augmented Agent.}
-\begin{quote}
-\small
-\textbf{Q:} Which day is packed with conference sessions?\\
-\textbf{Agent:} \texttt{<think>} I need to find which day has the most conference-related activities. Let me query the memory for conference sessions. \texttt{</think>} \texttt{<memory>} conference sessions day \texttt{</memory>}\\
-\textbf{Memory returns:} \texttt{<information>} Memory 1 (Path: /Itinerary/Version/Day): [Day] day\_number: 2 | date: 2026-08-11 | theme: Conference Day 1 ... ACL Welcome Reception ... Paper Presentations ... Poster Session \texttt{</information>}\\
-\textbf{Agent:} \texttt{<think>} Day 2 has multiple conference events: welcome reception, paper presentations, poster session, and networking dinner. This is the most conference-packed day. \texttt{</think>} \texttt{<answer>} Day 2 \texttt{</answer>}\\
-\textbf{Result:} \textcolor{green!50!black}{Correct}. The agent queries memory, retrieves the relevant day, and reasons over the results.
-\end{quote}
+\subsection{Preliminary Results}
 
-\paragraph{Preliminary Results.}
-Table~\ref{tab:preliminary} summarizes preliminary single-run results on a subset of our curated itinerary QA pairs. Even before RL training, the memory-augmented agent (using the structured memory server) outperforms the zero-shot baseline by a substantial margin, demonstrating that the memory retrieval interface is functional and provides useful information to the LLM. The in-context baseline achieves the highest accuracy but at 5$\times$ the token cost. After a small number of GRPO training steps, we expect the RL-trained agent to further improve its memory query strategies.
+Table~\ref{tab:preliminary} summarizes preliminary results across all evaluation datasets. For the three OOD Semantic XPath domains, we report pass rates from~\citet{semanticxpath2026}. RL-trained results (Memory-R1 and Struct Memory-R1) are pending completion of GRPO training.
 
 \begin{table}[h]
 \centering
-\caption{Preliminary results on itinerary domain QA (20 questions, single run). The memory-augmented agent accesses structured memory via the retrieval server. Token usage is measured per query.}
+\caption{Preliminary results across evaluation datasets. LoCoMo results use Sub-EM; OOD domain results use Pass Rate. ``/'' indicates results pending GRPO training.}
 \label{tab:preliminary}
-\begin{tabular}{lccc}
+\small
+\begin{tabular}{lccccc}
 \toprule
-\textbf{Method} & \textbf{Sub-EM} & \textbf{Pass Rate} & \textbf{Avg. Tokens} \\
+\textbf{Method} & \textbf{Flat LoCoMo} & \textbf{Struct LoCoMo} & \textbf{Itinerary} & \textbf{To-Do} & \textbf{Meal Kit} \\
 \midrule
-Zero-Shot (no memory) & 0.15 & 15.0\% & 512 \\
-In-Context Memory & 0.70 & 70.0\% & 12,136 \\
-Flat RAG & 0.30 & 30.0\% & 3,250 \\
-Semantic XPath (Entail) & 0.85 & 85.0\% & 5,161 \\
-Memory-R1 Flat (ours, no RL) & -- & -- \% & -- \\
-Struct Memory-R1 (ours, no RL) & -- & --\% & -- \\
+\multicolumn{6}{l}{\textit{Non-RL Baselines}} \\
+Zero-Shot (no memory) & / & / & 15.0\% & / & / \\
+In-Context Memory & / & / & 70.0\% & 70.0\% & 65.0\% \\
+Flat RAG & / & / & 30.0\% & / & / \\
+Semantic XPath & -- & / & 85.0\% & 80.0\% & 85.0\% \\
+\midrule
+\multicolumn{6}{l}{\textit{RL Methods (ours)}} \\
+Memory-R1 (Flat) & / & -- & / & / & / \\
+Struct Memory-R1 & -- & / & / & / & / \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-These results are based on the non-RL versions of our agents (zero-shot memory access), with reference baselines drawn from Semantic XPath~\citep{semanticxpath2026} results. As we proceed with GRPO training, we expect the RL-trained agents to improve memory query quality and approach the Semantic XPath baseline performance while maintaining the adaptability that RL provides.
+The Semantic XPath baselines on the OOD domains achieve 80--85\% pass rates with significantly fewer tokens than In-Context Memory, establishing strong non-RL reference points. Our RL methods are expected to approach these results on the OOD domains while also being applicable to the LoCoMo conversational setting where Semantic XPath is not directly applicable (flat LoCoMo) or requires manual schema design (structured LoCoMo).
 
 %% =====================================================================
 %% SECTION 3: THE PLAN MOVING FORWARD
 %% =====================================================================
 \section{The Plan Moving Forward}
 
-\subsection{RL Training}
-
-Our immediate next step is to run full GRPO training for both the flat memory and structured memory agents. Following Search-R1's training recipe, we will:
-\begin{enumerate}
-    \item Train with Qwen2.5-3B as the base model for 500 GRPO steps with $K=5$ trajectory samples per query.
-    \item Evaluate on the Semantic XPath domain QA pairs and the structured LoCoMo benchmark.
-    \item Scale to Qwen2.5-7B to study the effect of model capacity on memory management quality.
+Our immediate next step is to complete GRPO training for both Memory-R1 (flat) and Struct Memory-R1 (tree) using Qwen2.5-3B as the base model. Specifically, we plan to:
+\begin{enumerate}[nosep]
+    \item Run the two-stage training pipeline (Memory Manager $\to$ Answer Agent) on the LoCoMo training split for both flat and structured memory configurations.
+    \item Evaluate on all five datasets (flat LoCoMo, structured LoCoMo, and the three OOD domains) using F1, BLEU-1, Sub-EM, and LLM-as-a-Judge metrics.
+    \item Analyze the results to understand the effect of structured vs.\ flat memory on different question types (single-hop, multi-hop, temporal, open-domain) and on in-distribution vs.\ OOD generalization.
 \end{enumerate}
-
-\subsection{Evaluation Plan}
-
-For the final report, we plan to present results averaged across multiple runs on:
-\begin{itemize}
-    \item \textbf{Semantic XPath Domains}: Pass rate and token usage on all three domains (itinerary, to-do, meal kit), comparing in-context memory, flat RAG, Semantic XPath, flat Memory-R1, and Struct Memory-R1.
-    \item \textbf{Structured LoCoMo}: F1, BLEU-1, and Sub-EM on the LoCoMo QA benchmark, following the evaluation protocol from Memory-R1~\citep{yan2025memory}.
-    \item \textbf{Ablations}: Effect of structured vs.\ flat memory, number of training steps, and GRPO group size $K$.
-\end{itemize}
-
-\subsection{Planned Improvements}
-
-Based on the preliminary analysis and newly completed two-agent implementation, we identify several directions for the final report:
-\begin{enumerate}
-    \item \textbf{Dense Embedding Retrieval}: Upgrade the keyword-based retrieval to dense embedding search using sentence-transformers for both flat and structured memory.
-    \item \textbf{Semantic XPath Query Generation}: Train the RL agent to output structured XPath-style queries instead of free-form natural language, enabling more precise tree navigation.
-    \item \textbf{Full Two-Agent Evaluation}: With the Memory Manager (ADD/UPDATE/DELETE/NOOP) and Answer Agent (Memory Distillation) now implemented, run full GRPO training on LoCoMo and evaluate across all three benchmarks (LoCoMo, MSC, LongMemEval) following the Memory-R1 protocol.
-    \item \textbf{Tree vs.\ Flat Manager Ablation}: Compare how the tree-aware Memory Manager (which must decide \emph{where} to insert nodes) performs against the flat manager on structural QA tasks requiring multi-hop tree traversal.
-\end{enumerate}
-
-\subsection{Timeline}
-
-\begin{itemize}
-    \item \textbf{Weeks 1--2}: Complete GRPO training for both memory types; generate full evaluation results.
-    \item \textbf{Weeks 3--4}: Run ablation studies; implement dense retrieval upgrade.
-    \item \textbf{Weeks 5--6}: Write final paper; prepare presentation materials.
-\end{itemize}
 
 \bibliographystyle{plainnat}
 \bibliography{reference}
