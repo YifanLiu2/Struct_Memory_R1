@@ -193,17 +193,31 @@ We have implemented both Memory-R1 (flat memory) and Struct Memory-R1 (tree-stru
 
 \subsection{Data Curation}
 
-We prepare data from two sources, corresponding to an in-distribution training/evaluation benchmark and three out-of-distribution (OOD) evaluation datasets.
+We prepare data from two sources: the LoCoMo conversational benchmark (adapted for both flat and structured memory) and three structured domains from the Semantic XPath evaluation setup.
 
-\paragraph{LoCoMo (In-Distribution).}
-We use the LoCoMo benchmark~\citep{maharana2024evaluating}, a long multi-session dialogue dataset consisting of 10 conversations ($\sim$600 turns, $\sim$26k tokens each) annotated with QA pairs spanning single-hop, multi-hop, open-domain, and temporal reasoning. We adapt LoCoMo for both flat and structured memory:
-\begin{itemize}[nosep]
-    \item \textbf{Flat LoCoMo}: Following Memory-R1, we use GPT-4o-mini to extract facts from dialogue turns and build temporal memory banks. We split the QA pairs into train / validation / test following Memory-R1's 1:1:8 ratio.
-    \item \textbf{Structured LoCoMo}: We convert the same dialogues into tree-structured memory using the schema: \texttt{Conversation} $\to$ \texttt{Speaker}/\texttt{Session} $\to$ \texttt{Observation}/\texttt{Summary}/\texttt{Event}/\texttt{Turn}. \texttt{Speaker} nodes aggregate persistent observations; \texttt{Session} nodes preserve the temporal record with derived summaries and events.
-\end{itemize}
+\paragraph{Flat LoCoMo.}
+We use the LoCoMo benchmark~\citep{maharana2024evaluating}, a long multi-session dialogue dataset consisting of 10 conversations ($\sim$600 turns, $\sim$26k tokens each) annotated with QA pairs spanning single-hop, multi-hop, open-domain, and temporal reasoning. Following Memory-R1, we use GPT-4o-mini to extract facts from dialogue turns and build temporal flat memory banks.
+
+\paragraph{Structured LoCoMo.}
+We convert the same LoCoMo dialogues into tree-structured memory.
+The dataset contains: sessions of speaker turns with timestamps, per-session event summaries, per-session prose summaries, and per-session observations---speaker-attributed, turn-grounded atomic claims such as \textit{``Caroline is researching adoption agencies''} (D2:8). We use the following schema:
+
+\dirtree{%
+.1 Conversation.
+.2 Speaker (name).
+.3 Observation (text, source\_dia\_id, session\_id).
+.2 Session (session\_id, datetime).
+.3 Summary (text).
+.3 Event (speaker, description).
+.3 Turn (dia\_id, speaker, text, image\_caption).
+}
+
+\texttt{Speaker} nodes aggregate persistent observations about each participant across all sessions. \texttt{Session} nodes preserve the raw conversational record alongside two levels of derived structure: dense prose \texttt{Summary} nodes, which enable efficient session-level semantic filtering, and sparse \texttt{Event} nodes capturing key milestones. The dataset's gold observations map directly to \texttt{Observation} nodes, providing supervision for memory construction without requiring LLM-based extraction.
+
+This schema supports two natural query patterns. \textit{Profile queries} retrieve persistent facts about a speaker directly from their observation nodes. \textit{Temporal queries} use \texttt{Summary} nodes as a predicate to narrow to the relevant session before retrieving specific turns within it.
 
 \paragraph{Semantic XPath Domains (OOD).}
-Following the evaluation setup in Semantic XPath~\citep{semanticxpath2026}, we use three curated structured memory domains as out-of-distribution test sets:
+Following the evaluation setup in Semantic XPath~\citep{semanticxpath2026}, we use three curated structured memory domains as out-of-distribution (OOD) test sets:
 \begin{itemize}[nosep]
     \item \textbf{Travel Itinerary}: Schema \texttt{Itinerary} $\to$ \texttt{Version} $\to$ \texttt{Day} $\to$ \texttt{POI} (20 QA pairs).
     \item \textbf{To-Do List}: Schema \texttt{TodoList} $\to$ \texttt{Category} $\to$ \texttt{Project} $\to$ \texttt{Task} (20 QA pairs).
@@ -243,14 +257,17 @@ This single-GPU run confirmed that the GRPO training loop, vLLM rollout generati
 
 
 
+\subsection{Experiment Setup}
+
+For LoCoMo, we split the QA pairs into train / validation / test following Memory-R1's 1:1:8 ratio. Memory-R1 (Flat) is trained on flat LoCoMo, and Struct Memory-R1 is trained on structured LoCoMo. The three Semantic XPath domains are used only for OOD evaluation. For the base LLM, we use Qwen2.5-0.5B, the same model used in our Search-R1 preliminary verification (Section~3.2), with the same single-GPU GRPO configuration adapted for memory operations.
+
 \subsection{Baselines and Methods}
 
+We compare six methods:
 
-
-We compare six methods, organized into non-RL baselines and RL-trained agents:
-
-\paragraph{Non-RL Baselines.}
+\paragraph{Non-RL Methods.}
 \begin{itemize}[nosep]
+    \item \textbf{Zero-Shot (no memory)}: The base LLM answers directly without access to any external memory. This serves as a lower bound.
     \item \textbf{In-Context Memory}: The entire memory state is serialized and appended to the LLM prompt. Provides maximal information but scales poorly due to the ``lost in the middle'' phenomenon~\citep{liu2024lost}.
     \item \textbf{Flat RAG}: Standard retrieval-augmented generation with embedding-based top-$k$ retrieval over the flat memory bank, without RL training.
     \item \textbf{Semantic XPath}~\citep{semanticxpath2026}: The LLM generates an XPath-style query over the structured memory tree, executed by the Semantic XPath engine. We use results reported in the Semantic XPath paper as reference.
@@ -258,9 +275,8 @@ We compare six methods, organized into non-RL baselines and RL-trained agents:
 
 \paragraph{RL Methods.}
 \begin{itemize}[nosep]
-    \item \textbf{Zero-Shot (no memory)}: The base LLM (Qwen2.5-3B) answers directly without external memory.
-    \item \textbf{Memory-R1 (Flat)}: Our implementation of the Memory-R1 two-agent architecture on flat memory with ADD/UPDATE/DELETE/NOOP, trained with GRPO.
-    \item \textbf{Struct Memory-R1}: Our proposed extension to tree-structured memory, where ADD operations require a \texttt{parent\_id} specifying placement in the hierarchy, trained with GRPO.
+    \item \textbf{Memory-R1 (Flat)}~\citep{yan2025memory}: The Memory-R1 two-agent architecture operating on flat memory with ADD/UPDATE/DELETE/NOOP operations, trained with GRPO.
+    \item \textbf{Struct Memory-R1 (ours)}: Our proposed extension of Memory-R1 to tree-structured memory, where ADD operations require a \texttt{parent\_id} specifying placement in the hierarchy, trained with GRPO.
 \end{itemize}
 
 \subsection{Signs of Life: Sample Trajectories}
@@ -314,38 +330,38 @@ To demonstrate that our framework shows signs of life, we compare single traject
 
 \subsection{Preliminary Results}
 
-Table~\ref{tab:preliminary} summarizes preliminary results across all evaluation datasets. For the three OOD Semantic XPath domains, we report pass rates from~\citet{semanticxpath2026}. RL-trained results (Memory-R1 and Struct Memory-R1) are pending completion of GRPO training.
+Table~\ref{tab:preliminary} summarizes preliminary results across all evaluation datasets. For the three OOD Semantic XPath domains, we report pass rates from~\citet{semanticxpath2026}. Results for the RL-trained methods are pending completion of GRPO training.
 
 \begin{table}[h]
 \centering
-\caption{Preliminary results across evaluation datasets. LoCoMo results use Sub-EM; OOD domain results use Pass Rate. ``/'' indicates results pending GRPO training.}
+\caption{Preliminary results across evaluation datasets. LoCoMo results use Sub-EM; OOD domain results use Pass Rate. ``/'' indicates results pending.}
 \label{tab:preliminary}
 \small
 \begin{tabular}{lccccc}
 \toprule
 \textbf{Method} & \textbf{Flat LoCoMo} & \textbf{Struct LoCoMo} & \textbf{Itinerary} & \textbf{To-Do} & \textbf{Meal Kit} \\
 \midrule
-\multicolumn{6}{l}{\textit{Non-RL Baselines}} \\
+\multicolumn{6}{l}{\textit{Non-RL Methods}} \\
 Zero-Shot (no memory) & / & / & 15.0\% & / & / \\
 In-Context Memory & / & / & 70.0\% & 70.0\% & 65.0\% \\
 Flat RAG & / & / & 30.0\% & / & / \\
 Semantic XPath & -- & / & 85.0\% & 80.0\% & 85.0\% \\
 \midrule
-\multicolumn{6}{l}{\textit{RL Methods (ours)}} \\
+\multicolumn{6}{l}{\textit{RL Methods}} \\
 Memory-R1 (Flat) & / & -- & / & / & / \\
-Struct Memory-R1 & -- & / & / & / & / \\
+Struct Memory-R1 (ours) & -- & / & / & / & / \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-The Semantic XPath baselines on the OOD domains achieve 80--85\% pass rates with significantly fewer tokens than In-Context Memory, establishing strong non-RL reference points. Our RL methods are expected to approach these results on the OOD domains while also being applicable to the LoCoMo conversational setting where Semantic XPath is not directly applicable (flat LoCoMo) or requires manual schema design (structured LoCoMo).
+The Semantic XPath baselines on the OOD domains achieve 80--85\% pass rates with significantly fewer tokens than In-Context Memory, establishing strong non-RL reference points. Memory-R1 is expected to perform well on flat LoCoMo (its original setting), while Struct Memory-R1 targets the structured LoCoMo and OOD domains where tree-aware memory management can leverage hierarchical relationships.
 
 %% =====================================================================
 %% SECTION 3: THE PLAN MOVING FORWARD
 %% =====================================================================
 \section{The Plan Moving Forward}
 
-Our immediate next step is to complete GRPO training for both Memory-R1 (flat) and Struct Memory-R1 (tree) using Qwen2.5-3B as the base model. Specifically, we plan to:
+Our immediate next step is to complete GRPO training for both Memory-R1 (flat) and Struct Memory-R1 (tree) using Qwen2.5-0.5B as the base model. Specifically, we plan to:
 \begin{enumerate}[nosep]
     \item Run the two-stage training pipeline (Memory Manager $\to$ Answer Agent) on the LoCoMo training split for both flat and structured memory configurations.
     \item Evaluate on all five datasets (flat LoCoMo, structured LoCoMo, and the three OOD domains) using F1, BLEU-1, Sub-EM, and LLM-as-a-Judge metrics.
