@@ -369,6 +369,44 @@ Struct Memory-R1 (ours, no RL) & -- & --\% & -- \\
 
 These results are based on the non-RL versions of our agents (zero-shot memory access), with reference baselines drawn from Semantic XPath~\citep{semanticxpath2026} results. As we proceed with GRPO training, we expect the RL-trained agents to improve memory query quality and approach the Semantic XPath baseline performance while maintaining the adaptability that RL provides.
 
+\subsection{Search-R1 Baseline: Single-GPU GRPO Training}
+
+To validate our RL training infrastructure end-to-end before adapting it for Memory-R1, we reproduced the Search-R1 pipeline~\citep{jin2025search} on a single consumer GPU. This required significant configuration changes from the original 8$\times$GPU setup, summarised in Table~\ref{tab:config}.
+
+\paragraph{System Requirements.}
+All experiments run on a single NVIDIA GPU with $\geq$24\,GB VRAM (e.g.\ RTX 3090/4090), $\geq$24\,GB system RAM, CUDA~12.1, and PyTorch~2.4. The retrieval server runs on CPU in a separate process. Under WSL2, the full RAM allocation must be configured explicitly via \texttt{.wslconfig}. The complete setup procedure, including environment creation, corpus preparation, and FAISS indexing, is documented in \texttt{SETUP.md} and is reproducible from a clean install.
+
+\paragraph{Configuration.}
+We use Qwen2.5-0.5B~\citep{qwen2025qwen25} as the base model with GRPO ($K{=}2$ group samples). To fit within the single-GPU memory budget, we enable full FSDP CPU offloading (parameters, gradients, and optimizer states), reduce all sequence lengths by $2\times$, and lower the vLLM KV-cache allocation to 30\%. The model trains on the NQ dataset~\citep{kwiatkowski2019natural} with a local dense retriever (E5-base-v2) over a 100K-document Wikipedia subset indexed with FAISS.
+
+\begin{table}[h]
+\centering
+\caption{Search-R1 configuration: original 8-GPU vs.\ our single-GPU adaptation.}
+\label{tab:config}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Parameter} & \textbf{Original (8$\times$GPU)} & \textbf{Ours (1$\times$GPU)} \\
+\midrule
+Model & Qwen2.5-7B & Qwen2.5-0.5B \\
+Train batch size & 512 & 8 \\
+GRPO group size $K$ & 5 & 2 \\
+Max prompt length & 4096 & 2048 \\
+Max response length & 500 & 256 \\
+vLLM GPU util. & 0.6 & 0.3 \\
+FSDP CPU offload & partial & full \\
+Corpus size & 21M docs & 100K docs \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Adapting for Memory-R1.}
+The Search-R1 pipeline trains a single agent that interleaves reasoning (\texttt{<think>}) with search calls (\texttt{<search>}$q$\texttt{</search>}) and receives retrieved documents as observations (\texttt{<information>}). Memory-R1 replaces this single-agent loop with two decoupled agents trained in alternation:
+\begin{enumerate}[nosep]
+    \item \textbf{Memory Manager}: replaces the search action with memory operations (ADD, UPDATE, DELETE, NOOP). The generation loop in \texttt{generation.py} must be modified so that each ``tool call'' applies a structured operation to the memory bank $M_t$ rather than querying a retriever. The reward is the EM score of a frozen Answer Agent evaluated on the resulting memory state.
+    \item \textbf{Answer Agent}: replaces the multi-turn search loop with a single-turn memory-augmented generation. The agent receives $q$ and 60 retrieved memories $\mathcal{M}_{\text{ret}}$, applies memory distillation to select relevant entries $\hat{\mathcal{M}} \subset \mathcal{M}_{\text{ret}}$, and generates an answer. This requires modifying the reward function in \texttt{main\_ppo.py} to score against the EM metric directly, and replacing the retriever URL with a memory bank query endpoint.
+\end{enumerate}
+Both agents reuse the same GRPO objective (Eq.~in Section~2.4) and the same veRL training infrastructure. The key code-level changes are: (i) the rollout environment (\texttt{generation.py}: action parsing and state transitions), (ii) the reward computation (\texttt{qa\_em.py}: adding the frozen-agent evaluation loop), and (iii) the data pipeline (constructing temporal memory banks from LoCoMo dialogues rather than NQ question--answer pairs).
+
 %% =====================================================================
 %% SECTION 3: THE PLAN MOVING FORWARD
 %% =====================================================================
