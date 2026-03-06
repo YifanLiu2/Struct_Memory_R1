@@ -1,19 +1,44 @@
 \documentclass{article}
 
 \usepackage[preprint]{neurips_2023}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
 \usepackage{hyperref}
 \usepackage{url}
 \usepackage{booktabs}
 \usepackage{amsfonts}
-\usepackage{amsmath,amssymb}
+
 \usepackage{nicefrac}
 \usepackage{microtype}
 \usepackage{xcolor}
 \usepackage{graphicx}
 \usepackage{algorithm}
 \usepackage{algorithmic}
+\usepackage{dirtree}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{booktabs}
+
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{skins, breakable}
+\tcbset{
+  aclbox/.style={
+    colback=gray!5,
+    colframe=black!30,
+    boxrule=0.5pt,
+    arc=2pt,
+    left=2pt,right=2pt,top=2pt,bottom=2pt,
+  }
+}
+
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{remark}{Remark}[section]
+\newtheorem{example}{Example}[section]
 
 \title{Structured Memory-R1: Intermediate Implementation Report}
 
@@ -30,16 +55,117 @@
 %% =====================================================================
 \section{Problem Definition}
 
-We consider an LLM-based agent augmented with an external memory system that persists across interactions. The objective is to learn a policy $\pi_\theta$ that controls memory access---when and how memory should be queried---in order to improve downstream task performance. Building on Search-R1~\citep{jin2025search} and Memory-R1~\citep{yan2025memory}, our work extends reinforcement learning with verifiable rewards from external information retrieval to \emph{structured} memory for long-context conversational AI scenarios.
+We consider an LLM-based agent augmented with an external memory system that persists across interactions:
+\[
+\mathcal{A} = (\pi_\theta,\; \mathcal{X},\; \mathcal{Y},\; \mathcal{M},\; \mathcal{E}),
+\]
+\begin{itemize}[nosep]
+    \item \textbf{policy} $\pi_\theta$: maps an observation and a memory state to a distribution over action trajectories;
+    \item \textbf{input (observation) space}  $\mathcal{X}$: the set of all possible user queries, dialogue contexts, or environmental observations the agent may receive;
+    \item \textbf{output (response) space} $\mathcal{Y}$ : the set of all possible natural-language responses the agent may produce;
+    \item  \textbf{memory space} $\mathcal{M}$: the set of all possible external memory states the agent can read from and, optionally, write to;
+    \item \textbf{external environment interface} $\mathcal{E}$: the set of tools, APIs, or retrieval services through which the agent can perform actions beyond pure language generation (e.g., a memory retrieval server, a search engine, or a code executor).
+\end{itemize}
 
-We represent the memory state $\mathcal{M}_t$ as a rooted tree $\mathcal{M}_t = (V_t, E_t, r)$, where each node $v \in V_t$ corresponds to a memory unit, edges $E_t$ encode hierarchical relations, and $r$ is the root. At turn $t$, the agent observes input $x_t$ and memory state $\mathcal{M}_t$, and produces a response through a trajectory of interleaved language and memory actions:
+
+An \emph{interaction} is a temporally ordered sequence of turns between a user and the agent:
+\[
+\mathcal{I} = (t_1, t_2, \ldots, t_T),
+\]
+where $T$ is the total number of turns in the interaction.
+At turn $t$ ($1 \le t \le T$), the following exchange occurs:
+\begin{enumerate}[nosep]
+    \item The user provides an input $x_t \in \mathcal{X}$ (a query, instruction, or follow-up).
+    \item The agent observes $x_t$ together with the current memory state $M_t \in \mathcal{M}$.
+    \item The agent generates an action trajectory as a sequence of \emph{language actions} (reasoning steps, final answers) and \emph{environment actions} (memory queries, tool calls). The trajectory length $L_t$ may vary per turn.
+    \item The agent emits a final response $y_t \in \mathcal{Y}$ extracted from $\tau_t$.
+    \item The memory state may be updated: $M_{t+1} = f_{\text{update}}(M_t, \tau_t)$, where $f_{\text{update}}$ encodes any write operations performed during the turn.
+\end{enumerate}
+
+
+The objective is to learn a policy $\pi_\theta$ that controls memory access when and how memory should be queried to improve downstream task performance. 
+
+\section{Structured Memory-R1}
+
+Recent work, notably Search-R1~\citep{jin2025search}  and Memory-R1~\citep{yan2025memory}, has shown that RL can effectively train agents to manage flat external memory banks.
+A \emph{flat memory state} is an unordered collection of $N$ memory entries:
+\[
+M_t^{\text{flat}} = \{m_1, m_2, \ldots, m_N\}, \quad m_i = (\text{key}_i,\; \text{attributes}_i),
+\]
+where each entry $m_i$ consists of a textual key, a textual attribute, and optional metadata.
+However, flat representations treat all memory entries as independent, discarding the hierarchical and relational structure often present in real-world user state (e.g., a dietary preference nested under a user profile, or a hotel booking linked to a specific trip). We hypothesize that exposing this structure to the policy enables more selective retrieval and reduces over-retrieval of irrelevant entries. Therefore, we proposed \emph{Structured Memory-R1}. 
+
+\subsection{Memory States}
+
+Building on Search-R1 and Memory-R1, our work extends reinforcement learning with verifiable rewards from external information retrieval to \emph{structured} memory for long-context conversational AI scenarios.
+Specificly, a \emph{structured memory state} at turn $t$ is a rooted tree:
+\[
+M_t = (V_t,\; E_t,\; r),
+\]
+$V_t$ is a finite set of \textbf{nodes} (memory units). Each node $v \in V_t$ carries:
+    \begin{itemize}[nosep]
+        \item a \textbf{type label} $\ell(v) \in \mathcal{L}$ (e.g., \textsc{Itinerary}, \textsc{Day}, \textsc{POI}, \textsc{Speaker}, \textsc{Fact});
+        \item a set of \textbf{textual attributes} $\text{attr}(v) = \{(k_1, val_1), \ldots, (k_m, val_m)\}$.
+    \end{itemize}
+
+ $E_t \subseteq V_t \times V_t$ is a set of directed \textbf{parent--child edges} encoding hierarchical relations such as:
+\[
+\textsc{Itinerary} \;\to\; \textsc{Version} \;\to\; \textsc{Day} \;\to\; \textsc{POI},
+\]
+
+$r \in V_t$ is the designated \textbf{root node}.
+
+\subsection{Action Space}
+
+The agent's action space is $\mathcal{A} = \mathcal{A}_{\text{lang}} \cup \mathcal{A}_{\text{env}}$, where:
+\begin{itemize}[nosep]
+    \item $\mathcal{A}_{\text{lang}}$: \textbf{Reasoning} (\texttt{<think>}) and \textbf{Answer} (\texttt{<answer>}) generation.
+    \item $\mathcal{A}_{\text{env}}$: \textbf{Memory Query} (\texttt{<memory>}$q$\texttt{</memory>}) and \textbf{Memory Update} (\textsc{Add}, \textsc{Update}, \textsc{Delete}).
+\end{itemize}
+A memory query sends $q \in \mathcal{Q}$ to the retrieval server, which returns matching subtrees with path annotations:
+\[
+\texttt{retrieve}(q, M_t) = \bigl\{(v, \text{path}(r \leadsto v), \text{subtree}(v)) \;\big|\; v \in V_t,\; \text{match}(q, v)\bigr\}.
+\]
+A memory update modifies the tree via $f_{\text{update}}: \mathcal{M} \times \mathcal{T} \to \mathcal{M}$.
+
+At turn $t$, the agent observes input $x_t$ and memory state $\mathcal{M}_t$, and produces a response through a trajectory of interleaved language and memory actions:
 \[
 \tau_t = (a_{t,1}, a_{t,2}, \ldots, a_{t,L}) \sim \pi_\theta(\cdot \mid x_t, \mathcal{M}_t).
 \]
-We optimize the policy using Group Relative Policy Optimization (GRPO), which computes a group-relative advantage for each trajectory:
+
+\subsection{Verifiable Rewards}
+
+The total reward decomposes into three verifiable components:
+\[
+R(\tau_t) = \alpha \cdot R_{\text{syntax}}(\tau_t) + \beta \cdot R_{\text{utility}}(\tau_t) + \gamma \cdot R_{\text{efficiency}}(\tau_t),
+\]
+
+
+$R_{\text{syntax}}(\tau_t) = \mathbf{1}[\tau_t \text{ uses well-formed } \texttt{<memory>}\text{, } \texttt{<think>}\text{, } \texttt{<answer>} \text{ tags}]$ verifies format correctness.
+
+$R_{\text{utility}}(\tau_t) = \lambda_{\text{EM}} \cdot \mathbf{1}[y_t = y_t^*] + \lambda_{\text{sub}} \cdot \mathbf{1}[y_t^* \subseteq y_t]$ measures answer correctness against the ground truth $y_t^*$. For open-ended tasks, F1 or BLEU-1 may substitute.
+
+$R_{\text{efficiency}}(\tau_t) = -\lambda_{\text{tok}} \cdot |\text{tokens}_{\text{retrieved}}| / C - \lambda_{\text{act}} \cdot |\text{mem\_actions}|$ penalizes over-retrieval, incentivizing targeted subtree access.
+
+
+
+\subsection{Policy Optimization}
+
+The \emph{policy} $\pi_\theta$ is a conditional distribution over action trajectories, parameterized by the LLM weights $\theta$:
+\[
+\pi_\theta(\tau_t \mid x_t, M_t) = \prod_{\ell=1}^{L_t} \pi_\theta(a_{t,\ell} \mid x_t, M_t, a_{t,<\ell}),
+\]
+where $a_{t,<\ell} = (a_{t,1}, \ldots, a_{t,\ell-1})$ denotes the actions taken so far within the current turn. The policy factorizes autoregressively at the token level within each action.
+
+
+
+ For a fixed context $(x_t, \mathcal{M}_t)$, we sample a group of $K$ trajectories and assign each a scalar reward $r(\tau_t^{(k)})$ based on downstream criteria such as correctness, consistency, and personalization. Rather than using these rewards as absolute training signals, we optimize the policy using Group Relative Policy Optimization (GRPO), which computes a group-relative advantage for each trajectory:
 \[
 \hat{A}^{(k)} = \frac{r(\tau_t^{(k)}) - \mu}{\sigma}, \quad \mu = \frac{1}{K}\sum_{k=1}^{K} r(\tau_t^{(k)}), \quad \sigma = \mathrm{std}\!\left(\{r(\tau_t^{(k)})\}_{k=1}^{K}\right).
 \]
+
+Given state $s = (x_t, M_t^{\text{old}})$, the manager samples $K$ operation trajectories $\{(o^{(k)}, m'^{(k)})\}_{k=1}^K$, each producing an updated memory $M_t^{(k)} = f_{\text{update}}(M_t^{\text{old}}, o^{(k)}, m'^{(k)})$. The reward is whether the Answer Agent can answer correctly from $M_t^{(k)}$: trajectories that produce well-consolidated memory receive positive advantage, while those that fragment or overwrite useful information receive negative advantage.
+
 
 %% =====================================================================
 %% SECTION 2: PROGRESS TO DATE
@@ -48,23 +174,38 @@ We optimize the policy using Group Relative Policy Optimization (GRPO), which co
 
 \subsection{System Architecture}
 
-Our implementation adapts the Search-R1 framework to support memory access as a first-class action within the RL training loop. The architecture consists of four main components:
+Our implementation faithfully follows the Memory-R1 two-agent architecture~\citep{yan2025memory}, with extensions for tree-structured memory. The system consists of five main components:
 
 \paragraph{Memory Data Model.}
 We implement two memory representations:
 \begin{enumerate}
-    \item \textbf{Flat Memory} (Memory-R1 baseline): A list-based memory bank with keyword and embedding-based top-$k$ retrieval, mirroring the flat memory store in Memory-R1~\citep{yan2025memory}. Each entry is a text string with optional metadata.
-    \item \textbf{Structured Memory} (Struct Memory-R1): A rooted tree where each node has a type, textual attributes, and parent--child edges. This supports compositional hierarchies (e.g., \texttt{Itinerary} $\to$ \texttt{Day} $\to$ \texttt{POI}) and session-based hierarchies (e.g., \texttt{Dialogue} $\to$ \texttt{Session} $\to$ \texttt{MemoryEntry}).
+    \item \textbf{Flat Memory} (Memory-R1): A list-based memory bank with keyword and embedding-based top-$k$ retrieval, where each entry is a text string with ID and optional metadata. Supports ADD, UPDATE, DELETE, and NOOP operations.
+    \item \textbf{Structured Memory} (Struct Memory-R1): A rooted tree where each node has a type, textual attributes, and parent--child edges. ADD operations specify a \texttt{parent\_id} to position new nodes in the hierarchy. This supports compositional hierarchies (e.g., \texttt{Itinerary} $\to$ \texttt{Day} $\to$ \texttt{POI}) and session-based hierarchies (e.g., \texttt{Dialogue} $\to$ \texttt{Session} $\to$ \texttt{MemoryEntry}).
 \end{enumerate}
 
-\paragraph{Memory Retrieval Server.}
-A FastAPI server exposes a \texttt{POST /retrieve} endpoint that accepts natural-language queries and returns relevant memory entries. For flat memory, retrieval uses keyword overlap scoring (with planned upgrade to dense embedding retrieval). For structured memory, the server performs keyword-based search over the tree and returns matching subtrees with path annotations.
+\paragraph{Memory Manager Agent (Stage 1).}
+Following the Memory-R1 paper, the Memory Manager is an RL-trained agent that processes each dialogue turn and decides how to update the memory bank. For each extracted fact and its related retrieved memories, the manager outputs one of four operations:
+\begin{itemize}[nosep]
+    \item \textsc{ADD}: Insert a new entry (flat) or a new node at a specified parent (tree).
+    \item \textsc{UPDATE}: Merge new information into an existing entry, preserving the more detailed version.
+    \item \textsc{DELETE}: Remove an outdated or contradictory entry.
+    \item \textsc{NOOP}: No change needed (fact already present or irrelevant).
+\end{itemize}
+The output is structured JSON, enabling deterministic parsing and application to the memory bank. For the tree variant, ADD operations include \texttt{parent\_id} and \texttt{node\_type}, requiring the manager to make structural placement decisions.
 
-\paragraph{LLM Agent Loop.}
-We adapt the multi-turn generation manager from Search-R1, replacing \texttt{<search>} actions with \texttt{<memory>} actions. The agent reasons inside \texttt{<think>} tags, queries memory via \texttt{<memory>query</memory>}, receives results as \texttt{<information>...</information>}, and finally answers via \texttt{<answer>}. The core loop logic---rolling state updates, attention masking, GPU padding, and trajectory composition---is reused directly from Search-R1.
+\paragraph{Answer Agent (Stage 2).}
+The Answer Agent receives a question and top-60 retrieved memories from the bank, applies a \emph{Memory Distillation} policy to select the most relevant entries, and generates a concise answer ($<$5--6 words). This two-step filtering mitigates the ``lost in the middle'' problem~\citep{liu2024lost} where LLMs degrade when relevant information is buried among distractors.
 
-\paragraph{Reward and Training.}
-We use rule-based rewards: exact match (EM) and substring EM for QA tasks, and a pass-rate score for structured memory tasks. A small format bonus encourages correct use of \texttt{<memory>} tags. Training uses GRPO with state masking on \texttt{<information>} blocks, following Search-R1's configuration.
+\paragraph{Two-Stage Training.}
+Both agents are trained independently with GRPO:
+\begin{enumerate}[nosep]
+    \item \textbf{Memory Manager training}: The Answer Agent is frozen. The reward for each candidate operation set is the EM score of the frozen Answer Agent's response given the updated memory bank.
+    \item \textbf{Answer Agent training}: The Memory Manager is frozen. Memory banks are rebuilt using the trained manager, and the Answer Agent is trained with EM reward between its predicted and gold answers.
+\end{enumerate}
+This decoupled training avoids attribution ambiguity while enabling both agents to co-adapt across alternating training phases.
+
+\paragraph{Data Construction Pipeline.}
+Following the paper's Algorithms 1--2, we use GPT-4o-mini to extract facts from each LoCoMo dialogue turn, build temporal memory banks from preceding turns, and create separate training parquet files for both agents. Retrieval uses embedding similarity over the memory bank.
 
 \subsection{Data Curation}
 
@@ -80,9 +221,86 @@ Following the evaluation setup in Semantic XPath~\citep{semanticxpath2026}, we c
 Each domain includes 20 curated QA pairs spanning single-hop, multi-hop, and reasoning question types. These data files serve both as the structured memory state for the memory server and as the source of training/evaluation QA pairs.
 
 \paragraph{Structured LoCoMo.}
-We also convert the LoCoMo benchmark~\citep{maharana2024evaluating}---a long multi-session dialogue dataset---into structured memory trees. Each dialogue is organized as \texttt{Dialogue} $\to$ \texttt{Session} $\to$ \texttt{Topic} $\to$ \texttt{MemoryEntry}, preserving the temporal and topical structure of the original conversations. We additionally produce a flat version of the same data for the Memory-R1 baseline. The existing LoCoMo QA pairs are used as evaluation targets.
+We convert the LoCoMo benchmark~\citep{maharana2024evaluating}, a 
+long multi-session dialogue dataset, into structured memory trees. 
+The dataset consists of 10 long-term conversations, each annotated 
+with question-answer pairs and containing: sessions of speaker turns 
+with timestamps, per-session event summaries, per-session prose 
+summaries, and per-session observations : speaker-attributed, 
+turn-grounded atomic claims such as \textit{``Caroline is researching 
+adoption agencies''} (D2:8). We use the following schema:
+
+\dirtree{%
+.1 Conversation.
+.2 Speaker (name).
+.3 Observation (text, source\_dia\_id, session\_id).
+.2 Session (session\_id, datetime).
+.3 Summary (text).
+.3 Event (speaker, description).
+.3 Turn (dia\_id, speaker, text, image\_caption).
+}
+
+\texttt{Speaker} nodes aggregate persistent observations about each 
+participant across all sessions. \texttt{Session} nodes preserve the 
+raw conversational record alongside two levels of derived structure: 
+dense prose \texttt{Summary} nodes, which enable efficient 
+session-level semantic filtering, and sparse \texttt{Event} nodes 
+capturing key milestones. The dataset's gold observations map 
+directly to \texttt{Observation} nodes, providing supervision for 
+memory construction without requiring LLM-based extraction.
+
+This schema supports two natural query patterns. \textit{Profile 
+queries} retrieve persistent facts about a speaker directly from 
+their observation nodes:
+
+
+\begin{tcolorbox}[aclbox, width=\linewidth]
+\textbf{LoCoMo Profile Query.}
+The query for \emph{``How long has Melanie been practicing art?''} 
+can be translated into:
+\begin{center}
+\texttt{//Speaker[@name $\approx$ "Melanie"]//Observation[node $\approx$ "art practice duration"]}
+\end{center}
+This scores all of Melanie's observations against ``art practice 
+duration'', retrieving \textit{``Melanie has been into art for seven 
+years, finding a passion for painting and pottery''} (D16:8).
+\end{tcolorbox}
+
+\textit{Temporal queries} use \texttt{Summary} nodes as a predicate 
+to efficiently narrow to the relevant session before retrieving 
+specific turns within it:
+
+\begin{tcolorbox}[aclbox, width=\linewidth]
+\textbf{LoCoMo Temporal Query.}
+The query for \emph{``When did Caroline pass her adoption 
+interview?''} can be translated into:
+\begin{center}
+\texttt{//Session[Summary $\approx$ "adoption interview"]//Turn[@speaker="Caroline" AND node $\approx$ "passed interview"]}
+\end{center}
+This scores each \texttt{Session} node by the semantic relevance of 
+its \texttt{Summary} child against ``adoption interview'', selecting 
+Session 19, then descends to retrieve Caroline's turn confirming she 
+passed the adoption agency interviews, correctly grounding the answer 
+to October 2023.
+\end{tcolorbox}
+
+
+
+
+
+
+
+
+
+
+
 
 \subsection{Non-RL Baselines}
+
+
+
+
+
 
 In addition to the RL-trained memory agents, we have implemented two non-RL baselines for comparison:
 
@@ -162,12 +380,12 @@ For the final report, we plan to present results averaged across multiple runs o
 
 \subsection{Planned Improvements}
 
-Based on the preliminary analysis, we identify several directions for improvement:
+Based on the preliminary analysis and newly completed two-agent implementation, we identify several directions for the final report:
 \begin{enumerate}
     \item \textbf{Dense Embedding Retrieval}: Upgrade the keyword-based retrieval to dense embedding search using sentence-transformers for both flat and structured memory.
     \item \textbf{Semantic XPath Query Generation}: Train the RL agent to output structured XPath-style queries instead of free-form natural language, enabling more precise tree navigation.
-    \item \textbf{Memory Write Operations}: Extend the action space to include memory updates (ADD, UPDATE, DELETE), following Memory-R1's memory management framework.
-    \item \textbf{Multi-Turn Memory Maintenance}: Evaluate on multi-turn conversations where the memory state evolves across turns, testing the agent's ability to maintain and query changing structured state.
+    \item \textbf{Full Two-Agent Evaluation}: With the Memory Manager (ADD/UPDATE/DELETE/NOOP) and Answer Agent (Memory Distillation) now implemented, run full GRPO training on LoCoMo and evaluate across all three benchmarks (LoCoMo, MSC, LongMemEval) following the Memory-R1 protocol.
+    \item \textbf{Tree vs.\ Flat Manager Ablation}: Compare how the tree-aware Memory Manager (which must decide \emph{where} to insert nodes) performs against the flat manager on structural QA tasks requiring multi-hop tree traversal.
 \end{enumerate}
 
 \subsection{Timeline}

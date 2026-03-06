@@ -12,251 +12,277 @@ University of Toronto &middot; MIE1630 Winter 2026
 ## 1 &ensp; Motivation
 
 LLM agents increasingly maintain external memory across interactions, yet most systems treat memory access as a static, heuristic process.  
-[Search-R1](https://github.com/PeterGriffinJin/Search-R1) showed that reinforcement learning (GRPO) can teach an LLM *when and how* to issue search queries; [Memory-R1](https://arxiv.org/abs/2508.19828) applied the same idea to flat memory banks.  
-**Structured Memory-R1** takes the next step: we train agents with RL to navigate *tree-structured* memory, where nodes are organized in compositional hierarchies (e.g. `Itinerary -> Day -> POI`) rather than treated as an unordered bag of entries.
+[Search-R1](https://github.com/PeterGriffinJin/Search-R1) showed that RL (GRPO) can teach an LLM *when and how* to issue search queries. [Memory-R1](https://arxiv.org/abs/2508.19828) extended this to full memory management &mdash; learning ADD, UPDATE, DELETE, and NOOP operations on a flat memory bank via two specialized RL agents.
 
-The core loop is identical to Search-R1, with one substitution:
-
-```
-User question
-    |
-    v
-LLM reasons in <think>...</think>
-    |
-    v
-LLM emits  <memory> natural-language query </memory>      (was <search>)
-    |
-    v
-Memory server returns relevant entries / subtrees
-    |
-    v
-Results injected as  <information>...</information>
-    |
-    v
-LLM continues reasoning  -- or --  emits <answer>...</answer>
-```
-
-The policy is optimized with **Group Relative Policy Optimization (GRPO)**: for each question we sample K trajectories, score them with exact-match reward, and update the policy using group-normalized advantages. Tokens inside `<information>` blocks are masked from the policy loss.
+**Structured Memory-R1** takes the next step: we apply the same two-agent RL framework to *tree-structured* memory, where nodes are organized in compositional hierarchies (e.g. `Dialogue -> Session -> Topic -> MemoryEntry`) rather than treated as an unordered bag of entries. The Memory Manager must now make structural decisions &mdash; not just *what* to store but *where in the tree* to place it.
 
 ---
 
-## 2 &ensp; Methods Compared
+## 2 &ensp; Architecture (Two-Agent Pipeline)
 
-| Method | RL? | Memory Type | Description |
-|---|---|---|---|
-| **In-Context Memory** | No | Flat | Entire memory serialized into the LLM prompt |
-| **Semantic XPath** | No | Structured | LLM generates XPath-style queries executed over the tree ([paper](https://github.com/D3Mlab/SemanticXpath-Chat)) |
-| **Memory-R1 (Flat)** | GRPO | Flat | RL-trained agent queries a flat memory bank |
-| **Struct Memory-R1** | GRPO | Structured | RL-trained agent queries tree-structured memory |
+Faithful to the Memory-R1 paper, our system has **two independently-trained agents**:
 
-In-Context Memory and Semantic XPath are implemented as non-RL baselines and discussed in the report. The codebase implements the two RL methods.
+```
+Stage 1: Memory Bank Construction
+  Dialogue Turn -> LLM Fact Extraction -> Retrieve Related Memories
+      -> Memory Manager decides {ADD, UPDATE, DELETE, NOOP}
+      -> Memory Bank is updated
+
+Stage 2: Answer Generation
+  Question -> Retrieve Top-60 Memories from Bank
+      -> Answer Agent applies Memory Distillation (selects relevant subset)
+      -> Generates concise answer
+```
+
+**Training:** The Memory Manager is trained first (Answer Agent frozen, provides EM reward). Then the Answer Agent is trained on memory banks produced by the trained Memory Manager. Both use GRPO.
 
 ---
 
-## 3 &ensp; Repository Structure
+## 3 &ensp; Methods Compared
+
+| Method | RL? | Memory Type | Memory Ops | Description |
+|---|---|---|---|---|
+| **In-Context Memory** | No | Flat | Read | Full memory serialized into prompt |
+| **Semantic XPath** | No | Structured | Read | LLM generates XPath queries over tree |
+| **Memory-R1 (Flat)** | GRPO | Flat | ADD/UPDATE/DELETE/NOOP + Read | Two-agent pipeline on flat bank |
+| **Struct Memory-R1** | GRPO | Structured | ADD/UPDATE/DELETE/NOOP + Read | Two-agent pipeline on tree memory |
+
+---
+
+## 4 &ensp; Repository Structure
 
 ```
 .
-├── memory_r1/                          # === Our implementation ===
-│   ├── memory_tree.py                  #   MemoryNode / MemoryTree (rooted tree data model)
-│   ├── flat_memory.py                  #   FlatMemoryStore (list + cosine similarity)
-│   ├── memory_server.py                #   FastAPI retrieval server (POST /retrieve)
+├── memory_r1/                              # === Our implementation ===
+│   ├── memory_tree.py                      #   MemoryNode / MemoryTree data model
+│   ├── flat_memory.py                      #   FlatMemoryStore with CRUD operations
+│   ├── memory_server.py                    #   FastAPI retrieval server
+│   │
+│   ├── memory_manager/                     #   Stage 1: Memory Manager Agent
+│   │   ├── flat_manager.py                 #     Flat ops: parse JSON, apply ADD/UPDATE/DELETE/NOOP
+│   │   ├── tree_manager.py                 #     Tree ops: parent_id for ADD, subtree DELETE
+│   │   ├── generation.py                   #     One-shot GRPO generation loop
+│   │   └── prompts.py                      #     Prompt templates (paper Figs 9-10 + tree ext)
+│   │
+│   ├── answer_agent/                       #   Stage 2: Answer Agent
+│   │   ├── answer_agent.py                 #     Memory Distillation + answer extraction
+│   │   ├── generation.py                   #     One-shot GRPO generation loop
+│   │   └── prompts.py                      #     Prompt templates (paper Fig 11 + tree ext)
+│   │
+│   ├── evaluation.py                       #   F1, BLEU-1, EM, LLM-as-a-Judge
+│   ├── inference.py                        #   End-to-end pipeline (Stage 1 + Stage 2)
+│   │
 │   ├── llm_agent/
-│   │   └── generation.py               #   MemoryLLMGenerationManager (multi-turn agent loop)
+│   │   └── generation.py                   #   Multi-turn agent loop (Search-R1 adaptation)
+│   │
 │   └── data/
-│       ├── itinerary.json              #   Travel itinerary domain  (20 QA pairs)
-│       ├── todo.json                   #   To-do list domain        (20 QA pairs)
-│       ├── mealkit.json                #   Meal-kit domain          (20 QA pairs)
-│       └── locomo_converter.py         #   LoCoMo -> structured tree converter
+│       ├── data_construction.py            #   GPT-based fact extraction + training data builder
+│       ├── itinerary.json                  #   Travel itinerary domain (20 QA pairs)
+│       ├── todo.json                       #   To-do list domain (20 QA pairs)
+│       ├── mealkit.json                    #   Meal-kit domain (20 QA pairs)
+│       └── locomo_converter.py             #   LoCoMo -> structured tree converter
+│
+├── verl/                                   # === veRL RL framework ===
+│   ├── trainer/
+│   │   ├── main_memory_manager.py          #   * Memory Manager GRPO training entry
+│   │   ├── main_answer_agent.py            #   * Answer Agent GRPO training entry
+│   │   ├── main_memory.py                  #   Single-agent training (intermediate version)
+│   │   ├── main_ppo.py                     #   Original Search-R1 entry point
+│   │   └── ppo/ray_trainer.py              #   Core GRPO/PPO loop (Ray-based)
+│   └── utils/reward_score/
+│       └── qa_em.py                        #   Exact-match / sub-EM scoring
+│
+├── search_r1/                              # === Search-R1 base framework ===
+│   ├── llm_agent/
+│   │   ├── generation.py                   #   Original search agent loop
+│   │   └── tensor_helper.py                #   Tensor utilities (shared)
+│   └── search/                             #   Retrieval server implementations
 │
 ├── scripts/data_process/
-│   └── memory_data.py                  #   QA data -> parquet (training-ready format)
+│   └── memory_data.py                      #   Legacy data processing
 │
-├── train_memory_grpo.sh                #   GRPO training launcher
+├── train_memory_manager.sh                 #   Stage 1 training launcher
+├── train_answer_agent.sh                   #   Stage 2 training launcher
+├── train_memory_grpo.sh                    #   Single-agent training (intermediate)
 │
-├── verl/                               # === veRL RL framework (upstream dependency) ===
-│   ├── trainer/
-│   │   ├── main_memory.py              #   * Training entry point (MemoryRewardManager)
-│   │   ├── main_ppo.py                 #   Original Search-R1 entry point
-│   │   ├── ppo/ray_trainer.py          #   Core GRPO / PPO loop (Ray-based)
-│   │   └── config/ppo_trainer.yaml     #   Default Hydra config
-│   └── utils/reward_score/
-│       └── qa_em.py                    #   Exact-match / sub-EM scoring
+├── struct_memory_R1_latex/                 #   Report & proposal
+│   ├── implementation.tex / .pdf
+│   ├── main_neurips.tex
+│   └── reference.bib
 │
-├── search_r1/                          # === Search-R1 base framework (upstream dependency) ===
-│   ├── llm_agent/
-│   │   ├── generation.py               #   LLMGenerationManager (original search version)
-│   │   └── tensor_helper.py            #   Tensor padding / masking utilities (shared)
-│   └── search/
-│       └── retrieval_server.py         #   Original corpus retrieval server
-│
-├── struct_memory_R1_latex/             # === Report & proposal ===
-│   ├── implementation.tex / .pdf       #   Intermediate implementation report
-│   ├── main_neurips.tex                #   Project proposal
-│   ├── reference.bib                   #   Bibliography
-│   └── neurips_2023.sty                #   NeurIPS style
-│
-├── requirements.txt                    # Python dependencies
-├── setup.py / pyproject.toml           # Package installation
-└── LICENSE                             # Apache 2.0
+├── requirements.txt
+├── setup.py / pyproject.toml
+└── LICENSE
 ```
-
-Files marked with **\*** are new; everything under `verl/` and `search_r1/` is reused from Search-R1 unless noted.
 
 ---
 
-## 4 &ensp; Key Components
+## 5 &ensp; Key Components
 
-### 4.1 &ensp; Memory Data Model (`memory_r1/memory_tree.py`)
+### 5.1 &ensp; Memory Manager (`memory_r1/memory_manager/`)
 
-Memory is represented as a rooted tree **M = (V, E, r)**:
+The Memory Manager processes each dialogue turn and decides how to update the memory bank. For each extracted fact, it outputs one of:
 
-- **`MemoryNode`** &mdash; dataclass with `node_id`, `node_type`, `attributes` (dict of text), `children`, `parent`.
-- **`MemoryTree`** &mdash; wraps the root node with an ID index and provides:
-  - `keyword_search(query, topk)` &mdash; token-overlap scoring over all nodes
-  - `subtree_search(query, topk)` &mdash; returns formatted subtrees for top matches
-  - `semantic_navigate(query)` &mdash; type-aware navigation (parses node types from the query)
-  - `to_flat_entries()` &mdash; flatten the tree for the flat-memory baseline
-  - `to_json()` / `from_json()` &mdash; JSON serialization
+- **ADD** &mdash; insert a new entry (flat: append to list; tree: specify `parent_id`)
+- **UPDATE** &mdash; merge new information into an existing entry
+- **DELETE** &mdash; remove an outdated or contradictory entry
+- **NOOP** &mdash; no change needed
 
-### 4.2 &ensp; Flat Memory Store (`memory_r1/flat_memory.py`)
-
-- **`FlatMemoryStore`** &mdash; list of `MemoryEntry` objects with keyword or embedding-based top-k retrieval.
-- Accepts an optional `embedding_fn` for dense retrieval; falls back to keyword overlap when none is provided.
-
-### 4.3 &ensp; Memory Retrieval Server (`memory_r1/memory_server.py`)
-
-FastAPI server exposing `POST /retrieve` with the same request schema as Search-R1's retrieval server:
-
+Output format is JSON:
 ```json
-{
-  "queries": ["conference sessions on day 2"],
-  "topk": 3,
-  "return_scores": true,
-  "memory_type": "structured"
-}
+{"memory": [
+  {"id": "0", "text": "User likes pizza", "event": "NONE"},
+  {"id": "1", "text": "Adopted 2 dogs: Buddy and Scout", "event": "UPDATE",
+   "old_memory": "Adopted a dog named Buddy"}
+]}
 ```
 
-Supports both `"flat"` and `"structured"` memory types. Can be loaded with any domain JSON at startup.
+For Struct Memory-R1, ADD operations include `parent_id` and `node_type` to specify where in the tree to insert.
 
-### 4.4 &ensp; LLM Agent Loop (`memory_r1/llm_agent/generation.py`)
+**Reward:** The Memory Manager's operations are judged by whether the resulting memory bank enables the frozen Answer Agent to answer correctly (EM score, paper Eq. 4).
 
-`MemoryLLMGenerationManager` adapts Search-R1's `LLMGenerationManager`:
+### 5.2 &ensp; Answer Agent (`memory_r1/answer_agent/`)
 
-| What changed | Detail |
-|---|---|
-| Action tags | `<search>` / `</search>` &rarr; `<memory>` / `</memory>` |
-| Environment step | `batch_search()` &rarr; `batch_memory_retrieve()` (calls the memory server) |
-| Result formatting | `_passages2string()` &rarr; `_memory_results_to_string()` (includes tree paths for structured mode) |
-| Config | `GenerationConfig` &rarr; `MemoryGenerationConfig` (adds `memory_url`, `memory_type`) |
+Given a question and top-60 retrieved memories, the Answer Agent:
+1. **Memory Distillation** &mdash; selects the most relevant memories from the retrieved set
+2. **Answer generation** &mdash; produces a concise answer (< 5-6 words)
 
-Everything else&mdash;the multi-turn `run_llm_loop`, rolling-state updates, info masking, GPU-padding wrapper, final output composition&mdash;is identical to Search-R1.
+This two-step process filters noise from retrieval, avoiding the "lost in the middle" problem. The agent outputs selected memories first, then the answer after `**Answer:**`.
 
-### 4.5 &ensp; Reward & Training (`verl/trainer/main_memory.py`)
+**Reward:** Exact Match between predicted and gold answer (paper Eq. 4).
 
-- **`MemoryRewardManager`** &mdash; scores trajectories using:
-  - *Substring exact match* for QA datasets (`locomo`, `locomo_structured`)
-  - *Constraint pass rate* for structured domains (`itinerary`, `todo`, `mealkit`)
-  - A small format bonus (+0.1) when the agent correctly uses `<memory>` tags
-- Training is launched with `train_memory_grpo.sh`, which calls `verl.trainer.main_memory` under GRPO with state masking on `<information>` blocks.
+### 5.3 &ensp; Data Construction (`memory_r1/data/data_construction.py`)
+
+Following the paper's Algorithms 1-2:
+- Uses GPT-4o-mini to extract facts from LoCoMo dialogue turns
+- Builds temporal memory banks from preceding ~50 turns
+- Creates separate parquet files for Memory Manager and Answer Agent training
+- Also processes Semantic XPath domains as additional evaluation data
+
+### 5.4 &ensp; Evaluation (`memory_r1/evaluation.py`)
+
+Three metrics from the paper:
+- **F1** &mdash; token-level F1 between prediction and gold answer
+- **BLEU-1** &mdash; unigram BLEU score
+- **LLM-as-a-Judge** &mdash; GPT labels each answer as CORRECT/WRONG
+
+Supports evaluation by question type (single-hop, multi-hop, open-domain, temporal).
 
 ---
 
-## 5 &ensp; Evaluation Data
+## 6 &ensp; Evaluation Data
 
-### Semantic XPath Domains (curated)
+### LoCoMo (primary benchmark)
 
-Three domains from the [Semantic XPath](https://github.com/D3Mlab/SemanticXpath-Chat) evaluation setup, each stored as a JSON file containing the memory tree and 20 QA pairs:
+The [LoCoMo](https://arxiv.org/abs/2402.17753) benchmark: long multi-session dialogues (~600 turns, 26k tokens) with QA pairs covering single-hop, multi-hop, open-domain, and temporal reasoning. Following Memory-R1, we use a 1:1:8 train/val/test split (152/81/1307 questions).
+
+### Semantic XPath Domains
+
+Three domains from [Semantic XPath](https://github.com/D3Mlab/SemanticXpath-Chat), each with a structured memory tree and 20 QA pairs:
 
 | Domain | Schema | Example question |
 |---|---|---|
 | Travel Itinerary | `Itinerary -> Version -> Day -> POI` | *Which day is packed with conference sessions?* |
 | To-Do List | `TodoList -> Category -> Project -> Task` | *What high-priority tasks are still pending?* |
-| Meal Kit | `MealPlan -> Day -> Meal -> Option` | *Which breakfast on Monday is vegetarian and gluten-free?* |
-
-### Structured LoCoMo (converted)
-
-The [LoCoMo](https://arxiv.org/abs/2402.17753) multi-session dialogue benchmark, converted into structured trees:
-
-```
-Dialogue -> Session -> Topic -> MemoryEntry
-```
-
-The converter (`memory_r1/data/locomo_converter.py`) also produces a flat version for the Memory-R1 baseline. LoCoMo's existing QA pairs are reused for evaluation.
+| Meal Kit | `MealPlan -> Day -> Meal -> Option` | *Which breakfast on Monday is vegetarian?* |
 
 ---
 
-## 6 &ensp; Quick Start
+## 7 &ensp; Quick Start
 
 ### Prerequisites
 
-- Python 3.10+
-- CUDA-capable GPUs (8x recommended for GRPO training)
+- Python 3.10+, CUDA-capable GPUs (8x recommended)
 - `pip install -e . && pip install -r requirements.txt`
+- `OPENAI_API_KEY` for data construction and LLM-as-a-Judge evaluation
 
 ### Step 1 &mdash; Prepare training data
 
 ```bash
-python scripts/data_process/memory_data.py \
+python -m memory_r1.data.data_construction \
+    --locomo_path data/locomo/locomo.json \
     --data_dir memory_r1/data \
-    --output_dir data/memory_train
+    --output_dir data/memory_r1_train \
+    --use_gpt
 ```
 
-This reads the domain JSONs, applies the memory prompt template, and writes `train.parquet` / `test.parquet`.
-
-### Step 2 &mdash; Launch the memory server
-
-In a **separate terminal**:
+### Step 2 &mdash; Train Memory Manager (Stage 1)
 
 ```bash
-# Structured memory (e.g. itinerary domain)
-python -m memory_r1.memory_server \
-    --structured_memory_path memory_r1/data/itinerary.json \
-    --port 8000
-
-# Flat memory (e.g. LoCoMo)
-python -m memory_r1.memory_server \
-    --flat_memory_path memory_r1/data/locomo/locomo_flat.json \
-    --port 8000
+bash train_memory_manager.sh
 ```
 
-### Step 3 &mdash; Train with GRPO
+### Step 3 &mdash; Train Answer Agent (Stage 2)
+
+After Stage 1 completes, rebuild memory banks with the trained MM, then:
 
 ```bash
-bash train_memory_grpo.sh
+bash train_answer_agent.sh
 ```
 
-Key config knobs (edit the script or pass as overrides):
+### Step 4 &mdash; Run inference
 
-| Parameter | Default | Meaning |
-|---|---|---|
-| `BASE_MODEL` | `Qwen/Qwen2.5-3B` | HuggingFace model ID |
-| `MEMORY_TYPE` | `structured` | `flat` or `structured` |
-| `max_turns` | `3` | Max memory-query rounds per trajectory |
-| `retriever.topk` | `5` | Entries returned per query |
-| `actor_rollout_ref.rollout.n_agent` | `5` | GRPO group size K |
-| `trainer.total_training_steps` | `500` | Total GRPO steps |
+```bash
+python -m memory_r1.inference \
+    --locomo_path data/locomo/locomo.json \
+    --memory_type flat \
+    --model_path openai \
+    --output_path results.json
+```
+
+### Step 5 &mdash; Evaluate
+
+```bash
+python -m memory_r1.inference \
+    --mode evaluate \
+    --output_path results.json \
+    --use_judge
+```
 
 ---
 
-## 7 &ensp; Reproducibility
+## 8 &ensp; Training Details
+
+### Memory Manager
+
+| Parameter | Value |
+|---|---|
+| RL Algorithm | GRPO |
+| Reward | EM from frozen Answer Agent |
+| Actions | ADD, UPDATE, DELETE, NOOP |
+| Group size (K) | 5 |
+| Learning rate | 1e-6 |
+| Max response length | 1024 tokens |
+
+### Answer Agent
+
+| Parameter | Value |
+|---|---|
+| RL Algorithm | GRPO |
+| Reward | EM(predicted, gold) |
+| Retrieved memories | Top-60 per question |
+| Group size (K) | 5 |
+| Learning rate | 1e-6 |
+| Max response length | 2048 tokens |
+
+---
+
+## 9 &ensp; Reproducibility
 
 | Mechanism | Detail |
 |---|---|
 | **Fixed seed** | `random.seed(42)` in data processing |
-| **Deterministic data** | All 60 QA pairs and memory trees are checked into `memory_r1/data/` |
-| **Pinned config** | Training hyperparameters are explicit in `train_memory_grpo.sh` |
-| **State masking** | `<information>` blocks are masked from the policy gradient (same as Search-R1) |
+| **Deterministic data** | QA pairs and memory trees are checked into `memory_r1/data/` |
+| **Pinned config** | All hyperparameters are explicit in training scripts |
+| **Separate training** | MM and AA are trained independently for attribution clarity |
 | **GRPO** | Group-relative advantages remove the need for absolute reward calibration |
 
 ---
 
-## 8 &ensp; Acknowledgments
-
-This project builds on the following open-source work:
+## 10 &ensp; Acknowledgments
 
 - [Search-R1](https://github.com/PeterGriffinJin/Search-R1) (Jin et al., 2025) &mdash; RL for search-augmented LLMs
-- [Memory-R1](https://arxiv.org/abs/2508.19828) (Yan et al., 2025) &mdash; RL for flat memory management
+- [Memory-R1](https://arxiv.org/abs/2508.19828) (Yan et al., 2025) &mdash; RL for memory management (our primary reference)
 - [Semantic XPath](https://github.com/D3Mlab/SemanticXpath-Chat) (Liu et al., 2026) &mdash; Structured memory access for ConvAI
 - [veRL / HybridFlow](https://github.com/volcengine/verl) (Sheng et al., 2025) &mdash; RL training framework for LLMs
 - [LoCoMo](https://arxiv.org/abs/2402.17753) (Maharana et al., 2024) &mdash; Long-term conversational memory benchmark
