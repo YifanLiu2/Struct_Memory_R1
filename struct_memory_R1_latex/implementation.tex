@@ -53,6 +53,7 @@
 %% =====================================================================
 %% SECTION 1: PROBLEM DEFINITION
 %% =====================================================================
+
 \section{Problem Definition}
 
 We consider an LLM-based agent augmented with an external memory system that persists across interactions:
@@ -118,10 +119,9 @@ $r \in V_t$ is the designated \textbf{root node}.
 \subsection{Action Space}
 
 The agent's action space is $\mathcal{A} = \mathcal{A}_{\text{lang}} \cup \mathcal{A}_{\text{env}}$, where:
-\begin{itemize}[nosep]
-    \item $\mathcal{A}_{\text{lang}}$: \textbf{Reasoning} (\texttt{<think>}) and \textbf{Answer} (\texttt{<answer>}) generation.
-    \item $\mathcal{A}_{\text{env}}$: \textbf{Memory Query} (\texttt{<memory>}$q$\texttt{</memory>}) and \textbf{Memory Update} (\textsc{Add}, \textsc{Update}, \textsc{Delete}).
-\end{itemize}
+$\mathcal{A}_{\text{lang}}$: \textbf{Reasoning} (\texttt{<think>}) and \textbf{Answer} (\texttt{<answer>}) generation.
+And $\mathcal{A}_{\text{env}}$: \textbf{Memory Query} (\texttt{<memory>}$q$\texttt{</memory>}) and \textbf{Memory Update} (\textsc{Add}, \textsc{Update}, \textsc{Delete}).
+
 A memory query sends $q \in \mathcal{Q}$ to the retrieval server, which returns matching subtrees with path annotations:
 \[
 \texttt{retrieve}(q, M_t) = \bigl\{(v, \text{path}(r \leadsto v), \text{subtree}(v)) \;\big|\; v \in V_t,\; \text{match}(q, v)\bigr\}.
@@ -155,16 +155,30 @@ The \emph{policy} $\pi_\theta$ is a conditional distribution over action traject
 \[
 \pi_\theta(\tau_t \mid x_t, M_t) = \prod_{\ell=1}^{L_t} \pi_\theta(a_{t,\ell} \mid x_t, M_t, a_{t,<\ell}),
 \]
-where $a_{t,<\ell} = (a_{t,1}, \ldots, a_{t,\ell-1})$ denotes the actions taken so far within the current turn. The policy factorizes autoregressively at the token level within each action.
+where $a_{t,<\ell} = (a_{t,1}, \ldots, a_{t,\ell-1})$ denotes the actions taken so far within the current turn. The policy factorizes autoregressively at the token level within each action. We decompose the system into two RL-trained agents.
+
+\paragraph{Memory Manager ($\pi_{\theta_M}$).}
+After each dialogue turn, the Memory Manager observes the current state $s = (x_t, M_t^{\text{old}})$ and selects an operation to maintain the memory bank:
+\[
+(o, m') \sim \pi_{\theta_M}(\cdot \mid x_t, M_t^{\text{old}}), \quad o \in \{\textsc{Add},\; \textsc{Update},\; \textsc{Delete},\; \textsc{Noop}\}.
+\]
+The updated memory $M_t^{\text{new}} = f_{\text{update}}(M_t^{\text{old}}, o, m')$ is passed to Stage~2. The manager is rewarded based on whether its edits enable the Answer Agent to respond correctly downstream, learning to consolidate related facts (e.g., merging two pet adoption events) rather than overwrite or fragment them.
+
+\paragraph{Answer Agent ($\pi_{\theta_A}$).}
+Given a user question $q$, the Answer Agent retrieves candidate memories $\mathcal{C} = \{m_1, \ldots, m_n\}$ via RAG, then applies a memory distillation policy to filter them:
+\[
+\hat{\mathcal{C}} = \text{Distill}_{\pi_{\theta_A}}(\mathcal{C}, q), \qquad y = \pi_{\theta_A}(\cdot \mid q, \hat{\mathcal{C}}).
+\]
+Distillation surfaces only the entries most relevant to $q$, reducing noise and improving factual accuracy. The agent is rewarded for answer correctness.
 
 
-
- For a fixed context $(x_t, \mathcal{M}_t)$, we sample a group of $K$ trajectories and assign each a scalar reward $r(\tau_t^{(k)})$ based on downstream criteria such as correctness, consistency, and personalization. Rather than using these rewards as absolute training signals, we optimize the policy using Group Relative Policy Optimization (GRPO), which computes a group-relative advantage for each trajectory:
+ Both agents are trained with outcome-driven reinforcement learning, requiring only downstream QA correctness as supervision.
+ For a fixed context $(x_t, \mathcal{M}_t)$, we sample a group of $K$ trajectories and assign each a scalar reward $r(\tau_t^{(k)})$. Rather than using these rewards as absolute training signals, we optimize the policy using Group Relative Policy Optimization (GRPO), which computes a group-relative advantage for each trajectory:
 \[
 \hat{A}^{(k)} = \frac{r(\tau_t^{(k)}) - \mu}{\sigma}, \quad \mu = \frac{1}{K}\sum_{k=1}^{K} r(\tau_t^{(k)}), \quad \sigma = \mathrm{std}\!\left(\{r(\tau_t^{(k)})\}_{k=1}^{K}\right).
 \]
 
-Given state $s = (x_t, M_t^{\text{old}})$, the manager samples $K$ operation trajectories $\{(o^{(k)}, m'^{(k)})\}_{k=1}^K$, each producing an updated memory $M_t^{(k)} = f_{\text{update}}(M_t^{\text{old}}, o^{(k)}, m'^{(k)})$. The reward is whether the Answer Agent can answer correctly from $M_t^{(k)}$: trajectories that produce well-consolidated memory receive positive advantage, while those that fragment or overwrite useful information receive negative advantage.
+% Given state $s = (x_t, M_t^{\text{old}})$, the manager samples $K$ operation trajectories $\{(o^{(k)}, m'^{(k)})\}_{k=1}^K$, each producing an updated memory $M_t^{(k)} = f_{\text{update}}(M_t^{\text{old}}, o^{(k)}, m'^{(k)})$. The reward is whether the Answer Agent can answer correctly from $M_t^{(k)}$: trajectories that produce well-consolidated memory receive positive advantage, while those that fragment or overwrite useful information receive negative advantage.
 
 
 %% =====================================================================
@@ -347,8 +361,8 @@ Zero-Shot (no memory) & 0.15 & 15.0\% & 512 \\
 In-Context Memory & 0.70 & 70.0\% & 12,136 \\
 Flat RAG & 0.30 & 30.0\% & 3,250 \\
 Semantic XPath (Entail) & 0.85 & 85.0\% & 5,161 \\
-Memory-R1 Flat (ours, no RL) & 0.35 & 35.0\% & 3,500 \\
-Struct Memory-R1 (ours, no RL) & 0.55 & 55.0\% & 4,200 \\
+Memory-R1 Flat (ours, no RL) & -- & -- \% & -- \\
+Struct Memory-R1 (ours, no RL) & -- & --\% & -- \\
 \bottomrule
 \end{tabular}
 \end{table}
