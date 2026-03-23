@@ -1,0 +1,165 @@
+name: "itinerary_experiment"
+
+# Queries to run - each entry is a session
+# Named session:   {name: "session_name", queries: ["q1", "q2"]}
+# Unnamed session:  ["q1", "q2"]  (auto-named Session_1, Session_2, ...)
+# Multi-turn sessions share the same tree state across queries
+
+# Queries to run
+queries:
+  - name: "read_queries"
+    use_versions: "false"
+    queries:
+      - "My friend lives in Mississauga, about an hour from downtown. What days are without any work commitments or flights?"
+      - "The weather forecast shows heavy rain on Day 7. Which activities are outdoors?"
+      - "My sister and nephew are joining me on Day 6. What activities would be fun for a kid?"
+      - "I'm putting together my expense report. What are the most expensive restaurants I've booked?"
+      - "I've been stuck in meetings most of the week. Which days have nature activities where I can actually get outside?"
+
+  - name: "create_queries"
+    use_versions: "false"
+    queries: 
+      - "For all days that don't have a dinner planned, add a cheap dinner option."
+      - "I just noticed Day 2 has no breakfast, my first meeting is at 9am and I'll be starving. Add a quick hotel breakfast before the meeting."
+      - "The workshop on Day 3 ends at 11am and then I have nothing until the AGO at noon. Add a coffee break in between. there's a good cafe near the gallery."
+      - "I completely forgot about souvenirs. Add a stop at Roots or the Hudson's Bay flagship on Day 10 morning before the CN Tower. I need to grab gifts before I fly out."
+      - "I'd like to end the first day with some live music. Add Pj O'Brien's to the end of Day 1."
+  
+  - name: "update_queries"
+    use_versions: "false"
+    queries: 
+      - "I just checked my spending and I'm way over budget. Replace all expensive dinners with a cheap eats placeholder and set cost to $10"
+      - "I'd rather do the ROM than the AGO. Change the activity on Day 3 to the ROM."
+      - "Some work events got cancelled. On Day 2, change any work related events to Personal Day."
+      - "I had a long day so am going to sleep in tomorrow. Change my Leslieville brunch to a dedicated sleep in time block"
+      - "My departure flight got pushed back to 10pm. Update my day 10 to reflect this."
+
+  - name: "delete_queries"
+    use_versions: "false"
+    queries:
+      - "It's definitely going to rain all day on Day 7. Cancel any outdoor activities, I'll figure out replacements."
+      - "I actually went to the CN Tower on my last trip to Toronto. Remove any CN Tower activities. I'd rather do something new."
+      - "Bad news. my friend who was going to host me at Niagara just tested positive for COVID. I need to cancel the Niagara Falls trip."
+      - "I'm exhausted. I'm going to take Day 5 as a personal day and skip all the work stuff. Cancel every work-related activity on that day."
+      - "On the day we go to the ROM, cancel the breakfast. "
+    
+  # - name: 'multi-turn_0'
+  #   use_versions: "true"
+  #   queries:
+  #     # Multi-turn 1: Delete → Update → Create → Delete → Read
+  #     - "It's definitely going to rain all day on Day 7. Cancel any outdoor activities, I'll figure out replacements."
+  #     - "My departure flight got pushed back to 10pm. Update my day 10 to reflect this."
+  #     - "For all days that don't have a dinner planned, add a cheap dinner option."
+  #     - "I'm exhausted. I'm going to take Day 5 as a personal day and skip all the work stuff. Cancel every work-related activity on that day."
+  #     - "I've been stuck in meetings most of the week. Which days have nature activities where I can actually get outside?"
+
+  # - name: 'multi-turn_1'
+  #   use_versions: "true"
+  #   queries:
+  #     #Multi-turn 2: Update → Delete → Create → Read → Update
+  #     - "I just checked my spending and I'm way over budget. Replace all expensive dinners with a cheap eats placeholder and set cost to $10"
+  #     - "I actually went to the CN Tower on my last trip to Toronto. Remove any CN Tower activities. I'd rather do something new."
+  #     - "I just noticed Day 2 has no breakfast, my first meeting is at 9am and I'll be starving. Add a quick hotel breakfast before the meeting."
+  #     - "My sister and nephew are joining me on Day 6. What activities would be fun for a kid?"
+  #     - "I had a long day so am going to sleep in tomorrow. Change my Leslieville brunch to a dedicated sleep in time block"
+  
+  # - name: 'multi-turn_2'
+  #   use_versions: "true"
+  #   queries:
+  #     #Multi-turn 3: Create → Update → Read → Delete → Create
+  #     - "The workshop on Day 3 ends at 11am and then I have nothing until the AGO at noon. Add a coffee break in between. there's a good cafe near the gallery."
+  #     - "I'd rather do the ROM than the AGO. Change the activity on Day 3 to the ROM."
+  #     - "My friend lives in Mississauga, about an hour from downtown. What days are without any work commitments or flights?"
+  #     - "Bad news. my friend who was going to host me at Niagara just tested positive for COVID. I need to cancel the Niagara Falls trip."
+  #     - "I'd like to end the first day with some live music. Add Pj O'Brien's to the end of Day 1."
+ 
+  # - name: 'multi-turn_3'
+  #   use_versions: "true"
+  #   queries:
+  #     # Multi-turn 4: Delete → Create → Update → Delete → Read
+  #     - "On the day we go to the ROM, cancel the breakfast."
+  #     - "I completely forgot about souvenirs. Add a stop at Roots or the Hudson's Bay flagship on Day 10 morning before the CN Tower. I need to grab gifts before I fly out."
+  #     - "Some work events got cancelled. On Day 2, change any work related events to Personal Day."
+  #     - "It's definitely going to rain all day on Day 7. Cancel any outdoor activities, I'll figure out replacements."
+  #     - "I'm putting together my expense report. What are the most expensive restaurants I've booked?"
+
+  # - name: 'multi-turn_4'
+  #   use_versions: "true"
+  #   queries:
+  #     # Multi-turn 5: Read → Delete → Update → Create → Read
+  #     - "The weather forecast shows heavy rain on Day 7. Which activities are outdoors?"
+  #     - "It's definitely going to rain all day on Day 7. Cancel any outdoor activities, I'll figure out replacements."
+  #     - "My departure flight got pushed back to 10pm. Update my day 10 to reflect this."
+  #     - "For all days that don't have a dinner planned, add a cheap dinner option."
+  #     - "I'm putting together my expense report. What are the most expensive restaurants I've booked?"
+
+  # # Version Queries
+  # - "What was the original time block for the Client Kickoff Meeting on Day 2?"
+  # - "Show me the cost of the Alo Restaurant tasting menu from the first version of the itinerary."
+  # - "Did I have any outdoor activities scheduled for Day 7 in the initial version?"
+  # - "What was the description of the Harbourfront Stroll on Day 1?"
+  # - "List all the restaurants that were planned for Day 4 in the original itinerary."
+
+# =============================================================================
+# EXPERIMENT CONFIGURATION
+# All parameters for this experiment are defined below
+# =============================================================================
+
+config:
+  # Schema configuration
+  # Choose which schema and data file to use
+  active_schema: "itinerary" # Options: itinerary, todolist, session_recommendation
+  active_data: "travel_toronto_10day" # Options: todolist, travel_toronto_10day
+
+  # LLM Client configuration
+  # Model options: "gpt-4o", "gpt-5", "gpt-5-mini", "o1", "o3-mini", etc.
+  # openai:
+  #   api_key: "${OPENAI_API_KEY}"
+  #   model: "gpt-5-mini"
+  #   max_tokens: 128000
+  #   # For GPT-4 series: temperature controls creativity (0-1)
+  #   temperature: 0
+  #   # For GPT-5/o1/o3 series: reasoning_effort controls reasoning depth
+  #   # Options: none (fastest), low, medium (default), high, xhigh (deepest)
+  #   reasoning_effort: "low"
+
+  openai:
+    api_key: "${OPENROUTER_API_KEY}" # or point this env var to your OpenRouter key
+    # api_key: "${OPENAI_API_KEY}"
+    base_url: "https://openrouter.ai/api/v1"
+    model: "qwen/qwen3-next-80b-a3b-instruct" # or whatever Qwen model ID OpenRouter uses
+    max_tokens: 128000
+    temperature: 0
+    reasoning_effort: "low"
+
+  # XPath executor settings
+  xpath_executor:
+    top_k: 5
+    score_threshold: 0.05
+    # Scoring method: "llm", "entailment", or "cosine"
+    scoring_method: "entailment"
+
+  # In-context pipeline settings (single LLM call with full tree)
+  incontext_pipeline:
+    temperature: 0
+    max_tokens: 128000
+
+  # Entailment scorer settings
+  entailment:
+    model: "facebook/bart-large-mnli"
+    hypothesis_template: "This is related to {predicate}."
+    # device: auto-detected if not set (cuda > mps > cpu)
+
+  # Cosine similarity scorer settings
+  cosine:
+    model: "qwen/qwen3-embedding-8b"  
+    predicate_template: "{predicate}"
+    openai:
+      api_key: "${OPENROUTER_API_KEY}"
+      base_url: "https://openrouter.ai/api/v1"
+    # device: auto-detected if not set (cuda > mps > cpu)
+
+# =============================================================================
+# EXAMPLE QUERIES (commented out for reference)
+# =============================================================================
+

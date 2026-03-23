@@ -1,0 +1,200 @@
+name: "todolist_version_experiment"
+
+queries:
+  - name: "version_query1"
+    use_versions: "false" # Set to true to create new versions of the tree for each update query, which will reflect changes in subsequent read queries. Set to false to make changes directly to the original tree, which will reflect changes in subsequent read queries but without versioning.
+    tree_path: "storage/memory/todo_list/multiturn/mt1.xml"
+    queries:
+      # - "Delete the task read attention is all you need from my learning project"
+      # - "Update the deadline in general project to renew my passport the correct date of July 3, 2026"
+      # - "Im trying to eat better, change ramen on my grocery list to be a salad instead"
+
+      - "What was the original deadline for renewing my passport? Check the previous versions"
+      - "What was the original grocery list before I we changed something to salad? Check the previous versions"
+
+    ground_truth:
+      - ["Root > ToDoList_Version 2 > Personal > General > Task 2"]
+      - [
+          "Root > ToDoList_Version 3 > Household > Weekly Groceries > Task 1",
+          "Root > ToDoList_Version 3 > Household > Weekly Groceries > Task 2",
+          "Root > ToDoList_Version 3 > Household > Weekly Groceries > Task 3",
+        ]
+
+  - name: "version_query2"
+    use_versions: "false" # Set to true to create new versions of the tree for each update query, which will reflect changes in subsequent read queries. Set to false to make changes directly to the original tree, which will reflect changes in subsequent read queries but without versioning.
+    tree_path: "storage/memory/todo_list/multiturn/mt2.xml"
+    queries:
+      # - "Update Finalize CCV task to done"
+      # - "Update the task 'draft research proposal' to done"
+      # - "Delete Run benchmarks on cluster from my thesis project"
+      # - "Delete the repair man task from the 'Garage Repair' project."
+
+      - "What was the blocker for the task we deleted from my thesis project? Check the previous versions"
+      - "What was the due date of the repair man task before we deleted it? Check the previous versions"
+
+    ground_truth:
+      - ["Root > ToDoList_Version 3 > Work > Thesis: Solve AI > Task 1"]
+      - ["Root > ToDoList_Version 4 > Household > Fix Garage Door > Task 3"]
+
+  - name: "version_query3"
+    use_versions: "false"
+    tree_path: "storage/memory/todo_list/multiturn/mt3.xml"
+    queries:
+      # - "Delete Run benchmarks on cluster from my thesis project"
+      # - "Update the priority of the long run in Marathon Training to Low."
+      # - "Delete the 'Request reference letters' task from the work NSERC project."
+
+      - "What was the priority of the long run before I changed it to Low? Check previous versions."
+      - "What was the due date of the reference letters task that I just deleted? Check previous versions."
+
+    ground_truth:
+      - [
+          "Root > ToDoList_Version 2 > Health > Marathon Training Block > Task 1",
+        ]
+      - [
+          "Root > ToDoList_Version 3 > Work > NSERC CGS-M Grant Application > Task 2",
+        ]
+
+  - name: "version_query4"
+    use_versions: "false"
+    tree_path: "storage/memory/todo_list/multiturn/mt4.xml"
+    queries:
+      # - "Create a new task 'Buy a standing desk' under the Household General project."
+      # - "Delete the project 'Mental Health' from the Health category."
+      # - "Update the due date for 'Learn Rust programming basics' to 2026-06-01."
+      # - "Add a task 'Refactor data loader' to my Thesis project with High priority."
+
+      - "What tasks were in the Mental Health project before it was deleted? Check previous versions."
+      - "What was the previous due date for the Rust programming task? Check previous versions."
+
+    ground_truth:
+      - ["Root > ToDoList_Version 2 > Health > Mental Health > Task"]
+      - ["Root > ToDoList_Version 3 > Learning > Skill Acquisition > Task 1"]
+
+  - name: "version_query5"
+    use_versions: "false"
+    tree_path: "storage/memory/todo_list/multiturn/mt5.xml"
+    queries:
+      # - "Delete the project 'Conference Travel: Vancouver' from the Personal category."
+      # - "Delete all tasks in the Household category that are marked as 'Low' priority."
+
+      - "What was the progress status of the Vancouver travel project before I deleted it? Check previous versions."
+      - "Which grocery task in the Household category was deleted? Check previous versions."
+    ground_truth:
+      - ["Root > ToDoList_Version 1 > Personal > Conference Travel: Vancouver"]
+      - ["Root > ToDoList_Version 2 > Household > Weekly Groceries > Task 3"]
+
+# =============================================================================
+# EXPERIMENT CONFIGURATION
+# All parameters for this experiment are defined below
+# =============================================================================
+
+config:
+  # Schema configuration
+  # Choose which schema and data file to use
+  active_schema: "todolist" # Options: itinerary, todolist, session_recommendation
+  active_data: "todolist" # Options: todolist, travel_toronto_10day
+
+  # LLM Client configuration
+  # Model options: "gpt-4o", "gpt-5", "gpt-5-mini", "o1", "o3-mini", etc.
+  # openai:
+  #   #api_key: "${OPENROUTER_API_KEY}" # or point this env var to your OpenRouter key
+  #   api_key: "${OPENAI_API_KEY}"
+  #   # base_url: "https://openrouter.ai/api/v1"
+  #   model: "gpt-5-mini" # or whatever Qwen model ID OpenRouter uses
+
+  #   max_tokens: 128000
+  #   # For GPT-4 series: temperature controls creativity (0-1)
+  #   temperature: 0
+
+  #   # For GPT-5/o1/o3 series: reasoning_effort controls reasoning depth
+  #   # Options: none (fastest), low, medium (default), high, xhigh (deepest)
+  #   reasoning_effort: "low"
+
+  openai:
+    api_key: "${OPENROUTER_API_KEY}"      # or point this env var to your OpenRouter key
+    base_url: "https://openrouter.ai/api/v1"
+    model: "google/gemini-3-flash-preview"     # or whatever Qwen model ID OpenRouter uses
+    max_tokens: 128000
+    temperature: 0
+
+  # XPath executor settings
+  xpath_executor:
+    top_k: 5
+    score_threshold: 0.05
+    # Scoring method: "llm", "entailment", or "cosine"
+    scoring_method: "entailment"
+
+  # In-context pipeline settings (single LLM call with full tree)
+  incontext_pipeline:
+    temperature: 0
+    max_tokens: 16384
+
+  # Entailment scorer settings
+  entailment:
+    model: "facebook/bart-large-mnli"
+    hypothesis_template: "This is related to {predicate}."
+    # device: auto-detected if not set (cuda > mps > cpu)
+
+  # Cosine similarity scorer settings
+  cosine:
+    model: "qwen/qwen3-embedding-8b"
+    predicate_template: "{predicate}"
+    openai:
+      api_key: "${OPENROUTER_API_KEY}"
+      base_url: "https://openrouter.ai/api/v1"
+    # device: auto-detected if not set (cuda > mps > cpu)
+
+# =============================================================================
+# EXAMPLE QUERIES (commented out for reference)
+# =============================================================================
+
+# # READ Queries (single-turn sessions)
+# - [
+#     "My friend lives in Mississauga, about an hour from downtown. What days are without any work commitments or flights?",
+#     "I actually went to the CN Tower on my last trip to Toronto. Remove any CN Tower activities. I'd rather do something new.",
+#     "It's definitely going to rain all day on Day 7. Cancel any outdoor activities, I'll figure out replacements.",
+#   ]
+# - [
+#     "The weather forecast shows heavy rain on Day 7. Which activities are outdoors that I might need to reschedule?",
+#   ]
+# - [
+#     "My sister and nephew are joining me on Day 6. He's 10 years old. What activities do I already have planned that would be fun for a kid?",
+#   ]
+# - [
+#     "I'm putting together my expense report. What are the most expensive restaurants I've booked?",
+#   ]
+# - [
+#     "I've been stuck in meetings most of the week. Which days have nature activities where I can actually get outside?",
+#   ]
+
+# # DELETE Queries (single-turn sessions)
+# - [
+#     "I just checked my spending and I'm way over budget. Cut the expensive dinners from the itinerary and I'll find cheaper alternatives later.",
+#   ]
+# - [
+#     "It's definitely going to rain all day on Day 7. Cancel any outdoor activities, I'll figure out replacements.",
+#   ]
+# - [
+#     "I actually went to the CN Tower on my last trip to Toronto. Remove any CN Tower activities. I'd rather do something new.",
+#   ]
+# - [
+#     "Bad news. my friend who was going to host me at Niagara just tested positive for COVID. I need to cancel the Niagara Falls trip.",
+#   ]
+# - [
+#     "I'm exhausted. I'm going to take Day 5 as a personal day and skip all the work stuff. Cancel every work-related activity on that day.",
+#   ]
+
+# # CREATE Queries (single-turn sessions)
+# - [
+#     "I just noticed Day 2 has no breakfast, my first meeting is at 9am and I'll be starving. Add a quick hotel breakfast before the meeting.",
+#   ]
+# - [
+#     "The workshop on Day 3 ends at 11am and then I have nothing until the AGO at noon. Add a coffee break in between. there's a good cafe near the gallery.",
+#   ]
+# - [
+#     "I completely forgot about souvenirs. Add a stop at Roots or the Hudson's Bay flagship on Day 10 morning before the CN Tower. I need to grab gifts before I fly out.",
+#   ]
+
+# # Multi-turn session example (queries share tree state, changes persist)
+# # - ["Show me all activities on Day 3", "Delete the lunch meeting", "Add a coffee break at 11am"]

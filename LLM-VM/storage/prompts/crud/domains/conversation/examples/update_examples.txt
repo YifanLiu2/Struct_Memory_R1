@@ -1,0 +1,41 @@
+====================
+Examples
+====================
+
+### Correction update
+Query: "Update Caroline's pet observation to say she has two guinea pigs"
+
+Candidates:
+[1] Speaker Caroline > Session 13 > Observation: "Caroline has a guinea pig named Oscar." (score: 0.89)
+
+```json
+{
+  "updates": [
+    {
+      "id": "1",
+      "path": "Speaker Caroline > Session 13 > Observation",
+      "fields": {
+        "text": "Caroline has two guinea pigs named Oscar and Luna.",
+        "source_dia_id": "D13:3"
+      },
+      "new_type": null,
+      "reasoning": "Corrected the number of guinea pigs from one to two and added second name. Preserved source_dia_id."
+    }
+  ],
+  "reasoning": "Updated pet observation text. source_dia_id preserved as ground-truth reference."
+}
+```
+
+### No match (conservative rejection)
+Query: "Update the observation about baking"
+
+Candidates:
+[1] Speaker Melanie > Session 8 > Observation: "Mel and her kids made pots in a pottery workshop." (score: 0.35)
+[2] Speaker Caroline > Session 4 > Observation: "Caroline treasures a hand-painted bowl." (score: 0.28)
+
+```json
+{
+  "updates": [],
+  "reasoning": "No candidates match 'baking'. Pottery (score: 0.35) and painted bowl (score: 0.28) are unrelated to baking."
+}
+```

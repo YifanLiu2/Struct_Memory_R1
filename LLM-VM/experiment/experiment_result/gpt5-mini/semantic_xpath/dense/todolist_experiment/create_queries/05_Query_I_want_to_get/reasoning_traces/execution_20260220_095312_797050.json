@@ -1,0 +1,1832 @@
+{
+  "timestamp": "20260220_095312_797050",
+  "query": "/Root/ToDoList_Version[1]/Category[atom(content =~ \"Learning\")]/Project[atom(content =~ \"Piano Practice\")]",
+  "canonical_query": "/Root/ToDoList_Version[1]/Category[content =~ \"Learning\"]/Project[content =~ \"Piano Practice\"]",
+  "data_file": "tree.xml",
+  "execution_time_ms": 541.0494580864906,
+  "parsed_ast": {
+    "steps": [
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Root",
+            "span": {
+              "start": 1,
+              "end": 5
+            }
+          },
+          "span": {
+            "start": 1,
+            "end": 5
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "ToDoList_Version",
+            "index": {
+              "start": 1,
+              "type": "single",
+              "span": {
+                "start": 22,
+                "end": 25
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 25
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 25
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Category",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "Learning",
+              "operator": "=~",
+              "span": {
+                "start": 35,
+                "end": 62
+              }
+            },
+            "predicate_str": "atom(content =~ \"Learning\")",
+            "span": {
+              "start": 26,
+              "end": 63
+            }
+          },
+          "span": {
+            "start": 26,
+            "end": 63
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Project",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "Piano Practice",
+              "operator": "=~",
+              "span": {
+                "start": 72,
+                "end": 105
+              }
+            },
+            "predicate_str": "atom(content =~ \"Piano Practice\")",
+            "span": {
+              "start": 64,
+              "end": 106
+            }
+          },
+          "span": {
+            "start": 64,
+            "end": 106
+          }
+        }
+      }
+    ],
+    "global_index": null
+  },
+  "parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: ToDoList_Version[1]\n├── Step 2: Category[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"Learning\")\n└── Step 3: Project[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"Piano Practice\")",
+  "canonical_parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: ToDoList_Version[1]\n├── Step 2: Category[content =~ \"Learning\"]\n└── Step 3: Project[content =~ \"Piano Practice\"]",
+  "execution_log": [
+    "[20260220_095312_797050] Executing query: /Root/ToDoList_Version[1]/Category[atom(content =~ \"Learning\")]/Project[atom(content =~ \"Piano Practice\")]",
+    "Data file: tree.xml",
+    "Parsed steps: [Root, ToDoList_Version[1], Category[atom(content =~ \"Learning\")], Project[atom(content =~ \"Piano Practice\")]]",
+    "",
+    "Query AST:\n├── Step 0: Root\n├── Step 1: ToDoList_Version[1]\n├── Step 2: Category[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"Learning\")\n└── Step 3: Project[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"Piano Practice\")",
+    "\n--- Step 1: Root ---",
+    "Matched Root root",
+    "\n--- Step 2: ToDoList_Version[1] ---",
+    "Selected node at index 1 (0-based: 0)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 3: Category[atom(content =~ \"Learning\")] ---",
+    "Scoring predicate: atom(content =~ \"Learning\") (atomic values: ['Learning'])",
+    "  Node 0 (Work): score = 0.0000 (exact match)",
+    "  Node 1 (Personal): score = 0.0000 (exact match)",
+    "  Node 2 (Household): score = 0.0000 (exact match)",
+    "  Node 3 (Health): score = 0.0000 (exact match)",
+    "  Node 4 (Learning): score = 1.0000 (exact match)",
+    "  Exact attribute match on @name: 1/5 nodes matched",
+    "After step: 5 nodes remaining",
+    "\n--- Step 4: Project[atom(content =~ \"Piano Practice\")] ---",
+    "  Zero-score pruning: skipping 4 items (Work, Personal, Household, Health)",
+    "Scoring predicate: atom(content =~ \"Piano Practice\") (atomic values: ['Piano Practice'])",
+    "  Collected 6 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 6 total descriptions",
+    "  Node 0 (Skill Acquisition): score = 0.4230",
+    "  Node 1 (Language Proficiency: French): score = 0.4014",
+    "  Node 2 (Cybersecurity Awareness): score = 0.2494",
+    "  Node 3 (Culinary: Sushi Mastery): score = 0.4196",
+    "  Node 4 (Astrophotography Basics): score = 0.3098",
+    "  Node 5 (DIY Indoor Herb Garden): score = 0.3502",
+    "After step: 6 nodes remaining",
+    "\n=== Score Fusion ===",
+    "  Root > ToDoList_Version 1 > Learning > Skill Acquisition: product=0.4230 → score=0.4230",
+    "  Root > ToDoList_Version 1 > Learning > Language Proficiency: French: product=0.4014 → score=0.4014",
+    "  Root > ToDoList_Version 1 > Learning > Cybersecurity Awareness: product=0.2494 → score=0.2494",
+    "  Root > ToDoList_Version 1 > Learning > Culinary: Sushi Mastery: product=0.4196 → score=0.4196",
+    "  Root > ToDoList_Version 1 > Learning > Astrophotography Basics: product=0.3098 → score=0.3098",
+    "  Root > ToDoList_Version 1 > Learning > DIY Indoor Herb Garden: product=0.3502 → score=0.3502",
+    "  Parent propagation: Root > ToDoList_Version 1 > Learning > Skill Acquisition: own=0.4230 × parent=1.0000 → 0.4230",
+    "  Parent propagation: Root > ToDoList_Version 1 > Learning > Language Proficiency: French: own=0.4014 × parent=1.0000 → 0.4014",
+    "  Parent propagation: Root > ToDoList_Version 1 > Learning > Cybersecurity Awareness: own=0.2494 × parent=1.0000 → 0.2494",
+    "  Parent propagation: Root > ToDoList_Version 1 > Learning > Culinary: Sushi Mastery: own=0.4196 × parent=1.0000 → 0.4196",
+    "  Parent propagation: Root > ToDoList_Version 1 > Learning > Astrophotography Basics: own=0.3098 × parent=1.0000 → 0.3098",
+    "  Parent propagation: Root > ToDoList_Version 1 > Learning > DIY Indoor Herb Garden: own=0.3502 × parent=1.0000 → 0.3502",
+    "\n=== Parent Score Propagation: 6 nodes updated ===",
+    "\n=== Threshold Filtering (threshold=0.05) ===",
+    "  Filtered: 6 → 6 nodes",
+    "\n=== Final Filtering (top_k=5) ===",
+    "  After top_k: 6 → 5 nodes",
+    "\nFinal result: 5 nodes (sorted by score)",
+    "⏱️  Query execution time: 541.05ms"
+  ],
+  "traversal_steps": [
+    {
+      "step_index": 0,
+      "step_query": "Root",
+      "action": "root_match",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "type": "root"
+        }
+      ],
+      "nodes_after": [
+        {
+          "type": "Root",
+          "path": "Root"
+        }
+      ],
+      "details": {
+        "matched": true
+      }
+    },
+    {
+      "step_index": 1,
+      "step_query": "ToDoList_Version[1]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root",
+          "name": "Root",
+          "type": "Root",
+          "score": 1.0,
+          "node_id": 6129910784
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > ToDoList_Version 1",
+          "name": "ToDoList_Version 1",
+          "type": "ToDoList_Version",
+          "score": 1.0,
+          "node_id": 6129922864
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "ToDoList_Version",
+            "index": {
+              "start": 1,
+              "type": "single",
+              "span": {
+                "start": 22,
+                "end": 25
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 25
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 25
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 2,
+      "step_query": "Category[atom(content =~ \"Learning\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 5,
+      "nodes_before": [
+        {
+          "path": "Root > ToDoList_Version 1",
+          "name": "ToDoList_Version 1",
+          "type": "ToDoList_Version",
+          "score": 1.0,
+          "node_id": 6129922864
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > ToDoList_Version 1 > Work",
+          "name": "Work",
+          "type": "Category",
+          "score": 0.0,
+          "node_id": 6129920464
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Personal",
+          "name": "Personal",
+          "type": "Category",
+          "score": 0.0,
+          "node_id": 6129917904
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Household",
+          "name": "Household",
+          "type": "Category",
+          "score": 0.0,
+          "node_id": 6130145520
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Health",
+          "name": "Health",
+          "type": "Category",
+          "score": 0.0,
+          "node_id": 6129812960
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Learning",
+          "name": "Learning",
+          "type": "Category",
+          "score": 1.0,
+          "node_id": 13410070864
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Category",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "Learning",
+              "operator": "=~",
+              "span": {
+                "start": 35,
+                "end": 62
+              }
+            },
+            "predicate_str": "atom(content =~ \"Learning\")",
+            "span": {
+              "start": 26,
+              "end": 63
+            }
+          },
+          "span": {
+            "start": 26,
+            "end": 63
+          }
+        },
+        "found_count": 5,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"Learning\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "Learning",
+              "operator": "=~",
+              "span": {
+                "start": 35,
+                "end": 62
+              }
+            },
+            "config": {
+              "top_k": 5,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 6129920464,
+                "node_name": "Work",
+                "node_type": "Category",
+                "final_score": 0.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Work",
+                    "query_value": "Learning",
+                    "matched": false,
+                    "score": 0.0
+                  }
+                ]
+              },
+              {
+                "node_idx": 1,
+                "node_id": 6129917904,
+                "node_name": "Personal",
+                "node_type": "Category",
+                "final_score": 0.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Personal",
+                    "query_value": "Learning",
+                    "matched": false,
+                    "score": 0.0
+                  }
+                ]
+              },
+              {
+                "node_idx": 2,
+                "node_id": 6130145520,
+                "node_name": "Household",
+                "node_type": "Category",
+                "final_score": 0.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Household",
+                    "query_value": "Learning",
+                    "matched": false,
+                    "score": 0.0
+                  }
+                ]
+              },
+              {
+                "node_idx": 3,
+                "node_id": 6129812960,
+                "node_name": "Health",
+                "node_type": "Category",
+                "final_score": 0.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Health",
+                    "query_value": "Learning",
+                    "matched": false,
+                    "score": 0.0
+                  }
+                ]
+              },
+              {
+                "node_idx": 4,
+                "node_id": 13410070864,
+                "node_name": "Learning",
+                "node_type": "Category",
+                "final_score": 1.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Learning",
+                    "query_value": "Learning",
+                    "matched": true,
+                    "score": 1.0
+                  }
+                ]
+              }
+            ],
+            "batch_scoring": {
+              "exact_match": true,
+              "matched_attribute": "name",
+              "query_value": "Learning",
+              "matched_count": 1
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 4,
+                "score": 1.0,
+                "name": "Learning"
+              },
+              {
+                "idx": 0,
+                "score": 0.0,
+                "name": "Work"
+              },
+              {
+                "idx": 1,
+                "score": 0.0,
+                "name": "Personal"
+              },
+              {
+                "idx": 2,
+                "score": 0.0,
+                "name": "Household"
+              },
+              {
+                "idx": 3,
+                "score": 0.0,
+                "name": "Health"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "step_index": 3,
+      "step_query": "Project[atom(content =~ \"Piano Practice\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 5,
+      "nodes_after_count": 6,
+      "nodes_before": [
+        {
+          "path": "Root > ToDoList_Version 1 > Work",
+          "name": "Work",
+          "type": "Category",
+          "score": 0.0,
+          "node_id": 6129920464
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Personal",
+          "name": "Personal",
+          "type": "Category",
+          "score": 0.0,
+          "node_id": 6129917904
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Household",
+          "name": "Household",
+          "type": "Category",
+          "score": 0.0,
+          "node_id": 6130145520
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Health",
+          "name": "Health",
+          "type": "Category",
+          "score": 0.0,
+          "node_id": 6129812960
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Learning",
+          "name": "Learning",
+          "type": "Category",
+          "score": 1.0,
+          "node_id": 13410070864
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > ToDoList_Version 1 > Learning > Skill Acquisition",
+          "name": "Skill Acquisition",
+          "type": "Project",
+          "score": 0.42300355434417725,
+          "node_id": 13410072304
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Learning > Language Proficiency: French",
+          "name": "Language Proficiency: French",
+          "type": "Project",
+          "score": 0.401449978351593,
+          "node_id": 13410067504
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Learning > Cybersecurity Awareness",
+          "name": "Cybersecurity Awareness",
+          "type": "Project",
+          "score": 0.2494460493326187,
+          "node_id": 13410068544
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Learning > Culinary: Sushi Mastery",
+          "name": "Culinary: Sushi Mastery",
+          "type": "Project",
+          "score": 0.4196138083934784,
+          "node_id": 6308382896
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Learning > Astrophotography Basics",
+          "name": "Astrophotography Basics",
+          "type": "Project",
+          "score": 0.3098446726799011,
+          "node_id": 6308382096
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Learning > DIY Indoor Herb Garden",
+          "name": "DIY Indoor Herb Garden",
+          "type": "Project",
+          "score": 0.35024136304855347,
+          "node_id": 6308393136
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Project",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "Piano Practice",
+              "operator": "=~",
+              "span": {
+                "start": 72,
+                "end": 105
+              }
+            },
+            "predicate_str": "atom(content =~ \"Piano Practice\")",
+            "span": {
+              "start": 64,
+              "end": 106
+            }
+          },
+          "span": {
+            "start": 64,
+            "end": 106
+          }
+        },
+        "found_count": 6,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"Piano Practice\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "Piano Practice",
+              "operator": "=~",
+              "span": {
+                "start": 72,
+                "end": 105
+              }
+            },
+            "config": {
+              "top_k": 5,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 13410072304,
+                "node_name": "Skill Acquisition",
+                "node_type": "Project",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "Piano Practice",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 105
+                      }
+                    },
+                    "score": 0.42300355434417725,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.42300355434417725
+              },
+              {
+                "node_idx": 1,
+                "node_id": 13410067504,
+                "node_name": "Language Proficiency: French",
+                "node_type": "Project",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "Piano Practice",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 105
+                      }
+                    },
+                    "score": 0.401449978351593,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.401449978351593
+              },
+              {
+                "node_idx": 2,
+                "node_id": 13410068544,
+                "node_name": "Cybersecurity Awareness",
+                "node_type": "Project",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "Piano Practice",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 105
+                      }
+                    },
+                    "score": 0.2494460493326187,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.2494460493326187
+              },
+              {
+                "node_idx": 3,
+                "node_id": 6308382896,
+                "node_name": "Culinary: Sushi Mastery",
+                "node_type": "Project",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "Piano Practice",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 105
+                      }
+                    },
+                    "score": 0.4196138083934784,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.4196138083934784
+              },
+              {
+                "node_idx": 4,
+                "node_id": 6308382096,
+                "node_name": "Astrophotography Basics",
+                "node_type": "Project",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "Piano Practice",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 105
+                      }
+                    },
+                    "score": 0.3098446726799011,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.3098446726799011
+              },
+              {
+                "node_idx": 5,
+                "node_id": 6308393136,
+                "node_name": "DIY Indoor Herb Garden",
+                "node_type": "Project",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "Piano Practice",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 105
+                      }
+                    },
+                    "score": 0.35024136304855347,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.35024136304855347
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "Piano Practice"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "Piano Practice",
+                  "num_descriptions": 6,
+                  "call_time_ms": 539.82
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 6
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 0,
+                "score": 0.42300355434417725,
+                "name": "Skill Acquisition"
+              },
+              {
+                "idx": 3,
+                "score": 0.4196138083934784,
+                "name": "Culinary: Sushi Mastery"
+              },
+              {
+                "idx": 1,
+                "score": 0.401449978351593,
+                "name": "Language Proficiency: French"
+              },
+              {
+                "idx": 5,
+                "score": 0.35024136304855347,
+                "name": "DIY Indoor Herb Garden"
+              },
+              {
+                "idx": 4,
+                "score": 0.3098446726799011,
+                "name": "Astrophotography Basics"
+              },
+              {
+                "idx": 2,
+                "score": 0.2494460493326187,
+                "name": "Cybersecurity Awareness"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "scoring_traces": [
+    {
+      "predicate": "atom(content =~ \"Learning\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "Learning",
+        "operator": "=~",
+        "span": {
+          "start": 35,
+          "end": 62
+        }
+      },
+      "config": {
+        "top_k": 5,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 6129920464,
+          "node_name": "Work",
+          "node_type": "Category",
+          "final_score": 0.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Work",
+              "query_value": "Learning",
+              "matched": false,
+              "score": 0.0
+            }
+          ]
+        },
+        {
+          "node_idx": 1,
+          "node_id": 6129917904,
+          "node_name": "Personal",
+          "node_type": "Category",
+          "final_score": 0.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Personal",
+              "query_value": "Learning",
+              "matched": false,
+              "score": 0.0
+            }
+          ]
+        },
+        {
+          "node_idx": 2,
+          "node_id": 6130145520,
+          "node_name": "Household",
+          "node_type": "Category",
+          "final_score": 0.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Household",
+              "query_value": "Learning",
+              "matched": false,
+              "score": 0.0
+            }
+          ]
+        },
+        {
+          "node_idx": 3,
+          "node_id": 6129812960,
+          "node_name": "Health",
+          "node_type": "Category",
+          "final_score": 0.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Health",
+              "query_value": "Learning",
+              "matched": false,
+              "score": 0.0
+            }
+          ]
+        },
+        {
+          "node_idx": 4,
+          "node_id": 13410070864,
+          "node_name": "Learning",
+          "node_type": "Category",
+          "final_score": 1.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Learning",
+              "query_value": "Learning",
+              "matched": true,
+              "score": 1.0
+            }
+          ]
+        }
+      ],
+      "batch_scoring": {
+        "exact_match": true,
+        "matched_attribute": "name",
+        "query_value": "Learning",
+        "matched_count": 1
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 4,
+          "score": 1.0,
+          "name": "Learning"
+        },
+        {
+          "idx": 0,
+          "score": 0.0,
+          "name": "Work"
+        },
+        {
+          "idx": 1,
+          "score": 0.0,
+          "name": "Personal"
+        },
+        {
+          "idx": 2,
+          "score": 0.0,
+          "name": "Household"
+        },
+        {
+          "idx": 3,
+          "score": 0.0,
+          "name": "Health"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"Piano Practice\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "Piano Practice",
+        "operator": "=~",
+        "span": {
+          "start": 72,
+          "end": 105
+        }
+      },
+      "config": {
+        "top_k": 5,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 13410072304,
+          "node_name": "Skill Acquisition",
+          "node_type": "Project",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "Piano Practice",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 105
+                }
+              },
+              "score": 0.42300355434417725,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.42300355434417725
+        },
+        {
+          "node_idx": 1,
+          "node_id": 13410067504,
+          "node_name": "Language Proficiency: French",
+          "node_type": "Project",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "Piano Practice",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 105
+                }
+              },
+              "score": 0.401449978351593,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.401449978351593
+        },
+        {
+          "node_idx": 2,
+          "node_id": 13410068544,
+          "node_name": "Cybersecurity Awareness",
+          "node_type": "Project",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "Piano Practice",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 105
+                }
+              },
+              "score": 0.2494460493326187,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.2494460493326187
+        },
+        {
+          "node_idx": 3,
+          "node_id": 6308382896,
+          "node_name": "Culinary: Sushi Mastery",
+          "node_type": "Project",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "Piano Practice",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 105
+                }
+              },
+              "score": 0.4196138083934784,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.4196138083934784
+        },
+        {
+          "node_idx": 4,
+          "node_id": 6308382096,
+          "node_name": "Astrophotography Basics",
+          "node_type": "Project",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "Piano Practice",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 105
+                }
+              },
+              "score": 0.3098446726799011,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.3098446726799011
+        },
+        {
+          "node_idx": 5,
+          "node_id": 6308393136,
+          "node_name": "DIY Indoor Herb Garden",
+          "node_type": "Project",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "Piano Practice",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 105
+                }
+              },
+              "score": 0.35024136304855347,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.35024136304855347
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "Piano Practice"
+        ],
+        "per_value_stats": [
+          {
+            "value": "Piano Practice",
+            "num_descriptions": 6,
+            "call_time_ms": 539.82
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 6
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 0,
+          "score": 0.42300355434417725,
+          "name": "Skill Acquisition"
+        },
+        {
+          "idx": 3,
+          "score": 0.4196138083934784,
+          "name": "Culinary: Sushi Mastery"
+        },
+        {
+          "idx": 1,
+          "score": 0.401449978351593,
+          "name": "Language Proficiency: French"
+        },
+        {
+          "idx": 5,
+          "score": 0.35024136304855347,
+          "name": "DIY Indoor Herb Garden"
+        },
+        {
+          "idx": 4,
+          "score": 0.3098446726799011,
+          "name": "Astrophotography Basics"
+        },
+        {
+          "idx": 2,
+          "score": 0.2494460493326187,
+          "name": "Cybersecurity Awareness"
+        }
+      ]
+    }
+  ],
+  "scoring_details": {
+    "step_scores": [
+      {
+        "step_index": 0,
+        "predicate": "atom(content =~ \"Learning\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "Learning",
+          "operator": "=~",
+          "span": {
+            "start": 35,
+            "end": 62
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 6129920464,
+            "node_name": "Work",
+            "node_type": "Category",
+            "final_score": 0.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Work",
+                "query_value": "Learning",
+                "matched": false,
+                "score": 0.0
+              }
+            ]
+          },
+          {
+            "node_idx": 1,
+            "node_id": 6129917904,
+            "node_name": "Personal",
+            "node_type": "Category",
+            "final_score": 0.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Personal",
+                "query_value": "Learning",
+                "matched": false,
+                "score": 0.0
+              }
+            ]
+          },
+          {
+            "node_idx": 2,
+            "node_id": 6130145520,
+            "node_name": "Household",
+            "node_type": "Category",
+            "final_score": 0.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Household",
+                "query_value": "Learning",
+                "matched": false,
+                "score": 0.0
+              }
+            ]
+          },
+          {
+            "node_idx": 3,
+            "node_id": 6129812960,
+            "node_name": "Health",
+            "node_type": "Category",
+            "final_score": 0.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Health",
+                "query_value": "Learning",
+                "matched": false,
+                "score": 0.0
+              }
+            ]
+          },
+          {
+            "node_idx": 4,
+            "node_id": 13410070864,
+            "node_name": "Learning",
+            "node_type": "Category",
+            "final_score": 1.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Learning",
+                "query_value": "Learning",
+                "matched": true,
+                "score": 1.0
+              }
+            ]
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 4,
+            "score": 1.0,
+            "name": "Learning"
+          },
+          {
+            "idx": 0,
+            "score": 0.0,
+            "name": "Work"
+          },
+          {
+            "idx": 1,
+            "score": 0.0,
+            "name": "Personal"
+          },
+          {
+            "idx": 2,
+            "score": 0.0,
+            "name": "Household"
+          },
+          {
+            "idx": 3,
+            "score": 0.0,
+            "name": "Health"
+          }
+        ]
+      },
+      {
+        "step_index": 1,
+        "predicate": "atom(content =~ \"Piano Practice\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "Piano Practice",
+          "operator": "=~",
+          "span": {
+            "start": 72,
+            "end": 105
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 13410072304,
+            "node_name": "Skill Acquisition",
+            "node_type": "Project",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "Piano Practice",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 105
+                  }
+                },
+                "score": 0.42300355434417725,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.42300355434417725
+          },
+          {
+            "node_idx": 1,
+            "node_id": 13410067504,
+            "node_name": "Language Proficiency: French",
+            "node_type": "Project",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "Piano Practice",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 105
+                  }
+                },
+                "score": 0.401449978351593,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.401449978351593
+          },
+          {
+            "node_idx": 2,
+            "node_id": 13410068544,
+            "node_name": "Cybersecurity Awareness",
+            "node_type": "Project",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "Piano Practice",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 105
+                  }
+                },
+                "score": 0.2494460493326187,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.2494460493326187
+          },
+          {
+            "node_idx": 3,
+            "node_id": 6308382896,
+            "node_name": "Culinary: Sushi Mastery",
+            "node_type": "Project",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "Piano Practice",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 105
+                  }
+                },
+                "score": 0.4196138083934784,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.4196138083934784
+          },
+          {
+            "node_idx": 4,
+            "node_id": 6308382096,
+            "node_name": "Astrophotography Basics",
+            "node_type": "Project",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "Piano Practice",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 105
+                  }
+                },
+                "score": 0.3098446726799011,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.3098446726799011
+          },
+          {
+            "node_idx": 5,
+            "node_id": 6308393136,
+            "node_name": "DIY Indoor Herb Garden",
+            "node_type": "Project",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "Piano Practice",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 105
+                  }
+                },
+                "score": 0.35024136304855347,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.35024136304855347
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 0,
+            "score": 0.42300355434417725,
+            "name": "Skill Acquisition"
+          },
+          {
+            "idx": 3,
+            "score": 0.4196138083934784,
+            "name": "Culinary: Sushi Mastery"
+          },
+          {
+            "idx": 1,
+            "score": 0.401449978351593,
+            "name": "Language Proficiency: French"
+          },
+          {
+            "idx": 5,
+            "score": 0.35024136304855347,
+            "name": "DIY Indoor Herb Garden"
+          },
+          {
+            "idx": 4,
+            "score": 0.3098446726799011,
+            "name": "Astrophotography Basics"
+          },
+          {
+            "idx": 2,
+            "score": 0.2494460493326187,
+            "name": "Cybersecurity Awareness"
+          }
+        ]
+      }
+    ],
+    "score_fusion": {
+      "per_node": [
+        {
+          "node_path": "Root > ToDoList_Version 1 > Learning > Skill Acquisition",
+          "node_type": "Project",
+          "step_contributions": [
+            {
+              "step_index": 3,
+              "predicate": "Project[atom(content =~ \"Piano Practice\")]",
+              "score": 0.42300355434417725
+            }
+          ],
+          "accumulated_product": 0.42300355434417725,
+          "final_score": 0.4230035539211737
+        },
+        {
+          "node_path": "Root > ToDoList_Version 1 > Learning > Language Proficiency: French",
+          "node_type": "Project",
+          "step_contributions": [
+            {
+              "step_index": 3,
+              "predicate": "Project[atom(content =~ \"Piano Practice\")]",
+              "score": 0.401449978351593
+            }
+          ],
+          "accumulated_product": 0.401449978351593,
+          "final_score": 0.40144997795014303
+        },
+        {
+          "node_path": "Root > ToDoList_Version 1 > Learning > Cybersecurity Awareness",
+          "node_type": "Project",
+          "step_contributions": [
+            {
+              "step_index": 3,
+              "predicate": "Project[atom(content =~ \"Piano Practice\")]",
+              "score": 0.2494460493326187
+            }
+          ],
+          "accumulated_product": 0.2494460493326187,
+          "final_score": 0.24944604908317267
+        },
+        {
+          "node_path": "Root > ToDoList_Version 1 > Learning > Culinary: Sushi Mastery",
+          "node_type": "Project",
+          "step_contributions": [
+            {
+              "step_index": 3,
+              "predicate": "Project[atom(content =~ \"Piano Practice\")]",
+              "score": 0.4196138083934784
+            }
+          ],
+          "accumulated_product": 0.4196138083934784,
+          "final_score": 0.4196138079738646
+        },
+        {
+          "node_path": "Root > ToDoList_Version 1 > Learning > Astrophotography Basics",
+          "node_type": "Project",
+          "step_contributions": [
+            {
+              "step_index": 3,
+              "predicate": "Project[atom(content =~ \"Piano Practice\")]",
+              "score": 0.3098446726799011
+            }
+          ],
+          "accumulated_product": 0.3098446726799011,
+          "final_score": 0.3098446723700565
+        },
+        {
+          "node_path": "Root > ToDoList_Version 1 > Learning > DIY Indoor Herb Garden",
+          "node_type": "Project",
+          "step_contributions": [
+            {
+              "step_index": 3,
+              "predicate": "Project[atom(content =~ \"Piano Practice\")]",
+              "score": 0.35024136304855347
+            }
+          ],
+          "accumulated_product": 0.35024136304855347,
+          "final_score": 0.35024136269831213
+        }
+      ]
+    }
+  },
+  "final_filtering": {
+    "before_filter_count": 6,
+    "threshold": 0.05,
+    "top_k": 5,
+    "after_filter_count": 5,
+    "filtered_nodes": [
+      {
+        "path": "Root > ToDoList_Version 1 > Learning > Skill Acquisition",
+        "score": 0.4230035539211737,
+        "type": "Project",
+        "own_score": 0.42300355434417725,
+        "parent_score": 0.999999999
+      },
+      {
+        "path": "Root > ToDoList_Version 1 > Learning > Culinary: Sushi Mastery",
+        "score": 0.4196138079738646,
+        "type": "Project",
+        "own_score": 0.4196138083934784,
+        "parent_score": 0.999999999
+      },
+      {
+        "path": "Root > ToDoList_Version 1 > Learning > Language Proficiency: French",
+        "score": 0.40144997795014303,
+        "type": "Project",
+        "own_score": 0.401449978351593,
+        "parent_score": 0.999999999
+      },
+      {
+        "path": "Root > ToDoList_Version 1 > Learning > DIY Indoor Herb Garden",
+        "score": 0.35024136269831213,
+        "type": "Project",
+        "own_score": 0.35024136304855347,
+        "parent_score": 0.999999999
+      },
+      {
+        "path": "Root > ToDoList_Version 1 > Learning > Astrophotography Basics",
+        "score": 0.3098446723700565,
+        "type": "Project",
+        "own_score": 0.3098446726799011,
+        "parent_score": 0.999999999
+      }
+    ]
+  },
+  "matched_nodes": [
+    {
+      "tree_path": "Root > ToDoList_Version 1 > Learning > Skill Acquisition",
+      "score": 0.4230035539211737,
+      "node": {
+        "type": "Project",
+        "attributes": {},
+        "name": "Skill Acquisition",
+        "status": "Active",
+        "priority": "Low"
+      },
+      "children": [
+        {
+          "type": "Task",
+          "attributes": {},
+          "description": "Learn Rust programming basics",
+          "status": "In Progress",
+          "priority": "Low",
+          "due_date": "2026-04-01"
+        },
+        {
+          "type": "Task",
+          "attributes": {},
+          "description": "Read 'Attention is All You Need' paper again",
+          "status": "Todo",
+          "priority": "Medium",
+          "due_date": "2026-02-20"
+        }
+      ],
+      "context_trace": [
+        {
+          "node_name": "Learning",
+          "predicate": "atom(content =~ \"Learning\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Learning\") on Learning (Score: 1.00)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > ToDoList_Version 1 > Learning > Culinary: Sushi Mastery",
+      "score": 0.4196138079738646,
+      "node": {
+        "type": "Project",
+        "attributes": {},
+        "name": "Culinary: Sushi Mastery",
+        "status": "Active",
+        "priority": "Low"
+      },
+      "children": [
+        {
+          "type": "Task",
+          "attributes": {},
+          "description": "Practice sushi rice seasoning (vinegar/sugar ratio)",
+          "status": "Todo",
+          "priority": "Medium",
+          "due_date": "2026-02-21"
+        },
+        {
+          "type": "Task",
+          "attributes": {},
+          "description": "Source sushi-grade fish in Toronto (St. Lawrence Market)",
+          "status": "Todo",
+          "priority": "Low",
+          "due_date": "2026-02-20"
+        },
+        {
+          "type": "Task",
+          "attributes": {},
+          "description": "Watch tutorial on Nigiri shaping techniques",
+          "status": "Done",
+          "priority": "Low",
+          "due_date": "2026-02-15"
+        }
+      ],
+      "context_trace": [
+        {
+          "node_name": "Learning",
+          "predicate": "atom(content =~ \"Learning\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Learning\") on Learning (Score: 1.00)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > ToDoList_Version 1 > Learning > Language Proficiency: French",
+      "score": 0.40144997795014303,
+      "node": {
+        "type": "Project",
+        "attributes": {},
+        "name": "Language Proficiency: French",
+        "status": "Active",
+        "priority": "Medium"
+      },
+      "children": [
+        {
+          "type": "Task",
+          "attributes": {},
+          "description": "Complete Duolingo daily streak",
+          "status": "Todo",
+          "priority": "Medium",
+          "due_date": "Daily"
+        },
+        {
+          "type": "Task",
+          "attributes": {},
+          "description": "Practice 15 minutes of conversational French (Pimsleur)",
+          "status": "In Progress",
+          "priority": "Low",
+          "due_date": "Daily"
+        },
+        {
+          "type": "Task",
+          "attributes": {},
+          "description": "Read one news article on Le Monde",
+          "status": "Todo",
+          "priority": "Low",
+          "due_date": "2026-02-25"
+        }
+      ],
+      "context_trace": [
+        {
+          "node_name": "Learning",
+          "predicate": "atom(content =~ \"Learning\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Learning\") on Learning (Score: 1.00)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > ToDoList_Version 1 > Learning > DIY Indoor Herb Garden",
+      "score": 0.35024136269831213,
+      "node": {
+        "type": "Project",
+        "attributes": {},
+        "name": "DIY Indoor Herb Garden",
+        "status": "Active",
+        "priority": "Low"
+      },
+      "children": [
+        {
+          "type": "Task",
+          "attributes": {},
+          "description": "Buy seeds for Basil, Mint, and Rosemary",
+          "status": "Todo",
+          "priority": "Medium",
+          "due_date": "2026-02-28"
+        },
+        {
+          "type": "Task",
+          "attributes": {},
+          "description": "Assemble self-watering planter boxes",
+          "status": "In Progress",
+          "priority": "Medium",
+          "due_date": "2026-03-05"
+        },
+        {
+          "type": "Task",
+          "attributes": {},
+          "description": "Identify window with the best south-facing sunlight",
+          "status": "Done",
+          "priority": "High",
+          "due_date": "2026-02-12"
+        }
+      ],
+      "context_trace": [
+        {
+          "node_name": "Learning",
+          "predicate": "atom(content =~ \"Learning\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Learning\") on Learning (Score: 1.00)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > ToDoList_Version 1 > Learning > Astrophotography Basics",
+      "score": 0.3098446723700565,
+      "node": {
+        "type": "Project",
+        "attributes": {},
+        "name": "Astrophotography Basics",
+        "status": "Active",
+        "priority": "Medium"
+      },
+      "children": [
+        {
+          "type": "Task",
+          "attributes": {},
+          "description": "Research best local spots for low light pollution",
+          "status": "Todo",
+          "priority": "Medium",
+          "due_date": "2026-03-05"
+        },
+        {
+          "type": "Task",
+          "attributes": {},
+          "description": "Watch tutorial on 'Long Exposure' settings for night sky",
+          "status": "In Progress",
+          "priority": "Low",
+          "due_date": "2026-02-25"
+        },
+        {
+          "type": "Task",
+          "attributes": {},
+          "description": "Purchase a sturdy entry-level tripod",
+          "status": "Todo",
+          "priority": "High",
+          "due_date": "2026-03-01"
+        }
+      ],
+      "context_trace": [
+        {
+          "node_name": "Learning",
+          "predicate": "atom(content =~ \"Learning\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Learning\") on Learning (Score: 1.00)"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total_steps": 4,
+    "total_scoring_calls": 2,
+    "matched_count": 5,
+    "execution_time_ms": 541.0494580864906,
+    "has_score_fusion": true,
+    "num_nodes_before_filter": 6,
+    "num_nodes_after_filter": 5
+  }
+}

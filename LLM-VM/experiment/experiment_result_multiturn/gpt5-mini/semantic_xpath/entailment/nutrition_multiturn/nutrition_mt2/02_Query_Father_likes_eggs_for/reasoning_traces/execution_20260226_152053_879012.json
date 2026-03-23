@@ -1,0 +1,3802 @@
+{
+  "timestamp": "20260226_152053_879012",
+  "query": "/Root/MealPlan_Version[2]/Person[atom(content =~ \"Father\")]/Day[agg_exists(Dinner/Meal[atom(content =~ \"smoky base pork\")])]/Breakfast",
+  "canonical_query": "/Root/MealPlan_Version[2]/Person[content =~ \"Father\"]/Day[max(Meal[content =~ \"smoky base pork\"])]/Breakfast",
+  "data_file": "tree.xml",
+  "execution_time_ms": 1850.0288748182356,
+  "parsed_ast": {
+    "steps": [
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Root",
+            "span": {
+              "start": 1,
+              "end": 5
+            }
+          },
+          "span": {
+            "start": 1,
+            "end": 5
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "MealPlan_Version",
+            "index": {
+              "start": 2,
+              "type": "single",
+              "span": {
+                "start": 22,
+                "end": 25
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 25
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 25
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Person",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "Father",
+              "operator": "=~",
+              "span": {
+                "start": 33,
+                "end": 58
+              }
+            },
+            "predicate_str": "atom(content =~ \"Father\")",
+            "span": {
+              "start": 26,
+              "end": 59
+            }
+          },
+          "span": {
+            "start": 26,
+            "end": 59
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Day",
+            "predicate": {
+              "operator": "AGG_EXISTS",
+              "selector": {
+                "axis": "none",
+                "test": {
+                  "type": "leaf",
+                  "test": {
+                    "type": "node_test",
+                    "kind": "type",
+                    "name": "Meal",
+                    "span": {
+                      "start": 82,
+                      "end": 122
+                    }
+                  },
+                  "span": {
+                    "start": 82,
+                    "end": 122
+                  }
+                },
+                "path_prefix": [
+                  "Dinner"
+                ],
+                "span": {
+                  "start": 75,
+                  "end": 122
+                }
+              },
+              "child_predicate": {
+                "type": "atom",
+                "field": "content",
+                "value": "smoky base pork",
+                "operator": "=~",
+                "span": {
+                  "start": 87,
+                  "end": 121
+                }
+              },
+              "child_type": "Meal",
+              "span": {
+                "start": 64,
+                "end": 123
+              }
+            },
+            "predicate_str": "agg_exists(Meal[atom(content =~ \"smoky base pork\")])",
+            "span": {
+              "start": 60,
+              "end": 124
+            }
+          },
+          "span": {
+            "start": 60,
+            "end": 124
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Breakfast",
+            "span": {
+              "start": 125,
+              "end": 134
+            }
+          },
+          "span": {
+            "start": 125,
+            "end": 134
+          }
+        }
+      }
+    ],
+    "global_index": null
+  },
+  "parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: MealPlan_Version[2]\n├── Step 2: Person[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"Father\")\n├── Step 3: Day[predicate]\n    │   predicate:\n        │   └── AGG_EXISTS(Meal)\n            │   └── ATOM(content =~ \"smoky base pork\")\n└── Step 4: Breakfast",
+  "canonical_parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: MealPlan_Version[2]\n├── Step 2: Person[content =~ \"Father\"]\n├── Step 3: Day[max(Meal[content =~ \"smoky base pork\"])]\n└── Step 4: Breakfast",
+  "execution_log": [
+    "[20260226_152053_879012] Executing query: /Root/MealPlan_Version[2]/Person[atom(content =~ \"Father\")]/Day[agg_exists(Dinner/Meal[atom(content =~ \"smoky base pork\")])]/Breakfast",
+    "Data file: tree.xml",
+    "Parsed steps: [Root, MealPlan_Version[2], Person[atom(content =~ \"Father\")], Day[agg_exists(Meal[atom(content =~ \"smoky base pork\")])], Breakfast]",
+    "",
+    "Query AST:\n├── Step 0: Root\n├── Step 1: MealPlan_Version[2]\n├── Step 2: Person[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"Father\")\n├── Step 3: Day[predicate]\n    │   predicate:\n        │   └── AGG_EXISTS(Meal)\n            │   └── ATOM(content =~ \"smoky base pork\")\n└── Step 4: Breakfast",
+    "\n--- Step 1: Root ---",
+    "Matched Root root",
+    "\n--- Step 2: MealPlan_Version[2] ---",
+    "Selected node at index 2 (0-based: 1)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 3: Person[atom(content =~ \"Father\")] ---",
+    "Scoring predicate: atom(content =~ \"Father\") (atomic values: ['Father'])",
+    "  Node 0 (Father): score = 1.0000 (exact match)",
+    "  Node 1 (Mother): score = 0.0000 (exact match)",
+    "  Node 2 (Child): score = 0.0000 (exact match)",
+    "  Exact attribute match on @name: 1/3 nodes matched",
+    "After step: 3 nodes remaining",
+    "\n--- Step 4: Day[agg_exists(Meal[atom(content =~ \"smoky base pork\")])] ---",
+    "  Zero-score pruning: skipping 2 items (Mother, Child)",
+    "Scoring predicate: agg_exists(Meal[atom(content =~ \"smoky base pork\")]) (atomic values: ['smoky base pork'])",
+    "  Collected 21 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 21 total descriptions",
+    "  Node 0 (Day 1): score = 0.0030",
+    "  Node 1 (Day 2): score = 0.9928",
+    "  Node 2 (Day 3): score = 0.1196",
+    "  Node 3 (Day 4): score = 0.0017",
+    "  Node 4 (Day 5): score = 0.0030",
+    "  Node 5 (Day 6): score = 0.8430",
+    "  Node 6 (Day 7): score = 0.0332",
+    "After step: 7 nodes remaining",
+    "\n--- Step 5: Breakfast ---",
+    "After step: 7 nodes remaining",
+    "\n=== Score Fusion ===",
+    "  Root > MealPlan_Version 2 > Father > Day 1 > Breakfast: product=1.0000 → score=1.0000",
+    "  Root > MealPlan_Version 2 > Father > Day 2 > Breakfast: product=1.0000 → score=1.0000",
+    "  Root > MealPlan_Version 2 > Father > Day 3 > Breakfast: product=1.0000 → score=1.0000",
+    "  Root > MealPlan_Version 2 > Father > Day 4 > Breakfast: product=1.0000 → score=1.0000",
+    "  Root > MealPlan_Version 2 > Father > Day 5 > Breakfast: product=1.0000 → score=1.0000",
+    "  Root > MealPlan_Version 2 > Father > Day 6 > Breakfast: product=1.0000 → score=1.0000",
+    "  Root > MealPlan_Version 2 > Father > Day 7 > Breakfast: product=1.0000 → score=1.0000",
+    "  Parent propagation: Root > MealPlan_Version 2 > Father > Day 1 > Breakfast: own=1.0000 × parent=0.0030 → 0.0030",
+    "  Parent propagation: Root > MealPlan_Version 2 > Father > Day 2 > Breakfast: own=1.0000 × parent=0.9928 → 0.9928",
+    "  Parent propagation: Root > MealPlan_Version 2 > Father > Day 3 > Breakfast: own=1.0000 × parent=0.1196 → 0.1196",
+    "  Parent propagation: Root > MealPlan_Version 2 > Father > Day 4 > Breakfast: own=1.0000 × parent=0.0017 → 0.0017",
+    "  Parent propagation: Root > MealPlan_Version 2 > Father > Day 5 > Breakfast: own=1.0000 × parent=0.0030 → 0.0030",
+    "  Parent propagation: Root > MealPlan_Version 2 > Father > Day 6 > Breakfast: own=1.0000 × parent=0.8430 → 0.8430",
+    "  Parent propagation: Root > MealPlan_Version 2 > Father > Day 7 > Breakfast: own=1.0000 × parent=0.0332 → 0.0332",
+    "\n=== Parent Score Propagation: 7 nodes updated ===",
+    "\n=== Threshold Filtering (threshold=0.05) ===",
+    "  Filtered: 7 → 3 nodes",
+    "\n=== Final Filtering (top_k=5) ===",
+    "  After top_k: 3 → 3 nodes",
+    "\nFinal result: 3 nodes (sorted by score)",
+    "⏱️  Query execution time: 1850.03ms"
+  ],
+  "traversal_steps": [
+    {
+      "step_index": 0,
+      "step_query": "Root",
+      "action": "root_match",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "type": "root"
+        }
+      ],
+      "nodes_after": [
+        {
+          "type": "Root",
+          "path": "Root"
+        }
+      ],
+      "details": {
+        "matched": true
+      }
+    },
+    {
+      "step_index": 1,
+      "step_query": "MealPlan_Version[2]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root",
+          "name": "Root",
+          "type": "Root",
+          "score": 1.0,
+          "node_id": 13459831552
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > MealPlan_Version 2",
+          "name": "MealPlan_Version 2",
+          "type": "MealPlan_Version",
+          "score": 1.0,
+          "node_id": 13374225472
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "MealPlan_Version",
+            "index": {
+              "start": 2,
+              "type": "single",
+              "span": {
+                "start": 22,
+                "end": 25
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 25
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 25
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 2,
+      "step_query": "Person[atom(content =~ \"Father\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 3,
+      "nodes_before": [
+        {
+          "path": "Root > MealPlan_Version 2",
+          "name": "MealPlan_Version 2",
+          "type": "MealPlan_Version",
+          "score": 1.0,
+          "node_id": 13374225472
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > MealPlan_Version 2 > Father",
+          "name": "Father",
+          "type": "Person",
+          "score": 1.0,
+          "node_id": 6161327712
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Mother",
+          "name": "Mother",
+          "type": "Person",
+          "score": 0.0,
+          "node_id": 6161002512
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Child",
+          "name": "Child",
+          "type": "Person",
+          "score": 0.0,
+          "node_id": 13459911792
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Person",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "Father",
+              "operator": "=~",
+              "span": {
+                "start": 33,
+                "end": 58
+              }
+            },
+            "predicate_str": "atom(content =~ \"Father\")",
+            "span": {
+              "start": 26,
+              "end": 59
+            }
+          },
+          "span": {
+            "start": 26,
+            "end": 59
+          }
+        },
+        "found_count": 3,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"Father\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "Father",
+              "operator": "=~",
+              "span": {
+                "start": 33,
+                "end": 58
+              }
+            },
+            "config": {
+              "top_k": 5,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 6161327712,
+                "node_name": "Father",
+                "node_type": "Person",
+                "final_score": 1.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Father",
+                    "query_value": "Father",
+                    "matched": true,
+                    "score": 1.0
+                  }
+                ]
+              },
+              {
+                "node_idx": 1,
+                "node_id": 6161002512,
+                "node_name": "Mother",
+                "node_type": "Person",
+                "final_score": 0.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Mother",
+                    "query_value": "Father",
+                    "matched": false,
+                    "score": 0.0
+                  }
+                ]
+              },
+              {
+                "node_idx": 2,
+                "node_id": 13459911792,
+                "node_name": "Child",
+                "node_type": "Person",
+                "final_score": 0.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Child",
+                    "query_value": "Father",
+                    "matched": false,
+                    "score": 0.0
+                  }
+                ]
+              }
+            ],
+            "batch_scoring": {
+              "exact_match": true,
+              "matched_attribute": "name",
+              "query_value": "Father",
+              "matched_count": 1
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 0,
+                "score": 1.0,
+                "name": "Father"
+              },
+              {
+                "idx": 1,
+                "score": 0.0,
+                "name": "Mother"
+              },
+              {
+                "idx": 2,
+                "score": 0.0,
+                "name": "Child"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "step_index": 3,
+      "step_query": "Day[agg_exists(Meal[atom(content =~ \"smoky base pork\")])]",
+      "action": "node_test_expr",
+      "nodes_before_count": 3,
+      "nodes_after_count": 7,
+      "nodes_before": [
+        {
+          "path": "Root > MealPlan_Version 2 > Father",
+          "name": "Father",
+          "type": "Person",
+          "score": 1.0,
+          "node_id": 6161327712
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Mother",
+          "name": "Mother",
+          "type": "Person",
+          "score": 0.0,
+          "node_id": 6161002512
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Child",
+          "name": "Child",
+          "type": "Person",
+          "score": 0.0,
+          "node_id": 13459911792
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > MealPlan_Version 2 > Father > Day 1",
+          "name": "Day 1",
+          "type": "Day",
+          "score": 0.0030012750066816807,
+          "node_id": 6161327392
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Father > Day 2",
+          "name": "Day 2",
+          "type": "Day",
+          "score": 0.9927806258201599,
+          "node_id": 6160831712
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Father > Day 3",
+          "name": "Day 3",
+          "type": "Day",
+          "score": 0.11962010711431503,
+          "node_id": 6160839712
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Father > Day 4",
+          "name": "Day 4",
+          "type": "Day",
+          "score": 0.0017300029285252094,
+          "node_id": 6160732608
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Father > Day 5",
+          "name": "Day 5",
+          "type": "Day",
+          "score": 0.0030350591987371445,
+          "node_id": 6160741088
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Father > Day 6",
+          "name": "Day 6",
+          "type": "Day",
+          "score": 0.8429549336433411,
+          "node_id": 6160503152
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Father > Day 7",
+          "name": "Day 7",
+          "type": "Day",
+          "score": 0.033196497708559036,
+          "node_id": 6160511232
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Day",
+            "predicate": {
+              "operator": "AGG_EXISTS",
+              "selector": {
+                "axis": "none",
+                "test": {
+                  "type": "leaf",
+                  "test": {
+                    "type": "node_test",
+                    "kind": "type",
+                    "name": "Meal",
+                    "span": {
+                      "start": 82,
+                      "end": 122
+                    }
+                  },
+                  "span": {
+                    "start": 82,
+                    "end": 122
+                  }
+                },
+                "path_prefix": [
+                  "Dinner"
+                ],
+                "span": {
+                  "start": 75,
+                  "end": 122
+                }
+              },
+              "child_predicate": {
+                "type": "atom",
+                "field": "content",
+                "value": "smoky base pork",
+                "operator": "=~",
+                "span": {
+                  "start": 87,
+                  "end": 121
+                }
+              },
+              "child_type": "Meal",
+              "span": {
+                "start": 64,
+                "end": 123
+              }
+            },
+            "predicate_str": "agg_exists(Meal[atom(content =~ \"smoky base pork\")])",
+            "span": {
+              "start": 60,
+              "end": 124
+            }
+          },
+          "span": {
+            "start": 60,
+            "end": 124
+          }
+        },
+        "found_count": 7,
+        "scoring_trace": [
+          {
+            "predicate": "agg_exists(Meal[atom(content =~ \"smoky base pork\")])",
+            "predicate_ast": {
+              "operator": "AGG_EXISTS",
+              "selector": {
+                "axis": "none",
+                "test": {
+                  "type": "leaf",
+                  "test": {
+                    "type": "node_test",
+                    "kind": "type",
+                    "name": "Meal",
+                    "span": {
+                      "start": 82,
+                      "end": 122
+                    }
+                  },
+                  "span": {
+                    "start": 82,
+                    "end": 122
+                  }
+                },
+                "path_prefix": [
+                  "Dinner"
+                ],
+                "span": {
+                  "start": 75,
+                  "end": 122
+                }
+              },
+              "child_predicate": {
+                "type": "atom",
+                "field": "content",
+                "value": "smoky base pork",
+                "operator": "=~",
+                "span": {
+                  "start": 87,
+                  "end": 121
+                }
+              },
+              "child_type": "Meal",
+              "span": {
+                "start": 64,
+                "end": 123
+              }
+            },
+            "config": {
+              "top_k": 5,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 6161327392,
+                "node_name": "Day 1",
+                "node_type": "Day",
+                "scoring_steps": [
+                  {
+                    "type": "agg_exists_recursive",
+                    "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+                    "selector": {
+                      "axis": "none",
+                      "test": {
+                        "type": "leaf",
+                        "test": {
+                          "type": "node_test",
+                          "kind": "type",
+                          "name": "Meal",
+                          "span": {
+                            "start": 82,
+                            "end": 122
+                          }
+                        },
+                        "span": {
+                          "start": 82,
+                          "end": 122
+                        }
+                      },
+                      "path_prefix": [
+                        "Dinner"
+                      ],
+                      "span": {
+                        "start": 75,
+                        "end": 122
+                      }
+                    },
+                    "num_children": 3,
+                    "child_results": [
+                      {
+                        "score": 0.0026953492779284716,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.0030012750066816807,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.0012182674836367369,
+                        "subtree_size": 1
+                      }
+                    ],
+                    "child_contributions": [
+                      {
+                        "childName": "Herb-Crusted Baked Sea Bass with Roasted Vegetables",
+                        "childPath": "Herb-Crusted Baked Sea Bass with Roasted Vegetables",
+                        "childType": "Meal",
+                        "rawScore": 0.0026953492779284716,
+                        "weight": 1.0,
+                        "weightedContribution": 0.0026953492779284716,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      },
+                      {
+                        "childName": "Lamb Kofta with Tabbouleh & Hummus",
+                        "childPath": "Lamb Kofta with Tabbouleh & Hummus",
+                        "childType": "Meal",
+                        "rawScore": 0.0030012750066816807,
+                        "weight": 1.0,
+                        "weightedContribution": 0.0030012750066816807,
+                        "subtreeSize": 1,
+                        "isBestMatch": true
+                      },
+                      {
+                        "childName": "One-Pot Greek Chicken & Orzo",
+                        "childPath": "One-Pot Greek Chicken & Orzo",
+                        "childType": "Meal",
+                        "rawScore": 0.0012182674836367369,
+                        "weight": 1.0,
+                        "weightedContribution": 0.0012182674836367369,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      }
+                    ],
+                    "best_match_details": {
+                      "type": "node_match",
+                      "node_name": "Lamb Kofta with Tabbouleh & Hummus",
+                      "node_type": "Meal",
+                      "node_path": "Lamb Kofta with Tabbouleh & Hummus",
+                      "score": 0.0030012750066816807,
+                      "trace": [
+                        {
+                          "type": "atom",
+                          "condition": {
+                            "type": "atom",
+                            "field": "content",
+                            "value": "smoky base pork",
+                            "operator": "=~",
+                            "span": {
+                              "start": 87,
+                              "end": 121
+                            }
+                          },
+                          "score": 0.0030012750066816807,
+                          "note": "Atom(u, φ) - local node content from attr(u)"
+                        }
+                      ]
+                    },
+                    "result": 0.0030012750066816807
+                  }
+                ],
+                "final_score": 0.0030012750066816807
+              },
+              {
+                "node_idx": 1,
+                "node_id": 6160831712,
+                "node_name": "Day 2",
+                "node_type": "Day",
+                "scoring_steps": [
+                  {
+                    "type": "agg_exists_recursive",
+                    "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+                    "selector": {
+                      "axis": "none",
+                      "test": {
+                        "type": "leaf",
+                        "test": {
+                          "type": "node_test",
+                          "kind": "type",
+                          "name": "Meal",
+                          "span": {
+                            "start": 82,
+                            "end": 122
+                          }
+                        },
+                        "span": {
+                          "start": 82,
+                          "end": 122
+                        }
+                      },
+                      "path_prefix": [
+                        "Dinner"
+                      ],
+                      "span": {
+                        "start": 75,
+                        "end": 122
+                      }
+                    },
+                    "num_children": 3,
+                    "child_results": [
+                      {
+                        "score": 0.9927806258201599,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.0021120680030435324,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.36182937026023865,
+                        "subtree_size": 1
+                      }
+                    ],
+                    "child_contributions": [
+                      {
+                        "childName": "Sheet-Pan Pork Dinner — Smoky Bake",
+                        "childPath": "Sheet-Pan Pork Dinner — Smoky Bake",
+                        "childType": "Meal",
+                        "rawScore": 0.9927806258201599,
+                        "weight": 1.0,
+                        "weightedContribution": 0.9927806258201599,
+                        "subtreeSize": 1,
+                        "isBestMatch": true
+                      },
+                      {
+                        "childName": "Roast Chicken Dinner — Berry Boost Variation",
+                        "childPath": "Roast Chicken Dinner — Berry Boost Variation",
+                        "childType": "Meal",
+                        "rawScore": 0.0021120680030435324,
+                        "weight": 1.0,
+                        "weightedContribution": 0.0021120680030435324,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      },
+                      {
+                        "childName": "Sheet-Pan Pork Dinner — Berry Boost Bake",
+                        "childPath": "Sheet-Pan Pork Dinner — Berry Boost Bake",
+                        "childType": "Meal",
+                        "rawScore": 0.36182937026023865,
+                        "weight": 1.0,
+                        "weightedContribution": 0.36182937026023865,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      }
+                    ],
+                    "best_match_details": {
+                      "type": "node_match",
+                      "node_name": "Sheet-Pan Pork Dinner — Smoky Bake",
+                      "node_type": "Meal",
+                      "node_path": "Sheet-Pan Pork Dinner — Smoky Bake",
+                      "score": 0.9927806258201599,
+                      "trace": [
+                        {
+                          "type": "atom",
+                          "condition": {
+                            "type": "atom",
+                            "field": "content",
+                            "value": "smoky base pork",
+                            "operator": "=~",
+                            "span": {
+                              "start": 87,
+                              "end": 121
+                            }
+                          },
+                          "score": 0.9927806258201599,
+                          "note": "Atom(u, φ) - local node content from attr(u)"
+                        }
+                      ]
+                    },
+                    "result": 0.9927806258201599
+                  }
+                ],
+                "final_score": 0.9927806258201599
+              },
+              {
+                "node_idx": 2,
+                "node_id": 6160839712,
+                "node_name": "Day 3",
+                "node_type": "Day",
+                "scoring_steps": [
+                  {
+                    "type": "agg_exists_recursive",
+                    "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+                    "selector": {
+                      "axis": "none",
+                      "test": {
+                        "type": "leaf",
+                        "test": {
+                          "type": "node_test",
+                          "kind": "type",
+                          "name": "Meal",
+                          "span": {
+                            "start": 82,
+                            "end": 122
+                          }
+                        },
+                        "span": {
+                          "start": 82,
+                          "end": 122
+                        }
+                      },
+                      "path_prefix": [
+                        "Dinner"
+                      ],
+                      "span": {
+                        "start": 75,
+                        "end": 122
+                      }
+                    },
+                    "num_children": 3,
+                    "child_results": [
+                      {
+                        "score": 0.000538409803994,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.0010217268718406558,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.11962010711431503,
+                        "subtree_size": 1
+                      }
+                    ],
+                    "child_contributions": [
+                      {
+                        "childName": "Turkey Meatballs & Pasta — Berry Boost Combo",
+                        "childPath": "Turkey Meatballs & Pasta — Berry Boost Combo",
+                        "childType": "Meal",
+                        "rawScore": 0.000538409803994,
+                        "weight": 1.0,
+                        "weightedContribution": 0.000538409803994,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      },
+                      {
+                        "childName": "Roast Chicken Dinner — Berry Boost Twist",
+                        "childPath": "Roast Chicken Dinner — Berry Boost Twist",
+                        "childType": "Meal",
+                        "rawScore": 0.0010217268718406558,
+                        "weight": 1.0,
+                        "weightedContribution": 0.0010217268718406558,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      },
+                      {
+                        "childName": "Sheet-Pan Pork Dinner — Garden Veg Style",
+                        "childPath": "Sheet-Pan Pork Dinner — Garden Veg Style",
+                        "childType": "Meal",
+                        "rawScore": 0.11962010711431503,
+                        "weight": 1.0,
+                        "weightedContribution": 0.11962010711431503,
+                        "subtreeSize": 1,
+                        "isBestMatch": true
+                      }
+                    ],
+                    "best_match_details": {
+                      "type": "node_match",
+                      "node_name": "Sheet-Pan Pork Dinner — Garden Veg Style",
+                      "node_type": "Meal",
+                      "node_path": "Sheet-Pan Pork Dinner — Garden Veg Style",
+                      "score": 0.11962010711431503,
+                      "trace": [
+                        {
+                          "type": "atom",
+                          "condition": {
+                            "type": "atom",
+                            "field": "content",
+                            "value": "smoky base pork",
+                            "operator": "=~",
+                            "span": {
+                              "start": 87,
+                              "end": 121
+                            }
+                          },
+                          "score": 0.11962010711431503,
+                          "note": "Atom(u, φ) - local node content from attr(u)"
+                        }
+                      ]
+                    },
+                    "result": 0.11962010711431503
+                  }
+                ],
+                "final_score": 0.11962010711431503
+              },
+              {
+                "node_idx": 3,
+                "node_id": 6160732608,
+                "node_name": "Day 4",
+                "node_type": "Day",
+                "scoring_steps": [
+                  {
+                    "type": "agg_exists_recursive",
+                    "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+                    "selector": {
+                      "axis": "none",
+                      "test": {
+                        "type": "leaf",
+                        "test": {
+                          "type": "node_test",
+                          "kind": "type",
+                          "name": "Meal",
+                          "span": {
+                            "start": 82,
+                            "end": 122
+                          }
+                        },
+                        "span": {
+                          "start": 82,
+                          "end": 122
+                        }
+                      },
+                      "path_prefix": [
+                        "Dinner"
+                      ],
+                      "span": {
+                        "start": 75,
+                        "end": 122
+                      }
+                    },
+                    "num_children": 3,
+                    "child_results": [
+                      {
+                        "score": 0.0007376503199338913,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.0017300029285252094,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.0004014716250821948,
+                        "subtree_size": 1
+                      }
+                    ],
+                    "child_contributions": [
+                      {
+                        "childName": "Vegetable Soup & Bread — Lemon-Herb Bowl",
+                        "childPath": "Vegetable Soup & Bread — Lemon-Herb Bowl",
+                        "childType": "Meal",
+                        "rawScore": 0.0007376503199338913,
+                        "weight": 1.0,
+                        "weightedContribution": 0.0007376503199338913,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      },
+                      {
+                        "childName": "Stuffed Bell Peppers — Mild-Spice Style",
+                        "childPath": "Stuffed Bell Peppers — Mild-Spice Style",
+                        "childType": "Meal",
+                        "rawScore": 0.0017300029285252094,
+                        "weight": 1.0,
+                        "weightedContribution": 0.0017300029285252094,
+                        "subtreeSize": 1,
+                        "isBestMatch": true
+                      },
+                      {
+                        "childName": "Tofu Veggie Curry — Citrus Fresh Combo",
+                        "childPath": "Tofu Veggie Curry — Citrus Fresh Combo",
+                        "childType": "Meal",
+                        "rawScore": 0.0004014716250821948,
+                        "weight": 1.0,
+                        "weightedContribution": 0.0004014716250821948,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      }
+                    ],
+                    "best_match_details": {
+                      "type": "node_match",
+                      "node_name": "Stuffed Bell Peppers — Mild-Spice Style",
+                      "node_type": "Meal",
+                      "node_path": "Stuffed Bell Peppers — Mild-Spice Style",
+                      "score": 0.0017300029285252094,
+                      "trace": [
+                        {
+                          "type": "atom",
+                          "condition": {
+                            "type": "atom",
+                            "field": "content",
+                            "value": "smoky base pork",
+                            "operator": "=~",
+                            "span": {
+                              "start": 87,
+                              "end": 121
+                            }
+                          },
+                          "score": 0.0017300029285252094,
+                          "note": "Atom(u, φ) - local node content from attr(u)"
+                        }
+                      ]
+                    },
+                    "result": 0.0017300029285252094
+                  }
+                ],
+                "final_score": 0.0017300029285252094
+              },
+              {
+                "node_idx": 4,
+                "node_id": 6160741088,
+                "node_name": "Day 5",
+                "node_type": "Day",
+                "scoring_steps": [
+                  {
+                    "type": "agg_exists_recursive",
+                    "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+                    "selector": {
+                      "axis": "none",
+                      "test": {
+                        "type": "leaf",
+                        "test": {
+                          "type": "node_test",
+                          "kind": "type",
+                          "name": "Meal",
+                          "span": {
+                            "start": 82,
+                            "end": 122
+                          }
+                        },
+                        "span": {
+                          "start": 82,
+                          "end": 122
+                        }
+                      },
+                      "path_prefix": [
+                        "Dinner"
+                      ],
+                      "span": {
+                        "start": 75,
+                        "end": 122
+                      }
+                    },
+                    "num_children": 3,
+                    "child_results": [
+                      {
+                        "score": 0.002728123916313052,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.0006602639914490283,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.0030350591987371445,
+                        "subtree_size": 1
+                      }
+                    ],
+                    "child_contributions": [
+                      {
+                        "childName": "Bean & Cheese Burritos — Garlic-Ginger Bake",
+                        "childPath": "Bean & Cheese Burritos — Garlic-Ginger Bake",
+                        "childType": "Meal",
+                        "rawScore": 0.002728123916313052,
+                        "weight": 1.0,
+                        "weightedContribution": 0.002728123916313052,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      },
+                      {
+                        "childName": "Homemade Pizza Night — Sesame Twist",
+                        "childPath": "Homemade Pizza Night — Sesame Twist",
+                        "childType": "Meal",
+                        "rawScore": 0.0006602639914490283,
+                        "weight": 1.0,
+                        "weightedContribution": 0.0006602639914490283,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      },
+                      {
+                        "childName": "Stuffed Bell Peppers — Garlic-Ginger Bake",
+                        "childPath": "Stuffed Bell Peppers — Garlic-Ginger Bake",
+                        "childType": "Meal",
+                        "rawScore": 0.0030350591987371445,
+                        "weight": 1.0,
+                        "weightedContribution": 0.0030350591987371445,
+                        "subtreeSize": 1,
+                        "isBestMatch": true
+                      }
+                    ],
+                    "best_match_details": {
+                      "type": "node_match",
+                      "node_name": "Stuffed Bell Peppers — Garlic-Ginger Bake",
+                      "node_type": "Meal",
+                      "node_path": "Stuffed Bell Peppers — Garlic-Ginger Bake",
+                      "score": 0.0030350591987371445,
+                      "trace": [
+                        {
+                          "type": "atom",
+                          "condition": {
+                            "type": "atom",
+                            "field": "content",
+                            "value": "smoky base pork",
+                            "operator": "=~",
+                            "span": {
+                              "start": 87,
+                              "end": 121
+                            }
+                          },
+                          "score": 0.0030350591987371445,
+                          "note": "Atom(u, φ) - local node content from attr(u)"
+                        }
+                      ]
+                    },
+                    "result": 0.0030350591987371445
+                  }
+                ],
+                "final_score": 0.0030350591987371445
+              },
+              {
+                "node_idx": 5,
+                "node_id": 6160503152,
+                "node_name": "Day 6",
+                "node_type": "Day",
+                "scoring_steps": [
+                  {
+                    "type": "agg_exists_recursive",
+                    "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+                    "selector": {
+                      "axis": "none",
+                      "test": {
+                        "type": "leaf",
+                        "test": {
+                          "type": "node_test",
+                          "kind": "type",
+                          "name": "Meal",
+                          "span": {
+                            "start": 82,
+                            "end": 122
+                          }
+                        },
+                        "span": {
+                          "start": 82,
+                          "end": 122
+                        }
+                      },
+                      "path_prefix": [
+                        "Dinner"
+                      ],
+                      "span": {
+                        "start": 75,
+                        "end": 122
+                      }
+                    },
+                    "num_children": 3,
+                    "child_results": [
+                      {
+                        "score": 0.0012074093101546168,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.0006225543329492211,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.8429549336433411,
+                        "subtree_size": 1
+                      }
+                    ],
+                    "child_contributions": [
+                      {
+                        "childName": "Roast Chicken Dinner — Maple-Kissed Bowl",
+                        "childPath": "Roast Chicken Dinner — Maple-Kissed Bowl",
+                        "childType": "Meal",
+                        "rawScore": 0.0012074093101546168,
+                        "weight": 1.0,
+                        "weightedContribution": 0.0012074093101546168,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      },
+                      {
+                        "childName": "Vegetable Soup & Bread — Garden Veg Bowl",
+                        "childPath": "Vegetable Soup & Bread — Garden Veg Bowl",
+                        "childType": "Meal",
+                        "rawScore": 0.0006225543329492211,
+                        "weight": 1.0,
+                        "weightedContribution": 0.0006225543329492211,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      },
+                      {
+                        "childName": "Sheet-Pan Pork Dinner — Sesame Skillet",
+                        "childPath": "Sheet-Pan Pork Dinner — Sesame Skillet",
+                        "childType": "Meal",
+                        "rawScore": 0.8429549336433411,
+                        "weight": 1.0,
+                        "weightedContribution": 0.8429549336433411,
+                        "subtreeSize": 1,
+                        "isBestMatch": true
+                      }
+                    ],
+                    "best_match_details": {
+                      "type": "node_match",
+                      "node_name": "Sheet-Pan Pork Dinner — Sesame Skillet",
+                      "node_type": "Meal",
+                      "node_path": "Sheet-Pan Pork Dinner — Sesame Skillet",
+                      "score": 0.8429549336433411,
+                      "trace": [
+                        {
+                          "type": "atom",
+                          "condition": {
+                            "type": "atom",
+                            "field": "content",
+                            "value": "smoky base pork",
+                            "operator": "=~",
+                            "span": {
+                              "start": 87,
+                              "end": 121
+                            }
+                          },
+                          "score": 0.8429549336433411,
+                          "note": "Atom(u, φ) - local node content from attr(u)"
+                        }
+                      ]
+                    },
+                    "result": 0.8429549336433411
+                  }
+                ],
+                "final_score": 0.8429549336433411
+              },
+              {
+                "node_idx": 6,
+                "node_id": 6160511232,
+                "node_name": "Day 7",
+                "node_type": "Day",
+                "scoring_steps": [
+                  {
+                    "type": "agg_exists_recursive",
+                    "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+                    "selector": {
+                      "axis": "none",
+                      "test": {
+                        "type": "leaf",
+                        "test": {
+                          "type": "node_test",
+                          "kind": "type",
+                          "name": "Meal",
+                          "span": {
+                            "start": 82,
+                            "end": 122
+                          }
+                        },
+                        "span": {
+                          "start": 82,
+                          "end": 122
+                        }
+                      },
+                      "path_prefix": [
+                        "Dinner"
+                      ],
+                      "span": {
+                        "start": 75,
+                        "end": 122
+                      }
+                    },
+                    "num_children": 3,
+                    "child_results": [
+                      {
+                        "score": 0.0013816652353852987,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.007267041131854057,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.033196497708559036,
+                        "subtree_size": 1
+                      }
+                    ],
+                    "child_contributions": [
+                      {
+                        "childName": "Vegetable Soup & Bread — Lemon-Herb Wrap",
+                        "childPath": "Vegetable Soup & Bread — Lemon-Herb Wrap",
+                        "childType": "Meal",
+                        "rawScore": 0.0013816652353852987,
+                        "weight": 1.0,
+                        "weightedContribution": 0.0013816652353852987,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      },
+                      {
+                        "childName": "DIY Taco Night — Garlic-Ginger Skillet",
+                        "childPath": "DIY Taco Night — Garlic-Ginger Skillet",
+                        "childType": "Meal",
+                        "rawScore": 0.007267041131854057,
+                        "weight": 1.0,
+                        "weightedContribution": 0.007267041131854057,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      },
+                      {
+                        "childName": "DIY Taco Night — Maple-Kissed Skillet",
+                        "childPath": "DIY Taco Night — Maple-Kissed Skillet",
+                        "childType": "Meal",
+                        "rawScore": 0.033196497708559036,
+                        "weight": 1.0,
+                        "weightedContribution": 0.033196497708559036,
+                        "subtreeSize": 1,
+                        "isBestMatch": true
+                      }
+                    ],
+                    "best_match_details": {
+                      "type": "node_match",
+                      "node_name": "DIY Taco Night — Maple-Kissed Skillet",
+                      "node_type": "Meal",
+                      "node_path": "DIY Taco Night — Maple-Kissed Skillet",
+                      "score": 0.033196497708559036,
+                      "trace": [
+                        {
+                          "type": "atom",
+                          "condition": {
+                            "type": "atom",
+                            "field": "content",
+                            "value": "smoky base pork",
+                            "operator": "=~",
+                            "span": {
+                              "start": 87,
+                              "end": 121
+                            }
+                          },
+                          "score": 0.033196497708559036,
+                          "note": "Atom(u, φ) - local node content from attr(u)"
+                        }
+                      ]
+                    },
+                    "result": 0.033196497708559036
+                  }
+                ],
+                "final_score": 0.033196497708559036
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "smoky base pork"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "smoky base pork",
+                  "num_descriptions": 21,
+                  "call_time_ms": 1847.46
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 21
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 1,
+                "score": 0.9927806258201599,
+                "name": "Day 2"
+              },
+              {
+                "idx": 5,
+                "score": 0.8429549336433411,
+                "name": "Day 6"
+              },
+              {
+                "idx": 2,
+                "score": 0.11962010711431503,
+                "name": "Day 3"
+              },
+              {
+                "idx": 6,
+                "score": 0.033196497708559036,
+                "name": "Day 7"
+              },
+              {
+                "idx": 4,
+                "score": 0.0030350591987371445,
+                "name": "Day 5"
+              },
+              {
+                "idx": 0,
+                "score": 0.0030012750066816807,
+                "name": "Day 1"
+              },
+              {
+                "idx": 3,
+                "score": 0.0017300029285252094,
+                "name": "Day 4"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "step_index": 4,
+      "step_query": "Breakfast",
+      "action": "node_test_expr",
+      "nodes_before_count": 7,
+      "nodes_after_count": 7,
+      "nodes_before": [
+        {
+          "path": "Root > MealPlan_Version 2 > Father > Day 1",
+          "name": "Day 1",
+          "type": "Day",
+          "score": 0.0030012750066816807,
+          "node_id": 6161327392
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Father > Day 2",
+          "name": "Day 2",
+          "type": "Day",
+          "score": 0.9927806258201599,
+          "node_id": 6160831712
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Father > Day 3",
+          "name": "Day 3",
+          "type": "Day",
+          "score": 0.11962010711431503,
+          "node_id": 6160839712
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Father > Day 4",
+          "name": "Day 4",
+          "type": "Day",
+          "score": 0.0017300029285252094,
+          "node_id": 6160732608
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Father > Day 5",
+          "name": "Day 5",
+          "type": "Day",
+          "score": 0.0030350591987371445,
+          "node_id": 6160741088
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Father > Day 6",
+          "name": "Day 6",
+          "type": "Day",
+          "score": 0.8429549336433411,
+          "node_id": 6160503152
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Father > Day 7",
+          "name": "Day 7",
+          "type": "Day",
+          "score": 0.033196497708559036,
+          "node_id": 6160511232
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > MealPlan_Version 2 > Father > Day 1 > Breakfast",
+          "name": "Breakfast",
+          "type": "Breakfast",
+          "score": 1.0,
+          "node_id": 6161327072
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Father > Day 2 > Breakfast",
+          "name": "Breakfast",
+          "type": "Breakfast",
+          "score": 1.0,
+          "node_id": 6160831792
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Father > Day 3 > Breakfast",
+          "name": "Breakfast",
+          "type": "Breakfast",
+          "score": 1.0,
+          "node_id": 6160839792
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Father > Day 4 > Breakfast",
+          "name": "Breakfast",
+          "type": "Breakfast",
+          "score": 1.0,
+          "node_id": 6160733008
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Father > Day 5 > Breakfast",
+          "name": "Breakfast",
+          "type": "Breakfast",
+          "score": 1.0,
+          "node_id": 6160740928
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Father > Day 6 > Breakfast",
+          "name": "Breakfast",
+          "type": "Breakfast",
+          "score": 1.0,
+          "node_id": 6160503232
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Father > Day 7 > Breakfast",
+          "name": "Breakfast",
+          "type": "Breakfast",
+          "score": 1.0,
+          "node_id": 6160511312
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Breakfast",
+            "span": {
+              "start": 125,
+              "end": 134
+            }
+          },
+          "span": {
+            "start": 125,
+            "end": 134
+          }
+        },
+        "found_count": 7,
+        "scoring_trace": []
+      }
+    }
+  ],
+  "scoring_traces": [
+    {
+      "predicate": "atom(content =~ \"Father\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "Father",
+        "operator": "=~",
+        "span": {
+          "start": 33,
+          "end": 58
+        }
+      },
+      "config": {
+        "top_k": 5,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 6161327712,
+          "node_name": "Father",
+          "node_type": "Person",
+          "final_score": 1.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Father",
+              "query_value": "Father",
+              "matched": true,
+              "score": 1.0
+            }
+          ]
+        },
+        {
+          "node_idx": 1,
+          "node_id": 6161002512,
+          "node_name": "Mother",
+          "node_type": "Person",
+          "final_score": 0.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Mother",
+              "query_value": "Father",
+              "matched": false,
+              "score": 0.0
+            }
+          ]
+        },
+        {
+          "node_idx": 2,
+          "node_id": 13459911792,
+          "node_name": "Child",
+          "node_type": "Person",
+          "final_score": 0.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Child",
+              "query_value": "Father",
+              "matched": false,
+              "score": 0.0
+            }
+          ]
+        }
+      ],
+      "batch_scoring": {
+        "exact_match": true,
+        "matched_attribute": "name",
+        "query_value": "Father",
+        "matched_count": 1
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 0,
+          "score": 1.0,
+          "name": "Father"
+        },
+        {
+          "idx": 1,
+          "score": 0.0,
+          "name": "Mother"
+        },
+        {
+          "idx": 2,
+          "score": 0.0,
+          "name": "Child"
+        }
+      ]
+    },
+    {
+      "predicate": "agg_exists(Meal[atom(content =~ \"smoky base pork\")])",
+      "predicate_ast": {
+        "operator": "AGG_EXISTS",
+        "selector": {
+          "axis": "none",
+          "test": {
+            "type": "leaf",
+            "test": {
+              "type": "node_test",
+              "kind": "type",
+              "name": "Meal",
+              "span": {
+                "start": 82,
+                "end": 122
+              }
+            },
+            "span": {
+              "start": 82,
+              "end": 122
+            }
+          },
+          "path_prefix": [
+            "Dinner"
+          ],
+          "span": {
+            "start": 75,
+            "end": 122
+          }
+        },
+        "child_predicate": {
+          "type": "atom",
+          "field": "content",
+          "value": "smoky base pork",
+          "operator": "=~",
+          "span": {
+            "start": 87,
+            "end": 121
+          }
+        },
+        "child_type": "Meal",
+        "span": {
+          "start": 64,
+          "end": 123
+        }
+      },
+      "config": {
+        "top_k": 5,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 6161327392,
+          "node_name": "Day 1",
+          "node_type": "Day",
+          "scoring_steps": [
+            {
+              "type": "agg_exists_recursive",
+              "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+              "selector": {
+                "axis": "none",
+                "test": {
+                  "type": "leaf",
+                  "test": {
+                    "type": "node_test",
+                    "kind": "type",
+                    "name": "Meal",
+                    "span": {
+                      "start": 82,
+                      "end": 122
+                    }
+                  },
+                  "span": {
+                    "start": 82,
+                    "end": 122
+                  }
+                },
+                "path_prefix": [
+                  "Dinner"
+                ],
+                "span": {
+                  "start": 75,
+                  "end": 122
+                }
+              },
+              "num_children": 3,
+              "child_results": [
+                {
+                  "score": 0.0026953492779284716,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.0030012750066816807,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.0012182674836367369,
+                  "subtree_size": 1
+                }
+              ],
+              "child_contributions": [
+                {
+                  "childName": "Herb-Crusted Baked Sea Bass with Roasted Vegetables",
+                  "childPath": "Herb-Crusted Baked Sea Bass with Roasted Vegetables",
+                  "childType": "Meal",
+                  "rawScore": 0.0026953492779284716,
+                  "weight": 1.0,
+                  "weightedContribution": 0.0026953492779284716,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                },
+                {
+                  "childName": "Lamb Kofta with Tabbouleh & Hummus",
+                  "childPath": "Lamb Kofta with Tabbouleh & Hummus",
+                  "childType": "Meal",
+                  "rawScore": 0.0030012750066816807,
+                  "weight": 1.0,
+                  "weightedContribution": 0.0030012750066816807,
+                  "subtreeSize": 1,
+                  "isBestMatch": true
+                },
+                {
+                  "childName": "One-Pot Greek Chicken & Orzo",
+                  "childPath": "One-Pot Greek Chicken & Orzo",
+                  "childType": "Meal",
+                  "rawScore": 0.0012182674836367369,
+                  "weight": 1.0,
+                  "weightedContribution": 0.0012182674836367369,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                }
+              ],
+              "best_match_details": {
+                "type": "node_match",
+                "node_name": "Lamb Kofta with Tabbouleh & Hummus",
+                "node_type": "Meal",
+                "node_path": "Lamb Kofta with Tabbouleh & Hummus",
+                "score": 0.0030012750066816807,
+                "trace": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "smoky base pork",
+                      "operator": "=~",
+                      "span": {
+                        "start": 87,
+                        "end": 121
+                      }
+                    },
+                    "score": 0.0030012750066816807,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ]
+              },
+              "result": 0.0030012750066816807
+            }
+          ],
+          "final_score": 0.0030012750066816807
+        },
+        {
+          "node_idx": 1,
+          "node_id": 6160831712,
+          "node_name": "Day 2",
+          "node_type": "Day",
+          "scoring_steps": [
+            {
+              "type": "agg_exists_recursive",
+              "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+              "selector": {
+                "axis": "none",
+                "test": {
+                  "type": "leaf",
+                  "test": {
+                    "type": "node_test",
+                    "kind": "type",
+                    "name": "Meal",
+                    "span": {
+                      "start": 82,
+                      "end": 122
+                    }
+                  },
+                  "span": {
+                    "start": 82,
+                    "end": 122
+                  }
+                },
+                "path_prefix": [
+                  "Dinner"
+                ],
+                "span": {
+                  "start": 75,
+                  "end": 122
+                }
+              },
+              "num_children": 3,
+              "child_results": [
+                {
+                  "score": 0.9927806258201599,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.0021120680030435324,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.36182937026023865,
+                  "subtree_size": 1
+                }
+              ],
+              "child_contributions": [
+                {
+                  "childName": "Sheet-Pan Pork Dinner — Smoky Bake",
+                  "childPath": "Sheet-Pan Pork Dinner — Smoky Bake",
+                  "childType": "Meal",
+                  "rawScore": 0.9927806258201599,
+                  "weight": 1.0,
+                  "weightedContribution": 0.9927806258201599,
+                  "subtreeSize": 1,
+                  "isBestMatch": true
+                },
+                {
+                  "childName": "Roast Chicken Dinner — Berry Boost Variation",
+                  "childPath": "Roast Chicken Dinner — Berry Boost Variation",
+                  "childType": "Meal",
+                  "rawScore": 0.0021120680030435324,
+                  "weight": 1.0,
+                  "weightedContribution": 0.0021120680030435324,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                },
+                {
+                  "childName": "Sheet-Pan Pork Dinner — Berry Boost Bake",
+                  "childPath": "Sheet-Pan Pork Dinner — Berry Boost Bake",
+                  "childType": "Meal",
+                  "rawScore": 0.36182937026023865,
+                  "weight": 1.0,
+                  "weightedContribution": 0.36182937026023865,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                }
+              ],
+              "best_match_details": {
+                "type": "node_match",
+                "node_name": "Sheet-Pan Pork Dinner — Smoky Bake",
+                "node_type": "Meal",
+                "node_path": "Sheet-Pan Pork Dinner — Smoky Bake",
+                "score": 0.9927806258201599,
+                "trace": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "smoky base pork",
+                      "operator": "=~",
+                      "span": {
+                        "start": 87,
+                        "end": 121
+                      }
+                    },
+                    "score": 0.9927806258201599,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ]
+              },
+              "result": 0.9927806258201599
+            }
+          ],
+          "final_score": 0.9927806258201599
+        },
+        {
+          "node_idx": 2,
+          "node_id": 6160839712,
+          "node_name": "Day 3",
+          "node_type": "Day",
+          "scoring_steps": [
+            {
+              "type": "agg_exists_recursive",
+              "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+              "selector": {
+                "axis": "none",
+                "test": {
+                  "type": "leaf",
+                  "test": {
+                    "type": "node_test",
+                    "kind": "type",
+                    "name": "Meal",
+                    "span": {
+                      "start": 82,
+                      "end": 122
+                    }
+                  },
+                  "span": {
+                    "start": 82,
+                    "end": 122
+                  }
+                },
+                "path_prefix": [
+                  "Dinner"
+                ],
+                "span": {
+                  "start": 75,
+                  "end": 122
+                }
+              },
+              "num_children": 3,
+              "child_results": [
+                {
+                  "score": 0.000538409803994,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.0010217268718406558,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.11962010711431503,
+                  "subtree_size": 1
+                }
+              ],
+              "child_contributions": [
+                {
+                  "childName": "Turkey Meatballs & Pasta — Berry Boost Combo",
+                  "childPath": "Turkey Meatballs & Pasta — Berry Boost Combo",
+                  "childType": "Meal",
+                  "rawScore": 0.000538409803994,
+                  "weight": 1.0,
+                  "weightedContribution": 0.000538409803994,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                },
+                {
+                  "childName": "Roast Chicken Dinner — Berry Boost Twist",
+                  "childPath": "Roast Chicken Dinner — Berry Boost Twist",
+                  "childType": "Meal",
+                  "rawScore": 0.0010217268718406558,
+                  "weight": 1.0,
+                  "weightedContribution": 0.0010217268718406558,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                },
+                {
+                  "childName": "Sheet-Pan Pork Dinner — Garden Veg Style",
+                  "childPath": "Sheet-Pan Pork Dinner — Garden Veg Style",
+                  "childType": "Meal",
+                  "rawScore": 0.11962010711431503,
+                  "weight": 1.0,
+                  "weightedContribution": 0.11962010711431503,
+                  "subtreeSize": 1,
+                  "isBestMatch": true
+                }
+              ],
+              "best_match_details": {
+                "type": "node_match",
+                "node_name": "Sheet-Pan Pork Dinner — Garden Veg Style",
+                "node_type": "Meal",
+                "node_path": "Sheet-Pan Pork Dinner — Garden Veg Style",
+                "score": 0.11962010711431503,
+                "trace": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "smoky base pork",
+                      "operator": "=~",
+                      "span": {
+                        "start": 87,
+                        "end": 121
+                      }
+                    },
+                    "score": 0.11962010711431503,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ]
+              },
+              "result": 0.11962010711431503
+            }
+          ],
+          "final_score": 0.11962010711431503
+        },
+        {
+          "node_idx": 3,
+          "node_id": 6160732608,
+          "node_name": "Day 4",
+          "node_type": "Day",
+          "scoring_steps": [
+            {
+              "type": "agg_exists_recursive",
+              "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+              "selector": {
+                "axis": "none",
+                "test": {
+                  "type": "leaf",
+                  "test": {
+                    "type": "node_test",
+                    "kind": "type",
+                    "name": "Meal",
+                    "span": {
+                      "start": 82,
+                      "end": 122
+                    }
+                  },
+                  "span": {
+                    "start": 82,
+                    "end": 122
+                  }
+                },
+                "path_prefix": [
+                  "Dinner"
+                ],
+                "span": {
+                  "start": 75,
+                  "end": 122
+                }
+              },
+              "num_children": 3,
+              "child_results": [
+                {
+                  "score": 0.0007376503199338913,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.0017300029285252094,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.0004014716250821948,
+                  "subtree_size": 1
+                }
+              ],
+              "child_contributions": [
+                {
+                  "childName": "Vegetable Soup & Bread — Lemon-Herb Bowl",
+                  "childPath": "Vegetable Soup & Bread — Lemon-Herb Bowl",
+                  "childType": "Meal",
+                  "rawScore": 0.0007376503199338913,
+                  "weight": 1.0,
+                  "weightedContribution": 0.0007376503199338913,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                },
+                {
+                  "childName": "Stuffed Bell Peppers — Mild-Spice Style",
+                  "childPath": "Stuffed Bell Peppers — Mild-Spice Style",
+                  "childType": "Meal",
+                  "rawScore": 0.0017300029285252094,
+                  "weight": 1.0,
+                  "weightedContribution": 0.0017300029285252094,
+                  "subtreeSize": 1,
+                  "isBestMatch": true
+                },
+                {
+                  "childName": "Tofu Veggie Curry — Citrus Fresh Combo",
+                  "childPath": "Tofu Veggie Curry — Citrus Fresh Combo",
+                  "childType": "Meal",
+                  "rawScore": 0.0004014716250821948,
+                  "weight": 1.0,
+                  "weightedContribution": 0.0004014716250821948,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                }
+              ],
+              "best_match_details": {
+                "type": "node_match",
+                "node_name": "Stuffed Bell Peppers — Mild-Spice Style",
+                "node_type": "Meal",
+                "node_path": "Stuffed Bell Peppers — Mild-Spice Style",
+                "score": 0.0017300029285252094,
+                "trace": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "smoky base pork",
+                      "operator": "=~",
+                      "span": {
+                        "start": 87,
+                        "end": 121
+                      }
+                    },
+                    "score": 0.0017300029285252094,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ]
+              },
+              "result": 0.0017300029285252094
+            }
+          ],
+          "final_score": 0.0017300029285252094
+        },
+        {
+          "node_idx": 4,
+          "node_id": 6160741088,
+          "node_name": "Day 5",
+          "node_type": "Day",
+          "scoring_steps": [
+            {
+              "type": "agg_exists_recursive",
+              "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+              "selector": {
+                "axis": "none",
+                "test": {
+                  "type": "leaf",
+                  "test": {
+                    "type": "node_test",
+                    "kind": "type",
+                    "name": "Meal",
+                    "span": {
+                      "start": 82,
+                      "end": 122
+                    }
+                  },
+                  "span": {
+                    "start": 82,
+                    "end": 122
+                  }
+                },
+                "path_prefix": [
+                  "Dinner"
+                ],
+                "span": {
+                  "start": 75,
+                  "end": 122
+                }
+              },
+              "num_children": 3,
+              "child_results": [
+                {
+                  "score": 0.002728123916313052,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.0006602639914490283,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.0030350591987371445,
+                  "subtree_size": 1
+                }
+              ],
+              "child_contributions": [
+                {
+                  "childName": "Bean & Cheese Burritos — Garlic-Ginger Bake",
+                  "childPath": "Bean & Cheese Burritos — Garlic-Ginger Bake",
+                  "childType": "Meal",
+                  "rawScore": 0.002728123916313052,
+                  "weight": 1.0,
+                  "weightedContribution": 0.002728123916313052,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                },
+                {
+                  "childName": "Homemade Pizza Night — Sesame Twist",
+                  "childPath": "Homemade Pizza Night — Sesame Twist",
+                  "childType": "Meal",
+                  "rawScore": 0.0006602639914490283,
+                  "weight": 1.0,
+                  "weightedContribution": 0.0006602639914490283,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                },
+                {
+                  "childName": "Stuffed Bell Peppers — Garlic-Ginger Bake",
+                  "childPath": "Stuffed Bell Peppers — Garlic-Ginger Bake",
+                  "childType": "Meal",
+                  "rawScore": 0.0030350591987371445,
+                  "weight": 1.0,
+                  "weightedContribution": 0.0030350591987371445,
+                  "subtreeSize": 1,
+                  "isBestMatch": true
+                }
+              ],
+              "best_match_details": {
+                "type": "node_match",
+                "node_name": "Stuffed Bell Peppers — Garlic-Ginger Bake",
+                "node_type": "Meal",
+                "node_path": "Stuffed Bell Peppers — Garlic-Ginger Bake",
+                "score": 0.0030350591987371445,
+                "trace": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "smoky base pork",
+                      "operator": "=~",
+                      "span": {
+                        "start": 87,
+                        "end": 121
+                      }
+                    },
+                    "score": 0.0030350591987371445,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ]
+              },
+              "result": 0.0030350591987371445
+            }
+          ],
+          "final_score": 0.0030350591987371445
+        },
+        {
+          "node_idx": 5,
+          "node_id": 6160503152,
+          "node_name": "Day 6",
+          "node_type": "Day",
+          "scoring_steps": [
+            {
+              "type": "agg_exists_recursive",
+              "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+              "selector": {
+                "axis": "none",
+                "test": {
+                  "type": "leaf",
+                  "test": {
+                    "type": "node_test",
+                    "kind": "type",
+                    "name": "Meal",
+                    "span": {
+                      "start": 82,
+                      "end": 122
+                    }
+                  },
+                  "span": {
+                    "start": 82,
+                    "end": 122
+                  }
+                },
+                "path_prefix": [
+                  "Dinner"
+                ],
+                "span": {
+                  "start": 75,
+                  "end": 122
+                }
+              },
+              "num_children": 3,
+              "child_results": [
+                {
+                  "score": 0.0012074093101546168,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.0006225543329492211,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.8429549336433411,
+                  "subtree_size": 1
+                }
+              ],
+              "child_contributions": [
+                {
+                  "childName": "Roast Chicken Dinner — Maple-Kissed Bowl",
+                  "childPath": "Roast Chicken Dinner — Maple-Kissed Bowl",
+                  "childType": "Meal",
+                  "rawScore": 0.0012074093101546168,
+                  "weight": 1.0,
+                  "weightedContribution": 0.0012074093101546168,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                },
+                {
+                  "childName": "Vegetable Soup & Bread — Garden Veg Bowl",
+                  "childPath": "Vegetable Soup & Bread — Garden Veg Bowl",
+                  "childType": "Meal",
+                  "rawScore": 0.0006225543329492211,
+                  "weight": 1.0,
+                  "weightedContribution": 0.0006225543329492211,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                },
+                {
+                  "childName": "Sheet-Pan Pork Dinner — Sesame Skillet",
+                  "childPath": "Sheet-Pan Pork Dinner — Sesame Skillet",
+                  "childType": "Meal",
+                  "rawScore": 0.8429549336433411,
+                  "weight": 1.0,
+                  "weightedContribution": 0.8429549336433411,
+                  "subtreeSize": 1,
+                  "isBestMatch": true
+                }
+              ],
+              "best_match_details": {
+                "type": "node_match",
+                "node_name": "Sheet-Pan Pork Dinner — Sesame Skillet",
+                "node_type": "Meal",
+                "node_path": "Sheet-Pan Pork Dinner — Sesame Skillet",
+                "score": 0.8429549336433411,
+                "trace": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "smoky base pork",
+                      "operator": "=~",
+                      "span": {
+                        "start": 87,
+                        "end": 121
+                      }
+                    },
+                    "score": 0.8429549336433411,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ]
+              },
+              "result": 0.8429549336433411
+            }
+          ],
+          "final_score": 0.8429549336433411
+        },
+        {
+          "node_idx": 6,
+          "node_id": 6160511232,
+          "node_name": "Day 7",
+          "node_type": "Day",
+          "scoring_steps": [
+            {
+              "type": "agg_exists_recursive",
+              "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+              "selector": {
+                "axis": "none",
+                "test": {
+                  "type": "leaf",
+                  "test": {
+                    "type": "node_test",
+                    "kind": "type",
+                    "name": "Meal",
+                    "span": {
+                      "start": 82,
+                      "end": 122
+                    }
+                  },
+                  "span": {
+                    "start": 82,
+                    "end": 122
+                  }
+                },
+                "path_prefix": [
+                  "Dinner"
+                ],
+                "span": {
+                  "start": 75,
+                  "end": 122
+                }
+              },
+              "num_children": 3,
+              "child_results": [
+                {
+                  "score": 0.0013816652353852987,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.007267041131854057,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.033196497708559036,
+                  "subtree_size": 1
+                }
+              ],
+              "child_contributions": [
+                {
+                  "childName": "Vegetable Soup & Bread — Lemon-Herb Wrap",
+                  "childPath": "Vegetable Soup & Bread — Lemon-Herb Wrap",
+                  "childType": "Meal",
+                  "rawScore": 0.0013816652353852987,
+                  "weight": 1.0,
+                  "weightedContribution": 0.0013816652353852987,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                },
+                {
+                  "childName": "DIY Taco Night — Garlic-Ginger Skillet",
+                  "childPath": "DIY Taco Night — Garlic-Ginger Skillet",
+                  "childType": "Meal",
+                  "rawScore": 0.007267041131854057,
+                  "weight": 1.0,
+                  "weightedContribution": 0.007267041131854057,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                },
+                {
+                  "childName": "DIY Taco Night — Maple-Kissed Skillet",
+                  "childPath": "DIY Taco Night — Maple-Kissed Skillet",
+                  "childType": "Meal",
+                  "rawScore": 0.033196497708559036,
+                  "weight": 1.0,
+                  "weightedContribution": 0.033196497708559036,
+                  "subtreeSize": 1,
+                  "isBestMatch": true
+                }
+              ],
+              "best_match_details": {
+                "type": "node_match",
+                "node_name": "DIY Taco Night — Maple-Kissed Skillet",
+                "node_type": "Meal",
+                "node_path": "DIY Taco Night — Maple-Kissed Skillet",
+                "score": 0.033196497708559036,
+                "trace": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "smoky base pork",
+                      "operator": "=~",
+                      "span": {
+                        "start": 87,
+                        "end": 121
+                      }
+                    },
+                    "score": 0.033196497708559036,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ]
+              },
+              "result": 0.033196497708559036
+            }
+          ],
+          "final_score": 0.033196497708559036
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "smoky base pork"
+        ],
+        "per_value_stats": [
+          {
+            "value": "smoky base pork",
+            "num_descriptions": 21,
+            "call_time_ms": 1847.46
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 21
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 1,
+          "score": 0.9927806258201599,
+          "name": "Day 2"
+        },
+        {
+          "idx": 5,
+          "score": 0.8429549336433411,
+          "name": "Day 6"
+        },
+        {
+          "idx": 2,
+          "score": 0.11962010711431503,
+          "name": "Day 3"
+        },
+        {
+          "idx": 6,
+          "score": 0.033196497708559036,
+          "name": "Day 7"
+        },
+        {
+          "idx": 4,
+          "score": 0.0030350591987371445,
+          "name": "Day 5"
+        },
+        {
+          "idx": 0,
+          "score": 0.0030012750066816807,
+          "name": "Day 1"
+        },
+        {
+          "idx": 3,
+          "score": 0.0017300029285252094,
+          "name": "Day 4"
+        }
+      ]
+    }
+  ],
+  "scoring_details": {
+    "step_scores": [
+      {
+        "step_index": 0,
+        "predicate": "atom(content =~ \"Father\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "Father",
+          "operator": "=~",
+          "span": {
+            "start": 33,
+            "end": 58
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 6161327712,
+            "node_name": "Father",
+            "node_type": "Person",
+            "final_score": 1.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Father",
+                "query_value": "Father",
+                "matched": true,
+                "score": 1.0
+              }
+            ]
+          },
+          {
+            "node_idx": 1,
+            "node_id": 6161002512,
+            "node_name": "Mother",
+            "node_type": "Person",
+            "final_score": 0.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Mother",
+                "query_value": "Father",
+                "matched": false,
+                "score": 0.0
+              }
+            ]
+          },
+          {
+            "node_idx": 2,
+            "node_id": 13459911792,
+            "node_name": "Child",
+            "node_type": "Person",
+            "final_score": 0.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Child",
+                "query_value": "Father",
+                "matched": false,
+                "score": 0.0
+              }
+            ]
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 0,
+            "score": 1.0,
+            "name": "Father"
+          },
+          {
+            "idx": 1,
+            "score": 0.0,
+            "name": "Mother"
+          },
+          {
+            "idx": 2,
+            "score": 0.0,
+            "name": "Child"
+          }
+        ]
+      },
+      {
+        "step_index": 1,
+        "predicate": "agg_exists(Meal[atom(content =~ \"smoky base pork\")])",
+        "predicate_ast": {
+          "operator": "AGG_EXISTS",
+          "selector": {
+            "axis": "none",
+            "test": {
+              "type": "leaf",
+              "test": {
+                "type": "node_test",
+                "kind": "type",
+                "name": "Meal",
+                "span": {
+                  "start": 82,
+                  "end": 122
+                }
+              },
+              "span": {
+                "start": 82,
+                "end": 122
+              }
+            },
+            "path_prefix": [
+              "Dinner"
+            ],
+            "span": {
+              "start": 75,
+              "end": 122
+            }
+          },
+          "child_predicate": {
+            "type": "atom",
+            "field": "content",
+            "value": "smoky base pork",
+            "operator": "=~",
+            "span": {
+              "start": 87,
+              "end": 121
+            }
+          },
+          "child_type": "Meal",
+          "span": {
+            "start": 64,
+            "end": 123
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 6161327392,
+            "node_name": "Day 1",
+            "node_type": "Day",
+            "scoring_steps": [
+              {
+                "type": "agg_exists_recursive",
+                "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+                "selector": {
+                  "axis": "none",
+                  "test": {
+                    "type": "leaf",
+                    "test": {
+                      "type": "node_test",
+                      "kind": "type",
+                      "name": "Meal",
+                      "span": {
+                        "start": 82,
+                        "end": 122
+                      }
+                    },
+                    "span": {
+                      "start": 82,
+                      "end": 122
+                    }
+                  },
+                  "path_prefix": [
+                    "Dinner"
+                  ],
+                  "span": {
+                    "start": 75,
+                    "end": 122
+                  }
+                },
+                "num_children": 3,
+                "child_results": [
+                  {
+                    "score": 0.0026953492779284716,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.0030012750066816807,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.0012182674836367369,
+                    "subtree_size": 1
+                  }
+                ],
+                "child_contributions": [
+                  {
+                    "childName": "Herb-Crusted Baked Sea Bass with Roasted Vegetables",
+                    "childPath": "Herb-Crusted Baked Sea Bass with Roasted Vegetables",
+                    "childType": "Meal",
+                    "rawScore": 0.0026953492779284716,
+                    "weight": 1.0,
+                    "weightedContribution": 0.0026953492779284716,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  },
+                  {
+                    "childName": "Lamb Kofta with Tabbouleh & Hummus",
+                    "childPath": "Lamb Kofta with Tabbouleh & Hummus",
+                    "childType": "Meal",
+                    "rawScore": 0.0030012750066816807,
+                    "weight": 1.0,
+                    "weightedContribution": 0.0030012750066816807,
+                    "subtreeSize": 1,
+                    "isBestMatch": true
+                  },
+                  {
+                    "childName": "One-Pot Greek Chicken & Orzo",
+                    "childPath": "One-Pot Greek Chicken & Orzo",
+                    "childType": "Meal",
+                    "rawScore": 0.0012182674836367369,
+                    "weight": 1.0,
+                    "weightedContribution": 0.0012182674836367369,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  }
+                ],
+                "best_match_details": {
+                  "type": "node_match",
+                  "node_name": "Lamb Kofta with Tabbouleh & Hummus",
+                  "node_type": "Meal",
+                  "node_path": "Lamb Kofta with Tabbouleh & Hummus",
+                  "score": 0.0030012750066816807,
+                  "trace": [
+                    {
+                      "type": "atom",
+                      "condition": {
+                        "type": "atom",
+                        "field": "content",
+                        "value": "smoky base pork",
+                        "operator": "=~",
+                        "span": {
+                          "start": 87,
+                          "end": 121
+                        }
+                      },
+                      "score": 0.0030012750066816807,
+                      "note": "Atom(u, φ) - local node content from attr(u)"
+                    }
+                  ]
+                },
+                "result": 0.0030012750066816807
+              }
+            ],
+            "final_score": 0.0030012750066816807
+          },
+          {
+            "node_idx": 1,
+            "node_id": 6160831712,
+            "node_name": "Day 2",
+            "node_type": "Day",
+            "scoring_steps": [
+              {
+                "type": "agg_exists_recursive",
+                "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+                "selector": {
+                  "axis": "none",
+                  "test": {
+                    "type": "leaf",
+                    "test": {
+                      "type": "node_test",
+                      "kind": "type",
+                      "name": "Meal",
+                      "span": {
+                        "start": 82,
+                        "end": 122
+                      }
+                    },
+                    "span": {
+                      "start": 82,
+                      "end": 122
+                    }
+                  },
+                  "path_prefix": [
+                    "Dinner"
+                  ],
+                  "span": {
+                    "start": 75,
+                    "end": 122
+                  }
+                },
+                "num_children": 3,
+                "child_results": [
+                  {
+                    "score": 0.9927806258201599,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.0021120680030435324,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.36182937026023865,
+                    "subtree_size": 1
+                  }
+                ],
+                "child_contributions": [
+                  {
+                    "childName": "Sheet-Pan Pork Dinner — Smoky Bake",
+                    "childPath": "Sheet-Pan Pork Dinner — Smoky Bake",
+                    "childType": "Meal",
+                    "rawScore": 0.9927806258201599,
+                    "weight": 1.0,
+                    "weightedContribution": 0.9927806258201599,
+                    "subtreeSize": 1,
+                    "isBestMatch": true
+                  },
+                  {
+                    "childName": "Roast Chicken Dinner — Berry Boost Variation",
+                    "childPath": "Roast Chicken Dinner — Berry Boost Variation",
+                    "childType": "Meal",
+                    "rawScore": 0.0021120680030435324,
+                    "weight": 1.0,
+                    "weightedContribution": 0.0021120680030435324,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  },
+                  {
+                    "childName": "Sheet-Pan Pork Dinner — Berry Boost Bake",
+                    "childPath": "Sheet-Pan Pork Dinner — Berry Boost Bake",
+                    "childType": "Meal",
+                    "rawScore": 0.36182937026023865,
+                    "weight": 1.0,
+                    "weightedContribution": 0.36182937026023865,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  }
+                ],
+                "best_match_details": {
+                  "type": "node_match",
+                  "node_name": "Sheet-Pan Pork Dinner — Smoky Bake",
+                  "node_type": "Meal",
+                  "node_path": "Sheet-Pan Pork Dinner — Smoky Bake",
+                  "score": 0.9927806258201599,
+                  "trace": [
+                    {
+                      "type": "atom",
+                      "condition": {
+                        "type": "atom",
+                        "field": "content",
+                        "value": "smoky base pork",
+                        "operator": "=~",
+                        "span": {
+                          "start": 87,
+                          "end": 121
+                        }
+                      },
+                      "score": 0.9927806258201599,
+                      "note": "Atom(u, φ) - local node content from attr(u)"
+                    }
+                  ]
+                },
+                "result": 0.9927806258201599
+              }
+            ],
+            "final_score": 0.9927806258201599
+          },
+          {
+            "node_idx": 2,
+            "node_id": 6160839712,
+            "node_name": "Day 3",
+            "node_type": "Day",
+            "scoring_steps": [
+              {
+                "type": "agg_exists_recursive",
+                "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+                "selector": {
+                  "axis": "none",
+                  "test": {
+                    "type": "leaf",
+                    "test": {
+                      "type": "node_test",
+                      "kind": "type",
+                      "name": "Meal",
+                      "span": {
+                        "start": 82,
+                        "end": 122
+                      }
+                    },
+                    "span": {
+                      "start": 82,
+                      "end": 122
+                    }
+                  },
+                  "path_prefix": [
+                    "Dinner"
+                  ],
+                  "span": {
+                    "start": 75,
+                    "end": 122
+                  }
+                },
+                "num_children": 3,
+                "child_results": [
+                  {
+                    "score": 0.000538409803994,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.0010217268718406558,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.11962010711431503,
+                    "subtree_size": 1
+                  }
+                ],
+                "child_contributions": [
+                  {
+                    "childName": "Turkey Meatballs & Pasta — Berry Boost Combo",
+                    "childPath": "Turkey Meatballs & Pasta — Berry Boost Combo",
+                    "childType": "Meal",
+                    "rawScore": 0.000538409803994,
+                    "weight": 1.0,
+                    "weightedContribution": 0.000538409803994,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  },
+                  {
+                    "childName": "Roast Chicken Dinner — Berry Boost Twist",
+                    "childPath": "Roast Chicken Dinner — Berry Boost Twist",
+                    "childType": "Meal",
+                    "rawScore": 0.0010217268718406558,
+                    "weight": 1.0,
+                    "weightedContribution": 0.0010217268718406558,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  },
+                  {
+                    "childName": "Sheet-Pan Pork Dinner — Garden Veg Style",
+                    "childPath": "Sheet-Pan Pork Dinner — Garden Veg Style",
+                    "childType": "Meal",
+                    "rawScore": 0.11962010711431503,
+                    "weight": 1.0,
+                    "weightedContribution": 0.11962010711431503,
+                    "subtreeSize": 1,
+                    "isBestMatch": true
+                  }
+                ],
+                "best_match_details": {
+                  "type": "node_match",
+                  "node_name": "Sheet-Pan Pork Dinner — Garden Veg Style",
+                  "node_type": "Meal",
+                  "node_path": "Sheet-Pan Pork Dinner — Garden Veg Style",
+                  "score": 0.11962010711431503,
+                  "trace": [
+                    {
+                      "type": "atom",
+                      "condition": {
+                        "type": "atom",
+                        "field": "content",
+                        "value": "smoky base pork",
+                        "operator": "=~",
+                        "span": {
+                          "start": 87,
+                          "end": 121
+                        }
+                      },
+                      "score": 0.11962010711431503,
+                      "note": "Atom(u, φ) - local node content from attr(u)"
+                    }
+                  ]
+                },
+                "result": 0.11962010711431503
+              }
+            ],
+            "final_score": 0.11962010711431503
+          },
+          {
+            "node_idx": 3,
+            "node_id": 6160732608,
+            "node_name": "Day 4",
+            "node_type": "Day",
+            "scoring_steps": [
+              {
+                "type": "agg_exists_recursive",
+                "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+                "selector": {
+                  "axis": "none",
+                  "test": {
+                    "type": "leaf",
+                    "test": {
+                      "type": "node_test",
+                      "kind": "type",
+                      "name": "Meal",
+                      "span": {
+                        "start": 82,
+                        "end": 122
+                      }
+                    },
+                    "span": {
+                      "start": 82,
+                      "end": 122
+                    }
+                  },
+                  "path_prefix": [
+                    "Dinner"
+                  ],
+                  "span": {
+                    "start": 75,
+                    "end": 122
+                  }
+                },
+                "num_children": 3,
+                "child_results": [
+                  {
+                    "score": 0.0007376503199338913,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.0017300029285252094,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.0004014716250821948,
+                    "subtree_size": 1
+                  }
+                ],
+                "child_contributions": [
+                  {
+                    "childName": "Vegetable Soup & Bread — Lemon-Herb Bowl",
+                    "childPath": "Vegetable Soup & Bread — Lemon-Herb Bowl",
+                    "childType": "Meal",
+                    "rawScore": 0.0007376503199338913,
+                    "weight": 1.0,
+                    "weightedContribution": 0.0007376503199338913,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  },
+                  {
+                    "childName": "Stuffed Bell Peppers — Mild-Spice Style",
+                    "childPath": "Stuffed Bell Peppers — Mild-Spice Style",
+                    "childType": "Meal",
+                    "rawScore": 0.0017300029285252094,
+                    "weight": 1.0,
+                    "weightedContribution": 0.0017300029285252094,
+                    "subtreeSize": 1,
+                    "isBestMatch": true
+                  },
+                  {
+                    "childName": "Tofu Veggie Curry — Citrus Fresh Combo",
+                    "childPath": "Tofu Veggie Curry — Citrus Fresh Combo",
+                    "childType": "Meal",
+                    "rawScore": 0.0004014716250821948,
+                    "weight": 1.0,
+                    "weightedContribution": 0.0004014716250821948,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  }
+                ],
+                "best_match_details": {
+                  "type": "node_match",
+                  "node_name": "Stuffed Bell Peppers — Mild-Spice Style",
+                  "node_type": "Meal",
+                  "node_path": "Stuffed Bell Peppers — Mild-Spice Style",
+                  "score": 0.0017300029285252094,
+                  "trace": [
+                    {
+                      "type": "atom",
+                      "condition": {
+                        "type": "atom",
+                        "field": "content",
+                        "value": "smoky base pork",
+                        "operator": "=~",
+                        "span": {
+                          "start": 87,
+                          "end": 121
+                        }
+                      },
+                      "score": 0.0017300029285252094,
+                      "note": "Atom(u, φ) - local node content from attr(u)"
+                    }
+                  ]
+                },
+                "result": 0.0017300029285252094
+              }
+            ],
+            "final_score": 0.0017300029285252094
+          },
+          {
+            "node_idx": 4,
+            "node_id": 6160741088,
+            "node_name": "Day 5",
+            "node_type": "Day",
+            "scoring_steps": [
+              {
+                "type": "agg_exists_recursive",
+                "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+                "selector": {
+                  "axis": "none",
+                  "test": {
+                    "type": "leaf",
+                    "test": {
+                      "type": "node_test",
+                      "kind": "type",
+                      "name": "Meal",
+                      "span": {
+                        "start": 82,
+                        "end": 122
+                      }
+                    },
+                    "span": {
+                      "start": 82,
+                      "end": 122
+                    }
+                  },
+                  "path_prefix": [
+                    "Dinner"
+                  ],
+                  "span": {
+                    "start": 75,
+                    "end": 122
+                  }
+                },
+                "num_children": 3,
+                "child_results": [
+                  {
+                    "score": 0.002728123916313052,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.0006602639914490283,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.0030350591987371445,
+                    "subtree_size": 1
+                  }
+                ],
+                "child_contributions": [
+                  {
+                    "childName": "Bean & Cheese Burritos — Garlic-Ginger Bake",
+                    "childPath": "Bean & Cheese Burritos — Garlic-Ginger Bake",
+                    "childType": "Meal",
+                    "rawScore": 0.002728123916313052,
+                    "weight": 1.0,
+                    "weightedContribution": 0.002728123916313052,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  },
+                  {
+                    "childName": "Homemade Pizza Night — Sesame Twist",
+                    "childPath": "Homemade Pizza Night — Sesame Twist",
+                    "childType": "Meal",
+                    "rawScore": 0.0006602639914490283,
+                    "weight": 1.0,
+                    "weightedContribution": 0.0006602639914490283,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  },
+                  {
+                    "childName": "Stuffed Bell Peppers — Garlic-Ginger Bake",
+                    "childPath": "Stuffed Bell Peppers — Garlic-Ginger Bake",
+                    "childType": "Meal",
+                    "rawScore": 0.0030350591987371445,
+                    "weight": 1.0,
+                    "weightedContribution": 0.0030350591987371445,
+                    "subtreeSize": 1,
+                    "isBestMatch": true
+                  }
+                ],
+                "best_match_details": {
+                  "type": "node_match",
+                  "node_name": "Stuffed Bell Peppers — Garlic-Ginger Bake",
+                  "node_type": "Meal",
+                  "node_path": "Stuffed Bell Peppers — Garlic-Ginger Bake",
+                  "score": 0.0030350591987371445,
+                  "trace": [
+                    {
+                      "type": "atom",
+                      "condition": {
+                        "type": "atom",
+                        "field": "content",
+                        "value": "smoky base pork",
+                        "operator": "=~",
+                        "span": {
+                          "start": 87,
+                          "end": 121
+                        }
+                      },
+                      "score": 0.0030350591987371445,
+                      "note": "Atom(u, φ) - local node content from attr(u)"
+                    }
+                  ]
+                },
+                "result": 0.0030350591987371445
+              }
+            ],
+            "final_score": 0.0030350591987371445
+          },
+          {
+            "node_idx": 5,
+            "node_id": 6160503152,
+            "node_name": "Day 6",
+            "node_type": "Day",
+            "scoring_steps": [
+              {
+                "type": "agg_exists_recursive",
+                "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+                "selector": {
+                  "axis": "none",
+                  "test": {
+                    "type": "leaf",
+                    "test": {
+                      "type": "node_test",
+                      "kind": "type",
+                      "name": "Meal",
+                      "span": {
+                        "start": 82,
+                        "end": 122
+                      }
+                    },
+                    "span": {
+                      "start": 82,
+                      "end": 122
+                    }
+                  },
+                  "path_prefix": [
+                    "Dinner"
+                  ],
+                  "span": {
+                    "start": 75,
+                    "end": 122
+                  }
+                },
+                "num_children": 3,
+                "child_results": [
+                  {
+                    "score": 0.0012074093101546168,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.0006225543329492211,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.8429549336433411,
+                    "subtree_size": 1
+                  }
+                ],
+                "child_contributions": [
+                  {
+                    "childName": "Roast Chicken Dinner — Maple-Kissed Bowl",
+                    "childPath": "Roast Chicken Dinner — Maple-Kissed Bowl",
+                    "childType": "Meal",
+                    "rawScore": 0.0012074093101546168,
+                    "weight": 1.0,
+                    "weightedContribution": 0.0012074093101546168,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  },
+                  {
+                    "childName": "Vegetable Soup & Bread — Garden Veg Bowl",
+                    "childPath": "Vegetable Soup & Bread — Garden Veg Bowl",
+                    "childType": "Meal",
+                    "rawScore": 0.0006225543329492211,
+                    "weight": 1.0,
+                    "weightedContribution": 0.0006225543329492211,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  },
+                  {
+                    "childName": "Sheet-Pan Pork Dinner — Sesame Skillet",
+                    "childPath": "Sheet-Pan Pork Dinner — Sesame Skillet",
+                    "childType": "Meal",
+                    "rawScore": 0.8429549336433411,
+                    "weight": 1.0,
+                    "weightedContribution": 0.8429549336433411,
+                    "subtreeSize": 1,
+                    "isBestMatch": true
+                  }
+                ],
+                "best_match_details": {
+                  "type": "node_match",
+                  "node_name": "Sheet-Pan Pork Dinner — Sesame Skillet",
+                  "node_type": "Meal",
+                  "node_path": "Sheet-Pan Pork Dinner — Sesame Skillet",
+                  "score": 0.8429549336433411,
+                  "trace": [
+                    {
+                      "type": "atom",
+                      "condition": {
+                        "type": "atom",
+                        "field": "content",
+                        "value": "smoky base pork",
+                        "operator": "=~",
+                        "span": {
+                          "start": 87,
+                          "end": 121
+                        }
+                      },
+                      "score": 0.8429549336433411,
+                      "note": "Atom(u, φ) - local node content from attr(u)"
+                    }
+                  ]
+                },
+                "result": 0.8429549336433411
+              }
+            ],
+            "final_score": 0.8429549336433411
+          },
+          {
+            "node_idx": 6,
+            "node_id": 6160511232,
+            "node_name": "Day 7",
+            "node_type": "Day",
+            "scoring_steps": [
+              {
+                "type": "agg_exists_recursive",
+                "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+                "selector": {
+                  "axis": "none",
+                  "test": {
+                    "type": "leaf",
+                    "test": {
+                      "type": "node_test",
+                      "kind": "type",
+                      "name": "Meal",
+                      "span": {
+                        "start": 82,
+                        "end": 122
+                      }
+                    },
+                    "span": {
+                      "start": 82,
+                      "end": 122
+                    }
+                  },
+                  "path_prefix": [
+                    "Dinner"
+                  ],
+                  "span": {
+                    "start": 75,
+                    "end": 122
+                  }
+                },
+                "num_children": 3,
+                "child_results": [
+                  {
+                    "score": 0.0013816652353852987,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.007267041131854057,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.033196497708559036,
+                    "subtree_size": 1
+                  }
+                ],
+                "child_contributions": [
+                  {
+                    "childName": "Vegetable Soup & Bread — Lemon-Herb Wrap",
+                    "childPath": "Vegetable Soup & Bread — Lemon-Herb Wrap",
+                    "childType": "Meal",
+                    "rawScore": 0.0013816652353852987,
+                    "weight": 1.0,
+                    "weightedContribution": 0.0013816652353852987,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  },
+                  {
+                    "childName": "DIY Taco Night — Garlic-Ginger Skillet",
+                    "childPath": "DIY Taco Night — Garlic-Ginger Skillet",
+                    "childType": "Meal",
+                    "rawScore": 0.007267041131854057,
+                    "weight": 1.0,
+                    "weightedContribution": 0.007267041131854057,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  },
+                  {
+                    "childName": "DIY Taco Night — Maple-Kissed Skillet",
+                    "childPath": "DIY Taco Night — Maple-Kissed Skillet",
+                    "childType": "Meal",
+                    "rawScore": 0.033196497708559036,
+                    "weight": 1.0,
+                    "weightedContribution": 0.033196497708559036,
+                    "subtreeSize": 1,
+                    "isBestMatch": true
+                  }
+                ],
+                "best_match_details": {
+                  "type": "node_match",
+                  "node_name": "DIY Taco Night — Maple-Kissed Skillet",
+                  "node_type": "Meal",
+                  "node_path": "DIY Taco Night — Maple-Kissed Skillet",
+                  "score": 0.033196497708559036,
+                  "trace": [
+                    {
+                      "type": "atom",
+                      "condition": {
+                        "type": "atom",
+                        "field": "content",
+                        "value": "smoky base pork",
+                        "operator": "=~",
+                        "span": {
+                          "start": 87,
+                          "end": 121
+                        }
+                      },
+                      "score": 0.033196497708559036,
+                      "note": "Atom(u, φ) - local node content from attr(u)"
+                    }
+                  ]
+                },
+                "result": 0.033196497708559036
+              }
+            ],
+            "final_score": 0.033196497708559036
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 1,
+            "score": 0.9927806258201599,
+            "name": "Day 2"
+          },
+          {
+            "idx": 5,
+            "score": 0.8429549336433411,
+            "name": "Day 6"
+          },
+          {
+            "idx": 2,
+            "score": 0.11962010711431503,
+            "name": "Day 3"
+          },
+          {
+            "idx": 6,
+            "score": 0.033196497708559036,
+            "name": "Day 7"
+          },
+          {
+            "idx": 4,
+            "score": 0.0030350591987371445,
+            "name": "Day 5"
+          },
+          {
+            "idx": 0,
+            "score": 0.0030012750066816807,
+            "name": "Day 1"
+          },
+          {
+            "idx": 3,
+            "score": 0.0017300029285252094,
+            "name": "Day 4"
+          }
+        ]
+      }
+    ],
+    "score_fusion": {
+      "per_node": [
+        {
+          "node_path": "Root > MealPlan_Version 2 > Father > Day 1 > Breakfast",
+          "node_type": "Breakfast",
+          "step_contributions": [],
+          "accumulated_product": 1.0,
+          "final_score": 0.0030012750036804057
+        },
+        {
+          "node_path": "Root > MealPlan_Version 2 > Father > Day 2 > Breakfast",
+          "node_type": "Breakfast",
+          "step_contributions": [],
+          "accumulated_product": 1.0,
+          "final_score": 0.9927806248273793
+        },
+        {
+          "node_path": "Root > MealPlan_Version 2 > Father > Day 3 > Breakfast",
+          "node_type": "Breakfast",
+          "step_contributions": [],
+          "accumulated_product": 1.0,
+          "final_score": 0.11962010699469493
+        },
+        {
+          "node_path": "Root > MealPlan_Version 2 > Father > Day 4 > Breakfast",
+          "node_type": "Breakfast",
+          "step_contributions": [],
+          "accumulated_product": 1.0,
+          "final_score": 0.0017300029267952066
+        },
+        {
+          "node_path": "Root > MealPlan_Version 2 > Father > Day 5 > Breakfast",
+          "node_type": "Breakfast",
+          "step_contributions": [],
+          "accumulated_product": 1.0,
+          "final_score": 0.0030350591957020853
+        },
+        {
+          "node_path": "Root > MealPlan_Version 2 > Father > Day 6 > Breakfast",
+          "node_type": "Breakfast",
+          "step_contributions": [],
+          "accumulated_product": 1.0,
+          "final_score": 0.8429549328003861
+        },
+        {
+          "node_path": "Root > MealPlan_Version 2 > Father > Day 7 > Breakfast",
+          "node_type": "Breakfast",
+          "step_contributions": [],
+          "accumulated_product": 1.0,
+          "final_score": 0.03319649767536254
+        }
+      ]
+    }
+  },
+  "final_filtering": {
+    "before_filter_count": 7,
+    "threshold": 0.05,
+    "top_k": 5,
+    "after_filter_count": 3,
+    "filtered_nodes": [
+      {
+        "path": "Root > MealPlan_Version 2 > Father > Day 2 > Breakfast",
+        "score": 0.9927806248273793,
+        "type": "Breakfast",
+        "own_score": 1.0,
+        "parent_score": 0.9927806248273793
+      },
+      {
+        "path": "Root > MealPlan_Version 2 > Father > Day 6 > Breakfast",
+        "score": 0.8429549328003861,
+        "type": "Breakfast",
+        "own_score": 1.0,
+        "parent_score": 0.8429549328003861
+      },
+      {
+        "path": "Root > MealPlan_Version 2 > Father > Day 3 > Breakfast",
+        "score": 0.11962010699469493,
+        "type": "Breakfast",
+        "own_score": 1.0,
+        "parent_score": 0.11962010699469493
+      }
+    ]
+  },
+  "matched_nodes": [
+    {
+      "tree_path": "Root > MealPlan_Version 2 > Father > Day 2 > Breakfast",
+      "score": 0.9927806248273793,
+      "node": {
+        "type": "Breakfast",
+        "attributes": {}
+      },
+      "children": [
+        {
+          "type": "Meal",
+          "attributes": {},
+          "name": "Apple-Cinnamon Porridge — Mild-Spice Plate",
+          "short_description": "Creamy, mildly spiced apple-cinnamon porridge made with oats, milk, and apple.",
+          "meal_suggestion": "Dairy-free option: use fortified plant milk. Boost protein by adding a tablespoon of nut butter or a sprinkle of chia/flax seeds. If extra sweetness is desired, drizzle honey or maple syrup. Top with extra sliced apple or a pinch more cinnamon for aroma.",
+          "ingredients": [],
+          "nutrition_note": "Oats supply soluble fiber (beta-glucan) for fullness; milk provides protein and calcium; apple adds vitamins and natural sweetness; cinnamon enhances flavor with minimal added sugar. A balanced, warming breakfast; adjust dairy or sweetness as needed."
+        },
+        {
+          "type": "Meal",
+          "attributes": {},
+          "name": "Ricotta Toast — Berry Boost Variation",
+          "short_description": "Ricotta toast with berries and a light honey drizzle—fiber-rich and protein-boosted for a quick, balanced meal.",
+          "meal_suggestion": "Toast the whole-grain bread, spread ricotta, top with berries, and drizzle honey. Optional: sprinkle a pinch of cinnamon for extra flavor.",
+          "ingredients": [],
+          "nutrition_note": "Protein from ricotta; fiber from whole-grain bread and berries; natural sugars from honey and berries. A quick, balanced option—adjust honey to control sugar intake."
+        },
+        {
+          "type": "Meal",
+          "attributes": {},
+          "name": "Miso Breakfast Set — Classic Set",
+          "short_description": "Protein-forward Japanese-inspired breakfast featuring miso, tofu, egg, green onion, and rice.",
+          "meal_suggestion": "Prepare a warm miso broth and add tofu cubes and green onion; gently add or scramble an egg and cook to preferred doneness, then serve over steamed rice. Garnish with extra green onion for freshness.",
+          "ingredients": [],
+          "nutrition_note": "Protein-rich breakfast with tofu and egg, balanced by rice; provides energy from carbohydrates and healthy fats. Contains soy and is potentially high in sodium due to miso. For lower sodium, choose low-sodium miso and moderate portions."
+        }
+      ],
+      "context_trace": [
+        {
+          "node_name": "Father",
+          "predicate": "atom(content =~ \"Father\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Father\") on Father (Score: 1.00)"
+        },
+        {
+          "node_name": "Day 2",
+          "predicate": "agg_exists(Meal[atom(content =~ \"smoky base pork\")])",
+          "score": 0.9927806258201599,
+          "description": "Matched agg_exists(Meal[atom(content =~ \"smoky base pork\")]) on Day 2 (Score: 0.99)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > MealPlan_Version 2 > Father > Day 6 > Breakfast",
+      "score": 0.8429549328003861,
+      "node": {
+        "type": "Breakfast",
+        "attributes": {}
+      },
+      "children": [
+        {
+          "type": "Meal",
+          "attributes": {},
+          "name": "Breakfast Wrap — Citrus Fresh Bake",
+          "short_description": "A quick, balanced breakfast wrap with a whole-wheat tortilla, egg, turkey, spinach, and salsa.",
+          "meal_suggestion": "Pair with a piece of fruit (e.g., orange) for extra vitamin C, and consider a squeeze of lime or a bit of avocado for freshness. To reduce sodium, use low-sodium turkey and homemade salsa.",
+          "ingredients": [],
+          "nutrition_note": "Protein-rich from egg and turkey; fiber and micronutrients from whole-wheat tortilla and spinach; salsa adds flavor and vitamin C. Mind sodium: turkey and salsa can be high-sodium—choose low-sodium turkey or add extra veggies to boost volume."
+        },
+        {
+          "type": "Meal",
+          "attributes": {},
+          "name": "Breakfast Wrap — Lemon-Herb Skillet",
+          "short_description": "A warm breakfast wrap featuring a whole-wheat tortilla, scrambled egg, turkey slices, spinach, and salsa, cooked in a lemon-herb skillet.",
+          "meal_suggestion": "A quick, balanced breakfast wrap with protein, fiber, and vegetables; pair with fruit or yogurt for a fuller morning meal.",
+          "ingredients": [],
+          "nutrition_note": "Protein-rich meal thanks to egg and turkey; fiber from whole-wheat tortilla and spinach; salsa adds flavor with minimal added sugar. Sodium can be modest-to-high depending on turkey and salsa—opt for low-sodium versions if needed. For more fiber, add extra greens or use a higher-fiber tortilla; for lower fat, use egg whites and a smaller tortilla."
+        },
+        {
+          "type": "Meal",
+          "attributes": {},
+          "name": "Breakfast Wrap — Smoky Combo",
+          "short_description": "Protein-packed breakfast wrap with egg, turkey, spinach, and salsa in a whole-wheat tortilla.",
+          "meal_suggestion": "Suggestions: swap turkey for chicken or plant-based protein; add avocado for healthy fats; include additional colorful veggies (bell peppers, onions); use low-sodium salsa or serve as a bowl to vary texture.",
+          "ingredients": [],
+          "nutrition_note": "Protein-rich breakfast with egg and turkey, plus fiber from whole-wheat tortilla and spinach. Includes vegetables and salsa; watch sodium levels from turkey and salsa—choose low-sodium options or reduce added salt. Optional avocado adds healthy fats."
+        }
+      ],
+      "context_trace": [
+        {
+          "node_name": "Father",
+          "predicate": "atom(content =~ \"Father\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Father\") on Father (Score: 1.00)"
+        },
+        {
+          "node_name": "Day 6",
+          "predicate": "agg_exists(Meal[atom(content =~ \"smoky base pork\")])",
+          "score": 0.8429549336433411,
+          "description": "Matched agg_exists(Meal[atom(content =~ \"smoky base pork\")]) on Day 6 (Score: 0.84)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > MealPlan_Version 2 > Father > Day 3 > Breakfast",
+      "score": 0.11962010699469493,
+      "node": {
+        "type": "Breakfast",
+        "attributes": {}
+      },
+      "children": [
+        {
+          "type": "Meal",
+          "attributes": {},
+          "name": "Fruit & Nut Plate — Smoky Combo",
+          "short_description": "A balanced snack of mixed fruit, yogurt, and nuts delivering fiber, protein, and healthy fats.",
+          "meal_suggestion": "Assemble a serving with 1 cup mixed fruit, ¼–½ cup plain Greek yogurt, and a small handful (about ¼ cup) nuts; enjoy as a portable, balanced snack and adjust portions to fit your daily needs.",
+          "ingredients": [],
+          "nutrition_note": "Provides fiber and antioxidants from fruit, protein and calcium from yogurt, and healthy fats from nuts. To keep sugar and calories in check, choose plain yogurt and unsalted nuts."
+        },
+        {
+          "type": "Meal",
+          "attributes": {},
+          "name": "Overnight Oats — Citrus Fresh Twist",
+          "short_description": "Creamy overnight oats with milk, plain yogurt, apple and cinnamon; a protein- and fiber-rich breakfast that can be brightened with a citrus note.",
+          "meal_suggestion": "For a true Citrus Fresh Twist, add citrus zest (orange or lemon) or a small splash of juice to brighten the oats. Top with chopped nuts or seeds for healthy fats and extra crunch. Consider vanilla yogurt or a touch of vanilla extract for depth.",
+          "ingredients": [],
+          "nutrition_note": "Balanced breakfast with protein and calcium from yogurt and milk, plus fiber from oats and apple. No added sugar in the base ingredients; cinnamon adds flavor and may support blood sugar regulation. Calories vary with dairy choices but it's a filling, nutrient-dense start to the day."
+        },
+        {
+          "type": "Meal",
+          "attributes": {},
+          "name": "Whole-Grain Pancakes — Citrus Fresh Variation",
+          "short_description": "Whole-grain pancakes with egg, milk, berries, and maple syrup—fiber-rich, protein-containing breakfast with natural sweetness.",
+          "meal_suggestion": "Serve with a small yogurt or extra berries for added protein or fiber. To echo the citrus theme, garnish with orange zest or add a splash of citrus juice to the batter.",
+          "ingredients": [],
+          "nutrition_note": "Fiber-rich whole-wheat batter with egg and milk provides sustained energy and high-quality protein; berries add vitamins, fiber, and antioxidants; maple syrup adds sweetness with natural sugars. The Citrus Fresh Variation name suggests optional citrus zest or juice for extra vitamin C and bright flavor, not included in the base ingredients."
+        }
+      ],
+      "context_trace": [
+        {
+          "node_name": "Father",
+          "predicate": "atom(content =~ \"Father\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Father\") on Father (Score: 1.00)"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total_steps": 5,
+    "total_scoring_calls": 2,
+    "matched_count": 3,
+    "execution_time_ms": 1850.0288748182356,
+    "has_score_fusion": true,
+    "num_nodes_before_filter": 7,
+    "num_nodes_after_filter": 3
+  }
+}

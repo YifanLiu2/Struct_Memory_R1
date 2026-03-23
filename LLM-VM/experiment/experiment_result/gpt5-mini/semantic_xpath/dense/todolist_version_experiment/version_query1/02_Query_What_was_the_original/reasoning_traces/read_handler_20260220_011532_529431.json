@@ -1,0 +1,50 @@
+{
+  "user_query": "What was the original grocery list before I we changed something to salad? Check the previous versions",
+  "candidates_count": 5,
+  "selected_count": 3,
+  "selected_nodes": [
+    {
+      "tree_path": "Root > ToDoList_Version 3 > Household > Weekly Groceries > Task 1",
+      "node_data": {
+        "type": "Task",
+        "attributes": {},
+        "description": "Buy Milk (Oat)",
+        "status": "Todo",
+        "priority": "Medium",
+        "due_date": "2026-02-10"
+      },
+      "reasoning": "Part of Weekly Groceries in the referenced version; represents an item on the grocery list (Buy Milk) and is semantically part of the original grocery list context."
+    },
+    {
+      "tree_path": "Root > ToDoList_Version 3 > Household > Weekly Groceries > Task 2",
+      "node_data": {
+        "type": "Task",
+        "attributes": {},
+        "description": "Buy Coffee Beans",
+        "status": "Todo",
+        "priority": "High",
+        "due_date": "2026-02-10"
+      },
+      "reasoning": "Part of Weekly Groceries in the referenced version; represents an item on the grocery list (Buy Coffee Beans) and is semantically part of the original grocery list context."
+    },
+    {
+      "tree_path": "Root > ToDoList_Version 3 > Household > Weekly Groceries > Task 3",
+      "node_data": {
+        "type": "Task",
+        "attributes": {},
+        "description": "Buy Ramen (Emergency deadline food)",
+        "status": "Todo",
+        "priority": "Low",
+        "due_date": "2026-02-10"
+      },
+      "reasoning": "Direct match to the change context: Weekly Groceries Task 3 description is 'Buy Ramen', which is the item the user said was changed to 'salad' — this shows the original item before the change."
+    }
+  ],
+  "raw_response": "{\n  \"selected_nodes\": [\n    {\n      \"id\": \"1\",\n      \"reasoning\": \"Part of Weekly Groceries in the referenced version; represents an item on the grocery list (Buy Milk) and is semantically part of the original grocery list context.\"\n    },\n    {\n      \"id\": \"2\",\n      \"reasoning\": \"Part of Weekly Groceries in the referenced version; represents an item on the grocery list (Buy Coffee Beans) and is semantically part of the original grocery list context.\"\n    },\n    {\n      \"id\": \"3\",\n      \"reasoning\": \"Direct match to the change context: Weekly Groceries Task 3 description is 'Buy Ramen', which is the item the user said was changed to 'salad' — this shows the original item before the change.\"\n    }\n  ],\n  \"reasoning\": \"The user asked for the original grocery list before the change that replaced ramen with salad. The Weekly Groceries tasks (Task 1–3) under the referenced version are the relevant grocery items; Task 3 specifically contains 'Buy Ramen', matching the change context. Kitchen Deep Clean tasks are unrelated and therefore excluded.\"\n}",
+  "token_usage": {
+    "prompt_tokens": 1407,
+    "completion_tokens": 507,
+    "total_tokens": 1914
+  },
+  "processing_time_ms": 7583.276834106073
+}

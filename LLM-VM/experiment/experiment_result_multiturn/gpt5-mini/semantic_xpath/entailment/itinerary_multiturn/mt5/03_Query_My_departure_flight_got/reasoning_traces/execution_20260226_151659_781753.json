@@ -1,0 +1,729 @@
+{
+  "timestamp": "20260226_151659_781753",
+  "query": "/Root/Itinerary_Version[3]/Day[10]/POI[atom(content =~ \"departure flight\")]",
+  "canonical_query": "/Root/Itinerary_Version[3]/Day[10]/POI[content =~ \"departure flight\"]",
+  "data_file": "tree.xml",
+  "execution_time_ms": 989.2774589825422,
+  "parsed_ast": {
+    "steps": [
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Root",
+            "span": {
+              "start": 1,
+              "end": 5
+            }
+          },
+          "span": {
+            "start": 1,
+            "end": 5
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Itinerary_Version",
+            "index": {
+              "start": 3,
+              "type": "single",
+              "span": {
+                "start": 23,
+                "end": 26
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 26
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 26
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Day",
+            "index": {
+              "start": 10,
+              "type": "single",
+              "span": {
+                "start": 30,
+                "end": 34
+              }
+            },
+            "span": {
+              "start": 27,
+              "end": 34
+            }
+          },
+          "span": {
+            "start": 27,
+            "end": 34
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "POI",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "departure flight",
+              "operator": "=~",
+              "span": {
+                "start": 39,
+                "end": 74
+              }
+            },
+            "predicate_str": "atom(content =~ \"departure flight\")",
+            "span": {
+              "start": 35,
+              "end": 75
+            }
+          },
+          "span": {
+            "start": 35,
+            "end": 75
+          }
+        }
+      }
+    ],
+    "global_index": null
+  },
+  "parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: Itinerary_Version[3]\n├── Step 2: Day[10]\n└── Step 3: POI[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"departure flight\")",
+  "canonical_parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: Itinerary_Version[3]\n├── Step 2: Day[10]\n└── Step 3: POI[content =~ \"departure flight\"]",
+  "execution_log": [
+    "[20260226_151659_781753] Executing query: /Root/Itinerary_Version[3]/Day[10]/POI[atom(content =~ \"departure flight\")]",
+    "Data file: tree.xml",
+    "Parsed steps: [Root, Itinerary_Version[3], Day[10], POI[atom(content =~ \"departure flight\")]]",
+    "",
+    "Query AST:\n├── Step 0: Root\n├── Step 1: Itinerary_Version[3]\n├── Step 2: Day[10]\n└── Step 3: POI[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"departure flight\")",
+    "\n--- Step 1: Root ---",
+    "Matched Root root",
+    "\n--- Step 2: Itinerary_Version[3] ---",
+    "Selected node at index 3 (0-based: 2)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 3: Day[10] ---",
+    "Selected node at index 10 (0-based: 9)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 4: POI[atom(content =~ \"departure flight\")] ---",
+    "Scoring predicate: atom(content =~ \"departure flight\") (atomic values: ['departure flight'])",
+    "  Collected 2 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 2 total descriptions",
+    "  Node 0 (Airport Snack Stop): score = 0.9986",
+    "  Node 1 (YYZ Departure): score = 0.9997",
+    "After step: 2 nodes remaining",
+    "\n=== Score Fusion ===",
+    "  Root > Itinerary_Version 3 > Day 10 > Airport Snack Stop: product=0.9986 → score=0.9986",
+    "  Root > Itinerary_Version 3 > Day 10 > YYZ Departure: product=0.9997 → score=0.9997",
+    "\n=== Threshold Filtering (threshold=0.05) ===",
+    "  Filtered: 2 → 2 nodes",
+    "\n=== Final Filtering (top_k=5) ===",
+    "  After top_k: 2 → 2 nodes",
+    "\nFinal result: 2 nodes (sorted by score)",
+    "⏱️  Query execution time: 989.28ms"
+  ],
+  "traversal_steps": [
+    {
+      "step_index": 0,
+      "step_query": "Root",
+      "action": "root_match",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "type": "root"
+        }
+      ],
+      "nodes_after": [
+        {
+          "type": "Root",
+          "path": "Root"
+        }
+      ],
+      "details": {
+        "matched": true
+      }
+    },
+    {
+      "step_index": 1,
+      "step_query": "Itinerary_Version[3]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root",
+          "name": "Root",
+          "type": "Root",
+          "score": 1.0,
+          "node_id": 13524315136
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Itinerary_Version 3",
+          "name": "Itinerary_Version 3",
+          "type": "Itinerary_Version",
+          "score": 1.0,
+          "node_id": 13524233456
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Itinerary_Version",
+            "index": {
+              "start": 3,
+              "type": "single",
+              "span": {
+                "start": 23,
+                "end": 26
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 26
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 26
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 2,
+      "step_query": "Day[10]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root > Itinerary_Version 3",
+          "name": "Itinerary_Version 3",
+          "type": "Itinerary_Version",
+          "score": 1.0,
+          "node_id": 13524233456
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Itinerary_Version 3 > Day 10",
+          "name": "Day 10",
+          "type": "Day",
+          "score": 1.0,
+          "node_id": 13450442800
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Day",
+            "index": {
+              "start": 10,
+              "type": "single",
+              "span": {
+                "start": 30,
+                "end": 34
+              }
+            },
+            "span": {
+              "start": 27,
+              "end": 34
+            }
+          },
+          "span": {
+            "start": 27,
+            "end": 34
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 3,
+      "step_query": "POI[atom(content =~ \"departure flight\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 2,
+      "nodes_before": [
+        {
+          "path": "Root > Itinerary_Version 3 > Day 10",
+          "name": "Day 10",
+          "type": "Day",
+          "score": 1.0,
+          "node_id": 13450442800
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Itinerary_Version 3 > Day 10 > Airport Snack Stop",
+          "name": "Airport Snack Stop",
+          "type": "POI",
+          "score": 0.9985923171043396,
+          "node_id": 13450432000
+        },
+        {
+          "path": "Root > Itinerary_Version 3 > Day 10 > YYZ Departure",
+          "name": "YYZ Departure",
+          "type": "POI",
+          "score": 0.9996508359909058,
+          "node_id": 13450502176
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "POI",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "departure flight",
+              "operator": "=~",
+              "span": {
+                "start": 39,
+                "end": 74
+              }
+            },
+            "predicate_str": "atom(content =~ \"departure flight\")",
+            "span": {
+              "start": 35,
+              "end": 75
+            }
+          },
+          "span": {
+            "start": 35,
+            "end": 75
+          }
+        },
+        "found_count": 2,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"departure flight\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "departure flight",
+              "operator": "=~",
+              "span": {
+                "start": 39,
+                "end": 74
+              }
+            },
+            "config": {
+              "top_k": 5,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 13450432000,
+                "node_name": "Airport Snack Stop",
+                "node_type": "POI",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "departure flight",
+                      "operator": "=~",
+                      "span": {
+                        "start": 39,
+                        "end": 74
+                      }
+                    },
+                    "score": 0.9985923171043396,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.9985923171043396
+              },
+              {
+                "node_idx": 1,
+                "node_id": 13450502176,
+                "node_name": "YYZ Departure",
+                "node_type": "POI",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "departure flight",
+                      "operator": "=~",
+                      "span": {
+                        "start": 39,
+                        "end": 74
+                      }
+                    },
+                    "score": 0.9996508359909058,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.9996508359909058
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "departure flight"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "departure flight",
+                  "num_descriptions": 2,
+                  "call_time_ms": 987.84
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 2
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 1,
+                "score": 0.9996508359909058,
+                "name": "YYZ Departure"
+              },
+              {
+                "idx": 0,
+                "score": 0.9985923171043396,
+                "name": "Airport Snack Stop"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "scoring_traces": [
+    {
+      "predicate": "atom(content =~ \"departure flight\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "departure flight",
+        "operator": "=~",
+        "span": {
+          "start": 39,
+          "end": 74
+        }
+      },
+      "config": {
+        "top_k": 5,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 13450432000,
+          "node_name": "Airport Snack Stop",
+          "node_type": "POI",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "departure flight",
+                "operator": "=~",
+                "span": {
+                  "start": 39,
+                  "end": 74
+                }
+              },
+              "score": 0.9985923171043396,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.9985923171043396
+        },
+        {
+          "node_idx": 1,
+          "node_id": 13450502176,
+          "node_name": "YYZ Departure",
+          "node_type": "POI",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "departure flight",
+                "operator": "=~",
+                "span": {
+                  "start": 39,
+                  "end": 74
+                }
+              },
+              "score": 0.9996508359909058,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.9996508359909058
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "departure flight"
+        ],
+        "per_value_stats": [
+          {
+            "value": "departure flight",
+            "num_descriptions": 2,
+            "call_time_ms": 987.84
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 2
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 1,
+          "score": 0.9996508359909058,
+          "name": "YYZ Departure"
+        },
+        {
+          "idx": 0,
+          "score": 0.9985923171043396,
+          "name": "Airport Snack Stop"
+        }
+      ]
+    }
+  ],
+  "scoring_details": {
+    "step_scores": [
+      {
+        "step_index": 0,
+        "predicate": "atom(content =~ \"departure flight\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "departure flight",
+          "operator": "=~",
+          "span": {
+            "start": 39,
+            "end": 74
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 13450432000,
+            "node_name": "Airport Snack Stop",
+            "node_type": "POI",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "departure flight",
+                  "operator": "=~",
+                  "span": {
+                    "start": 39,
+                    "end": 74
+                  }
+                },
+                "score": 0.9985923171043396,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.9985923171043396
+          },
+          {
+            "node_idx": 1,
+            "node_id": 13450502176,
+            "node_name": "YYZ Departure",
+            "node_type": "POI",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "departure flight",
+                  "operator": "=~",
+                  "span": {
+                    "start": 39,
+                    "end": 74
+                  }
+                },
+                "score": 0.9996508359909058,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.9996508359909058
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 1,
+            "score": 0.9996508359909058,
+            "name": "YYZ Departure"
+          },
+          {
+            "idx": 0,
+            "score": 0.9985923171043396,
+            "name": "Airport Snack Stop"
+          }
+        ]
+      }
+    ],
+    "score_fusion": {
+      "per_node": [
+        {
+          "node_path": "Root > Itinerary_Version 3 > Day 10 > Airport Snack Stop",
+          "node_type": "POI",
+          "step_contributions": [
+            {
+              "step_index": 3,
+              "predicate": "POI[atom(content =~ \"departure flight\")]",
+              "score": 0.9985923171043396
+            }
+          ],
+          "accumulated_product": 0.9985923171043396,
+          "final_score": 0.9985923171043396
+        },
+        {
+          "node_path": "Root > Itinerary_Version 3 > Day 10 > YYZ Departure",
+          "node_type": "POI",
+          "step_contributions": [
+            {
+              "step_index": 3,
+              "predicate": "POI[atom(content =~ \"departure flight\")]",
+              "score": 0.9996508359909058
+            }
+          ],
+          "accumulated_product": 0.9996508359909058,
+          "final_score": 0.9996508359909058
+        }
+      ]
+    }
+  },
+  "final_filtering": {
+    "before_filter_count": 2,
+    "threshold": 0.05,
+    "top_k": 5,
+    "after_filter_count": 2,
+    "filtered_nodes": [
+      {
+        "path": "Root > Itinerary_Version 3 > Day 10 > YYZ Departure",
+        "score": 0.9996508359909058,
+        "type": "POI",
+        "own_score": 0.9996508359909058,
+        "parent_score": 1.0
+      },
+      {
+        "path": "Root > Itinerary_Version 3 > Day 10 > Airport Snack Stop",
+        "score": 0.9985923171043396,
+        "type": "POI",
+        "own_score": 0.9985923171043396,
+        "parent_score": 1.0
+      }
+    ]
+  },
+  "matched_nodes": [
+    {
+      "tree_path": "Root > Itinerary_Version 3 > Day 10 > YYZ Departure",
+      "score": 0.9996508359909058,
+      "node": {
+        "type": "POI",
+        "attributes": {},
+        "name": "YYZ Departure",
+        "time_block": "6:00 PM",
+        "description": "Flight departure from Toronto Pearson International Airport. End of trip.",
+        "travel_method": "Flight",
+        "expected_cost": "Included",
+        "highlights": [
+          "Departure flight",
+          "End of trip"
+        ]
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "YYZ Departure",
+          "predicate": "atom(content =~ \"departure flight\")",
+          "score": 0.9996508359909058,
+          "description": "Matched atom(content =~ \"departure flight\") on YYZ Departure (Score: 1.00)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Itinerary_Version 3 > Day 10 > Airport Snack Stop",
+      "score": 0.9985923171043396,
+      "node": {
+        "type": "POI",
+        "attributes": {},
+        "name": "Airport Snack Stop",
+        "time_block": "4:00 PM - 4:30 PM",
+        "description": "Generic airport food and coffee before boarding. Forgettable but necessary. Nothing special about airport dining.",
+        "travel_method": "Walk",
+        "expected_cost": "CAD 20",
+        "highlights": [
+          "Generic airport food",
+          "Forgettable quick bite"
+        ]
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Airport Snack Stop",
+          "predicate": "atom(content =~ \"departure flight\")",
+          "score": 0.9985923171043396,
+          "description": "Matched atom(content =~ \"departure flight\") on Airport Snack Stop (Score: 1.00)"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total_steps": 4,
+    "total_scoring_calls": 1,
+    "matched_count": 2,
+    "execution_time_ms": 989.2774589825422,
+    "has_score_fusion": true,
+    "num_nodes_before_filter": 2,
+    "num_nodes_after_filter": 2
+  }
+}

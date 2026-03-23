@@ -1,0 +1,39 @@
+====================
+Examples
+====================
+
+### Delete specific observation
+Query: "Remove the observation about the hiking incident for Caroline"
+
+Candidates:
+[1] Speaker Caroline > Session 12 > Observation: "Caroline had a not-so-great experience on a hike..." (score: 0.88)
+[2] Speaker Caroline > Session 14 > Observation: "Caroline went hiking last week and got into a bad spot..." (score: 0.82)
+[3] Speaker Melanie > Session 18 > Observation: "Melanie went on a hike after the road trip." (score: 0.45)
+
+```json
+{
+  "nodes_to_delete": [
+    {"id": "1", "path": "Speaker Caroline > Session 12 > Observation", "reasoning": "Hiking incident on session 12 matches 'hiking incident'"},
+    {"id": "2", "path": "Speaker Caroline > Session 14 > Observation", "reasoning": "Another hiking incident on session 14 also matches"}
+  ],
+  "reasoning": "Selected both of Caroline's hiking incident observations. Excluded Melanie's hiking observation (different speaker, not an incident)."
+}
+```
+
+### Delete observations from a session
+Query: "Remove all observations from session 1 for Melanie"
+
+Candidates:
+[1] Speaker Melanie > Session 1 > Observation: "Melanie ran a charity race..." (score: 0.72)
+[2] Speaker Melanie > Session 1 > Observation: "Melanie realized self-care is important." (score: 0.68)
+[3] Speaker Caroline > Session 1 > Observation: "Caroline attended an LGBTQ support group..." (score: 0.55)
+
+```json
+{
+  "nodes_to_delete": [
+    {"id": "1", "path": "Speaker Melanie > Session 1 > Observation", "reasoning": "Melanie's observation from session 1"},
+    {"id": "2", "path": "Speaker Melanie > Session 1 > Observation", "reasoning": "Melanie's observation from session 1"}
+  ],
+  "reasoning": "Selected all Melanie's session 1 observations. Excluded Caroline's observation (wrong speaker)."
+}
+```

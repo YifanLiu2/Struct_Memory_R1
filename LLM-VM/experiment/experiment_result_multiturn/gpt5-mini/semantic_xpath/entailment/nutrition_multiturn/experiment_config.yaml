@@ -1,0 +1,119 @@
+name: "nutrition_multiturn"
+
+queries:
+  - name: "nutrition_mt1"
+    use_versions: "true"
+    tree_path: "storage/memory/nutrition/nutrition_7day.xml"
+    queries:
+      # Multi-turn 1: Create → Create → Read → Update → Update → Delete → Delete
+      - "For fathers greek food filled day, please add a classic american breakfast option."
+      - "Add a zucchini noodle pesto bowl dinner option for mother on day 4"
+      - "I can't decide between the three options for Father's lunch on Day 1. Which one has the highest protein?"
+      - "Update fathers maple kissed taco option to Birria tacos"
+      - "Update mothers teriyaki salmon bowl lunch to a tofu based dish"
+      - "Remove all meals for child that contain peanuts, as they have an allergy"
+      - "Child has some messy lunches that won't pack well for school - delete a few options that sounds hard to transport or eat cleanly."
+
+  - name: "nutrition_mt2"
+    use_versions: "true"
+    tree_path: "storage/memory/nutrition/nutrition_7day.xml"
+    queries:
+      # Multi-turn 2: Delete → Create → Update → Create → Read → Update → Delete
+      - "Child needs more protein, remove all dinner options with no meat."
+      - "Father likes eggs for breakfast. Add a classic egg based breakfast option for him on the day with the Smoky Base Pork Dinner"
+      - "Change the second lunch on fathers third day to starbucks sandwhich"
+      - "On fathers third day, add a superfood breakfast"
+      - "Looking at the Mother's breakfast proposals for Day 1.. which of these three is the fastest to prep? I'm going to be in a rush."
+      - "Change childs third day, second breakfast option to spagetti with maple syrup"
+      - "On the day that child has lots of shrimp meals, remove the first breakfast option"
+
+  - name: "nutrition_mt3"
+    use_versions: "true"
+    tree_path: "storage/memory/nutrition/nutrition_7day.xml"
+    queries:
+      # Multi-turn 3: Create → Read → Update → Delete → Create → Update → Delete
+      - "On childs first day, add cinnamon toast crunch for breakfast"
+      - "What is a fun finger food dinner option for child"
+      - "On childs day with homemade pizza spice wrap, change the first breakfast to the nectar of the gods."
+      - "On fathers greek inspired day, delete the second lunch option"
+      - "For fathers greek food filled day, please add a classic american breakfast option."
+      - "Update fathers maple kissed taco option to Birria tacos"
+      - "Remove all meals for child that contain peanuts, as they have an allergy"
+
+  - name: "nutrition_mt4"
+    use_versions: "true"
+    tree_path: "storage/memory/nutrition/nutrition_7day.xml"
+    queries:
+      # Multi-turn 4: Delete → Update → Create → Read → Delete → Update → Create
+      - "Child has some messy lunches that won't pack well for school - delete a few options that sounds hard to transport or eat cleanly."
+      - "Update mothers teriyaki salmon bowl lunch to a tofu based dish"
+      - "Add a zucchini noodle pesto bowl dinner option for mother on day 4"
+      - "Child needs something portable for lunch - What days have caprese sandwich option"
+      - "Child needs more protein, remove all dinner options with no meat."
+      - "Change the second lunch on fathers third day to starbucks sandwhich"
+      - "Father likes eggs for breakfast. Add a classic egg based breakfast option for him on the day with the Smoky Base Pork Dinner"
+
+  - name: "nutrition_mt5"
+    use_versions: "true"
+    tree_path: "storage/memory/nutrition/nutrition_7day.xml"
+    queries:
+      # Multi-turn 5: Update → Create → Delete → Update → Create → Read → Delete
+      - "Change childs third day, second breakfast option to spagetti with maple syrup"
+      - "On fathers third day, add a superfood breakfast"
+      - "On the day that child has lots of shrimp meals, remove the first breakfast option"
+      - "On childs day with homemade pizza spice wrap, change the first breakfast to the nectar of the gods."
+      - "On childs first day, add cinnamon toast crunch for breakfast"
+      - "Show me a one-bowl dinner for Mother that's plant-based and light - something with grains and veggies all mixed together."
+      - "On fathers greek inspired day, delete the second lunch option"
+
+config:
+  active_schema: "nutrition" # Options: itinerary, todolist, session_recommendation
+  active_data: "nutrition_7day" # Options: todolist, travel_toronto_10day
+
+ # LLM Client configuration
+  # Model options: "gpt-4o", "gpt-5", "gpt-5-mini", "o1", "o3-mini", etc.
+  openai:
+    api_key: "${OPENAI_API_KEY}"
+    model: "gpt-5-mini"
+    max_tokens: 128000
+    # For GPT-4 series: temperature controls creativity (0-1)
+    temperature: 0
+    # For GPT-5/o1/o3 series: reasoning_effort controls reasoning depth
+    # Options: none (fastest), low, medium (default), high, xhigh (deepest)
+    reasoning_effort: "low"
+
+  # openai:
+  #   api_key: "${OPENROUTER_API_KEY}" # or point this env var to your OpenRouter key
+  #   # api_key: "${OPENAI_API_KEY}"
+  #   base_url: "https://openrouter.ai/api/v1"
+  #   model: "google/gemini-3-flash-preview" # or whatever Qwen model ID OpenRouter uses
+  #   max_tokens: 128000
+  #   temperature: 0
+  #   reasoning_effort: "low"
+
+  # XPath executor settings
+  xpath_executor:
+    top_k: 5
+    score_threshold: 0.05
+    # Scoring method: "llm", "entailment", or "cosine"
+    scoring_method: "entailment"
+
+  # In-context pipeline settings (single LLM call with full tree)
+  incontext_pipeline:
+    temperature: 0
+    max_tokens: 128000
+
+  # Entailment scorer settings
+  entailment:
+    model: "facebook/bart-large-mnli"
+    hypothesis_template: "This is related to {predicate}."
+    # device: auto-detected if not set (cuda > mps > cpu)
+
+  # Cosine similarity scorer settings
+  cosine:
+    model: "qwen/qwen3-embedding-8b"  
+    predicate_template: "{predicate}"
+    openai:
+      api_key: "${OPENROUTER_API_KEY}"
+      base_url: "https://openrouter.ai/api/v1"
+    # device: auto-detected if not set (cuda > mps > cpu)

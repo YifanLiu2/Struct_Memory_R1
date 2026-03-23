@@ -1,0 +1,714 @@
+{
+  "timestamp": "20260212_185846_250052",
+  "query": "/Root/Itinerary_Version[1]/Day[3]/POI[atom(content =~ \"activity\")]",
+  "canonical_query": "/Root/Itinerary_Version[1]/Day[3]/POI[content =~ \"activity\"]",
+  "data_file": "tree.xml",
+  "execution_time_ms": 578.3018000001903,
+  "parsed_ast": {
+    "steps": [
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Root",
+            "span": {
+              "start": 1,
+              "end": 5
+            }
+          },
+          "span": {
+            "start": 1,
+            "end": 5
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Itinerary_Version",
+            "index": {
+              "start": 1,
+              "type": "single",
+              "span": {
+                "start": 23,
+                "end": 26
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 26
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 26
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Day",
+            "index": {
+              "start": 3,
+              "type": "single",
+              "span": {
+                "start": 30,
+                "end": 33
+              }
+            },
+            "span": {
+              "start": 27,
+              "end": 33
+            }
+          },
+          "span": {
+            "start": 27,
+            "end": 33
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "POI",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "activity",
+              "operator": "=~",
+              "span": {
+                "start": 38,
+                "end": 65
+              }
+            },
+            "predicate_str": "atom(content =~ \"activity\")",
+            "span": {
+              "start": 34,
+              "end": 66
+            }
+          },
+          "span": {
+            "start": 34,
+            "end": 66
+          }
+        }
+      }
+    ],
+    "global_index": null
+  },
+  "parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: Itinerary_Version[1]\n├── Step 2: Day[3]\n└── Step 3: POI[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"activity\")",
+  "canonical_parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: Itinerary_Version[1]\n├── Step 2: Day[3]\n└── Step 3: POI[content =~ \"activity\"]",
+  "execution_log": [
+    "[20260212_185846_250052] Executing query: /Root/Itinerary_Version[1]/Day[3]/POI[atom(content =~ \"activity\")]",
+    "Data file: tree.xml",
+    "Parsed steps: [Root, Itinerary_Version[1], Day[3], POI[atom(content =~ \"activity\")]]",
+    "",
+    "Query AST:\n├── Step 0: Root\n├── Step 1: Itinerary_Version[1]\n├── Step 2: Day[3]\n└── Step 3: POI[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"activity\")",
+    "\n--- Step 1: Root ---",
+    "Matched Root root",
+    "\n--- Step 2: Itinerary_Version[1] ---",
+    "Selected node at index 1 (0-based: 0)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 3: Day[3] ---",
+    "Selected node at index 3 (0-based: 2)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 4: POI[atom(content =~ \"activity\")] ---",
+    "Scoring predicate: atom(content =~ \"activity\") (atomic values: ['activity'])",
+    "  Collected 2 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 2 total descriptions",
+    "  Node 0 (Stakeholder Presentation): score = 0.9996",
+    "  Node 1 (Art Gallery of Ontario): score = 0.9986",
+    "After step: 2 nodes remaining",
+    "\n=== Score Fusion ===",
+    "  Root > Itinerary_Version 1 > Day 3 > Stakeholder Presentation: product=0.9996 → score=0.9996",
+    "  Root > Itinerary_Version 1 > Day 3 > Art Gallery of Ontario: product=0.9986 → score=0.9986",
+    "\n=== Threshold Filtering (threshold=0.05) ===",
+    "  Filtered: 2 → 2 nodes",
+    "\n=== Final Filtering (top_k=5) ===",
+    "  After top_k: 2 → 2 nodes",
+    "\nFinal result: 2 nodes (sorted by score)",
+    "⏱️  Query execution time: 578.30ms"
+  ],
+  "traversal_steps": [
+    {
+      "step_index": 0,
+      "step_query": "Root",
+      "action": "root_match",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "type": "root"
+        }
+      ],
+      "nodes_after": [
+        {
+          "type": "Root",
+          "path": "Root"
+        }
+      ],
+      "details": {
+        "matched": true
+      }
+    },
+    {
+      "step_index": 1,
+      "step_query": "Itinerary_Version[1]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root",
+          "name": "Root",
+          "type": "Root",
+          "score": 1.0,
+          "node_id": 2352696452064
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Itinerary_Version 1",
+          "name": "Itinerary_Version 1",
+          "type": "Itinerary_Version",
+          "score": 1.0,
+          "node_id": 2352696458784
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Itinerary_Version",
+            "index": {
+              "start": 1,
+              "type": "single",
+              "span": {
+                "start": 23,
+                "end": 26
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 26
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 26
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 2,
+      "step_query": "Day[3]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root > Itinerary_Version 1",
+          "name": "Itinerary_Version 1",
+          "type": "Itinerary_Version",
+          "score": 1.0,
+          "node_id": 2352696458784
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Itinerary_Version 1 > Day 3",
+          "name": "Day 3",
+          "type": "Day",
+          "score": 1.0,
+          "node_id": 2352696459024
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Day",
+            "index": {
+              "start": 3,
+              "type": "single",
+              "span": {
+                "start": 30,
+                "end": 33
+              }
+            },
+            "span": {
+              "start": 27,
+              "end": 33
+            }
+          },
+          "span": {
+            "start": 27,
+            "end": 33
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 3,
+      "step_query": "POI[atom(content =~ \"activity\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 2,
+      "nodes_before": [
+        {
+          "path": "Root > Itinerary_Version 1 > Day 3",
+          "name": "Day 3",
+          "type": "Day",
+          "score": 1.0,
+          "node_id": 2352696459024
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Itinerary_Version 1 > Day 3 > Stakeholder Presentation",
+          "name": "Stakeholder Presentation",
+          "type": "POI",
+          "score": 0.99955815076828,
+          "node_id": 2352696458704
+        },
+        {
+          "path": "Root > Itinerary_Version 1 > Day 3 > Art Gallery of Ontario",
+          "name": "Art Gallery of Ontario",
+          "type": "POI",
+          "score": 0.9985961318016052,
+          "node_id": 2352696457824
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "POI",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "activity",
+              "operator": "=~",
+              "span": {
+                "start": 38,
+                "end": 65
+              }
+            },
+            "predicate_str": "atom(content =~ \"activity\")",
+            "span": {
+              "start": 34,
+              "end": 66
+            }
+          },
+          "span": {
+            "start": 34,
+            "end": 66
+          }
+        },
+        "found_count": 2,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"activity\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "activity",
+              "operator": "=~",
+              "span": {
+                "start": 38,
+                "end": 65
+              }
+            },
+            "config": {
+              "top_k": 5,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 2352696458704,
+                "node_name": "Stakeholder Presentation",
+                "node_type": "POI",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "activity",
+                      "operator": "=~",
+                      "span": {
+                        "start": 38,
+                        "end": 65
+                      }
+                    },
+                    "score": 0.99955815076828,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.99955815076828
+              },
+              {
+                "node_idx": 1,
+                "node_id": 2352696457824,
+                "node_name": "Art Gallery of Ontario",
+                "node_type": "POI",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "activity",
+                      "operator": "=~",
+                      "span": {
+                        "start": 38,
+                        "end": 65
+                      }
+                    },
+                    "score": 0.9985961318016052,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.9985961318016052
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "activity"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "activity",
+                  "num_descriptions": 2,
+                  "call_time_ms": 577.76
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 2
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 0,
+                "score": 0.99955815076828,
+                "name": "Stakeholder Presentation"
+              },
+              {
+                "idx": 1,
+                "score": 0.9985961318016052,
+                "name": "Art Gallery of Ontario"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "scoring_traces": [
+    {
+      "predicate": "atom(content =~ \"activity\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "activity",
+        "operator": "=~",
+        "span": {
+          "start": 38,
+          "end": 65
+        }
+      },
+      "config": {
+        "top_k": 5,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 2352696458704,
+          "node_name": "Stakeholder Presentation",
+          "node_type": "POI",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "activity",
+                "operator": "=~",
+                "span": {
+                  "start": 38,
+                  "end": 65
+                }
+              },
+              "score": 0.99955815076828,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.99955815076828
+        },
+        {
+          "node_idx": 1,
+          "node_id": 2352696457824,
+          "node_name": "Art Gallery of Ontario",
+          "node_type": "POI",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "activity",
+                "operator": "=~",
+                "span": {
+                  "start": 38,
+                  "end": 65
+                }
+              },
+              "score": 0.9985961318016052,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.9985961318016052
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "activity"
+        ],
+        "per_value_stats": [
+          {
+            "value": "activity",
+            "num_descriptions": 2,
+            "call_time_ms": 577.76
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 2
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 0,
+          "score": 0.99955815076828,
+          "name": "Stakeholder Presentation"
+        },
+        {
+          "idx": 1,
+          "score": 0.9985961318016052,
+          "name": "Art Gallery of Ontario"
+        }
+      ]
+    }
+  ],
+  "scoring_details": {
+    "step_scores": [
+      {
+        "step_index": 0,
+        "predicate": "atom(content =~ \"activity\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "activity",
+          "operator": "=~",
+          "span": {
+            "start": 38,
+            "end": 65
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 2352696458704,
+            "node_name": "Stakeholder Presentation",
+            "node_type": "POI",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "activity",
+                  "operator": "=~",
+                  "span": {
+                    "start": 38,
+                    "end": 65
+                  }
+                },
+                "score": 0.99955815076828,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.99955815076828
+          },
+          {
+            "node_idx": 1,
+            "node_id": 2352696457824,
+            "node_name": "Art Gallery of Ontario",
+            "node_type": "POI",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "activity",
+                  "operator": "=~",
+                  "span": {
+                    "start": 38,
+                    "end": 65
+                  }
+                },
+                "score": 0.9985961318016052,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.9985961318016052
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 0,
+            "score": 0.99955815076828,
+            "name": "Stakeholder Presentation"
+          },
+          {
+            "idx": 1,
+            "score": 0.9985961318016052,
+            "name": "Art Gallery of Ontario"
+          }
+        ]
+      }
+    ],
+    "score_fusion": {
+      "per_node": [
+        {
+          "node_path": "Root > Itinerary_Version 1 > Day 3 > Stakeholder Presentation",
+          "node_type": "POI",
+          "step_contributions": [
+            {
+              "step_index": 3,
+              "predicate": "POI[atom(content =~ \"activity\")]",
+              "score": 0.99955815076828
+            }
+          ],
+          "accumulated_product": 0.99955815076828,
+          "final_score": 0.99955815076828
+        },
+        {
+          "node_path": "Root > Itinerary_Version 1 > Day 3 > Art Gallery of Ontario",
+          "node_type": "POI",
+          "step_contributions": [
+            {
+              "step_index": 3,
+              "predicate": "POI[atom(content =~ \"activity\")]",
+              "score": 0.9985961318016052
+            }
+          ],
+          "accumulated_product": 0.9985961318016052,
+          "final_score": 0.9985961318016052
+        }
+      ]
+    }
+  },
+  "final_filtering": {
+    "before_filter_count": 2,
+    "threshold": 0.05,
+    "top_k": 5,
+    "after_filter_count": 2,
+    "filtered_nodes": [
+      {
+        "path": "Root > Itinerary_Version 1 > Day 3 > Stakeholder Presentation",
+        "score": 0.99955815076828,
+        "type": "POI",
+        "own_score": 0.99955815076828,
+        "parent_score": 1.0
+      },
+      {
+        "path": "Root > Itinerary_Version 1 > Day 3 > Art Gallery of Ontario",
+        "score": 0.9985961318016052,
+        "type": "POI",
+        "own_score": 0.9985961318016052,
+        "parent_score": 1.0
+      }
+    ]
+  },
+  "matched_nodes": [
+    {
+      "tree_path": "Root > Itinerary_Version 1 > Day 3 > Stakeholder Presentation",
+      "score": 0.99955815076828,
+      "node": {
+        "type": "POI",
+        "attributes": {},
+        "name": "Stakeholder Presentation",
+        "time_block": "9:00 AM - 11:00 AM",
+        "description": "Morning work session presenting quarterly results to stakeholders. High-pressure meeting requiring focus and preparation.",
+        "travel_method": "Walk",
+        "expected_cost": "Work",
+        "highlights": [
+          "Work meeting",
+          "Business presentation"
+        ]
+      },
+      "children": []
+    },
+    {
+      "tree_path": "Root > Itinerary_Version 1 > Day 3 > Art Gallery of Ontario",
+      "score": 0.9985961318016052,
+      "node": {
+        "type": "POI",
+        "attributes": {},
+        "name": "Art Gallery of Ontario",
+        "time_block": "12:00 PM - 2:00 PM",
+        "description": "World-class art museum with Canadian and international collections. Indoor cultural experience in Frank Gehry-designed building. Quiet and contemplative atmosphere.",
+        "travel_method": "Walk",
+        "expected_cost": "CAD 25",
+        "highlights": [
+          "Indoor museum",
+          "Cultural experience",
+          "Art gallery"
+        ]
+      },
+      "children": []
+    }
+  ],
+  "summary": {
+    "total_steps": 4,
+    "total_scoring_calls": 1,
+    "matched_count": 2,
+    "execution_time_ms": 578.3018000001903,
+    "has_score_fusion": true,
+    "num_nodes_before_filter": 2,
+    "num_nodes_after_filter": 2
+  }
+}

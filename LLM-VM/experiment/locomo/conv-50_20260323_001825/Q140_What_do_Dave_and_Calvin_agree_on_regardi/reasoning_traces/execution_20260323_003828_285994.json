@@ -1,0 +1,321 @@
+{
+  "timestamp": "20260323_003828_285994",
+  "query": "/Root/Conversation_Version[1]/Session[atom(content =~ \"pursuits\")]/Observation[atom(content =~ \"agree\") and atom(content =~ \"Dave\") and atom(content =~ \"Calvin\")]",
+  "canonical_query": "/Root/Conversation_Version[1]/Session[content =~ \"pursuits\"]/min(Observation[content =~ \"agree\"], Observation[content =~ \"Dave\"], Observation[content =~ \"Calvin\"])",
+  "data_file": "tree.xml",
+  "execution_time_ms": 0.3891000014846213,
+  "parsed_ast": {
+    "steps": [
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Root",
+            "span": {
+              "start": 1,
+              "end": 5
+            }
+          },
+          "span": {
+            "start": 1,
+            "end": 5
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Conversation_Version",
+            "index": {
+              "start": 1,
+              "type": "single",
+              "span": {
+                "start": 26,
+                "end": 29
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 29
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 29
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Session",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "pursuits",
+              "operator": "=~",
+              "span": {
+                "start": 38,
+                "end": 65
+              }
+            },
+            "predicate_str": "atom(content =~ \"pursuits\")",
+            "span": {
+              "start": 30,
+              "end": 66
+            }
+          },
+          "span": {
+            "start": 30,
+            "end": 66
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Observation",
+            "predicate": {
+              "operator": "AND",
+              "conditions": [
+                {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "agree",
+                  "operator": "=~",
+                  "span": {
+                    "start": 79,
+                    "end": 103
+                  }
+                },
+                {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "Dave",
+                  "operator": "=~",
+                  "span": {
+                    "start": 108,
+                    "end": 131
+                  }
+                },
+                {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "Calvin",
+                  "operator": "=~",
+                  "span": {
+                    "start": 136,
+                    "end": 161
+                  }
+                }
+              ],
+              "span": {
+                "start": 79,
+                "end": 161
+              }
+            },
+            "predicate_str": "atom(content =~ \"agree\") AND atom(content =~ \"Dave\") AND atom(content =~ \"Calvin\")",
+            "span": {
+              "start": 67,
+              "end": 162
+            }
+          },
+          "span": {
+            "start": 67,
+            "end": 162
+          }
+        }
+      }
+    ],
+    "global_index": null
+  },
+  "parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: Conversation_Version[1]\n├── Step 2: Session[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"pursuits\")\n└── Step 3: Observation[predicate]\n    │   predicate:\n        │   └── AND\n            │   └── ATOM(content =~ \"agree\")\n            │   └── ATOM(content =~ \"Dave\")\n            │   └── ATOM(content =~ \"Calvin\")",
+  "canonical_parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: Conversation_Version[1]\n├── Step 2: Session[content =~ \"pursuits\"]\n└── Step 3: min(Observation[content =~ \"agree\"], Observation[content =~ \"Dave\"], Observation[content =~ \"Calvin\"])",
+  "execution_log": [
+    "[20260323_003828_285994] Executing query: /Root/Conversation_Version[1]/Session[atom(content =~ \"pursuits\")]/Observation[atom(content =~ \"agree\") and atom(content =~ \"Dave\") and atom(content =~ \"Calvin\")]",
+    "Data file: tree.xml",
+    "Parsed steps: [Root, Conversation_Version[1], Session[atom(content =~ \"pursuits\")], Observation[atom(content =~ \"agree\") AND atom(content =~ \"Dave\") AND atom(content =~ \"Calvin\")]]",
+    "",
+    "Query AST:\n├── Step 0: Root\n├── Step 1: Conversation_Version[1]\n├── Step 2: Session[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"pursuits\")\n└── Step 3: Observation[predicate]\n    │   predicate:\n        │   └── AND\n            │   └── ATOM(content =~ \"agree\")\n            │   └── ATOM(content =~ \"Dave\")\n            │   └── ATOM(content =~ \"Calvin\")",
+    "\n--- Step 1: Root ---",
+    "Matched Root root",
+    "\n--- Step 2: Conversation_Version[1] ---",
+    "Selected node at index 1 (0-based: 0)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 3: Session[atom(content =~ \"pursuits\")] ---",
+    "No matching nodes for step expression",
+    "\n=== Score Fusion ===",
+    "\n=== Threshold Filtering (threshold=0.05) ===",
+    "  Filtered: 0 → 0 nodes",
+    "\n=== Final Filtering (top_k=10) ===",
+    "  After top_k: 0 → 0 nodes",
+    "\nFinal result: 0 nodes (sorted by score)",
+    "⏱️  Query execution time: 0.39ms"
+  ],
+  "traversal_steps": [
+    {
+      "step_index": 0,
+      "step_query": "Root",
+      "action": "root_match",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "type": "root"
+        }
+      ],
+      "nodes_after": [
+        {
+          "type": "Root",
+          "path": "Root"
+        }
+      ],
+      "details": {
+        "matched": true
+      }
+    },
+    {
+      "step_index": 1,
+      "step_query": "Conversation_Version[1]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root",
+          "name": "Root",
+          "type": "Root",
+          "score": 1.0,
+          "node_id": 2567217103872
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Conversation_Version 1",
+          "name": "Conversation_Version 1",
+          "type": "Conversation_Version",
+          "score": 1.0,
+          "node_id": 2567217105712
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Conversation_Version",
+            "index": {
+              "start": 1,
+              "type": "single",
+              "span": {
+                "start": 26,
+                "end": 29
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 29
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 29
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 2,
+      "step_query": "Session[atom(content =~ \"pursuits\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 0,
+      "nodes_before": [
+        {
+          "path": "Root > Conversation_Version 1",
+          "name": "Conversation_Version 1",
+          "type": "Conversation_Version",
+          "score": 1.0,
+          "node_id": 2567217105712
+        }
+      ],
+      "nodes_after": [],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Session",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "pursuits",
+              "operator": "=~",
+              "span": {
+                "start": 38,
+                "end": 65
+              }
+            },
+            "predicate_str": "atom(content =~ \"pursuits\")",
+            "span": {
+              "start": 30,
+              "end": 66
+            }
+          },
+          "span": {
+            "start": 30,
+            "end": 66
+          }
+        },
+        "found_count": 0,
+        "scoring_trace": [],
+        "pruned_count": 0
+      }
+    }
+  ],
+  "scoring_traces": [],
+  "scoring_details": {
+    "step_scores": [],
+    "score_fusion": {
+      "per_node": []
+    }
+  },
+  "final_filtering": {
+    "before_filter_count": 0,
+    "threshold": 0.05,
+    "top_k": 10,
+    "after_filter_count": 0,
+    "filtered_nodes": []
+  },
+  "matched_nodes": [],
+  "summary": {
+    "total_steps": 3,
+    "total_scoring_calls": 0,
+    "matched_count": 0,
+    "execution_time_ms": 0.3891000014846213,
+    "has_score_fusion": true,
+    "num_nodes_before_filter": 0,
+    "num_nodes_after_filter": 0
+  }
+}

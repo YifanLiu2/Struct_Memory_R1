@@ -1,0 +1,53 @@
+{
+  "user_query": "Remove all meals for child that contain peanuts, as they have an allergy",
+  "version_xpath": "at([-1])",
+  "version_result": {
+    "selector_type": "at",
+    "index": -1,
+    "semantic_query": null,
+    "task_query": "Remove all meals for child that contain peanuts, as they have an allergy",
+    "resolved_version": 1
+  },
+  "operation_type": "DELETE",
+  "semantic_xpath_query": "/Root/MealPlan_Version[1]/Person[content =~ \"child\"]/Day/Breakfast/Meal[content =~ \"peanuts\"]",
+  "semantic_xpath_execution_log": {
+    "aggregation_execution_log": "reasoning_traces/execution_20260219_172513_695757.json",
+    "predicate_batch_scoring_log": "reasoning_traces/entailment_scoring_20260219_172514_949182.json"
+  },
+  "semantic_xpath_result": [],
+  "downstream_task_result": {
+    "operation": "DELETE",
+    "success": true,
+    "deleted_paths": [
+      "Root > MealPlan_Version 1 > Child > Day 1 > Breakfast > Smoothie — Smoky Variation",
+      "Root > MealPlan_Version 1 > Child > Day 5 > Breakfast > Smoothie — Berry Boost Skillet",
+      "Root > MealPlan_Version 1 > Child > Day 2 > Breakfast > Smoothie — Lemon-Herb Style"
+    ],
+    "deleted_count": 3,
+    "total_time_ms": 7589.25
+  },
+  "execution_time_ms": 7599.67,
+  "token_usage": {
+    "prompt_tokens": 5677,
+    "completion_tokens": 366,
+    "total_tokens": 6043,
+    "by_stage": {
+      "version_resolution": {
+        "prompt_tokens": 1243,
+        "completion_tokens": 22,
+        "total_tokens": 1265
+      },
+      "xpath_generation": {
+        "prompt_tokens": 2686,
+        "completion_tokens": 77,
+        "total_tokens": 2763
+      },
+      "delete_handler": {
+        "prompt_tokens": 1748,
+        "completion_tokens": 267,
+        "total_tokens": 2015
+      }
+    },
+    "cost_usd": 0.017852500000000004
+  }
+}

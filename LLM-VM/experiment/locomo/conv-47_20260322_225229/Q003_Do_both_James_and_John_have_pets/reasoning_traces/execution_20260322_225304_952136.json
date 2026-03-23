@@ -1,0 +1,311 @@
+{
+  "timestamp": "20260322_225304_952136",
+  "query": "/Root/Conversation_Version[1]/Session[atom(content =~ \"pets animals\")]/Observation[atom(content =~ \"James\") or atom(content =~ \"John\")]",
+  "canonical_query": "/Root/Conversation_Version[1]/Session[content =~ \"pets animals\"]/max(Observation[content =~ \"James\"], Observation[content =~ \"John\"])",
+  "data_file": "tree.xml",
+  "execution_time_ms": 0.4048000046168454,
+  "parsed_ast": {
+    "steps": [
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Root",
+            "span": {
+              "start": 1,
+              "end": 5
+            }
+          },
+          "span": {
+            "start": 1,
+            "end": 5
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Conversation_Version",
+            "index": {
+              "start": 1,
+              "type": "single",
+              "span": {
+                "start": 26,
+                "end": 29
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 29
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 29
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Session",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "pets animals",
+              "operator": "=~",
+              "span": {
+                "start": 38,
+                "end": 69
+              }
+            },
+            "predicate_str": "atom(content =~ \"pets animals\")",
+            "span": {
+              "start": 30,
+              "end": 70
+            }
+          },
+          "span": {
+            "start": 30,
+            "end": 70
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Observation",
+            "predicate": {
+              "operator": "OR",
+              "conditions": [
+                {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "James",
+                  "operator": "=~",
+                  "span": {
+                    "start": 83,
+                    "end": 107
+                  }
+                },
+                {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "John",
+                  "operator": "=~",
+                  "span": {
+                    "start": 111,
+                    "end": 134
+                  }
+                }
+              ],
+              "span": {
+                "start": 83,
+                "end": 134
+              }
+            },
+            "predicate_str": "atom(content =~ \"James\") OR atom(content =~ \"John\")",
+            "span": {
+              "start": 71,
+              "end": 135
+            }
+          },
+          "span": {
+            "start": 71,
+            "end": 135
+          }
+        }
+      }
+    ],
+    "global_index": null
+  },
+  "parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: Conversation_Version[1]\n├── Step 2: Session[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"pets animals\")\n└── Step 3: Observation[predicate]\n    │   predicate:\n        │   └── OR\n            │   └── ATOM(content =~ \"James\")\n            │   └── ATOM(content =~ \"John\")",
+  "canonical_parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: Conversation_Version[1]\n├── Step 2: Session[content =~ \"pets animals\"]\n└── Step 3: max(Observation[content =~ \"James\"], Observation[content =~ \"John\"])",
+  "execution_log": [
+    "[20260322_225304_952136] Executing query: /Root/Conversation_Version[1]/Session[atom(content =~ \"pets animals\")]/Observation[atom(content =~ \"James\") or atom(content =~ \"John\")]",
+    "Data file: tree.xml",
+    "Parsed steps: [Root, Conversation_Version[1], Session[atom(content =~ \"pets animals\")], Observation[atom(content =~ \"James\") OR atom(content =~ \"John\")]]",
+    "",
+    "Query AST:\n├── Step 0: Root\n├── Step 1: Conversation_Version[1]\n├── Step 2: Session[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"pets animals\")\n└── Step 3: Observation[predicate]\n    │   predicate:\n        │   └── OR\n            │   └── ATOM(content =~ \"James\")\n            │   └── ATOM(content =~ \"John\")",
+    "\n--- Step 1: Root ---",
+    "Matched Root root",
+    "\n--- Step 2: Conversation_Version[1] ---",
+    "Selected node at index 1 (0-based: 0)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 3: Session[atom(content =~ \"pets animals\")] ---",
+    "No matching nodes for step expression",
+    "\n=== Score Fusion ===",
+    "\n=== Threshold Filtering (threshold=0.05) ===",
+    "  Filtered: 0 → 0 nodes",
+    "\n=== Final Filtering (top_k=10) ===",
+    "  After top_k: 0 → 0 nodes",
+    "\nFinal result: 0 nodes (sorted by score)",
+    "⏱️  Query execution time: 0.40ms"
+  ],
+  "traversal_steps": [
+    {
+      "step_index": 0,
+      "step_query": "Root",
+      "action": "root_match",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "type": "root"
+        }
+      ],
+      "nodes_after": [
+        {
+          "type": "Root",
+          "path": "Root"
+        }
+      ],
+      "details": {
+        "matched": true
+      }
+    },
+    {
+      "step_index": 1,
+      "step_query": "Conversation_Version[1]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root",
+          "name": "Root",
+          "type": "Root",
+          "score": 1.0,
+          "node_id": 3001250790384
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Conversation_Version 1",
+          "name": "Conversation_Version 1",
+          "type": "Conversation_Version",
+          "score": 1.0,
+          "node_id": 3001250791344
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Conversation_Version",
+            "index": {
+              "start": 1,
+              "type": "single",
+              "span": {
+                "start": 26,
+                "end": 29
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 29
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 29
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 2,
+      "step_query": "Session[atom(content =~ \"pets animals\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 0,
+      "nodes_before": [
+        {
+          "path": "Root > Conversation_Version 1",
+          "name": "Conversation_Version 1",
+          "type": "Conversation_Version",
+          "score": 1.0,
+          "node_id": 3001250791344
+        }
+      ],
+      "nodes_after": [],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Session",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "pets animals",
+              "operator": "=~",
+              "span": {
+                "start": 38,
+                "end": 69
+              }
+            },
+            "predicate_str": "atom(content =~ \"pets animals\")",
+            "span": {
+              "start": 30,
+              "end": 70
+            }
+          },
+          "span": {
+            "start": 30,
+            "end": 70
+          }
+        },
+        "found_count": 0,
+        "scoring_trace": [],
+        "pruned_count": 0
+      }
+    }
+  ],
+  "scoring_traces": [],
+  "scoring_details": {
+    "step_scores": [],
+    "score_fusion": {
+      "per_node": []
+    }
+  },
+  "final_filtering": {
+    "before_filter_count": 0,
+    "threshold": 0.05,
+    "top_k": 10,
+    "after_filter_count": 0,
+    "filtered_nodes": []
+  },
+  "matched_nodes": [],
+  "summary": {
+    "total_steps": 3,
+    "total_scoring_calls": 0,
+    "matched_count": 0,
+    "execution_time_ms": 0.4048000046168454,
+    "has_score_fusion": true,
+    "num_nodes_before_filter": 0,
+    "num_nodes_after_filter": 0
+  }
+}

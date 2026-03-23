@@ -1,0 +1,177 @@
+{
+  "session_id": "mt4",
+  "queries": [
+    {
+      "query_id": "Query_001",
+      "user_query": "On the day we go to the ROM, cancel the breakfast.",
+      "selected_nodes": [
+        "Root > Itinerary_Version 1 > Day 7 > Fran's Restaurant"
+      ],
+      "related_nodes": [
+        "day",
+        "Day",
+        "Day 7"
+      ],
+      "downstream_task_result": {
+        "operation": "DELETE",
+        "success": true,
+        "version_used": 1,
+        "reasoning": "User requested cancelling the breakfast on the day of the Royal Ontario Museum (Day index=\"7\"); removed the Restaurant node 'Fran's Restaurant' from Day 7.",
+        "token_usage": {
+          "prompt_tokens": 7251,
+          "completion_tokens": 6038,
+          "total_tokens": 13289
+        },
+        "error": null
+      },
+      "execution_time_ms": 69477.92
+    },
+    {
+      "query_id": "Query_002",
+      "user_query": "I completely forgot about souvenirs. Add a stop at Roots or the Hudson's Bay flagship on Day 10 morning before the CN Tower. I need to grab gifts before I fly out.",
+      "selected_nodes": [
+        "Root > Itinerary_Version 2 > Day 10"
+      ],
+      "related_nodes": [
+        "Day 10"
+      ],
+      "downstream_task_result": {
+        "operation": "CREATE",
+        "success": true,
+        "version_used": 2,
+        "reasoning": "Inserted a new POI for souvenir shopping (Hudson's Bay Flagship) into Day 10 before the CN Tower EdgeWalk so gifts can be purchased before departure.",
+        "token_usage": {
+          "prompt_tokens": 12591,
+          "completion_tokens": 6515,
+          "total_tokens": 19106
+        },
+        "error": null
+      },
+      "execution_time_ms": 92876.03
+    },
+    {
+      "query_id": "Query_003",
+      "user_query": "Some work events got cancelled. On Day 2, change any work related events to Personal Day.",
+      "selected_nodes": [
+        "Root > Itinerary_Version 3 > Day 2 > Client Kickoff Meeting",
+        "Root > Itinerary_Version 3 > Day 2 > Strategy Workshop"
+      ],
+      "related_nodes": [
+        "Day 2",
+        "Day"
+      ],
+      "downstream_task_result": {
+        "operation": "UPDATE",
+        "success": true,
+        "version_used": 3,
+        "reasoning": "User requested changing work-related events on Day 2 to 'Personal Day' — updated the <expected_cost> field for POIs on Day index=\"2\" that were marked 'Work'.",
+        "token_usage": {
+          "prompt_tokens": 18130,
+          "completion_tokens": 6456,
+          "total_tokens": 24586
+        },
+        "error": null
+      },
+      "execution_time_ms": 80889.14
+    },
+    {
+      "query_id": "Query_004",
+      "user_query": "It's definitely going to rain all day on Day 7. Cancel any outdoor activities, I'll figure out replacements.",
+      "selected_nodes": [
+        "Root > Itinerary_Version 4 > Day 7 > Distillery District Walk"
+      ],
+      "related_nodes": [
+        "Day 7",
+        "day"
+      ],
+      "downstream_task_result": {
+        "operation": "DELETE",
+        "success": true,
+        "version_used": 4,
+        "reasoning": "Removed outdoor POI 'Distillery District Walk' on Day 7 per user's request to cancel outdoor activities for that day",
+        "token_usage": {
+          "prompt_tokens": 23609,
+          "completion_tokens": 6449,
+          "total_tokens": 30058
+        },
+        "error": null
+      },
+      "execution_time_ms": 79914.03
+    },
+    {
+      "query_id": "Query_005",
+      "user_query": "I'd like to end the first day with some live music. Add Pj O'Brien's to the end of Day 1.",
+      "selected_nodes": [
+        "Root > Itinerary_Version 5 > Day 1"
+      ],
+      "related_nodes": [
+        "Day 1"
+      ],
+      "downstream_task_result": {
+        "operation": "CREATE",
+        "success": true,
+        "version_used": 5,
+        "reasoning": "Added a new Restaurant 'Pj O'Brien's Pub & Live Music' at the end of Day 1 (late evening live music spot).",
+        "token_usage": {
+          "prompt_tokens": 28960,
+          "completion_tokens": 6323,
+          "total_tokens": 35283
+        },
+        "error": null
+      },
+      "execution_time_ms": 87773.12
+    },
+    {
+      "query_id": "Query_006",
+      "user_query": "I had a long day so am going to sleep in tomorrow. Change my Leslieville brunch to a dedicated sleep in time block",
+      "selected_nodes": [
+        "Root > Itinerary_Version 6 > Day 9 > Lady Marmalade"
+      ],
+      "related_nodes": [
+        "Day 9"
+      ],
+      "downstream_task_result": {
+        "operation": "UPDATE",
+        "success": true,
+        "version_used": 6,
+        "reasoning": "User requested changing the Leslieville brunch into a dedicated sleep-in time block; updated the Lady Marmalade Restaurant's time_block and description on Day 9.",
+        "token_usage": {
+          "prompt_tokens": 34473,
+          "completion_tokens": 6322,
+          "total_tokens": 40795
+        },
+        "error": null
+      },
+      "execution_time_ms": 79528.05
+    },
+    {
+      "query_id": "Query_007",
+      "user_query": "I'm putting together my expense report. What are the most expensive restaurants I've booked?",
+      "selected_nodes": [
+        "Root > Itinerary_Version 7 > Day 2 > Alo Restaurant",
+        "Root > Itinerary_Version 7 > Day 5 > Kaiseki Kaji",
+        "Root > Itinerary_Version 7 > Day 1 > Canoe Restaurant"
+      ],
+      "related_nodes": [
+        "results > Alo Restaurant",
+        "results > Kaiseki Kaji",
+        "results > Canoe Restaurant"
+      ],
+      "downstream_task_result": {
+        "operation": "READ",
+        "success": true,
+        "version_used": 7,
+        "reasoning": "Returned the top three restaurants with the highest expected_cost values in version 7: Alo Restaurant (CAD 300-400), Kaiseki Kaji (CAD 250-350), Canoe Restaurant (CAD 150-200).",
+        "token_usage": {
+          "prompt_tokens": 39959,
+          "completion_tokens": 983,
+          "total_tokens": 40942
+        },
+        "error": null
+      },
+      "execution_time_ms": 13221.58
+    }
+  ],
+  "final_tree_version": 7,
+  "total_execution_time_ms": 503679.88
+}

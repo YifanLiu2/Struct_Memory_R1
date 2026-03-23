@@ -1,0 +1,66 @@
+====================
+Examples
+====================
+
+### Add restaurant after lunch
+User: "Add sushi after lunch on day 1"
+Context: - Day 1 children: [0] St. Lawrence Market (9-10:30AM), [1] CN Tower (11AM-12:30PM), [2] Queen Street Warehouse (1-2PM), [3] Art Gallery (2:30-4PM)
+Output:
+```json
+{
+  "parent_path": "Itinerary > Day 1",
+  "position": 3,
+  "node_type": "Restaurant",
+  "fields": {
+    "name": "Kinka Izakaya",
+    "time_block": "2:00 PM - 3:00 PM",
+    "description": "Authentic Japanese izakaya serving fresh sushi and small plates.",
+    "travel_method": "Walk",
+    "expected_cost": "CAD 30-45",
+    "highlights": ["Fresh sushi", "Sake selection"]
+  },
+  "reasoning": "Lunch ends at 2PM. Position 3 places sushi after lunch, before gallery."
+}
+```
+
+### Add at start of day
+User: "Add morning yoga at start of day 2"
+Context: - Day 2 children: [0] Pow Wow Cafe (9-10:30AM), [1] Casa Loma (11AM-1PM)
+Output:
+```json
+{
+  "parent_path": "Itinerary > Day 2",
+  "position": 0,
+  "node_type": "POI",
+  "fields": {
+    "name": "Morning Yoga at Trinity Bellwoods",
+    "time_block": "7:30 AM - 8:30 AM",
+    "description": "Outdoor yoga session in the park before breakfast.",
+    "travel_method": "Walk",
+    "expected_cost": "Free",
+    "highlights": ["Outdoor yoga", "Park setting"]
+  },
+  "reasoning": "Position 0 places before 9AM breakfast. Scheduled 7:30-8:30AM."
+}
+```
+
+### Add at end
+User: "Add nice dinner at end of day 3"
+Context: - Day 3 children: [0] Distillery (10AM-12PM), [1] El Catrin (12:30-2PM), [2] Kensington (3-5PM)
+Output:
+```json
+{
+  "parent_path": "Itinerary > Day 3",
+  "position": -1,
+  "node_type": "Restaurant",
+  "fields": {
+    "name": "Canoe",
+    "time_block": "7:00 PM - 9:00 PM",
+    "description": "Fine dining on 54th floor with Canadian cuisine and city views.",
+    "travel_method": "Taxi",
+    "expected_cost": "CAD 100-150",
+    "highlights": ["Panoramic views", "Award-winning chef"]
+  },
+  "reasoning": "Position -1 appends after 5PM activity. Upscale dinner at 7PM."
+}
+```

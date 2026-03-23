@@ -1,0 +1,52 @@
+{
+  "session_id": "mt4_version_queries",
+  "queries": [
+    {
+      "query_id": "Query_001",
+      "user_query": "What day did we modify to cancel the breakfast? Check the previous itinerary versions",
+      "selected_nodes": [
+        "Root > Itinerary_Version 2 > patch_info",
+        "Root > Itinerary_Version 2 > conversation_history"
+      ],
+      "related_nodes": [],
+      "downstream_task_result": {
+        "operation": "READ",
+        "success": true,
+        "version_used": 2,
+        "reasoning": "The user asked to identify which day the breakfast was cancelled. Version 2 contains the patch info and conversation history confirming that the breakfast on the day of the ROM visit (Day 7) was deleted.",
+        "token_usage": {
+          "prompt_tokens": 33065,
+          "completion_tokens": 180,
+          "total_tokens": 33245
+        },
+        "error": null
+      },
+      "execution_time_ms": 2480.97
+    },
+    {
+      "query_id": "Query_002",
+      "user_query": "Where was the client kickoff meeting before we cancelled it? Check the previous itinerary versions",
+      "selected_nodes": [
+        "Root > Itinerary_Version 1 > Day 2 > Client Kickoff Meeting"
+      ],
+      "related_nodes": [
+        "Client Kickoff Meeting"
+      ],
+      "downstream_task_result": {
+        "operation": "READ",
+        "success": true,
+        "version_used": 1,
+        "reasoning": "The user asked for the location of the 'Client Kickoff Meeting' before it was modified. In Version 1, the meeting is listed with its location details.",
+        "token_usage": {
+          "prompt_tokens": 33066,
+          "completion_tokens": 243,
+          "total_tokens": 33309
+        },
+        "error": null
+      },
+      "execution_time_ms": 2758.03
+    }
+  ],
+  "final_tree_version": 1,
+  "total_execution_time_ms": 5239.0
+}

@@ -1,0 +1,37 @@
+====================
+Examples
+====================
+
+### Add observation to existing session
+User: "Add an observation that Caroline learned pottery in session 4"
+Context: - Speaker Caroline > Session 4 children: [0] Observation: "Caroline received a necklace...", [1] Observation: "Caroline treasures a hand-painted bowl..."
+Output:
+```json
+{
+  "parent_path": "Speaker Caroline > Session 4",
+  "position": -1,
+  "node_type": "Observation",
+  "fields": {
+    "text": "Caroline learned pottery and enjoyed the creative process.",
+    "source_dia_id": "N/A"
+  },
+  "reasoning": "Position -1 appends after existing observations in session 4. source_dia_id set to N/A since this is a manually added observation."
+}
+```
+
+### Add observation to specific speaker session
+User: "Add a note that Melanie started a book club in session 7"
+Context: - Speaker Melanie > Session 7 children: [0] Observation: "Melanie bought new running shoes..."
+Output:
+```json
+{
+  "parent_path": "Speaker Melanie > Session 7",
+  "position": -1,
+  "node_type": "Observation",
+  "fields": {
+    "text": "Melanie started a book club with friends from her neighborhood.",
+    "source_dia_id": "N/A"
+  },
+  "reasoning": "Position -1 appends to Melanie's session 7 observations."
+}
+```

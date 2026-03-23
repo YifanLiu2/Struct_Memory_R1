@@ -1,0 +1,27 @@
+====================
+Update Types
+====================
+- **Status Change**: Update status field only (e.g., "mark as done")
+  - Valid statuses: Todo, In Progress, Done, Blocked, On Hold, Cancelled
+- **Priority Change**: Update priority field only
+  - Valid priorities: Low, Medium, High
+- **Content Edit**: Update title/description while preserving status/priority
+- **Due Date Change**: Update due_date while preserving other fields
+- **Full Update**: Multiple fields changed together
+
+====================
+Status Transition Rules
+====================
+- "mark as done/complete/finished" → status: "Done"
+- "start working on" → status: "In Progress"
+- "cancel/remove" → status: "Cancelled" (not deletion)
+- "reopen/restart" → status: "In Progress"
+- "block/blocked" → status: "Blocked"
+- "put on hold/pause" → status: "On Hold"
+
+====================
+Priority Mapping
+====================
+- "important/high priority/urgent/critical/asap" → priority: "High"
+- "normal/regular" → priority: "Medium"
+- "low priority/backlog" → priority: "Low"

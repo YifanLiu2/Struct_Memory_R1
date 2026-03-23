@@ -1,0 +1,77 @@
+{
+  "user_query": "My friend lives in Mississauga, about an hour from downtown. What days are without any work commitments or flights?",
+  "version_xpath": "at([-1])",
+  "version_result": {
+    "selector_type": "at",
+    "index": -1,
+    "semantic_query": null,
+    "task_query": "My friend lives in Mississauga, about an hour from downtown. What days are without any work commitments or flights?",
+    "resolved_version": 1
+  },
+  "operation_type": "READ",
+  "semantic_xpath_query": "/Root/Itinerary_Version[1]/Day[1 - (max(max(*[content =~ \"work\"], *[content =~ \"flight\"])))]",
+  "semantic_xpath_execution_log": {
+    "aggregation_execution_log": "reasoning_traces/execution_20260219_173424_531562.json",
+    "predicate_batch_scoring_log": "reasoning_traces/entailment_scoring_20260219_173429_616916.json"
+  },
+  "semantic_xpath_result": [
+    {
+      "node_relative_path": "Root > Itinerary_Version 1 > Day 9",
+      "node_info": {
+        "name": "",
+        "type": "Day"
+      },
+      "children_names": [],
+      "score": 0.0
+    },
+    {
+      "node_relative_path": "Root > Itinerary_Version 1 > Day 8",
+      "node_info": {
+        "name": "",
+        "type": "Day"
+      },
+      "children_names": [],
+      "score": 0.0
+    },
+    {
+      "node_relative_path": "Root > Itinerary_Version 1 > Day 7",
+      "node_info": {
+        "name": "",
+        "type": "Day"
+      },
+      "children_names": [],
+      "score": 0.0
+    }
+  ],
+  "downstream_task_result": {
+    "operation": "READ",
+    "success": true,
+    "selected_count": 3,
+    "candidates_count": 3,
+    "total_time_ms": 10498.05
+  },
+  "execution_time_ms": 10501.4,
+  "token_usage": {
+    "prompt_tokens": 5205,
+    "completion_tokens": 258,
+    "total_tokens": 5463,
+    "by_stage": {
+      "version_resolution": {
+        "prompt_tokens": 1251,
+        "completion_tokens": 30,
+        "total_tokens": 1281
+      },
+      "xpath_generation": {
+        "prompt_tokens": 1932,
+        "completion_tokens": 27,
+        "total_tokens": 1959
+      },
+      "read_handler": {
+        "prompt_tokens": 2022,
+        "completion_tokens": 201,
+        "total_tokens": 2223
+      }
+    },
+    "cost_usd": 0.015592500000000002
+  }
+}

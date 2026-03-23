@@ -1,0 +1,241 @@
+{
+  "query": "/Itinerary/Day[description =~ \"relaxing\"]/Restaurant[description =~ \"jazz\"]",
+  "timestamp": "2025-12-22T00:10:37.663347",
+  "segments": [
+    "/Itinerary",
+    "/Day[description =~ \"relaxing\"]",
+    "/Restaurant[description =~ \"jazz\"]"
+  ],
+  "steps": [
+    {
+      "step": 1,
+      "action": "type_match",
+      "segment": "/Day[description =~ \"relaxing\"]",
+      "nodes_before": 1,
+      "nodes_after": 3,
+      "details": {}
+    },
+    {
+      "step": 2,
+      "action": "type_match",
+      "segment": "/Restaurant[description =~ \"jazz\"]",
+      "nodes_before": 3,
+      "nodes_after": 10,
+      "details": {}
+    },
+    {
+      "step": 3,
+      "action": "predicate_batch",
+      "segment": "[description =~ \"jazz\"]",
+      "nodes_before": 10,
+      "nodes_after": 2,
+      "details": {
+        "predicate": "jazz",
+        "level": 2,
+        "batch_classification_index": 0,
+        "matched_paths": [
+          "/Itinerary/Day[1]/Restaurant[3]",
+          "/Itinerary/Day[3]/Restaurant[4]"
+        ]
+      }
+    },
+    {
+      "step": 4,
+      "action": "predicate_batch_with_subtree",
+      "segment": "[description =~ \"relaxing\"]",
+      "nodes_before": 2,
+      "nodes_after": 1,
+      "details": {
+        "predicate": "relaxing",
+        "level": 1,
+        "batch_classification_index": 1,
+        "matched_paths": [
+          "/Itinerary/Day[3]"
+        ]
+      }
+    }
+  ],
+  "batch_classifications": [
+    {
+      "predicate": "jazz",
+      "input_count": 10,
+      "input_nodes": [
+        {
+          "tree_path": "/Itinerary/Day[1]/Restaurant[1]",
+          "node_type": "Restaurant",
+          "name": "Queen Street Warehouse",
+          "description": "Budget-friendly comfort food in a lively setting with a diverse menu."
+        },
+        {
+          "tree_path": "/Itinerary/Day[1]/Restaurant[2]",
+          "node_type": "Restaurant",
+          "name": "Buca Yorkville",
+          "description": "Upscale Italian dining featuring traditional dishes with a modern twist."
+        },
+        {
+          "tree_path": "/Itinerary/Day[1]/Restaurant[3]",
+          "node_type": "Restaurant",
+          "name": "The Rex Hotel Jazz & Blues Bar",
+          "description": "Live jazz performances in a cozy, iconic Toronto venue."
+        },
+        {
+          "tree_path": "/Itinerary/Day[2]/Restaurant[1]",
+          "node_type": "Restaurant",
+          "name": "Pow Wow Cafe",
+          "description": "Indigenous-inspired brunch featuring bannock tacos in Kensington Market."
+        },
+        {
+          "tree_path": "/Itinerary/Day[2]/Restaurant[2]",
+          "node_type": "Restaurant",
+          "name": "Annona Restaurant",
+          "description": "Sophisticated international cuisine in a bright, modern setting."
+        },
+        {
+          "tree_path": "/Itinerary/Day[2]/Restaurant[3]",
+          "node_type": "Restaurant",
+          "name": "DaiLo",
+          "description": "Modern Asian-Canadian fusion cuisine with creative flavors."
+        },
+        {
+          "tree_path": "/Itinerary/Day[3]/Restaurant[1]",
+          "node_type": "Restaurant",
+          "name": "Beauty Barbecue & Smokehouse",
+          "description": "Hearty breakfast featuring smoked meats and classic comfort food."
+        },
+        {
+          "tree_path": "/Itinerary/Day[3]/Restaurant[2]",
+          "node_type": "Restaurant",
+          "name": "Amsterdam BrewHouse",
+          "description": "Lakeside pub offering local craft beers and hearty meals."
+        },
+        {
+          "tree_path": "/Itinerary/Day[3]/Restaurant[3]",
+          "node_type": "Restaurant",
+          "name": "Cluny Bistro",
+          "description": "French-inspired bistro serving classic and modern dishes."
+        },
+        {
+          "tree_path": "/Itinerary/Day[3]/Restaurant[4]",
+          "node_type": "Restaurant",
+          "name": "Jazz Bistro",
+          "description": "Renowned jazz club with intimate setting and excellent acoustics."
+        }
+      ],
+      "results": [
+        {
+          "tree_path": "/Itinerary/Day[1]/Restaurant[1]",
+          "name": "Queen Street Warehouse",
+          "is_match": false,
+          "confidence": 0.0
+        },
+        {
+          "tree_path": "/Itinerary/Day[1]/Restaurant[2]",
+          "name": "Buca Yorkville",
+          "is_match": false,
+          "confidence": 0.0
+        },
+        {
+          "tree_path": "/Itinerary/Day[1]/Restaurant[3]",
+          "name": "The Rex Hotel Jazz & Blues Bar",
+          "is_match": true,
+          "confidence": 1.0
+        },
+        {
+          "tree_path": "/Itinerary/Day[2]/Restaurant[1]",
+          "name": "Pow Wow Cafe",
+          "is_match": false,
+          "confidence": 0.0
+        },
+        {
+          "tree_path": "/Itinerary/Day[2]/Restaurant[2]",
+          "name": "Annona Restaurant",
+          "is_match": false,
+          "confidence": 0.0
+        },
+        {
+          "tree_path": "/Itinerary/Day[2]/Restaurant[3]",
+          "name": "DaiLo",
+          "is_match": false,
+          "confidence": 0.0
+        },
+        {
+          "tree_path": "/Itinerary/Day[3]/Restaurant[1]",
+          "name": "Beauty Barbecue & Smokehouse",
+          "is_match": false,
+          "confidence": 0.0
+        },
+        {
+          "tree_path": "/Itinerary/Day[3]/Restaurant[2]",
+          "name": "Amsterdam BrewHouse",
+          "is_match": false,
+          "confidence": 0.0
+        },
+        {
+          "tree_path": "/Itinerary/Day[3]/Restaurant[3]",
+          "name": "Cluny Bistro",
+          "is_match": false,
+          "confidence": 0.0
+        },
+        {
+          "tree_path": "/Itinerary/Day[3]/Restaurant[4]",
+          "name": "Jazz Bistro",
+          "is_match": true,
+          "confidence": 1.0
+        }
+      ],
+      "matched_count": 2,
+      "matched_paths": [
+        "/Itinerary/Day[1]/Restaurant[3]",
+        "/Itinerary/Day[3]/Restaurant[4]"
+      ],
+      "prompt_sent": "Predicate: \"jazz\"\n\nNodes:\n\n[0] /Itinerary/Day[1]/Restaurant[1]\nType: Restaurant\nName: Queen Street Warehouse\nDescription: Budget-friendly comfort food in a lively setting with a diverse menu.\n\n[1] /Itinerary/Day[1]/Restaurant[2]\nType: Restaurant\nName: Buca Yorkville\nDescription: Upscale Italian dining featuring traditional dishes with a modern twist.\n\n[2] /Itinerary/Day[1]/Restaurant[3]\nType: Restaurant\nName: The Rex Hotel Jazz & Blues Bar\nDescription: Live jazz performances in a cozy, iconic Toronto venue.\n\n[3] /Itinerary/Day[2]/Restaurant[1]\nType: Restaurant\nName: Pow Wow Cafe\nDescription: Indigenous-inspired brunch featuring bannock tacos in Kensington Market.\n\n[4] /Itinerary/Day[2]/Restaurant[2]\nType: Restaurant\nName: Annona Restaurant\nDescription: Sophisticated international cuisine in a bright, modern setting.\n\n[5] /Itinerary/Day[2]/Restaurant[3]\nType: Restaurant\nName: DaiLo\nDescription: Modern Asian-Canadian fusion cuisine with creative flavors.\n\n[6] /Itinerary/Day[3]/Restaurant[1]\nType: Restaurant\nName: Beauty Barbecue & Smokehouse\nDescription: Hearty breakfast featuring smoked meats and classic comfort food.\n\n[7] /Itinerary/Day[3]/Restaurant[2]\nType: Restaurant\nName: Amsterdam BrewHouse\nDescription: Lakeside pub offering local craft beers and hearty meals.\n\n[8] /Itinerary/Day[3]/Restaurant[3]\nType: Restaurant\nName: Cluny Bistro\nDescription: French-inspired bistro serving classic and modern dishes.\n\n[9] /Itinerary/Day[3]/Restaurant[4]\nType: Restaurant\nName: Jazz Bistro\nDescription: Renowned jazz club with intimate setting and excellent acoustics.\n\nClassify each node. Output JSON only.",
+      "raw_response": "```json\n{\n  \"results\": [\n    {\"index\": 0, \"match\": false},\n    {\"index\": 1, \"match\": false},\n    {\"index\": 2, \"match\": true},\n    {\"index\": 3, \"match\": false},\n    {\"index\": 4, \"match\": false},\n    {\"index\": 5, \"match\": false},\n    {\"index\": 6, \"match\": false},\n    {\"index\": 7, \"match\": false},\n    {\"index\": 8, \"match\": false},\n    {\"index\": 9, \"match\": true}\n  ]\n}\n```"
+    },
+    {
+      "predicate": "relaxing",
+      "input_count": 2,
+      "input_nodes": [
+        {
+          "tree_path": "/Itinerary/Day[1]",
+          "node_type": "Day",
+          "name": null,
+          "description": null
+        },
+        {
+          "tree_path": "/Itinerary/Day[3]",
+          "node_type": "Day",
+          "name": null,
+          "description": null
+        }
+      ],
+      "results": [
+        {
+          "tree_path": "/Itinerary/Day[1]",
+          "name": null,
+          "is_match": false,
+          "confidence": 0.0
+        },
+        {
+          "tree_path": "/Itinerary/Day[3]",
+          "name": null,
+          "is_match": true,
+          "confidence": 1.0
+        }
+      ],
+      "matched_count": 1,
+      "matched_paths": [
+        "/Itinerary/Day[3]"
+      ],
+      "prompt_sent": "Predicate: \"relaxing\"\n\nNodes:\n\n[0] /Itinerary/Day[1]\nType: Day\nChildren:\n  [1] POI: St. Lawrence Market\n      Start your day at this iconic market, where you can grab a breakfast of famed peameal bacon sandwich\n  [2] POI: CN Tower\n      Visit one of the world's tallest towers and enjoy panoramic city views from the observation deck.\n  [3] Restaurant: Queen Street Warehouse\n      Budget-friendly comfort food in a lively setting with a diverse menu.\n  [4] POI: Art Gallery of Ontario\n      Explore Canadian, European, and contemporary art in a Frank Gehry-designed building.\n  [5] Restaurant: Buca Yorkville\n      Upscale Italian dining featuring traditional dishes with a modern twist.\n  [6] Restaurant: The Rex Hotel Jazz & Blues Bar\n      Live jazz performances in a cozy, iconic Toronto venue.\n\n[1] /Itinerary/Day[3]\nType: Day\nChildren:\n  [1] Restaurant: Beauty Barbecue & Smokehouse\n      Hearty breakfast featuring smoked meats and classic comfort food.\n  [2] POI: Toronto Islands\n      Ferry ride to scenic islands with beaches, bike trails, and gardens.\n  [3] Restaurant: Amsterdam BrewHouse\n      Lakeside pub offering local craft beers and hearty meals.\n  [4] POI: Distillery District\n      Historic pedestrian village with cobblestone streets and artisan shops.\n  [5] Restaurant: Cluny Bistro\n      French-inspired bistro serving classic and modern dishes.\n  [6] Restaurant: Jazz Bistro\n      Renowned jazz club with intimate setting and excellent acoustics.\n\nClassify each node. Output JSON only.",
+      "raw_response": "```json\n{\n  \"results\": [\n    {\"index\": 0, \"match\": false},\n    {\"index\": 1, \"match\": true}\n  ]\n}\n```"
+    }
+  ],
+  "results": [
+    {
+      "tree_path": "/Itinerary/Day[3]/Restaurant[4]",
+      "type": "Restaurant",
+      "name": "Jazz Bistro",
+      "description": "Renowned jazz club with intimate setting and excellent acoustics."
+    }
+  ]
+}

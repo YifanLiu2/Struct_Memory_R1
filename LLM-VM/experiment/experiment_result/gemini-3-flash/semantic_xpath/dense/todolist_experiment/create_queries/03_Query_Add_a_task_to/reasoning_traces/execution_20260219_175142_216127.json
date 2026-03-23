@@ -1,0 +1,1720 @@
+{
+  "timestamp": "20260219_175142_216127",
+  "query": "/Root/ToDoList_Version[1]/Category[atom(content =~ \"Household\")]/Project[atom(content =~ \"groceries\")]",
+  "canonical_query": "/Root/ToDoList_Version[1]/Category[content =~ \"Household\"]/Project[content =~ \"groceries\"]",
+  "data_file": "tree.xml",
+  "execution_time_ms": 22.265834035351872,
+  "parsed_ast": {
+    "steps": [
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Root",
+            "span": {
+              "start": 1,
+              "end": 5
+            }
+          },
+          "span": {
+            "start": 1,
+            "end": 5
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "ToDoList_Version",
+            "index": {
+              "start": 1,
+              "type": "single",
+              "span": {
+                "start": 22,
+                "end": 25
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 25
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 25
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Category",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "Household",
+              "operator": "=~",
+              "span": {
+                "start": 35,
+                "end": 63
+              }
+            },
+            "predicate_str": "atom(content =~ \"Household\")",
+            "span": {
+              "start": 26,
+              "end": 64
+            }
+          },
+          "span": {
+            "start": 26,
+            "end": 64
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Project",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "groceries",
+              "operator": "=~",
+              "span": {
+                "start": 73,
+                "end": 101
+              }
+            },
+            "predicate_str": "atom(content =~ \"groceries\")",
+            "span": {
+              "start": 65,
+              "end": 102
+            }
+          },
+          "span": {
+            "start": 65,
+            "end": 102
+          }
+        }
+      }
+    ],
+    "global_index": null
+  },
+  "parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: ToDoList_Version[1]\n├── Step 2: Category[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"Household\")\n└── Step 3: Project[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"groceries\")",
+  "canonical_parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: ToDoList_Version[1]\n├── Step 2: Category[content =~ \"Household\"]\n└── Step 3: Project[content =~ \"groceries\"]",
+  "execution_log": [
+    "[20260219_175142_216127] Executing query: /Root/ToDoList_Version[1]/Category[atom(content =~ \"Household\")]/Project[atom(content =~ \"groceries\")]",
+    "Data file: tree.xml",
+    "Parsed steps: [Root, ToDoList_Version[1], Category[atom(content =~ \"Household\")], Project[atom(content =~ \"groceries\")]]",
+    "",
+    "Query AST:\n├── Step 0: Root\n├── Step 1: ToDoList_Version[1]\n├── Step 2: Category[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"Household\")\n└── Step 3: Project[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"groceries\")",
+    "\n--- Step 1: Root ---",
+    "Matched Root root",
+    "\n--- Step 2: ToDoList_Version[1] ---",
+    "Selected node at index 1 (0-based: 0)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 3: Category[atom(content =~ \"Household\")] ---",
+    "Scoring predicate: atom(content =~ \"Household\") (atomic values: ['Household'])",
+    "  Node 0 (Work): score = 0.0000 (exact match)",
+    "  Node 1 (Personal): score = 0.0000 (exact match)",
+    "  Node 2 (Household): score = 1.0000 (exact match)",
+    "  Node 3 (Health): score = 0.0000 (exact match)",
+    "  Node 4 (Learning): score = 0.0000 (exact match)",
+    "  Exact attribute match on @name: 1/5 nodes matched",
+    "After step: 5 nodes remaining",
+    "\n--- Step 4: Project[atom(content =~ \"groceries\")] ---",
+    "  Zero-score pruning: skipping 4 items (Work, Personal, Health, Learning)",
+    "Scoring predicate: atom(content =~ \"groceries\") (atomic values: ['groceries'])",
+    "  Collected 5 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 5 total descriptions",
+    "  Node 0 (Fix Garage Door): score = 0.3964",
+    "  Node 1 (Weekly Groceries): score = 0.6925",
+    "  Node 2 (General): score = 0.4317",
+    "  Node 3 (Kitchen Deep Clean): score = 0.4892",
+    "  Node 4 (Seasonal Wardrobe Swap): score = 0.4506",
+    "After step: 5 nodes remaining",
+    "\n=== Score Fusion ===",
+    "  Root > ToDoList_Version 1 > Household > Fix Garage Door: product=0.3964 → score=0.3964",
+    "  Root > ToDoList_Version 1 > Household > Weekly Groceries: product=0.6925 → score=0.6925",
+    "  Root > ToDoList_Version 1 > Household > General: product=0.4317 → score=0.4317",
+    "  Root > ToDoList_Version 1 > Household > Kitchen Deep Clean: product=0.4892 → score=0.4892",
+    "  Root > ToDoList_Version 1 > Household > Seasonal Wardrobe Swap: product=0.4506 → score=0.4506",
+    "  Parent propagation: Root > ToDoList_Version 1 > Household > Fix Garage Door: own=0.3964 × parent=1.0000 → 0.3964",
+    "  Parent propagation: Root > ToDoList_Version 1 > Household > Weekly Groceries: own=0.6925 × parent=1.0000 → 0.6925",
+    "  Parent propagation: Root > ToDoList_Version 1 > Household > General: own=0.4317 × parent=1.0000 → 0.4317",
+    "  Parent propagation: Root > ToDoList_Version 1 > Household > Kitchen Deep Clean: own=0.4892 × parent=1.0000 → 0.4892",
+    "  Parent propagation: Root > ToDoList_Version 1 > Household > Seasonal Wardrobe Swap: own=0.4506 × parent=1.0000 → 0.4506",
+    "\n=== Parent Score Propagation: 5 nodes updated ===",
+    "\n=== Threshold Filtering (threshold=0.05) ===",
+    "  Filtered: 5 → 5 nodes",
+    "\n=== Final Filtering (top_k=5) ===",
+    "  After top_k: 5 → 5 nodes",
+    "\nFinal result: 5 nodes (sorted by score)",
+    "⏱️  Query execution time: 22.27ms"
+  ],
+  "traversal_steps": [
+    {
+      "step_index": 0,
+      "step_query": "Root",
+      "action": "root_match",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "type": "root"
+        }
+      ],
+      "nodes_after": [
+        {
+          "type": "Root",
+          "path": "Root"
+        }
+      ],
+      "details": {
+        "matched": true
+      }
+    },
+    {
+      "step_index": 1,
+      "step_query": "ToDoList_Version[1]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root",
+          "name": "Root",
+          "type": "Root",
+          "score": 1.0,
+          "node_id": 6141345552
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > ToDoList_Version 1",
+          "name": "ToDoList_Version 1",
+          "type": "ToDoList_Version",
+          "score": 1.0,
+          "node_id": 6141338192
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "ToDoList_Version",
+            "index": {
+              "start": 1,
+              "type": "single",
+              "span": {
+                "start": 22,
+                "end": 25
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 25
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 25
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 2,
+      "step_query": "Category[atom(content =~ \"Household\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 5,
+      "nodes_before": [
+        {
+          "path": "Root > ToDoList_Version 1",
+          "name": "ToDoList_Version 1",
+          "type": "ToDoList_Version",
+          "score": 1.0,
+          "node_id": 6141338192
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > ToDoList_Version 1 > Work",
+          "name": "Work",
+          "type": "Category",
+          "score": 0.0,
+          "node_id": 6141339472
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Personal",
+          "name": "Personal",
+          "type": "Category",
+          "score": 0.0,
+          "node_id": 6141339232
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Household",
+          "name": "Household",
+          "type": "Category",
+          "score": 1.0,
+          "node_id": 6142823776
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Health",
+          "name": "Health",
+          "type": "Category",
+          "score": 0.0,
+          "node_id": 6142738736
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Learning",
+          "name": "Learning",
+          "type": "Category",
+          "score": 0.0,
+          "node_id": 6142752976
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Category",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "Household",
+              "operator": "=~",
+              "span": {
+                "start": 35,
+                "end": 63
+              }
+            },
+            "predicate_str": "atom(content =~ \"Household\")",
+            "span": {
+              "start": 26,
+              "end": 64
+            }
+          },
+          "span": {
+            "start": 26,
+            "end": 64
+          }
+        },
+        "found_count": 5,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"Household\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "Household",
+              "operator": "=~",
+              "span": {
+                "start": 35,
+                "end": 63
+              }
+            },
+            "config": {
+              "top_k": 5,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 6141339472,
+                "node_name": "Work",
+                "node_type": "Category",
+                "final_score": 0.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Work",
+                    "query_value": "Household",
+                    "matched": false,
+                    "score": 0.0
+                  }
+                ]
+              },
+              {
+                "node_idx": 1,
+                "node_id": 6141339232,
+                "node_name": "Personal",
+                "node_type": "Category",
+                "final_score": 0.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Personal",
+                    "query_value": "Household",
+                    "matched": false,
+                    "score": 0.0
+                  }
+                ]
+              },
+              {
+                "node_idx": 2,
+                "node_id": 6142823776,
+                "node_name": "Household",
+                "node_type": "Category",
+                "final_score": 1.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Household",
+                    "query_value": "Household",
+                    "matched": true,
+                    "score": 1.0
+                  }
+                ]
+              },
+              {
+                "node_idx": 3,
+                "node_id": 6142738736,
+                "node_name": "Health",
+                "node_type": "Category",
+                "final_score": 0.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Health",
+                    "query_value": "Household",
+                    "matched": false,
+                    "score": 0.0
+                  }
+                ]
+              },
+              {
+                "node_idx": 4,
+                "node_id": 6142752976,
+                "node_name": "Learning",
+                "node_type": "Category",
+                "final_score": 0.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Learning",
+                    "query_value": "Household",
+                    "matched": false,
+                    "score": 0.0
+                  }
+                ]
+              }
+            ],
+            "batch_scoring": {
+              "exact_match": true,
+              "matched_attribute": "name",
+              "query_value": "Household",
+              "matched_count": 1
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 2,
+                "score": 1.0,
+                "name": "Household"
+              },
+              {
+                "idx": 0,
+                "score": 0.0,
+                "name": "Work"
+              },
+              {
+                "idx": 1,
+                "score": 0.0,
+                "name": "Personal"
+              },
+              {
+                "idx": 3,
+                "score": 0.0,
+                "name": "Health"
+              },
+              {
+                "idx": 4,
+                "score": 0.0,
+                "name": "Learning"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "step_index": 3,
+      "step_query": "Project[atom(content =~ \"groceries\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 5,
+      "nodes_after_count": 5,
+      "nodes_before": [
+        {
+          "path": "Root > ToDoList_Version 1 > Work",
+          "name": "Work",
+          "type": "Category",
+          "score": 0.0,
+          "node_id": 6141339472
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Personal",
+          "name": "Personal",
+          "type": "Category",
+          "score": 0.0,
+          "node_id": 6141339232
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Household",
+          "name": "Household",
+          "type": "Category",
+          "score": 1.0,
+          "node_id": 6142823776
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Health",
+          "name": "Health",
+          "type": "Category",
+          "score": 0.0,
+          "node_id": 6142738736
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Learning",
+          "name": "Learning",
+          "type": "Category",
+          "score": 0.0,
+          "node_id": 6142752976
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > ToDoList_Version 1 > Household > Fix Garage Door",
+          "name": "Fix Garage Door",
+          "type": "Project",
+          "score": 0.3964129686355591,
+          "node_id": 6142822656
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Household > Weekly Groceries",
+          "name": "Weekly Groceries",
+          "type": "Project",
+          "score": 0.6924735307693481,
+          "node_id": 4308603248
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Household > General",
+          "name": "General",
+          "type": "Project",
+          "score": 0.43167734146118164,
+          "node_id": 6142753696
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Household > Kitchen Deep Clean",
+          "name": "Kitchen Deep Clean",
+          "type": "Project",
+          "score": 0.4891647696495056,
+          "node_id": 6142742736
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Household > Seasonal Wardrobe Swap",
+          "name": "Seasonal Wardrobe Swap",
+          "type": "Project",
+          "score": 0.450636088848114,
+          "node_id": 6142741856
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Project",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "groceries",
+              "operator": "=~",
+              "span": {
+                "start": 73,
+                "end": 101
+              }
+            },
+            "predicate_str": "atom(content =~ \"groceries\")",
+            "span": {
+              "start": 65,
+              "end": 102
+            }
+          },
+          "span": {
+            "start": 65,
+            "end": 102
+          }
+        },
+        "found_count": 5,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"groceries\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "groceries",
+              "operator": "=~",
+              "span": {
+                "start": 73,
+                "end": 101
+              }
+            },
+            "config": {
+              "top_k": 5,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 6142822656,
+                "node_name": "Fix Garage Door",
+                "node_type": "Project",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "groceries",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 101
+                      }
+                    },
+                    "score": 0.3964129686355591,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.3964129686355591
+              },
+              {
+                "node_idx": 1,
+                "node_id": 4308603248,
+                "node_name": "Weekly Groceries",
+                "node_type": "Project",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "groceries",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 101
+                      }
+                    },
+                    "score": 0.6924735307693481,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.6924735307693481
+              },
+              {
+                "node_idx": 2,
+                "node_id": 6142753696,
+                "node_name": "General",
+                "node_type": "Project",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "groceries",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 101
+                      }
+                    },
+                    "score": 0.43167734146118164,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.43167734146118164
+              },
+              {
+                "node_idx": 3,
+                "node_id": 6142742736,
+                "node_name": "Kitchen Deep Clean",
+                "node_type": "Project",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "groceries",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 101
+                      }
+                    },
+                    "score": 0.4891647696495056,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.4891647696495056
+              },
+              {
+                "node_idx": 4,
+                "node_id": 6142741856,
+                "node_name": "Seasonal Wardrobe Swap",
+                "node_type": "Project",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "groceries",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 101
+                      }
+                    },
+                    "score": 0.450636088848114,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.450636088848114
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "groceries"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "groceries",
+                  "num_descriptions": 5,
+                  "call_time_ms": 20.94
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 5
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 1,
+                "score": 0.6924735307693481,
+                "name": "Weekly Groceries"
+              },
+              {
+                "idx": 3,
+                "score": 0.4891647696495056,
+                "name": "Kitchen Deep Clean"
+              },
+              {
+                "idx": 4,
+                "score": 0.450636088848114,
+                "name": "Seasonal Wardrobe Swap"
+              },
+              {
+                "idx": 2,
+                "score": 0.43167734146118164,
+                "name": "General"
+              },
+              {
+                "idx": 0,
+                "score": 0.3964129686355591,
+                "name": "Fix Garage Door"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "scoring_traces": [
+    {
+      "predicate": "atom(content =~ \"Household\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "Household",
+        "operator": "=~",
+        "span": {
+          "start": 35,
+          "end": 63
+        }
+      },
+      "config": {
+        "top_k": 5,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 6141339472,
+          "node_name": "Work",
+          "node_type": "Category",
+          "final_score": 0.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Work",
+              "query_value": "Household",
+              "matched": false,
+              "score": 0.0
+            }
+          ]
+        },
+        {
+          "node_idx": 1,
+          "node_id": 6141339232,
+          "node_name": "Personal",
+          "node_type": "Category",
+          "final_score": 0.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Personal",
+              "query_value": "Household",
+              "matched": false,
+              "score": 0.0
+            }
+          ]
+        },
+        {
+          "node_idx": 2,
+          "node_id": 6142823776,
+          "node_name": "Household",
+          "node_type": "Category",
+          "final_score": 1.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Household",
+              "query_value": "Household",
+              "matched": true,
+              "score": 1.0
+            }
+          ]
+        },
+        {
+          "node_idx": 3,
+          "node_id": 6142738736,
+          "node_name": "Health",
+          "node_type": "Category",
+          "final_score": 0.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Health",
+              "query_value": "Household",
+              "matched": false,
+              "score": 0.0
+            }
+          ]
+        },
+        {
+          "node_idx": 4,
+          "node_id": 6142752976,
+          "node_name": "Learning",
+          "node_type": "Category",
+          "final_score": 0.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Learning",
+              "query_value": "Household",
+              "matched": false,
+              "score": 0.0
+            }
+          ]
+        }
+      ],
+      "batch_scoring": {
+        "exact_match": true,
+        "matched_attribute": "name",
+        "query_value": "Household",
+        "matched_count": 1
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 2,
+          "score": 1.0,
+          "name": "Household"
+        },
+        {
+          "idx": 0,
+          "score": 0.0,
+          "name": "Work"
+        },
+        {
+          "idx": 1,
+          "score": 0.0,
+          "name": "Personal"
+        },
+        {
+          "idx": 3,
+          "score": 0.0,
+          "name": "Health"
+        },
+        {
+          "idx": 4,
+          "score": 0.0,
+          "name": "Learning"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"groceries\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "groceries",
+        "operator": "=~",
+        "span": {
+          "start": 73,
+          "end": 101
+        }
+      },
+      "config": {
+        "top_k": 5,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 6142822656,
+          "node_name": "Fix Garage Door",
+          "node_type": "Project",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "groceries",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 101
+                }
+              },
+              "score": 0.3964129686355591,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.3964129686355591
+        },
+        {
+          "node_idx": 1,
+          "node_id": 4308603248,
+          "node_name": "Weekly Groceries",
+          "node_type": "Project",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "groceries",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 101
+                }
+              },
+              "score": 0.6924735307693481,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.6924735307693481
+        },
+        {
+          "node_idx": 2,
+          "node_id": 6142753696,
+          "node_name": "General",
+          "node_type": "Project",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "groceries",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 101
+                }
+              },
+              "score": 0.43167734146118164,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.43167734146118164
+        },
+        {
+          "node_idx": 3,
+          "node_id": 6142742736,
+          "node_name": "Kitchen Deep Clean",
+          "node_type": "Project",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "groceries",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 101
+                }
+              },
+              "score": 0.4891647696495056,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.4891647696495056
+        },
+        {
+          "node_idx": 4,
+          "node_id": 6142741856,
+          "node_name": "Seasonal Wardrobe Swap",
+          "node_type": "Project",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "groceries",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 101
+                }
+              },
+              "score": 0.450636088848114,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.450636088848114
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "groceries"
+        ],
+        "per_value_stats": [
+          {
+            "value": "groceries",
+            "num_descriptions": 5,
+            "call_time_ms": 20.94
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 5
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 1,
+          "score": 0.6924735307693481,
+          "name": "Weekly Groceries"
+        },
+        {
+          "idx": 3,
+          "score": 0.4891647696495056,
+          "name": "Kitchen Deep Clean"
+        },
+        {
+          "idx": 4,
+          "score": 0.450636088848114,
+          "name": "Seasonal Wardrobe Swap"
+        },
+        {
+          "idx": 2,
+          "score": 0.43167734146118164,
+          "name": "General"
+        },
+        {
+          "idx": 0,
+          "score": 0.3964129686355591,
+          "name": "Fix Garage Door"
+        }
+      ]
+    }
+  ],
+  "scoring_details": {
+    "step_scores": [
+      {
+        "step_index": 0,
+        "predicate": "atom(content =~ \"Household\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "Household",
+          "operator": "=~",
+          "span": {
+            "start": 35,
+            "end": 63
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 6141339472,
+            "node_name": "Work",
+            "node_type": "Category",
+            "final_score": 0.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Work",
+                "query_value": "Household",
+                "matched": false,
+                "score": 0.0
+              }
+            ]
+          },
+          {
+            "node_idx": 1,
+            "node_id": 6141339232,
+            "node_name": "Personal",
+            "node_type": "Category",
+            "final_score": 0.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Personal",
+                "query_value": "Household",
+                "matched": false,
+                "score": 0.0
+              }
+            ]
+          },
+          {
+            "node_idx": 2,
+            "node_id": 6142823776,
+            "node_name": "Household",
+            "node_type": "Category",
+            "final_score": 1.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Household",
+                "query_value": "Household",
+                "matched": true,
+                "score": 1.0
+              }
+            ]
+          },
+          {
+            "node_idx": 3,
+            "node_id": 6142738736,
+            "node_name": "Health",
+            "node_type": "Category",
+            "final_score": 0.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Health",
+                "query_value": "Household",
+                "matched": false,
+                "score": 0.0
+              }
+            ]
+          },
+          {
+            "node_idx": 4,
+            "node_id": 6142752976,
+            "node_name": "Learning",
+            "node_type": "Category",
+            "final_score": 0.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Learning",
+                "query_value": "Household",
+                "matched": false,
+                "score": 0.0
+              }
+            ]
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 2,
+            "score": 1.0,
+            "name": "Household"
+          },
+          {
+            "idx": 0,
+            "score": 0.0,
+            "name": "Work"
+          },
+          {
+            "idx": 1,
+            "score": 0.0,
+            "name": "Personal"
+          },
+          {
+            "idx": 3,
+            "score": 0.0,
+            "name": "Health"
+          },
+          {
+            "idx": 4,
+            "score": 0.0,
+            "name": "Learning"
+          }
+        ]
+      },
+      {
+        "step_index": 1,
+        "predicate": "atom(content =~ \"groceries\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "groceries",
+          "operator": "=~",
+          "span": {
+            "start": 73,
+            "end": 101
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 6142822656,
+            "node_name": "Fix Garage Door",
+            "node_type": "Project",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "groceries",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 101
+                  }
+                },
+                "score": 0.3964129686355591,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.3964129686355591
+          },
+          {
+            "node_idx": 1,
+            "node_id": 4308603248,
+            "node_name": "Weekly Groceries",
+            "node_type": "Project",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "groceries",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 101
+                  }
+                },
+                "score": 0.6924735307693481,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.6924735307693481
+          },
+          {
+            "node_idx": 2,
+            "node_id": 6142753696,
+            "node_name": "General",
+            "node_type": "Project",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "groceries",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 101
+                  }
+                },
+                "score": 0.43167734146118164,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.43167734146118164
+          },
+          {
+            "node_idx": 3,
+            "node_id": 6142742736,
+            "node_name": "Kitchen Deep Clean",
+            "node_type": "Project",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "groceries",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 101
+                  }
+                },
+                "score": 0.4891647696495056,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.4891647696495056
+          },
+          {
+            "node_idx": 4,
+            "node_id": 6142741856,
+            "node_name": "Seasonal Wardrobe Swap",
+            "node_type": "Project",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "groceries",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 101
+                  }
+                },
+                "score": 0.450636088848114,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.450636088848114
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 1,
+            "score": 0.6924735307693481,
+            "name": "Weekly Groceries"
+          },
+          {
+            "idx": 3,
+            "score": 0.4891647696495056,
+            "name": "Kitchen Deep Clean"
+          },
+          {
+            "idx": 4,
+            "score": 0.450636088848114,
+            "name": "Seasonal Wardrobe Swap"
+          },
+          {
+            "idx": 2,
+            "score": 0.43167734146118164,
+            "name": "General"
+          },
+          {
+            "idx": 0,
+            "score": 0.3964129686355591,
+            "name": "Fix Garage Door"
+          }
+        ]
+      }
+    ],
+    "score_fusion": {
+      "per_node": [
+        {
+          "node_path": "Root > ToDoList_Version 1 > Household > Fix Garage Door",
+          "node_type": "Project",
+          "step_contributions": [
+            {
+              "step_index": 3,
+              "predicate": "Project[atom(content =~ \"groceries\")]",
+              "score": 0.3964129686355591
+            }
+          ],
+          "accumulated_product": 0.3964129686355591,
+          "final_score": 0.3964129682391461
+        },
+        {
+          "node_path": "Root > ToDoList_Version 1 > Household > Weekly Groceries",
+          "node_type": "Project",
+          "step_contributions": [
+            {
+              "step_index": 3,
+              "predicate": "Project[atom(content =~ \"groceries\")]",
+              "score": 0.6924735307693481
+            }
+          ],
+          "accumulated_product": 0.6924735307693481,
+          "final_score": 0.6924735300768746
+        },
+        {
+          "node_path": "Root > ToDoList_Version 1 > Household > General",
+          "node_type": "Project",
+          "step_contributions": [
+            {
+              "step_index": 3,
+              "predicate": "Project[atom(content =~ \"groceries\")]",
+              "score": 0.43167734146118164
+            }
+          ],
+          "accumulated_product": 0.43167734146118164,
+          "final_score": 0.43167734102950434
+        },
+        {
+          "node_path": "Root > ToDoList_Version 1 > Household > Kitchen Deep Clean",
+          "node_type": "Project",
+          "step_contributions": [
+            {
+              "step_index": 3,
+              "predicate": "Project[atom(content =~ \"groceries\")]",
+              "score": 0.4891647696495056
+            }
+          ],
+          "accumulated_product": 0.4891647696495056,
+          "final_score": 0.48916476916034085
+        },
+        {
+          "node_path": "Root > ToDoList_Version 1 > Household > Seasonal Wardrobe Swap",
+          "node_type": "Project",
+          "step_contributions": [
+            {
+              "step_index": 3,
+              "predicate": "Project[atom(content =~ \"groceries\")]",
+              "score": 0.450636088848114
+            }
+          ],
+          "accumulated_product": 0.450636088848114,
+          "final_score": 0.45063608839747793
+        }
+      ]
+    }
+  },
+  "final_filtering": {
+    "before_filter_count": 5,
+    "threshold": 0.05,
+    "top_k": 5,
+    "after_filter_count": 5,
+    "filtered_nodes": [
+      {
+        "path": "Root > ToDoList_Version 1 > Household > Weekly Groceries",
+        "score": 0.6924735300768746,
+        "type": "Project",
+        "own_score": 0.6924735307693481,
+        "parent_score": 0.999999999
+      },
+      {
+        "path": "Root > ToDoList_Version 1 > Household > Kitchen Deep Clean",
+        "score": 0.48916476916034085,
+        "type": "Project",
+        "own_score": 0.4891647696495056,
+        "parent_score": 0.999999999
+      },
+      {
+        "path": "Root > ToDoList_Version 1 > Household > Seasonal Wardrobe Swap",
+        "score": 0.45063608839747793,
+        "type": "Project",
+        "own_score": 0.450636088848114,
+        "parent_score": 0.999999999
+      },
+      {
+        "path": "Root > ToDoList_Version 1 > Household > General",
+        "score": 0.43167734102950434,
+        "type": "Project",
+        "own_score": 0.43167734146118164,
+        "parent_score": 0.999999999
+      },
+      {
+        "path": "Root > ToDoList_Version 1 > Household > Fix Garage Door",
+        "score": 0.3964129682391461,
+        "type": "Project",
+        "own_score": 0.3964129686355591,
+        "parent_score": 0.999999999
+      }
+    ]
+  },
+  "matched_nodes": [
+    {
+      "tree_path": "Root > ToDoList_Version 1 > Household > Weekly Groceries",
+      "score": 0.6924735300768746,
+      "node": {
+        "type": "Project",
+        "attributes": {},
+        "name": "Weekly Groceries",
+        "status": "Active",
+        "priority": "Medium"
+      },
+      "children": [
+        {
+          "type": "Task",
+          "attributes": {},
+          "description": "Buy Milk (Oat)",
+          "status": "Todo",
+          "priority": "Medium",
+          "due_date": "2026-02-10"
+        },
+        {
+          "type": "Task",
+          "attributes": {},
+          "description": "Buy Coffee Beans",
+          "status": "Todo",
+          "priority": "High",
+          "due_date": "2026-02-10"
+        },
+        {
+          "type": "Task",
+          "attributes": {},
+          "description": "Buy Ramen (Emergency deadline food)",
+          "status": "Todo",
+          "priority": "Low",
+          "due_date": "2026-02-10"
+        }
+      ],
+      "context_trace": [
+        {
+          "node_name": "Household",
+          "predicate": "atom(content =~ \"Household\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Household\") on Household (Score: 1.00)"
+        },
+        {
+          "node_name": "Weekly Groceries",
+          "predicate": "atom(content =~ \"groceries\")",
+          "score": 0.6924735307693481,
+          "description": "Matched atom(content =~ \"groceries\") on Weekly Groceries (Score: 0.69)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > ToDoList_Version 1 > Household > Kitchen Deep Clean",
+      "score": 0.48916476916034085,
+      "node": {
+        "type": "Project",
+        "attributes": {},
+        "name": "Kitchen Deep Clean",
+        "status": "Active",
+        "priority": "Medium"
+      },
+      "children": [
+        {
+          "type": "Task",
+          "attributes": {},
+          "description": "Clean oven and stovetop",
+          "status": "Todo",
+          "priority": "Medium",
+          "due_date": "2026-02-21"
+        },
+        {
+          "type": "Task",
+          "attributes": {},
+          "description": "Defrost freezer and organize contents",
+          "status": "Todo",
+          "priority": "Low",
+          "due_date": "2026-02-22"
+        },
+        {
+          "type": "Task",
+          "attributes": {},
+          "description": "Wipe down all cabinet exteriors",
+          "status": "Todo",
+          "priority": "Low",
+          "due_date": "2026-02-22"
+        }
+      ],
+      "context_trace": [
+        {
+          "node_name": "Household",
+          "predicate": "atom(content =~ \"Household\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Household\") on Household (Score: 1.00)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > ToDoList_Version 1 > Household > Seasonal Wardrobe Swap",
+      "score": 0.45063608839747793,
+      "node": {
+        "type": "Project",
+        "attributes": {},
+        "name": "Seasonal Wardrobe Swap",
+        "status": "Active",
+        "priority": "Low"
+      },
+      "children": [
+        {
+          "type": "Task",
+          "attributes": {},
+          "description": "Wash and store winter heavy coats",
+          "status": "Todo",
+          "priority": "Medium",
+          "due_date": "2026-03-15"
+        },
+        {
+          "type": "Task",
+          "attributes": {},
+          "description": "Inventory spring/summer clothing",
+          "status": "Todo",
+          "priority": "Low",
+          "due_date": "2026-03-15"
+        },
+        {
+          "type": "Task",
+          "attributes": {},
+          "description": "Donate unused items to local shelter",
+          "status": "Todo",
+          "priority": "Medium",
+          "due_date": "2026-03-20"
+        }
+      ],
+      "context_trace": [
+        {
+          "node_name": "Household",
+          "predicate": "atom(content =~ \"Household\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Household\") on Household (Score: 1.00)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > ToDoList_Version 1 > Household > General",
+      "score": 0.43167734102950434,
+      "node": {
+        "type": "Project",
+        "attributes": {},
+        "name": "General",
+        "status": "Active",
+        "priority": "Low"
+      },
+      "children": [
+        {
+          "type": "Task",
+          "attributes": {},
+          "description": "Replace burnt out light bulb in hallway",
+          "status": "Todo",
+          "priority": "Low",
+          "due_date": "2026-02-20"
+        }
+      ],
+      "context_trace": [
+        {
+          "node_name": "Household",
+          "predicate": "atom(content =~ \"Household\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Household\") on Household (Score: 1.00)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > ToDoList_Version 1 > Household > Fix Garage Door",
+      "score": 0.3964129682391461,
+      "node": {
+        "type": "Project",
+        "attributes": {},
+        "name": "Fix Garage Door",
+        "status": "Active",
+        "priority": "High"
+      },
+      "children": [
+        {
+          "type": "Task",
+          "attributes": {},
+          "description": "Diagnose sensor alignment issue",
+          "status": "Done",
+          "priority": "High",
+          "due_date": "2026-02-01"
+        },
+        {
+          "type": "Task",
+          "attributes": {},
+          "description": "Buy replacement torsion spring",
+          "status": "Todo",
+          "priority": "High",
+          "due_date": "2026-02-12"
+        },
+        {
+          "type": "Task",
+          "attributes": {},
+          "description": "Schedule repair technician",
+          "status": "Todo",
+          "priority": "Medium",
+          "due_date": "2026-02-15"
+        }
+      ],
+      "context_trace": [
+        {
+          "node_name": "Household",
+          "predicate": "atom(content =~ \"Household\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Household\") on Household (Score: 1.00)"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total_steps": 4,
+    "total_scoring_calls": 2,
+    "matched_count": 5,
+    "execution_time_ms": 22.265834035351872,
+    "has_score_fusion": true,
+    "num_nodes_before_filter": 5,
+    "num_nodes_after_filter": 5
+  }
+}

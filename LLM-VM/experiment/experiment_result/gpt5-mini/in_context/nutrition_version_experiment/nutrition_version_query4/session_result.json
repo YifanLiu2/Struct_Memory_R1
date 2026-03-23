@@ -1,0 +1,80 @@
+{
+  "session_id": "nutrition_version_query4",
+  "queries": [
+    {
+      "query_id": "Query_001",
+      "user_query": "What was the original meal for father's dinner on day 2 before it became a fried chicken with potatoes? Check the previous versions.",
+      "selected_nodes": [
+        "Root > MealPlan_Version 2 > Father > Day 2 > Roast Chicken Dinner — Berry Boost Variation"
+      ],
+      "related_nodes": [
+        "Roast Chicken Dinner — Berry Boost Variation"
+      ],
+      "downstream_task_result": {
+        "operation": "READ",
+        "success": true,
+        "version_used": 2,
+        "reasoning": "Checked MealPlan_Version 2 (the version before the change in Version 3) and found Father's Day 2 dinner entry; returned the Meal node that was later replaced.",
+        "token_usage": {
+          "prompt_tokens": 174562,
+          "completion_tokens": 1030,
+          "total_tokens": 175592
+        },
+        "error": null
+      },
+      "execution_time_ms": 21345.95
+    },
+    {
+      "query_id": "Query_002",
+      "user_query": "What was the smokey dinner option for father on day 2 before we deleted it? Check the previous versions.",
+      "selected_nodes": [
+        "Root > MealPlan_Version 1 > Father > Day 2 > Sheet-Pan Pork Dinner — Smoky Bake"
+      ],
+      "related_nodes": [
+        "Sheet-Pan Pork Dinner — Smoky Bake"
+      ],
+      "downstream_task_result": {
+        "operation": "READ",
+        "success": true,
+        "version_used": 1,
+        "reasoning": "Located the 'Smoky' dinner Meal under Father > Day index=\"2\" in MealPlan_Version 1 (it was later deleted in version 2). Returned that Meal node.",
+        "token_usage": {
+          "prompt_tokens": 174559,
+          "completion_tokens": 667,
+          "total_tokens": 175226
+        },
+        "error": null
+      },
+      "execution_time_ms": 18630.73
+    },
+    {
+      "query_id": "Query_003",
+      "user_query": "What day originally had the fig breakfast option for father? Check the previous versions.",
+      "selected_nodes": [
+        "Root > MealPlan_Version 1 > Father > Day 1 > Mediterranean Fig & Honey Oatmeal",
+        "Root > MealPlan_Version 2 > Father > Day 1 > Mediterranean Fig & Honey Oatmeal",
+        "Root > MealPlan_Version 3 > Father > Day 1 > Mediterranean Fig & Honey Oatmeal"
+      ],
+      "related_nodes": [
+        "Mediterranean Fig & Honey Oatmeal",
+        "Mediterranean Fig & Honey Oatmeal",
+        "Mediterranean Fig & Honey Oatmeal"
+      ],
+      "downstream_task_result": {
+        "operation": "READ",
+        "success": true,
+        "version_used": 4,
+        "reasoning": "Searched previous versions and found the 'Mediterranean Fig & Honey Oatmeal' meal under Father > Day index=\"1\" in MealPlan_Version 1, 2, and 3 (it was deleted in version 4).",
+        "token_usage": {
+          "prompt_tokens": 174552,
+          "completion_tokens": 1553,
+          "total_tokens": 176105
+        },
+        "error": null
+      },
+      "execution_time_ms": 34994.92
+    }
+  ],
+  "final_tree_version": 1,
+  "total_execution_time_ms": 74971.6
+}

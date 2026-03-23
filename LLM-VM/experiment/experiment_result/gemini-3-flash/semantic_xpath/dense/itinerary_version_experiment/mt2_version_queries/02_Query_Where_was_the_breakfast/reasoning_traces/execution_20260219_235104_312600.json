@@ -1,0 +1,586 @@
+{
+  "timestamp": "20260219_235104_312600",
+  "query": "/Root/Itinerary_Version[3]/Day[2]/Restaurant[atom(content =~ \"breakfast\")]",
+  "canonical_query": "/Root/Itinerary_Version[3]/Day[2]/Restaurant[content =~ \"breakfast\"]",
+  "data_file": "tree.xml",
+  "execution_time_ms": 3.413083963096142,
+  "parsed_ast": {
+    "steps": [
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Root",
+            "span": {
+              "start": 1,
+              "end": 5
+            }
+          },
+          "span": {
+            "start": 1,
+            "end": 5
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Itinerary_Version",
+            "index": {
+              "start": 3,
+              "type": "single",
+              "span": {
+                "start": 23,
+                "end": 26
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 26
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 26
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Day",
+            "index": {
+              "start": 2,
+              "type": "single",
+              "span": {
+                "start": 30,
+                "end": 33
+              }
+            },
+            "span": {
+              "start": 27,
+              "end": 33
+            }
+          },
+          "span": {
+            "start": 27,
+            "end": 33
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Restaurant",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "breakfast",
+              "operator": "=~",
+              "span": {
+                "start": 45,
+                "end": 73
+              }
+            },
+            "predicate_str": "atom(content =~ \"breakfast\")",
+            "span": {
+              "start": 34,
+              "end": 74
+            }
+          },
+          "span": {
+            "start": 34,
+            "end": 74
+          }
+        }
+      }
+    ],
+    "global_index": null
+  },
+  "parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: Itinerary_Version[3]\n├── Step 2: Day[2]\n└── Step 3: Restaurant[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"breakfast\")",
+  "canonical_parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: Itinerary_Version[3]\n├── Step 2: Day[2]\n└── Step 3: Restaurant[content =~ \"breakfast\"]",
+  "execution_log": [
+    "[20260219_235104_312600] Executing query: /Root/Itinerary_Version[3]/Day[2]/Restaurant[atom(content =~ \"breakfast\")]",
+    "Data file: tree.xml",
+    "Parsed steps: [Root, Itinerary_Version[3], Day[2], Restaurant[atom(content =~ \"breakfast\")]]",
+    "",
+    "Query AST:\n├── Step 0: Root\n├── Step 1: Itinerary_Version[3]\n├── Step 2: Day[2]\n└── Step 3: Restaurant[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"breakfast\")",
+    "\n--- Step 1: Root ---",
+    "Matched Root root",
+    "\n--- Step 2: Itinerary_Version[3] ---",
+    "Selected node at index 3 (0-based: 2)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 3: Day[2] ---",
+    "Selected node at index 2 (0-based: 1)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 4: Restaurant[atom(content =~ \"breakfast\")] ---",
+    "Scoring predicate: atom(content =~ \"breakfast\") (atomic values: ['breakfast'])",
+    "  Collected 1 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 1 total descriptions",
+    "  Node 0 (Cheap Eats (Placeholder)): score = 0.5154",
+    "After step: 1 nodes remaining",
+    "\n=== Score Fusion ===",
+    "  Root > Itinerary_Version 3 > Day 2 > Cheap Eats (Placeholder): product=0.5154 → score=0.5154",
+    "\n=== Threshold Filtering (threshold=0.05) ===",
+    "  Filtered: 1 → 1 nodes",
+    "\n=== Final Filtering (top_k=5) ===",
+    "  After top_k: 1 → 1 nodes",
+    "\nFinal result: 1 nodes (sorted by score)",
+    "⏱️  Query execution time: 3.41ms"
+  ],
+  "traversal_steps": [
+    {
+      "step_index": 0,
+      "step_query": "Root",
+      "action": "root_match",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "type": "root"
+        }
+      ],
+      "nodes_after": [
+        {
+          "type": "Root",
+          "path": "Root"
+        }
+      ],
+      "details": {
+        "matched": true
+      }
+    },
+    {
+      "step_index": 1,
+      "step_query": "Itinerary_Version[3]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root",
+          "name": "Root",
+          "type": "Root",
+          "score": 1.0,
+          "node_id": 6310018032
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Itinerary_Version 3",
+          "name": "Itinerary_Version 3",
+          "type": "Itinerary_Version",
+          "score": 1.0,
+          "node_id": 6310229584
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Itinerary_Version",
+            "index": {
+              "start": 3,
+              "type": "single",
+              "span": {
+                "start": 23,
+                "end": 26
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 26
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 26
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 2,
+      "step_query": "Day[2]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root > Itinerary_Version 3",
+          "name": "Itinerary_Version 3",
+          "type": "Itinerary_Version",
+          "score": 1.0,
+          "node_id": 6310229584
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Itinerary_Version 3 > Day 2",
+          "name": "Day 2",
+          "type": "Day",
+          "score": 1.0,
+          "node_id": 6309216640
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Day",
+            "index": {
+              "start": 2,
+              "type": "single",
+              "span": {
+                "start": 30,
+                "end": 33
+              }
+            },
+            "span": {
+              "start": 27,
+              "end": 33
+            }
+          },
+          "span": {
+            "start": 27,
+            "end": 33
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 3,
+      "step_query": "Restaurant[atom(content =~ \"breakfast\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root > Itinerary_Version 3 > Day 2",
+          "name": "Day 2",
+          "type": "Day",
+          "score": 1.0,
+          "node_id": 6309216640
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Itinerary_Version 3 > Day 2 > Cheap Eats (Placeholder)",
+          "name": "Cheap Eats (Placeholder)",
+          "type": "Restaurant",
+          "score": 0.5153778791427612,
+          "node_id": 6309231920
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Restaurant",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "breakfast",
+              "operator": "=~",
+              "span": {
+                "start": 45,
+                "end": 73
+              }
+            },
+            "predicate_str": "atom(content =~ \"breakfast\")",
+            "span": {
+              "start": 34,
+              "end": 74
+            }
+          },
+          "span": {
+            "start": 34,
+            "end": 74
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"breakfast\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "breakfast",
+              "operator": "=~",
+              "span": {
+                "start": 45,
+                "end": 73
+              }
+            },
+            "config": {
+              "top_k": 5,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 6309231920,
+                "node_name": "Cheap Eats (Placeholder)",
+                "node_type": "Restaurant",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "breakfast",
+                      "operator": "=~",
+                      "span": {
+                        "start": 45,
+                        "end": 73
+                      }
+                    },
+                    "score": 0.5153778791427612,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.5153778791427612
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "breakfast"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "breakfast",
+                  "num_descriptions": 1,
+                  "call_time_ms": 2.33
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 1
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 0,
+                "score": 0.5153778791427612,
+                "name": "Cheap Eats (Placeholder)"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "scoring_traces": [
+    {
+      "predicate": "atom(content =~ \"breakfast\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "breakfast",
+        "operator": "=~",
+        "span": {
+          "start": 45,
+          "end": 73
+        }
+      },
+      "config": {
+        "top_k": 5,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 6309231920,
+          "node_name": "Cheap Eats (Placeholder)",
+          "node_type": "Restaurant",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "breakfast",
+                "operator": "=~",
+                "span": {
+                  "start": 45,
+                  "end": 73
+                }
+              },
+              "score": 0.5153778791427612,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.5153778791427612
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "breakfast"
+        ],
+        "per_value_stats": [
+          {
+            "value": "breakfast",
+            "num_descriptions": 1,
+            "call_time_ms": 2.33
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 1
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 0,
+          "score": 0.5153778791427612,
+          "name": "Cheap Eats (Placeholder)"
+        }
+      ]
+    }
+  ],
+  "scoring_details": {
+    "step_scores": [
+      {
+        "step_index": 0,
+        "predicate": "atom(content =~ \"breakfast\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "breakfast",
+          "operator": "=~",
+          "span": {
+            "start": 45,
+            "end": 73
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 6309231920,
+            "node_name": "Cheap Eats (Placeholder)",
+            "node_type": "Restaurant",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "breakfast",
+                  "operator": "=~",
+                  "span": {
+                    "start": 45,
+                    "end": 73
+                  }
+                },
+                "score": 0.5153778791427612,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.5153778791427612
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 0,
+            "score": 0.5153778791427612,
+            "name": "Cheap Eats (Placeholder)"
+          }
+        ]
+      }
+    ],
+    "score_fusion": {
+      "per_node": [
+        {
+          "node_path": "Root > Itinerary_Version 3 > Day 2 > Cheap Eats (Placeholder)",
+          "node_type": "Restaurant",
+          "step_contributions": [
+            {
+              "step_index": 3,
+              "predicate": "Restaurant[atom(content =~ \"breakfast\")]",
+              "score": 0.5153778791427612
+            }
+          ],
+          "accumulated_product": 0.5153778791427612,
+          "final_score": 0.5153778791427612
+        }
+      ]
+    }
+  },
+  "final_filtering": {
+    "before_filter_count": 1,
+    "threshold": 0.05,
+    "top_k": 5,
+    "after_filter_count": 1,
+    "filtered_nodes": [
+      {
+        "path": "Root > Itinerary_Version 3 > Day 2 > Cheap Eats (Placeholder)",
+        "score": 0.5153778791427612,
+        "type": "Restaurant",
+        "own_score": 0.5153778791427612,
+        "parent_score": 1.0
+      }
+    ]
+  },
+  "matched_nodes": [
+    {
+      "tree_path": "Root > Itinerary_Version 3 > Day 2 > Cheap Eats (Placeholder)",
+      "score": 0.5153778791427612,
+      "node": {
+        "type": "Restaurant",
+        "attributes": {},
+        "name": "Cheap Eats (Placeholder)",
+        "time_block": "7:00 PM - 9:30 PM",
+        "description": "cheap eats placeholder",
+        "travel_method": "Taxi",
+        "expected_cost": "$10",
+        "highlights": [
+          "Budget meal placeholder"
+        ]
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Cheap Eats (Placeholder)",
+          "predicate": "atom(content =~ \"breakfast\")",
+          "score": 0.5153778791427612,
+          "description": "Matched atom(content =~ \"breakfast\") on Cheap Eats (Placeholder) (Score: 0.52)"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total_steps": 4,
+    "total_scoring_calls": 1,
+    "matched_count": 1,
+    "execution_time_ms": 3.413083963096142,
+    "has_score_fusion": true,
+    "num_nodes_before_filter": 1,
+    "num_nodes_after_filter": 1
+  }
+}

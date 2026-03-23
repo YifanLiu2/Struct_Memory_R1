@@ -1,0 +1,127 @@
+{
+  "query_index": 5,
+  "query": "It's definitely going to rain all day on Day 7. Cancel any outdoor activities, I'll figure out replacements.",
+  "operation": "DELETE",
+  "success": true,
+  "execution_time_ms": 77277.67,
+  "token_usage": {
+    "prompt_tokens": 4250,
+    "completion_tokens": 718,
+    "total_tokens": 4968
+  },
+  "changes": [
+    {
+      "path": "Root > Itinerary_Version 1 > Itinerary > Day 7 > Distillery District Walk",
+      "change_type": "deleted",
+      "old_node": {
+        "path": "Root > Itinerary_Version 1 > Itinerary > Day 7 > Distillery District Walk"
+      },
+      "new_node": null,
+      "field_changes": null
+    }
+  ],
+  "raw_result": {
+    "timestamp": "20260204_001128_005269",
+    "user_query": "It's definitely going to rain all day on Day 7. Cancel any outdoor activities, I'll figure out replacements.",
+    "task_query": "cancel any outdoor activities on Day 7",
+    "operation": "DELETE",
+    "success": true,
+    "version_resolution": {
+      "selector_type": "at",
+      "semantic_query": null,
+      "index": -1,
+      "crud_operation": "Delete",
+      "raw_response": "at([-1]), DELETE\ntask: cancel any outdoor activities on Day 7",
+      "task_query": "cancel any outdoor activities on Day 7",
+      "token_usage": {
+        "prompt_tokens": 985,
+        "completion_tokens": 153,
+        "total_tokens": 1138
+      }
+    },
+    "parsed_query": {
+      "operation": "Delete",
+      "xpath": "/Itinerary/Day[7]/POI[atom(content =~ \"outdoor\")]",
+      "full_query": "Delete(/Itinerary/Day[7]/POI[atom(content =~ \"outdoor\")])",
+      "token_usage": {
+        "prompt_tokens": 2203,
+        "completion_tokens": 155,
+        "total_tokens": 2358
+      }
+    },
+    "version_used": "1",
+    "xpath_execution": {
+      "query": "/Root/Itinerary_Version[1]/Itinerary/Day[7]/POI[atom(content =~ \"outdoor\")]",
+      "matched_count": 2,
+      "execution_time_ms": 651.3224999653175,
+      "token_usage": null
+    },
+    "handler_result": {
+      "success": true,
+      "operation": "DELETE",
+      "processing_time_ms": 9993.84549993556,
+      "output": {
+        "nodes_to_delete": [
+          "Root > Itinerary_Version 1 > Itinerary > Day 7 > Distillery District Walk"
+        ],
+        "reasoning": "Deleted Distillery District Walk because it is an outdoor activity on Day 7 and the user asked to cancel outdoor activities due to all-day rain. Kept Royal Ontario Museum (indoor museum) because it is an indoor activity and does not match the user's request."
+      },
+      "token_usage": {
+        "prompt_tokens": 1062,
+        "completion_tokens": 410,
+        "total_tokens": 1472
+      }
+    },
+    "timing": {
+      "stages": [
+        {
+          "name": "version_resolution",
+          "time_ms": 2557.33,
+          "token_usage": {
+            "prompt_tokens": 985,
+            "completion_tokens": 153,
+            "total_tokens": 1138
+          }
+        },
+        {
+          "name": "version_lookup",
+          "time_ms": 0.02
+        },
+        {
+          "name": "query_generation",
+          "time_ms": 64058.51,
+          "token_usage": {
+            "prompt_tokens": 2203,
+            "completion_tokens": 155,
+            "total_tokens": 2358
+          }
+        },
+        {
+          "name": "xpath_execution",
+          "time_ms": 653.9
+        },
+        {
+          "name": "downstream_task",
+          "time_ms": 10003.76,
+          "token_usage": {
+            "prompt_tokens": 1062,
+            "completion_tokens": 410,
+            "total_tokens": 1472
+          }
+        }
+      ],
+      "total_time_ms": 77273.51,
+      "total_tokens": {
+        "prompt_tokens": 4250,
+        "completion_tokens": 718,
+        "total_tokens": 4968
+      },
+      "pipeline_total_ms": 77276.80970006622
+    },
+    "deleted_count": 1,
+    "deleted_paths": [
+      "Root > Itinerary_Version 1 > Itinerary > Day 7 > Distillery District Walk"
+    ],
+    "total_time_ms": 77276.80970006622
+  }
+}

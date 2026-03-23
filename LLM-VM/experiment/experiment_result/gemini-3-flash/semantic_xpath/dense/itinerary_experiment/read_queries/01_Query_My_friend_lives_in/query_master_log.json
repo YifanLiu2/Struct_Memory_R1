@@ -1,0 +1,86 @@
+{
+  "user_query": "My friend lives in Mississauga, about an hour from downtown. What days are without any work commitments or flights?",
+  "version_xpath": "at([-1])",
+  "version_result": {
+    "selector_type": "at",
+    "index": -1,
+    "semantic_query": null,
+    "task_query": "My friend lives in Mississauga, about an hour from downtown. What days are without any work commitments or flights?",
+    "resolved_version": 1
+  },
+  "operation_type": "READ",
+  "semantic_xpath_query": "/Root/Itinerary_Version[1]/Day[1 - (max(max(*[content =~ \"work\"], *[content =~ \"flight\"])))]",
+  "semantic_xpath_execution_log": {
+    "aggregation_execution_log": "reasoning_traces/execution_20260219_173917_120742.json",
+    "predicate_batch_scoring_log": null
+  },
+  "semantic_xpath_result": [
+    {
+      "node_relative_path": "Root > Itinerary_Version 1 > Day 7",
+      "node_info": {
+        "name": "",
+        "type": "Day"
+      },
+      "children_names": [],
+      "score": 0.0
+    },
+    {
+      "node_relative_path": "Root > Itinerary_Version 1 > Day 6",
+      "node_info": {
+        "name": "",
+        "type": "Day"
+      },
+      "children_names": [],
+      "score": 0.0
+    },
+    {
+      "node_relative_path": "Root > Itinerary_Version 1 > Day 9",
+      "node_info": {
+        "name": "",
+        "type": "Day"
+      },
+      "children_names": [],
+      "score": 0.0
+    },
+    {
+      "node_relative_path": "Root > Itinerary_Version 1 > Day 8",
+      "node_info": {
+        "name": "",
+        "type": "Day"
+      },
+      "children_names": [],
+      "score": 0.0
+    }
+  ],
+  "downstream_task_result": {
+    "operation": "READ",
+    "success": true,
+    "selected_count": 4,
+    "candidates_count": 5,
+    "total_time_ms": 4784.84
+  },
+  "execution_time_ms": 4788.38,
+  "token_usage": {
+    "prompt_tokens": 6180,
+    "completion_tokens": 339,
+    "total_tokens": 6519,
+    "by_stage": {
+      "version_resolution": {
+        "prompt_tokens": 1251,
+        "completion_tokens": 30,
+        "total_tokens": 1281
+      },
+      "xpath_generation": {
+        "prompt_tokens": 1932,
+        "completion_tokens": 27,
+        "total_tokens": 1959
+      },
+      "read_handler": {
+        "prompt_tokens": 2997,
+        "completion_tokens": 282,
+        "total_tokens": 3279
+      }
+    },
+    "cost_usd": 0.018840000000000003
+  }
+}

@@ -1,0 +1,1445 @@
+{
+  "timestamp": "20260220_002903_443324",
+  "query": "/Root/MealPlan_Version[1]/Person[atom(content =~ \"Father\")]/Day[1]/Breakfast/Meal[not(atom(content =~ \"greek protein power bowl\"))]",
+  "canonical_query": "/Root/MealPlan_Version[1]/Person[content =~ \"Father\"]/Day[1]/Breakfast/Meal[1 - (content =~ \"greek protein power bowl\")]",
+  "data_file": "tree.xml",
+  "execution_time_ms": 4.493833053857088,
+  "parsed_ast": {
+    "steps": [
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Root",
+            "span": {
+              "start": 1,
+              "end": 5
+            }
+          },
+          "span": {
+            "start": 1,
+            "end": 5
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "MealPlan_Version",
+            "index": {
+              "start": 1,
+              "type": "single",
+              "span": {
+                "start": 22,
+                "end": 25
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 25
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 25
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Person",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "Father",
+              "operator": "=~",
+              "span": {
+                "start": 33,
+                "end": 58
+              }
+            },
+            "predicate_str": "atom(content =~ \"Father\")",
+            "span": {
+              "start": 26,
+              "end": 59
+            }
+          },
+          "span": {
+            "start": 26,
+            "end": 59
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Day",
+            "index": {
+              "start": 1,
+              "type": "single",
+              "span": {
+                "start": 63,
+                "end": 66
+              }
+            },
+            "span": {
+              "start": 60,
+              "end": 66
+            }
+          },
+          "span": {
+            "start": 60,
+            "end": 66
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Breakfast",
+            "span": {
+              "start": 67,
+              "end": 76
+            }
+          },
+          "span": {
+            "start": 67,
+            "end": 76
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Meal",
+            "predicate": {
+              "operator": "NOT",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "greek protein power bowl",
+                "operator": "=~",
+                "span": {
+                  "start": 85,
+                  "end": 130
+                }
+              },
+              "span": {
+                "start": 82,
+                "end": 130
+              }
+            },
+            "predicate_str": "not(atom(content =~ \"greek protein power bowl\"))",
+            "span": {
+              "start": 77,
+              "end": 131
+            }
+          },
+          "span": {
+            "start": 77,
+            "end": 131
+          }
+        }
+      }
+    ],
+    "global_index": null
+  },
+  "parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: MealPlan_Version[1]\n├── Step 2: Person[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"Father\")\n├── Step 3: Day[1]\n├── Step 4: Breakfast\n└── Step 5: Meal[predicate]\n    │   predicate:\n        │   └── NOT\n            │   └── ATOM(content =~ \"greek protein power bowl\")",
+  "canonical_parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: MealPlan_Version[1]\n├── Step 2: Person[content =~ \"Father\"]\n├── Step 3: Day[1]\n├── Step 4: Breakfast\n└── Step 5: Meal[1 - (content =~ \"greek protein power bowl\")]",
+  "execution_log": [
+    "[20260220_002903_443324] Executing query: /Root/MealPlan_Version[1]/Person[atom(content =~ \"Father\")]/Day[1]/Breakfast/Meal[not(atom(content =~ \"greek protein power bowl\"))]",
+    "Data file: tree.xml",
+    "Parsed steps: [Root, MealPlan_Version[1], Person[atom(content =~ \"Father\")], Day[1], Breakfast, Meal[not(atom(content =~ \"greek protein power bowl\"))]]",
+    "",
+    "Query AST:\n├── Step 0: Root\n├── Step 1: MealPlan_Version[1]\n├── Step 2: Person[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"Father\")\n├── Step 3: Day[1]\n├── Step 4: Breakfast\n└── Step 5: Meal[predicate]\n    │   predicate:\n        │   └── NOT\n            │   └── ATOM(content =~ \"greek protein power bowl\")",
+    "\n--- Step 1: Root ---",
+    "Matched Root root",
+    "\n--- Step 2: MealPlan_Version[1] ---",
+    "Selected node at index 1 (0-based: 0)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 3: Person[atom(content =~ \"Father\")] ---",
+    "Scoring predicate: atom(content =~ \"Father\") (atomic values: ['Father'])",
+    "  Node 0 (Father): score = 1.0000 (exact match)",
+    "  Node 1 (Mother): score = 0.0000 (exact match)",
+    "  Node 2 (Child): score = 0.0000 (exact match)",
+    "  Exact attribute match on @name: 1/3 nodes matched",
+    "After step: 3 nodes remaining",
+    "\n--- Step 4: Day[1] ---",
+    "  Zero-score pruning: skipping 2 items (Mother, Child)",
+    "Selected node at index 1 (0-based: 0)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 5: Breakfast ---",
+    "After step: 1 nodes remaining",
+    "\n--- Step 6: Meal[not(atom(content =~ \"greek protein power bowl\"))] ---",
+    "Scoring predicate: not(atom(content =~ \"greek protein power bowl\")) (atomic values: ['greek protein power bowl'])",
+    "  Collected 3 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 3 total descriptions",
+    "  Node 0 (Greek Protein Power Bowl): score = 0.3920",
+    "  Node 1 (Shakshuka — Mediterranean Sunrise): score = 0.5806",
+    "  Node 2 (Mediterranean Fig & Honey Oatmeal): score = 0.6296",
+    "After step: 3 nodes remaining",
+    "\n=== Score Fusion ===",
+    "  Root > MealPlan_Version 1 > Father > Day 1 > Breakfast > Greek Protein Power Bowl: product=0.3920 → score=0.3920",
+    "  Root > MealPlan_Version 1 > Father > Day 1 > Breakfast > Shakshuka — Mediterranean Sunrise: product=0.5806 → score=0.5806",
+    "  Root > MealPlan_Version 1 > Father > Day 1 > Breakfast > Mediterranean Fig & Honey Oatmeal: product=0.6296 → score=0.6296",
+    "  Parent propagation: Root > MealPlan_Version 1 > Father > Day 1 > Breakfast > Greek Protein Power Bowl: own=0.3920 × parent=1.0000 → 0.3920",
+    "  Parent propagation: Root > MealPlan_Version 1 > Father > Day 1 > Breakfast > Shakshuka — Mediterranean Sunrise: own=0.5806 × parent=1.0000 → 0.5806",
+    "  Parent propagation: Root > MealPlan_Version 1 > Father > Day 1 > Breakfast > Mediterranean Fig & Honey Oatmeal: own=0.6296 × parent=1.0000 → 0.6296",
+    "\n=== Parent Score Propagation: 3 nodes updated ===",
+    "\n=== Threshold Filtering (threshold=0.05) ===",
+    "  Filtered: 3 → 3 nodes",
+    "\n=== Final Filtering (top_k=5) ===",
+    "  After top_k: 3 → 3 nodes",
+    "\nFinal result: 3 nodes (sorted by score)",
+    "⏱️  Query execution time: 4.49ms"
+  ],
+  "traversal_steps": [
+    {
+      "step_index": 0,
+      "step_query": "Root",
+      "action": "root_match",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "type": "root"
+        }
+      ],
+      "nodes_after": [
+        {
+          "type": "Root",
+          "path": "Root"
+        }
+      ],
+      "details": {
+        "matched": true
+      }
+    },
+    {
+      "step_index": 1,
+      "step_query": "MealPlan_Version[1]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root",
+          "name": "Root",
+          "type": "Root",
+          "score": 1.0,
+          "node_id": 6435987328
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > MealPlan_Version 1",
+          "name": "MealPlan_Version 1",
+          "type": "MealPlan_Version",
+          "score": 1.0,
+          "node_id": 6435987488
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "MealPlan_Version",
+            "index": {
+              "start": 1,
+              "type": "single",
+              "span": {
+                "start": 22,
+                "end": 25
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 25
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 25
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 2,
+      "step_query": "Person[atom(content =~ \"Father\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 3,
+      "nodes_before": [
+        {
+          "path": "Root > MealPlan_Version 1",
+          "name": "MealPlan_Version 1",
+          "type": "MealPlan_Version",
+          "score": 1.0,
+          "node_id": 6435987488
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > MealPlan_Version 1 > Father",
+          "name": "Father",
+          "type": "Person",
+          "score": 1.0,
+          "node_id": 6435986448
+        },
+        {
+          "path": "Root > MealPlan_Version 1 > Mother",
+          "name": "Mother",
+          "type": "Person",
+          "score": 0.0,
+          "node_id": 6337792896
+        },
+        {
+          "path": "Root > MealPlan_Version 1 > Child",
+          "name": "Child",
+          "type": "Person",
+          "score": 0.0,
+          "node_id": 6338080064
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Person",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "Father",
+              "operator": "=~",
+              "span": {
+                "start": 33,
+                "end": 58
+              }
+            },
+            "predicate_str": "atom(content =~ \"Father\")",
+            "span": {
+              "start": 26,
+              "end": 59
+            }
+          },
+          "span": {
+            "start": 26,
+            "end": 59
+          }
+        },
+        "found_count": 3,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"Father\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "Father",
+              "operator": "=~",
+              "span": {
+                "start": 33,
+                "end": 58
+              }
+            },
+            "config": {
+              "top_k": 5,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 6435986448,
+                "node_name": "Father",
+                "node_type": "Person",
+                "final_score": 1.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Father",
+                    "query_value": "Father",
+                    "matched": true,
+                    "score": 1.0
+                  }
+                ]
+              },
+              {
+                "node_idx": 1,
+                "node_id": 6337792896,
+                "node_name": "Mother",
+                "node_type": "Person",
+                "final_score": 0.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Mother",
+                    "query_value": "Father",
+                    "matched": false,
+                    "score": 0.0
+                  }
+                ]
+              },
+              {
+                "node_idx": 2,
+                "node_id": 6338080064,
+                "node_name": "Child",
+                "node_type": "Person",
+                "final_score": 0.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Child",
+                    "query_value": "Father",
+                    "matched": false,
+                    "score": 0.0
+                  }
+                ]
+              }
+            ],
+            "batch_scoring": {
+              "exact_match": true,
+              "matched_attribute": "name",
+              "query_value": "Father",
+              "matched_count": 1
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 0,
+                "score": 1.0,
+                "name": "Father"
+              },
+              {
+                "idx": 1,
+                "score": 0.0,
+                "name": "Mother"
+              },
+              {
+                "idx": 2,
+                "score": 0.0,
+                "name": "Child"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "step_index": 3,
+      "step_query": "Day[1]",
+      "action": "node_test_expr",
+      "nodes_before_count": 3,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root > MealPlan_Version 1 > Father",
+          "name": "Father",
+          "type": "Person",
+          "score": 1.0,
+          "node_id": 6435986448
+        },
+        {
+          "path": "Root > MealPlan_Version 1 > Mother",
+          "name": "Mother",
+          "type": "Person",
+          "score": 0.0,
+          "node_id": 6337792896
+        },
+        {
+          "path": "Root > MealPlan_Version 1 > Child",
+          "name": "Child",
+          "type": "Person",
+          "score": 0.0,
+          "node_id": 6338080064
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > MealPlan_Version 1 > Father > Day 1",
+          "name": "Day 1",
+          "type": "Day",
+          "score": 1.0,
+          "node_id": 6435986928
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Day",
+            "index": {
+              "start": 1,
+              "type": "single",
+              "span": {
+                "start": 63,
+                "end": 66
+              }
+            },
+            "span": {
+              "start": 60,
+              "end": 66
+            }
+          },
+          "span": {
+            "start": 60,
+            "end": 66
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 4,
+      "step_query": "Breakfast",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root > MealPlan_Version 1 > Father > Day 1",
+          "name": "Day 1",
+          "type": "Day",
+          "score": 1.0,
+          "node_id": 6435986928
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > MealPlan_Version 1 > Father > Day 1 > Breakfast",
+          "name": "Breakfast",
+          "type": "Breakfast",
+          "score": 1.0,
+          "node_id": 6435987408
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Breakfast",
+            "span": {
+              "start": 67,
+              "end": 76
+            }
+          },
+          "span": {
+            "start": 67,
+            "end": 76
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 5,
+      "step_query": "Meal[not(atom(content =~ \"greek protein power bowl\"))]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 3,
+      "nodes_before": [
+        {
+          "path": "Root > MealPlan_Version 1 > Father > Day 1 > Breakfast",
+          "name": "Breakfast",
+          "type": "Breakfast",
+          "score": 1.0,
+          "node_id": 6435987408
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > MealPlan_Version 1 > Father > Day 1 > Breakfast > Greek Protein Power Bowl",
+          "name": "Greek Protein Power Bowl",
+          "type": "Meal",
+          "score": 0.3920416831970215,
+          "node_id": 6435988608
+        },
+        {
+          "path": "Root > MealPlan_Version 1 > Father > Day 1 > Breakfast > Shakshuka — Mediterranean Sunrise",
+          "name": "Shakshuka — Mediterranean Sunrise",
+          "type": "Meal",
+          "score": 0.5806279182434082,
+          "node_id": 6435989888
+        },
+        {
+          "path": "Root > MealPlan_Version 1 > Father > Day 1 > Breakfast > Mediterranean Fig & Honey Oatmeal",
+          "name": "Mediterranean Fig & Honey Oatmeal",
+          "type": "Meal",
+          "score": 0.6296379864215851,
+          "node_id": 6435991168
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Meal",
+            "predicate": {
+              "operator": "NOT",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "greek protein power bowl",
+                "operator": "=~",
+                "span": {
+                  "start": 85,
+                  "end": 130
+                }
+              },
+              "span": {
+                "start": 82,
+                "end": 130
+              }
+            },
+            "predicate_str": "not(atom(content =~ \"greek protein power bowl\"))",
+            "span": {
+              "start": 77,
+              "end": 131
+            }
+          },
+          "span": {
+            "start": 77,
+            "end": 131
+          }
+        },
+        "found_count": 3,
+        "scoring_trace": [
+          {
+            "predicate": "not(atom(content =~ \"greek protein power bowl\"))",
+            "predicate_ast": {
+              "operator": "NOT",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "greek protein power bowl",
+                "operator": "=~",
+                "span": {
+                  "start": 85,
+                  "end": 130
+                }
+              },
+              "span": {
+                "start": 82,
+                "end": 130
+              }
+            },
+            "config": {
+              "top_k": 5,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 6435988608,
+                "node_name": "Greek Protein Power Bowl",
+                "node_type": "Meal",
+                "scoring_steps": [
+                  {
+                    "type": "not",
+                    "formula": "1 - Score(u, ψ)",
+                    "inner_score": 0.6079583168029785,
+                    "inner_trace": [
+                      {
+                        "type": "atom",
+                        "condition": {
+                          "type": "atom",
+                          "field": "content",
+                          "value": "greek protein power bowl",
+                          "operator": "=~",
+                          "span": {
+                            "start": 85,
+                            "end": 130
+                          }
+                        },
+                        "score": 0.6079583168029785,
+                        "note": "Atom(u, φ) - local node content from attr(u)"
+                      }
+                    ],
+                    "result": 0.3920416831970215
+                  }
+                ],
+                "final_score": 0.3920416831970215
+              },
+              {
+                "node_idx": 1,
+                "node_id": 6435989888,
+                "node_name": "Shakshuka — Mediterranean Sunrise",
+                "node_type": "Meal",
+                "scoring_steps": [
+                  {
+                    "type": "not",
+                    "formula": "1 - Score(u, ψ)",
+                    "inner_score": 0.4193720817565918,
+                    "inner_trace": [
+                      {
+                        "type": "atom",
+                        "condition": {
+                          "type": "atom",
+                          "field": "content",
+                          "value": "greek protein power bowl",
+                          "operator": "=~",
+                          "span": {
+                            "start": 85,
+                            "end": 130
+                          }
+                        },
+                        "score": 0.4193720817565918,
+                        "note": "Atom(u, φ) - local node content from attr(u)"
+                      }
+                    ],
+                    "result": 0.5806279182434082
+                  }
+                ],
+                "final_score": 0.5806279182434082
+              },
+              {
+                "node_idx": 2,
+                "node_id": 6435991168,
+                "node_name": "Mediterranean Fig & Honey Oatmeal",
+                "node_type": "Meal",
+                "scoring_steps": [
+                  {
+                    "type": "not",
+                    "formula": "1 - Score(u, ψ)",
+                    "inner_score": 0.3703620135784149,
+                    "inner_trace": [
+                      {
+                        "type": "atom",
+                        "condition": {
+                          "type": "atom",
+                          "field": "content",
+                          "value": "greek protein power bowl",
+                          "operator": "=~",
+                          "span": {
+                            "start": 85,
+                            "end": 130
+                          }
+                        },
+                        "score": 0.3703620135784149,
+                        "note": "Atom(u, φ) - local node content from attr(u)"
+                      }
+                    ],
+                    "result": 0.6296379864215851
+                  }
+                ],
+                "final_score": 0.6296379864215851
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "greek protein power bowl"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "greek protein power bowl",
+                  "num_descriptions": 3,
+                  "call_time_ms": 3.3
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 3
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 2,
+                "score": 0.6296379864215851,
+                "name": "Mediterranean Fig & Honey Oatmeal"
+              },
+              {
+                "idx": 1,
+                "score": 0.5806279182434082,
+                "name": "Shakshuka — Mediterranean Sunrise"
+              },
+              {
+                "idx": 0,
+                "score": 0.3920416831970215,
+                "name": "Greek Protein Power Bowl"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "scoring_traces": [
+    {
+      "predicate": "atom(content =~ \"Father\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "Father",
+        "operator": "=~",
+        "span": {
+          "start": 33,
+          "end": 58
+        }
+      },
+      "config": {
+        "top_k": 5,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 6435986448,
+          "node_name": "Father",
+          "node_type": "Person",
+          "final_score": 1.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Father",
+              "query_value": "Father",
+              "matched": true,
+              "score": 1.0
+            }
+          ]
+        },
+        {
+          "node_idx": 1,
+          "node_id": 6337792896,
+          "node_name": "Mother",
+          "node_type": "Person",
+          "final_score": 0.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Mother",
+              "query_value": "Father",
+              "matched": false,
+              "score": 0.0
+            }
+          ]
+        },
+        {
+          "node_idx": 2,
+          "node_id": 6338080064,
+          "node_name": "Child",
+          "node_type": "Person",
+          "final_score": 0.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Child",
+              "query_value": "Father",
+              "matched": false,
+              "score": 0.0
+            }
+          ]
+        }
+      ],
+      "batch_scoring": {
+        "exact_match": true,
+        "matched_attribute": "name",
+        "query_value": "Father",
+        "matched_count": 1
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 0,
+          "score": 1.0,
+          "name": "Father"
+        },
+        {
+          "idx": 1,
+          "score": 0.0,
+          "name": "Mother"
+        },
+        {
+          "idx": 2,
+          "score": 0.0,
+          "name": "Child"
+        }
+      ]
+    },
+    {
+      "predicate": "not(atom(content =~ \"greek protein power bowl\"))",
+      "predicate_ast": {
+        "operator": "NOT",
+        "condition": {
+          "type": "atom",
+          "field": "content",
+          "value": "greek protein power bowl",
+          "operator": "=~",
+          "span": {
+            "start": 85,
+            "end": 130
+          }
+        },
+        "span": {
+          "start": 82,
+          "end": 130
+        }
+      },
+      "config": {
+        "top_k": 5,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 6435988608,
+          "node_name": "Greek Protein Power Bowl",
+          "node_type": "Meal",
+          "scoring_steps": [
+            {
+              "type": "not",
+              "formula": "1 - Score(u, ψ)",
+              "inner_score": 0.6079583168029785,
+              "inner_trace": [
+                {
+                  "type": "atom",
+                  "condition": {
+                    "type": "atom",
+                    "field": "content",
+                    "value": "greek protein power bowl",
+                    "operator": "=~",
+                    "span": {
+                      "start": 85,
+                      "end": 130
+                    }
+                  },
+                  "score": 0.6079583168029785,
+                  "note": "Atom(u, φ) - local node content from attr(u)"
+                }
+              ],
+              "result": 0.3920416831970215
+            }
+          ],
+          "final_score": 0.3920416831970215
+        },
+        {
+          "node_idx": 1,
+          "node_id": 6435989888,
+          "node_name": "Shakshuka — Mediterranean Sunrise",
+          "node_type": "Meal",
+          "scoring_steps": [
+            {
+              "type": "not",
+              "formula": "1 - Score(u, ψ)",
+              "inner_score": 0.4193720817565918,
+              "inner_trace": [
+                {
+                  "type": "atom",
+                  "condition": {
+                    "type": "atom",
+                    "field": "content",
+                    "value": "greek protein power bowl",
+                    "operator": "=~",
+                    "span": {
+                      "start": 85,
+                      "end": 130
+                    }
+                  },
+                  "score": 0.4193720817565918,
+                  "note": "Atom(u, φ) - local node content from attr(u)"
+                }
+              ],
+              "result": 0.5806279182434082
+            }
+          ],
+          "final_score": 0.5806279182434082
+        },
+        {
+          "node_idx": 2,
+          "node_id": 6435991168,
+          "node_name": "Mediterranean Fig & Honey Oatmeal",
+          "node_type": "Meal",
+          "scoring_steps": [
+            {
+              "type": "not",
+              "formula": "1 - Score(u, ψ)",
+              "inner_score": 0.3703620135784149,
+              "inner_trace": [
+                {
+                  "type": "atom",
+                  "condition": {
+                    "type": "atom",
+                    "field": "content",
+                    "value": "greek protein power bowl",
+                    "operator": "=~",
+                    "span": {
+                      "start": 85,
+                      "end": 130
+                    }
+                  },
+                  "score": 0.3703620135784149,
+                  "note": "Atom(u, φ) - local node content from attr(u)"
+                }
+              ],
+              "result": 0.6296379864215851
+            }
+          ],
+          "final_score": 0.6296379864215851
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "greek protein power bowl"
+        ],
+        "per_value_stats": [
+          {
+            "value": "greek protein power bowl",
+            "num_descriptions": 3,
+            "call_time_ms": 3.3
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 3
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 2,
+          "score": 0.6296379864215851,
+          "name": "Mediterranean Fig & Honey Oatmeal"
+        },
+        {
+          "idx": 1,
+          "score": 0.5806279182434082,
+          "name": "Shakshuka — Mediterranean Sunrise"
+        },
+        {
+          "idx": 0,
+          "score": 0.3920416831970215,
+          "name": "Greek Protein Power Bowl"
+        }
+      ]
+    }
+  ],
+  "scoring_details": {
+    "step_scores": [
+      {
+        "step_index": 0,
+        "predicate": "atom(content =~ \"Father\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "Father",
+          "operator": "=~",
+          "span": {
+            "start": 33,
+            "end": 58
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 6435986448,
+            "node_name": "Father",
+            "node_type": "Person",
+            "final_score": 1.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Father",
+                "query_value": "Father",
+                "matched": true,
+                "score": 1.0
+              }
+            ]
+          },
+          {
+            "node_idx": 1,
+            "node_id": 6337792896,
+            "node_name": "Mother",
+            "node_type": "Person",
+            "final_score": 0.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Mother",
+                "query_value": "Father",
+                "matched": false,
+                "score": 0.0
+              }
+            ]
+          },
+          {
+            "node_idx": 2,
+            "node_id": 6338080064,
+            "node_name": "Child",
+            "node_type": "Person",
+            "final_score": 0.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Child",
+                "query_value": "Father",
+                "matched": false,
+                "score": 0.0
+              }
+            ]
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 0,
+            "score": 1.0,
+            "name": "Father"
+          },
+          {
+            "idx": 1,
+            "score": 0.0,
+            "name": "Mother"
+          },
+          {
+            "idx": 2,
+            "score": 0.0,
+            "name": "Child"
+          }
+        ]
+      },
+      {
+        "step_index": 1,
+        "predicate": "not(atom(content =~ \"greek protein power bowl\"))",
+        "predicate_ast": {
+          "operator": "NOT",
+          "condition": {
+            "type": "atom",
+            "field": "content",
+            "value": "greek protein power bowl",
+            "operator": "=~",
+            "span": {
+              "start": 85,
+              "end": 130
+            }
+          },
+          "span": {
+            "start": 82,
+            "end": 130
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 6435988608,
+            "node_name": "Greek Protein Power Bowl",
+            "node_type": "Meal",
+            "scoring_steps": [
+              {
+                "type": "not",
+                "formula": "1 - Score(u, ψ)",
+                "inner_score": 0.6079583168029785,
+                "inner_trace": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "greek protein power bowl",
+                      "operator": "=~",
+                      "span": {
+                        "start": 85,
+                        "end": 130
+                      }
+                    },
+                    "score": 0.6079583168029785,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "result": 0.3920416831970215
+              }
+            ],
+            "final_score": 0.3920416831970215
+          },
+          {
+            "node_idx": 1,
+            "node_id": 6435989888,
+            "node_name": "Shakshuka — Mediterranean Sunrise",
+            "node_type": "Meal",
+            "scoring_steps": [
+              {
+                "type": "not",
+                "formula": "1 - Score(u, ψ)",
+                "inner_score": 0.4193720817565918,
+                "inner_trace": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "greek protein power bowl",
+                      "operator": "=~",
+                      "span": {
+                        "start": 85,
+                        "end": 130
+                      }
+                    },
+                    "score": 0.4193720817565918,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "result": 0.5806279182434082
+              }
+            ],
+            "final_score": 0.5806279182434082
+          },
+          {
+            "node_idx": 2,
+            "node_id": 6435991168,
+            "node_name": "Mediterranean Fig & Honey Oatmeal",
+            "node_type": "Meal",
+            "scoring_steps": [
+              {
+                "type": "not",
+                "formula": "1 - Score(u, ψ)",
+                "inner_score": 0.3703620135784149,
+                "inner_trace": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "greek protein power bowl",
+                      "operator": "=~",
+                      "span": {
+                        "start": 85,
+                        "end": 130
+                      }
+                    },
+                    "score": 0.3703620135784149,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "result": 0.6296379864215851
+              }
+            ],
+            "final_score": 0.6296379864215851
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 2,
+            "score": 0.6296379864215851,
+            "name": "Mediterranean Fig & Honey Oatmeal"
+          },
+          {
+            "idx": 1,
+            "score": 0.5806279182434082,
+            "name": "Shakshuka — Mediterranean Sunrise"
+          },
+          {
+            "idx": 0,
+            "score": 0.3920416831970215,
+            "name": "Greek Protein Power Bowl"
+          }
+        ]
+      }
+    ],
+    "score_fusion": {
+      "per_node": [
+        {
+          "node_path": "Root > MealPlan_Version 1 > Father > Day 1 > Breakfast > Greek Protein Power Bowl",
+          "node_type": "Meal",
+          "step_contributions": [
+            {
+              "step_index": 5,
+              "predicate": "Meal[not(atom(content =~ \"greek protein power bowl\"))]",
+              "score": 0.3920416831970215
+            }
+          ],
+          "accumulated_product": 0.3920416831970215,
+          "final_score": 0.3920416828049798
+        },
+        {
+          "node_path": "Root > MealPlan_Version 1 > Father > Day 1 > Breakfast > Shakshuka — Mediterranean Sunrise",
+          "node_type": "Meal",
+          "step_contributions": [
+            {
+              "step_index": 5,
+              "predicate": "Meal[not(atom(content =~ \"greek protein power bowl\"))]",
+              "score": 0.5806279182434082
+            }
+          ],
+          "accumulated_product": 0.5806279182434082,
+          "final_score": 0.5806279176627803
+        },
+        {
+          "node_path": "Root > MealPlan_Version 1 > Father > Day 1 > Breakfast > Mediterranean Fig & Honey Oatmeal",
+          "node_type": "Meal",
+          "step_contributions": [
+            {
+              "step_index": 5,
+              "predicate": "Meal[not(atom(content =~ \"greek protein power bowl\"))]",
+              "score": 0.6296379864215851
+            }
+          ],
+          "accumulated_product": 0.6296379864215851,
+          "final_score": 0.6296379857919471
+        }
+      ]
+    }
+  },
+  "final_filtering": {
+    "before_filter_count": 3,
+    "threshold": 0.05,
+    "top_k": 5,
+    "after_filter_count": 3,
+    "filtered_nodes": [
+      {
+        "path": "Root > MealPlan_Version 1 > Father > Day 1 > Breakfast > Mediterranean Fig & Honey Oatmeal",
+        "score": 0.6296379857919471,
+        "type": "Meal",
+        "own_score": 0.6296379864215851,
+        "parent_score": 0.999999999
+      },
+      {
+        "path": "Root > MealPlan_Version 1 > Father > Day 1 > Breakfast > Shakshuka — Mediterranean Sunrise",
+        "score": 0.5806279176627803,
+        "type": "Meal",
+        "own_score": 0.5806279182434082,
+        "parent_score": 0.999999999
+      },
+      {
+        "path": "Root > MealPlan_Version 1 > Father > Day 1 > Breakfast > Greek Protein Power Bowl",
+        "score": 0.3920416828049798,
+        "type": "Meal",
+        "own_score": 0.3920416831970215,
+        "parent_score": 0.999999999
+      }
+    ]
+  },
+  "matched_nodes": [
+    {
+      "tree_path": "Root > MealPlan_Version 1 > Father > Day 1 > Breakfast > Mediterranean Fig & Honey Oatmeal",
+      "score": 0.6296379857919471,
+      "node": {
+        "type": "Meal",
+        "attributes": {},
+        "name": "Mediterranean Fig & Honey Oatmeal",
+        "short_description": "Warm oatmeal topped with dried figs, walnuts, honey, and a swirl of tahini — a Mediterranean twist on a classic breakfast with wholesome flavors.",
+        "meal_suggestion": "Cook oats in milk or water until creamy. Top with sliced dried figs, crushed walnuts, a drizzle of raw honey, and a spoonful of tahini. Finish with a light sprinkle of cinnamon and a few pomegranate seeds if available. Pair with a small glass of fresh orange juice for a complete Mediterranean morning.",
+        "ingredients": [],
+        "nutrition_note": "Oats provide soluble fiber (beta-glucan) for heart health and steady blood sugar; walnuts are rich in omega-3 ALA and vitamin E; figs supply potassium, calcium, and iron; tahini adds healthy fats, protein, and calcium. Honey adds natural sweetness — use sparingly. A well-rounded Mediterranean breakfast with complex carbs, healthy fats, and fiber."
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Father",
+          "predicate": "atom(content =~ \"Father\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Father\") on Father (Score: 1.00)"
+        },
+        {
+          "node_name": "Mediterranean Fig & Honey Oatmeal",
+          "predicate": "not(atom(content =~ \"greek protein power bowl\"))",
+          "score": 0.6296379864215851,
+          "description": "Matched not(atom(content =~ \"greek protein power bowl\")) on Mediterranean Fig & Honey Oatmeal (Score: 0.63)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > MealPlan_Version 1 > Father > Day 1 > Breakfast > Shakshuka — Mediterranean Sunrise",
+      "score": 0.5806279176627803,
+      "node": {
+        "type": "Meal",
+        "attributes": {},
+        "name": "Shakshuka — Mediterranean Sunrise",
+        "short_description": "Eggs poached in a spiced tomato-pepper sauce with cumin and paprika, served with crusty bread for dipping — a vibrant, savory Mediterranean breakfast.",
+        "meal_suggestion": "Sauté diced onion, garlic, and bell pepper in olive oil. Add crushed tomatoes, cumin, paprika, and a pinch of chili flakes; simmer 10 minutes. Create wells and crack eggs into the sauce, cover and cook until whites are set. Sprinkle with crumbled feta and fresh parsley. Serve with warm crusty bread or pita for dipping.",
+        "ingredients": [],
+        "nutrition_note": "Eggs provide high-quality protein and choline; tomatoes are rich in lycopene and vitamin C; bell peppers add additional vitamin C and antioxidants. Cumin and paprika offer anti-inflammatory compounds. Olive oil supplies healthy fats. A moderate-calorie, nutrient-dense breakfast; control sodium through feta portions."
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Father",
+          "predicate": "atom(content =~ \"Father\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Father\") on Father (Score: 1.00)"
+        },
+        {
+          "node_name": "Shakshuka — Mediterranean Sunrise",
+          "predicate": "not(atom(content =~ \"greek protein power bowl\"))",
+          "score": 0.5806279182434082,
+          "description": "Matched not(atom(content =~ \"greek protein power bowl\")) on Shakshuka — Mediterranean Sunrise (Score: 0.58)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > MealPlan_Version 1 > Father > Day 1 > Breakfast > Greek Protein Power Bowl",
+      "score": 0.3920416828049798,
+      "node": {
+        "type": "Meal",
+        "attributes": {},
+        "name": "Greek Protein Power Bowl",
+        "short_description": "A high-protein Greek-style breakfast bowl loaded with thick strained yogurt, hard-boiled eggs, feta, chickpeas, and olive oil — over 40g of protein to fuel the morning.",
+        "meal_suggestion": "Spoon a generous portion of thick Greek yogurt into a bowl. Halve two hard-boiled eggs and arrange on top with crumbled feta, a handful of roasted chickpeas, sliced cucumber, and cherry tomatoes. Drizzle with extra-virgin olive oil and sprinkle with dried oregano and a pinch of za'atar. Serve with a wedge of whole-wheat pita on the side.",
+        "ingredients": [],
+        "nutrition_note": "Exceptionally high in protein: Greek yogurt (~17g per cup), two eggs (~12g), feta (~6g), and chickpeas (~7g) combine for 40g+ protein. Chickpeas add fiber and iron; olive oil provides heart-healthy monounsaturated fats. Cucumber and tomatoes supply hydration and vitamins C and K. A true Greek-inspired powerhouse breakfast for sustained energy and muscle support."
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Father",
+          "predicate": "atom(content =~ \"Father\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Father\") on Father (Score: 1.00)"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total_steps": 6,
+    "total_scoring_calls": 2,
+    "matched_count": 3,
+    "execution_time_ms": 4.493833053857088,
+    "has_score_fusion": true,
+    "num_nodes_before_filter": 3,
+    "num_nodes_after_filter": 3
+  }
+}

@@ -1,0 +1,237 @@
+{
+  "query": "/Itinerary/Day[description =~ \"artistic\"]/POI[description =~ \"museum\"]",
+  "timestamp": "2025-12-22T00:49:30.696604",
+  "segments": [
+    "/Itinerary",
+    "/Day[description =~ \"artistic\"]",
+    "/POI[description =~ \"museum\"]"
+  ],
+  "steps": [
+    {
+      "step": 1,
+      "action": "type_match",
+      "segment": "/Day[description =~ \"artistic\"]",
+      "nodes_before": 1,
+      "nodes_after": 3,
+      "details": {}
+    },
+    {
+      "step": 2,
+      "action": "type_match",
+      "segment": "/POI[description =~ \"museum\"]",
+      "nodes_before": 3,
+      "nodes_after": 8,
+      "details": {}
+    },
+    {
+      "step": 3,
+      "action": "predicate_batch",
+      "segment": "[description =~ \"museum\"]",
+      "nodes_before": 8,
+      "nodes_after": 2,
+      "details": {
+        "predicate": "museum",
+        "level": 2,
+        "batch_classification_index": 0,
+        "matched_paths": [
+          "/Itinerary/Day[1]/POI[3]",
+          "/Itinerary/Day[2]/POI[1]"
+        ]
+      }
+    },
+    {
+      "step": 4,
+      "action": "predicate_batch_with_subtree",
+      "segment": "[description =~ \"artistic\"]",
+      "nodes_before": 2,
+      "nodes_after": 2,
+      "details": {
+        "predicate": "artistic",
+        "level": 1,
+        "batch_classification_index": 1,
+        "matched_paths": [
+          "/Itinerary/Day[1]",
+          "/Itinerary/Day[2]"
+        ]
+      }
+    }
+  ],
+  "batch_classifications": [
+    {
+      "classifier_type": "llm",
+      "predicate": "museum",
+      "input_count": 8,
+      "input_nodes": [
+        {
+          "tree_path": "/Itinerary/Day[1]/POI[1]",
+          "node_type": "POI",
+          "name": "St. Lawrence Market",
+          "description": "Start your day at this iconic market, where you can grab a breakfast of famed peameal bacon sandwich"
+        },
+        {
+          "tree_path": "/Itinerary/Day[1]/POI[2]",
+          "node_type": "POI",
+          "name": "CN Tower",
+          "description": "Visit one of the world's tallest towers and enjoy panoramic city views from the observation deck."
+        },
+        {
+          "tree_path": "/Itinerary/Day[1]/POI[3]",
+          "node_type": "POI",
+          "name": "Art Gallery of Ontario",
+          "description": "Explore Canadian, European, and contemporary art in a Frank Gehry-designed building."
+        },
+        {
+          "tree_path": "/Itinerary/Day[2]/POI[1]",
+          "node_type": "POI",
+          "name": "Royal Ontario Museum",
+          "description": "World-renowned museum showcasing art, culture, and natural history."
+        },
+        {
+          "tree_path": "/Itinerary/Day[2]/POI[2]",
+          "node_type": "POI",
+          "name": "Casa Loma",
+          "description": "Historic castle featuring secret passages, gardens, and panoramic views."
+        },
+        {
+          "tree_path": "/Itinerary/Day[2]/POI[3]",
+          "node_type": "POI",
+          "name": "Rivoli",
+          "description": "Live music venue showcasing jazz, indie, and emerging artists."
+        },
+        {
+          "tree_path": "/Itinerary/Day[3]/POI[1]",
+          "node_type": "POI",
+          "name": "Toronto Islands",
+          "description": "Ferry ride to scenic islands with beaches, bike trails, and gardens."
+        },
+        {
+          "tree_path": "/Itinerary/Day[3]/POI[2]",
+          "node_type": "POI",
+          "name": "Distillery District",
+          "description": "Historic pedestrian village with cobblestone streets and artisan shops."
+        }
+      ],
+      "results": [
+        {
+          "tree_path": "/Itinerary/Day[1]/POI[1]",
+          "name": "St. Lawrence Market",
+          "is_match": false,
+          "confidence": 0.0,
+          "reasoning": "St. Lawrence Market is a market, not a museum."
+        },
+        {
+          "tree_path": "/Itinerary/Day[1]/POI[2]",
+          "name": "CN Tower",
+          "is_match": false,
+          "confidence": 0.0,
+          "reasoning": "CN Tower is an observation tower, not a museum."
+        },
+        {
+          "tree_path": "/Itinerary/Day[1]/POI[3]",
+          "name": "Art Gallery of Ontario",
+          "is_match": true,
+          "confidence": 1.0,
+          "reasoning": "Art Gallery of Ontario is a museum-like institution showcasing art."
+        },
+        {
+          "tree_path": "/Itinerary/Day[2]/POI[1]",
+          "name": "Royal Ontario Museum",
+          "is_match": true,
+          "confidence": 1.0,
+          "reasoning": "Royal Ontario Museum is explicitly a museum."
+        },
+        {
+          "tree_path": "/Itinerary/Day[2]/POI[2]",
+          "name": "Casa Loma",
+          "is_match": false,
+          "confidence": 0.0,
+          "reasoning": "Casa Loma is a historic castle, not a museum."
+        },
+        {
+          "tree_path": "/Itinerary/Day[2]/POI[3]",
+          "name": "Rivoli",
+          "is_match": false,
+          "confidence": 0.0,
+          "reasoning": "Rivoli is a live music venue, not a museum."
+        },
+        {
+          "tree_path": "/Itinerary/Day[3]/POI[1]",
+          "name": "Toronto Islands",
+          "is_match": false,
+          "confidence": 0.0,
+          "reasoning": "Toronto Islands are recreational, not related to museums."
+        },
+        {
+          "tree_path": "/Itinerary/Day[3]/POI[2]",
+          "name": "Distillery District",
+          "is_match": false,
+          "confidence": 0.0,
+          "reasoning": "Distillery District is a historic village, not a museum."
+        }
+      ],
+      "matched_count": 2,
+      "matched_paths": [
+        "/Itinerary/Day[1]/POI[3]",
+        "/Itinerary/Day[2]/POI[1]"
+      ],
+      "prompt_sent": "Predicate: \"museum\"\n\nNodes:\n\n[0] /Itinerary/Day[1]/POI[1]\nType: POI\nName: St. Lawrence Market\nDescription: Start your day at this iconic market, where you can grab a breakfast of famed peameal bacon sandwiches from Carousel Bakery.\n\n[1] /Itinerary/Day[1]/POI[2]\nType: POI\nName: CN Tower\nDescription: Visit one of the world's tallest towers and enjoy panoramic city views from the observation deck.\n\n[2] /Itinerary/Day[1]/POI[3]\nType: POI\nName: Art Gallery of Ontario\nDescription: Explore Canadian, European, and contemporary art in a Frank Gehry-designed building.\n\n[3] /Itinerary/Day[2]/POI[1]\nType: POI\nName: Royal Ontario Museum\nDescription: World-renowned museum showcasing art, culture, and natural history.\n\n[4] /Itinerary/Day[2]/POI[2]\nType: POI\nName: Casa Loma\nDescription: Historic castle featuring secret passages, gardens, and panoramic views.\n\n[5] /Itinerary/Day[2]/POI[3]\nType: POI\nName: Rivoli\nDescription: Live music venue showcasing jazz, indie, and emerging artists.\n\n[6] /Itinerary/Day[3]/POI[1]\nType: POI\nName: Toronto Islands\nDescription: Ferry ride to scenic islands with beaches, bike trails, and gardens.\n\n[7] /Itinerary/Day[3]/POI[2]\nType: POI\nName: Distillery District\nDescription: Historic pedestrian village with cobblestone streets and artisan shops.\n\nClassify each node. Output JSON only.",
+      "raw_response": "```json\n{\n  \"results\": [\n    {\"index\": 0, \"match\": false, \"reasoning\": \"St. Lawrence Market is a market, not a museum.\"},\n    {\"index\": 1, \"match\": false, \"reasoning\": \"CN Tower is an observation tower, not a museum.\"},\n    {\"index\": 2, \"match\": true, \"reasoning\": \"Art Gallery of Ontario is a museum-like institution showcasing art.\"},\n    {\"index\": 3, \"match\": true, \"reasoning\": \"Royal Ontario Museum is explicitly a museum.\"},\n    {\"index\": 4, \"match\": false, \"reasoning\": \"Casa Loma is a historic castle, not a museum.\"},\n    {\"index\": 5, \"match\": false, \"reasoning\": \"Rivoli is a live music venue, not a museum.\"},\n    {\"index\": 6, \"match\": false, \"reasoning\": \"Toronto Islands are recreational, not related to museums.\"},\n    {\"index\": 7, \"match\": false, \"reasoning\": \"Distillery District is a historic village, not a museum.\"}\n  ]\n}\n```"
+    },
+    {
+      "classifier_type": "llm",
+      "predicate": "artistic",
+      "input_count": 2,
+      "input_nodes": [
+        {
+          "tree_path": "/Itinerary/Day[1]",
+          "node_type": "Day",
+          "name": null,
+          "description": null
+        },
+        {
+          "tree_path": "/Itinerary/Day[2]",
+          "node_type": "Day",
+          "name": null,
+          "description": null
+        }
+      ],
+      "results": [
+        {
+          "tree_path": "/Itinerary/Day[1]",
+          "name": null,
+          "is_match": true,
+          "confidence": 1.0,
+          "reasoning": "Includes the Art Gallery of Ontario, a major art institution, and The Rex Hotel Jazz & Blues Bar, which features live jazz performances, both of which are artistic activities."
+        },
+        {
+          "tree_path": "/Itinerary/Day[2]",
+          "name": null,
+          "is_match": true,
+          "confidence": 1.0,
+          "reasoning": "Features the Royal Ontario Museum, showcasing art and culture, and Rivoli, a live music venue, both of which are related to artistic experiences."
+        }
+      ],
+      "matched_count": 2,
+      "matched_paths": [
+        "/Itinerary/Day[1]",
+        "/Itinerary/Day[2]"
+      ],
+      "prompt_sent": "Predicate: \"artistic\"\n\nNodes:\n\n[0] /Itinerary/Day[1]\nType: Day\nChildren:\n  [1] POI: St. Lawrence Market\n      Start your day at this iconic market, where you can grab a breakfast of famed peameal bacon sandwich\n  [2] POI: CN Tower\n      Visit one of the world's tallest towers and enjoy panoramic city views from the observation deck.\n  [3] Restaurant: Queen Street Warehouse\n      Budget-friendly comfort food in a lively setting with a diverse menu.\n  [4] POI: Art Gallery of Ontario\n      Explore Canadian, European, and contemporary art in a Frank Gehry-designed building.\n  [5] Restaurant: Buca Yorkville\n      Upscale Italian dining featuring traditional dishes with a modern twist.\n  [6] Restaurant: The Rex Hotel Jazz & Blues Bar\n      Live jazz performances in a cozy, iconic Toronto venue.\n\n[1] /Itinerary/Day[2]\nType: Day\nChildren:\n  [1] Restaurant: Pow Wow Cafe\n      Indigenous-inspired brunch featuring bannock tacos in Kensington Market.\n  [2] POI: Royal Ontario Museum\n      World-renowned museum showcasing art, culture, and natural history.\n  [3] Restaurant: Annona Restaurant\n      Sophisticated international cuisine in a bright, modern setting.\n  [4] POI: Casa Loma\n      Historic castle featuring secret passages, gardens, and panoramic views.\n  [5] Restaurant: DaiLo\n      Modern Asian-Canadian fusion cuisine with creative flavors.\n  [6] POI: Rivoli\n      Live music venue showcasing jazz, indie, and emerging artists.\n\nClassify each node. Output JSON only.",
+      "raw_response": "```json\n{\n  \"results\": [\n    {\n      \"index\": 0,\n      \"match\": true,\n      \"reasoning\": \"Includes the Art Gallery of Ontario, a major art institution, and The Rex Hotel Jazz & Blues Bar, which features live jazz performances, both of which are artistic activities.\"\n    },\n    {\n      \"index\": 1,\n      \"match\": true,\n      \"reasoning\": \"Features the Royal Ontario Museum, showcasing art and culture, and Rivoli, a live music venue, both of which are related to artistic experiences.\"\n    }\n  ]\n}\n```"
+    }
+  ],
+  "results": [
+    {
+      "tree_path": "/Itinerary/Day[1]/POI[3]",
+      "type": "POI",
+      "name": "Art Gallery of Ontario",
+      "description": "Explore Canadian, European, and contemporary art in a Frank Gehry-designed building."
+    },
+    {
+      "tree_path": "/Itinerary/Day[2]/POI[1]",
+      "type": "POI",
+      "name": "Royal Ontario Museum",
+      "description": "World-renowned museum showcasing art, culture, and natural history."
+    }
+  ]
+}

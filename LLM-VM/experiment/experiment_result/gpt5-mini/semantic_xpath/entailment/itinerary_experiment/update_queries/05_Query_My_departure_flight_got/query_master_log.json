@@ -1,0 +1,57 @@
+{
+  "user_query": "My departure flight got pushed back to 10pm. Update my day 10 to reflect this.",
+  "version_xpath": "at([-1])",
+  "version_result": {
+    "selector_type": "at",
+    "index": -1,
+    "semantic_query": null,
+    "task_query": "update day 10 departure flight to 10:00 PM",
+    "resolved_version": 1
+  },
+  "operation_type": "UPDATE",
+  "semantic_xpath_query": "/Root/Itinerary_Version[1]/Day[10]/POI[content =~ \"departure flight\"]",
+  "semantic_xpath_execution_log": {
+    "aggregation_execution_log": "reasoning_traces/execution_20260212_185928_071439.json",
+    "predicate_batch_scoring_log": "reasoning_traces/entailment_scoring_20260212_185928_892919.json"
+  },
+  "semantic_xpath_result": [],
+  "downstream_task_result": {
+    "operation": "UPDATE",
+    "success": true,
+    "updated_paths": [
+      "Root > Itinerary_Version 1 > Day 10 > YYZ Departure"
+    ],
+    "updated_count": 1,
+    "update_summary": [
+      {
+        "path": "Root > Itinerary_Version 1 > Day 10 > YYZ Departure",
+        "success": true
+      }
+    ],
+    "total_time_ms": 8704.86
+  },
+  "execution_time_ms": 8710.65,
+  "token_usage": {
+    "prompt_tokens": 4895,
+    "completion_tokens": 598,
+    "total_tokens": 5493,
+    "by_stage": {
+      "version_resolution": {
+        "prompt_tokens": 983,
+        "completion_tokens": 93,
+        "total_tokens": 1076
+      },
+      "xpath_generation": {
+        "prompt_tokens": 1766,
+        "completion_tokens": 97,
+        "total_tokens": 1863
+      },
+      "update_handler": {
+        "prompt_tokens": 2146,
+        "completion_tokens": 408,
+        "total_tokens": 2554
+      }
+    },
+    "cost_usd": 0.06689
+  }
+}

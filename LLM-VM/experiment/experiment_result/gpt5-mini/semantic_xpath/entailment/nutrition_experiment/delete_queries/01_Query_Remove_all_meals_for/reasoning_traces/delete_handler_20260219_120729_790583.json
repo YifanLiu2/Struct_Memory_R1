@@ -1,0 +1,17 @@
+{
+  "user_query": "Remove all meals for child that contain peanuts, as they have an allergy",
+  "candidates_count": 5,
+  "nodes_to_delete": [
+    "Root > MealPlan_Version 1 > Child > Day 1 > Breakfast > Smoothie — Smoky Variation",
+    "Root > MealPlan_Version 1 > Child > Day 2 > Breakfast > Smoothie — Lemon-Herb Style",
+    "Root > MealPlan_Version 1 > Child > Day 5 > Breakfast > Smoothie — Berry Boost Skillet"
+  ],
+  "reasoning": "Nodes 1–3 explicitly contain peanut butter (clear peanut inclusion in descriptions and high semantic-match scores) so they match the request to remove meals containing peanuts for the child. Candidates 4 and 5 were excluded: 4's content does not mention peanuts (mentions chickpeas and optional tahini — sesame), so the 'peanut' match appears inconsistent; 5 has no peanut mention and a low semantic score.",
+  "raw_response": "{\n  \"nodes_to_delete\": [\n    {\n      \"id\": \"1\",\n      \"path\": \"Root > MealPlan_Version 1 > Child > Day 1 > Breakfast > Smoothie — Smoky Variation\",\n      \"reasoning\": \"Short description and nutrition_note explicitly list peanut butter (contains peanuts); Matched Context also indicates 'peanut' with a high score (0.99).\"\n    },\n    {\n      \"id\": \"2\",\n      \"path\": \"Root > MealPlan_Version 1 > Child > Day 2 > Breakfast > Smoothie — Lemon-Herb Style\",\n      \"reasoning\": \"Short description explicitly lists peanut butter (contains peanuts); Matched Context shows 'peanut' (0.96), matching the allergy removal request.\"\n    },\n    {\n      \"id\": \"3\",\n      \"path\": \"Root > MealPlan_Version 1 > Child > Day 5 > Breakfast > Smoothie — Berry Boost Skillet\",\n      \"reasoning\": \"Short description and nutrition_note list peanut butter (contains peanuts); Matched Context indicates 'peanut' (0.91), so it should be removed for the child's allergy.\"\n    }\n  ],\n  \"reasoning\": \"Nodes 1–3 explicitly contain peanut butter (clear peanut inclusion in descriptions and high semantic-match scores) so they match the request to remove meals containing peanuts for the child. Candidates 4 and 5 were excluded: 4's content does not mention peanuts (mentions chickpeas and optional tahini — sesame), so the 'peanut' match appears inconsistent; 5 has no peanut mention and a low semantic score.\"\n}",
+  "token_usage": {
+    "prompt_tokens": 2088,
+    "completion_tokens": 475,
+    "total_tokens": 2563
+  },
+  "processing_time_ms": 7343.17179210484
+}

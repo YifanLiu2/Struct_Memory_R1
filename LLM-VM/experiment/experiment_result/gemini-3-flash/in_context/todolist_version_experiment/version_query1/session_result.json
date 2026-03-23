@@ -1,0 +1,56 @@
+{
+  "session_id": "version_query1",
+  "queries": [
+    {
+      "query_id": "Query_001",
+      "user_query": "What was the original deadline for renewing my passport? Check the previous versions",
+      "selected_nodes": [
+        "Root > ToDoList_Version 1 > Personal > General > Task 2"
+      ],
+      "related_nodes": [
+        "Task"
+      ],
+      "downstream_task_result": {
+        "operation": "READ",
+        "success": true,
+        "version_used": 1,
+        "reasoning": "The user asked for the original deadline for renewing the passport. I checked Version 1, which contains the initial state of the task before it was modified in Version 3.",
+        "token_usage": {
+          "prompt_tokens": 22422,
+          "completion_tokens": 162,
+          "total_tokens": 22584
+        },
+        "error": null
+      },
+      "execution_time_ms": 3005.02
+    },
+    {
+      "query_id": "Query_002",
+      "user_query": "What was the original grocery list before I we changed something to salad? Check the previous versions",
+      "selected_nodes": [
+        "Root > ToDoList_Version 3 > Household > Weekly Groceries"
+      ],
+      "related_nodes": [
+        "Weekly Groceries",
+        "Weekly Groceries > Task",
+        "Weekly Groceries > Task",
+        "Weekly Groceries > Task"
+      ],
+      "downstream_task_result": {
+        "operation": "READ",
+        "success": true,
+        "version_used": 3,
+        "reasoning": "The user asked for the grocery list before it was changed to 'salad'. Version 4 contains the change to salad, so Version 3 contains the original list.",
+        "token_usage": {
+          "prompt_tokens": 22426,
+          "completion_tokens": 325,
+          "total_tokens": 22751
+        },
+        "error": null
+      },
+      "execution_time_ms": 3250.39
+    }
+  ],
+  "final_tree_version": 1,
+  "total_execution_time_ms": 6255.41
+}

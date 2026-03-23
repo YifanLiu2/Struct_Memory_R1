@@ -1,0 +1,1238 @@
+{
+  "timestamp": "20260226_151319_464544",
+  "query": "/Root/Itinerary_Version[2]/Day[3]/*[atom(content =~ \"workshop\")]",
+  "canonical_query": "/Root/Itinerary_Version[2]/Day[3]/*[content =~ \"workshop\"]",
+  "data_file": "tree.xml",
+  "execution_time_ms": 1527.5160418823361,
+  "parsed_ast": {
+    "steps": [
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Root",
+            "span": {
+              "start": 1,
+              "end": 5
+            }
+          },
+          "span": {
+            "start": 1,
+            "end": 5
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Itinerary_Version",
+            "index": {
+              "start": 2,
+              "type": "single",
+              "span": {
+                "start": 23,
+                "end": 26
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 26
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 26
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Day",
+            "index": {
+              "start": 3,
+              "type": "single",
+              "span": {
+                "start": 30,
+                "end": 33
+              }
+            },
+            "span": {
+              "start": 27,
+              "end": 33
+            }
+          },
+          "span": {
+            "start": 27,
+            "end": 33
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "wildcard",
+            "name": null,
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "workshop",
+              "operator": "=~",
+              "span": {
+                "start": 36,
+                "end": 63
+              }
+            },
+            "predicate_str": "atom(content =~ \"workshop\")",
+            "span": {
+              "start": 34,
+              "end": 64
+            }
+          },
+          "span": {
+            "start": 34,
+            "end": 64
+          }
+        }
+      }
+    ],
+    "global_index": null
+  },
+  "parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: Itinerary_Version[2]\n├── Step 2: Day[3]\n└── Step 3: *[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"workshop\")",
+  "canonical_parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: Itinerary_Version[2]\n├── Step 2: Day[3]\n└── Step 3: *[content =~ \"workshop\"]",
+  "execution_log": [
+    "[20260226_151319_464544] Executing query: /Root/Itinerary_Version[2]/Day[3]/*[atom(content =~ \"workshop\")]",
+    "Data file: tree.xml",
+    "Parsed steps: [Root, Itinerary_Version[2], Day[3], *[atom(content =~ \"workshop\")]]",
+    "",
+    "Query AST:\n├── Step 0: Root\n├── Step 1: Itinerary_Version[2]\n├── Step 2: Day[3]\n└── Step 3: *[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"workshop\")",
+    "\n--- Step 1: Root ---",
+    "Matched Root root",
+    "\n--- Step 2: Itinerary_Version[2] ---",
+    "Selected node at index 2 (0-based: 1)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 3: Day[3] ---",
+    "Selected node at index 3 (0-based: 2)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 4: *[atom(content =~ \"workshop\")] ---",
+    "Scoring predicate: atom(content =~ \"workshop\") (atomic values: ['workshop'])",
+    "  Collected 6 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 6 total descriptions",
+    "  Node 0 (Hotel Continental Breakfast): score = 0.0919",
+    "  Node 1 (Stakeholder Presentation): score = 0.6110",
+    "  Node 2 (Boxcar Social (near AGO)): score = 0.3380",
+    "  Node 3 (Art Gallery of Ontario): score = 0.1873",
+    "  Node 4 (FRANK Restaurant at AGO): score = 0.0612",
+    "  Node 5 (Pai Northern Thai): score = 0.1008",
+    "After step: 6 nodes remaining",
+    "\n=== Score Fusion ===",
+    "  Root > Itinerary_Version 2 > Day 3 > Hotel Continental Breakfast: product=0.0919 → score=0.0919",
+    "  Root > Itinerary_Version 2 > Day 3 > Stakeholder Presentation: product=0.6110 → score=0.6110",
+    "  Root > Itinerary_Version 2 > Day 3 > Boxcar Social (near AGO): product=0.3380 → score=0.3380",
+    "  Root > Itinerary_Version 2 > Day 3 > Art Gallery of Ontario: product=0.1873 → score=0.1873",
+    "  Root > Itinerary_Version 2 > Day 3 > FRANK Restaurant at AGO: product=0.0612 → score=0.0612",
+    "  Root > Itinerary_Version 2 > Day 3 > Pai Northern Thai: product=0.1008 → score=0.1008",
+    "\n=== Threshold Filtering (threshold=0.05) ===",
+    "  Filtered: 6 → 6 nodes",
+    "\n=== Final Filtering (top_k=5) ===",
+    "  After top_k: 6 → 5 nodes",
+    "\nFinal result: 5 nodes (sorted by score)",
+    "⏱️  Query execution time: 1527.52ms"
+  ],
+  "traversal_steps": [
+    {
+      "step_index": 0,
+      "step_query": "Root",
+      "action": "root_match",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "type": "root"
+        }
+      ],
+      "nodes_after": [
+        {
+          "type": "Root",
+          "path": "Root"
+        }
+      ],
+      "details": {
+        "matched": true
+      }
+    },
+    {
+      "step_index": 1,
+      "step_query": "Itinerary_Version[2]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root",
+          "name": "Root",
+          "type": "Root",
+          "score": 1.0,
+          "node_id": 6164645664
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Itinerary_Version 2",
+          "name": "Itinerary_Version 2",
+          "type": "Itinerary_Version",
+          "score": 1.0,
+          "node_id": 13524354848
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Itinerary_Version",
+            "index": {
+              "start": 2,
+              "type": "single",
+              "span": {
+                "start": 23,
+                "end": 26
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 26
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 26
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 2,
+      "step_query": "Day[3]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root > Itinerary_Version 2",
+          "name": "Itinerary_Version 2",
+          "type": "Itinerary_Version",
+          "score": 1.0,
+          "node_id": 13524354848
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Itinerary_Version 2 > Day 3",
+          "name": "Day 3",
+          "type": "Day",
+          "score": 1.0,
+          "node_id": 13524316576
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Day",
+            "index": {
+              "start": 3,
+              "type": "single",
+              "span": {
+                "start": 30,
+                "end": 33
+              }
+            },
+            "span": {
+              "start": 27,
+              "end": 33
+            }
+          },
+          "span": {
+            "start": 27,
+            "end": 33
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 3,
+      "step_query": "*[atom(content =~ \"workshop\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 6,
+      "nodes_before": [
+        {
+          "path": "Root > Itinerary_Version 2 > Day 3",
+          "name": "Day 3",
+          "type": "Day",
+          "score": 1.0,
+          "node_id": 13524316576
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Itinerary_Version 2 > Day 3 > Hotel Continental Breakfast",
+          "name": "Hotel Continental Breakfast",
+          "type": "Restaurant",
+          "score": 0.09191308915615082,
+          "node_id": 13524310496
+        },
+        {
+          "path": "Root > Itinerary_Version 2 > Day 3 > Stakeholder Presentation",
+          "name": "Stakeholder Presentation",
+          "type": "POI",
+          "score": 0.6109760403633118,
+          "node_id": 13524311536
+        },
+        {
+          "path": "Root > Itinerary_Version 2 > Day 3 > Boxcar Social (near AGO)",
+          "name": "Boxcar Social (near AGO)",
+          "type": "Restaurant",
+          "score": 0.3379952311515808,
+          "node_id": 13524315376
+        },
+        {
+          "path": "Root > Itinerary_Version 2 > Day 3 > Art Gallery of Ontario",
+          "name": "Art Gallery of Ontario",
+          "type": "POI",
+          "score": 0.18728622794151306,
+          "node_id": 13524311616
+        },
+        {
+          "path": "Root > Itinerary_Version 2 > Day 3 > FRANK Restaurant at AGO",
+          "name": "FRANK Restaurant at AGO",
+          "type": "Restaurant",
+          "score": 0.06119056046009064,
+          "node_id": 13524315856
+        },
+        {
+          "path": "Root > Itinerary_Version 2 > Day 3 > Pai Northern Thai",
+          "name": "Pai Northern Thai",
+          "type": "Restaurant",
+          "score": 0.10076768696308136,
+          "node_id": 13524306176
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "wildcard",
+            "name": null,
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "workshop",
+              "operator": "=~",
+              "span": {
+                "start": 36,
+                "end": 63
+              }
+            },
+            "predicate_str": "atom(content =~ \"workshop\")",
+            "span": {
+              "start": 34,
+              "end": 64
+            }
+          },
+          "span": {
+            "start": 34,
+            "end": 64
+          }
+        },
+        "found_count": 6,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"workshop\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "workshop",
+              "operator": "=~",
+              "span": {
+                "start": 36,
+                "end": 63
+              }
+            },
+            "config": {
+              "top_k": 5,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 13524310496,
+                "node_name": "Hotel Continental Breakfast",
+                "node_type": "Restaurant",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "workshop",
+                      "operator": "=~",
+                      "span": {
+                        "start": 36,
+                        "end": 63
+                      }
+                    },
+                    "score": 0.09191308915615082,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.09191308915615082
+              },
+              {
+                "node_idx": 1,
+                "node_id": 13524311536,
+                "node_name": "Stakeholder Presentation",
+                "node_type": "POI",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "workshop",
+                      "operator": "=~",
+                      "span": {
+                        "start": 36,
+                        "end": 63
+                      }
+                    },
+                    "score": 0.6109760403633118,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.6109760403633118
+              },
+              {
+                "node_idx": 2,
+                "node_id": 13524315376,
+                "node_name": "Boxcar Social (near AGO)",
+                "node_type": "Restaurant",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "workshop",
+                      "operator": "=~",
+                      "span": {
+                        "start": 36,
+                        "end": 63
+                      }
+                    },
+                    "score": 0.3379952311515808,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.3379952311515808
+              },
+              {
+                "node_idx": 3,
+                "node_id": 13524311616,
+                "node_name": "Art Gallery of Ontario",
+                "node_type": "POI",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "workshop",
+                      "operator": "=~",
+                      "span": {
+                        "start": 36,
+                        "end": 63
+                      }
+                    },
+                    "score": 0.18728622794151306,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.18728622794151306
+              },
+              {
+                "node_idx": 4,
+                "node_id": 13524315856,
+                "node_name": "FRANK Restaurant at AGO",
+                "node_type": "Restaurant",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "workshop",
+                      "operator": "=~",
+                      "span": {
+                        "start": 36,
+                        "end": 63
+                      }
+                    },
+                    "score": 0.06119056046009064,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.06119056046009064
+              },
+              {
+                "node_idx": 5,
+                "node_id": 13524306176,
+                "node_name": "Pai Northern Thai",
+                "node_type": "Restaurant",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "workshop",
+                      "operator": "=~",
+                      "span": {
+                        "start": 36,
+                        "end": 63
+                      }
+                    },
+                    "score": 0.10076768696308136,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.10076768696308136
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "workshop"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "workshop",
+                  "num_descriptions": 6,
+                  "call_time_ms": 1526.67
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 6
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 1,
+                "score": 0.6109760403633118,
+                "name": "Stakeholder Presentation"
+              },
+              {
+                "idx": 2,
+                "score": 0.3379952311515808,
+                "name": "Boxcar Social (near AGO)"
+              },
+              {
+                "idx": 3,
+                "score": 0.18728622794151306,
+                "name": "Art Gallery of Ontario"
+              },
+              {
+                "idx": 5,
+                "score": 0.10076768696308136,
+                "name": "Pai Northern Thai"
+              },
+              {
+                "idx": 0,
+                "score": 0.09191308915615082,
+                "name": "Hotel Continental Breakfast"
+              },
+              {
+                "idx": 4,
+                "score": 0.06119056046009064,
+                "name": "FRANK Restaurant at AGO"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "scoring_traces": [
+    {
+      "predicate": "atom(content =~ \"workshop\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "workshop",
+        "operator": "=~",
+        "span": {
+          "start": 36,
+          "end": 63
+        }
+      },
+      "config": {
+        "top_k": 5,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 13524310496,
+          "node_name": "Hotel Continental Breakfast",
+          "node_type": "Restaurant",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "workshop",
+                "operator": "=~",
+                "span": {
+                  "start": 36,
+                  "end": 63
+                }
+              },
+              "score": 0.09191308915615082,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.09191308915615082
+        },
+        {
+          "node_idx": 1,
+          "node_id": 13524311536,
+          "node_name": "Stakeholder Presentation",
+          "node_type": "POI",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "workshop",
+                "operator": "=~",
+                "span": {
+                  "start": 36,
+                  "end": 63
+                }
+              },
+              "score": 0.6109760403633118,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.6109760403633118
+        },
+        {
+          "node_idx": 2,
+          "node_id": 13524315376,
+          "node_name": "Boxcar Social (near AGO)",
+          "node_type": "Restaurant",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "workshop",
+                "operator": "=~",
+                "span": {
+                  "start": 36,
+                  "end": 63
+                }
+              },
+              "score": 0.3379952311515808,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.3379952311515808
+        },
+        {
+          "node_idx": 3,
+          "node_id": 13524311616,
+          "node_name": "Art Gallery of Ontario",
+          "node_type": "POI",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "workshop",
+                "operator": "=~",
+                "span": {
+                  "start": 36,
+                  "end": 63
+                }
+              },
+              "score": 0.18728622794151306,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.18728622794151306
+        },
+        {
+          "node_idx": 4,
+          "node_id": 13524315856,
+          "node_name": "FRANK Restaurant at AGO",
+          "node_type": "Restaurant",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "workshop",
+                "operator": "=~",
+                "span": {
+                  "start": 36,
+                  "end": 63
+                }
+              },
+              "score": 0.06119056046009064,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.06119056046009064
+        },
+        {
+          "node_idx": 5,
+          "node_id": 13524306176,
+          "node_name": "Pai Northern Thai",
+          "node_type": "Restaurant",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "workshop",
+                "operator": "=~",
+                "span": {
+                  "start": 36,
+                  "end": 63
+                }
+              },
+              "score": 0.10076768696308136,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.10076768696308136
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "workshop"
+        ],
+        "per_value_stats": [
+          {
+            "value": "workshop",
+            "num_descriptions": 6,
+            "call_time_ms": 1526.67
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 6
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 1,
+          "score": 0.6109760403633118,
+          "name": "Stakeholder Presentation"
+        },
+        {
+          "idx": 2,
+          "score": 0.3379952311515808,
+          "name": "Boxcar Social (near AGO)"
+        },
+        {
+          "idx": 3,
+          "score": 0.18728622794151306,
+          "name": "Art Gallery of Ontario"
+        },
+        {
+          "idx": 5,
+          "score": 0.10076768696308136,
+          "name": "Pai Northern Thai"
+        },
+        {
+          "idx": 0,
+          "score": 0.09191308915615082,
+          "name": "Hotel Continental Breakfast"
+        },
+        {
+          "idx": 4,
+          "score": 0.06119056046009064,
+          "name": "FRANK Restaurant at AGO"
+        }
+      ]
+    }
+  ],
+  "scoring_details": {
+    "step_scores": [
+      {
+        "step_index": 0,
+        "predicate": "atom(content =~ \"workshop\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "workshop",
+          "operator": "=~",
+          "span": {
+            "start": 36,
+            "end": 63
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 13524310496,
+            "node_name": "Hotel Continental Breakfast",
+            "node_type": "Restaurant",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "workshop",
+                  "operator": "=~",
+                  "span": {
+                    "start": 36,
+                    "end": 63
+                  }
+                },
+                "score": 0.09191308915615082,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.09191308915615082
+          },
+          {
+            "node_idx": 1,
+            "node_id": 13524311536,
+            "node_name": "Stakeholder Presentation",
+            "node_type": "POI",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "workshop",
+                  "operator": "=~",
+                  "span": {
+                    "start": 36,
+                    "end": 63
+                  }
+                },
+                "score": 0.6109760403633118,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.6109760403633118
+          },
+          {
+            "node_idx": 2,
+            "node_id": 13524315376,
+            "node_name": "Boxcar Social (near AGO)",
+            "node_type": "Restaurant",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "workshop",
+                  "operator": "=~",
+                  "span": {
+                    "start": 36,
+                    "end": 63
+                  }
+                },
+                "score": 0.3379952311515808,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.3379952311515808
+          },
+          {
+            "node_idx": 3,
+            "node_id": 13524311616,
+            "node_name": "Art Gallery of Ontario",
+            "node_type": "POI",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "workshop",
+                  "operator": "=~",
+                  "span": {
+                    "start": 36,
+                    "end": 63
+                  }
+                },
+                "score": 0.18728622794151306,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.18728622794151306
+          },
+          {
+            "node_idx": 4,
+            "node_id": 13524315856,
+            "node_name": "FRANK Restaurant at AGO",
+            "node_type": "Restaurant",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "workshop",
+                  "operator": "=~",
+                  "span": {
+                    "start": 36,
+                    "end": 63
+                  }
+                },
+                "score": 0.06119056046009064,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.06119056046009064
+          },
+          {
+            "node_idx": 5,
+            "node_id": 13524306176,
+            "node_name": "Pai Northern Thai",
+            "node_type": "Restaurant",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "workshop",
+                  "operator": "=~",
+                  "span": {
+                    "start": 36,
+                    "end": 63
+                  }
+                },
+                "score": 0.10076768696308136,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.10076768696308136
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 1,
+            "score": 0.6109760403633118,
+            "name": "Stakeholder Presentation"
+          },
+          {
+            "idx": 2,
+            "score": 0.3379952311515808,
+            "name": "Boxcar Social (near AGO)"
+          },
+          {
+            "idx": 3,
+            "score": 0.18728622794151306,
+            "name": "Art Gallery of Ontario"
+          },
+          {
+            "idx": 5,
+            "score": 0.10076768696308136,
+            "name": "Pai Northern Thai"
+          },
+          {
+            "idx": 0,
+            "score": 0.09191308915615082,
+            "name": "Hotel Continental Breakfast"
+          },
+          {
+            "idx": 4,
+            "score": 0.06119056046009064,
+            "name": "FRANK Restaurant at AGO"
+          }
+        ]
+      }
+    ],
+    "score_fusion": {
+      "per_node": [
+        {
+          "node_path": "Root > Itinerary_Version 2 > Day 3 > Hotel Continental Breakfast",
+          "node_type": "Restaurant",
+          "step_contributions": [
+            {
+              "step_index": 3,
+              "predicate": "*[atom(content =~ \"workshop\")]",
+              "score": 0.09191308915615082
+            }
+          ],
+          "accumulated_product": 0.09191308915615082,
+          "final_score": 0.09191308915615082
+        },
+        {
+          "node_path": "Root > Itinerary_Version 2 > Day 3 > Stakeholder Presentation",
+          "node_type": "POI",
+          "step_contributions": [
+            {
+              "step_index": 3,
+              "predicate": "*[atom(content =~ \"workshop\")]",
+              "score": 0.6109760403633118
+            }
+          ],
+          "accumulated_product": 0.6109760403633118,
+          "final_score": 0.6109760403633118
+        },
+        {
+          "node_path": "Root > Itinerary_Version 2 > Day 3 > Boxcar Social (near AGO)",
+          "node_type": "Restaurant",
+          "step_contributions": [
+            {
+              "step_index": 3,
+              "predicate": "*[atom(content =~ \"workshop\")]",
+              "score": 0.3379952311515808
+            }
+          ],
+          "accumulated_product": 0.3379952311515808,
+          "final_score": 0.3379952311515808
+        },
+        {
+          "node_path": "Root > Itinerary_Version 2 > Day 3 > Art Gallery of Ontario",
+          "node_type": "POI",
+          "step_contributions": [
+            {
+              "step_index": 3,
+              "predicate": "*[atom(content =~ \"workshop\")]",
+              "score": 0.18728622794151306
+            }
+          ],
+          "accumulated_product": 0.18728622794151306,
+          "final_score": 0.18728622794151306
+        },
+        {
+          "node_path": "Root > Itinerary_Version 2 > Day 3 > FRANK Restaurant at AGO",
+          "node_type": "Restaurant",
+          "step_contributions": [
+            {
+              "step_index": 3,
+              "predicate": "*[atom(content =~ \"workshop\")]",
+              "score": 0.06119056046009064
+            }
+          ],
+          "accumulated_product": 0.06119056046009064,
+          "final_score": 0.06119056046009064
+        },
+        {
+          "node_path": "Root > Itinerary_Version 2 > Day 3 > Pai Northern Thai",
+          "node_type": "Restaurant",
+          "step_contributions": [
+            {
+              "step_index": 3,
+              "predicate": "*[atom(content =~ \"workshop\")]",
+              "score": 0.10076768696308136
+            }
+          ],
+          "accumulated_product": 0.10076768696308136,
+          "final_score": 0.10076768696308136
+        }
+      ]
+    }
+  },
+  "final_filtering": {
+    "before_filter_count": 6,
+    "threshold": 0.05,
+    "top_k": 5,
+    "after_filter_count": 5,
+    "filtered_nodes": [
+      {
+        "path": "Root > Itinerary_Version 2 > Day 3 > Stakeholder Presentation",
+        "score": 0.6109760403633118,
+        "type": "POI",
+        "own_score": 0.6109760403633118,
+        "parent_score": 1.0
+      },
+      {
+        "path": "Root > Itinerary_Version 2 > Day 3 > Boxcar Social (near AGO)",
+        "score": 0.3379952311515808,
+        "type": "Restaurant",
+        "own_score": 0.3379952311515808,
+        "parent_score": 1.0
+      },
+      {
+        "path": "Root > Itinerary_Version 2 > Day 3 > Art Gallery of Ontario",
+        "score": 0.18728622794151306,
+        "type": "POI",
+        "own_score": 0.18728622794151306,
+        "parent_score": 1.0
+      },
+      {
+        "path": "Root > Itinerary_Version 2 > Day 3 > Pai Northern Thai",
+        "score": 0.10076768696308136,
+        "type": "Restaurant",
+        "own_score": 0.10076768696308136,
+        "parent_score": 1.0
+      },
+      {
+        "path": "Root > Itinerary_Version 2 > Day 3 > Hotel Continental Breakfast",
+        "score": 0.09191308915615082,
+        "type": "Restaurant",
+        "own_score": 0.09191308915615082,
+        "parent_score": 1.0
+      }
+    ]
+  },
+  "matched_nodes": [
+    {
+      "tree_path": "Root > Itinerary_Version 2 > Day 3 > Stakeholder Presentation",
+      "score": 0.6109760403633118,
+      "node": {
+        "type": "POI",
+        "attributes": {},
+        "name": "Stakeholder Presentation",
+        "time_block": "9:00 AM - 11:00 AM",
+        "description": "Morning work session presenting quarterly results to stakeholders. High-pressure meeting requiring focus and preparation.",
+        "travel_method": "Walk",
+        "expected_cost": "Work",
+        "highlights": [
+          "Work meeting",
+          "Business presentation"
+        ]
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Stakeholder Presentation",
+          "predicate": "atom(content =~ \"workshop\")",
+          "score": 0.6109760403633118,
+          "description": "Matched atom(content =~ \"workshop\") on Stakeholder Presentation (Score: 0.61)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Itinerary_Version 2 > Day 3 > Boxcar Social (near AGO)",
+      "score": 0.3379952311515808,
+      "node": {
+        "type": "Restaurant",
+        "attributes": {},
+        "name": "Boxcar Social (near AGO)",
+        "time_block": "11:15 AM - 11:45 AM",
+        "description": "Popular cafe a short walk from the Art Gallery of Ontario serving specialty coffee, espresso drinks, and light pastries — perfect for a quick mid-morning break.",
+        "travel_method": "Walk",
+        "expected_cost": "CAD 5-15",
+        "highlights": [
+          "Specialty coffee",
+          "Quick pastries",
+          "Short walk to AGO"
+        ]
+      },
+      "children": [],
+      "context_trace": []
+    },
+    {
+      "tree_path": "Root > Itinerary_Version 2 > Day 3 > Art Gallery of Ontario",
+      "score": 0.18728622794151306,
+      "node": {
+        "type": "POI",
+        "attributes": {},
+        "name": "Art Gallery of Ontario",
+        "time_block": "12:00 PM - 2:00 PM",
+        "description": "World-class art museum with Canadian and international collections. Indoor cultural experience in Frank Gehry-designed building. Quiet and contemplative atmosphere.",
+        "travel_method": "Walk",
+        "expected_cost": "CAD 25",
+        "highlights": [
+          "Indoor museum",
+          "Cultural experience",
+          "Art gallery"
+        ]
+      },
+      "children": [],
+      "context_trace": []
+    },
+    {
+      "tree_path": "Root > Itinerary_Version 2 > Day 3 > Pai Northern Thai",
+      "score": 0.10076768696308136,
+      "node": {
+        "type": "Restaurant",
+        "attributes": {},
+        "name": "Pai Northern Thai",
+        "time_block": "7:00 PM - 8:30 PM",
+        "description": "Popular Thai restaurant known for authentic northern Thai cuisine. Lively atmosphere with bold flavors. Asian food option.",
+        "travel_method": "Public Transit",
+        "expected_cost": "CAD 30-45",
+        "highlights": [
+          "Thai Asian cuisine",
+          "Vibrant atmosphere"
+        ]
+      },
+      "children": [],
+      "context_trace": []
+    },
+    {
+      "tree_path": "Root > Itinerary_Version 2 > Day 3 > Hotel Continental Breakfast",
+      "score": 0.09191308915615082,
+      "node": {
+        "type": "Restaurant",
+        "attributes": {},
+        "name": "Hotel Continental Breakfast",
+        "time_block": "7:30 AM - 8:30 AM",
+        "description": "Quick breakfast at the hotel restaurant. Simple continental options, nothing special but convenient.",
+        "travel_method": "Walk",
+        "expected_cost": "CAD 25",
+        "highlights": [
+          "Quick and convenient",
+          "Basic options"
+        ]
+      },
+      "children": [],
+      "context_trace": []
+    }
+  ],
+  "summary": {
+    "total_steps": 4,
+    "total_scoring_calls": 1,
+    "matched_count": 5,
+    "execution_time_ms": 1527.5160418823361,
+    "has_score_fusion": true,
+    "num_nodes_before_filter": 6,
+    "num_nodes_after_filter": 5
+  }
+}

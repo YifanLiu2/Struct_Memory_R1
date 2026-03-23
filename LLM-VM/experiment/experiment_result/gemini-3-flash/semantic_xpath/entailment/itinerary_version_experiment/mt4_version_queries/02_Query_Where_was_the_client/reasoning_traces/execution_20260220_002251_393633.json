@@ -1,0 +1,697 @@
+{
+  "timestamp": "20260220_002251_393633",
+  "query": "/Root/Itinerary_Version[3]/Day[2]/POI[atom(content =~ \"client kickoff meeting\")]",
+  "canonical_query": "/Root/Itinerary_Version[3]/Day[2]/POI[content =~ \"client kickoff meeting\"]",
+  "data_file": "tree.xml",
+  "execution_time_ms": 1095.936916070059,
+  "parsed_ast": {
+    "steps": [
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Root",
+            "span": {
+              "start": 1,
+              "end": 5
+            }
+          },
+          "span": {
+            "start": 1,
+            "end": 5
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Itinerary_Version",
+            "index": {
+              "start": 3,
+              "type": "single",
+              "span": {
+                "start": 23,
+                "end": 26
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 26
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 26
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Day",
+            "index": {
+              "start": 2,
+              "type": "single",
+              "span": {
+                "start": 30,
+                "end": 33
+              }
+            },
+            "span": {
+              "start": 27,
+              "end": 33
+            }
+          },
+          "span": {
+            "start": 27,
+            "end": 33
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "POI",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "client kickoff meeting",
+              "operator": "=~",
+              "span": {
+                "start": 38,
+                "end": 79
+              }
+            },
+            "predicate_str": "atom(content =~ \"client kickoff meeting\")",
+            "span": {
+              "start": 34,
+              "end": 80
+            }
+          },
+          "span": {
+            "start": 34,
+            "end": 80
+          }
+        }
+      }
+    ],
+    "global_index": null
+  },
+  "parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: Itinerary_Version[3]\n├── Step 2: Day[2]\n└── Step 3: POI[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"client kickoff meeting\")",
+  "canonical_parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: Itinerary_Version[3]\n├── Step 2: Day[2]\n└── Step 3: POI[content =~ \"client kickoff meeting\"]",
+  "execution_log": [
+    "[20260220_002251_393633] Executing query: /Root/Itinerary_Version[3]/Day[2]/POI[atom(content =~ \"client kickoff meeting\")]",
+    "Data file: tree.xml",
+    "Parsed steps: [Root, Itinerary_Version[3], Day[2], POI[atom(content =~ \"client kickoff meeting\")]]",
+    "",
+    "Query AST:\n├── Step 0: Root\n├── Step 1: Itinerary_Version[3]\n├── Step 2: Day[2]\n└── Step 3: POI[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"client kickoff meeting\")",
+    "\n--- Step 1: Root ---",
+    "Matched Root root",
+    "\n--- Step 2: Itinerary_Version[3] ---",
+    "Selected node at index 3 (0-based: 2)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 3: Day[2] ---",
+    "Selected node at index 2 (0-based: 1)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 4: POI[atom(content =~ \"client kickoff meeting\")] ---",
+    "Scoring predicate: atom(content =~ \"client kickoff meeting\") (atomic values: ['client kickoff meeting'])",
+    "  Collected 2 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 2 total descriptions",
+    "  Node 0 (Client Kickoff Meeting): score = 0.9995",
+    "  Node 1 (Strategy Workshop): score = 0.0376",
+    "After step: 2 nodes remaining",
+    "\n=== Score Fusion ===",
+    "  Root > Itinerary_Version 3 > Day 2 > Client Kickoff Meeting: product=0.9995 → score=0.9995",
+    "  Root > Itinerary_Version 3 > Day 2 > Strategy Workshop: product=0.0376 → score=0.0376",
+    "\n=== Threshold Filtering (threshold=0.05) ===",
+    "  Filtered: 2 → 1 nodes",
+    "\n=== Final Filtering (top_k=5) ===",
+    "  After top_k: 1 → 1 nodes",
+    "\nFinal result: 1 nodes (sorted by score)",
+    "⏱️  Query execution time: 1095.94ms"
+  ],
+  "traversal_steps": [
+    {
+      "step_index": 0,
+      "step_query": "Root",
+      "action": "root_match",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "type": "root"
+        }
+      ],
+      "nodes_after": [
+        {
+          "type": "Root",
+          "path": "Root"
+        }
+      ],
+      "details": {
+        "matched": true
+      }
+    },
+    {
+      "step_index": 1,
+      "step_query": "Itinerary_Version[3]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root",
+          "name": "Root",
+          "type": "Root",
+          "score": 1.0,
+          "node_id": 6426958304
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Itinerary_Version 3",
+          "name": "Itinerary_Version 3",
+          "type": "Itinerary_Version",
+          "score": 1.0,
+          "node_id": 6429057056
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Itinerary_Version",
+            "index": {
+              "start": 3,
+              "type": "single",
+              "span": {
+                "start": 23,
+                "end": 26
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 26
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 26
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 2,
+      "step_query": "Day[2]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root > Itinerary_Version 3",
+          "name": "Itinerary_Version 3",
+          "type": "Itinerary_Version",
+          "score": 1.0,
+          "node_id": 6429057056
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Itinerary_Version 3 > Day 2",
+          "name": "Day 2",
+          "type": "Day",
+          "score": 1.0,
+          "node_id": 6429051056
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Day",
+            "index": {
+              "start": 2,
+              "type": "single",
+              "span": {
+                "start": 30,
+                "end": 33
+              }
+            },
+            "span": {
+              "start": 27,
+              "end": 33
+            }
+          },
+          "span": {
+            "start": 27,
+            "end": 33
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 3,
+      "step_query": "POI[atom(content =~ \"client kickoff meeting\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 2,
+      "nodes_before": [
+        {
+          "path": "Root > Itinerary_Version 3 > Day 2",
+          "name": "Day 2",
+          "type": "Day",
+          "score": 1.0,
+          "node_id": 6429051056
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Itinerary_Version 3 > Day 2 > Client Kickoff Meeting",
+          "name": "Client Kickoff Meeting",
+          "type": "POI",
+          "score": 0.9994638562202454,
+          "node_id": 6429057616
+        },
+        {
+          "path": "Root > Itinerary_Version 3 > Day 2 > Strategy Workshop",
+          "name": "Strategy Workshop",
+          "type": "POI",
+          "score": 0.03762714937329292,
+          "node_id": 6429054736
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "POI",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "client kickoff meeting",
+              "operator": "=~",
+              "span": {
+                "start": 38,
+                "end": 79
+              }
+            },
+            "predicate_str": "atom(content =~ \"client kickoff meeting\")",
+            "span": {
+              "start": 34,
+              "end": 80
+            }
+          },
+          "span": {
+            "start": 34,
+            "end": 80
+          }
+        },
+        "found_count": 2,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"client kickoff meeting\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "client kickoff meeting",
+              "operator": "=~",
+              "span": {
+                "start": 38,
+                "end": 79
+              }
+            },
+            "config": {
+              "top_k": 5,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 6429057616,
+                "node_name": "Client Kickoff Meeting",
+                "node_type": "POI",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "client kickoff meeting",
+                      "operator": "=~",
+                      "span": {
+                        "start": 38,
+                        "end": 79
+                      }
+                    },
+                    "score": 0.9994638562202454,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.9994638562202454
+              },
+              {
+                "node_idx": 1,
+                "node_id": 6429054736,
+                "node_name": "Strategy Workshop",
+                "node_type": "POI",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "client kickoff meeting",
+                      "operator": "=~",
+                      "span": {
+                        "start": 38,
+                        "end": 79
+                      }
+                    },
+                    "score": 0.03762714937329292,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.03762714937329292
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "client kickoff meeting"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "client kickoff meeting",
+                  "num_descriptions": 2,
+                  "call_time_ms": 1091.01
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 2
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 0,
+                "score": 0.9994638562202454,
+                "name": "Client Kickoff Meeting"
+              },
+              {
+                "idx": 1,
+                "score": 0.03762714937329292,
+                "name": "Strategy Workshop"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "scoring_traces": [
+    {
+      "predicate": "atom(content =~ \"client kickoff meeting\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "client kickoff meeting",
+        "operator": "=~",
+        "span": {
+          "start": 38,
+          "end": 79
+        }
+      },
+      "config": {
+        "top_k": 5,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 6429057616,
+          "node_name": "Client Kickoff Meeting",
+          "node_type": "POI",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "client kickoff meeting",
+                "operator": "=~",
+                "span": {
+                  "start": 38,
+                  "end": 79
+                }
+              },
+              "score": 0.9994638562202454,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.9994638562202454
+        },
+        {
+          "node_idx": 1,
+          "node_id": 6429054736,
+          "node_name": "Strategy Workshop",
+          "node_type": "POI",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "client kickoff meeting",
+                "operator": "=~",
+                "span": {
+                  "start": 38,
+                  "end": 79
+                }
+              },
+              "score": 0.03762714937329292,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.03762714937329292
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "client kickoff meeting"
+        ],
+        "per_value_stats": [
+          {
+            "value": "client kickoff meeting",
+            "num_descriptions": 2,
+            "call_time_ms": 1091.01
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 2
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 0,
+          "score": 0.9994638562202454,
+          "name": "Client Kickoff Meeting"
+        },
+        {
+          "idx": 1,
+          "score": 0.03762714937329292,
+          "name": "Strategy Workshop"
+        }
+      ]
+    }
+  ],
+  "scoring_details": {
+    "step_scores": [
+      {
+        "step_index": 0,
+        "predicate": "atom(content =~ \"client kickoff meeting\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "client kickoff meeting",
+          "operator": "=~",
+          "span": {
+            "start": 38,
+            "end": 79
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 6429057616,
+            "node_name": "Client Kickoff Meeting",
+            "node_type": "POI",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "client kickoff meeting",
+                  "operator": "=~",
+                  "span": {
+                    "start": 38,
+                    "end": 79
+                  }
+                },
+                "score": 0.9994638562202454,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.9994638562202454
+          },
+          {
+            "node_idx": 1,
+            "node_id": 6429054736,
+            "node_name": "Strategy Workshop",
+            "node_type": "POI",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "client kickoff meeting",
+                  "operator": "=~",
+                  "span": {
+                    "start": 38,
+                    "end": 79
+                  }
+                },
+                "score": 0.03762714937329292,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.03762714937329292
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 0,
+            "score": 0.9994638562202454,
+            "name": "Client Kickoff Meeting"
+          },
+          {
+            "idx": 1,
+            "score": 0.03762714937329292,
+            "name": "Strategy Workshop"
+          }
+        ]
+      }
+    ],
+    "score_fusion": {
+      "per_node": [
+        {
+          "node_path": "Root > Itinerary_Version 3 > Day 2 > Client Kickoff Meeting",
+          "node_type": "POI",
+          "step_contributions": [
+            {
+              "step_index": 3,
+              "predicate": "POI[atom(content =~ \"client kickoff meeting\")]",
+              "score": 0.9994638562202454
+            }
+          ],
+          "accumulated_product": 0.9994638562202454,
+          "final_score": 0.9994638562202454
+        },
+        {
+          "node_path": "Root > Itinerary_Version 3 > Day 2 > Strategy Workshop",
+          "node_type": "POI",
+          "step_contributions": [
+            {
+              "step_index": 3,
+              "predicate": "POI[atom(content =~ \"client kickoff meeting\")]",
+              "score": 0.03762714937329292
+            }
+          ],
+          "accumulated_product": 0.03762714937329292,
+          "final_score": 0.03762714937329292
+        }
+      ]
+    }
+  },
+  "final_filtering": {
+    "before_filter_count": 2,
+    "threshold": 0.05,
+    "top_k": 5,
+    "after_filter_count": 1,
+    "filtered_nodes": [
+      {
+        "path": "Root > Itinerary_Version 3 > Day 2 > Client Kickoff Meeting",
+        "score": 0.9994638562202454,
+        "type": "POI",
+        "own_score": 0.9994638562202454,
+        "parent_score": 1.0
+      }
+    ]
+  },
+  "matched_nodes": [
+    {
+      "tree_path": "Root > Itinerary_Version 3 > Day 2 > Client Kickoff Meeting",
+      "score": 0.9994638562202454,
+      "node": {
+        "type": "POI",
+        "attributes": {},
+        "name": "Client Kickoff Meeting",
+        "time_block": "9:00 AM - 12:00 PM",
+        "description": "Formal business meeting at TD Tower with key stakeholders. High-pressure work presentation and strategy discussion. Professional corporate environment.",
+        "travel_method": "Walk",
+        "expected_cost": "Work",
+        "highlights": [
+          "Work meeting",
+          "Client presentation",
+          "Corporate formal"
+        ]
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Client Kickoff Meeting",
+          "predicate": "atom(content =~ \"client kickoff meeting\")",
+          "score": 0.9994638562202454,
+          "description": "Matched atom(content =~ \"client kickoff meeting\") on Client Kickoff Meeting (Score: 1.00)"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total_steps": 4,
+    "total_scoring_calls": 1,
+    "matched_count": 1,
+    "execution_time_ms": 1095.936916070059,
+    "has_score_fusion": true,
+    "num_nodes_before_filter": 2,
+    "num_nodes_after_filter": 1
+  }
+}

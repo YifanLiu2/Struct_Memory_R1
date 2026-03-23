@@ -1,0 +1,552 @@
+{
+  "timestamp": "20260219_173549_225515",
+  "query": "/Root/Itinerary_Version[1]/Day[2]/Restaurant[atom(content =~ \"Leslieville brunch\")]",
+  "canonical_query": "/Root/Itinerary_Version[1]/Day[2]/Restaurant[content =~ \"Leslieville brunch\"]",
+  "data_file": "tree.xml",
+  "execution_time_ms": 1170.7745830062777,
+  "parsed_ast": {
+    "steps": [
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Root",
+            "span": {
+              "start": 1,
+              "end": 5
+            }
+          },
+          "span": {
+            "start": 1,
+            "end": 5
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Itinerary_Version",
+            "index": {
+              "start": 1,
+              "type": "single",
+              "span": {
+                "start": 23,
+                "end": 26
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 26
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 26
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Day",
+            "index": {
+              "start": 2,
+              "type": "single",
+              "span": {
+                "start": 30,
+                "end": 33
+              }
+            },
+            "span": {
+              "start": 27,
+              "end": 33
+            }
+          },
+          "span": {
+            "start": 27,
+            "end": 33
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Restaurant",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "Leslieville brunch",
+              "operator": "=~",
+              "span": {
+                "start": 45,
+                "end": 82
+              }
+            },
+            "predicate_str": "atom(content =~ \"Leslieville brunch\")",
+            "span": {
+              "start": 34,
+              "end": 83
+            }
+          },
+          "span": {
+            "start": 34,
+            "end": 83
+          }
+        }
+      }
+    ],
+    "global_index": null
+  },
+  "parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: Itinerary_Version[1]\n├── Step 2: Day[2]\n└── Step 3: Restaurant[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"Leslieville brunch\")",
+  "canonical_parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: Itinerary_Version[1]\n├── Step 2: Day[2]\n└── Step 3: Restaurant[content =~ \"Leslieville brunch\"]",
+  "execution_log": [
+    "[20260219_173549_225515] Executing query: /Root/Itinerary_Version[1]/Day[2]/Restaurant[atom(content =~ \"Leslieville brunch\")]",
+    "Data file: tree.xml",
+    "Parsed steps: [Root, Itinerary_Version[1], Day[2], Restaurant[atom(content =~ \"Leslieville brunch\")]]",
+    "",
+    "Query AST:\n├── Step 0: Root\n├── Step 1: Itinerary_Version[1]\n├── Step 2: Day[2]\n└── Step 3: Restaurant[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"Leslieville brunch\")",
+    "\n--- Step 1: Root ---",
+    "Matched Root root",
+    "\n--- Step 2: Itinerary_Version[1] ---",
+    "Selected node at index 1 (0-based: 0)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 3: Day[2] ---",
+    "Selected node at index 2 (0-based: 1)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 4: Restaurant[atom(content =~ \"Leslieville brunch\")] ---",
+    "Scoring predicate: atom(content =~ \"Leslieville brunch\") (atomic values: ['Leslieville brunch'])",
+    "  Collected 1 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 1 total descriptions",
+    "  Node 0 (Alo Restaurant): score = 0.0055",
+    "After step: 1 nodes remaining",
+    "\n=== Score Fusion ===",
+    "  Root > Itinerary_Version 1 > Day 2 > Alo Restaurant: product=0.0055 → score=0.0055",
+    "\n=== Threshold Filtering (threshold=0.05) ===",
+    "  Filtered: 1 → 0 nodes",
+    "\n=== Final Filtering (top_k=5) ===",
+    "  After top_k: 0 → 0 nodes",
+    "\nFinal result: 0 nodes (sorted by score)",
+    "⏱️  Query execution time: 1170.77ms"
+  ],
+  "traversal_steps": [
+    {
+      "step_index": 0,
+      "step_query": "Root",
+      "action": "root_match",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "type": "root"
+        }
+      ],
+      "nodes_after": [
+        {
+          "type": "Root",
+          "path": "Root"
+        }
+      ],
+      "details": {
+        "matched": true
+      }
+    },
+    {
+      "step_index": 1,
+      "step_query": "Itinerary_Version[1]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root",
+          "name": "Root",
+          "type": "Root",
+          "score": 1.0,
+          "node_id": 13144537456
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Itinerary_Version 1",
+          "name": "Itinerary_Version 1",
+          "type": "Itinerary_Version",
+          "score": 1.0,
+          "node_id": 13144532896
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Itinerary_Version",
+            "index": {
+              "start": 1,
+              "type": "single",
+              "span": {
+                "start": 23,
+                "end": 26
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 26
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 26
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 2,
+      "step_query": "Day[2]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root > Itinerary_Version 1",
+          "name": "Itinerary_Version 1",
+          "type": "Itinerary_Version",
+          "score": 1.0,
+          "node_id": 13144532896
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Itinerary_Version 1 > Day 2",
+          "name": "Day 2",
+          "type": "Day",
+          "score": 1.0,
+          "node_id": 13144538976
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Day",
+            "index": {
+              "start": 2,
+              "type": "single",
+              "span": {
+                "start": 30,
+                "end": 33
+              }
+            },
+            "span": {
+              "start": 27,
+              "end": 33
+            }
+          },
+          "span": {
+            "start": 27,
+            "end": 33
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 3,
+      "step_query": "Restaurant[atom(content =~ \"Leslieville brunch\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root > Itinerary_Version 1 > Day 2",
+          "name": "Day 2",
+          "type": "Day",
+          "score": 1.0,
+          "node_id": 13144538976
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Itinerary_Version 1 > Day 2 > Alo Restaurant",
+          "name": "Alo Restaurant",
+          "type": "Restaurant",
+          "score": 0.0055139334872365,
+          "node_id": 13144523616
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Restaurant",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "Leslieville brunch",
+              "operator": "=~",
+              "span": {
+                "start": 45,
+                "end": 82
+              }
+            },
+            "predicate_str": "atom(content =~ \"Leslieville brunch\")",
+            "span": {
+              "start": 34,
+              "end": 83
+            }
+          },
+          "span": {
+            "start": 34,
+            "end": 83
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"Leslieville brunch\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "Leslieville brunch",
+              "operator": "=~",
+              "span": {
+                "start": 45,
+                "end": 82
+              }
+            },
+            "config": {
+              "top_k": 5,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 13144523616,
+                "node_name": "Alo Restaurant",
+                "node_type": "Restaurant",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "Leslieville brunch",
+                      "operator": "=~",
+                      "span": {
+                        "start": 45,
+                        "end": 82
+                      }
+                    },
+                    "score": 0.0055139334872365,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0055139334872365
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "Leslieville brunch"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "Leslieville brunch",
+                  "num_descriptions": 1,
+                  "call_time_ms": 1169.54
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 1
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 0,
+                "score": 0.0055139334872365,
+                "name": "Alo Restaurant"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "scoring_traces": [
+    {
+      "predicate": "atom(content =~ \"Leslieville brunch\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "Leslieville brunch",
+        "operator": "=~",
+        "span": {
+          "start": 45,
+          "end": 82
+        }
+      },
+      "config": {
+        "top_k": 5,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 13144523616,
+          "node_name": "Alo Restaurant",
+          "node_type": "Restaurant",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "Leslieville brunch",
+                "operator": "=~",
+                "span": {
+                  "start": 45,
+                  "end": 82
+                }
+              },
+              "score": 0.0055139334872365,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0055139334872365
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "Leslieville brunch"
+        ],
+        "per_value_stats": [
+          {
+            "value": "Leslieville brunch",
+            "num_descriptions": 1,
+            "call_time_ms": 1169.54
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 1
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 0,
+          "score": 0.0055139334872365,
+          "name": "Alo Restaurant"
+        }
+      ]
+    }
+  ],
+  "scoring_details": {
+    "step_scores": [
+      {
+        "step_index": 0,
+        "predicate": "atom(content =~ \"Leslieville brunch\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "Leslieville brunch",
+          "operator": "=~",
+          "span": {
+            "start": 45,
+            "end": 82
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 13144523616,
+            "node_name": "Alo Restaurant",
+            "node_type": "Restaurant",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "Leslieville brunch",
+                  "operator": "=~",
+                  "span": {
+                    "start": 45,
+                    "end": 82
+                  }
+                },
+                "score": 0.0055139334872365,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0055139334872365
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 0,
+            "score": 0.0055139334872365,
+            "name": "Alo Restaurant"
+          }
+        ]
+      }
+    ],
+    "score_fusion": {
+      "per_node": [
+        {
+          "node_path": "Root > Itinerary_Version 1 > Day 2 > Alo Restaurant",
+          "node_type": "Restaurant",
+          "step_contributions": [
+            {
+              "step_index": 3,
+              "predicate": "Restaurant[atom(content =~ \"Leslieville brunch\")]",
+              "score": 0.0055139334872365
+            }
+          ],
+          "accumulated_product": 0.0055139334872365,
+          "final_score": 0.0055139334872365
+        }
+      ]
+    }
+  },
+  "final_filtering": {
+    "before_filter_count": 1,
+    "threshold": 0.05,
+    "top_k": 5,
+    "after_filter_count": 0,
+    "filtered_nodes": []
+  },
+  "matched_nodes": [],
+  "summary": {
+    "total_steps": 4,
+    "total_scoring_calls": 1,
+    "matched_count": 0,
+    "execution_time_ms": 1170.7745830062777,
+    "has_score_fusion": true,
+    "num_nodes_before_filter": 1,
+    "num_nodes_after_filter": 0
+  }
+}

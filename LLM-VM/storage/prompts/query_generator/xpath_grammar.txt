@@ -1,0 +1,55 @@
+====================
+Grammar Definition
+====================
+Query Q := Step | Step / Query | Step // Query
+Step := NodeType Index [Predicate]
+Axis := / | //
+Index := none | [i] | [-i] | [i:j]
+Predicate :=
+    Predicate AND Predicate
+  | Predicate OR Predicate
+  | not(Predicate)
+  | Atom
+  | Agg
+Atom := atom(content =~ "value")
+Agg :=
+    agg_exists(Selector[Predicate])
+  | agg_prev(Selector[Predicate])
+Selector :=
+    NodeType
+  | NodeType / NodeType
+  | / NodeType
+  | // NodeType
+====================
+Operator Semantics
+====================
+Axis operator:
+- `/`: navigate to the children of the current node (default).
+- `//`: navigate to all descendants of the current node.
+Node type operator:
+- `*`: wildcard node type; all nodes in the navigation scope are valid.
+- `NodeType`: restricts candidates to nodes of the specified type.
+Index operator:
+- `none`: retain all candidate nodes (default).
+- `[i]`: select the node at 1-based index `i` in tree order.
+- `[-i]`: select the node at negative index `-i` from the end.
+- `[i:j]`: select a contiguous range of nodes.
+Local predicate operator:
+- `atom(content =~ "value")`:
+  evaluates whether the node's local textual content (attributes or description)
+  semantically matches "value". CRITICAL: The predicate MUST be atom(content =~ "value"). [content =~ "value"] is INVALID syntax. keep a single atom(content =~ "value") and let "value" represent the semantic concept, including its close paraphrases and synonyms implicitly.
+Aggregation predicate operator:
+- `agg_exists(NodeType[Predicate])`:
+  evaluates whether ANY child of the specified NodeType satisfies the inner predicate.
+  CRITICAL: The inner [Predicate] is REQUIRED. `agg_exists(NodeType)` without a predicate is INVALID syntax.
+- `agg_prev(NodeType[Predicate])`:
+  evaluates the prevalence of the inner predicate across child nodes.
+  CRITICAL: The inner [Predicate] is REQUIRED. `agg_prev(NodeType)` without a predicate is INVALID syntax.
+Evidence node predicate:
+- Follows the standard Step syntax.
+- Its inner predicate must ultimately reduce to a local predicate
+  that can be evaluated from node-local information.
+Composite predicate operators:
+- `Predicate AND Predicate`: conjunction (both must be satisfied).
+- `Predicate OR Predicate`: disjunction (at least one must be satisfied). Use OR only when the user request explicitly describes multiple distinct intents/categories, not for synonym expansion.
+- `not(Predicate)`: negation.

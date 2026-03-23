@@ -1,0 +1,5088 @@
+{
+  "timestamp": "20260219_235108_460819",
+  "query": "/Root/Itinerary_Version[1]/Day[agg_exists(*[atom(content =~ \"coffee break\")])]",
+  "canonical_query": "/Root/Itinerary_Version[1]/Day[max(*[content =~ \"coffee break\"])]",
+  "data_file": "tree.xml",
+  "execution_time_ms": 58.10629203915596,
+  "parsed_ast": {
+    "steps": [
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Root",
+            "span": {
+              "start": 1,
+              "end": 5
+            }
+          },
+          "span": {
+            "start": 1,
+            "end": 5
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Itinerary_Version",
+            "index": {
+              "start": 1,
+              "type": "single",
+              "span": {
+                "start": 23,
+                "end": 26
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 26
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 26
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Day",
+            "predicate": {
+              "operator": "AGG_EXISTS",
+              "selector": {
+                "axis": "none",
+                "test": {
+                  "type": "leaf",
+                  "test": {
+                    "type": "node_test",
+                    "kind": "wildcard",
+                    "name": null,
+                    "span": {
+                      "start": 42,
+                      "end": 76
+                    }
+                  },
+                  "span": {
+                    "start": 42,
+                    "end": 76
+                  }
+                },
+                "span": {
+                  "start": 42,
+                  "end": 76
+                }
+              },
+              "child_predicate": {
+                "type": "atom",
+                "field": "content",
+                "value": "coffee break",
+                "operator": "=~",
+                "span": {
+                  "start": 44,
+                  "end": 75
+                }
+              },
+              "span": {
+                "start": 31,
+                "end": 77
+              }
+            },
+            "predicate_str": "agg_exists(*[atom(content =~ \"coffee break\")])",
+            "span": {
+              "start": 27,
+              "end": 78
+            }
+          },
+          "span": {
+            "start": 27,
+            "end": 78
+          }
+        }
+      }
+    ],
+    "global_index": null
+  },
+  "parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: Itinerary_Version[1]\n└── Step 2: Day[predicate]\n    │   predicate:\n        │   └── AGG_EXISTS(*)\n            │   └── ATOM(content =~ \"coffee break\")",
+  "canonical_parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: Itinerary_Version[1]\n└── Step 2: Day[max(*[content =~ \"coffee break\"])]",
+  "execution_log": [
+    "[20260219_235108_460819] Executing query: /Root/Itinerary_Version[1]/Day[agg_exists(*[atom(content =~ \"coffee break\")])]",
+    "Data file: tree.xml",
+    "Parsed steps: [Root, Itinerary_Version[1], Day[agg_exists(*[atom(content =~ \"coffee break\")])]]",
+    "",
+    "Query AST:\n├── Step 0: Root\n├── Step 1: Itinerary_Version[1]\n└── Step 2: Day[predicate]\n    │   predicate:\n        │   └── AGG_EXISTS(*)\n            │   └── ATOM(content =~ \"coffee break\")",
+    "\n--- Step 1: Root ---",
+    "Matched Root root",
+    "\n--- Step 2: Itinerary_Version[1] ---",
+    "Selected node at index 1 (0-based: 0)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 3: Day[agg_exists(*[atom(content =~ \"coffee break\")])] ---",
+    "Scoring predicate: agg_exists(*[atom(content =~ \"coffee break\")]) (atomic values: ['coffee break'])",
+    "  Collected 43 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 43 total descriptions",
+    "  Node 0 (Day 1): score = 0.3945",
+    "  Node 1 (Day 2): score = 0.5265",
+    "  Node 2 (Day 3): score = 0.4947",
+    "  Node 3 (Day 4): score = 0.5977",
+    "  Node 4 (Day 5): score = 0.6256",
+    "  Node 5 (Day 6): score = 0.3294",
+    "  Node 6 (Day 7): score = 0.3897",
+    "  Node 7 (Day 8): score = 0.2695",
+    "  Node 8 (Day 9): score = 0.3802",
+    "  Node 9 (Day 10): score = 0.5678",
+    "After step: 10 nodes remaining",
+    "\n=== Score Fusion ===",
+    "  Root > Itinerary_Version 1 > Day 1: product=0.3945 → score=0.3945",
+    "  Root > Itinerary_Version 1 > Day 2: product=0.5265 → score=0.5265",
+    "  Root > Itinerary_Version 1 > Day 3: product=0.4947 → score=0.4947",
+    "  Root > Itinerary_Version 1 > Day 4: product=0.5977 → score=0.5977",
+    "  Root > Itinerary_Version 1 > Day 5: product=0.6256 → score=0.6256",
+    "  Root > Itinerary_Version 1 > Day 6: product=0.3294 → score=0.3294",
+    "  Root > Itinerary_Version 1 > Day 7: product=0.3897 → score=0.3897",
+    "  Root > Itinerary_Version 1 > Day 8: product=0.2695 → score=0.2695",
+    "  Root > Itinerary_Version 1 > Day 9: product=0.3802 → score=0.3802",
+    "  Root > Itinerary_Version 1 > Day 10: product=0.5678 → score=0.5678",
+    "\n=== Threshold Filtering (threshold=0.05) ===",
+    "  Filtered: 10 → 10 nodes",
+    "\n=== Final Filtering (top_k=5) ===",
+    "  After top_k: 10 → 5 nodes",
+    "\nFinal result: 5 nodes (sorted by score)",
+    "⏱️  Query execution time: 58.11ms"
+  ],
+  "traversal_steps": [
+    {
+      "step_index": 0,
+      "step_query": "Root",
+      "action": "root_match",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "type": "root"
+        }
+      ],
+      "nodes_after": [
+        {
+          "type": "Root",
+          "path": "Root"
+        }
+      ],
+      "details": {
+        "matched": true
+      }
+    },
+    {
+      "step_index": 1,
+      "step_query": "Itinerary_Version[1]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root",
+          "name": "Root",
+          "type": "Root",
+          "score": 1.0,
+          "node_id": 6310110896
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Itinerary_Version 1",
+          "name": "Itinerary_Version 1",
+          "type": "Itinerary_Version",
+          "score": 1.0,
+          "node_id": 6310116816
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Itinerary_Version",
+            "index": {
+              "start": 1,
+              "type": "single",
+              "span": {
+                "start": 23,
+                "end": 26
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 26
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 26
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 2,
+      "step_query": "Day[agg_exists(*[atom(content =~ \"coffee break\")])]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 10,
+      "nodes_before": [
+        {
+          "path": "Root > Itinerary_Version 1",
+          "name": "Itinerary_Version 1",
+          "type": "Itinerary_Version",
+          "score": 1.0,
+          "node_id": 6310116816
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Itinerary_Version 1 > Day 1",
+          "name": "Day 1",
+          "type": "Day",
+          "score": 0.3945447504520416,
+          "node_id": 6310105696
+        },
+        {
+          "path": "Root > Itinerary_Version 1 > Day 2",
+          "name": "Day 2",
+          "type": "Day",
+          "score": 0.5265246033668518,
+          "node_id": 6310114096
+        },
+        {
+          "path": "Root > Itinerary_Version 1 > Day 3",
+          "name": "Day 3",
+          "type": "Day",
+          "score": 0.4946852922439575,
+          "node_id": 6310109216
+        },
+        {
+          "path": "Root > Itinerary_Version 1 > Day 4",
+          "name": "Day 4",
+          "type": "Day",
+          "score": 0.597713053226471,
+          "node_id": 6310103456
+        },
+        {
+          "path": "Root > Itinerary_Version 1 > Day 5",
+          "name": "Day 5",
+          "type": "Day",
+          "score": 0.6255971193313599,
+          "node_id": 6310110816
+        },
+        {
+          "path": "Root > Itinerary_Version 1 > Day 6",
+          "name": "Day 6",
+          "type": "Day",
+          "score": 0.329447865486145,
+          "node_id": 6309230080
+        },
+        {
+          "path": "Root > Itinerary_Version 1 > Day 7",
+          "name": "Day 7",
+          "type": "Day",
+          "score": 0.38968902826309204,
+          "node_id": 6309221360
+        },
+        {
+          "path": "Root > Itinerary_Version 1 > Day 8",
+          "name": "Day 8",
+          "type": "Day",
+          "score": 0.26954424381256104,
+          "node_id": 6309227520
+        },
+        {
+          "path": "Root > Itinerary_Version 1 > Day 9",
+          "name": "Day 9",
+          "type": "Day",
+          "score": 0.38024646043777466,
+          "node_id": 6309229760
+        },
+        {
+          "path": "Root > Itinerary_Version 1 > Day 10",
+          "name": "Day 10",
+          "type": "Day",
+          "score": 0.567750096321106,
+          "node_id": 6309218800
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Day",
+            "predicate": {
+              "operator": "AGG_EXISTS",
+              "selector": {
+                "axis": "none",
+                "test": {
+                  "type": "leaf",
+                  "test": {
+                    "type": "node_test",
+                    "kind": "wildcard",
+                    "name": null,
+                    "span": {
+                      "start": 42,
+                      "end": 76
+                    }
+                  },
+                  "span": {
+                    "start": 42,
+                    "end": 76
+                  }
+                },
+                "span": {
+                  "start": 42,
+                  "end": 76
+                }
+              },
+              "child_predicate": {
+                "type": "atom",
+                "field": "content",
+                "value": "coffee break",
+                "operator": "=~",
+                "span": {
+                  "start": 44,
+                  "end": 75
+                }
+              },
+              "span": {
+                "start": 31,
+                "end": 77
+              }
+            },
+            "predicate_str": "agg_exists(*[atom(content =~ \"coffee break\")])",
+            "span": {
+              "start": 27,
+              "end": 78
+            }
+          },
+          "span": {
+            "start": 27,
+            "end": 78
+          }
+        },
+        "found_count": 10,
+        "scoring_trace": [
+          {
+            "predicate": "agg_exists(*[atom(content =~ \"coffee break\")])",
+            "predicate_ast": {
+              "operator": "AGG_EXISTS",
+              "selector": {
+                "axis": "none",
+                "test": {
+                  "type": "leaf",
+                  "test": {
+                    "type": "node_test",
+                    "kind": "wildcard",
+                    "name": null,
+                    "span": {
+                      "start": 42,
+                      "end": 76
+                    }
+                  },
+                  "span": {
+                    "start": 42,
+                    "end": 76
+                  }
+                },
+                "span": {
+                  "start": 42,
+                  "end": 76
+                }
+              },
+              "child_predicate": {
+                "type": "atom",
+                "field": "content",
+                "value": "coffee break",
+                "operator": "=~",
+                "span": {
+                  "start": 44,
+                  "end": 75
+                }
+              },
+              "span": {
+                "start": 31,
+                "end": 77
+              }
+            },
+            "config": {
+              "top_k": 5,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 6310105696,
+                "node_name": "Day 1",
+                "node_type": "Day",
+                "scoring_steps": [
+                  {
+                    "type": "agg_exists_recursive",
+                    "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+                    "selector": {
+                      "axis": "none",
+                      "test": {
+                        "type": "leaf",
+                        "test": {
+                          "type": "node_test",
+                          "kind": "wildcard",
+                          "name": null,
+                          "span": {
+                            "start": 42,
+                            "end": 76
+                          }
+                        },
+                        "span": {
+                          "start": 42,
+                          "end": 76
+                        }
+                      },
+                      "span": {
+                        "start": 42,
+                        "end": 76
+                      }
+                    },
+                    "num_children": 3,
+                    "child_results": [
+                      {
+                        "score": 0.3637518584728241,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.3945447504520416,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.195539191365242,
+                        "subtree_size": 1
+                      }
+                    ],
+                    "child_contributions": [
+                      {
+                        "childName": "YYZ Airport Arrival",
+                        "childPath": "YYZ Airport Arrival",
+                        "childType": "POI",
+                        "rawScore": 0.3637518584728241,
+                        "weight": 1.0,
+                        "weightedContribution": 0.3637518584728241,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      },
+                      {
+                        "childName": "Harbourfront Stroll",
+                        "childPath": "Harbourfront Stroll",
+                        "childType": "POI",
+                        "rawScore": 0.3945447504520416,
+                        "weight": 1.0,
+                        "weightedContribution": 0.3945447504520416,
+                        "subtreeSize": 1,
+                        "isBestMatch": true
+                      },
+                      {
+                        "childName": "Canoe Restaurant",
+                        "childPath": "Canoe Restaurant",
+                        "childType": "Restaurant",
+                        "rawScore": 0.195539191365242,
+                        "weight": 1.0,
+                        "weightedContribution": 0.195539191365242,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      }
+                    ],
+                    "best_match_details": {
+                      "type": "node_match",
+                      "node_name": "Harbourfront Stroll",
+                      "node_type": "POI",
+                      "node_path": "Harbourfront Stroll",
+                      "score": 0.3945447504520416,
+                      "trace": [
+                        {
+                          "type": "atom",
+                          "condition": {
+                            "type": "atom",
+                            "field": "content",
+                            "value": "coffee break",
+                            "operator": "=~",
+                            "span": {
+                              "start": 44,
+                              "end": 75
+                            }
+                          },
+                          "score": 0.3945447504520416,
+                          "note": "Atom(u, φ) - local node content from attr(u)"
+                        }
+                      ]
+                    },
+                    "result": 0.3945447504520416
+                  }
+                ],
+                "final_score": 0.3945447504520416
+              },
+              {
+                "node_idx": 1,
+                "node_id": 6310114096,
+                "node_name": "Day 2",
+                "node_type": "Day",
+                "scoring_steps": [
+                  {
+                    "type": "agg_exists_recursive",
+                    "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+                    "selector": {
+                      "axis": "none",
+                      "test": {
+                        "type": "leaf",
+                        "test": {
+                          "type": "node_test",
+                          "kind": "wildcard",
+                          "name": null,
+                          "span": {
+                            "start": 42,
+                            "end": 76
+                          }
+                        },
+                        "span": {
+                          "start": 42,
+                          "end": 76
+                        }
+                      },
+                      "span": {
+                        "start": 42,
+                        "end": 76
+                      }
+                    },
+                    "num_children": 3,
+                    "child_results": [
+                      {
+                        "score": 0.5265246033668518,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.4446065425872803,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.20299243927001953,
+                        "subtree_size": 1
+                      }
+                    ],
+                    "child_contributions": [
+                      {
+                        "childName": "Client Kickoff Meeting",
+                        "childPath": "Client Kickoff Meeting",
+                        "childType": "POI",
+                        "rawScore": 0.5265246033668518,
+                        "weight": 1.0,
+                        "weightedContribution": 0.5265246033668518,
+                        "subtreeSize": 1,
+                        "isBestMatch": true
+                      },
+                      {
+                        "childName": "Strategy Workshop",
+                        "childPath": "Strategy Workshop",
+                        "childType": "POI",
+                        "rawScore": 0.4446065425872803,
+                        "weight": 1.0,
+                        "weightedContribution": 0.4446065425872803,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      },
+                      {
+                        "childName": "Alo Restaurant",
+                        "childPath": "Alo Restaurant",
+                        "childType": "Restaurant",
+                        "rawScore": 0.20299243927001953,
+                        "weight": 1.0,
+                        "weightedContribution": 0.20299243927001953,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      }
+                    ],
+                    "best_match_details": {
+                      "type": "node_match",
+                      "node_name": "Client Kickoff Meeting",
+                      "node_type": "POI",
+                      "node_path": "Client Kickoff Meeting",
+                      "score": 0.5265246033668518,
+                      "trace": [
+                        {
+                          "type": "atom",
+                          "condition": {
+                            "type": "atom",
+                            "field": "content",
+                            "value": "coffee break",
+                            "operator": "=~",
+                            "span": {
+                              "start": 44,
+                              "end": 75
+                            }
+                          },
+                          "score": 0.5265246033668518,
+                          "note": "Atom(u, φ) - local node content from attr(u)"
+                        }
+                      ]
+                    },
+                    "result": 0.5265246033668518
+                  }
+                ],
+                "final_score": 0.5265246033668518
+              },
+              {
+                "node_idx": 2,
+                "node_id": 6310109216,
+                "node_name": "Day 3",
+                "node_type": "Day",
+                "scoring_steps": [
+                  {
+                    "type": "agg_exists_recursive",
+                    "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+                    "selector": {
+                      "axis": "none",
+                      "test": {
+                        "type": "leaf",
+                        "test": {
+                          "type": "node_test",
+                          "kind": "wildcard",
+                          "name": null,
+                          "span": {
+                            "start": 42,
+                            "end": 76
+                          }
+                        },
+                        "span": {
+                          "start": 42,
+                          "end": 76
+                        }
+                      },
+                      "span": {
+                        "start": 42,
+                        "end": 76
+                      }
+                    },
+                    "num_children": 5,
+                    "child_results": [
+                      {
+                        "score": 0.4283050298690796,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.4946852922439575,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.2897799611091614,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.2770252227783203,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.1847817748785019,
+                        "subtree_size": 1
+                      }
+                    ],
+                    "child_contributions": [
+                      {
+                        "childName": "Hotel Continental Breakfast",
+                        "childPath": "Hotel Continental Breakfast",
+                        "childType": "Restaurant",
+                        "rawScore": 0.4283050298690796,
+                        "weight": 1.0,
+                        "weightedContribution": 0.4283050298690796,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      },
+                      {
+                        "childName": "Stakeholder Presentation",
+                        "childPath": "Stakeholder Presentation",
+                        "childType": "POI",
+                        "rawScore": 0.4946852922439575,
+                        "weight": 1.0,
+                        "weightedContribution": 0.4946852922439575,
+                        "subtreeSize": 1,
+                        "isBestMatch": true
+                      },
+                      {
+                        "childName": "Art Gallery of Ontario",
+                        "childPath": "Art Gallery of Ontario",
+                        "childType": "POI",
+                        "rawScore": 0.2897799611091614,
+                        "weight": 1.0,
+                        "weightedContribution": 0.2897799611091614,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      },
+                      {
+                        "childName": "FRANK Restaurant at AGO",
+                        "childPath": "FRANK Restaurant at AGO",
+                        "childType": "Restaurant",
+                        "rawScore": 0.2770252227783203,
+                        "weight": 1.0,
+                        "weightedContribution": 0.2770252227783203,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      },
+                      {
+                        "childName": "Pai Northern Thai",
+                        "childPath": "Pai Northern Thai",
+                        "childType": "Restaurant",
+                        "rawScore": 0.1847817748785019,
+                        "weight": 1.0,
+                        "weightedContribution": 0.1847817748785019,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      }
+                    ],
+                    "best_match_details": {
+                      "type": "node_match",
+                      "node_name": "Stakeholder Presentation",
+                      "node_type": "POI",
+                      "node_path": "Stakeholder Presentation",
+                      "score": 0.4946852922439575,
+                      "trace": [
+                        {
+                          "type": "atom",
+                          "condition": {
+                            "type": "atom",
+                            "field": "content",
+                            "value": "coffee break",
+                            "operator": "=~",
+                            "span": {
+                              "start": 44,
+                              "end": 75
+                            }
+                          },
+                          "score": 0.4946852922439575,
+                          "note": "Atom(u, φ) - local node content from attr(u)"
+                        }
+                      ]
+                    },
+                    "result": 0.4946852922439575
+                  }
+                ],
+                "final_score": 0.4946852922439575
+              },
+              {
+                "node_idx": 3,
+                "node_id": 6310103456,
+                "node_name": "Day 4",
+                "node_type": "Day",
+                "scoring_steps": [
+                  {
+                    "type": "agg_exists_recursive",
+                    "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+                    "selector": {
+                      "axis": "none",
+                      "test": {
+                        "type": "leaf",
+                        "test": {
+                          "type": "node_test",
+                          "kind": "wildcard",
+                          "name": null,
+                          "span": {
+                            "start": 42,
+                            "end": 76
+                          }
+                        },
+                        "span": {
+                          "start": 42,
+                          "end": 76
+                        }
+                      },
+                      "span": {
+                        "start": 42,
+                        "end": 76
+                      }
+                    },
+                    "num_children": 4,
+                    "child_results": [
+                      {
+                        "score": 0.597713053226471,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.5414076447486877,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.3564016819000244,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.21539683640003204,
+                        "subtree_size": 1
+                      }
+                    ],
+                    "child_contributions": [
+                      {
+                        "childName": "Quick Grab Coffee",
+                        "childPath": "Quick Grab Coffee",
+                        "childType": "Restaurant",
+                        "rawScore": 0.597713053226471,
+                        "weight": 1.0,
+                        "weightedContribution": 0.597713053226471,
+                        "subtreeSize": 1,
+                        "isBestMatch": true
+                      },
+                      {
+                        "childName": "Full-Day Workshop",
+                        "childPath": "Full-Day Workshop",
+                        "childType": "POI",
+                        "rawScore": 0.5414076447486877,
+                        "weight": 1.0,
+                        "weightedContribution": 0.5414076447486877,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      },
+                      {
+                        "childName": "Bloor Street Shopping",
+                        "childPath": "Bloor Street Shopping",
+                        "childType": "POI",
+                        "rawScore": 0.3564016819000244,
+                        "weight": 1.0,
+                        "weightedContribution": 0.3564016819000244,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      },
+                      {
+                        "childName": "Lee Restaurant",
+                        "childPath": "Lee Restaurant",
+                        "childType": "Restaurant",
+                        "rawScore": 0.21539683640003204,
+                        "weight": 1.0,
+                        "weightedContribution": 0.21539683640003204,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      }
+                    ],
+                    "best_match_details": {
+                      "type": "node_match",
+                      "node_name": "Quick Grab Coffee",
+                      "node_type": "Restaurant",
+                      "node_path": "Quick Grab Coffee",
+                      "score": 0.597713053226471,
+                      "trace": [
+                        {
+                          "type": "atom",
+                          "condition": {
+                            "type": "atom",
+                            "field": "content",
+                            "value": "coffee break",
+                            "operator": "=~",
+                            "span": {
+                              "start": 44,
+                              "end": 75
+                            }
+                          },
+                          "score": 0.597713053226471,
+                          "note": "Atom(u, φ) - local node content from attr(u)"
+                        }
+                      ]
+                    },
+                    "result": 0.597713053226471
+                  }
+                ],
+                "final_score": 0.597713053226471
+              },
+              {
+                "node_idx": 4,
+                "node_id": 6310110816,
+                "node_name": "Day 5",
+                "node_type": "Day",
+                "scoring_steps": [
+                  {
+                    "type": "agg_exists_recursive",
+                    "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+                    "selector": {
+                      "axis": "none",
+                      "test": {
+                        "type": "leaf",
+                        "test": {
+                          "type": "node_test",
+                          "kind": "wildcard",
+                          "name": null,
+                          "span": {
+                            "start": 42,
+                            "end": 76
+                          }
+                        },
+                        "span": {
+                          "start": 42,
+                          "end": 76
+                        }
+                      },
+                      "span": {
+                        "start": 42,
+                        "end": 76
+                      }
+                    },
+                    "num_children": 5,
+                    "child_results": [
+                      {
+                        "score": 0.29440683126449585,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.549292266368866,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.6255971193313599,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.47706738114356995,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.18564777076244354,
+                        "subtree_size": 1
+                      }
+                    ],
+                    "child_contributions": [
+                      {
+                        "childName": "Mildred's Temple Kitchen",
+                        "childPath": "Mildred's Temple Kitchen",
+                        "childType": "Restaurant",
+                        "rawScore": 0.29440683126449585,
+                        "weight": 1.0,
+                        "weightedContribution": 0.29440683126449585,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      },
+                      {
+                        "childName": "Client Check-in Call",
+                        "childPath": "Client Check-in Call",
+                        "childType": "POI",
+                        "rawScore": 0.549292266368866,
+                        "weight": 1.0,
+                        "weightedContribution": 0.549292266368866,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      },
+                      {
+                        "childName": "Email Catch-up Block",
+                        "childPath": "Email Catch-up Block",
+                        "childType": "POI",
+                        "rawScore": 0.6255971193313599,
+                        "weight": 1.0,
+                        "weightedContribution": 0.6255971193313599,
+                        "subtreeSize": 1,
+                        "isBestMatch": true
+                      },
+                      {
+                        "childName": "Networking Drinks",
+                        "childPath": "Networking Drinks",
+                        "childType": "POI",
+                        "rawScore": 0.47706738114356995,
+                        "weight": 1.0,
+                        "weightedContribution": 0.47706738114356995,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      },
+                      {
+                        "childName": "Kaiseki Kaji",
+                        "childPath": "Kaiseki Kaji",
+                        "childType": "Restaurant",
+                        "rawScore": 0.18564777076244354,
+                        "weight": 1.0,
+                        "weightedContribution": 0.18564777076244354,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      }
+                    ],
+                    "best_match_details": {
+                      "type": "node_match",
+                      "node_name": "Email Catch-up Block",
+                      "node_type": "POI",
+                      "node_path": "Email Catch-up Block",
+                      "score": 0.6255971193313599,
+                      "trace": [
+                        {
+                          "type": "atom",
+                          "condition": {
+                            "type": "atom",
+                            "field": "content",
+                            "value": "coffee break",
+                            "operator": "=~",
+                            "span": {
+                              "start": 44,
+                              "end": 75
+                            }
+                          },
+                          "score": 0.6255971193313599,
+                          "note": "Atom(u, φ) - local node content from attr(u)"
+                        }
+                      ]
+                    },
+                    "result": 0.6255971193313599
+                  }
+                ],
+                "final_score": 0.6255971193313599
+              },
+              {
+                "node_idx": 5,
+                "node_id": 6309230080,
+                "node_name": "Day 6",
+                "node_type": "Day",
+                "scoring_steps": [
+                  {
+                    "type": "agg_exists_recursive",
+                    "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+                    "selector": {
+                      "axis": "none",
+                      "test": {
+                        "type": "leaf",
+                        "test": {
+                          "type": "node_test",
+                          "kind": "wildcard",
+                          "name": null,
+                          "span": {
+                            "start": 42,
+                            "end": 76
+                          }
+                        },
+                        "span": {
+                          "start": 42,
+                          "end": 76
+                        }
+                      },
+                      "span": {
+                        "start": 42,
+                        "end": 76
+                      }
+                    },
+                    "num_children": 5,
+                    "child_results": [
+                      {
+                        "score": 0.27731141448020935,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.24780558049678802,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.329447865486145,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.24497078359127045,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.25725865364074707,
+                        "subtree_size": 1
+                      }
+                    ],
+                    "child_contributions": [
+                      {
+                        "childName": "Sunset Grill",
+                        "childPath": "Sunset Grill",
+                        "childType": "Restaurant",
+                        "rawScore": 0.27731141448020935,
+                        "weight": 1.0,
+                        "weightedContribution": 0.27731141448020935,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      },
+                      {
+                        "childName": "Toronto Islands Ferry and Bike Ride",
+                        "childPath": "Toronto Islands Ferry and Bike Ride",
+                        "childType": "POI",
+                        "rawScore": 0.24780558049678802,
+                        "weight": 1.0,
+                        "weightedContribution": 0.24780558049678802,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      },
+                      {
+                        "childName": "Island Cafe Picnic Lunch",
+                        "childPath": "Island Cafe Picnic Lunch",
+                        "childType": "Restaurant",
+                        "rawScore": 0.329447865486145,
+                        "weight": 1.0,
+                        "weightedContribution": 0.329447865486145,
+                        "subtreeSize": 1,
+                        "isBestMatch": true
+                      },
+                      {
+                        "childName": "Ripley's Aquarium",
+                        "childPath": "Ripley's Aquarium",
+                        "childType": "POI",
+                        "rawScore": 0.24497078359127045,
+                        "weight": 1.0,
+                        "weightedContribution": 0.24497078359127045,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      },
+                      {
+                        "childName": "The Keg Steakhouse",
+                        "childPath": "The Keg Steakhouse",
+                        "childType": "Restaurant",
+                        "rawScore": 0.25725865364074707,
+                        "weight": 1.0,
+                        "weightedContribution": 0.25725865364074707,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      }
+                    ],
+                    "best_match_details": {
+                      "type": "node_match",
+                      "node_name": "Island Cafe Picnic Lunch",
+                      "node_type": "Restaurant",
+                      "node_path": "Island Cafe Picnic Lunch",
+                      "score": 0.329447865486145,
+                      "trace": [
+                        {
+                          "type": "atom",
+                          "condition": {
+                            "type": "atom",
+                            "field": "content",
+                            "value": "coffee break",
+                            "operator": "=~",
+                            "span": {
+                              "start": 44,
+                              "end": 75
+                            }
+                          },
+                          "score": 0.329447865486145,
+                          "note": "Atom(u, φ) - local node content from attr(u)"
+                        }
+                      ]
+                    },
+                    "result": 0.329447865486145
+                  }
+                ],
+                "final_score": 0.329447865486145
+              },
+              {
+                "node_idx": 6,
+                "node_id": 6309221360,
+                "node_name": "Day 7",
+                "node_type": "Day",
+                "scoring_steps": [
+                  {
+                    "type": "agg_exists_recursive",
+                    "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+                    "selector": {
+                      "axis": "none",
+                      "test": {
+                        "type": "leaf",
+                        "test": {
+                          "type": "node_test",
+                          "kind": "wildcard",
+                          "name": null,
+                          "span": {
+                            "start": 42,
+                            "end": 76
+                          }
+                        },
+                        "span": {
+                          "start": 42,
+                          "end": 76
+                        }
+                      },
+                      "span": {
+                        "start": 42,
+                        "end": 76
+                      }
+                    },
+                    "num_children": 5,
+                    "child_results": [
+                      {
+                        "score": 0.38968902826309204,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.29043036699295044,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.24492737650871277,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.3069566488265991,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.22935622930526733,
+                        "subtree_size": 1
+                      }
+                    ],
+                    "child_contributions": [
+                      {
+                        "childName": "Fran's Restaurant",
+                        "childPath": "Fran's Restaurant",
+                        "childType": "Restaurant",
+                        "rawScore": 0.38968902826309204,
+                        "weight": 1.0,
+                        "weightedContribution": 0.38968902826309204,
+                        "subtreeSize": 1,
+                        "isBestMatch": true
+                      },
+                      {
+                        "childName": "Royal Ontario Museum",
+                        "childPath": "Royal Ontario Museum",
+                        "childType": "POI",
+                        "rawScore": 0.29043036699295044,
+                        "weight": 1.0,
+                        "weightedContribution": 0.29043036699295044,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      },
+                      {
+                        "childName": "Eataly Toronto",
+                        "childPath": "Eataly Toronto",
+                        "childType": "Restaurant",
+                        "rawScore": 0.24492737650871277,
+                        "weight": 1.0,
+                        "weightedContribution": 0.24492737650871277,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      },
+                      {
+                        "childName": "Distillery District Walk",
+                        "childPath": "Distillery District Walk",
+                        "childType": "POI",
+                        "rawScore": 0.3069566488265991,
+                        "weight": 1.0,
+                        "weightedContribution": 0.3069566488265991,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      },
+                      {
+                        "childName": "Cluny Bistro",
+                        "childPath": "Cluny Bistro",
+                        "childType": "Restaurant",
+                        "rawScore": 0.22935622930526733,
+                        "weight": 1.0,
+                        "weightedContribution": 0.22935622930526733,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      }
+                    ],
+                    "best_match_details": {
+                      "type": "node_match",
+                      "node_name": "Fran's Restaurant",
+                      "node_type": "Restaurant",
+                      "node_path": "Fran's Restaurant",
+                      "score": 0.38968902826309204,
+                      "trace": [
+                        {
+                          "type": "atom",
+                          "condition": {
+                            "type": "atom",
+                            "field": "content",
+                            "value": "coffee break",
+                            "operator": "=~",
+                            "span": {
+                              "start": 44,
+                              "end": 75
+                            }
+                          },
+                          "score": 0.38968902826309204,
+                          "note": "Atom(u, φ) - local node content from attr(u)"
+                        }
+                      ]
+                    },
+                    "result": 0.38968902826309204
+                  }
+                ],
+                "final_score": 0.38968902826309204
+              },
+              {
+                "node_idx": 7,
+                "node_id": 6309227520,
+                "node_name": "Day 8",
+                "node_type": "Day",
+                "scoring_steps": [
+                  {
+                    "type": "agg_exists_recursive",
+                    "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+                    "selector": {
+                      "axis": "none",
+                      "test": {
+                        "type": "leaf",
+                        "test": {
+                          "type": "node_test",
+                          "kind": "wildcard",
+                          "name": null,
+                          "span": {
+                            "start": 42,
+                            "end": 76
+                          }
+                        },
+                        "span": {
+                          "start": 42,
+                          "end": 76
+                        }
+                      },
+                      "span": {
+                        "start": 42,
+                        "end": 76
+                      }
+                    },
+                    "num_children": 3,
+                    "child_results": [
+                      {
+                        "score": 0.26954424381256104,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.2612188458442688,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.2476631999015808,
+                        "subtree_size": 1
+                      }
+                    ],
+                    "child_contributions": [
+                      {
+                        "childName": "Niagara Falls Day Trip",
+                        "childPath": "Niagara Falls Day Trip",
+                        "childType": "POI",
+                        "rawScore": 0.26954424381256104,
+                        "weight": 1.0,
+                        "weightedContribution": 0.26954424381256104,
+                        "subtreeSize": 1,
+                        "isBestMatch": true
+                      },
+                      {
+                        "childName": "Elements on the Falls",
+                        "childPath": "Elements on the Falls",
+                        "childType": "Restaurant",
+                        "rawScore": 0.2612188458442688,
+                        "weight": 1.0,
+                        "weightedContribution": 0.2612188458442688,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      },
+                      {
+                        "childName": "Antler Kitchen",
+                        "childPath": "Antler Kitchen",
+                        "childType": "Restaurant",
+                        "rawScore": 0.2476631999015808,
+                        "weight": 1.0,
+                        "weightedContribution": 0.2476631999015808,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      }
+                    ],
+                    "best_match_details": {
+                      "type": "node_match",
+                      "node_name": "Niagara Falls Day Trip",
+                      "node_type": "POI",
+                      "node_path": "Niagara Falls Day Trip",
+                      "score": 0.26954424381256104,
+                      "trace": [
+                        {
+                          "type": "atom",
+                          "condition": {
+                            "type": "atom",
+                            "field": "content",
+                            "value": "coffee break",
+                            "operator": "=~",
+                            "span": {
+                              "start": 44,
+                              "end": 75
+                            }
+                          },
+                          "score": 0.26954424381256104,
+                          "note": "Atom(u, φ) - local node content from attr(u)"
+                        }
+                      ]
+                    },
+                    "result": 0.26954424381256104
+                  }
+                ],
+                "final_score": 0.26954424381256104
+              },
+              {
+                "node_idx": 8,
+                "node_id": 6309229760,
+                "node_name": "Day 9",
+                "node_type": "Day",
+                "scoring_steps": [
+                  {
+                    "type": "agg_exists_recursive",
+                    "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+                    "selector": {
+                      "axis": "none",
+                      "test": {
+                        "type": "leaf",
+                        "test": {
+                          "type": "node_test",
+                          "kind": "wildcard",
+                          "name": null,
+                          "span": {
+                            "start": 42,
+                            "end": 76
+                          }
+                        },
+                        "span": {
+                          "start": 42,
+                          "end": 76
+                        }
+                      },
+                      "span": {
+                        "start": 42,
+                        "end": 76
+                      }
+                    },
+                    "num_children": 5,
+                    "child_results": [
+                      {
+                        "score": 0.38024646043777466,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.35177528858184814,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.28540733456611633,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.3183371424674988,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.26281893253326416,
+                        "subtree_size": 1
+                      }
+                    ],
+                    "child_contributions": [
+                      {
+                        "childName": "Lady Marmalade",
+                        "childPath": "Lady Marmalade",
+                        "childType": "Restaurant",
+                        "rawScore": 0.38024646043777466,
+                        "weight": 1.0,
+                        "weightedContribution": 0.38024646043777466,
+                        "subtreeSize": 1,
+                        "isBestMatch": true
+                      },
+                      {
+                        "childName": "Eaton Centre Shopping",
+                        "childPath": "Eaton Centre Shopping",
+                        "childType": "POI",
+                        "rawScore": 0.35177528858184814,
+                        "weight": 1.0,
+                        "weightedContribution": 0.35177528858184814,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      },
+                      {
+                        "childName": "Urban Eatery Food Court",
+                        "childPath": "Urban Eatery Food Court",
+                        "childType": "Restaurant",
+                        "rawScore": 0.28540733456611633,
+                        "weight": 1.0,
+                        "weightedContribution": 0.28540733456611633,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      },
+                      {
+                        "childName": "Queen Street West Boutiques",
+                        "childPath": "Queen Street West Boutiques",
+                        "childType": "POI",
+                        "rawScore": 0.3183371424674988,
+                        "weight": 1.0,
+                        "weightedContribution": 0.3183371424674988,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      },
+                      {
+                        "childName": "Bar Isabel",
+                        "childPath": "Bar Isabel",
+                        "childType": "Restaurant",
+                        "rawScore": 0.26281893253326416,
+                        "weight": 1.0,
+                        "weightedContribution": 0.26281893253326416,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      }
+                    ],
+                    "best_match_details": {
+                      "type": "node_match",
+                      "node_name": "Lady Marmalade",
+                      "node_type": "Restaurant",
+                      "node_path": "Lady Marmalade",
+                      "score": 0.38024646043777466,
+                      "trace": [
+                        {
+                          "type": "atom",
+                          "condition": {
+                            "type": "atom",
+                            "field": "content",
+                            "value": "coffee break",
+                            "operator": "=~",
+                            "span": {
+                              "start": 44,
+                              "end": 75
+                            }
+                          },
+                          "score": 0.38024646043777466,
+                          "note": "Atom(u, φ) - local node content from attr(u)"
+                        }
+                      ]
+                    },
+                    "result": 0.38024646043777466
+                  }
+                ],
+                "final_score": 0.38024646043777466
+              },
+              {
+                "node_idx": 9,
+                "node_id": 6309218800,
+                "node_name": "Day 10",
+                "node_type": "Day",
+                "scoring_steps": [
+                  {
+                    "type": "agg_exists_recursive",
+                    "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+                    "selector": {
+                      "axis": "none",
+                      "test": {
+                        "type": "leaf",
+                        "test": {
+                          "type": "node_test",
+                          "kind": "wildcard",
+                          "name": null,
+                          "span": {
+                            "start": 42,
+                            "end": 76
+                          }
+                        },
+                        "span": {
+                          "start": 42,
+                          "end": 76
+                        }
+                      },
+                      "span": {
+                        "start": 42,
+                        "end": 76
+                      }
+                    },
+                    "num_children": 5,
+                    "child_results": [
+                      {
+                        "score": 0.5015609264373779,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.3516119122505188,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.2593824863433838,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.567750096321106,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.4480704665184021,
+                        "subtree_size": 1
+                      }
+                    ],
+                    "child_contributions": [
+                      {
+                        "childName": "Hotel Quick Checkout Breakfast",
+                        "childPath": "Hotel Quick Checkout Breakfast",
+                        "childType": "Restaurant",
+                        "rawScore": 0.5015609264373779,
+                        "weight": 1.0,
+                        "weightedContribution": 0.5015609264373779,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      },
+                      {
+                        "childName": "CN Tower EdgeWalk",
+                        "childPath": "CN Tower EdgeWalk",
+                        "childType": "POI",
+                        "rawScore": 0.3516119122505188,
+                        "weight": 1.0,
+                        "weightedContribution": 0.3516119122505188,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      },
+                      {
+                        "childName": "360 Restaurant at CN Tower",
+                        "childPath": "360 Restaurant at CN Tower",
+                        "childType": "Restaurant",
+                        "rawScore": 0.2593824863433838,
+                        "weight": 1.0,
+                        "weightedContribution": 0.2593824863433838,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      },
+                      {
+                        "childName": "Airport Snack Stop",
+                        "childPath": "Airport Snack Stop",
+                        "childType": "POI",
+                        "rawScore": 0.567750096321106,
+                        "weight": 1.0,
+                        "weightedContribution": 0.567750096321106,
+                        "subtreeSize": 1,
+                        "isBestMatch": true
+                      },
+                      {
+                        "childName": "YYZ Departure",
+                        "childPath": "YYZ Departure",
+                        "childType": "POI",
+                        "rawScore": 0.4480704665184021,
+                        "weight": 1.0,
+                        "weightedContribution": 0.4480704665184021,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      }
+                    ],
+                    "best_match_details": {
+                      "type": "node_match",
+                      "node_name": "Airport Snack Stop",
+                      "node_type": "POI",
+                      "node_path": "Airport Snack Stop",
+                      "score": 0.567750096321106,
+                      "trace": [
+                        {
+                          "type": "atom",
+                          "condition": {
+                            "type": "atom",
+                            "field": "content",
+                            "value": "coffee break",
+                            "operator": "=~",
+                            "span": {
+                              "start": 44,
+                              "end": 75
+                            }
+                          },
+                          "score": 0.567750096321106,
+                          "note": "Atom(u, φ) - local node content from attr(u)"
+                        }
+                      ]
+                    },
+                    "result": 0.567750096321106
+                  }
+                ],
+                "final_score": 0.567750096321106
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "coffee break"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "coffee break",
+                  "num_descriptions": 43,
+                  "call_time_ms": 56.51
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 43
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 4,
+                "score": 0.6255971193313599,
+                "name": "Day 5"
+              },
+              {
+                "idx": 3,
+                "score": 0.597713053226471,
+                "name": "Day 4"
+              },
+              {
+                "idx": 9,
+                "score": 0.567750096321106,
+                "name": "Day 10"
+              },
+              {
+                "idx": 1,
+                "score": 0.5265246033668518,
+                "name": "Day 2"
+              },
+              {
+                "idx": 2,
+                "score": 0.4946852922439575,
+                "name": "Day 3"
+              },
+              {
+                "idx": 0,
+                "score": 0.3945447504520416,
+                "name": "Day 1"
+              },
+              {
+                "idx": 6,
+                "score": 0.38968902826309204,
+                "name": "Day 7"
+              },
+              {
+                "idx": 8,
+                "score": 0.38024646043777466,
+                "name": "Day 9"
+              },
+              {
+                "idx": 5,
+                "score": 0.329447865486145,
+                "name": "Day 6"
+              },
+              {
+                "idx": 7,
+                "score": 0.26954424381256104,
+                "name": "Day 8"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "scoring_traces": [
+    {
+      "predicate": "agg_exists(*[atom(content =~ \"coffee break\")])",
+      "predicate_ast": {
+        "operator": "AGG_EXISTS",
+        "selector": {
+          "axis": "none",
+          "test": {
+            "type": "leaf",
+            "test": {
+              "type": "node_test",
+              "kind": "wildcard",
+              "name": null,
+              "span": {
+                "start": 42,
+                "end": 76
+              }
+            },
+            "span": {
+              "start": 42,
+              "end": 76
+            }
+          },
+          "span": {
+            "start": 42,
+            "end": 76
+          }
+        },
+        "child_predicate": {
+          "type": "atom",
+          "field": "content",
+          "value": "coffee break",
+          "operator": "=~",
+          "span": {
+            "start": 44,
+            "end": 75
+          }
+        },
+        "span": {
+          "start": 31,
+          "end": 77
+        }
+      },
+      "config": {
+        "top_k": 5,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 6310105696,
+          "node_name": "Day 1",
+          "node_type": "Day",
+          "scoring_steps": [
+            {
+              "type": "agg_exists_recursive",
+              "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+              "selector": {
+                "axis": "none",
+                "test": {
+                  "type": "leaf",
+                  "test": {
+                    "type": "node_test",
+                    "kind": "wildcard",
+                    "name": null,
+                    "span": {
+                      "start": 42,
+                      "end": 76
+                    }
+                  },
+                  "span": {
+                    "start": 42,
+                    "end": 76
+                  }
+                },
+                "span": {
+                  "start": 42,
+                  "end": 76
+                }
+              },
+              "num_children": 3,
+              "child_results": [
+                {
+                  "score": 0.3637518584728241,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.3945447504520416,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.195539191365242,
+                  "subtree_size": 1
+                }
+              ],
+              "child_contributions": [
+                {
+                  "childName": "YYZ Airport Arrival",
+                  "childPath": "YYZ Airport Arrival",
+                  "childType": "POI",
+                  "rawScore": 0.3637518584728241,
+                  "weight": 1.0,
+                  "weightedContribution": 0.3637518584728241,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                },
+                {
+                  "childName": "Harbourfront Stroll",
+                  "childPath": "Harbourfront Stroll",
+                  "childType": "POI",
+                  "rawScore": 0.3945447504520416,
+                  "weight": 1.0,
+                  "weightedContribution": 0.3945447504520416,
+                  "subtreeSize": 1,
+                  "isBestMatch": true
+                },
+                {
+                  "childName": "Canoe Restaurant",
+                  "childPath": "Canoe Restaurant",
+                  "childType": "Restaurant",
+                  "rawScore": 0.195539191365242,
+                  "weight": 1.0,
+                  "weightedContribution": 0.195539191365242,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                }
+              ],
+              "best_match_details": {
+                "type": "node_match",
+                "node_name": "Harbourfront Stroll",
+                "node_type": "POI",
+                "node_path": "Harbourfront Stroll",
+                "score": 0.3945447504520416,
+                "trace": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "coffee break",
+                      "operator": "=~",
+                      "span": {
+                        "start": 44,
+                        "end": 75
+                      }
+                    },
+                    "score": 0.3945447504520416,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ]
+              },
+              "result": 0.3945447504520416
+            }
+          ],
+          "final_score": 0.3945447504520416
+        },
+        {
+          "node_idx": 1,
+          "node_id": 6310114096,
+          "node_name": "Day 2",
+          "node_type": "Day",
+          "scoring_steps": [
+            {
+              "type": "agg_exists_recursive",
+              "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+              "selector": {
+                "axis": "none",
+                "test": {
+                  "type": "leaf",
+                  "test": {
+                    "type": "node_test",
+                    "kind": "wildcard",
+                    "name": null,
+                    "span": {
+                      "start": 42,
+                      "end": 76
+                    }
+                  },
+                  "span": {
+                    "start": 42,
+                    "end": 76
+                  }
+                },
+                "span": {
+                  "start": 42,
+                  "end": 76
+                }
+              },
+              "num_children": 3,
+              "child_results": [
+                {
+                  "score": 0.5265246033668518,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.4446065425872803,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.20299243927001953,
+                  "subtree_size": 1
+                }
+              ],
+              "child_contributions": [
+                {
+                  "childName": "Client Kickoff Meeting",
+                  "childPath": "Client Kickoff Meeting",
+                  "childType": "POI",
+                  "rawScore": 0.5265246033668518,
+                  "weight": 1.0,
+                  "weightedContribution": 0.5265246033668518,
+                  "subtreeSize": 1,
+                  "isBestMatch": true
+                },
+                {
+                  "childName": "Strategy Workshop",
+                  "childPath": "Strategy Workshop",
+                  "childType": "POI",
+                  "rawScore": 0.4446065425872803,
+                  "weight": 1.0,
+                  "weightedContribution": 0.4446065425872803,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                },
+                {
+                  "childName": "Alo Restaurant",
+                  "childPath": "Alo Restaurant",
+                  "childType": "Restaurant",
+                  "rawScore": 0.20299243927001953,
+                  "weight": 1.0,
+                  "weightedContribution": 0.20299243927001953,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                }
+              ],
+              "best_match_details": {
+                "type": "node_match",
+                "node_name": "Client Kickoff Meeting",
+                "node_type": "POI",
+                "node_path": "Client Kickoff Meeting",
+                "score": 0.5265246033668518,
+                "trace": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "coffee break",
+                      "operator": "=~",
+                      "span": {
+                        "start": 44,
+                        "end": 75
+                      }
+                    },
+                    "score": 0.5265246033668518,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ]
+              },
+              "result": 0.5265246033668518
+            }
+          ],
+          "final_score": 0.5265246033668518
+        },
+        {
+          "node_idx": 2,
+          "node_id": 6310109216,
+          "node_name": "Day 3",
+          "node_type": "Day",
+          "scoring_steps": [
+            {
+              "type": "agg_exists_recursive",
+              "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+              "selector": {
+                "axis": "none",
+                "test": {
+                  "type": "leaf",
+                  "test": {
+                    "type": "node_test",
+                    "kind": "wildcard",
+                    "name": null,
+                    "span": {
+                      "start": 42,
+                      "end": 76
+                    }
+                  },
+                  "span": {
+                    "start": 42,
+                    "end": 76
+                  }
+                },
+                "span": {
+                  "start": 42,
+                  "end": 76
+                }
+              },
+              "num_children": 5,
+              "child_results": [
+                {
+                  "score": 0.4283050298690796,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.4946852922439575,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.2897799611091614,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.2770252227783203,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.1847817748785019,
+                  "subtree_size": 1
+                }
+              ],
+              "child_contributions": [
+                {
+                  "childName": "Hotel Continental Breakfast",
+                  "childPath": "Hotel Continental Breakfast",
+                  "childType": "Restaurant",
+                  "rawScore": 0.4283050298690796,
+                  "weight": 1.0,
+                  "weightedContribution": 0.4283050298690796,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                },
+                {
+                  "childName": "Stakeholder Presentation",
+                  "childPath": "Stakeholder Presentation",
+                  "childType": "POI",
+                  "rawScore": 0.4946852922439575,
+                  "weight": 1.0,
+                  "weightedContribution": 0.4946852922439575,
+                  "subtreeSize": 1,
+                  "isBestMatch": true
+                },
+                {
+                  "childName": "Art Gallery of Ontario",
+                  "childPath": "Art Gallery of Ontario",
+                  "childType": "POI",
+                  "rawScore": 0.2897799611091614,
+                  "weight": 1.0,
+                  "weightedContribution": 0.2897799611091614,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                },
+                {
+                  "childName": "FRANK Restaurant at AGO",
+                  "childPath": "FRANK Restaurant at AGO",
+                  "childType": "Restaurant",
+                  "rawScore": 0.2770252227783203,
+                  "weight": 1.0,
+                  "weightedContribution": 0.2770252227783203,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                },
+                {
+                  "childName": "Pai Northern Thai",
+                  "childPath": "Pai Northern Thai",
+                  "childType": "Restaurant",
+                  "rawScore": 0.1847817748785019,
+                  "weight": 1.0,
+                  "weightedContribution": 0.1847817748785019,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                }
+              ],
+              "best_match_details": {
+                "type": "node_match",
+                "node_name": "Stakeholder Presentation",
+                "node_type": "POI",
+                "node_path": "Stakeholder Presentation",
+                "score": 0.4946852922439575,
+                "trace": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "coffee break",
+                      "operator": "=~",
+                      "span": {
+                        "start": 44,
+                        "end": 75
+                      }
+                    },
+                    "score": 0.4946852922439575,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ]
+              },
+              "result": 0.4946852922439575
+            }
+          ],
+          "final_score": 0.4946852922439575
+        },
+        {
+          "node_idx": 3,
+          "node_id": 6310103456,
+          "node_name": "Day 4",
+          "node_type": "Day",
+          "scoring_steps": [
+            {
+              "type": "agg_exists_recursive",
+              "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+              "selector": {
+                "axis": "none",
+                "test": {
+                  "type": "leaf",
+                  "test": {
+                    "type": "node_test",
+                    "kind": "wildcard",
+                    "name": null,
+                    "span": {
+                      "start": 42,
+                      "end": 76
+                    }
+                  },
+                  "span": {
+                    "start": 42,
+                    "end": 76
+                  }
+                },
+                "span": {
+                  "start": 42,
+                  "end": 76
+                }
+              },
+              "num_children": 4,
+              "child_results": [
+                {
+                  "score": 0.597713053226471,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.5414076447486877,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.3564016819000244,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.21539683640003204,
+                  "subtree_size": 1
+                }
+              ],
+              "child_contributions": [
+                {
+                  "childName": "Quick Grab Coffee",
+                  "childPath": "Quick Grab Coffee",
+                  "childType": "Restaurant",
+                  "rawScore": 0.597713053226471,
+                  "weight": 1.0,
+                  "weightedContribution": 0.597713053226471,
+                  "subtreeSize": 1,
+                  "isBestMatch": true
+                },
+                {
+                  "childName": "Full-Day Workshop",
+                  "childPath": "Full-Day Workshop",
+                  "childType": "POI",
+                  "rawScore": 0.5414076447486877,
+                  "weight": 1.0,
+                  "weightedContribution": 0.5414076447486877,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                },
+                {
+                  "childName": "Bloor Street Shopping",
+                  "childPath": "Bloor Street Shopping",
+                  "childType": "POI",
+                  "rawScore": 0.3564016819000244,
+                  "weight": 1.0,
+                  "weightedContribution": 0.3564016819000244,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                },
+                {
+                  "childName": "Lee Restaurant",
+                  "childPath": "Lee Restaurant",
+                  "childType": "Restaurant",
+                  "rawScore": 0.21539683640003204,
+                  "weight": 1.0,
+                  "weightedContribution": 0.21539683640003204,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                }
+              ],
+              "best_match_details": {
+                "type": "node_match",
+                "node_name": "Quick Grab Coffee",
+                "node_type": "Restaurant",
+                "node_path": "Quick Grab Coffee",
+                "score": 0.597713053226471,
+                "trace": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "coffee break",
+                      "operator": "=~",
+                      "span": {
+                        "start": 44,
+                        "end": 75
+                      }
+                    },
+                    "score": 0.597713053226471,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ]
+              },
+              "result": 0.597713053226471
+            }
+          ],
+          "final_score": 0.597713053226471
+        },
+        {
+          "node_idx": 4,
+          "node_id": 6310110816,
+          "node_name": "Day 5",
+          "node_type": "Day",
+          "scoring_steps": [
+            {
+              "type": "agg_exists_recursive",
+              "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+              "selector": {
+                "axis": "none",
+                "test": {
+                  "type": "leaf",
+                  "test": {
+                    "type": "node_test",
+                    "kind": "wildcard",
+                    "name": null,
+                    "span": {
+                      "start": 42,
+                      "end": 76
+                    }
+                  },
+                  "span": {
+                    "start": 42,
+                    "end": 76
+                  }
+                },
+                "span": {
+                  "start": 42,
+                  "end": 76
+                }
+              },
+              "num_children": 5,
+              "child_results": [
+                {
+                  "score": 0.29440683126449585,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.549292266368866,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.6255971193313599,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.47706738114356995,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.18564777076244354,
+                  "subtree_size": 1
+                }
+              ],
+              "child_contributions": [
+                {
+                  "childName": "Mildred's Temple Kitchen",
+                  "childPath": "Mildred's Temple Kitchen",
+                  "childType": "Restaurant",
+                  "rawScore": 0.29440683126449585,
+                  "weight": 1.0,
+                  "weightedContribution": 0.29440683126449585,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                },
+                {
+                  "childName": "Client Check-in Call",
+                  "childPath": "Client Check-in Call",
+                  "childType": "POI",
+                  "rawScore": 0.549292266368866,
+                  "weight": 1.0,
+                  "weightedContribution": 0.549292266368866,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                },
+                {
+                  "childName": "Email Catch-up Block",
+                  "childPath": "Email Catch-up Block",
+                  "childType": "POI",
+                  "rawScore": 0.6255971193313599,
+                  "weight": 1.0,
+                  "weightedContribution": 0.6255971193313599,
+                  "subtreeSize": 1,
+                  "isBestMatch": true
+                },
+                {
+                  "childName": "Networking Drinks",
+                  "childPath": "Networking Drinks",
+                  "childType": "POI",
+                  "rawScore": 0.47706738114356995,
+                  "weight": 1.0,
+                  "weightedContribution": 0.47706738114356995,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                },
+                {
+                  "childName": "Kaiseki Kaji",
+                  "childPath": "Kaiseki Kaji",
+                  "childType": "Restaurant",
+                  "rawScore": 0.18564777076244354,
+                  "weight": 1.0,
+                  "weightedContribution": 0.18564777076244354,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                }
+              ],
+              "best_match_details": {
+                "type": "node_match",
+                "node_name": "Email Catch-up Block",
+                "node_type": "POI",
+                "node_path": "Email Catch-up Block",
+                "score": 0.6255971193313599,
+                "trace": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "coffee break",
+                      "operator": "=~",
+                      "span": {
+                        "start": 44,
+                        "end": 75
+                      }
+                    },
+                    "score": 0.6255971193313599,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ]
+              },
+              "result": 0.6255971193313599
+            }
+          ],
+          "final_score": 0.6255971193313599
+        },
+        {
+          "node_idx": 5,
+          "node_id": 6309230080,
+          "node_name": "Day 6",
+          "node_type": "Day",
+          "scoring_steps": [
+            {
+              "type": "agg_exists_recursive",
+              "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+              "selector": {
+                "axis": "none",
+                "test": {
+                  "type": "leaf",
+                  "test": {
+                    "type": "node_test",
+                    "kind": "wildcard",
+                    "name": null,
+                    "span": {
+                      "start": 42,
+                      "end": 76
+                    }
+                  },
+                  "span": {
+                    "start": 42,
+                    "end": 76
+                  }
+                },
+                "span": {
+                  "start": 42,
+                  "end": 76
+                }
+              },
+              "num_children": 5,
+              "child_results": [
+                {
+                  "score": 0.27731141448020935,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.24780558049678802,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.329447865486145,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.24497078359127045,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.25725865364074707,
+                  "subtree_size": 1
+                }
+              ],
+              "child_contributions": [
+                {
+                  "childName": "Sunset Grill",
+                  "childPath": "Sunset Grill",
+                  "childType": "Restaurant",
+                  "rawScore": 0.27731141448020935,
+                  "weight": 1.0,
+                  "weightedContribution": 0.27731141448020935,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                },
+                {
+                  "childName": "Toronto Islands Ferry and Bike Ride",
+                  "childPath": "Toronto Islands Ferry and Bike Ride",
+                  "childType": "POI",
+                  "rawScore": 0.24780558049678802,
+                  "weight": 1.0,
+                  "weightedContribution": 0.24780558049678802,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                },
+                {
+                  "childName": "Island Cafe Picnic Lunch",
+                  "childPath": "Island Cafe Picnic Lunch",
+                  "childType": "Restaurant",
+                  "rawScore": 0.329447865486145,
+                  "weight": 1.0,
+                  "weightedContribution": 0.329447865486145,
+                  "subtreeSize": 1,
+                  "isBestMatch": true
+                },
+                {
+                  "childName": "Ripley's Aquarium",
+                  "childPath": "Ripley's Aquarium",
+                  "childType": "POI",
+                  "rawScore": 0.24497078359127045,
+                  "weight": 1.0,
+                  "weightedContribution": 0.24497078359127045,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                },
+                {
+                  "childName": "The Keg Steakhouse",
+                  "childPath": "The Keg Steakhouse",
+                  "childType": "Restaurant",
+                  "rawScore": 0.25725865364074707,
+                  "weight": 1.0,
+                  "weightedContribution": 0.25725865364074707,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                }
+              ],
+              "best_match_details": {
+                "type": "node_match",
+                "node_name": "Island Cafe Picnic Lunch",
+                "node_type": "Restaurant",
+                "node_path": "Island Cafe Picnic Lunch",
+                "score": 0.329447865486145,
+                "trace": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "coffee break",
+                      "operator": "=~",
+                      "span": {
+                        "start": 44,
+                        "end": 75
+                      }
+                    },
+                    "score": 0.329447865486145,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ]
+              },
+              "result": 0.329447865486145
+            }
+          ],
+          "final_score": 0.329447865486145
+        },
+        {
+          "node_idx": 6,
+          "node_id": 6309221360,
+          "node_name": "Day 7",
+          "node_type": "Day",
+          "scoring_steps": [
+            {
+              "type": "agg_exists_recursive",
+              "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+              "selector": {
+                "axis": "none",
+                "test": {
+                  "type": "leaf",
+                  "test": {
+                    "type": "node_test",
+                    "kind": "wildcard",
+                    "name": null,
+                    "span": {
+                      "start": 42,
+                      "end": 76
+                    }
+                  },
+                  "span": {
+                    "start": 42,
+                    "end": 76
+                  }
+                },
+                "span": {
+                  "start": 42,
+                  "end": 76
+                }
+              },
+              "num_children": 5,
+              "child_results": [
+                {
+                  "score": 0.38968902826309204,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.29043036699295044,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.24492737650871277,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.3069566488265991,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.22935622930526733,
+                  "subtree_size": 1
+                }
+              ],
+              "child_contributions": [
+                {
+                  "childName": "Fran's Restaurant",
+                  "childPath": "Fran's Restaurant",
+                  "childType": "Restaurant",
+                  "rawScore": 0.38968902826309204,
+                  "weight": 1.0,
+                  "weightedContribution": 0.38968902826309204,
+                  "subtreeSize": 1,
+                  "isBestMatch": true
+                },
+                {
+                  "childName": "Royal Ontario Museum",
+                  "childPath": "Royal Ontario Museum",
+                  "childType": "POI",
+                  "rawScore": 0.29043036699295044,
+                  "weight": 1.0,
+                  "weightedContribution": 0.29043036699295044,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                },
+                {
+                  "childName": "Eataly Toronto",
+                  "childPath": "Eataly Toronto",
+                  "childType": "Restaurant",
+                  "rawScore": 0.24492737650871277,
+                  "weight": 1.0,
+                  "weightedContribution": 0.24492737650871277,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                },
+                {
+                  "childName": "Distillery District Walk",
+                  "childPath": "Distillery District Walk",
+                  "childType": "POI",
+                  "rawScore": 0.3069566488265991,
+                  "weight": 1.0,
+                  "weightedContribution": 0.3069566488265991,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                },
+                {
+                  "childName": "Cluny Bistro",
+                  "childPath": "Cluny Bistro",
+                  "childType": "Restaurant",
+                  "rawScore": 0.22935622930526733,
+                  "weight": 1.0,
+                  "weightedContribution": 0.22935622930526733,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                }
+              ],
+              "best_match_details": {
+                "type": "node_match",
+                "node_name": "Fran's Restaurant",
+                "node_type": "Restaurant",
+                "node_path": "Fran's Restaurant",
+                "score": 0.38968902826309204,
+                "trace": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "coffee break",
+                      "operator": "=~",
+                      "span": {
+                        "start": 44,
+                        "end": 75
+                      }
+                    },
+                    "score": 0.38968902826309204,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ]
+              },
+              "result": 0.38968902826309204
+            }
+          ],
+          "final_score": 0.38968902826309204
+        },
+        {
+          "node_idx": 7,
+          "node_id": 6309227520,
+          "node_name": "Day 8",
+          "node_type": "Day",
+          "scoring_steps": [
+            {
+              "type": "agg_exists_recursive",
+              "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+              "selector": {
+                "axis": "none",
+                "test": {
+                  "type": "leaf",
+                  "test": {
+                    "type": "node_test",
+                    "kind": "wildcard",
+                    "name": null,
+                    "span": {
+                      "start": 42,
+                      "end": 76
+                    }
+                  },
+                  "span": {
+                    "start": 42,
+                    "end": 76
+                  }
+                },
+                "span": {
+                  "start": 42,
+                  "end": 76
+                }
+              },
+              "num_children": 3,
+              "child_results": [
+                {
+                  "score": 0.26954424381256104,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.2612188458442688,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.2476631999015808,
+                  "subtree_size": 1
+                }
+              ],
+              "child_contributions": [
+                {
+                  "childName": "Niagara Falls Day Trip",
+                  "childPath": "Niagara Falls Day Trip",
+                  "childType": "POI",
+                  "rawScore": 0.26954424381256104,
+                  "weight": 1.0,
+                  "weightedContribution": 0.26954424381256104,
+                  "subtreeSize": 1,
+                  "isBestMatch": true
+                },
+                {
+                  "childName": "Elements on the Falls",
+                  "childPath": "Elements on the Falls",
+                  "childType": "Restaurant",
+                  "rawScore": 0.2612188458442688,
+                  "weight": 1.0,
+                  "weightedContribution": 0.2612188458442688,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                },
+                {
+                  "childName": "Antler Kitchen",
+                  "childPath": "Antler Kitchen",
+                  "childType": "Restaurant",
+                  "rawScore": 0.2476631999015808,
+                  "weight": 1.0,
+                  "weightedContribution": 0.2476631999015808,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                }
+              ],
+              "best_match_details": {
+                "type": "node_match",
+                "node_name": "Niagara Falls Day Trip",
+                "node_type": "POI",
+                "node_path": "Niagara Falls Day Trip",
+                "score": 0.26954424381256104,
+                "trace": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "coffee break",
+                      "operator": "=~",
+                      "span": {
+                        "start": 44,
+                        "end": 75
+                      }
+                    },
+                    "score": 0.26954424381256104,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ]
+              },
+              "result": 0.26954424381256104
+            }
+          ],
+          "final_score": 0.26954424381256104
+        },
+        {
+          "node_idx": 8,
+          "node_id": 6309229760,
+          "node_name": "Day 9",
+          "node_type": "Day",
+          "scoring_steps": [
+            {
+              "type": "agg_exists_recursive",
+              "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+              "selector": {
+                "axis": "none",
+                "test": {
+                  "type": "leaf",
+                  "test": {
+                    "type": "node_test",
+                    "kind": "wildcard",
+                    "name": null,
+                    "span": {
+                      "start": 42,
+                      "end": 76
+                    }
+                  },
+                  "span": {
+                    "start": 42,
+                    "end": 76
+                  }
+                },
+                "span": {
+                  "start": 42,
+                  "end": 76
+                }
+              },
+              "num_children": 5,
+              "child_results": [
+                {
+                  "score": 0.38024646043777466,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.35177528858184814,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.28540733456611633,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.3183371424674988,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.26281893253326416,
+                  "subtree_size": 1
+                }
+              ],
+              "child_contributions": [
+                {
+                  "childName": "Lady Marmalade",
+                  "childPath": "Lady Marmalade",
+                  "childType": "Restaurant",
+                  "rawScore": 0.38024646043777466,
+                  "weight": 1.0,
+                  "weightedContribution": 0.38024646043777466,
+                  "subtreeSize": 1,
+                  "isBestMatch": true
+                },
+                {
+                  "childName": "Eaton Centre Shopping",
+                  "childPath": "Eaton Centre Shopping",
+                  "childType": "POI",
+                  "rawScore": 0.35177528858184814,
+                  "weight": 1.0,
+                  "weightedContribution": 0.35177528858184814,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                },
+                {
+                  "childName": "Urban Eatery Food Court",
+                  "childPath": "Urban Eatery Food Court",
+                  "childType": "Restaurant",
+                  "rawScore": 0.28540733456611633,
+                  "weight": 1.0,
+                  "weightedContribution": 0.28540733456611633,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                },
+                {
+                  "childName": "Queen Street West Boutiques",
+                  "childPath": "Queen Street West Boutiques",
+                  "childType": "POI",
+                  "rawScore": 0.3183371424674988,
+                  "weight": 1.0,
+                  "weightedContribution": 0.3183371424674988,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                },
+                {
+                  "childName": "Bar Isabel",
+                  "childPath": "Bar Isabel",
+                  "childType": "Restaurant",
+                  "rawScore": 0.26281893253326416,
+                  "weight": 1.0,
+                  "weightedContribution": 0.26281893253326416,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                }
+              ],
+              "best_match_details": {
+                "type": "node_match",
+                "node_name": "Lady Marmalade",
+                "node_type": "Restaurant",
+                "node_path": "Lady Marmalade",
+                "score": 0.38024646043777466,
+                "trace": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "coffee break",
+                      "operator": "=~",
+                      "span": {
+                        "start": 44,
+                        "end": 75
+                      }
+                    },
+                    "score": 0.38024646043777466,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ]
+              },
+              "result": 0.38024646043777466
+            }
+          ],
+          "final_score": 0.38024646043777466
+        },
+        {
+          "node_idx": 9,
+          "node_id": 6309218800,
+          "node_name": "Day 10",
+          "node_type": "Day",
+          "scoring_steps": [
+            {
+              "type": "agg_exists_recursive",
+              "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+              "selector": {
+                "axis": "none",
+                "test": {
+                  "type": "leaf",
+                  "test": {
+                    "type": "node_test",
+                    "kind": "wildcard",
+                    "name": null,
+                    "span": {
+                      "start": 42,
+                      "end": 76
+                    }
+                  },
+                  "span": {
+                    "start": 42,
+                    "end": 76
+                  }
+                },
+                "span": {
+                  "start": 42,
+                  "end": 76
+                }
+              },
+              "num_children": 5,
+              "child_results": [
+                {
+                  "score": 0.5015609264373779,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.3516119122505188,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.2593824863433838,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.567750096321106,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.4480704665184021,
+                  "subtree_size": 1
+                }
+              ],
+              "child_contributions": [
+                {
+                  "childName": "Hotel Quick Checkout Breakfast",
+                  "childPath": "Hotel Quick Checkout Breakfast",
+                  "childType": "Restaurant",
+                  "rawScore": 0.5015609264373779,
+                  "weight": 1.0,
+                  "weightedContribution": 0.5015609264373779,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                },
+                {
+                  "childName": "CN Tower EdgeWalk",
+                  "childPath": "CN Tower EdgeWalk",
+                  "childType": "POI",
+                  "rawScore": 0.3516119122505188,
+                  "weight": 1.0,
+                  "weightedContribution": 0.3516119122505188,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                },
+                {
+                  "childName": "360 Restaurant at CN Tower",
+                  "childPath": "360 Restaurant at CN Tower",
+                  "childType": "Restaurant",
+                  "rawScore": 0.2593824863433838,
+                  "weight": 1.0,
+                  "weightedContribution": 0.2593824863433838,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                },
+                {
+                  "childName": "Airport Snack Stop",
+                  "childPath": "Airport Snack Stop",
+                  "childType": "POI",
+                  "rawScore": 0.567750096321106,
+                  "weight": 1.0,
+                  "weightedContribution": 0.567750096321106,
+                  "subtreeSize": 1,
+                  "isBestMatch": true
+                },
+                {
+                  "childName": "YYZ Departure",
+                  "childPath": "YYZ Departure",
+                  "childType": "POI",
+                  "rawScore": 0.4480704665184021,
+                  "weight": 1.0,
+                  "weightedContribution": 0.4480704665184021,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                }
+              ],
+              "best_match_details": {
+                "type": "node_match",
+                "node_name": "Airport Snack Stop",
+                "node_type": "POI",
+                "node_path": "Airport Snack Stop",
+                "score": 0.567750096321106,
+                "trace": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "coffee break",
+                      "operator": "=~",
+                      "span": {
+                        "start": 44,
+                        "end": 75
+                      }
+                    },
+                    "score": 0.567750096321106,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ]
+              },
+              "result": 0.567750096321106
+            }
+          ],
+          "final_score": 0.567750096321106
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "coffee break"
+        ],
+        "per_value_stats": [
+          {
+            "value": "coffee break",
+            "num_descriptions": 43,
+            "call_time_ms": 56.51
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 43
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 4,
+          "score": 0.6255971193313599,
+          "name": "Day 5"
+        },
+        {
+          "idx": 3,
+          "score": 0.597713053226471,
+          "name": "Day 4"
+        },
+        {
+          "idx": 9,
+          "score": 0.567750096321106,
+          "name": "Day 10"
+        },
+        {
+          "idx": 1,
+          "score": 0.5265246033668518,
+          "name": "Day 2"
+        },
+        {
+          "idx": 2,
+          "score": 0.4946852922439575,
+          "name": "Day 3"
+        },
+        {
+          "idx": 0,
+          "score": 0.3945447504520416,
+          "name": "Day 1"
+        },
+        {
+          "idx": 6,
+          "score": 0.38968902826309204,
+          "name": "Day 7"
+        },
+        {
+          "idx": 8,
+          "score": 0.38024646043777466,
+          "name": "Day 9"
+        },
+        {
+          "idx": 5,
+          "score": 0.329447865486145,
+          "name": "Day 6"
+        },
+        {
+          "idx": 7,
+          "score": 0.26954424381256104,
+          "name": "Day 8"
+        }
+      ]
+    }
+  ],
+  "scoring_details": {
+    "step_scores": [
+      {
+        "step_index": 0,
+        "predicate": "agg_exists(*[atom(content =~ \"coffee break\")])",
+        "predicate_ast": {
+          "operator": "AGG_EXISTS",
+          "selector": {
+            "axis": "none",
+            "test": {
+              "type": "leaf",
+              "test": {
+                "type": "node_test",
+                "kind": "wildcard",
+                "name": null,
+                "span": {
+                  "start": 42,
+                  "end": 76
+                }
+              },
+              "span": {
+                "start": 42,
+                "end": 76
+              }
+            },
+            "span": {
+              "start": 42,
+              "end": 76
+            }
+          },
+          "child_predicate": {
+            "type": "atom",
+            "field": "content",
+            "value": "coffee break",
+            "operator": "=~",
+            "span": {
+              "start": 44,
+              "end": 75
+            }
+          },
+          "span": {
+            "start": 31,
+            "end": 77
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 6310105696,
+            "node_name": "Day 1",
+            "node_type": "Day",
+            "scoring_steps": [
+              {
+                "type": "agg_exists_recursive",
+                "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+                "selector": {
+                  "axis": "none",
+                  "test": {
+                    "type": "leaf",
+                    "test": {
+                      "type": "node_test",
+                      "kind": "wildcard",
+                      "name": null,
+                      "span": {
+                        "start": 42,
+                        "end": 76
+                      }
+                    },
+                    "span": {
+                      "start": 42,
+                      "end": 76
+                    }
+                  },
+                  "span": {
+                    "start": 42,
+                    "end": 76
+                  }
+                },
+                "num_children": 3,
+                "child_results": [
+                  {
+                    "score": 0.3637518584728241,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.3945447504520416,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.195539191365242,
+                    "subtree_size": 1
+                  }
+                ],
+                "child_contributions": [
+                  {
+                    "childName": "YYZ Airport Arrival",
+                    "childPath": "YYZ Airport Arrival",
+                    "childType": "POI",
+                    "rawScore": 0.3637518584728241,
+                    "weight": 1.0,
+                    "weightedContribution": 0.3637518584728241,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  },
+                  {
+                    "childName": "Harbourfront Stroll",
+                    "childPath": "Harbourfront Stroll",
+                    "childType": "POI",
+                    "rawScore": 0.3945447504520416,
+                    "weight": 1.0,
+                    "weightedContribution": 0.3945447504520416,
+                    "subtreeSize": 1,
+                    "isBestMatch": true
+                  },
+                  {
+                    "childName": "Canoe Restaurant",
+                    "childPath": "Canoe Restaurant",
+                    "childType": "Restaurant",
+                    "rawScore": 0.195539191365242,
+                    "weight": 1.0,
+                    "weightedContribution": 0.195539191365242,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  }
+                ],
+                "best_match_details": {
+                  "type": "node_match",
+                  "node_name": "Harbourfront Stroll",
+                  "node_type": "POI",
+                  "node_path": "Harbourfront Stroll",
+                  "score": 0.3945447504520416,
+                  "trace": [
+                    {
+                      "type": "atom",
+                      "condition": {
+                        "type": "atom",
+                        "field": "content",
+                        "value": "coffee break",
+                        "operator": "=~",
+                        "span": {
+                          "start": 44,
+                          "end": 75
+                        }
+                      },
+                      "score": 0.3945447504520416,
+                      "note": "Atom(u, φ) - local node content from attr(u)"
+                    }
+                  ]
+                },
+                "result": 0.3945447504520416
+              }
+            ],
+            "final_score": 0.3945447504520416
+          },
+          {
+            "node_idx": 1,
+            "node_id": 6310114096,
+            "node_name": "Day 2",
+            "node_type": "Day",
+            "scoring_steps": [
+              {
+                "type": "agg_exists_recursive",
+                "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+                "selector": {
+                  "axis": "none",
+                  "test": {
+                    "type": "leaf",
+                    "test": {
+                      "type": "node_test",
+                      "kind": "wildcard",
+                      "name": null,
+                      "span": {
+                        "start": 42,
+                        "end": 76
+                      }
+                    },
+                    "span": {
+                      "start": 42,
+                      "end": 76
+                    }
+                  },
+                  "span": {
+                    "start": 42,
+                    "end": 76
+                  }
+                },
+                "num_children": 3,
+                "child_results": [
+                  {
+                    "score": 0.5265246033668518,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.4446065425872803,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.20299243927001953,
+                    "subtree_size": 1
+                  }
+                ],
+                "child_contributions": [
+                  {
+                    "childName": "Client Kickoff Meeting",
+                    "childPath": "Client Kickoff Meeting",
+                    "childType": "POI",
+                    "rawScore": 0.5265246033668518,
+                    "weight": 1.0,
+                    "weightedContribution": 0.5265246033668518,
+                    "subtreeSize": 1,
+                    "isBestMatch": true
+                  },
+                  {
+                    "childName": "Strategy Workshop",
+                    "childPath": "Strategy Workshop",
+                    "childType": "POI",
+                    "rawScore": 0.4446065425872803,
+                    "weight": 1.0,
+                    "weightedContribution": 0.4446065425872803,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  },
+                  {
+                    "childName": "Alo Restaurant",
+                    "childPath": "Alo Restaurant",
+                    "childType": "Restaurant",
+                    "rawScore": 0.20299243927001953,
+                    "weight": 1.0,
+                    "weightedContribution": 0.20299243927001953,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  }
+                ],
+                "best_match_details": {
+                  "type": "node_match",
+                  "node_name": "Client Kickoff Meeting",
+                  "node_type": "POI",
+                  "node_path": "Client Kickoff Meeting",
+                  "score": 0.5265246033668518,
+                  "trace": [
+                    {
+                      "type": "atom",
+                      "condition": {
+                        "type": "atom",
+                        "field": "content",
+                        "value": "coffee break",
+                        "operator": "=~",
+                        "span": {
+                          "start": 44,
+                          "end": 75
+                        }
+                      },
+                      "score": 0.5265246033668518,
+                      "note": "Atom(u, φ) - local node content from attr(u)"
+                    }
+                  ]
+                },
+                "result": 0.5265246033668518
+              }
+            ],
+            "final_score": 0.5265246033668518
+          },
+          {
+            "node_idx": 2,
+            "node_id": 6310109216,
+            "node_name": "Day 3",
+            "node_type": "Day",
+            "scoring_steps": [
+              {
+                "type": "agg_exists_recursive",
+                "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+                "selector": {
+                  "axis": "none",
+                  "test": {
+                    "type": "leaf",
+                    "test": {
+                      "type": "node_test",
+                      "kind": "wildcard",
+                      "name": null,
+                      "span": {
+                        "start": 42,
+                        "end": 76
+                      }
+                    },
+                    "span": {
+                      "start": 42,
+                      "end": 76
+                    }
+                  },
+                  "span": {
+                    "start": 42,
+                    "end": 76
+                  }
+                },
+                "num_children": 5,
+                "child_results": [
+                  {
+                    "score": 0.4283050298690796,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.4946852922439575,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.2897799611091614,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.2770252227783203,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.1847817748785019,
+                    "subtree_size": 1
+                  }
+                ],
+                "child_contributions": [
+                  {
+                    "childName": "Hotel Continental Breakfast",
+                    "childPath": "Hotel Continental Breakfast",
+                    "childType": "Restaurant",
+                    "rawScore": 0.4283050298690796,
+                    "weight": 1.0,
+                    "weightedContribution": 0.4283050298690796,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  },
+                  {
+                    "childName": "Stakeholder Presentation",
+                    "childPath": "Stakeholder Presentation",
+                    "childType": "POI",
+                    "rawScore": 0.4946852922439575,
+                    "weight": 1.0,
+                    "weightedContribution": 0.4946852922439575,
+                    "subtreeSize": 1,
+                    "isBestMatch": true
+                  },
+                  {
+                    "childName": "Art Gallery of Ontario",
+                    "childPath": "Art Gallery of Ontario",
+                    "childType": "POI",
+                    "rawScore": 0.2897799611091614,
+                    "weight": 1.0,
+                    "weightedContribution": 0.2897799611091614,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  },
+                  {
+                    "childName": "FRANK Restaurant at AGO",
+                    "childPath": "FRANK Restaurant at AGO",
+                    "childType": "Restaurant",
+                    "rawScore": 0.2770252227783203,
+                    "weight": 1.0,
+                    "weightedContribution": 0.2770252227783203,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  },
+                  {
+                    "childName": "Pai Northern Thai",
+                    "childPath": "Pai Northern Thai",
+                    "childType": "Restaurant",
+                    "rawScore": 0.1847817748785019,
+                    "weight": 1.0,
+                    "weightedContribution": 0.1847817748785019,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  }
+                ],
+                "best_match_details": {
+                  "type": "node_match",
+                  "node_name": "Stakeholder Presentation",
+                  "node_type": "POI",
+                  "node_path": "Stakeholder Presentation",
+                  "score": 0.4946852922439575,
+                  "trace": [
+                    {
+                      "type": "atom",
+                      "condition": {
+                        "type": "atom",
+                        "field": "content",
+                        "value": "coffee break",
+                        "operator": "=~",
+                        "span": {
+                          "start": 44,
+                          "end": 75
+                        }
+                      },
+                      "score": 0.4946852922439575,
+                      "note": "Atom(u, φ) - local node content from attr(u)"
+                    }
+                  ]
+                },
+                "result": 0.4946852922439575
+              }
+            ],
+            "final_score": 0.4946852922439575
+          },
+          {
+            "node_idx": 3,
+            "node_id": 6310103456,
+            "node_name": "Day 4",
+            "node_type": "Day",
+            "scoring_steps": [
+              {
+                "type": "agg_exists_recursive",
+                "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+                "selector": {
+                  "axis": "none",
+                  "test": {
+                    "type": "leaf",
+                    "test": {
+                      "type": "node_test",
+                      "kind": "wildcard",
+                      "name": null,
+                      "span": {
+                        "start": 42,
+                        "end": 76
+                      }
+                    },
+                    "span": {
+                      "start": 42,
+                      "end": 76
+                    }
+                  },
+                  "span": {
+                    "start": 42,
+                    "end": 76
+                  }
+                },
+                "num_children": 4,
+                "child_results": [
+                  {
+                    "score": 0.597713053226471,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.5414076447486877,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.3564016819000244,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.21539683640003204,
+                    "subtree_size": 1
+                  }
+                ],
+                "child_contributions": [
+                  {
+                    "childName": "Quick Grab Coffee",
+                    "childPath": "Quick Grab Coffee",
+                    "childType": "Restaurant",
+                    "rawScore": 0.597713053226471,
+                    "weight": 1.0,
+                    "weightedContribution": 0.597713053226471,
+                    "subtreeSize": 1,
+                    "isBestMatch": true
+                  },
+                  {
+                    "childName": "Full-Day Workshop",
+                    "childPath": "Full-Day Workshop",
+                    "childType": "POI",
+                    "rawScore": 0.5414076447486877,
+                    "weight": 1.0,
+                    "weightedContribution": 0.5414076447486877,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  },
+                  {
+                    "childName": "Bloor Street Shopping",
+                    "childPath": "Bloor Street Shopping",
+                    "childType": "POI",
+                    "rawScore": 0.3564016819000244,
+                    "weight": 1.0,
+                    "weightedContribution": 0.3564016819000244,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  },
+                  {
+                    "childName": "Lee Restaurant",
+                    "childPath": "Lee Restaurant",
+                    "childType": "Restaurant",
+                    "rawScore": 0.21539683640003204,
+                    "weight": 1.0,
+                    "weightedContribution": 0.21539683640003204,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  }
+                ],
+                "best_match_details": {
+                  "type": "node_match",
+                  "node_name": "Quick Grab Coffee",
+                  "node_type": "Restaurant",
+                  "node_path": "Quick Grab Coffee",
+                  "score": 0.597713053226471,
+                  "trace": [
+                    {
+                      "type": "atom",
+                      "condition": {
+                        "type": "atom",
+                        "field": "content",
+                        "value": "coffee break",
+                        "operator": "=~",
+                        "span": {
+                          "start": 44,
+                          "end": 75
+                        }
+                      },
+                      "score": 0.597713053226471,
+                      "note": "Atom(u, φ) - local node content from attr(u)"
+                    }
+                  ]
+                },
+                "result": 0.597713053226471
+              }
+            ],
+            "final_score": 0.597713053226471
+          },
+          {
+            "node_idx": 4,
+            "node_id": 6310110816,
+            "node_name": "Day 5",
+            "node_type": "Day",
+            "scoring_steps": [
+              {
+                "type": "agg_exists_recursive",
+                "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+                "selector": {
+                  "axis": "none",
+                  "test": {
+                    "type": "leaf",
+                    "test": {
+                      "type": "node_test",
+                      "kind": "wildcard",
+                      "name": null,
+                      "span": {
+                        "start": 42,
+                        "end": 76
+                      }
+                    },
+                    "span": {
+                      "start": 42,
+                      "end": 76
+                    }
+                  },
+                  "span": {
+                    "start": 42,
+                    "end": 76
+                  }
+                },
+                "num_children": 5,
+                "child_results": [
+                  {
+                    "score": 0.29440683126449585,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.549292266368866,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.6255971193313599,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.47706738114356995,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.18564777076244354,
+                    "subtree_size": 1
+                  }
+                ],
+                "child_contributions": [
+                  {
+                    "childName": "Mildred's Temple Kitchen",
+                    "childPath": "Mildred's Temple Kitchen",
+                    "childType": "Restaurant",
+                    "rawScore": 0.29440683126449585,
+                    "weight": 1.0,
+                    "weightedContribution": 0.29440683126449585,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  },
+                  {
+                    "childName": "Client Check-in Call",
+                    "childPath": "Client Check-in Call",
+                    "childType": "POI",
+                    "rawScore": 0.549292266368866,
+                    "weight": 1.0,
+                    "weightedContribution": 0.549292266368866,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  },
+                  {
+                    "childName": "Email Catch-up Block",
+                    "childPath": "Email Catch-up Block",
+                    "childType": "POI",
+                    "rawScore": 0.6255971193313599,
+                    "weight": 1.0,
+                    "weightedContribution": 0.6255971193313599,
+                    "subtreeSize": 1,
+                    "isBestMatch": true
+                  },
+                  {
+                    "childName": "Networking Drinks",
+                    "childPath": "Networking Drinks",
+                    "childType": "POI",
+                    "rawScore": 0.47706738114356995,
+                    "weight": 1.0,
+                    "weightedContribution": 0.47706738114356995,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  },
+                  {
+                    "childName": "Kaiseki Kaji",
+                    "childPath": "Kaiseki Kaji",
+                    "childType": "Restaurant",
+                    "rawScore": 0.18564777076244354,
+                    "weight": 1.0,
+                    "weightedContribution": 0.18564777076244354,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  }
+                ],
+                "best_match_details": {
+                  "type": "node_match",
+                  "node_name": "Email Catch-up Block",
+                  "node_type": "POI",
+                  "node_path": "Email Catch-up Block",
+                  "score": 0.6255971193313599,
+                  "trace": [
+                    {
+                      "type": "atom",
+                      "condition": {
+                        "type": "atom",
+                        "field": "content",
+                        "value": "coffee break",
+                        "operator": "=~",
+                        "span": {
+                          "start": 44,
+                          "end": 75
+                        }
+                      },
+                      "score": 0.6255971193313599,
+                      "note": "Atom(u, φ) - local node content from attr(u)"
+                    }
+                  ]
+                },
+                "result": 0.6255971193313599
+              }
+            ],
+            "final_score": 0.6255971193313599
+          },
+          {
+            "node_idx": 5,
+            "node_id": 6309230080,
+            "node_name": "Day 6",
+            "node_type": "Day",
+            "scoring_steps": [
+              {
+                "type": "agg_exists_recursive",
+                "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+                "selector": {
+                  "axis": "none",
+                  "test": {
+                    "type": "leaf",
+                    "test": {
+                      "type": "node_test",
+                      "kind": "wildcard",
+                      "name": null,
+                      "span": {
+                        "start": 42,
+                        "end": 76
+                      }
+                    },
+                    "span": {
+                      "start": 42,
+                      "end": 76
+                    }
+                  },
+                  "span": {
+                    "start": 42,
+                    "end": 76
+                  }
+                },
+                "num_children": 5,
+                "child_results": [
+                  {
+                    "score": 0.27731141448020935,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.24780558049678802,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.329447865486145,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.24497078359127045,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.25725865364074707,
+                    "subtree_size": 1
+                  }
+                ],
+                "child_contributions": [
+                  {
+                    "childName": "Sunset Grill",
+                    "childPath": "Sunset Grill",
+                    "childType": "Restaurant",
+                    "rawScore": 0.27731141448020935,
+                    "weight": 1.0,
+                    "weightedContribution": 0.27731141448020935,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  },
+                  {
+                    "childName": "Toronto Islands Ferry and Bike Ride",
+                    "childPath": "Toronto Islands Ferry and Bike Ride",
+                    "childType": "POI",
+                    "rawScore": 0.24780558049678802,
+                    "weight": 1.0,
+                    "weightedContribution": 0.24780558049678802,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  },
+                  {
+                    "childName": "Island Cafe Picnic Lunch",
+                    "childPath": "Island Cafe Picnic Lunch",
+                    "childType": "Restaurant",
+                    "rawScore": 0.329447865486145,
+                    "weight": 1.0,
+                    "weightedContribution": 0.329447865486145,
+                    "subtreeSize": 1,
+                    "isBestMatch": true
+                  },
+                  {
+                    "childName": "Ripley's Aquarium",
+                    "childPath": "Ripley's Aquarium",
+                    "childType": "POI",
+                    "rawScore": 0.24497078359127045,
+                    "weight": 1.0,
+                    "weightedContribution": 0.24497078359127045,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  },
+                  {
+                    "childName": "The Keg Steakhouse",
+                    "childPath": "The Keg Steakhouse",
+                    "childType": "Restaurant",
+                    "rawScore": 0.25725865364074707,
+                    "weight": 1.0,
+                    "weightedContribution": 0.25725865364074707,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  }
+                ],
+                "best_match_details": {
+                  "type": "node_match",
+                  "node_name": "Island Cafe Picnic Lunch",
+                  "node_type": "Restaurant",
+                  "node_path": "Island Cafe Picnic Lunch",
+                  "score": 0.329447865486145,
+                  "trace": [
+                    {
+                      "type": "atom",
+                      "condition": {
+                        "type": "atom",
+                        "field": "content",
+                        "value": "coffee break",
+                        "operator": "=~",
+                        "span": {
+                          "start": 44,
+                          "end": 75
+                        }
+                      },
+                      "score": 0.329447865486145,
+                      "note": "Atom(u, φ) - local node content from attr(u)"
+                    }
+                  ]
+                },
+                "result": 0.329447865486145
+              }
+            ],
+            "final_score": 0.329447865486145
+          },
+          {
+            "node_idx": 6,
+            "node_id": 6309221360,
+            "node_name": "Day 7",
+            "node_type": "Day",
+            "scoring_steps": [
+              {
+                "type": "agg_exists_recursive",
+                "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+                "selector": {
+                  "axis": "none",
+                  "test": {
+                    "type": "leaf",
+                    "test": {
+                      "type": "node_test",
+                      "kind": "wildcard",
+                      "name": null,
+                      "span": {
+                        "start": 42,
+                        "end": 76
+                      }
+                    },
+                    "span": {
+                      "start": 42,
+                      "end": 76
+                    }
+                  },
+                  "span": {
+                    "start": 42,
+                    "end": 76
+                  }
+                },
+                "num_children": 5,
+                "child_results": [
+                  {
+                    "score": 0.38968902826309204,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.29043036699295044,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.24492737650871277,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.3069566488265991,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.22935622930526733,
+                    "subtree_size": 1
+                  }
+                ],
+                "child_contributions": [
+                  {
+                    "childName": "Fran's Restaurant",
+                    "childPath": "Fran's Restaurant",
+                    "childType": "Restaurant",
+                    "rawScore": 0.38968902826309204,
+                    "weight": 1.0,
+                    "weightedContribution": 0.38968902826309204,
+                    "subtreeSize": 1,
+                    "isBestMatch": true
+                  },
+                  {
+                    "childName": "Royal Ontario Museum",
+                    "childPath": "Royal Ontario Museum",
+                    "childType": "POI",
+                    "rawScore": 0.29043036699295044,
+                    "weight": 1.0,
+                    "weightedContribution": 0.29043036699295044,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  },
+                  {
+                    "childName": "Eataly Toronto",
+                    "childPath": "Eataly Toronto",
+                    "childType": "Restaurant",
+                    "rawScore": 0.24492737650871277,
+                    "weight": 1.0,
+                    "weightedContribution": 0.24492737650871277,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  },
+                  {
+                    "childName": "Distillery District Walk",
+                    "childPath": "Distillery District Walk",
+                    "childType": "POI",
+                    "rawScore": 0.3069566488265991,
+                    "weight": 1.0,
+                    "weightedContribution": 0.3069566488265991,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  },
+                  {
+                    "childName": "Cluny Bistro",
+                    "childPath": "Cluny Bistro",
+                    "childType": "Restaurant",
+                    "rawScore": 0.22935622930526733,
+                    "weight": 1.0,
+                    "weightedContribution": 0.22935622930526733,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  }
+                ],
+                "best_match_details": {
+                  "type": "node_match",
+                  "node_name": "Fran's Restaurant",
+                  "node_type": "Restaurant",
+                  "node_path": "Fran's Restaurant",
+                  "score": 0.38968902826309204,
+                  "trace": [
+                    {
+                      "type": "atom",
+                      "condition": {
+                        "type": "atom",
+                        "field": "content",
+                        "value": "coffee break",
+                        "operator": "=~",
+                        "span": {
+                          "start": 44,
+                          "end": 75
+                        }
+                      },
+                      "score": 0.38968902826309204,
+                      "note": "Atom(u, φ) - local node content from attr(u)"
+                    }
+                  ]
+                },
+                "result": 0.38968902826309204
+              }
+            ],
+            "final_score": 0.38968902826309204
+          },
+          {
+            "node_idx": 7,
+            "node_id": 6309227520,
+            "node_name": "Day 8",
+            "node_type": "Day",
+            "scoring_steps": [
+              {
+                "type": "agg_exists_recursive",
+                "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+                "selector": {
+                  "axis": "none",
+                  "test": {
+                    "type": "leaf",
+                    "test": {
+                      "type": "node_test",
+                      "kind": "wildcard",
+                      "name": null,
+                      "span": {
+                        "start": 42,
+                        "end": 76
+                      }
+                    },
+                    "span": {
+                      "start": 42,
+                      "end": 76
+                    }
+                  },
+                  "span": {
+                    "start": 42,
+                    "end": 76
+                  }
+                },
+                "num_children": 3,
+                "child_results": [
+                  {
+                    "score": 0.26954424381256104,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.2612188458442688,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.2476631999015808,
+                    "subtree_size": 1
+                  }
+                ],
+                "child_contributions": [
+                  {
+                    "childName": "Niagara Falls Day Trip",
+                    "childPath": "Niagara Falls Day Trip",
+                    "childType": "POI",
+                    "rawScore": 0.26954424381256104,
+                    "weight": 1.0,
+                    "weightedContribution": 0.26954424381256104,
+                    "subtreeSize": 1,
+                    "isBestMatch": true
+                  },
+                  {
+                    "childName": "Elements on the Falls",
+                    "childPath": "Elements on the Falls",
+                    "childType": "Restaurant",
+                    "rawScore": 0.2612188458442688,
+                    "weight": 1.0,
+                    "weightedContribution": 0.2612188458442688,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  },
+                  {
+                    "childName": "Antler Kitchen",
+                    "childPath": "Antler Kitchen",
+                    "childType": "Restaurant",
+                    "rawScore": 0.2476631999015808,
+                    "weight": 1.0,
+                    "weightedContribution": 0.2476631999015808,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  }
+                ],
+                "best_match_details": {
+                  "type": "node_match",
+                  "node_name": "Niagara Falls Day Trip",
+                  "node_type": "POI",
+                  "node_path": "Niagara Falls Day Trip",
+                  "score": 0.26954424381256104,
+                  "trace": [
+                    {
+                      "type": "atom",
+                      "condition": {
+                        "type": "atom",
+                        "field": "content",
+                        "value": "coffee break",
+                        "operator": "=~",
+                        "span": {
+                          "start": 44,
+                          "end": 75
+                        }
+                      },
+                      "score": 0.26954424381256104,
+                      "note": "Atom(u, φ) - local node content from attr(u)"
+                    }
+                  ]
+                },
+                "result": 0.26954424381256104
+              }
+            ],
+            "final_score": 0.26954424381256104
+          },
+          {
+            "node_idx": 8,
+            "node_id": 6309229760,
+            "node_name": "Day 9",
+            "node_type": "Day",
+            "scoring_steps": [
+              {
+                "type": "agg_exists_recursive",
+                "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+                "selector": {
+                  "axis": "none",
+                  "test": {
+                    "type": "leaf",
+                    "test": {
+                      "type": "node_test",
+                      "kind": "wildcard",
+                      "name": null,
+                      "span": {
+                        "start": 42,
+                        "end": 76
+                      }
+                    },
+                    "span": {
+                      "start": 42,
+                      "end": 76
+                    }
+                  },
+                  "span": {
+                    "start": 42,
+                    "end": 76
+                  }
+                },
+                "num_children": 5,
+                "child_results": [
+                  {
+                    "score": 0.38024646043777466,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.35177528858184814,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.28540733456611633,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.3183371424674988,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.26281893253326416,
+                    "subtree_size": 1
+                  }
+                ],
+                "child_contributions": [
+                  {
+                    "childName": "Lady Marmalade",
+                    "childPath": "Lady Marmalade",
+                    "childType": "Restaurant",
+                    "rawScore": 0.38024646043777466,
+                    "weight": 1.0,
+                    "weightedContribution": 0.38024646043777466,
+                    "subtreeSize": 1,
+                    "isBestMatch": true
+                  },
+                  {
+                    "childName": "Eaton Centre Shopping",
+                    "childPath": "Eaton Centre Shopping",
+                    "childType": "POI",
+                    "rawScore": 0.35177528858184814,
+                    "weight": 1.0,
+                    "weightedContribution": 0.35177528858184814,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  },
+                  {
+                    "childName": "Urban Eatery Food Court",
+                    "childPath": "Urban Eatery Food Court",
+                    "childType": "Restaurant",
+                    "rawScore": 0.28540733456611633,
+                    "weight": 1.0,
+                    "weightedContribution": 0.28540733456611633,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  },
+                  {
+                    "childName": "Queen Street West Boutiques",
+                    "childPath": "Queen Street West Boutiques",
+                    "childType": "POI",
+                    "rawScore": 0.3183371424674988,
+                    "weight": 1.0,
+                    "weightedContribution": 0.3183371424674988,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  },
+                  {
+                    "childName": "Bar Isabel",
+                    "childPath": "Bar Isabel",
+                    "childType": "Restaurant",
+                    "rawScore": 0.26281893253326416,
+                    "weight": 1.0,
+                    "weightedContribution": 0.26281893253326416,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  }
+                ],
+                "best_match_details": {
+                  "type": "node_match",
+                  "node_name": "Lady Marmalade",
+                  "node_type": "Restaurant",
+                  "node_path": "Lady Marmalade",
+                  "score": 0.38024646043777466,
+                  "trace": [
+                    {
+                      "type": "atom",
+                      "condition": {
+                        "type": "atom",
+                        "field": "content",
+                        "value": "coffee break",
+                        "operator": "=~",
+                        "span": {
+                          "start": 44,
+                          "end": 75
+                        }
+                      },
+                      "score": 0.38024646043777466,
+                      "note": "Atom(u, φ) - local node content from attr(u)"
+                    }
+                  ]
+                },
+                "result": 0.38024646043777466
+              }
+            ],
+            "final_score": 0.38024646043777466
+          },
+          {
+            "node_idx": 9,
+            "node_id": 6309218800,
+            "node_name": "Day 10",
+            "node_type": "Day",
+            "scoring_steps": [
+              {
+                "type": "agg_exists_recursive",
+                "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+                "selector": {
+                  "axis": "none",
+                  "test": {
+                    "type": "leaf",
+                    "test": {
+                      "type": "node_test",
+                      "kind": "wildcard",
+                      "name": null,
+                      "span": {
+                        "start": 42,
+                        "end": 76
+                      }
+                    },
+                    "span": {
+                      "start": 42,
+                      "end": 76
+                    }
+                  },
+                  "span": {
+                    "start": 42,
+                    "end": 76
+                  }
+                },
+                "num_children": 5,
+                "child_results": [
+                  {
+                    "score": 0.5015609264373779,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.3516119122505188,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.2593824863433838,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.567750096321106,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.4480704665184021,
+                    "subtree_size": 1
+                  }
+                ],
+                "child_contributions": [
+                  {
+                    "childName": "Hotel Quick Checkout Breakfast",
+                    "childPath": "Hotel Quick Checkout Breakfast",
+                    "childType": "Restaurant",
+                    "rawScore": 0.5015609264373779,
+                    "weight": 1.0,
+                    "weightedContribution": 0.5015609264373779,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  },
+                  {
+                    "childName": "CN Tower EdgeWalk",
+                    "childPath": "CN Tower EdgeWalk",
+                    "childType": "POI",
+                    "rawScore": 0.3516119122505188,
+                    "weight": 1.0,
+                    "weightedContribution": 0.3516119122505188,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  },
+                  {
+                    "childName": "360 Restaurant at CN Tower",
+                    "childPath": "360 Restaurant at CN Tower",
+                    "childType": "Restaurant",
+                    "rawScore": 0.2593824863433838,
+                    "weight": 1.0,
+                    "weightedContribution": 0.2593824863433838,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  },
+                  {
+                    "childName": "Airport Snack Stop",
+                    "childPath": "Airport Snack Stop",
+                    "childType": "POI",
+                    "rawScore": 0.567750096321106,
+                    "weight": 1.0,
+                    "weightedContribution": 0.567750096321106,
+                    "subtreeSize": 1,
+                    "isBestMatch": true
+                  },
+                  {
+                    "childName": "YYZ Departure",
+                    "childPath": "YYZ Departure",
+                    "childType": "POI",
+                    "rawScore": 0.4480704665184021,
+                    "weight": 1.0,
+                    "weightedContribution": 0.4480704665184021,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  }
+                ],
+                "best_match_details": {
+                  "type": "node_match",
+                  "node_name": "Airport Snack Stop",
+                  "node_type": "POI",
+                  "node_path": "Airport Snack Stop",
+                  "score": 0.567750096321106,
+                  "trace": [
+                    {
+                      "type": "atom",
+                      "condition": {
+                        "type": "atom",
+                        "field": "content",
+                        "value": "coffee break",
+                        "operator": "=~",
+                        "span": {
+                          "start": 44,
+                          "end": 75
+                        }
+                      },
+                      "score": 0.567750096321106,
+                      "note": "Atom(u, φ) - local node content from attr(u)"
+                    }
+                  ]
+                },
+                "result": 0.567750096321106
+              }
+            ],
+            "final_score": 0.567750096321106
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 4,
+            "score": 0.6255971193313599,
+            "name": "Day 5"
+          },
+          {
+            "idx": 3,
+            "score": 0.597713053226471,
+            "name": "Day 4"
+          },
+          {
+            "idx": 9,
+            "score": 0.567750096321106,
+            "name": "Day 10"
+          },
+          {
+            "idx": 1,
+            "score": 0.5265246033668518,
+            "name": "Day 2"
+          },
+          {
+            "idx": 2,
+            "score": 0.4946852922439575,
+            "name": "Day 3"
+          },
+          {
+            "idx": 0,
+            "score": 0.3945447504520416,
+            "name": "Day 1"
+          },
+          {
+            "idx": 6,
+            "score": 0.38968902826309204,
+            "name": "Day 7"
+          },
+          {
+            "idx": 8,
+            "score": 0.38024646043777466,
+            "name": "Day 9"
+          },
+          {
+            "idx": 5,
+            "score": 0.329447865486145,
+            "name": "Day 6"
+          },
+          {
+            "idx": 7,
+            "score": 0.26954424381256104,
+            "name": "Day 8"
+          }
+        ]
+      }
+    ],
+    "score_fusion": {
+      "per_node": [
+        {
+          "node_path": "Root > Itinerary_Version 1 > Day 1",
+          "node_type": "Day",
+          "step_contributions": [
+            {
+              "step_index": 2,
+              "predicate": "Day[agg_exists(*[atom(content =~ \"coffee break\")])]",
+              "score": 0.3945447504520416
+            }
+          ],
+          "accumulated_product": 0.3945447504520416,
+          "final_score": 0.3945447504520416
+        },
+        {
+          "node_path": "Root > Itinerary_Version 1 > Day 2",
+          "node_type": "Day",
+          "step_contributions": [
+            {
+              "step_index": 2,
+              "predicate": "Day[agg_exists(*[atom(content =~ \"coffee break\")])]",
+              "score": 0.5265246033668518
+            }
+          ],
+          "accumulated_product": 0.5265246033668518,
+          "final_score": 0.5265246033668518
+        },
+        {
+          "node_path": "Root > Itinerary_Version 1 > Day 3",
+          "node_type": "Day",
+          "step_contributions": [
+            {
+              "step_index": 2,
+              "predicate": "Day[agg_exists(*[atom(content =~ \"coffee break\")])]",
+              "score": 0.4946852922439575
+            }
+          ],
+          "accumulated_product": 0.4946852922439575,
+          "final_score": 0.4946852922439575
+        },
+        {
+          "node_path": "Root > Itinerary_Version 1 > Day 4",
+          "node_type": "Day",
+          "step_contributions": [
+            {
+              "step_index": 2,
+              "predicate": "Day[agg_exists(*[atom(content =~ \"coffee break\")])]",
+              "score": 0.597713053226471
+            }
+          ],
+          "accumulated_product": 0.597713053226471,
+          "final_score": 0.597713053226471
+        },
+        {
+          "node_path": "Root > Itinerary_Version 1 > Day 5",
+          "node_type": "Day",
+          "step_contributions": [
+            {
+              "step_index": 2,
+              "predicate": "Day[agg_exists(*[atom(content =~ \"coffee break\")])]",
+              "score": 0.6255971193313599
+            }
+          ],
+          "accumulated_product": 0.6255971193313599,
+          "final_score": 0.6255971193313599
+        },
+        {
+          "node_path": "Root > Itinerary_Version 1 > Day 6",
+          "node_type": "Day",
+          "step_contributions": [
+            {
+              "step_index": 2,
+              "predicate": "Day[agg_exists(*[atom(content =~ \"coffee break\")])]",
+              "score": 0.329447865486145
+            }
+          ],
+          "accumulated_product": 0.329447865486145,
+          "final_score": 0.329447865486145
+        },
+        {
+          "node_path": "Root > Itinerary_Version 1 > Day 7",
+          "node_type": "Day",
+          "step_contributions": [
+            {
+              "step_index": 2,
+              "predicate": "Day[agg_exists(*[atom(content =~ \"coffee break\")])]",
+              "score": 0.38968902826309204
+            }
+          ],
+          "accumulated_product": 0.38968902826309204,
+          "final_score": 0.38968902826309204
+        },
+        {
+          "node_path": "Root > Itinerary_Version 1 > Day 8",
+          "node_type": "Day",
+          "step_contributions": [
+            {
+              "step_index": 2,
+              "predicate": "Day[agg_exists(*[atom(content =~ \"coffee break\")])]",
+              "score": 0.26954424381256104
+            }
+          ],
+          "accumulated_product": 0.26954424381256104,
+          "final_score": 0.26954424381256104
+        },
+        {
+          "node_path": "Root > Itinerary_Version 1 > Day 9",
+          "node_type": "Day",
+          "step_contributions": [
+            {
+              "step_index": 2,
+              "predicate": "Day[agg_exists(*[atom(content =~ \"coffee break\")])]",
+              "score": 0.38024646043777466
+            }
+          ],
+          "accumulated_product": 0.38024646043777466,
+          "final_score": 0.38024646043777466
+        },
+        {
+          "node_path": "Root > Itinerary_Version 1 > Day 10",
+          "node_type": "Day",
+          "step_contributions": [
+            {
+              "step_index": 2,
+              "predicate": "Day[agg_exists(*[atom(content =~ \"coffee break\")])]",
+              "score": 0.567750096321106
+            }
+          ],
+          "accumulated_product": 0.567750096321106,
+          "final_score": 0.567750096321106
+        }
+      ]
+    }
+  },
+  "final_filtering": {
+    "before_filter_count": 10,
+    "threshold": 0.05,
+    "top_k": 5,
+    "after_filter_count": 5,
+    "filtered_nodes": [
+      {
+        "path": "Root > Itinerary_Version 1 > Day 5",
+        "score": 0.6255971193313599,
+        "type": "Day",
+        "own_score": 0.6255971193313599,
+        "parent_score": 1.0
+      },
+      {
+        "path": "Root > Itinerary_Version 1 > Day 4",
+        "score": 0.597713053226471,
+        "type": "Day",
+        "own_score": 0.597713053226471,
+        "parent_score": 1.0
+      },
+      {
+        "path": "Root > Itinerary_Version 1 > Day 10",
+        "score": 0.567750096321106,
+        "type": "Day",
+        "own_score": 0.567750096321106,
+        "parent_score": 1.0
+      },
+      {
+        "path": "Root > Itinerary_Version 1 > Day 2",
+        "score": 0.5265246033668518,
+        "type": "Day",
+        "own_score": 0.5265246033668518,
+        "parent_score": 1.0
+      },
+      {
+        "path": "Root > Itinerary_Version 1 > Day 3",
+        "score": 0.4946852922439575,
+        "type": "Day",
+        "own_score": 0.4946852922439575,
+        "parent_score": 1.0
+      }
+    ]
+  },
+  "matched_nodes": [
+    {
+      "tree_path": "Root > Itinerary_Version 1 > Day 5",
+      "score": 0.6255971193313599,
+      "node": {
+        "type": "Day",
+        "attributes": {
+          "index": "5"
+        }
+      },
+      "children": [
+        {
+          "type": "Restaurant",
+          "attributes": {},
+          "name": "Mildred's Temple Kitchen",
+          "time_block": "9:00 AM - 10:30 AM",
+          "description": "Popular brunch spot in Liberty Village. Famous for pancakes and weekend atmosphere. Trendy and casual.",
+          "travel_method": "Taxi",
+          "expected_cost": "CAD 30-40",
+          "highlights": [
+            "Brunch favorite",
+            "Fluffy pancakes"
+          ]
+        },
+        {
+          "type": "POI",
+          "attributes": {},
+          "name": "Client Check-in Call",
+          "time_block": "11:00 AM - 12:00 PM",
+          "description": "Remote video call with client to discuss project status. Light work commitment from hotel room.",
+          "travel_method": "None",
+          "expected_cost": "Work",
+          "highlights": [
+            "Work call",
+            "Remote meeting"
+          ]
+        },
+        {
+          "type": "POI",
+          "attributes": {},
+          "name": "Email Catch-up Block",
+          "time_block": "2:00 PM - 3:00 PM",
+          "description": "Dedicated time_block to respond to accumulated work emails. Optional but recommended to stay on top of inbox.",
+          "travel_method": "None",
+          "expected_cost": "Work",
+          "highlights": [
+            "Work admin",
+            "Optional task"
+          ]
+        },
+        {
+          "type": "POI",
+          "attributes": {},
+          "name": "Networking Drinks",
+          "time_block": "6:00 PM - 7:30 PM",
+          "description": "Casual drinks with industry contacts at a downtown bar. Work-adjacent networking opportunity.",
+          "travel_method": "Walk",
+          "expected_cost": "CAD 40-60",
+          "highlights": [
+            "Work networking",
+            "Professional socializing"
+          ]
+        },
+        {
+          "type": "Restaurant",
+          "attributes": {},
+          "name": "Kaiseki Kaji",
+          "time_block": "8:00 PM - 10:00 PM",
+          "description": "Exquisite Japanese kaiseki dining experience. Very expensive omakase with seasonal courses. Intimate and formal setting.",
+          "travel_method": "Taxi",
+          "expected_cost": "CAD 250-350",
+          "highlights": [
+            "Expensive Japanese dining",
+            "Upscale omakase",
+            "Formal atmosphere"
+          ]
+        }
+      ],
+      "context_trace": [
+        {
+          "node_name": "Day 5",
+          "predicate": "agg_exists(*[atom(content =~ \"coffee break\")])",
+          "score": 0.6255971193313599,
+          "description": "Matched agg_exists(*[atom(content =~ \"coffee break\")]) on Day 5 (Score: 0.63)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Itinerary_Version 1 > Day 4",
+      "score": 0.597713053226471,
+      "node": {
+        "type": "Day",
+        "attributes": {
+          "index": "4"
+        }
+      },
+      "children": [
+        {
+          "type": "Restaurant",
+          "attributes": {},
+          "name": "Quick Grab Coffee",
+          "time_block": "7:00 AM - 7:30 AM",
+          "description": "Fast coffee and pastry from Tim Hortons. Rushed morning before intense work day.",
+          "travel_method": "Walk",
+          "expected_cost": "CAD 8",
+          "highlights": [
+            "Quick breakfast",
+            "Grab and go"
+          ]
+        },
+        {
+          "type": "POI",
+          "attributes": {},
+          "name": "Full-Day Workshop",
+          "time_block": "9:00 AM - 4:00 PM",
+          "description": "Intensive all-day work workshop with the entire team. Exhausting but productive session covering project roadmap and deliverables.",
+          "travel_method": "Walk",
+          "expected_cost": "Work",
+          "highlights": [
+            "Work meeting",
+            "Full day session",
+            "Team workshop"
+          ]
+        },
+        {
+          "type": "POI",
+          "attributes": {},
+          "name": "Bloor Street Shopping",
+          "time_block": "5:00 PM - 6:30 PM",
+          "description": "Optional shopping trip along Bloor-Yorkville luxury district. High-end boutiques and designer stores.",
+          "travel_method": "Walk",
+          "expected_cost": "Variable",
+          "highlights": [
+            "Luxury shopping",
+            "Optional activity"
+          ]
+        },
+        {
+          "type": "Restaurant",
+          "attributes": {},
+          "name": "Lee Restaurant",
+          "time_block": "7:30 PM - 9:00 PM",
+          "description": "Susur Lee's flagship Asian fusion restaurant. Creative dishes blending East and West. Trendy atmosphere with innovative cuisine.",
+          "travel_method": "Taxi",
+          "expected_cost": "CAD 80-120",
+          "highlights": [
+            "Asian fusion cuisine",
+            "Celebrity chef"
+          ]
+        }
+      ],
+      "context_trace": [
+        {
+          "node_name": "Day 4",
+          "predicate": "agg_exists(*[atom(content =~ \"coffee break\")])",
+          "score": 0.597713053226471,
+          "description": "Matched agg_exists(*[atom(content =~ \"coffee break\")]) on Day 4 (Score: 0.60)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Itinerary_Version 1 > Day 10",
+      "score": 0.567750096321106,
+      "node": {
+        "type": "Day",
+        "attributes": {
+          "index": "10"
+        }
+      },
+      "children": [
+        {
+          "type": "Restaurant",
+          "attributes": {},
+          "name": "Hotel Quick Checkout Breakfast",
+          "time_block": "7:30 AM - 8:15 AM",
+          "description": "Fast breakfast before checkout. Simple pastries and coffee from hotel lobby. Rushed but necessary.",
+          "travel_method": "Walk",
+          "expected_cost": "CAD 15",
+          "highlights": [
+            "Quick breakfast",
+            "Checkout morning"
+          ]
+        },
+        {
+          "type": "POI",
+          "attributes": {},
+          "name": "CN Tower EdgeWalk",
+          "time_block": "10:00 AM - 12:00 PM",
+          "description": "Thrilling hands-free walk around the outside of CN Tower at 356 meters. Unique bucket-list experience with stunning views. Memorable and unforgettable adventure.",
+          "travel_method": "Taxi",
+          "expected_cost": "CAD 225",
+          "highlights": [
+            "Unique memorable experience",
+            "Bucket list activity",
+            "Thrilling adventure"
+          ]
+        },
+        {
+          "type": "Restaurant",
+          "attributes": {},
+          "name": "360 Restaurant at CN Tower",
+          "time_block": "12:30 PM - 1:45 PM",
+          "description": "Revolving restaurant atop CN Tower with panoramic views. Special occasion dining with Canadian cuisine. Memorable farewell lunch.",
+          "travel_method": "Elevator",
+          "expected_cost": "CAD 75-100",
+          "highlights": [
+            "Memorable special dining",
+            "Panoramic views"
+          ]
+        },
+        {
+          "type": "POI",
+          "attributes": {},
+          "name": "Airport Snack Stop",
+          "time_block": "4:00 PM - 4:30 PM",
+          "description": "Generic airport food and coffee before boarding. Forgettable but necessary. Nothing special about airport dining.",
+          "travel_method": "Walk",
+          "expected_cost": "CAD 20",
+          "highlights": [
+            "Generic airport food",
+            "Forgettable quick bite"
+          ]
+        },
+        {
+          "type": "POI",
+          "attributes": {},
+          "name": "YYZ Departure",
+          "time_block": "6:00 PM",
+          "description": "Flight departure from Toronto Pearson International Airport. End of trip.",
+          "travel_method": "Flight",
+          "expected_cost": "Included",
+          "highlights": [
+            "Departure flight",
+            "End of trip"
+          ]
+        }
+      ],
+      "context_trace": [
+        {
+          "node_name": "Day 10",
+          "predicate": "agg_exists(*[atom(content =~ \"coffee break\")])",
+          "score": 0.567750096321106,
+          "description": "Matched agg_exists(*[atom(content =~ \"coffee break\")]) on Day 10 (Score: 0.57)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Itinerary_Version 1 > Day 2",
+      "score": 0.5265246033668518,
+      "node": {
+        "type": "Day",
+        "attributes": {
+          "index": "2"
+        }
+      },
+      "children": [
+        {
+          "type": "POI",
+          "attributes": {},
+          "name": "Client Kickoff Meeting",
+          "time_block": "9:00 AM - 12:00 PM",
+          "description": "Formal business meeting at TD Tower with key stakeholders. High-pressure work presentation and strategy discussion. Professional corporate environment.",
+          "travel_method": "Walk",
+          "expected_cost": "Work",
+          "highlights": [
+            "Work meeting",
+            "Client presentation",
+            "Corporate formal"
+          ]
+        },
+        {
+          "type": "POI",
+          "attributes": {},
+          "name": "Strategy Workshop",
+          "time_block": "1:00 PM - 5:00 PM",
+          "description": "Intensive afternoon workshop session with the team. Long work hours in conference room. Mentally draining but productive.",
+          "travel_method": "Walk",
+          "expected_cost": "Work",
+          "highlights": [
+            "Work session",
+            "Team collaboration",
+            "Meeting room"
+          ]
+        },
+        {
+          "type": "Restaurant",
+          "attributes": {},
+          "name": "Alo Restaurant",
+          "time_block": "7:00 PM - 9:30 PM",
+          "description": "Three Michelin-starred French tasting menu. Extremely expensive and exclusive fine dining. Intimate 8-course experience with wine pairings. Very formal and upscale.",
+          "travel_method": "Taxi",
+          "expected_cost": "CAD 300-400",
+          "highlights": [
+            "Expensive Michelin dining",
+            "Upscale French cuisine",
+            "Formal atmosphere"
+          ]
+        }
+      ],
+      "context_trace": [
+        {
+          "node_name": "Day 2",
+          "predicate": "agg_exists(*[atom(content =~ \"coffee break\")])",
+          "score": 0.5265246033668518,
+          "description": "Matched agg_exists(*[atom(content =~ \"coffee break\")]) on Day 2 (Score: 0.53)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Itinerary_Version 1 > Day 3",
+      "score": 0.4946852922439575,
+      "node": {
+        "type": "Day",
+        "attributes": {
+          "index": "3"
+        }
+      },
+      "children": [
+        {
+          "type": "Restaurant",
+          "attributes": {},
+          "name": "Hotel Continental Breakfast",
+          "time_block": "7:30 AM - 8:30 AM",
+          "description": "Quick breakfast at the hotel restaurant. Simple continental options, nothing special but convenient.",
+          "travel_method": "Walk",
+          "expected_cost": "CAD 25",
+          "highlights": [
+            "Quick and convenient",
+            "Basic options"
+          ]
+        },
+        {
+          "type": "POI",
+          "attributes": {},
+          "name": "Stakeholder Presentation",
+          "time_block": "9:00 AM - 11:00 AM",
+          "description": "Morning work session presenting quarterly results to stakeholders. High-pressure meeting requiring focus and preparation.",
+          "travel_method": "Walk",
+          "expected_cost": "Work",
+          "highlights": [
+            "Work meeting",
+            "Business presentation"
+          ]
+        },
+        {
+          "type": "POI",
+          "attributes": {},
+          "name": "Art Gallery of Ontario",
+          "time_block": "12:00 PM - 2:00 PM",
+          "description": "World-class art museum with Canadian and international collections. Indoor cultural experience in Frank Gehry-designed building. Quiet and contemplative atmosphere.",
+          "travel_method": "Walk",
+          "expected_cost": "CAD 25",
+          "highlights": [
+            "Indoor museum",
+            "Cultural experience",
+            "Art gallery"
+          ]
+        },
+        {
+          "type": "Restaurant",
+          "attributes": {},
+          "name": "FRANK Restaurant at AGO",
+          "time_block": "2:00 PM - 3:00 PM",
+          "description": "Modern Canadian cuisine inside the Art Gallery. Artistic setting with creative seasonal menu.",
+          "travel_method": "Walk",
+          "expected_cost": "CAD 35-50",
+          "highlights": [
+            "Museum dining",
+            "Artistic atmosphere"
+          ]
+        },
+        {
+          "type": "Restaurant",
+          "attributes": {},
+          "name": "Pai Northern Thai",
+          "time_block": "7:00 PM - 8:30 PM",
+          "description": "Popular Thai restaurant known for authentic northern Thai cuisine. Lively atmosphere with bold flavors. Asian food option.",
+          "travel_method": "Public Transit",
+          "expected_cost": "CAD 30-45",
+          "highlights": [
+            "Thai Asian cuisine",
+            "Vibrant atmosphere"
+          ]
+        }
+      ],
+      "context_trace": []
+    }
+  ],
+  "summary": {
+    "total_steps": 3,
+    "total_scoring_calls": 1,
+    "matched_count": 5,
+    "execution_time_ms": 58.10629203915596,
+    "has_score_fusion": true,
+    "num_nodes_before_filter": 10,
+    "num_nodes_after_filter": 5
+  }
+}

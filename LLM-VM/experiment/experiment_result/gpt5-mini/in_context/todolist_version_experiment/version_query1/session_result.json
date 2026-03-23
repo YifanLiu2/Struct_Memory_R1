@@ -1,0 +1,63 @@
+{
+  "session_id": "version_query1",
+  "queries": [
+    {
+      "query_id": "Query_001",
+      "user_query": "What was the original deadline for renewing my passport? Check the previous versions",
+      "selected_nodes": [
+        "Root > ToDoList_Version 1 > Personal > General > Task 2",
+        "Root > ToDoList_Version 2 > Personal > General > Task 2",
+        "Root > ToDoList_Version 3 > Personal > General > Task 2",
+        "Root > ToDoList_Version 4 > Personal > General > Task 2"
+      ],
+      "related_nodes": [
+        "results > Task",
+        "results > Task",
+        "results > Task",
+        "results > Task"
+      ],
+      "downstream_task_result": {
+        "operation": "READ",
+        "success": true,
+        "version_used": 4,
+        "reasoning": "Checked Tasks named 'Renew passport' across versions 1–4. The original deadline was 2026-06-01 (present in Versions 1 and 2); it was updated to 2026-07-03 in Version 3 and retained in Version 4.",
+        "token_usage": {
+          "prompt_tokens": 18859,
+          "completion_tokens": 936,
+          "total_tokens": 19795
+        },
+        "error": null
+      },
+      "execution_time_ms": 18671.18
+    },
+    {
+      "query_id": "Query_002",
+      "user_query": "What was the original grocery list before I we changed something to salad? Check the previous versions",
+      "selected_nodes": [
+        "Root > ToDoList_Version 3 > Household > Weekly Groceries > Task 1",
+        "Root > ToDoList_Version 3 > Household > Weekly Groceries > Task 2",
+        "Root > ToDoList_Version 3 > Household > Weekly Groceries > Task 3"
+      ],
+      "related_nodes": [
+        "results > Task",
+        "results > Task",
+        "results > Task"
+      ],
+      "downstream_task_result": {
+        "operation": "READ",
+        "success": true,
+        "version_used": 3,
+        "reasoning": "User asked for the original grocery list before the change in version 4 — the Weekly Groceries tasks in version 3 show the prior list.",
+        "token_usage": {
+          "prompt_tokens": 18863,
+          "completion_tokens": 509,
+          "total_tokens": 19372
+        },
+        "error": null
+      },
+      "execution_time_ms": 10105.15
+    }
+  ],
+  "final_tree_version": 1,
+  "total_execution_time_ms": 28776.32
+}

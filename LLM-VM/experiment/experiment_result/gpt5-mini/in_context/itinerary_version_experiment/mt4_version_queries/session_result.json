@@ -1,0 +1,59 @@
+{
+  "session_id": "mt4_version_queries",
+  "queries": [
+    {
+      "query_id": "Query_001",
+      "user_query": "What day did we modify to cancel the breakfast? Check the previous itinerary versions",
+      "selected_nodes": [
+        "Root > Itinerary_Version 2 > patch_info",
+        "Root > Itinerary_Version 2 > conversation_history",
+        "Root > Itinerary_Version 1 > Day 7 > Fran's Restaurant"
+      ],
+      "related_nodes": [
+        "Fran's Restaurant"
+      ],
+      "downstream_task_result": {
+        "operation": "READ",
+        "success": true,
+        "version_used": 5,
+        "reasoning": "Found a conversation note in Itinerary_Version 2 instructing cancellation of breakfast on the ROM day and the original Day 7 breakfast (Fran's Restaurant) in Itinerary_Version 1 which was later deleted in version 2.",
+        "token_usage": {
+          "prompt_tokens": 28846,
+          "completion_tokens": 759,
+          "total_tokens": 29605
+        },
+        "error": null
+      },
+      "execution_time_ms": 20168.54
+    },
+    {
+      "query_id": "Query_002",
+      "user_query": "Where was the client kickoff meeting before we cancelled it? Check the previous itinerary versions",
+      "selected_nodes": [
+        "Root > Itinerary_Version 1 > Day 2 > Client Kickoff Meeting",
+        "Root > Itinerary_Version 2 > Day 2 > Client Kickoff Meeting",
+        "Root > Itinerary_Version 3 > Day 2 > Client Kickoff Meeting"
+      ],
+      "related_nodes": [
+        "results > Client Kickoff Meeting",
+        "results > Client Kickoff Meeting",
+        "results > Client Kickoff Meeting"
+      ],
+      "downstream_task_result": {
+        "operation": "READ",
+        "success": true,
+        "version_used": 5,
+        "reasoning": "Searched previous versions and found the 'Client Kickoff Meeting' POI in Itinerary_Version 1, 2, and 3 — all list the meeting location as TD Tower.",
+        "token_usage": {
+          "prompt_tokens": 28847,
+          "completion_tokens": 875,
+          "total_tokens": 29722
+        },
+        "error": null
+      },
+      "execution_time_ms": 14119.94
+    }
+  ],
+  "final_tree_version": 1,
+  "total_execution_time_ms": 34288.48
+}

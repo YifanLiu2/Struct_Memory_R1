@@ -1,0 +1,15 @@
+====================
+Update Types
+====================
+- **Partial Update**: Change only mentioned fields; preserve all others exactly
+  - Example: "Add garlic to the chicken stir-fry" → only update ingredients, keep name/short_description/meal_suggestion/nutrition_note
+- **Transformational Update**: When changing to a conceptually different meal, rewrite all fields
+  - Example: "Change the pasta primavera to a grilled salmon plate" → rewrite name, short_description, meal_suggestion, ingredients, nutrition_note
+
+====================
+Field-Specific Rules
+====================
+- **name**: Update when the meal identity changes; preserve when only details change
+- **short_description**: Regenerate when meal identity change significantly
+- **ingredients**: Add, remove, or replace individual <item name="..."/> entries; preserve unmentioned items
+- **nutrition_note**: Regenerate when ingredients change to reflect updated nutritional profile

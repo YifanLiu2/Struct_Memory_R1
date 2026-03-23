@@ -1,0 +1,68 @@
+name: "conversation"
+description: "LoCoMo conversation memory with speakers, sessions, and observations"
+
+# Tree hierarchy (for documentation and LLM prompt generation)
+hierarchy: |
+  Speaker (root, identified by @name)
+  └── Session (indexed by @session_id, has @datetime, @summary)
+      └── Observation (leaf, atomic speaker-attributed fact)
+
+# Node type definitions with fields
+nodes:
+  Speaker:
+    type: root
+    index_attr: "name"
+    fields: []
+    children: ["Session"]
+
+  Session:
+    type: container
+    index_attr: "session_id"
+    fields:
+      - datetime
+      - summary
+    children: ["Observation"]
+
+  Observation:
+    type: leaf
+    fields:
+      - text
+      - source_dia_id
+    children: []
+
+# Available data files for this schema
+# Paths are relative to LLM-VM/storage/
+data_files:
+  conv-26: "../../locomo_structured_data/conv-26.xml"
+  conv-30: "../../locomo_structured_data/conv-30.xml"
+  conv-41: "../../locomo_structured_data/conv-41.xml"
+  conv-42: "../../locomo_structured_data/conv-42.xml"
+  conv-43: "../../locomo_structured_data/conv-43.xml"
+  conv-44: "../../locomo_structured_data/conv-44.xml"
+  conv-47: "../../locomo_structured_data/conv-47.xml"
+  conv-48: "../../locomo_structured_data/conv-48.xml"
+  conv-49: "../../locomo_structured_data/conv-49.xml"
+  conv-50: "../../locomo_structured_data/conv-50.xml"
+
+# Default data file to use
+default_data: "conv-26"
+
+# XPath query generation prompt components
+examples_file: "prompts/query_generator/domains/xpath_examples_conversation.txt"
+
+# Syntax rules specific to this schema
+syntax_rules: |
+  - Paths start with /Speaker
+  - Node types: Speaker, Session, Observation
+  - CRITICAL: Observation is NEVER a direct child of Speaker. Always navigate through Session first: /Speaker/Session/Observation
+  - NEVER use the descendant axis // to reach Observation nodes. Always specify /Speaker/Session/Observation.
+  - ALL queries follow the same 3-step pattern:
+    1. /Speaker[atom(content =~ "speaker name")] — filter by speaker when mentioned
+    2. /Session[atom(content =~ "session topic")] — narrow to relevant sessions
+    3. /Observation[atom(content =~ "specific fact")] — match the target information
+  - ALWAYS include a Session content predicate to narrow the search scope.
+  - ALWAYS use atom(content =~ "...") for predicates. NEVER use summary =~ or any other field.
+  - Do NOT use indexing (e.g., Session[2], Observation[-1]).
+  - Do NOT use aggregation (e.g., agg_exists, agg_prev).
+  - Do NOT use negation (e.g., not(...)).
+  - Do NOT use OR or AND to combine predicates.

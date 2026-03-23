@@ -1,0 +1,855 @@
+{
+  "timestamp": "20260226_142017_440190",
+  "query": "/Root/MealPlan_Version[5]/Person[atom(content =~ \"Father\")]/Day[3]/Lunch/Meal[2]",
+  "canonical_query": "/Root/MealPlan_Version[5]/Person[content =~ \"Father\"]/Day[3]/Lunch/Meal[2]",
+  "data_file": "tree.xml",
+  "execution_time_ms": 1.2572919949889183,
+  "parsed_ast": {
+    "steps": [
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Root",
+            "span": {
+              "start": 1,
+              "end": 5
+            }
+          },
+          "span": {
+            "start": 1,
+            "end": 5
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "MealPlan_Version",
+            "index": {
+              "start": 5,
+              "type": "single",
+              "span": {
+                "start": 22,
+                "end": 25
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 25
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 25
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Person",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "Father",
+              "operator": "=~",
+              "span": {
+                "start": 33,
+                "end": 58
+              }
+            },
+            "predicate_str": "atom(content =~ \"Father\")",
+            "span": {
+              "start": 26,
+              "end": 59
+            }
+          },
+          "span": {
+            "start": 26,
+            "end": 59
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Day",
+            "index": {
+              "start": 3,
+              "type": "single",
+              "span": {
+                "start": 63,
+                "end": 66
+              }
+            },
+            "span": {
+              "start": 60,
+              "end": 66
+            }
+          },
+          "span": {
+            "start": 60,
+            "end": 66
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Lunch",
+            "span": {
+              "start": 67,
+              "end": 72
+            }
+          },
+          "span": {
+            "start": 67,
+            "end": 72
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Meal",
+            "index": {
+              "start": 2,
+              "type": "single",
+              "span": {
+                "start": 77,
+                "end": 80
+              }
+            },
+            "span": {
+              "start": 73,
+              "end": 80
+            }
+          },
+          "span": {
+            "start": 73,
+            "end": 80
+          }
+        }
+      }
+    ],
+    "global_index": null
+  },
+  "parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: MealPlan_Version[5]\n├── Step 2: Person[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"Father\")\n├── Step 3: Day[3]\n├── Step 4: Lunch\n└── Step 5: Meal[2]",
+  "canonical_parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: MealPlan_Version[5]\n├── Step 2: Person[content =~ \"Father\"]\n├── Step 3: Day[3]\n├── Step 4: Lunch\n└── Step 5: Meal[2]",
+  "execution_log": [
+    "[20260226_142017_440190] Executing query: /Root/MealPlan_Version[5]/Person[atom(content =~ \"Father\")]/Day[3]/Lunch/Meal[2]",
+    "Data file: tree.xml",
+    "Parsed steps: [Root, MealPlan_Version[5], Person[atom(content =~ \"Father\")], Day[3], Lunch, Meal[2]]",
+    "",
+    "Query AST:\n├── Step 0: Root\n├── Step 1: MealPlan_Version[5]\n├── Step 2: Person[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"Father\")\n├── Step 3: Day[3]\n├── Step 4: Lunch\n└── Step 5: Meal[2]",
+    "\n--- Step 1: Root ---",
+    "Matched Root root",
+    "\n--- Step 2: MealPlan_Version[5] ---",
+    "Selected node at index 5 (0-based: 4)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 3: Person[atom(content =~ \"Father\")] ---",
+    "Scoring predicate: atom(content =~ \"Father\") (atomic values: ['Father'])",
+    "  Node 0 (Father): score = 1.0000 (exact match)",
+    "  Node 1 (Mother): score = 0.0000 (exact match)",
+    "  Node 2 (Child): score = 0.0000 (exact match)",
+    "  Exact attribute match on @name: 1/3 nodes matched",
+    "After step: 3 nodes remaining",
+    "\n--- Step 4: Day[3] ---",
+    "  Zero-score pruning: skipping 2 items (Mother, Child)",
+    "Selected node at index 3 (0-based: 2)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 5: Lunch ---",
+    "After step: 1 nodes remaining",
+    "\n--- Step 6: Meal[2] ---",
+    "Selected node at index 2 (0-based: 1)",
+    "After step: 1 nodes remaining",
+    "\n=== Score Fusion ===",
+    "  Root > MealPlan_Version 5 > Father > Day 3 > Lunch > Hummus Snack Plate — Citrus Fresh Style: product=1.0000 → score=1.0000",
+    "  Parent propagation: Root > MealPlan_Version 5 > Father > Day 3 > Lunch > Hummus Snack Plate — Citrus Fresh Style: own=1.0000 × parent=1.0000 → 1.0000",
+    "\n=== Parent Score Propagation: 1 nodes updated ===",
+    "\n=== Threshold Filtering (threshold=0.05) ===",
+    "  Filtered: 1 → 1 nodes",
+    "\n=== Final Filtering (top_k=5) ===",
+    "  After top_k: 1 → 1 nodes",
+    "\nFinal result: 1 nodes (sorted by score)",
+    "⏱️  Query execution time: 1.26ms"
+  ],
+  "traversal_steps": [
+    {
+      "step_index": 0,
+      "step_query": "Root",
+      "action": "root_match",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "type": "root"
+        }
+      ],
+      "nodes_after": [
+        {
+          "type": "Root",
+          "path": "Root"
+        }
+      ],
+      "details": {
+        "matched": true
+      }
+    },
+    {
+      "step_index": 1,
+      "step_query": "MealPlan_Version[5]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root",
+          "name": "Root",
+          "type": "Root",
+          "score": 1.0,
+          "node_id": 13492704160
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > MealPlan_Version 5",
+          "name": "MealPlan_Version 5",
+          "type": "MealPlan_Version",
+          "score": 1.0,
+          "node_id": 13485088880
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "MealPlan_Version",
+            "index": {
+              "start": 5,
+              "type": "single",
+              "span": {
+                "start": 22,
+                "end": 25
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 25
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 25
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 2,
+      "step_query": "Person[atom(content =~ \"Father\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 3,
+      "nodes_before": [
+        {
+          "path": "Root > MealPlan_Version 5",
+          "name": "MealPlan_Version 5",
+          "type": "MealPlan_Version",
+          "score": 1.0,
+          "node_id": 13485088880
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > MealPlan_Version 5 > Father",
+          "name": "Father",
+          "type": "Person",
+          "score": 1.0,
+          "node_id": 13485086800
+        },
+        {
+          "path": "Root > MealPlan_Version 5 > Mother",
+          "name": "Mother",
+          "type": "Person",
+          "score": 0.0,
+          "node_id": 13494510000
+        },
+        {
+          "path": "Root > MealPlan_Version 5 > Child",
+          "name": "Child",
+          "type": "Person",
+          "score": 0.0,
+          "node_id": 13494143472
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Person",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "Father",
+              "operator": "=~",
+              "span": {
+                "start": 33,
+                "end": 58
+              }
+            },
+            "predicate_str": "atom(content =~ \"Father\")",
+            "span": {
+              "start": 26,
+              "end": 59
+            }
+          },
+          "span": {
+            "start": 26,
+            "end": 59
+          }
+        },
+        "found_count": 3,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"Father\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "Father",
+              "operator": "=~",
+              "span": {
+                "start": 33,
+                "end": 58
+              }
+            },
+            "config": {
+              "top_k": 5,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 13485086800,
+                "node_name": "Father",
+                "node_type": "Person",
+                "final_score": 1.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Father",
+                    "query_value": "Father",
+                    "matched": true,
+                    "score": 1.0
+                  }
+                ]
+              },
+              {
+                "node_idx": 1,
+                "node_id": 13494510000,
+                "node_name": "Mother",
+                "node_type": "Person",
+                "final_score": 0.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Mother",
+                    "query_value": "Father",
+                    "matched": false,
+                    "score": 0.0
+                  }
+                ]
+              },
+              {
+                "node_idx": 2,
+                "node_id": 13494143472,
+                "node_name": "Child",
+                "node_type": "Person",
+                "final_score": 0.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Child",
+                    "query_value": "Father",
+                    "matched": false,
+                    "score": 0.0
+                  }
+                ]
+              }
+            ],
+            "batch_scoring": {
+              "exact_match": true,
+              "matched_attribute": "name",
+              "query_value": "Father",
+              "matched_count": 1
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 0,
+                "score": 1.0,
+                "name": "Father"
+              },
+              {
+                "idx": 1,
+                "score": 0.0,
+                "name": "Mother"
+              },
+              {
+                "idx": 2,
+                "score": 0.0,
+                "name": "Child"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "step_index": 3,
+      "step_query": "Day[3]",
+      "action": "node_test_expr",
+      "nodes_before_count": 3,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root > MealPlan_Version 5 > Father",
+          "name": "Father",
+          "type": "Person",
+          "score": 1.0,
+          "node_id": 13485086800
+        },
+        {
+          "path": "Root > MealPlan_Version 5 > Mother",
+          "name": "Mother",
+          "type": "Person",
+          "score": 0.0,
+          "node_id": 13494510000
+        },
+        {
+          "path": "Root > MealPlan_Version 5 > Child",
+          "name": "Child",
+          "type": "Person",
+          "score": 0.0,
+          "node_id": 13494143472
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > MealPlan_Version 5 > Father > Day 3",
+          "name": "Day 3",
+          "type": "Day",
+          "score": 1.0,
+          "node_id": 6129632496
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Day",
+            "index": {
+              "start": 3,
+              "type": "single",
+              "span": {
+                "start": 63,
+                "end": 66
+              }
+            },
+            "span": {
+              "start": 60,
+              "end": 66
+            }
+          },
+          "span": {
+            "start": 60,
+            "end": 66
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 4,
+      "step_query": "Lunch",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root > MealPlan_Version 5 > Father > Day 3",
+          "name": "Day 3",
+          "type": "Day",
+          "score": 1.0,
+          "node_id": 6129632496
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > MealPlan_Version 5 > Father > Day 3 > Lunch",
+          "name": "Lunch",
+          "type": "Lunch",
+          "score": 1.0,
+          "node_id": 6129635136
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Lunch",
+            "span": {
+              "start": 67,
+              "end": 72
+            }
+          },
+          "span": {
+            "start": 67,
+            "end": 72
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 5,
+      "step_query": "Meal[2]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root > MealPlan_Version 5 > Father > Day 3 > Lunch",
+          "name": "Lunch",
+          "type": "Lunch",
+          "score": 1.0,
+          "node_id": 6129635136
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > MealPlan_Version 5 > Father > Day 3 > Lunch > Hummus Snack Plate — Citrus Fresh Style",
+          "name": "Hummus Snack Plate — Citrus Fresh Style",
+          "type": "Meal",
+          "score": 1.0,
+          "node_id": 6129636256
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Meal",
+            "index": {
+              "start": 2,
+              "type": "single",
+              "span": {
+                "start": 77,
+                "end": 80
+              }
+            },
+            "span": {
+              "start": 73,
+              "end": 80
+            }
+          },
+          "span": {
+            "start": 73,
+            "end": 80
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": []
+      }
+    }
+  ],
+  "scoring_traces": [
+    {
+      "predicate": "atom(content =~ \"Father\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "Father",
+        "operator": "=~",
+        "span": {
+          "start": 33,
+          "end": 58
+        }
+      },
+      "config": {
+        "top_k": 5,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 13485086800,
+          "node_name": "Father",
+          "node_type": "Person",
+          "final_score": 1.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Father",
+              "query_value": "Father",
+              "matched": true,
+              "score": 1.0
+            }
+          ]
+        },
+        {
+          "node_idx": 1,
+          "node_id": 13494510000,
+          "node_name": "Mother",
+          "node_type": "Person",
+          "final_score": 0.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Mother",
+              "query_value": "Father",
+              "matched": false,
+              "score": 0.0
+            }
+          ]
+        },
+        {
+          "node_idx": 2,
+          "node_id": 13494143472,
+          "node_name": "Child",
+          "node_type": "Person",
+          "final_score": 0.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Child",
+              "query_value": "Father",
+              "matched": false,
+              "score": 0.0
+            }
+          ]
+        }
+      ],
+      "batch_scoring": {
+        "exact_match": true,
+        "matched_attribute": "name",
+        "query_value": "Father",
+        "matched_count": 1
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 0,
+          "score": 1.0,
+          "name": "Father"
+        },
+        {
+          "idx": 1,
+          "score": 0.0,
+          "name": "Mother"
+        },
+        {
+          "idx": 2,
+          "score": 0.0,
+          "name": "Child"
+        }
+      ]
+    }
+  ],
+  "scoring_details": {
+    "step_scores": [
+      {
+        "step_index": 0,
+        "predicate": "atom(content =~ \"Father\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "Father",
+          "operator": "=~",
+          "span": {
+            "start": 33,
+            "end": 58
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 13485086800,
+            "node_name": "Father",
+            "node_type": "Person",
+            "final_score": 1.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Father",
+                "query_value": "Father",
+                "matched": true,
+                "score": 1.0
+              }
+            ]
+          },
+          {
+            "node_idx": 1,
+            "node_id": 13494510000,
+            "node_name": "Mother",
+            "node_type": "Person",
+            "final_score": 0.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Mother",
+                "query_value": "Father",
+                "matched": false,
+                "score": 0.0
+              }
+            ]
+          },
+          {
+            "node_idx": 2,
+            "node_id": 13494143472,
+            "node_name": "Child",
+            "node_type": "Person",
+            "final_score": 0.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Child",
+                "query_value": "Father",
+                "matched": false,
+                "score": 0.0
+              }
+            ]
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 0,
+            "score": 1.0,
+            "name": "Father"
+          },
+          {
+            "idx": 1,
+            "score": 0.0,
+            "name": "Mother"
+          },
+          {
+            "idx": 2,
+            "score": 0.0,
+            "name": "Child"
+          }
+        ]
+      }
+    ],
+    "score_fusion": {
+      "per_node": [
+        {
+          "node_path": "Root > MealPlan_Version 5 > Father > Day 3 > Lunch > Hummus Snack Plate — Citrus Fresh Style",
+          "node_type": "Meal",
+          "step_contributions": [],
+          "accumulated_product": 1.0,
+          "final_score": 0.999999999
+        }
+      ]
+    }
+  },
+  "final_filtering": {
+    "before_filter_count": 1,
+    "threshold": 0.05,
+    "top_k": 5,
+    "after_filter_count": 1,
+    "filtered_nodes": [
+      {
+        "path": "Root > MealPlan_Version 5 > Father > Day 3 > Lunch > Hummus Snack Plate — Citrus Fresh Style",
+        "score": 0.999999999,
+        "type": "Meal",
+        "own_score": 1.0,
+        "parent_score": 0.999999999
+      }
+    ]
+  },
+  "matched_nodes": [
+    {
+      "tree_path": "Root > MealPlan_Version 5 > Father > Day 3 > Lunch > Hummus Snack Plate — Citrus Fresh Style",
+      "score": 0.999999999,
+      "node": {
+        "type": "Meal",
+        "attributes": {},
+        "name": "Hummus Snack Plate — Citrus Fresh Style",
+        "short_description": "Colorful Mediterranean-inspired snack plate featuring hummus, whole-wheat pita, veggies, and a cheese component for protein, fiber, and healthy fats.",
+        "meal_suggestion": "As a Citrus Fresh-style snack: assemble with 2–3 tablespoons hummus, 1 small whole-wheat pita cut into wedges, cucumber slices, cherry tomatoes, and a small cheese wedge. Add a squeeze of lemon or citrus zest to brighten the flavors. If dairy-free, omit cheese or substitute with a plant-based option.",
+        "ingredients": [],
+        "nutrition_note": "This plate provides protein from hummus and cheese, plus fiber from whole-wheat pita and vegetables, and healthy fats from tahini in hummus. It offers a balanced mix of complex carbs, protein, and fats. Watch sodium from store-bought hummus and cheese; consider reduced-sodium options or smaller portions if needed. For a lighter version, you can reduce cheese or use part-skim options."
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Father",
+          "predicate": "atom(content =~ \"Father\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Father\") on Father (Score: 1.00)"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total_steps": 6,
+    "total_scoring_calls": 1,
+    "matched_count": 1,
+    "execution_time_ms": 1.2572919949889183,
+    "has_score_fusion": true,
+    "num_nodes_before_filter": 1,
+    "num_nodes_after_filter": 1
+  }
+}

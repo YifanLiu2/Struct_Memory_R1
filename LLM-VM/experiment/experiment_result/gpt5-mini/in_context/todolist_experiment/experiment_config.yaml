@@ -1,0 +1,230 @@
+name: "todolist_experiment"
+
+# Queries to run - each entry is a session
+# Named session:   {name: "session_name", queries: ["q1", "q2"]}
+# Unnamed session:  ["q1", "q2"]  (auto-named Session_1, Session_2, ...)
+# Multi-turn sessions share the same tree state across queries
+
+queries:
+  # READ Queries
+  - name: "read_queries" 
+    use_versions: 'false' # Set to true if you want to use the versioned tree for read queries, which will reflect changes from create/update/delete queries. Set to false to use the original tree for all read queries, which will not reflect any changes from create/update/delete queries.
+    queries:
+      - "Which projects are currently stuck or blocked?"
+      - "Show me all high priority tasks related to my research."
+      - "Find the last task I added to the Garage Repair project."
+      - "I need to see the first two tasks for the NSERC grant application."
+      - "What tasks do I have that are related to travel"
+      - "Show me tasks about either 'running' or 'meditation'"
+      - "Which projects have a High importance task that is complete"
+      - "What are my learning goals for this semester?"
+      - "Have I booked a hotel in Vancouver yet for the conference?"
+      - "When do I need to book my flight to Vancouver by"
+
+  #   ground_truth:
+  #     - ["Root > ToDoList_Version 1 > Work > Thesis: Solve AI"]
+  #     - [
+  #         "Root > ToDoList_Version 1 > Work > NSERC CGS-M Grant Application > Task 1",
+  #         "Root > ToDoList_Version 1 > Work > NSERC CGS-M Grant Application > Task 2",
+  #         "Root > ToDoList_Version 1 > Work > Thesis: Solve AI > Task 2",
+  #       ]
+  #     - ["Root > ToDoList_Version 1 > Household > Fix Garage Door > Task 3"]
+  #     - [
+  #         "Root > ToDoList_Version 1 > Work > NSERC CGS-M Grant Application > Task 1",
+  #         "Root > ToDoList_Version 1 > Work > NSERC CGS-M Grant Application > Task 2",
+  #       ]
+  #     - [
+  #         "Root > ToDoList_Version 1 > Personal > Conference Travel: Vancouver > Task 1",
+  #         "Root > ToDoList_Version 1 > Personal > Conference Travel: Vancouver > Task 2",
+  #       ]
+  #     - [
+  #         "Root > ToDoList_Version 1 > Health > Marathon Training Block > Task 1",
+  #         "Root > ToDoList_Version 1 > Health > Marathon Training Block > Task 2",
+  #         "Root > ToDoList_Version 1 > Health > Mental Health > Task 1",
+  #       ]
+  #     - [
+  #         "Root > ToDoList_Version 1 > Health > Marathon Training Block",
+  #         "Root > ToDoList_Version 1 > Household > Fix Garage Door",
+  #         "Root > ToDoList_Version 1 > Personal > Conference Travel: Vancouver",
+  #         "Root > ToDoList_Version 1 > Work > NSERC CGS-M Grant Application",
+  #       ]
+  #     - [
+  #         "Root > ToDoList_Version 1 > Learning > Skill Acquisition > Learn Rust programming basics",
+  #         "Root > ToDoList_Version 1 > Learning > Skill Acquisition > Read 'Attention is All You Need' paper again",
+  #       ]
+  #     - [
+  #         "Root > ToDoList_Version 1 > Personal > Conference Travel: Vancouver > Task 2",
+  #       ]
+  #     - [
+  #         "Root > ToDoList_Version 1 > Personal > Conference Travel: Vancouver > Task 1",
+  #       ]
+
+  # Create Queries
+  - name: "create_queries"
+    use_versions: 'false' # Set to true to create new versions of the tree for each create query, which will reflect changes in subsequent read queries. Set to false to make changes directly to the original tree, which will reflect changes in subsequent read queries but without versioning.
+  
+    queries:
+      - "Add a new project called 'Garage Repair' under the 'Household' category."
+      - "Add a task to the 'Garage Repair' project called 'Fix the leaky faucet'."
+      - "Add a task to my groceries to buy eggs and orange juice, i need it for tomorrow morning"
+      - "Add a task to read the paper DeepSeekMath to my work project. High priority."
+      - "I want to get better at playing piano. Add a new learning project called 'Piano Practice' and add a task to practice scales for 30 minutes every day."
+
+    ground_truth:
+      - ["Root > ToDoList_Version 1 > Household/Project"]
+      - ["Root > ToDoList_Version 1 > Household > Garage Repair/Task"]
+      - ["Root > ToDoList_Version 1 > Household > Weekly Groceries/Task"]
+      - ["Root > ToDoList_Version 1 > Work > Thesis: Solve AI/Task"]
+      - ["Root > ToDoList_Version 1 > Learning > Piano Practice/Project"] # Might be wrong
+
+  # Delete Queries (single-turn sessions)
+  - name: "delete_queries"
+    use_versions: 'false' # Set to true to create new versions of the tree for each delete query, which will reflect changes in subsequent read queries. Set to false to make changes directly to the original tree, which will reflect changes in subsequent read queries but without versioning.
+    queries:
+      - "Remove all high priority work related tasks from my todo list"
+      - "Delete the repair man task from the 'Garage Repair' project."
+      - "Delete office hours from my todo list"
+      - "Delete the task read attention is all you need from my learning project"
+      - "Delete projects with a 2027 deadline from my todo list"
+
+    ground_truth:
+      - [
+          "Root > ToDoList_Version 1 > Work > Thesis: Solve AI > Task 1",
+          "Root > ToDoList_Version 1 > Work > Thesis: Solve AI > Task 3",
+          "Root > ToDoList_Version 1 > Work > NSERC CGS-M Grant Application > Task 1",
+          "Root > ToDoList_Version 1 > Work > NSERC CGS-M Grant Application > Task 2",
+        ]
+      - ["Root > ToDoList_Version 1 > Household > Fix Garage Door > Task 3"]
+      - ["Root > ToDoList_Version 1 > Work > TA: Intro to ML (CS480) > Task 2"]
+      - ["Root > ToDoList_Version 1 > Learning > Skill Acquisition > Task 2"]
+      - ["Root > ToDoList_Version 1 > Work > Thesis: Solve AI"]
+
+  # Update Queries
+  - name: "update" # Should delete the TA: Intro to ML (CS480) project, and the Weekly Groceries project
+    use_versions: 'false' # Set to true to create new versions of the tree for each update query, which will reflect changes in subsequent read queries. Set to false to make changes directly to the original tree, which will reflect changes in subsequent read queries but without versioning.
+    
+    queries:
+      - "Update the grade midterm exams status to done"
+      - "Update buy milk to done"
+      - "Update all tasks in fix garage door to done"
+      - "Update the deadline to renew my passport the correct date of July 3, 2026"
+      - "Im trying to eat better, change ramen on my grocery list to be a salad instead"
+
+    ground_truth:
+      - ["Root > ToDoList_Version 1 > Work > TA: Intro to ML (CS480) > Task 1"]
+      - ["Root > ToDoList_Version 1 > Household > Weekly Groceries > Task 1"]
+      - [
+          "Root > ToDoList_Version 1 > Household > Fix Garage Door > Task 1",
+          "Root > ToDoList_Version 1 > Household > Fix Garage Door > Task 2",
+          "Root > ToDoList_Version 1 > Household > Fix Garage Door > Task 3",
+        ]
+      - ["Root > ToDoList_Version 1 > Personal > General > Task 2"]
+      - ["Root > ToDoList_Version 1 > Household > Weekly Groceries > Task 3"]
+
+  # # Versioning Queries
+  # - name: "versioning_queries"
+  #   use_versions: 'true' # Versioning queries should always use the versioned tree to reflect changes over time and test the model's ability to reason about those changes.
+  #   queries:
+  #   # Create a series of versions of the todolist 
+  
+
+# =============================================================================
+# EXPERIMENT CONFIGURATION
+# All parameters for this experiment are defined below
+# =============================================================================
+
+config:
+  # Schema configuration
+  # Choose which schema and data file to use
+  active_schema: "todolist" # Options: itinerary, todolist, session_recommendation
+  active_data: "todolist" # Options: todolist, travel_toronto_10day
+
+  # LLM Client configuration
+  # Model options: "gpt-4o", "gpt-5", "gpt-5-mini", "o1", "o3-mini", etc.
+  openai:
+    api_key: "${OPENAI_API_KEY}"
+    model: "gpt-5-mini"
+    max_tokens: 16384
+    # For GPT-4 series: temperature controls creativity (0-1)
+    temperature: 0
+    # For GPT-5/o1/o3 series: reasoning_effort controls reasoning depth
+    # Options: none (fastest), low, medium (default), high, xhigh (deepest)
+    reasoning_effort: "low"
+
+  # XPath executor settings
+  xpath_executor:
+    top_k: 5
+    score_threshold: 0.05
+    # Scoring method: "llm", "entailment", or "cosine"
+    scoring_method: "entailment"
+
+  # In-context pipeline settings (single LLM call with full tree)
+  incontext_pipeline:
+    temperature: 0
+    max_tokens: 16384
+
+  # Entailment scorer settings
+  entailment:
+    model: "facebook/bart-large-mnli"
+    hypothesis_template: "This is related to {predicate}."
+    # device: auto-detected if not set (cuda > mps > cpu)
+
+  # Cosine similarity scorer settings
+  cosine:
+    model: "sentence-transformers/msmarco-distilbert-base-tas-b"
+    predicate_template: "{predicate}"
+    # device: auto-detected if not set (cuda > mps > cpu)
+
+# =============================================================================
+# EXAMPLE QUERIES (commented out for reference)
+# =============================================================================
+
+# # READ Queries (single-turn sessions)
+# - [
+#     "My friend lives in Mississauga, about an hour from downtown. What days are without any work commitments or flights?",
+#     "I actually went to the CN Tower on my last trip to Toronto. Remove any CN Tower activities. I'd rather do something new.",
+#     "It's definitely going to rain all day on Day 7. Cancel any outdoor activities, I'll figure out replacements.",
+#   ]
+# - [
+#     "The weather forecast shows heavy rain on Day 7. Which activities are outdoors that I might need to reschedule?",
+#   ]
+# - [
+#     "My sister and nephew are joining me on Day 6. He's 10 years old. What activities do I already have planned that would be fun for a kid?",
+#   ]
+# - [
+#     "I'm putting together my expense report. What are the most expensive restaurants I've booked?",
+#   ]
+# - [
+#     "I've been stuck in meetings most of the week. Which days have nature activities where I can actually get outside?",
+#   ]
+
+# # DELETE Queries (single-turn sessions)
+# - [
+#     "I just checked my spending and I'm way over budget. Cut the expensive dinners from the itinerary and I'll find cheaper alternatives later.",
+#   ]
+# - [
+#     "It's definitely going to rain all day on Day 7. Cancel any outdoor activities, I'll figure out replacements.",
+#   ]
+# - [
+#     "I actually went to the CN Tower on my last trip to Toronto. Remove any CN Tower activities. I'd rather do something new.",
+#   ]
+# - [
+#     "Bad news. my friend who was going to host me at Niagara just tested positive for COVID. I need to cancel the Niagara Falls trip.",
+#   ]
+# - [
+#     "I'm exhausted. I'm going to take Day 5 as a personal day and skip all the work stuff. Cancel every work-related activity on that day.",
+#   ]
+
+# # CREATE Queries (single-turn sessions)
+# - [
+#     "I just noticed Day 2 has no breakfast, my first meeting is at 9am and I'll be starving. Add a quick hotel breakfast before the meeting.",
+#   ]
+# - [
+#     "The workshop on Day 3 ends at 11am and then I have nothing until the AGO at noon. Add a coffee break in between. there's a good cafe near the gallery.",
+#   ]
+# - [
+#     "I completely forgot about souvenirs. Add a stop at Roots or the Hudson's Bay flagship on Day 10 morning before the CN Tower. I need to grab gifts before I fly out.",
+#   ]
+
+# # Multi-turn session example (queries share tree state, changes persist)
+# # - ["Show me all activities on Day 3", "Delete the lunch meeting", "Add a coffee break at 11am"]

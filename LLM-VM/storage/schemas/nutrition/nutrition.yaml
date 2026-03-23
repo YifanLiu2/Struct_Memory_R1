@@ -1,0 +1,77 @@
+name: "nutrition"
+description: "Family nutrition plan with people, days, meals, and multiple meal choices"
+
+# Tree hierarchy (for documentation and LLM prompt generation)
+hierarchy: |
+  Person (root, identified by @name)
+  └── Day (indexed by @index)
+      ├── Breakfast (container)
+      │   └── Meal (leaf)
+      ├── Lunch (container)
+      │   └── Meal (leaf)
+      └── Dinner (container)
+          └── Meal (leaf)
+
+# Node type definitions with fields
+nodes:
+  Person:
+    type: root
+    index_attr: "name" # Uses <Person name="Father"> for identification
+    fields: [] # Container node - no direct content fields
+    children: ["Day"]
+
+  Day:
+    type: container
+    index_attr: "index" # Uses <Day index="1"> for identification
+    fields: [] # Container node - no direct content fields
+    children: ["Breakfast", "Lunch", "Dinner"]
+
+  Breakfast:
+    type: container
+    fields: [] # Container node - no direct content fields
+    children: ["Meal"]
+
+  Lunch:
+    type: container
+    fields: []
+    children: ["Meal"]
+
+  Dinner:
+    type: container
+    fields: []
+    children: ["Meal"]
+
+  Meal:
+    type: leaf
+    fields:
+      - name
+      - short_description
+      - meal_suggestion
+      - ingredients
+      - nutrition_note
+    children: []
+
+# Available data files for this schema
+data_files:
+  nutrition_7day: "memory/nutrition/nutrition_7day.xml"
+
+# Default data file to use
+default_data: "nutrition_7day"
+
+# XPath query generation prompt components
+examples_file: "prompts/query_generator/domains/xpath_examples_nutrition.txt"
+
+# Syntax rules specific to this schema
+syntax_rules: |
+  - Paths start with /Person
+  - Node types: Person, Day, Breakfast, Lunch, Dinner, Meal
+  - CRITICAL: Meal is NEVER a direct child of Day. Always navigate through Breakfast, Lunch, or Dinner first: /Person/Day/Breakfast/Meal, /Person/Day/Lunch/Meal, /Person/Day/Dinner/Meal
+  - NEVER use the descendant axis // to reach Meal nodes. Always specify the meal type explicitly (Breakfast, Lunch, or Dinner). If the meal type is unknown, pick the most likely one based on context.
+  - When a specific person is mentioned in the user query (Father, Mother, Child), ALWAYS include a Person predicate filter: /Person[atom(content =~ "Father")]
+  - Aggregation over meals within a Day MUST specify the intermediate container: agg_exists(Breakfast/Meal[...]), agg_exists(Lunch/Meal[...]), agg_exists(Dinner/Meal[...])
+  - NEVER use // inside aggregation predicates: agg_exists(//Meal[...]) is WRONG, use agg_exists(Dinner/Meal[...]) instead
+  - NEVER use Day[agg_exists(Meal[...])] — Meal is not a child of Day
+  - Combine multiple semantic concepts into a single atom() predicate rather than using multiple separate predicates: atom(content =~ "plant-based light grain bowl") NOT min(Meal[...], Meal[...], Meal[...])
+  - Indices: Day[2], Meal[-1], Meal[1:3]
+  - Person filtering: /Person[atom(content =~ "Father")], /Person[atom(content =~ "Mother")], /Person[atom(content =~ "Child")]
+  - Logical: AND / OR / not() combine predicates WITHIN brackets (e.g., [A OR B], [not(A)]), never between paths

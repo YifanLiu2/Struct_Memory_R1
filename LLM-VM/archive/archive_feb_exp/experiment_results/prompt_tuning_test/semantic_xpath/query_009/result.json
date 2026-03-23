@@ -1,0 +1,142 @@
+{
+  "query_index": 8,
+  "query": "Identify days where no restaurant is described as expensive or formal.",
+  "operation": "READ",
+  "success": true,
+  "execution_time_ms": 34531.97,
+  "token_usage": {
+    "prompt_tokens": 4716,
+    "completion_tokens": 1418,
+    "total_tokens": 6134
+  },
+  "selected_nodes": [
+    {
+      "type": "Day",
+      "attributes": {
+        "index": "3"
+      },
+      "tree_path": "Root > Itinerary_Version 1 > Itinerary > Day 3",
+      "reasoning": "All restaurants on Day 3 are described as simple, convenient, artistic, or lively with moderate expected_costs (CAD 25–50). None are described as expensive or formal."
+    }
+  ],
+  "raw_result": {
+    "timestamp": "20260203_233444_746461",
+    "user_query": "Identify days where no restaurant is described as expensive or formal.",
+    "task_query": "identify days where no restaurant is described as expensive or formal",
+    "operation": "READ",
+    "success": true,
+    "version_resolution": {
+      "selector_type": "at",
+      "semantic_query": null,
+      "index": -1,
+      "crud_operation": "Read",
+      "raw_response": "at([-1]), READ\ntask: identify days where no restaurant is described as expensive or formal",
+      "task_query": "identify days where no restaurant is described as expensive or formal",
+      "token_usage": {
+        "prompt_tokens": 975,
+        "completion_tokens": 156,
+        "total_tokens": 1131
+      }
+    },
+    "parsed_query": {
+      "operation": "Read",
+      "xpath": "/Itinerary/Day[not(agg_exists(Restaurant[atom(content =~ \"expensive\") OR atom(content =~ \"formal\")]))]",
+      "full_query": "Read(/Itinerary/Day[not(agg_exists(Restaurant[atom(content =~ \"expensive\") OR atom(content =~ \"formal\")]))])",
+      "token_usage": {
+        "prompt_tokens": 2192,
+        "completion_tokens": 294,
+        "total_tokens": 2486
+      }
+    },
+    "version_used": "1",
+    "xpath_execution": {
+      "query": "/Root/Itinerary_Version[1]/Itinerary/Day[not(agg_exists(Restaurant[atom(content =~ \"expensive\") OR atom(content =~ \"formal\")]))]",
+      "matched_count": 2,
+      "execution_time_ms": 14168.210900039412,
+      "token_usage": null
+    },
+    "handler_result": {
+      "success": true,
+      "operation": "READ",
+      "processing_time_ms": 13260.024199960753,
+      "output": {
+        "selected_nodes": [
+          {
+            "tree_path": "Root > Itinerary_Version 1 > Itinerary > Day 3",
+            "node_data": {
+              "type": "Day",
+              "attributes": {
+                "index": "3"
+              }
+            },
+            "reasoning": "All restaurants on Day 3 are described as simple, convenient, artistic, or lively with moderate expected_costs (CAD 25–50). None are described as expensive or formal."
+          }
+        ]
+      },
+      "token_usage": {
+        "prompt_tokens": 1549,
+        "completion_tokens": 968,
+        "total_tokens": 2517
+      }
+    },
+    "timing": {
+      "stages": [
+        {
+          "name": "version_resolution",
+          "time_ms": 2891.52,
+          "token_usage": {
+            "prompt_tokens": 975,
+            "completion_tokens": 156,
+            "total_tokens": 1131
+          }
+        },
+        {
+          "name": "version_lookup",
+          "time_ms": 0.01
+        },
+        {
+          "name": "query_generation",
+          "time_ms": 4191.6,
+          "token_usage": {
+            "prompt_tokens": 2192,
+            "completion_tokens": 294,
+            "total_tokens": 2486
+          }
+        },
+        {
+          "name": "xpath_execution",
+          "time_ms": 14179.78
+        },
+        {
+          "name": "downstream_task",
+          "time_ms": 13261.65,
+          "token_usage": {
+            "prompt_tokens": 1549,
+            "completion_tokens": 968,
+            "total_tokens": 2517
+          }
+        }
+      ],
+      "total_time_ms": 34524.56,
+      "total_tokens": {
+        "prompt_tokens": 4716,
+        "completion_tokens": 1418,
+        "total_tokens": 6134
+      },
+      "pipeline_total_ms": 34529.85159994569
+    },
+    "candidates_count": 2,
+    "selected_count": 1,
+    "selected_nodes": [
+      {
+        "type": "Day",
+        "attributes": {
+          "index": "3"
+        },
+        "tree_path": "Root > Itinerary_Version 1 > Itinerary > Day 3",
+        "reasoning": "All restaurants on Day 3 are described as simple, convenient, artistic, or lively with moderate expected_costs (CAD 25–50). None are described as expensive or formal."
+      }
+    ],
+    "total_time_ms": 34529.85159994569
+  }
+}

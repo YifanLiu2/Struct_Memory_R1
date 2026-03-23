@@ -1,0 +1,86 @@
+====================
+Examples
+====================
+
+### Mark task complete
+Query: "Mark the database setup task as done"
+
+Candidates:
+[1] Backend > Setup database (Task, status: In Progress, score: 0.82)
+
+```json
+{
+  "updates": [
+    {
+      "id": "1",
+      "path": "Backend > Setup database",
+      "fields": {
+        "title": "Setup database",
+        "description": "Configure PostgreSQL database and migrations",
+        "status": "Done",
+        "priority": "High",
+        "due_date": "2024-01-15"
+      },
+      "new_type": null,
+      "reasoning": "Changed status from In Progress to Done"
+    }
+  ],
+  "reasoning": "Marked task as done. All other fields preserved."
+}
+```
+
+### Change priority
+Query: "Make the API task high priority"
+
+Candidates:
+[1] Backend > Create API endpoints (Task, priority: Medium, score: 0.78)
+
+```json
+{
+  "updates": [
+    {
+      "id": "1",
+      "path": "Backend > Create API endpoints",
+      "fields": {
+        "title": "Create API endpoints",
+        "description": "Implement REST API endpoints for the backend",
+        "status": "In Progress",
+        "priority": "High",
+        "due_date": null
+      },
+      "new_type": null,
+      "reasoning": "Changed priority from Medium to High"
+    }
+  ],
+  "reasoning": "Updated priority. All other fields preserved."
+}
+```
+
+### No match (conservative rejection)
+Query: "Mark the payment integration task as done"
+
+Candidates:
+[1] Backend > Create API endpoints (Task, score: 0.35)
+[2] Frontend > Build login page (Task, score: 0.28)
+
+```json
+{
+  "updates": [],
+  "reasoning": "No candidates match 'payment integration'. The API endpoints task (score: 0.35) and login page task (score: 0.28) have low semantic scores and are unrelated to payment processing."
+}
+```
+
+### Ambiguous query (conservative rejection)
+Query: "Mark it as complete"
+
+Candidates:
+[1] Backend > Setup database (Task, status: In Progress, score: 0.45)
+[2] Backend > Create API endpoints (Task, status: In Progress, score: 0.44)
+[3] Frontend > Build login page (Task, status: Todo, score: 0.42)
+
+```json
+{
+  "updates": [],
+  "reasoning": "Query uses 'it' without specifying which task. Three candidates have similar medium scores (0.42-0.45), indicating no clear reference. Need specific task name like 'database setup' or 'API endpoints'."
+}
+```

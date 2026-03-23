@@ -1,0 +1,194 @@
+{
+  "query_index": 4,
+  "query": "I've been stuck in meetings most of the week. Which days have nature activities where I can actually get outside?",
+  "operation": "READ",
+  "success": true,
+  "execution_time_ms": 27961.66,
+  "token_usage": {
+    "prompt_tokens": 5764,
+    "completion_tokens": 996,
+    "total_tokens": 6760
+  },
+  "selected_nodes": [
+    {
+      "type": "Day",
+      "attributes": {
+        "index": "8"
+      },
+      "tree_path": "Root > Itinerary_Version 1 > Itinerary > Day 8",
+      "reasoning": "Day 8 includes 'Niagara Falls Day Trip' explicitly described as an outdoor nature scenic waterfall full-day excursion (boat ride and time to explore the falls)."
+    },
+    {
+      "type": "Day",
+      "attributes": {
+        "index": "6"
+      },
+      "tree_path": "Root > Itinerary_Version 1 > Itinerary > Day 6",
+      "reasoning": "Day 6 includes 'Toronto Islands Ferry and Bike Ride' described as an outdoor nature activity with beaches, gardens, bike riding and island exploration."
+    },
+    {
+      "type": "Day",
+      "attributes": {
+        "index": "1"
+      },
+      "tree_path": "Root > Itinerary_Version 1 > Itinerary > Day 1",
+      "reasoning": "Day 1 includes 'Harbourfront Stroll' described as an outdoor, relaxing walk along the waterfront with lake views and fresh air."
+    }
+  ],
+  "raw_result": {
+    "timestamp": "20260204_001100_038566",
+    "user_query": "I've been stuck in meetings most of the week. Which days have nature activities where I can actually get outside?",
+    "task_query": "Which days have nature activities where I can actually get outside?",
+    "operation": "READ",
+    "success": true,
+    "version_resolution": {
+      "selector_type": "at",
+      "semantic_query": null,
+      "index": -1,
+      "crud_operation": "Read",
+      "raw_response": "at([-1]), READ\ntask: Which days have nature activities where I can actually get outside?",
+      "task_query": "Which days have nature activities where I can actually get outside?",
+      "token_usage": {
+        "prompt_tokens": 985,
+        "completion_tokens": 157,
+        "total_tokens": 1142
+      }
+    },
+    "parsed_query": {
+      "operation": "Read",
+      "xpath": "/Itinerary/Day[agg_exists(POI[atom(content =~ \"outdoor\")])]",
+      "full_query": "Read(/Itinerary/Day[agg_exists(POI[atom(content =~ \"outdoor\")])])",
+      "token_usage": {
+        "prompt_tokens": 2207,
+        "completion_tokens": 221,
+        "total_tokens": 2428
+      }
+    },
+    "version_used": "1",
+    "xpath_execution": {
+      "query": "/Root/Itinerary_Version[1]/Itinerary/Day[agg_exists(POI[atom(content =~ \"outdoor\")])]",
+      "matched_count": 5,
+      "execution_time_ms": 5629.32029995136,
+      "token_usage": null
+    },
+    "handler_result": {
+      "success": true,
+      "operation": "READ",
+      "processing_time_ms": 13706.130300066434,
+      "output": {
+        "selected_nodes": [
+          {
+            "tree_path": "Root > Itinerary_Version 1 > Itinerary > Day 8",
+            "node_data": {
+              "type": "Day",
+              "attributes": {
+                "index": "8"
+              }
+            },
+            "reasoning": "Day 8 includes 'Niagara Falls Day Trip' explicitly described as an outdoor nature scenic waterfall full-day excursion (boat ride and time to explore the falls)."
+          },
+          {
+            "tree_path": "Root > Itinerary_Version 1 > Itinerary > Day 6",
+            "node_data": {
+              "type": "Day",
+              "attributes": {
+                "index": "6"
+              }
+            },
+            "reasoning": "Day 6 includes 'Toronto Islands Ferry and Bike Ride' described as an outdoor nature activity with beaches, gardens, bike riding and island exploration."
+          },
+          {
+            "tree_path": "Root > Itinerary_Version 1 > Itinerary > Day 1",
+            "node_data": {
+              "type": "Day",
+              "attributes": {
+                "index": "1"
+              }
+            },
+            "reasoning": "Day 1 includes 'Harbourfront Stroll' described as an outdoor, relaxing walk along the waterfront with lake views and fresh air."
+          }
+        ]
+      },
+      "token_usage": {
+        "prompt_tokens": 2572,
+        "completion_tokens": 618,
+        "total_tokens": 3190
+      }
+    },
+    "timing": {
+      "stages": [
+        {
+          "name": "version_resolution",
+          "time_ms": 4656.31,
+          "token_usage": {
+            "prompt_tokens": 985,
+            "completion_tokens": 157,
+            "total_tokens": 1142
+          }
+        },
+        {
+          "name": "version_lookup",
+          "time_ms": 0.01
+        },
+        {
+          "name": "query_generation",
+          "time_ms": 3956.76,
+          "token_usage": {
+            "prompt_tokens": 2207,
+            "completion_tokens": 221,
+            "total_tokens": 2428
+          }
+        },
+        {
+          "name": "xpath_execution",
+          "time_ms": 5635.64
+        },
+        {
+          "name": "downstream_task",
+          "time_ms": 13707.21,
+          "token_usage": {
+            "prompt_tokens": 2572,
+            "completion_tokens": 618,
+            "total_tokens": 3190
+          }
+        }
+      ],
+      "total_time_ms": 27955.93,
+      "total_tokens": {
+        "prompt_tokens": 5764,
+        "completion_tokens": 996,
+        "total_tokens": 6760
+      },
+      "pipeline_total_ms": 27960.083000012673
+    },
+    "candidates_count": 5,
+    "selected_count": 3,
+    "selected_nodes": [
+      {
+        "type": "Day",
+        "attributes": {
+          "index": "8"
+        },
+        "tree_path": "Root > Itinerary_Version 1 > Itinerary > Day 8",
+        "reasoning": "Day 8 includes 'Niagara Falls Day Trip' explicitly described as an outdoor nature scenic waterfall full-day excursion (boat ride and time to explore the falls)."
+      },
+      {
+        "type": "Day",
+        "attributes": {
+          "index": "6"
+        },
+        "tree_path": "Root > Itinerary_Version 1 > Itinerary > Day 6",
+        "reasoning": "Day 6 includes 'Toronto Islands Ferry and Bike Ride' described as an outdoor nature activity with beaches, gardens, bike riding and island exploration."
+      },
+      {
+        "type": "Day",
+        "attributes": {
+          "index": "1"
+        },
+        "tree_path": "Root > Itinerary_Version 1 > Itinerary > Day 1",
+        "reasoning": "Day 1 includes 'Harbourfront Stroll' described as an outdoor, relaxing walk along the waterfront with lake views and fresh air."
+      }
+    ],
+    "total_time_ms": 27960.083000012673
+  }
+}

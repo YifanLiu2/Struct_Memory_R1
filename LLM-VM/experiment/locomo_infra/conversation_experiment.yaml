@@ -1,0 +1,44 @@
+name: "locomo_experiment"
+
+# Test queries for the conversation domain
+queries:
+  - name: "read_queries"
+    queries:
+      - "When did Caroline go to the LGBTQ support group"
+      # - "What does Melanie say about pottery?"
+      # - "What pets does Caroline have?"
+      # - "In which sessions did Caroline discuss LGBTQ advocacy?"
+      # - "What are Melanie's observations from session 3?"
+
+# =============================================================================
+# EXPERIMENT CONFIGURATION
+# =============================================================================
+
+config:
+  # Schema configuration
+  active_schema: "conversation"
+  active_data: "conv-26"
+
+  # LLM Client configuration
+  openai:
+    api_key: "${OPENAI_API_KEY}"
+    model: "gpt-4o-mini"
+    max_tokens: 16384
+    temperature: 0.5
+    # reasoning_effort: "low"
+
+  # XPath executor settings
+  xpath_executor:
+    top_k: 10
+    score_threshold: 0.05
+    scoring_method: "entailment"
+
+  # Entailment scorer settings
+  entailment:
+    model: "facebook/bart-large-mnli"
+    hypothesis_template: "This is related to {predicate}."
+
+  # Cosine similarity scorer settings
+  cosine:
+    model: "sentence-transformers/msmarco-distilbert-base-tas-b"
+    predicate_template: "{predicate}"

@@ -1,0 +1,549 @@
+{
+  "timestamp": "20260219_234359_178004",
+  "query": "/Root/Itinerary_Version[2]/Day[3]/*",
+  "canonical_query": "/Root/Itinerary_Version[2]/Day[3]/*",
+  "data_file": "tree.xml",
+  "execution_time_ms": 0.6375000812113285,
+  "parsed_ast": {
+    "steps": [
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Root",
+            "span": {
+              "start": 1,
+              "end": 5
+            }
+          },
+          "span": {
+            "start": 1,
+            "end": 5
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Itinerary_Version",
+            "index": {
+              "start": 2,
+              "type": "single",
+              "span": {
+                "start": 23,
+                "end": 26
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 26
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 26
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Day",
+            "index": {
+              "start": 3,
+              "type": "single",
+              "span": {
+                "start": 30,
+                "end": 33
+              }
+            },
+            "span": {
+              "start": 27,
+              "end": 33
+            }
+          },
+          "span": {
+            "start": 27,
+            "end": 33
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "wildcard",
+            "name": null,
+            "span": {
+              "start": 34,
+              "end": 35
+            }
+          },
+          "span": {
+            "start": 34,
+            "end": 35
+          }
+        }
+      }
+    ],
+    "global_index": null
+  },
+  "parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: Itinerary_Version[2]\n├── Step 2: Day[3]\n└── Step 3: *",
+  "canonical_parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: Itinerary_Version[2]\n├── Step 2: Day[3]\n└── Step 3: *",
+  "execution_log": [
+    "[20260219_234359_178004] Executing query: /Root/Itinerary_Version[2]/Day[3]/*",
+    "Data file: tree.xml",
+    "Parsed steps: [Root, Itinerary_Version[2], Day[3], *]",
+    "",
+    "Query AST:\n├── Step 0: Root\n├── Step 1: Itinerary_Version[2]\n├── Step 2: Day[3]\n└── Step 3: *",
+    "\n--- Step 1: Root ---",
+    "Matched Root root",
+    "\n--- Step 2: Itinerary_Version[2] ---",
+    "Selected node at index 2 (0-based: 1)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 3: Day[3] ---",
+    "Selected node at index 3 (0-based: 2)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 4: * ---",
+    "After step: 6 nodes remaining",
+    "\n=== Score Fusion ===",
+    "  Root > Itinerary_Version 2 > Day 3 > Hotel Continental Breakfast: product=1.0000 → score=1.0000",
+    "  Root > Itinerary_Version 2 > Day 3 > Stakeholder Presentation: product=1.0000 → score=1.0000",
+    "  Root > Itinerary_Version 2 > Day 3 > Balzac's Coffee Roasters (near AGO): product=1.0000 → score=1.0000",
+    "  Root > Itinerary_Version 2 > Day 3 > Art Gallery of Ontario: product=1.0000 → score=1.0000",
+    "  Root > Itinerary_Version 2 > Day 3 > FRANK Restaurant at AGO: product=1.0000 → score=1.0000",
+    "  Root > Itinerary_Version 2 > Day 3 > Pai Northern Thai: product=1.0000 → score=1.0000",
+    "\n=== Threshold Filtering (threshold=0.05) ===",
+    "  Filtered: 6 → 6 nodes",
+    "\n=== Final Filtering (top_k=5) ===",
+    "  After top_k: 6 → 5 nodes",
+    "\nFinal result: 5 nodes (sorted by score)",
+    "⏱️  Query execution time: 0.64ms"
+  ],
+  "traversal_steps": [
+    {
+      "step_index": 0,
+      "step_query": "Root",
+      "action": "root_match",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "type": "root"
+        }
+      ],
+      "nodes_after": [
+        {
+          "type": "Root",
+          "path": "Root"
+        }
+      ],
+      "details": {
+        "matched": true
+      }
+    },
+    {
+      "step_index": 1,
+      "step_query": "Itinerary_Version[2]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root",
+          "name": "Root",
+          "type": "Root",
+          "score": 1.0,
+          "node_id": 6135024352
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Itinerary_Version 2",
+          "name": "Itinerary_Version 2",
+          "type": "Itinerary_Version",
+          "score": 1.0,
+          "node_id": 6136037440
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Itinerary_Version",
+            "index": {
+              "start": 2,
+              "type": "single",
+              "span": {
+                "start": 23,
+                "end": 26
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 26
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 26
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 2,
+      "step_query": "Day[3]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root > Itinerary_Version 2",
+          "name": "Itinerary_Version 2",
+          "type": "Itinerary_Version",
+          "score": 1.0,
+          "node_id": 6136037440
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Itinerary_Version 2 > Day 3",
+          "name": "Day 3",
+          "type": "Day",
+          "score": 1.0,
+          "node_id": 6136043680
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Day",
+            "index": {
+              "start": 3,
+              "type": "single",
+              "span": {
+                "start": 30,
+                "end": 33
+              }
+            },
+            "span": {
+              "start": 27,
+              "end": 33
+            }
+          },
+          "span": {
+            "start": 27,
+            "end": 33
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 3,
+      "step_query": "*",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 6,
+      "nodes_before": [
+        {
+          "path": "Root > Itinerary_Version 2 > Day 3",
+          "name": "Day 3",
+          "type": "Day",
+          "score": 1.0,
+          "node_id": 6136043680
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Itinerary_Version 2 > Day 3 > Hotel Continental Breakfast",
+          "name": "Hotel Continental Breakfast",
+          "type": "Restaurant",
+          "score": 1.0,
+          "node_id": 6136043040
+        },
+        {
+          "path": "Root > Itinerary_Version 2 > Day 3 > Stakeholder Presentation",
+          "name": "Stakeholder Presentation",
+          "type": "POI",
+          "score": 1.0,
+          "node_id": 6136044240
+        },
+        {
+          "path": "Root > Itinerary_Version 2 > Day 3 > Balzac's Coffee Roasters (near AGO)",
+          "name": "Balzac's Coffee Roasters (near AGO)",
+          "type": "Restaurant",
+          "score": 1.0,
+          "node_id": 6136044880
+        },
+        {
+          "path": "Root > Itinerary_Version 2 > Day 3 > Art Gallery of Ontario",
+          "name": "Art Gallery of Ontario",
+          "type": "POI",
+          "score": 1.0,
+          "node_id": 6136051520
+        },
+        {
+          "path": "Root > Itinerary_Version 2 > Day 3 > FRANK Restaurant at AGO",
+          "name": "FRANK Restaurant at AGO",
+          "type": "Restaurant",
+          "score": 1.0,
+          "node_id": 6136047440
+        },
+        {
+          "path": "Root > Itinerary_Version 2 > Day 3 > Pai Northern Thai",
+          "name": "Pai Northern Thai",
+          "type": "Restaurant",
+          "score": 1.0,
+          "node_id": 6136045680
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "wildcard",
+            "name": null,
+            "span": {
+              "start": 34,
+              "end": 35
+            }
+          },
+          "span": {
+            "start": 34,
+            "end": 35
+          }
+        },
+        "found_count": 6,
+        "scoring_trace": []
+      }
+    }
+  ],
+  "scoring_traces": [],
+  "scoring_details": {
+    "step_scores": [],
+    "score_fusion": {
+      "per_node": [
+        {
+          "node_path": "Root > Itinerary_Version 2 > Day 3 > Hotel Continental Breakfast",
+          "node_type": "Restaurant",
+          "step_contributions": [],
+          "accumulated_product": 1.0,
+          "final_score": 1.0
+        },
+        {
+          "node_path": "Root > Itinerary_Version 2 > Day 3 > Stakeholder Presentation",
+          "node_type": "POI",
+          "step_contributions": [],
+          "accumulated_product": 1.0,
+          "final_score": 1.0
+        },
+        {
+          "node_path": "Root > Itinerary_Version 2 > Day 3 > Balzac's Coffee Roasters (near AGO)",
+          "node_type": "Restaurant",
+          "step_contributions": [],
+          "accumulated_product": 1.0,
+          "final_score": 1.0
+        },
+        {
+          "node_path": "Root > Itinerary_Version 2 > Day 3 > Art Gallery of Ontario",
+          "node_type": "POI",
+          "step_contributions": [],
+          "accumulated_product": 1.0,
+          "final_score": 1.0
+        },
+        {
+          "node_path": "Root > Itinerary_Version 2 > Day 3 > FRANK Restaurant at AGO",
+          "node_type": "Restaurant",
+          "step_contributions": [],
+          "accumulated_product": 1.0,
+          "final_score": 1.0
+        },
+        {
+          "node_path": "Root > Itinerary_Version 2 > Day 3 > Pai Northern Thai",
+          "node_type": "Restaurant",
+          "step_contributions": [],
+          "accumulated_product": 1.0,
+          "final_score": 1.0
+        }
+      ]
+    }
+  },
+  "final_filtering": {
+    "before_filter_count": 6,
+    "threshold": 0.05,
+    "top_k": 5,
+    "after_filter_count": 5,
+    "filtered_nodes": [
+      {
+        "path": "Root > Itinerary_Version 2 > Day 3 > Hotel Continental Breakfast",
+        "score": 1.0,
+        "type": "Restaurant",
+        "own_score": 1.0,
+        "parent_score": 1.0
+      },
+      {
+        "path": "Root > Itinerary_Version 2 > Day 3 > Stakeholder Presentation",
+        "score": 1.0,
+        "type": "POI",
+        "own_score": 1.0,
+        "parent_score": 1.0
+      },
+      {
+        "path": "Root > Itinerary_Version 2 > Day 3 > Balzac's Coffee Roasters (near AGO)",
+        "score": 1.0,
+        "type": "Restaurant",
+        "own_score": 1.0,
+        "parent_score": 1.0
+      },
+      {
+        "path": "Root > Itinerary_Version 2 > Day 3 > Art Gallery of Ontario",
+        "score": 1.0,
+        "type": "POI",
+        "own_score": 1.0,
+        "parent_score": 1.0
+      },
+      {
+        "path": "Root > Itinerary_Version 2 > Day 3 > FRANK Restaurant at AGO",
+        "score": 1.0,
+        "type": "Restaurant",
+        "own_score": 1.0,
+        "parent_score": 1.0
+      }
+    ]
+  },
+  "matched_nodes": [
+    {
+      "tree_path": "Root > Itinerary_Version 2 > Day 3 > Hotel Continental Breakfast",
+      "score": 1.0,
+      "node": {
+        "type": "Restaurant",
+        "attributes": {},
+        "name": "Hotel Continental Breakfast",
+        "time_block": "7:30 AM - 8:30 AM",
+        "description": "Quick breakfast at the hotel restaurant. Simple continental options, nothing special but convenient.",
+        "travel_method": "Walk",
+        "expected_cost": "CAD 25",
+        "highlights": [
+          "Quick and convenient",
+          "Basic options"
+        ]
+      },
+      "children": [],
+      "context_trace": []
+    },
+    {
+      "tree_path": "Root > Itinerary_Version 2 > Day 3 > Stakeholder Presentation",
+      "score": 1.0,
+      "node": {
+        "type": "POI",
+        "attributes": {},
+        "name": "Stakeholder Presentation",
+        "time_block": "9:00 AM - 11:00 AM",
+        "description": "Morning work session presenting quarterly results to stakeholders. High-pressure meeting requiring focus and preparation.",
+        "travel_method": "Walk",
+        "expected_cost": "Work",
+        "highlights": [
+          "Work meeting",
+          "Business presentation"
+        ]
+      },
+      "children": [],
+      "context_trace": []
+    },
+    {
+      "tree_path": "Root > Itinerary_Version 2 > Day 3 > Balzac's Coffee Roasters (near AGO)",
+      "score": 1.0,
+      "node": {
+        "type": "Restaurant",
+        "attributes": {},
+        "name": "Balzac's Coffee Roasters (near AGO)",
+        "time_block": "11:00 AM - 11:45 AM",
+        "description": "Quick coffee and pastry stop a short walk from the Art Gallery of Ontario — good for a light refresh before the museum visit.",
+        "travel_method": "Walk",
+        "expected_cost": "CAD 5-15",
+        "highlights": [
+          "Specialty coffee",
+          "Fresh pastries",
+          "Close to AGO"
+        ]
+      },
+      "children": [],
+      "context_trace": []
+    },
+    {
+      "tree_path": "Root > Itinerary_Version 2 > Day 3 > Art Gallery of Ontario",
+      "score": 1.0,
+      "node": {
+        "type": "POI",
+        "attributes": {},
+        "name": "Art Gallery of Ontario",
+        "time_block": "12:00 PM - 2:00 PM",
+        "description": "World-class art museum with Canadian and international collections. Indoor cultural experience in Frank Gehry-designed building. Quiet and contemplative atmosphere.",
+        "travel_method": "Walk",
+        "expected_cost": "CAD 25",
+        "highlights": [
+          "Indoor museum",
+          "Cultural experience",
+          "Art gallery"
+        ]
+      },
+      "children": [],
+      "context_trace": []
+    },
+    {
+      "tree_path": "Root > Itinerary_Version 2 > Day 3 > FRANK Restaurant at AGO",
+      "score": 1.0,
+      "node": {
+        "type": "Restaurant",
+        "attributes": {},
+        "name": "FRANK Restaurant at AGO",
+        "time_block": "2:00 PM - 3:00 PM",
+        "description": "Modern Canadian cuisine inside the Art Gallery. Artistic setting with creative seasonal menu.",
+        "travel_method": "Walk",
+        "expected_cost": "CAD 35-50",
+        "highlights": [
+          "Museum dining",
+          "Artistic atmosphere"
+        ]
+      },
+      "children": [],
+      "context_trace": []
+    }
+  ],
+  "summary": {
+    "total_steps": 4,
+    "total_scoring_calls": 0,
+    "matched_count": 5,
+    "execution_time_ms": 0.6375000812113285,
+    "has_score_fusion": true,
+    "num_nodes_before_filter": 6,
+    "num_nodes_after_filter": 5
+  }
+}

@@ -1,0 +1,6061 @@
+{
+  "timestamp": "20260323_002525_564817",
+  "query": "/Root/Conversation_Version[1]/Speaker[atom(content =~ \"Calvin\")]/Session[atom(content =~ \"Ferrari purchase\")]/Observation[atom(content =~ \"buy second Ferrari\")]",
+  "canonical_query": "/Root/Conversation_Version[1]/Speaker[content =~ \"Calvin\"]/Session[content =~ \"Ferrari purchase\"]/Observation[content =~ \"buy second Ferrari\"]",
+  "data_file": "tree.xml",
+  "execution_time_ms": 817.3535000023548,
+  "parsed_ast": {
+    "steps": [
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Root",
+            "span": {
+              "start": 1,
+              "end": 5
+            }
+          },
+          "span": {
+            "start": 1,
+            "end": 5
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Conversation_Version",
+            "index": {
+              "start": 1,
+              "type": "single",
+              "span": {
+                "start": 26,
+                "end": 29
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 29
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 29
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Speaker",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "Calvin",
+              "operator": "=~",
+              "span": {
+                "start": 38,
+                "end": 63
+              }
+            },
+            "predicate_str": "atom(content =~ \"Calvin\")",
+            "span": {
+              "start": 30,
+              "end": 64
+            }
+          },
+          "span": {
+            "start": 30,
+            "end": 64
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Session",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "Ferrari purchase",
+              "operator": "=~",
+              "span": {
+                "start": 73,
+                "end": 108
+              }
+            },
+            "predicate_str": "atom(content =~ \"Ferrari purchase\")",
+            "span": {
+              "start": 65,
+              "end": 109
+            }
+          },
+          "span": {
+            "start": 65,
+            "end": 109
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Observation",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "buy second Ferrari",
+              "operator": "=~",
+              "span": {
+                "start": 122,
+                "end": 159
+              }
+            },
+            "predicate_str": "atom(content =~ \"buy second Ferrari\")",
+            "span": {
+              "start": 110,
+              "end": 160
+            }
+          },
+          "span": {
+            "start": 110,
+            "end": 160
+          }
+        }
+      }
+    ],
+    "global_index": null
+  },
+  "parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: Conversation_Version[1]\n├── Step 2: Speaker[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"Calvin\")\n├── Step 3: Session[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"Ferrari purchase\")\n└── Step 4: Observation[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"buy second Ferrari\")",
+  "canonical_parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: Conversation_Version[1]\n├── Step 2: Speaker[content =~ \"Calvin\"]\n├── Step 3: Session[content =~ \"Ferrari purchase\"]\n└── Step 4: Observation[content =~ \"buy second Ferrari\"]",
+  "execution_log": [
+    "[20260323_002525_564817] Executing query: /Root/Conversation_Version[1]/Speaker[atom(content =~ \"Calvin\")]/Session[atom(content =~ \"Ferrari purchase\")]/Observation[atom(content =~ \"buy second Ferrari\")]",
+    "Data file: tree.xml",
+    "Parsed steps: [Root, Conversation_Version[1], Speaker[atom(content =~ \"Calvin\")], Session[atom(content =~ \"Ferrari purchase\")], Observation[atom(content =~ \"buy second Ferrari\")]]",
+    "",
+    "Query AST:\n├── Step 0: Root\n├── Step 1: Conversation_Version[1]\n├── Step 2: Speaker[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"Calvin\")\n├── Step 3: Session[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"Ferrari purchase\")\n└── Step 4: Observation[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"buy second Ferrari\")",
+    "\n--- Step 1: Root ---",
+    "Matched Root root",
+    "\n--- Step 2: Conversation_Version[1] ---",
+    "Selected node at index 1 (0-based: 0)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 3: Speaker[atom(content =~ \"Calvin\")] ---",
+    "Scoring predicate: atom(content =~ \"Calvin\") (atomic values: ['Calvin'])",
+    "  Node 0 (Calvin): score = 1.0000 (exact match)",
+    "  Node 1 (Dave): score = 0.0000 (exact match)",
+    "  Exact attribute match on @name: 1/2 nodes matched",
+    "  Top-K Pruning: Reduced from 2 to 1 nodes (K=5)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 4: Session[atom(content =~ \"Ferrari purchase\")] ---",
+    "Scoring predicate: atom(content =~ \"Ferrari purchase\") (atomic values: ['Ferrari purchase'])",
+    "  Collected 30 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 30 total descriptions",
+    "  Node 0 (Session): score = 0.0416",
+    "  Node 1 (Session): score = 0.6451",
+    "  Node 2 (Session): score = 0.0279",
+    "  Node 3 (Session): score = 0.0190",
+    "  Node 4 (Session): score = 0.0197",
+    "  Node 5 (Session): score = 0.0085",
+    "  Node 6 (Session): score = 0.0648",
+    "  Node 7 (Session): score = 0.0013",
+    "  Node 8 (Session): score = 0.0071",
+    "  Node 9 (Session): score = 0.0265",
+    "  Node 10 (Session): score = 0.0206",
+    "  Node 11 (Session): score = 0.7248",
+    "  Node 12 (Session): score = 0.0294",
+    "  Node 13 (Session): score = 0.0147",
+    "  Node 14 (Session): score = 0.0057",
+    "  Node 15 (Session): score = 0.0076",
+    "  Node 16 (Session): score = 0.0569",
+    "  Node 17 (Session): score = 0.0063",
+    "  Node 18 (Session): score = 0.0034",
+    "  Node 19 (Session): score = 0.0163",
+    "  Node 20 (Session): score = 0.0511",
+    "  Node 21 (Session): score = 0.0299",
+    "  Node 22 (Session): score = 0.0035",
+    "  Node 23 (Session): score = 0.0010",
+    "  Node 24 (Session): score = 0.0870",
+    "  Node 25 (Session): score = 0.0534",
+    "  Node 26 (Session): score = 0.0067",
+    "  Node 27 (Session): score = 0.0058",
+    "  Node 28 (Session): score = 0.0053",
+    "  Node 29 (Session): score = 0.0035",
+    "  Top-K Pruning: Reduced from 30 to 5 nodes (K=5)",
+    "After step: 5 nodes remaining",
+    "\n--- Step 5: Observation[atom(content =~ \"buy second Ferrari\")] ---",
+    "Scoring predicate: atom(content =~ \"buy second Ferrari\") (atomic values: ['buy second Ferrari'])",
+    "  Collected 6 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 6 total descriptions",
+    "  Node 0 (Observation): score = 0.0589",
+    "  Node 1 (Observation): score = 0.2693",
+    "  Node 2 (Observation): score = 0.0021",
+    "  Node 3 (Observation): score = 0.0034",
+    "  Node 4 (Observation): score = 0.4088",
+    "  Node 5 (Observation): score = 0.0650",
+    "Scoring predicate: atom(content =~ \"buy second Ferrari\") (atomic values: ['buy second Ferrari'])",
+    "  Collected 3 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 3 total descriptions",
+    "  Node 0 (Observation): score = 0.5173",
+    "  Node 1 (Observation): score = 0.5597",
+    "  Node 2 (Observation): score = 0.0013",
+    "Scoring predicate: atom(content =~ \"buy second Ferrari\") (atomic values: ['buy second Ferrari'])",
+    "  Collected 6 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 6 total descriptions",
+    "  Node 0 (Observation): score = 0.0023",
+    "  Node 1 (Observation): score = 0.0453",
+    "  Node 2 (Observation): score = 0.0218",
+    "  Node 3 (Observation): score = 0.0010",
+    "  Node 4 (Observation): score = 0.0012",
+    "  Node 5 (Observation): score = 0.0039",
+    "Scoring predicate: atom(content =~ \"buy second Ferrari\") (atomic values: ['buy second Ferrari'])",
+    "  Collected 4 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 4 total descriptions",
+    "  Node 0 (Observation): score = 0.0049",
+    "  Node 1 (Observation): score = 0.0390",
+    "  Node 2 (Observation): score = 0.0090",
+    "  Node 3 (Observation): score = 0.0016",
+    "Scoring predicate: atom(content =~ \"buy second Ferrari\") (atomic values: ['buy second Ferrari'])",
+    "  Collected 2 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 2 total descriptions",
+    "  Node 0 (Observation): score = 0.1056",
+    "  Node 1 (Observation): score = 0.0249",
+    "  Top-K Pruning: Reduced from 21 to 7 nodes (K=5)",
+    "After step: 7 nodes remaining",
+    "\n=== Score Fusion ===",
+    "  Root > Conversation_Version 1 > Calvin > Session 12 > Observation 5: product=0.4088 → score=0.4088",
+    "  Root > Conversation_Version 1 > Calvin > Session 12 > Observation 2: product=0.2693 → score=0.2693",
+    "  Root > Conversation_Version 1 > Calvin > Session 12 > Observation 6: product=0.0650 → score=0.0650",
+    "  Root > Conversation_Version 1 > Calvin > Session 12 > Observation 1: product=0.0589 → score=0.0589",
+    "  Root > Conversation_Version 1 > Calvin > Session 2 > Observation 2: product=0.5597 → score=0.5597",
+    "  Root > Conversation_Version 1 > Calvin > Session 2 > Observation 1: product=0.5173 → score=0.5173",
+    "  Root > Conversation_Version 1 > Calvin > Session 17 > Observation 1: product=0.1056 → score=0.1056",
+    "  Parent propagation: Root > Conversation_Version 1 > Calvin > Session 12 > Observation 5: own=0.4088 × parent=0.7248 → 0.2963",
+    "  Parent propagation: Root > Conversation_Version 1 > Calvin > Session 12 > Observation 2: own=0.2693 × parent=0.7248 → 0.1952",
+    "  Parent propagation: Root > Conversation_Version 1 > Calvin > Session 12 > Observation 6: own=0.0650 × parent=0.7248 → 0.0471",
+    "  Parent propagation: Root > Conversation_Version 1 > Calvin > Session 12 > Observation 1: own=0.0589 × parent=0.7248 → 0.0427",
+    "  Parent propagation: Root > Conversation_Version 1 > Calvin > Session 2 > Observation 2: own=0.5597 × parent=0.6451 → 0.3611",
+    "  Parent propagation: Root > Conversation_Version 1 > Calvin > Session 2 > Observation 1: own=0.5173 × parent=0.6451 → 0.3337",
+    "  Parent propagation: Root > Conversation_Version 1 > Calvin > Session 17 > Observation 1: own=0.1056 × parent=0.0569 → 0.0060",
+    "\n=== Parent Score Propagation: 7 nodes updated ===",
+    "\n=== Threshold Filtering (threshold=0.05) ===",
+    "  Filtered: 7 → 4 nodes",
+    "\n=== Final Filtering (top_k=10) ===",
+    "  After top_k: 4 → 4 nodes",
+    "\nFinal result: 4 nodes (sorted by score)",
+    "⏱️  Query execution time: 817.35ms"
+  ],
+  "traversal_steps": [
+    {
+      "step_index": 0,
+      "step_query": "Root",
+      "action": "root_match",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "type": "root"
+        }
+      ],
+      "nodes_after": [
+        {
+          "type": "Root",
+          "path": "Root"
+        }
+      ],
+      "details": {
+        "matched": true
+      }
+    },
+    {
+      "step_index": 1,
+      "step_query": "Conversation_Version[1]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root",
+          "name": "Root",
+          "type": "Root",
+          "score": 1.0,
+          "node_id": 2567217469360
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Conversation_Version 1",
+          "name": "Conversation_Version 1",
+          "type": "Conversation_Version",
+          "score": 1.0,
+          "node_id": 2567217472800
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Conversation_Version",
+            "index": {
+              "start": 1,
+              "type": "single",
+              "span": {
+                "start": 26,
+                "end": 29
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 29
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 29
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 2,
+      "step_query": "Speaker[atom(content =~ \"Calvin\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root > Conversation_Version 1",
+          "name": "Conversation_Version 1",
+          "type": "Conversation_Version",
+          "score": 1.0,
+          "node_id": 2567217472800
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Conversation_Version 1 > Calvin",
+          "name": "Calvin",
+          "type": "Speaker",
+          "score": 1.0,
+          "node_id": 2567217470080
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Speaker",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "Calvin",
+              "operator": "=~",
+              "span": {
+                "start": 38,
+                "end": 63
+              }
+            },
+            "predicate_str": "atom(content =~ \"Calvin\")",
+            "span": {
+              "start": 30,
+              "end": 64
+            }
+          },
+          "span": {
+            "start": 30,
+            "end": 64
+          }
+        },
+        "found_count": 2,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"Calvin\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "Calvin",
+              "operator": "=~",
+              "span": {
+                "start": 38,
+                "end": 63
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 2567217470080,
+                "node_name": "Calvin",
+                "node_type": "Speaker",
+                "final_score": 1.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Calvin",
+                    "query_value": "Calvin",
+                    "matched": true,
+                    "score": 1.0
+                  }
+                ]
+              },
+              {
+                "node_idx": 1,
+                "node_id": 2569732098224,
+                "node_name": "Dave",
+                "node_type": "Speaker",
+                "final_score": 0.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Dave",
+                    "query_value": "Calvin",
+                    "matched": false,
+                    "score": 0.0
+                  }
+                ]
+              }
+            ],
+            "batch_scoring": {
+              "exact_match": true,
+              "matched_attribute": "name",
+              "query_value": "Calvin",
+              "matched_count": 1
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 0,
+                "score": 1.0,
+                "name": "Calvin"
+              },
+              {
+                "idx": 1,
+                "score": 0.0,
+                "name": "Dave"
+              }
+            ]
+          }
+        ],
+        "pruned_count": 1
+      }
+    },
+    {
+      "step_index": 3,
+      "step_query": "Session[atom(content =~ \"Ferrari purchase\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 5,
+      "nodes_before": [
+        {
+          "path": "Root > Conversation_Version 1 > Calvin",
+          "name": "Calvin",
+          "type": "Speaker",
+          "score": 1.0,
+          "node_id": 2567217470080
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Conversation_Version 1 > Calvin > Session 12",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.7248384952545166,
+          "node_id": 2568147302688
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Calvin > Session 2",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.6450771689414978,
+          "node_id": 2567217471760
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Calvin > Session 25",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.08696268498897552,
+          "node_id": 2567218087712
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Calvin > Session 7",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.06482189148664474,
+          "node_id": 2567217471360
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Calvin > Session 17",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.05688988044857979,
+          "node_id": 2567218090992
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Session",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "Ferrari purchase",
+              "operator": "=~",
+              "span": {
+                "start": 73,
+                "end": 108
+              }
+            },
+            "predicate_str": "atom(content =~ \"Ferrari purchase\")",
+            "span": {
+              "start": 65,
+              "end": 109
+            }
+          },
+          "span": {
+            "start": 65,
+            "end": 109
+          }
+        },
+        "found_count": 30,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"Ferrari purchase\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "Ferrari purchase",
+              "operator": "=~",
+              "span": {
+                "start": 73,
+                "end": 108
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 2567217473200,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "Ferrari purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.04158944636583328,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.04158944636583328
+              },
+              {
+                "node_idx": 1,
+                "node_id": 2567217471760,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "Ferrari purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.6450771689414978,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.6450771689414978
+              },
+              {
+                "node_idx": 2,
+                "node_id": 2567217468720,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "Ferrari purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.027904169633984566,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.027904169633984566
+              },
+              {
+                "node_idx": 3,
+                "node_id": 2567217472160,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "Ferrari purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.019028978422284126,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.019028978422284126
+              },
+              {
+                "node_idx": 4,
+                "node_id": 2567217466800,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "Ferrari purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.01972716860473156,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.01972716860473156
+              },
+              {
+                "node_idx": 5,
+                "node_id": 2567217469680,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "Ferrari purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.00852693896740675,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.00852693896740675
+              },
+              {
+                "node_idx": 6,
+                "node_id": 2567217471360,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "Ferrari purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.06482189148664474,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.06482189148664474
+              },
+              {
+                "node_idx": 7,
+                "node_id": 2567217473280,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "Ferrari purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.0012791362823918462,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0012791362823918462
+              },
+              {
+                "node_idx": 8,
+                "node_id": 2567217470560,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "Ferrari purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.007146140560507774,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.007146140560507774
+              },
+              {
+                "node_idx": 9,
+                "node_id": 2566552683040,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "Ferrari purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.026453886181116104,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.026453886181116104
+              },
+              {
+                "node_idx": 10,
+                "node_id": 2568147302768,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "Ferrari purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.020611705258488655,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.020611705258488655
+              },
+              {
+                "node_idx": 11,
+                "node_id": 2568147302688,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "Ferrari purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.7248384952545166,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.7248384952545166
+              },
+              {
+                "node_idx": 12,
+                "node_id": 2567217247504,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "Ferrari purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.029416276142001152,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.029416276142001152
+              },
+              {
+                "node_idx": 13,
+                "node_id": 2567217246064,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "Ferrari purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.014658193103969097,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.014658193103969097
+              },
+              {
+                "node_idx": 14,
+                "node_id": 2567218088752,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "Ferrari purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.005741475149989128,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.005741475149989128
+              },
+              {
+                "node_idx": 15,
+                "node_id": 2567218088032,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "Ferrari purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.007644647732377052,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.007644647732377052
+              },
+              {
+                "node_idx": 16,
+                "node_id": 2567218090992,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "Ferrari purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.05688988044857979,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.05688988044857979
+              },
+              {
+                "node_idx": 17,
+                "node_id": 2567218098672,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "Ferrari purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.006348076276481152,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.006348076276481152
+              },
+              {
+                "node_idx": 18,
+                "node_id": 2567218090752,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "Ferrari purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.003448587143793702,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.003448587143793702
+              },
+              {
+                "node_idx": 19,
+                "node_id": 2567218095152,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "Ferrari purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.01629037596285343,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.01629037596285343
+              },
+              {
+                "node_idx": 20,
+                "node_id": 2567218092432,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "Ferrari purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.05110379680991173,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.05110379680991173
+              },
+              {
+                "node_idx": 21,
+                "node_id": 2567218087392,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "Ferrari purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.029879242181777954,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.029879242181777954
+              },
+              {
+                "node_idx": 22,
+                "node_id": 2567218090192,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "Ferrari purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.0035215120296925306,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0035215120296925306
+              },
+              {
+                "node_idx": 23,
+                "node_id": 2567218101632,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "Ferrari purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.0010266820900142193,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0010266820900142193
+              },
+              {
+                "node_idx": 24,
+                "node_id": 2567218087712,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "Ferrari purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.08696268498897552,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.08696268498897552
+              },
+              {
+                "node_idx": 25,
+                "node_id": 2567218090432,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "Ferrari purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.053439196199178696,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.053439196199178696
+              },
+              {
+                "node_idx": 26,
+                "node_id": 2567218092912,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "Ferrari purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.006672403775155544,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.006672403775155544
+              },
+              {
+                "node_idx": 27,
+                "node_id": 2569732103184,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "Ferrari purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.005794609431177378,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.005794609431177378
+              },
+              {
+                "node_idx": 28,
+                "node_id": 2569732105904,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "Ferrari purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.005305462051182985,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.005305462051182985
+              },
+              {
+                "node_idx": 29,
+                "node_id": 2569732096544,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "Ferrari purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.003464700886979699,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.003464700886979699
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "Ferrari purchase"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "Ferrari purchase",
+                  "num_descriptions": 30,
+                  "call_time_ms": 596.46
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 30
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 11,
+                "score": 0.7248384952545166,
+                "name": "Session"
+              },
+              {
+                "idx": 1,
+                "score": 0.6450771689414978,
+                "name": "Session"
+              },
+              {
+                "idx": 24,
+                "score": 0.08696268498897552,
+                "name": "Session"
+              },
+              {
+                "idx": 6,
+                "score": 0.06482189148664474,
+                "name": "Session"
+              },
+              {
+                "idx": 16,
+                "score": 0.05688988044857979,
+                "name": "Session"
+              },
+              {
+                "idx": 25,
+                "score": 0.053439196199178696,
+                "name": "Session"
+              },
+              {
+                "idx": 20,
+                "score": 0.05110379680991173,
+                "name": "Session"
+              },
+              {
+                "idx": 0,
+                "score": 0.04158944636583328,
+                "name": "Session"
+              },
+              {
+                "idx": 21,
+                "score": 0.029879242181777954,
+                "name": "Session"
+              },
+              {
+                "idx": 12,
+                "score": 0.029416276142001152,
+                "name": "Session"
+              },
+              {
+                "idx": 2,
+                "score": 0.027904169633984566,
+                "name": "Session"
+              },
+              {
+                "idx": 9,
+                "score": 0.026453886181116104,
+                "name": "Session"
+              },
+              {
+                "idx": 10,
+                "score": 0.020611705258488655,
+                "name": "Session"
+              },
+              {
+                "idx": 4,
+                "score": 0.01972716860473156,
+                "name": "Session"
+              },
+              {
+                "idx": 3,
+                "score": 0.019028978422284126,
+                "name": "Session"
+              },
+              {
+                "idx": 19,
+                "score": 0.01629037596285343,
+                "name": "Session"
+              },
+              {
+                "idx": 13,
+                "score": 0.014658193103969097,
+                "name": "Session"
+              },
+              {
+                "idx": 5,
+                "score": 0.00852693896740675,
+                "name": "Session"
+              },
+              {
+                "idx": 15,
+                "score": 0.007644647732377052,
+                "name": "Session"
+              },
+              {
+                "idx": 8,
+                "score": 0.007146140560507774,
+                "name": "Session"
+              },
+              {
+                "idx": 26,
+                "score": 0.006672403775155544,
+                "name": "Session"
+              },
+              {
+                "idx": 17,
+                "score": 0.006348076276481152,
+                "name": "Session"
+              },
+              {
+                "idx": 27,
+                "score": 0.005794609431177378,
+                "name": "Session"
+              },
+              {
+                "idx": 14,
+                "score": 0.005741475149989128,
+                "name": "Session"
+              },
+              {
+                "idx": 28,
+                "score": 0.005305462051182985,
+                "name": "Session"
+              },
+              {
+                "idx": 22,
+                "score": 0.0035215120296925306,
+                "name": "Session"
+              },
+              {
+                "idx": 29,
+                "score": 0.003464700886979699,
+                "name": "Session"
+              },
+              {
+                "idx": 18,
+                "score": 0.003448587143793702,
+                "name": "Session"
+              },
+              {
+                "idx": 7,
+                "score": 0.0012791362823918462,
+                "name": "Session"
+              },
+              {
+                "idx": 23,
+                "score": 0.0010266820900142193,
+                "name": "Session"
+              }
+            ]
+          }
+        ],
+        "pruned_count": 25
+      }
+    },
+    {
+      "step_index": 4,
+      "step_query": "Observation[atom(content =~ \"buy second Ferrari\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 5,
+      "nodes_after_count": 7,
+      "nodes_before": [
+        {
+          "path": "Root > Conversation_Version 1 > Calvin > Session 12",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.7248384952545166,
+          "node_id": 2568147302688
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Calvin > Session 2",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.6450771689414978,
+          "node_id": 2567217471760
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Calvin > Session 25",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.08696268498897552,
+          "node_id": 2567218087712
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Calvin > Session 7",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.06482189148664474,
+          "node_id": 2567217471360
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Calvin > Session 17",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.05688988044857979,
+          "node_id": 2567218090992
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Conversation_Version 1 > Calvin > Session 12 > Observation 5",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.40880244970321655,
+          "node_id": 2567023420144
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Calvin > Session 12 > Observation 2",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.2693448066711426,
+          "node_id": 2568147297568
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Calvin > Session 12 > Observation 6",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.06503009796142578,
+          "node_id": 2567217244704
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Calvin > Session 12 > Observation 1",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.0588621124625206,
+          "node_id": 2568147303488
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Calvin > Session 2 > Observation 2",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.559712827205658,
+          "node_id": 2567217463680
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Calvin > Session 2 > Observation 1",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.5173253417015076,
+          "node_id": 2567217465760
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Calvin > Session 17 > Observation 1",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.10555990040302277,
+          "node_id": 2567218094272
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Observation",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "buy second Ferrari",
+              "operator": "=~",
+              "span": {
+                "start": 122,
+                "end": 159
+              }
+            },
+            "predicate_str": "atom(content =~ \"buy second Ferrari\")",
+            "span": {
+              "start": 110,
+              "end": 160
+            }
+          },
+          "span": {
+            "start": 110,
+            "end": 160
+          }
+        },
+        "found_count": 21,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"buy second Ferrari\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "buy second Ferrari",
+              "operator": "=~",
+              "span": {
+                "start": 122,
+                "end": 159
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 2568147303488,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy second Ferrari",
+                      "operator": "=~",
+                      "span": {
+                        "start": 122,
+                        "end": 159
+                      }
+                    },
+                    "score": 0.0588621124625206,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0588621124625206
+              },
+              {
+                "node_idx": 1,
+                "node_id": 2568147297568,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy second Ferrari",
+                      "operator": "=~",
+                      "span": {
+                        "start": 122,
+                        "end": 159
+                      }
+                    },
+                    "score": 0.2693448066711426,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.2693448066711426
+              },
+              {
+                "node_idx": 2,
+                "node_id": 2568147304208,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy second Ferrari",
+                      "operator": "=~",
+                      "span": {
+                        "start": 122,
+                        "end": 159
+                      }
+                    },
+                    "score": 0.0021357890218496323,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0021357890218496323
+              },
+              {
+                "node_idx": 3,
+                "node_id": 2568147297888,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy second Ferrari",
+                      "operator": "=~",
+                      "span": {
+                        "start": 122,
+                        "end": 159
+                      }
+                    },
+                    "score": 0.0033863987773656845,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0033863987773656845
+              },
+              {
+                "node_idx": 4,
+                "node_id": 2567023420144,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy second Ferrari",
+                      "operator": "=~",
+                      "span": {
+                        "start": 122,
+                        "end": 159
+                      }
+                    },
+                    "score": 0.40880244970321655,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.40880244970321655
+              },
+              {
+                "node_idx": 5,
+                "node_id": 2567217244704,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy second Ferrari",
+                      "operator": "=~",
+                      "span": {
+                        "start": 122,
+                        "end": 159
+                      }
+                    },
+                    "score": 0.06503009796142578,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.06503009796142578
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "buy second Ferrari"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "buy second Ferrari",
+                  "num_descriptions": 6,
+                  "call_time_ms": 57.61
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 6
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 4,
+                "score": 0.40880244970321655,
+                "name": "Observation"
+              },
+              {
+                "idx": 1,
+                "score": 0.2693448066711426,
+                "name": "Observation"
+              },
+              {
+                "idx": 5,
+                "score": 0.06503009796142578,
+                "name": "Observation"
+              },
+              {
+                "idx": 0,
+                "score": 0.0588621124625206,
+                "name": "Observation"
+              },
+              {
+                "idx": 3,
+                "score": 0.0033863987773656845,
+                "name": "Observation"
+              },
+              {
+                "idx": 2,
+                "score": 0.0021357890218496323,
+                "name": "Observation"
+              }
+            ]
+          },
+          {
+            "predicate": "atom(content =~ \"buy second Ferrari\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "buy second Ferrari",
+              "operator": "=~",
+              "span": {
+                "start": 122,
+                "end": 159
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 2567217465760,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy second Ferrari",
+                      "operator": "=~",
+                      "span": {
+                        "start": 122,
+                        "end": 159
+                      }
+                    },
+                    "score": 0.5173253417015076,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.5173253417015076
+              },
+              {
+                "node_idx": 1,
+                "node_id": 2567217463680,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy second Ferrari",
+                      "operator": "=~",
+                      "span": {
+                        "start": 122,
+                        "end": 159
+                      }
+                    },
+                    "score": 0.559712827205658,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.559712827205658
+              },
+              {
+                "node_idx": 2,
+                "node_id": 2567217470240,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy second Ferrari",
+                      "operator": "=~",
+                      "span": {
+                        "start": 122,
+                        "end": 159
+                      }
+                    },
+                    "score": 0.0013150759041309357,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0013150759041309357
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "buy second Ferrari"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "buy second Ferrari",
+                  "num_descriptions": 3,
+                  "call_time_ms": 37.22
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 3
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 1,
+                "score": 0.559712827205658,
+                "name": "Observation"
+              },
+              {
+                "idx": 0,
+                "score": 0.5173253417015076,
+                "name": "Observation"
+              },
+              {
+                "idx": 2,
+                "score": 0.0013150759041309357,
+                "name": "Observation"
+              }
+            ]
+          },
+          {
+            "predicate": "atom(content =~ \"buy second Ferrari\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "buy second Ferrari",
+              "operator": "=~",
+              "span": {
+                "start": 122,
+                "end": 159
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 2567218089792,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy second Ferrari",
+                      "operator": "=~",
+                      "span": {
+                        "start": 122,
+                        "end": 159
+                      }
+                    },
+                    "score": 0.0022816327400505543,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0022816327400505543
+              },
+              {
+                "node_idx": 1,
+                "node_id": 2567218091712,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy second Ferrari",
+                      "operator": "=~",
+                      "span": {
+                        "start": 122,
+                        "end": 159
+                      }
+                    },
+                    "score": 0.04531269147992134,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.04531269147992134
+              },
+              {
+                "node_idx": 2,
+                "node_id": 2567218088592,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy second Ferrari",
+                      "operator": "=~",
+                      "span": {
+                        "start": 122,
+                        "end": 159
+                      }
+                    },
+                    "score": 0.021770695224404335,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.021770695224404335
+              },
+              {
+                "node_idx": 3,
+                "node_id": 2567218095472,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy second Ferrari",
+                      "operator": "=~",
+                      "span": {
+                        "start": 122,
+                        "end": 159
+                      }
+                    },
+                    "score": 0.0009797716047614813,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0009797716047614813
+              },
+              {
+                "node_idx": 4,
+                "node_id": 2567218096592,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy second Ferrari",
+                      "operator": "=~",
+                      "span": {
+                        "start": 122,
+                        "end": 159
+                      }
+                    },
+                    "score": 0.0012389951152727008,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0012389951152727008
+              },
+              {
+                "node_idx": 5,
+                "node_id": 2567218090352,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy second Ferrari",
+                      "operator": "=~",
+                      "span": {
+                        "start": 122,
+                        "end": 159
+                      }
+                    },
+                    "score": 0.0038705416955053806,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0038705416955053806
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "buy second Ferrari"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "buy second Ferrari",
+                  "num_descriptions": 6,
+                  "call_time_ms": 54.57
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 6
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 1,
+                "score": 0.04531269147992134,
+                "name": "Observation"
+              },
+              {
+                "idx": 2,
+                "score": 0.021770695224404335,
+                "name": "Observation"
+              },
+              {
+                "idx": 5,
+                "score": 0.0038705416955053806,
+                "name": "Observation"
+              },
+              {
+                "idx": 0,
+                "score": 0.0022816327400505543,
+                "name": "Observation"
+              },
+              {
+                "idx": 4,
+                "score": 0.0012389951152727008,
+                "name": "Observation"
+              },
+              {
+                "idx": 3,
+                "score": 0.0009797716047614813,
+                "name": "Observation"
+              }
+            ]
+          },
+          {
+            "predicate": "atom(content =~ \"buy second Ferrari\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "buy second Ferrari",
+              "operator": "=~",
+              "span": {
+                "start": 122,
+                "end": 159
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 2567217475280,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy second Ferrari",
+                      "operator": "=~",
+                      "span": {
+                        "start": 122,
+                        "end": 159
+                      }
+                    },
+                    "score": 0.004914715886116028,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.004914715886116028
+              },
+              {
+                "node_idx": 1,
+                "node_id": 2567217465680,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy second Ferrari",
+                      "operator": "=~",
+                      "span": {
+                        "start": 122,
+                        "end": 159
+                      }
+                    },
+                    "score": 0.039008136838674545,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.039008136838674545
+              },
+              {
+                "node_idx": 2,
+                "node_id": 2567217464000,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy second Ferrari",
+                      "operator": "=~",
+                      "span": {
+                        "start": 122,
+                        "end": 159
+                      }
+                    },
+                    "score": 0.00901710893958807,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.00901710893958807
+              },
+              {
+                "node_idx": 3,
+                "node_id": 2567217479440,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy second Ferrari",
+                      "operator": "=~",
+                      "span": {
+                        "start": 122,
+                        "end": 159
+                      }
+                    },
+                    "score": 0.0015867098700255156,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0015867098700255156
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "buy second Ferrari"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "buy second Ferrari",
+                  "num_descriptions": 4,
+                  "call_time_ms": 41.6
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 4
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 1,
+                "score": 0.039008136838674545,
+                "name": "Observation"
+              },
+              {
+                "idx": 2,
+                "score": 0.00901710893958807,
+                "name": "Observation"
+              },
+              {
+                "idx": 0,
+                "score": 0.004914715886116028,
+                "name": "Observation"
+              },
+              {
+                "idx": 3,
+                "score": 0.0015867098700255156,
+                "name": "Observation"
+              }
+            ]
+          },
+          {
+            "predicate": "atom(content =~ \"buy second Ferrari\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "buy second Ferrari",
+              "operator": "=~",
+              "span": {
+                "start": 122,
+                "end": 159
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 2567218094272,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy second Ferrari",
+                      "operator": "=~",
+                      "span": {
+                        "start": 122,
+                        "end": 159
+                      }
+                    },
+                    "score": 0.10555990040302277,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.10555990040302277
+              },
+              {
+                "node_idx": 1,
+                "node_id": 2567218102192,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy second Ferrari",
+                      "operator": "=~",
+                      "span": {
+                        "start": 122,
+                        "end": 159
+                      }
+                    },
+                    "score": 0.024920063093304634,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.024920063093304634
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "buy second Ferrari"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "buy second Ferrari",
+                  "num_descriptions": 2,
+                  "call_time_ms": 27.86
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 2
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 0,
+                "score": 0.10555990040302277,
+                "name": "Observation"
+              },
+              {
+                "idx": 1,
+                "score": 0.024920063093304634,
+                "name": "Observation"
+              }
+            ]
+          }
+        ],
+        "pruned_count": 14
+      }
+    }
+  ],
+  "scoring_traces": [
+    {
+      "predicate": "atom(content =~ \"Calvin\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "Calvin",
+        "operator": "=~",
+        "span": {
+          "start": 38,
+          "end": 63
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 2567217470080,
+          "node_name": "Calvin",
+          "node_type": "Speaker",
+          "final_score": 1.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Calvin",
+              "query_value": "Calvin",
+              "matched": true,
+              "score": 1.0
+            }
+          ]
+        },
+        {
+          "node_idx": 1,
+          "node_id": 2569732098224,
+          "node_name": "Dave",
+          "node_type": "Speaker",
+          "final_score": 0.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Dave",
+              "query_value": "Calvin",
+              "matched": false,
+              "score": 0.0
+            }
+          ]
+        }
+      ],
+      "batch_scoring": {
+        "exact_match": true,
+        "matched_attribute": "name",
+        "query_value": "Calvin",
+        "matched_count": 1
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 0,
+          "score": 1.0,
+          "name": "Calvin"
+        },
+        {
+          "idx": 1,
+          "score": 0.0,
+          "name": "Dave"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"Ferrari purchase\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "Ferrari purchase",
+        "operator": "=~",
+        "span": {
+          "start": 73,
+          "end": 108
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 2567217473200,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "Ferrari purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 108
+                }
+              },
+              "score": 0.04158944636583328,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.04158944636583328
+        },
+        {
+          "node_idx": 1,
+          "node_id": 2567217471760,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "Ferrari purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 108
+                }
+              },
+              "score": 0.6450771689414978,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.6450771689414978
+        },
+        {
+          "node_idx": 2,
+          "node_id": 2567217468720,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "Ferrari purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 108
+                }
+              },
+              "score": 0.027904169633984566,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.027904169633984566
+        },
+        {
+          "node_idx": 3,
+          "node_id": 2567217472160,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "Ferrari purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 108
+                }
+              },
+              "score": 0.019028978422284126,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.019028978422284126
+        },
+        {
+          "node_idx": 4,
+          "node_id": 2567217466800,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "Ferrari purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 108
+                }
+              },
+              "score": 0.01972716860473156,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.01972716860473156
+        },
+        {
+          "node_idx": 5,
+          "node_id": 2567217469680,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "Ferrari purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 108
+                }
+              },
+              "score": 0.00852693896740675,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.00852693896740675
+        },
+        {
+          "node_idx": 6,
+          "node_id": 2567217471360,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "Ferrari purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 108
+                }
+              },
+              "score": 0.06482189148664474,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.06482189148664474
+        },
+        {
+          "node_idx": 7,
+          "node_id": 2567217473280,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "Ferrari purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 108
+                }
+              },
+              "score": 0.0012791362823918462,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0012791362823918462
+        },
+        {
+          "node_idx": 8,
+          "node_id": 2567217470560,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "Ferrari purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 108
+                }
+              },
+              "score": 0.007146140560507774,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.007146140560507774
+        },
+        {
+          "node_idx": 9,
+          "node_id": 2566552683040,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "Ferrari purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 108
+                }
+              },
+              "score": 0.026453886181116104,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.026453886181116104
+        },
+        {
+          "node_idx": 10,
+          "node_id": 2568147302768,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "Ferrari purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 108
+                }
+              },
+              "score": 0.020611705258488655,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.020611705258488655
+        },
+        {
+          "node_idx": 11,
+          "node_id": 2568147302688,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "Ferrari purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 108
+                }
+              },
+              "score": 0.7248384952545166,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.7248384952545166
+        },
+        {
+          "node_idx": 12,
+          "node_id": 2567217247504,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "Ferrari purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 108
+                }
+              },
+              "score": 0.029416276142001152,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.029416276142001152
+        },
+        {
+          "node_idx": 13,
+          "node_id": 2567217246064,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "Ferrari purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 108
+                }
+              },
+              "score": 0.014658193103969097,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.014658193103969097
+        },
+        {
+          "node_idx": 14,
+          "node_id": 2567218088752,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "Ferrari purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 108
+                }
+              },
+              "score": 0.005741475149989128,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.005741475149989128
+        },
+        {
+          "node_idx": 15,
+          "node_id": 2567218088032,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "Ferrari purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 108
+                }
+              },
+              "score": 0.007644647732377052,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.007644647732377052
+        },
+        {
+          "node_idx": 16,
+          "node_id": 2567218090992,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "Ferrari purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 108
+                }
+              },
+              "score": 0.05688988044857979,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.05688988044857979
+        },
+        {
+          "node_idx": 17,
+          "node_id": 2567218098672,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "Ferrari purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 108
+                }
+              },
+              "score": 0.006348076276481152,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.006348076276481152
+        },
+        {
+          "node_idx": 18,
+          "node_id": 2567218090752,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "Ferrari purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 108
+                }
+              },
+              "score": 0.003448587143793702,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.003448587143793702
+        },
+        {
+          "node_idx": 19,
+          "node_id": 2567218095152,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "Ferrari purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 108
+                }
+              },
+              "score": 0.01629037596285343,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.01629037596285343
+        },
+        {
+          "node_idx": 20,
+          "node_id": 2567218092432,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "Ferrari purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 108
+                }
+              },
+              "score": 0.05110379680991173,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.05110379680991173
+        },
+        {
+          "node_idx": 21,
+          "node_id": 2567218087392,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "Ferrari purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 108
+                }
+              },
+              "score": 0.029879242181777954,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.029879242181777954
+        },
+        {
+          "node_idx": 22,
+          "node_id": 2567218090192,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "Ferrari purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 108
+                }
+              },
+              "score": 0.0035215120296925306,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0035215120296925306
+        },
+        {
+          "node_idx": 23,
+          "node_id": 2567218101632,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "Ferrari purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 108
+                }
+              },
+              "score": 0.0010266820900142193,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0010266820900142193
+        },
+        {
+          "node_idx": 24,
+          "node_id": 2567218087712,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "Ferrari purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 108
+                }
+              },
+              "score": 0.08696268498897552,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.08696268498897552
+        },
+        {
+          "node_idx": 25,
+          "node_id": 2567218090432,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "Ferrari purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 108
+                }
+              },
+              "score": 0.053439196199178696,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.053439196199178696
+        },
+        {
+          "node_idx": 26,
+          "node_id": 2567218092912,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "Ferrari purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 108
+                }
+              },
+              "score": 0.006672403775155544,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.006672403775155544
+        },
+        {
+          "node_idx": 27,
+          "node_id": 2569732103184,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "Ferrari purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 108
+                }
+              },
+              "score": 0.005794609431177378,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.005794609431177378
+        },
+        {
+          "node_idx": 28,
+          "node_id": 2569732105904,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "Ferrari purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 108
+                }
+              },
+              "score": 0.005305462051182985,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.005305462051182985
+        },
+        {
+          "node_idx": 29,
+          "node_id": 2569732096544,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "Ferrari purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 108
+                }
+              },
+              "score": 0.003464700886979699,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.003464700886979699
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "Ferrari purchase"
+        ],
+        "per_value_stats": [
+          {
+            "value": "Ferrari purchase",
+            "num_descriptions": 30,
+            "call_time_ms": 596.46
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 30
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 11,
+          "score": 0.7248384952545166,
+          "name": "Session"
+        },
+        {
+          "idx": 1,
+          "score": 0.6450771689414978,
+          "name": "Session"
+        },
+        {
+          "idx": 24,
+          "score": 0.08696268498897552,
+          "name": "Session"
+        },
+        {
+          "idx": 6,
+          "score": 0.06482189148664474,
+          "name": "Session"
+        },
+        {
+          "idx": 16,
+          "score": 0.05688988044857979,
+          "name": "Session"
+        },
+        {
+          "idx": 25,
+          "score": 0.053439196199178696,
+          "name": "Session"
+        },
+        {
+          "idx": 20,
+          "score": 0.05110379680991173,
+          "name": "Session"
+        },
+        {
+          "idx": 0,
+          "score": 0.04158944636583328,
+          "name": "Session"
+        },
+        {
+          "idx": 21,
+          "score": 0.029879242181777954,
+          "name": "Session"
+        },
+        {
+          "idx": 12,
+          "score": 0.029416276142001152,
+          "name": "Session"
+        },
+        {
+          "idx": 2,
+          "score": 0.027904169633984566,
+          "name": "Session"
+        },
+        {
+          "idx": 9,
+          "score": 0.026453886181116104,
+          "name": "Session"
+        },
+        {
+          "idx": 10,
+          "score": 0.020611705258488655,
+          "name": "Session"
+        },
+        {
+          "idx": 4,
+          "score": 0.01972716860473156,
+          "name": "Session"
+        },
+        {
+          "idx": 3,
+          "score": 0.019028978422284126,
+          "name": "Session"
+        },
+        {
+          "idx": 19,
+          "score": 0.01629037596285343,
+          "name": "Session"
+        },
+        {
+          "idx": 13,
+          "score": 0.014658193103969097,
+          "name": "Session"
+        },
+        {
+          "idx": 5,
+          "score": 0.00852693896740675,
+          "name": "Session"
+        },
+        {
+          "idx": 15,
+          "score": 0.007644647732377052,
+          "name": "Session"
+        },
+        {
+          "idx": 8,
+          "score": 0.007146140560507774,
+          "name": "Session"
+        },
+        {
+          "idx": 26,
+          "score": 0.006672403775155544,
+          "name": "Session"
+        },
+        {
+          "idx": 17,
+          "score": 0.006348076276481152,
+          "name": "Session"
+        },
+        {
+          "idx": 27,
+          "score": 0.005794609431177378,
+          "name": "Session"
+        },
+        {
+          "idx": 14,
+          "score": 0.005741475149989128,
+          "name": "Session"
+        },
+        {
+          "idx": 28,
+          "score": 0.005305462051182985,
+          "name": "Session"
+        },
+        {
+          "idx": 22,
+          "score": 0.0035215120296925306,
+          "name": "Session"
+        },
+        {
+          "idx": 29,
+          "score": 0.003464700886979699,
+          "name": "Session"
+        },
+        {
+          "idx": 18,
+          "score": 0.003448587143793702,
+          "name": "Session"
+        },
+        {
+          "idx": 7,
+          "score": 0.0012791362823918462,
+          "name": "Session"
+        },
+        {
+          "idx": 23,
+          "score": 0.0010266820900142193,
+          "name": "Session"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"buy second Ferrari\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "buy second Ferrari",
+        "operator": "=~",
+        "span": {
+          "start": 122,
+          "end": 159
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 2568147303488,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy second Ferrari",
+                "operator": "=~",
+                "span": {
+                  "start": 122,
+                  "end": 159
+                }
+              },
+              "score": 0.0588621124625206,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0588621124625206
+        },
+        {
+          "node_idx": 1,
+          "node_id": 2568147297568,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy second Ferrari",
+                "operator": "=~",
+                "span": {
+                  "start": 122,
+                  "end": 159
+                }
+              },
+              "score": 0.2693448066711426,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.2693448066711426
+        },
+        {
+          "node_idx": 2,
+          "node_id": 2568147304208,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy second Ferrari",
+                "operator": "=~",
+                "span": {
+                  "start": 122,
+                  "end": 159
+                }
+              },
+              "score": 0.0021357890218496323,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0021357890218496323
+        },
+        {
+          "node_idx": 3,
+          "node_id": 2568147297888,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy second Ferrari",
+                "operator": "=~",
+                "span": {
+                  "start": 122,
+                  "end": 159
+                }
+              },
+              "score": 0.0033863987773656845,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0033863987773656845
+        },
+        {
+          "node_idx": 4,
+          "node_id": 2567023420144,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy second Ferrari",
+                "operator": "=~",
+                "span": {
+                  "start": 122,
+                  "end": 159
+                }
+              },
+              "score": 0.40880244970321655,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.40880244970321655
+        },
+        {
+          "node_idx": 5,
+          "node_id": 2567217244704,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy second Ferrari",
+                "operator": "=~",
+                "span": {
+                  "start": 122,
+                  "end": 159
+                }
+              },
+              "score": 0.06503009796142578,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.06503009796142578
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "buy second Ferrari"
+        ],
+        "per_value_stats": [
+          {
+            "value": "buy second Ferrari",
+            "num_descriptions": 6,
+            "call_time_ms": 57.61
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 6
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 4,
+          "score": 0.40880244970321655,
+          "name": "Observation"
+        },
+        {
+          "idx": 1,
+          "score": 0.2693448066711426,
+          "name": "Observation"
+        },
+        {
+          "idx": 5,
+          "score": 0.06503009796142578,
+          "name": "Observation"
+        },
+        {
+          "idx": 0,
+          "score": 0.0588621124625206,
+          "name": "Observation"
+        },
+        {
+          "idx": 3,
+          "score": 0.0033863987773656845,
+          "name": "Observation"
+        },
+        {
+          "idx": 2,
+          "score": 0.0021357890218496323,
+          "name": "Observation"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"buy second Ferrari\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "buy second Ferrari",
+        "operator": "=~",
+        "span": {
+          "start": 122,
+          "end": 159
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 2567217465760,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy second Ferrari",
+                "operator": "=~",
+                "span": {
+                  "start": 122,
+                  "end": 159
+                }
+              },
+              "score": 0.5173253417015076,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.5173253417015076
+        },
+        {
+          "node_idx": 1,
+          "node_id": 2567217463680,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy second Ferrari",
+                "operator": "=~",
+                "span": {
+                  "start": 122,
+                  "end": 159
+                }
+              },
+              "score": 0.559712827205658,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.559712827205658
+        },
+        {
+          "node_idx": 2,
+          "node_id": 2567217470240,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy second Ferrari",
+                "operator": "=~",
+                "span": {
+                  "start": 122,
+                  "end": 159
+                }
+              },
+              "score": 0.0013150759041309357,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0013150759041309357
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "buy second Ferrari"
+        ],
+        "per_value_stats": [
+          {
+            "value": "buy second Ferrari",
+            "num_descriptions": 3,
+            "call_time_ms": 37.22
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 3
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 1,
+          "score": 0.559712827205658,
+          "name": "Observation"
+        },
+        {
+          "idx": 0,
+          "score": 0.5173253417015076,
+          "name": "Observation"
+        },
+        {
+          "idx": 2,
+          "score": 0.0013150759041309357,
+          "name": "Observation"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"buy second Ferrari\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "buy second Ferrari",
+        "operator": "=~",
+        "span": {
+          "start": 122,
+          "end": 159
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 2567218089792,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy second Ferrari",
+                "operator": "=~",
+                "span": {
+                  "start": 122,
+                  "end": 159
+                }
+              },
+              "score": 0.0022816327400505543,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0022816327400505543
+        },
+        {
+          "node_idx": 1,
+          "node_id": 2567218091712,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy second Ferrari",
+                "operator": "=~",
+                "span": {
+                  "start": 122,
+                  "end": 159
+                }
+              },
+              "score": 0.04531269147992134,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.04531269147992134
+        },
+        {
+          "node_idx": 2,
+          "node_id": 2567218088592,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy second Ferrari",
+                "operator": "=~",
+                "span": {
+                  "start": 122,
+                  "end": 159
+                }
+              },
+              "score": 0.021770695224404335,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.021770695224404335
+        },
+        {
+          "node_idx": 3,
+          "node_id": 2567218095472,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy second Ferrari",
+                "operator": "=~",
+                "span": {
+                  "start": 122,
+                  "end": 159
+                }
+              },
+              "score": 0.0009797716047614813,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0009797716047614813
+        },
+        {
+          "node_idx": 4,
+          "node_id": 2567218096592,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy second Ferrari",
+                "operator": "=~",
+                "span": {
+                  "start": 122,
+                  "end": 159
+                }
+              },
+              "score": 0.0012389951152727008,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0012389951152727008
+        },
+        {
+          "node_idx": 5,
+          "node_id": 2567218090352,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy second Ferrari",
+                "operator": "=~",
+                "span": {
+                  "start": 122,
+                  "end": 159
+                }
+              },
+              "score": 0.0038705416955053806,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0038705416955053806
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "buy second Ferrari"
+        ],
+        "per_value_stats": [
+          {
+            "value": "buy second Ferrari",
+            "num_descriptions": 6,
+            "call_time_ms": 54.57
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 6
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 1,
+          "score": 0.04531269147992134,
+          "name": "Observation"
+        },
+        {
+          "idx": 2,
+          "score": 0.021770695224404335,
+          "name": "Observation"
+        },
+        {
+          "idx": 5,
+          "score": 0.0038705416955053806,
+          "name": "Observation"
+        },
+        {
+          "idx": 0,
+          "score": 0.0022816327400505543,
+          "name": "Observation"
+        },
+        {
+          "idx": 4,
+          "score": 0.0012389951152727008,
+          "name": "Observation"
+        },
+        {
+          "idx": 3,
+          "score": 0.0009797716047614813,
+          "name": "Observation"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"buy second Ferrari\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "buy second Ferrari",
+        "operator": "=~",
+        "span": {
+          "start": 122,
+          "end": 159
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 2567217475280,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy second Ferrari",
+                "operator": "=~",
+                "span": {
+                  "start": 122,
+                  "end": 159
+                }
+              },
+              "score": 0.004914715886116028,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.004914715886116028
+        },
+        {
+          "node_idx": 1,
+          "node_id": 2567217465680,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy second Ferrari",
+                "operator": "=~",
+                "span": {
+                  "start": 122,
+                  "end": 159
+                }
+              },
+              "score": 0.039008136838674545,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.039008136838674545
+        },
+        {
+          "node_idx": 2,
+          "node_id": 2567217464000,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy second Ferrari",
+                "operator": "=~",
+                "span": {
+                  "start": 122,
+                  "end": 159
+                }
+              },
+              "score": 0.00901710893958807,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.00901710893958807
+        },
+        {
+          "node_idx": 3,
+          "node_id": 2567217479440,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy second Ferrari",
+                "operator": "=~",
+                "span": {
+                  "start": 122,
+                  "end": 159
+                }
+              },
+              "score": 0.0015867098700255156,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0015867098700255156
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "buy second Ferrari"
+        ],
+        "per_value_stats": [
+          {
+            "value": "buy second Ferrari",
+            "num_descriptions": 4,
+            "call_time_ms": 41.6
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 4
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 1,
+          "score": 0.039008136838674545,
+          "name": "Observation"
+        },
+        {
+          "idx": 2,
+          "score": 0.00901710893958807,
+          "name": "Observation"
+        },
+        {
+          "idx": 0,
+          "score": 0.004914715886116028,
+          "name": "Observation"
+        },
+        {
+          "idx": 3,
+          "score": 0.0015867098700255156,
+          "name": "Observation"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"buy second Ferrari\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "buy second Ferrari",
+        "operator": "=~",
+        "span": {
+          "start": 122,
+          "end": 159
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 2567218094272,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy second Ferrari",
+                "operator": "=~",
+                "span": {
+                  "start": 122,
+                  "end": 159
+                }
+              },
+              "score": 0.10555990040302277,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.10555990040302277
+        },
+        {
+          "node_idx": 1,
+          "node_id": 2567218102192,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy second Ferrari",
+                "operator": "=~",
+                "span": {
+                  "start": 122,
+                  "end": 159
+                }
+              },
+              "score": 0.024920063093304634,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.024920063093304634
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "buy second Ferrari"
+        ],
+        "per_value_stats": [
+          {
+            "value": "buy second Ferrari",
+            "num_descriptions": 2,
+            "call_time_ms": 27.86
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 2
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 0,
+          "score": 0.10555990040302277,
+          "name": "Observation"
+        },
+        {
+          "idx": 1,
+          "score": 0.024920063093304634,
+          "name": "Observation"
+        }
+      ]
+    }
+  ],
+  "scoring_details": {
+    "step_scores": [
+      {
+        "step_index": 0,
+        "predicate": "atom(content =~ \"Calvin\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "Calvin",
+          "operator": "=~",
+          "span": {
+            "start": 38,
+            "end": 63
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 2567217470080,
+            "node_name": "Calvin",
+            "node_type": "Speaker",
+            "final_score": 1.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Calvin",
+                "query_value": "Calvin",
+                "matched": true,
+                "score": 1.0
+              }
+            ]
+          },
+          {
+            "node_idx": 1,
+            "node_id": 2569732098224,
+            "node_name": "Dave",
+            "node_type": "Speaker",
+            "final_score": 0.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Dave",
+                "query_value": "Calvin",
+                "matched": false,
+                "score": 0.0
+              }
+            ]
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 0,
+            "score": 1.0,
+            "name": "Calvin"
+          },
+          {
+            "idx": 1,
+            "score": 0.0,
+            "name": "Dave"
+          }
+        ]
+      },
+      {
+        "step_index": 1,
+        "predicate": "atom(content =~ \"Ferrari purchase\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "Ferrari purchase",
+          "operator": "=~",
+          "span": {
+            "start": 73,
+            "end": 108
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 2567217473200,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "Ferrari purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 108
+                  }
+                },
+                "score": 0.04158944636583328,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.04158944636583328
+          },
+          {
+            "node_idx": 1,
+            "node_id": 2567217471760,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "Ferrari purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 108
+                  }
+                },
+                "score": 0.6450771689414978,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.6450771689414978
+          },
+          {
+            "node_idx": 2,
+            "node_id": 2567217468720,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "Ferrari purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 108
+                  }
+                },
+                "score": 0.027904169633984566,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.027904169633984566
+          },
+          {
+            "node_idx": 3,
+            "node_id": 2567217472160,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "Ferrari purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 108
+                  }
+                },
+                "score": 0.019028978422284126,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.019028978422284126
+          },
+          {
+            "node_idx": 4,
+            "node_id": 2567217466800,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "Ferrari purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 108
+                  }
+                },
+                "score": 0.01972716860473156,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.01972716860473156
+          },
+          {
+            "node_idx": 5,
+            "node_id": 2567217469680,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "Ferrari purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 108
+                  }
+                },
+                "score": 0.00852693896740675,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.00852693896740675
+          },
+          {
+            "node_idx": 6,
+            "node_id": 2567217471360,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "Ferrari purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 108
+                  }
+                },
+                "score": 0.06482189148664474,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.06482189148664474
+          },
+          {
+            "node_idx": 7,
+            "node_id": 2567217473280,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "Ferrari purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 108
+                  }
+                },
+                "score": 0.0012791362823918462,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0012791362823918462
+          },
+          {
+            "node_idx": 8,
+            "node_id": 2567217470560,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "Ferrari purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 108
+                  }
+                },
+                "score": 0.007146140560507774,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.007146140560507774
+          },
+          {
+            "node_idx": 9,
+            "node_id": 2566552683040,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "Ferrari purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 108
+                  }
+                },
+                "score": 0.026453886181116104,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.026453886181116104
+          },
+          {
+            "node_idx": 10,
+            "node_id": 2568147302768,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "Ferrari purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 108
+                  }
+                },
+                "score": 0.020611705258488655,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.020611705258488655
+          },
+          {
+            "node_idx": 11,
+            "node_id": 2568147302688,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "Ferrari purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 108
+                  }
+                },
+                "score": 0.7248384952545166,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.7248384952545166
+          },
+          {
+            "node_idx": 12,
+            "node_id": 2567217247504,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "Ferrari purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 108
+                  }
+                },
+                "score": 0.029416276142001152,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.029416276142001152
+          },
+          {
+            "node_idx": 13,
+            "node_id": 2567217246064,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "Ferrari purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 108
+                  }
+                },
+                "score": 0.014658193103969097,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.014658193103969097
+          },
+          {
+            "node_idx": 14,
+            "node_id": 2567218088752,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "Ferrari purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 108
+                  }
+                },
+                "score": 0.005741475149989128,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.005741475149989128
+          },
+          {
+            "node_idx": 15,
+            "node_id": 2567218088032,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "Ferrari purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 108
+                  }
+                },
+                "score": 0.007644647732377052,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.007644647732377052
+          },
+          {
+            "node_idx": 16,
+            "node_id": 2567218090992,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "Ferrari purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 108
+                  }
+                },
+                "score": 0.05688988044857979,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.05688988044857979
+          },
+          {
+            "node_idx": 17,
+            "node_id": 2567218098672,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "Ferrari purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 108
+                  }
+                },
+                "score": 0.006348076276481152,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.006348076276481152
+          },
+          {
+            "node_idx": 18,
+            "node_id": 2567218090752,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "Ferrari purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 108
+                  }
+                },
+                "score": 0.003448587143793702,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.003448587143793702
+          },
+          {
+            "node_idx": 19,
+            "node_id": 2567218095152,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "Ferrari purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 108
+                  }
+                },
+                "score": 0.01629037596285343,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.01629037596285343
+          },
+          {
+            "node_idx": 20,
+            "node_id": 2567218092432,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "Ferrari purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 108
+                  }
+                },
+                "score": 0.05110379680991173,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.05110379680991173
+          },
+          {
+            "node_idx": 21,
+            "node_id": 2567218087392,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "Ferrari purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 108
+                  }
+                },
+                "score": 0.029879242181777954,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.029879242181777954
+          },
+          {
+            "node_idx": 22,
+            "node_id": 2567218090192,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "Ferrari purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 108
+                  }
+                },
+                "score": 0.0035215120296925306,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0035215120296925306
+          },
+          {
+            "node_idx": 23,
+            "node_id": 2567218101632,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "Ferrari purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 108
+                  }
+                },
+                "score": 0.0010266820900142193,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0010266820900142193
+          },
+          {
+            "node_idx": 24,
+            "node_id": 2567218087712,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "Ferrari purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 108
+                  }
+                },
+                "score": 0.08696268498897552,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.08696268498897552
+          },
+          {
+            "node_idx": 25,
+            "node_id": 2567218090432,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "Ferrari purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 108
+                  }
+                },
+                "score": 0.053439196199178696,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.053439196199178696
+          },
+          {
+            "node_idx": 26,
+            "node_id": 2567218092912,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "Ferrari purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 108
+                  }
+                },
+                "score": 0.006672403775155544,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.006672403775155544
+          },
+          {
+            "node_idx": 27,
+            "node_id": 2569732103184,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "Ferrari purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 108
+                  }
+                },
+                "score": 0.005794609431177378,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.005794609431177378
+          },
+          {
+            "node_idx": 28,
+            "node_id": 2569732105904,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "Ferrari purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 108
+                  }
+                },
+                "score": 0.005305462051182985,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.005305462051182985
+          },
+          {
+            "node_idx": 29,
+            "node_id": 2569732096544,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "Ferrari purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 108
+                  }
+                },
+                "score": 0.003464700886979699,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.003464700886979699
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 11,
+            "score": 0.7248384952545166,
+            "name": "Session"
+          },
+          {
+            "idx": 1,
+            "score": 0.6450771689414978,
+            "name": "Session"
+          },
+          {
+            "idx": 24,
+            "score": 0.08696268498897552,
+            "name": "Session"
+          },
+          {
+            "idx": 6,
+            "score": 0.06482189148664474,
+            "name": "Session"
+          },
+          {
+            "idx": 16,
+            "score": 0.05688988044857979,
+            "name": "Session"
+          },
+          {
+            "idx": 25,
+            "score": 0.053439196199178696,
+            "name": "Session"
+          },
+          {
+            "idx": 20,
+            "score": 0.05110379680991173,
+            "name": "Session"
+          },
+          {
+            "idx": 0,
+            "score": 0.04158944636583328,
+            "name": "Session"
+          },
+          {
+            "idx": 21,
+            "score": 0.029879242181777954,
+            "name": "Session"
+          },
+          {
+            "idx": 12,
+            "score": 0.029416276142001152,
+            "name": "Session"
+          },
+          {
+            "idx": 2,
+            "score": 0.027904169633984566,
+            "name": "Session"
+          },
+          {
+            "idx": 9,
+            "score": 0.026453886181116104,
+            "name": "Session"
+          },
+          {
+            "idx": 10,
+            "score": 0.020611705258488655,
+            "name": "Session"
+          },
+          {
+            "idx": 4,
+            "score": 0.01972716860473156,
+            "name": "Session"
+          },
+          {
+            "idx": 3,
+            "score": 0.019028978422284126,
+            "name": "Session"
+          },
+          {
+            "idx": 19,
+            "score": 0.01629037596285343,
+            "name": "Session"
+          },
+          {
+            "idx": 13,
+            "score": 0.014658193103969097,
+            "name": "Session"
+          },
+          {
+            "idx": 5,
+            "score": 0.00852693896740675,
+            "name": "Session"
+          },
+          {
+            "idx": 15,
+            "score": 0.007644647732377052,
+            "name": "Session"
+          },
+          {
+            "idx": 8,
+            "score": 0.007146140560507774,
+            "name": "Session"
+          },
+          {
+            "idx": 26,
+            "score": 0.006672403775155544,
+            "name": "Session"
+          },
+          {
+            "idx": 17,
+            "score": 0.006348076276481152,
+            "name": "Session"
+          },
+          {
+            "idx": 27,
+            "score": 0.005794609431177378,
+            "name": "Session"
+          },
+          {
+            "idx": 14,
+            "score": 0.005741475149989128,
+            "name": "Session"
+          },
+          {
+            "idx": 28,
+            "score": 0.005305462051182985,
+            "name": "Session"
+          },
+          {
+            "idx": 22,
+            "score": 0.0035215120296925306,
+            "name": "Session"
+          },
+          {
+            "idx": 29,
+            "score": 0.003464700886979699,
+            "name": "Session"
+          },
+          {
+            "idx": 18,
+            "score": 0.003448587143793702,
+            "name": "Session"
+          },
+          {
+            "idx": 7,
+            "score": 0.0012791362823918462,
+            "name": "Session"
+          },
+          {
+            "idx": 23,
+            "score": 0.0010266820900142193,
+            "name": "Session"
+          }
+        ]
+      },
+      {
+        "step_index": 2,
+        "predicate": "atom(content =~ \"buy second Ferrari\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "buy second Ferrari",
+          "operator": "=~",
+          "span": {
+            "start": 122,
+            "end": 159
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 2568147303488,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy second Ferrari",
+                  "operator": "=~",
+                  "span": {
+                    "start": 122,
+                    "end": 159
+                  }
+                },
+                "score": 0.0588621124625206,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0588621124625206
+          },
+          {
+            "node_idx": 1,
+            "node_id": 2568147297568,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy second Ferrari",
+                  "operator": "=~",
+                  "span": {
+                    "start": 122,
+                    "end": 159
+                  }
+                },
+                "score": 0.2693448066711426,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.2693448066711426
+          },
+          {
+            "node_idx": 2,
+            "node_id": 2568147304208,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy second Ferrari",
+                  "operator": "=~",
+                  "span": {
+                    "start": 122,
+                    "end": 159
+                  }
+                },
+                "score": 0.0021357890218496323,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0021357890218496323
+          },
+          {
+            "node_idx": 3,
+            "node_id": 2568147297888,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy second Ferrari",
+                  "operator": "=~",
+                  "span": {
+                    "start": 122,
+                    "end": 159
+                  }
+                },
+                "score": 0.0033863987773656845,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0033863987773656845
+          },
+          {
+            "node_idx": 4,
+            "node_id": 2567023420144,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy second Ferrari",
+                  "operator": "=~",
+                  "span": {
+                    "start": 122,
+                    "end": 159
+                  }
+                },
+                "score": 0.40880244970321655,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.40880244970321655
+          },
+          {
+            "node_idx": 5,
+            "node_id": 2567217244704,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy second Ferrari",
+                  "operator": "=~",
+                  "span": {
+                    "start": 122,
+                    "end": 159
+                  }
+                },
+                "score": 0.06503009796142578,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.06503009796142578
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 4,
+            "score": 0.40880244970321655,
+            "name": "Observation"
+          },
+          {
+            "idx": 1,
+            "score": 0.2693448066711426,
+            "name": "Observation"
+          },
+          {
+            "idx": 5,
+            "score": 0.06503009796142578,
+            "name": "Observation"
+          },
+          {
+            "idx": 0,
+            "score": 0.0588621124625206,
+            "name": "Observation"
+          },
+          {
+            "idx": 3,
+            "score": 0.0033863987773656845,
+            "name": "Observation"
+          },
+          {
+            "idx": 2,
+            "score": 0.0021357890218496323,
+            "name": "Observation"
+          }
+        ]
+      },
+      {
+        "step_index": 3,
+        "predicate": "atom(content =~ \"buy second Ferrari\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "buy second Ferrari",
+          "operator": "=~",
+          "span": {
+            "start": 122,
+            "end": 159
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 2567217465760,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy second Ferrari",
+                  "operator": "=~",
+                  "span": {
+                    "start": 122,
+                    "end": 159
+                  }
+                },
+                "score": 0.5173253417015076,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.5173253417015076
+          },
+          {
+            "node_idx": 1,
+            "node_id": 2567217463680,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy second Ferrari",
+                  "operator": "=~",
+                  "span": {
+                    "start": 122,
+                    "end": 159
+                  }
+                },
+                "score": 0.559712827205658,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.559712827205658
+          },
+          {
+            "node_idx": 2,
+            "node_id": 2567217470240,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy second Ferrari",
+                  "operator": "=~",
+                  "span": {
+                    "start": 122,
+                    "end": 159
+                  }
+                },
+                "score": 0.0013150759041309357,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0013150759041309357
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 1,
+            "score": 0.559712827205658,
+            "name": "Observation"
+          },
+          {
+            "idx": 0,
+            "score": 0.5173253417015076,
+            "name": "Observation"
+          },
+          {
+            "idx": 2,
+            "score": 0.0013150759041309357,
+            "name": "Observation"
+          }
+        ]
+      },
+      {
+        "step_index": 4,
+        "predicate": "atom(content =~ \"buy second Ferrari\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "buy second Ferrari",
+          "operator": "=~",
+          "span": {
+            "start": 122,
+            "end": 159
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 2567218089792,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy second Ferrari",
+                  "operator": "=~",
+                  "span": {
+                    "start": 122,
+                    "end": 159
+                  }
+                },
+                "score": 0.0022816327400505543,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0022816327400505543
+          },
+          {
+            "node_idx": 1,
+            "node_id": 2567218091712,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy second Ferrari",
+                  "operator": "=~",
+                  "span": {
+                    "start": 122,
+                    "end": 159
+                  }
+                },
+                "score": 0.04531269147992134,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.04531269147992134
+          },
+          {
+            "node_idx": 2,
+            "node_id": 2567218088592,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy second Ferrari",
+                  "operator": "=~",
+                  "span": {
+                    "start": 122,
+                    "end": 159
+                  }
+                },
+                "score": 0.021770695224404335,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.021770695224404335
+          },
+          {
+            "node_idx": 3,
+            "node_id": 2567218095472,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy second Ferrari",
+                  "operator": "=~",
+                  "span": {
+                    "start": 122,
+                    "end": 159
+                  }
+                },
+                "score": 0.0009797716047614813,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0009797716047614813
+          },
+          {
+            "node_idx": 4,
+            "node_id": 2567218096592,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy second Ferrari",
+                  "operator": "=~",
+                  "span": {
+                    "start": 122,
+                    "end": 159
+                  }
+                },
+                "score": 0.0012389951152727008,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0012389951152727008
+          },
+          {
+            "node_idx": 5,
+            "node_id": 2567218090352,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy second Ferrari",
+                  "operator": "=~",
+                  "span": {
+                    "start": 122,
+                    "end": 159
+                  }
+                },
+                "score": 0.0038705416955053806,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0038705416955053806
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 1,
+            "score": 0.04531269147992134,
+            "name": "Observation"
+          },
+          {
+            "idx": 2,
+            "score": 0.021770695224404335,
+            "name": "Observation"
+          },
+          {
+            "idx": 5,
+            "score": 0.0038705416955053806,
+            "name": "Observation"
+          },
+          {
+            "idx": 0,
+            "score": 0.0022816327400505543,
+            "name": "Observation"
+          },
+          {
+            "idx": 4,
+            "score": 0.0012389951152727008,
+            "name": "Observation"
+          },
+          {
+            "idx": 3,
+            "score": 0.0009797716047614813,
+            "name": "Observation"
+          }
+        ]
+      },
+      {
+        "step_index": 5,
+        "predicate": "atom(content =~ \"buy second Ferrari\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "buy second Ferrari",
+          "operator": "=~",
+          "span": {
+            "start": 122,
+            "end": 159
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 2567217475280,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy second Ferrari",
+                  "operator": "=~",
+                  "span": {
+                    "start": 122,
+                    "end": 159
+                  }
+                },
+                "score": 0.004914715886116028,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.004914715886116028
+          },
+          {
+            "node_idx": 1,
+            "node_id": 2567217465680,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy second Ferrari",
+                  "operator": "=~",
+                  "span": {
+                    "start": 122,
+                    "end": 159
+                  }
+                },
+                "score": 0.039008136838674545,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.039008136838674545
+          },
+          {
+            "node_idx": 2,
+            "node_id": 2567217464000,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy second Ferrari",
+                  "operator": "=~",
+                  "span": {
+                    "start": 122,
+                    "end": 159
+                  }
+                },
+                "score": 0.00901710893958807,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.00901710893958807
+          },
+          {
+            "node_idx": 3,
+            "node_id": 2567217479440,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy second Ferrari",
+                  "operator": "=~",
+                  "span": {
+                    "start": 122,
+                    "end": 159
+                  }
+                },
+                "score": 0.0015867098700255156,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0015867098700255156
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 1,
+            "score": 0.039008136838674545,
+            "name": "Observation"
+          },
+          {
+            "idx": 2,
+            "score": 0.00901710893958807,
+            "name": "Observation"
+          },
+          {
+            "idx": 0,
+            "score": 0.004914715886116028,
+            "name": "Observation"
+          },
+          {
+            "idx": 3,
+            "score": 0.0015867098700255156,
+            "name": "Observation"
+          }
+        ]
+      },
+      {
+        "step_index": 6,
+        "predicate": "atom(content =~ \"buy second Ferrari\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "buy second Ferrari",
+          "operator": "=~",
+          "span": {
+            "start": 122,
+            "end": 159
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 2567218094272,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy second Ferrari",
+                  "operator": "=~",
+                  "span": {
+                    "start": 122,
+                    "end": 159
+                  }
+                },
+                "score": 0.10555990040302277,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.10555990040302277
+          },
+          {
+            "node_idx": 1,
+            "node_id": 2567218102192,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy second Ferrari",
+                  "operator": "=~",
+                  "span": {
+                    "start": 122,
+                    "end": 159
+                  }
+                },
+                "score": 0.024920063093304634,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.024920063093304634
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 0,
+            "score": 0.10555990040302277,
+            "name": "Observation"
+          },
+          {
+            "idx": 1,
+            "score": 0.024920063093304634,
+            "name": "Observation"
+          }
+        ]
+      }
+    ],
+    "score_fusion": {
+      "per_node": [
+        {
+          "node_path": "Root > Conversation_Version 1 > Calvin > Session 12 > Observation 5",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"buy second Ferrari\")]",
+              "score": 0.40880244970321655
+            }
+          ],
+          "accumulated_product": 0.40880244970321655,
+          "final_score": 0.29631575220292394
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Calvin > Session 12 > Observation 2",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"buy second Ferrari\")]",
+              "score": 0.2693448066711426
+            }
+          ],
+          "accumulated_product": 0.2693448066711426,
+          "final_score": 0.19523148417689817
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Calvin > Session 12 > Observation 6",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"buy second Ferrari\")]",
+              "score": 0.06503009796142578
+            }
+          ],
+          "accumulated_product": 0.06503009796142578,
+          "final_score": 0.04713631830547735
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Calvin > Session 12 > Observation 1",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"buy second Ferrari\")]",
+              "score": 0.0588621124625206
+            }
+          ],
+          "accumulated_product": 0.0588621124625206,
+          "final_score": 0.042665524982170036
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Calvin > Session 2 > Observation 2",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"buy second Ferrari\")]",
+              "score": 0.559712827205658
+            }
+          ],
+          "accumulated_product": 0.559712827205658,
+          "final_score": 0.3610579656330097
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Calvin > Session 2 > Observation 1",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"buy second Ferrari\")]",
+              "score": 0.5173253417015076
+            }
+          ],
+          "accumulated_product": 0.5173253417015076,
+          "final_score": 0.33371476651278675
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Calvin > Session 17 > Observation 1",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"buy second Ferrari\")]",
+              "score": 0.10555990040302277
+            }
+          ],
+          "accumulated_product": 0.10555990040302277,
+          "final_score": 0.0060052901080866646
+        }
+      ]
+    }
+  },
+  "final_filtering": {
+    "before_filter_count": 7,
+    "threshold": 0.05,
+    "top_k": 10,
+    "after_filter_count": 4,
+    "filtered_nodes": [
+      {
+        "path": "Root > Conversation_Version 1 > Calvin > Session 2 > Observation 2",
+        "score": 0.3610579656330097,
+        "type": "Observation",
+        "own_score": 0.559712827205658,
+        "parent_score": 0.6450771682964207
+      },
+      {
+        "path": "Root > Conversation_Version 1 > Calvin > Session 2 > Observation 1",
+        "score": 0.33371476651278675,
+        "type": "Observation",
+        "own_score": 0.5173253417015076,
+        "parent_score": 0.6450771682964207
+      },
+      {
+        "path": "Root > Conversation_Version 1 > Calvin > Session 12 > Observation 5",
+        "score": 0.29631575220292394,
+        "type": "Observation",
+        "own_score": 0.40880244970321655,
+        "parent_score": 0.7248384945296781
+      },
+      {
+        "path": "Root > Conversation_Version 1 > Calvin > Session 12 > Observation 2",
+        "score": 0.19523148417689817,
+        "type": "Observation",
+        "own_score": 0.2693448066711426,
+        "parent_score": 0.7248384945296781
+      }
+    ]
+  },
+  "matched_nodes": [
+    {
+      "tree_path": "Root > Conversation_Version 1 > Calvin > Session 2 > Observation 2",
+      "score": 0.3610579656330097,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "Calvin's new car gives him an adrenaline rush every time he steps into it.",
+        "source_dia_id": "D2:5"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Calvin",
+          "predicate": "atom(content =~ \"Calvin\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Calvin\") on Calvin (Score: 1.00)"
+        },
+        {
+          "node_name": "Session 2",
+          "predicate": "atom(content =~ \"Ferrari purchase\")",
+          "score": 0.6450771689414978,
+          "description": "Matched atom(content =~ \"Ferrari purchase\") on Session 2 (Score: 0.65)"
+        },
+        {
+          "node_name": "Observation 2",
+          "predicate": "atom(content =~ \"buy second Ferrari\")",
+          "score": 0.559712827205658,
+          "description": "Matched atom(content =~ \"buy second Ferrari\") on Observation 2 (Score: 0.56)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > Calvin > Session 2 > Observation 1",
+      "score": 0.33371476651278675,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "Calvin recently got a new car which is a luxury car and a dream come true for him.",
+        "source_dia_id": "D2:1"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Calvin",
+          "predicate": "atom(content =~ \"Calvin\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Calvin\") on Calvin (Score: 1.00)"
+        },
+        {
+          "node_name": "Session 2",
+          "predicate": "atom(content =~ \"Ferrari purchase\")",
+          "score": 0.6450771689414978,
+          "description": "Matched atom(content =~ \"Ferrari purchase\") on Session 2 (Score: 0.65)"
+        },
+        {
+          "node_name": "Observation 1",
+          "predicate": "atom(content =~ \"buy second Ferrari\")",
+          "score": 0.5173253417015076,
+          "description": "Matched atom(content =~ \"buy second Ferrari\") on Observation 1 (Score: 0.52)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > Calvin > Session 12 > Observation 5",
+      "score": 0.29631575220292394,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "Calvin is determined to make his dreams come true and appreciates Dave's support and encouragement.",
+        "source_dia_id": "D12:13"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Calvin",
+          "predicate": "atom(content =~ \"Calvin\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Calvin\") on Calvin (Score: 1.00)"
+        },
+        {
+          "node_name": "Session 12",
+          "predicate": "atom(content =~ \"Ferrari purchase\")",
+          "score": 0.7248384952545166,
+          "description": "Matched atom(content =~ \"Ferrari purchase\") on Session 12 (Score: 0.72)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > Calvin > Session 12 > Observation 2",
+      "score": 0.19523148417689817,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "Calvin feels proud of his car and sees it as a symbol of his hard work and dedication.",
+        "source_dia_id": "D12:7"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Calvin",
+          "predicate": "atom(content =~ \"Calvin\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Calvin\") on Calvin (Score: 1.00)"
+        },
+        {
+          "node_name": "Session 12",
+          "predicate": "atom(content =~ \"Ferrari purchase\")",
+          "score": 0.7248384952545166,
+          "description": "Matched atom(content =~ \"Ferrari purchase\") on Session 12 (Score: 0.72)"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total_steps": 5,
+    "total_scoring_calls": 7,
+    "matched_count": 4,
+    "execution_time_ms": 817.3535000023548,
+    "has_score_fusion": true,
+    "num_nodes_before_filter": 7,
+    "num_nodes_after_filter": 4
+  }
+}

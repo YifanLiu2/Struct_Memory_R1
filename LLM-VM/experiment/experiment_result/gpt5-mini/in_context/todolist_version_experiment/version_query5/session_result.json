@@ -1,0 +1,55 @@
+{
+  "session_id": "version_query5",
+  "queries": [
+    {
+      "query_id": "Query_001",
+      "user_query": "What was the progress status of the Vancouver travel project before I deleted it? Check previous versions.",
+      "selected_nodes": [
+        "Root > ToDoList_Version 1 > Personal > Conference Travel: Vancouver"
+      ],
+      "related_nodes": [
+        "Conference Travel: Vancouver",
+        "Conference Travel: Vancouver > Task",
+        "Conference Travel: Vancouver > Task"
+      ],
+      "downstream_task_result": {
+        "operation": "READ",
+        "success": true,
+        "version_used": 3,
+        "reasoning": "Searched versions and found the 'Conference Travel: Vancouver' project present in ToDoList_Version 1; it was deleted in later versions. Returning the Project node from Version 1 which shows its status and task progress.",
+        "token_usage": {
+          "prompt_tokens": 14278,
+          "completion_tokens": 646,
+          "total_tokens": 14924
+        },
+        "error": null
+      },
+      "execution_time_ms": 9782.1
+    },
+    {
+      "query_id": "Query_002",
+      "user_query": "Which grocery task in the Household category was deleted? Check previous versions.",
+      "selected_nodes": [
+        "Root > ToDoList_Version 2 > Household > Weekly Groceries > Buy Ramen (Emergency deadline food)"
+      ],
+      "related_nodes": [
+        "Task"
+      ],
+      "downstream_task_result": {
+        "operation": "READ",
+        "success": true,
+        "version_used": 3,
+        "reasoning": "Compared ToDoList_Version 2 and Version 3 patch_info which lists 'Weekly Groceries > Task 3' as deleted. The removed grocery task (Buy Ramen) appears in Version 2.",
+        "token_usage": {
+          "prompt_tokens": 14273,
+          "completion_tokens": 489,
+          "total_tokens": 14762
+        },
+        "error": null
+      },
+      "execution_time_ms": 8641.07
+    }
+  ],
+  "final_tree_version": 1,
+  "total_execution_time_ms": 18423.17
+}

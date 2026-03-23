@@ -1,0 +1,336 @@
+{
+  "timestamp": "20260226_124930_764857",
+  "query": "/Root/Itinerary_Version[4]/Day[1]",
+  "canonical_query": "/Root/Itinerary_Version[4]/Day[1]",
+  "data_file": "tree.xml",
+  "execution_time_ms": 1.341500086709857,
+  "parsed_ast": {
+    "steps": [
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Root",
+            "span": {
+              "start": 1,
+              "end": 5
+            }
+          },
+          "span": {
+            "start": 1,
+            "end": 5
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Itinerary_Version",
+            "index": {
+              "start": 4,
+              "type": "single",
+              "span": {
+                "start": 23,
+                "end": 26
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 26
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 26
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Day",
+            "index": {
+              "start": 1,
+              "type": "single",
+              "span": {
+                "start": 30,
+                "end": 33
+              }
+            },
+            "span": {
+              "start": 27,
+              "end": 33
+            }
+          },
+          "span": {
+            "start": 27,
+            "end": 33
+          }
+        }
+      }
+    ],
+    "global_index": null
+  },
+  "parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: Itinerary_Version[4]\n└── Step 2: Day[1]",
+  "canonical_parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: Itinerary_Version[4]\n└── Step 2: Day[1]",
+  "execution_log": [
+    "[20260226_124930_764857] Executing query: /Root/Itinerary_Version[4]/Day[1]",
+    "Data file: tree.xml",
+    "Parsed steps: [Root, Itinerary_Version[4], Day[1]]",
+    "",
+    "Query AST:\n├── Step 0: Root\n├── Step 1: Itinerary_Version[4]\n└── Step 2: Day[1]",
+    "\n--- Step 1: Root ---",
+    "Matched Root root",
+    "\n--- Step 2: Itinerary_Version[4] ---",
+    "Selected node at index 4 (0-based: 3)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 3: Day[1] ---",
+    "Selected node at index 1 (0-based: 0)",
+    "After step: 1 nodes remaining",
+    "\n=== Score Fusion ===",
+    "  Root > Itinerary_Version 4 > Day 1: product=1.0000 → score=1.0000",
+    "\n=== Threshold Filtering (threshold=0.05) ===",
+    "  Filtered: 1 → 1 nodes",
+    "\n=== Final Filtering (top_k=5) ===",
+    "  After top_k: 1 → 1 nodes",
+    "\nFinal result: 1 nodes (sorted by score)",
+    "⏱️  Query execution time: 1.34ms"
+  ],
+  "traversal_steps": [
+    {
+      "step_index": 0,
+      "step_query": "Root",
+      "action": "root_match",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "type": "root"
+        }
+      ],
+      "nodes_after": [
+        {
+          "type": "Root",
+          "path": "Root"
+        }
+      ],
+      "details": {
+        "matched": true
+      }
+    },
+    {
+      "step_index": 1,
+      "step_query": "Itinerary_Version[4]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root",
+          "name": "Root",
+          "type": "Root",
+          "score": 1.0,
+          "node_id": 13348398368
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Itinerary_Version 4",
+          "name": "Itinerary_Version 4",
+          "type": "Itinerary_Version",
+          "score": 1.0,
+          "node_id": 13353437680
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Itinerary_Version",
+            "index": {
+              "start": 4,
+              "type": "single",
+              "span": {
+                "start": 23,
+                "end": 26
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 26
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 26
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 2,
+      "step_query": "Day[1]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root > Itinerary_Version 4",
+          "name": "Itinerary_Version 4",
+          "type": "Itinerary_Version",
+          "score": 1.0,
+          "node_id": 13353437680
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Itinerary_Version 4 > Day 1",
+          "name": "Day 1",
+          "type": "Day",
+          "score": 1.0,
+          "node_id": 13347815808
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Day",
+            "index": {
+              "start": 1,
+              "type": "single",
+              "span": {
+                "start": 30,
+                "end": 33
+              }
+            },
+            "span": {
+              "start": 27,
+              "end": 33
+            }
+          },
+          "span": {
+            "start": 27,
+            "end": 33
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": []
+      }
+    }
+  ],
+  "scoring_traces": [],
+  "scoring_details": {
+    "step_scores": [],
+    "score_fusion": {
+      "per_node": [
+        {
+          "node_path": "Root > Itinerary_Version 4 > Day 1",
+          "node_type": "Day",
+          "step_contributions": [],
+          "accumulated_product": 1.0,
+          "final_score": 1.0
+        }
+      ]
+    }
+  },
+  "final_filtering": {
+    "before_filter_count": 1,
+    "threshold": 0.05,
+    "top_k": 5,
+    "after_filter_count": 1,
+    "filtered_nodes": [
+      {
+        "path": "Root > Itinerary_Version 4 > Day 1",
+        "score": 1.0,
+        "type": "Day",
+        "own_score": 1.0,
+        "parent_score": 1.0
+      }
+    ]
+  },
+  "matched_nodes": [
+    {
+      "tree_path": "Root > Itinerary_Version 4 > Day 1",
+      "score": 1.0,
+      "node": {
+        "type": "Day",
+        "attributes": {
+          "index": "1"
+        }
+      },
+      "children": [
+        {
+          "type": "POI",
+          "attributes": {},
+          "name": "YYZ Airport Arrival",
+          "time_block": "2:00 PM - 3:00 PM",
+          "description": "Flight lands at Toronto Pearson International Airport. Long journey from overseas, feeling tired and jet-lagged.",
+          "travel_method": "Flight",
+          "expected_cost": "Included",
+          "highlights": [
+            "International arrival",
+            "Customs and baggage"
+          ]
+        },
+        {
+          "type": "POI",
+          "attributes": {},
+          "name": "Harbourfront Stroll",
+          "time_block": "5:00 PM - 6:30 PM",
+          "description": "Easy, relaxing walk along the waterfront. Low-energy activity perfect for recovering from travel_method. Beautiful lake views and fresh air.",
+          "travel_method": "Walk",
+          "expected_cost": "Free",
+          "highlights": [
+            "Lake Ontario views",
+            "Relaxing atmosphere",
+            "Outdoor fresh air"
+          ]
+        },
+        {
+          "type": "Restaurant",
+          "attributes": {},
+          "name": "Canoe Restaurant",
+          "time_block": "7:30 PM - 9:00 PM",
+          "description": "Upscale Canadian cuisine on the 54th floor of TD Tower. Expensive fine dining with panoramic city views. Elegant and formal atmosphere.",
+          "travel_method": "Taxi",
+          "expected_cost": "CAD 150-200",
+          "highlights": [
+            "Expensive fine dining",
+            "City skyline views",
+            "Upscale atmosphere"
+          ]
+        }
+      ],
+      "context_trace": []
+    }
+  ],
+  "summary": {
+    "total_steps": 3,
+    "total_scoring_calls": 0,
+    "matched_count": 1,
+    "execution_time_ms": 1.341500086709857,
+    "has_score_fusion": true,
+    "num_nodes_before_filter": 1,
+    "num_nodes_after_filter": 1
+  }
+}

@@ -1,0 +1,135 @@
+name: "nutrition_version_experiment"
+
+queries:
+  - name: "nutrition_version_query1"
+    use_versions: "false"
+    tree_path: "storage/memory/nutrition/multiturn/mt1.xml"
+    queries:
+      # - "Delete everything other than the greek protein power bowl from Fathers day 1 breakfast"
+      # - "Delete everything other than the feta salad from Fathers day 1 lunch"
+      # - "Delete everything other than the lamb kofta from Fathers day 1 dinner"
+
+      - "What were the other options for father day 1 breakfast before we deleted them?"
+      - "What were the other options for father day 1 lunch before we deleted them?"
+      - "What were the other options for father day 1 dinner before we deleted them?"
+
+    ground_truth:
+      - [
+          "Root > MealPlan_Version 1 > Father > Day 1 > Breakfast > Shakshuka — Mediterranean Sunrise",
+          "Root > MealPlan_Version 1 > Father > Day 1 > Breakfast > Mediterranean Fig & Honey Oatmeal",
+        ]
+      - [
+          "Root > MealPlan_Version 2 > Father > Day 1 > Lunch > Grilled Chicken Souvlaki Plate",
+          "Root > MealPlan_Version 2 > Father > Day 1 > Lunch > Spanakopita-Style Stuffed Pita",
+        ]
+      - [
+          "Root > MealPlan_Version 3 > Father > Day 1 > Dinner > Herb-Crusted Baked Sea Bass with Roasted Vegetables",
+          "Root > MealPlan_Version 3 > Father > Day 1 > Dinner > One-Pot Greek Chicken & Orzo",
+        ]
+
+  - name: "nutrition_version_query2"
+    use_versions: "false"
+    tree_path: "storage/memory/nutrition/multiturn/mt2.xml"
+    queries:
+      # - "For mothers Day 1 breakfast, delete everything that isnt the smoothie"
+      # - "Delete all the meals for mother on day 2 she wont be home."
+      # - "Delete all meals for mother on day 3 she is away."
+
+      - "Mother is getting back early, find the fish dinner from before we deleted all the meals for day 2"
+      - "Add the Miso-Glazed Black Cod with Bok Choy to mothers day 3 dinner"
+
+    ground_truth:
+      - [
+          "Root > MealPlan_Version 2 > Mother > Day 2 > Dinner > Miso-Glazed Black Cod with Bok Choy",
+        ]
+      - ["Root > MealPlan_Version 4 > Mother > Day 3 > Dinner > Meal"]
+
+  - name: "nutrition_version_query3"
+    use_versions: "false"
+    tree_path: "storage/memory/nutrition/multiturn/mt3.xml"
+    queries:
+      # - "Delete all breakfast meals except the yogurt for child on day 1"
+
+      - "What was the toast breakfast option for child on day 1 before we deleted it? Check the previous versions."
+      - "What was the non toast and non yogurt breakfast option for child on day 1 before we deleted it? Check the previous versions."
+
+    ground_truth:
+      - [
+          "Root > MealPlan_Version 1 > Child > Day 1 > Breakfast > Ricotta Toast — Garden Veg Variation",
+        ]
+      - [
+          "Root > MealPlan_Version 1 > Child > Day 1 > Breakfast > Smoothie — Smoky Variation",
+        ]
+
+  - name: "nutrition_version_query4"
+    use_versions: "false"
+    tree_path: "storage/memory/nutrition/multiturn/mt4.xml"
+    queries:
+      # - "Remove the day 2 dinner options that aren't the chicken for father."
+      # - "Update the roast chicken dinner for father on day 2 to instead be fried chicken with potatoes."
+      # - "Remove the breakfast option with fig for father."
+      - "What was the original meal for father's dinner on day 2 before it became a fried chicken with potatoes? Check the previous versions."
+      - "What was the smokey dinner option for father on day 2 before we deleted it? Check the previous versions."
+      - "What day originally had the fig breakfast option for father? Check the previous versions."
+
+    ground_truth:
+      - [
+          "Root > MealPlan_Version 2 > Father > Day 2 > Dinner > Roast Chicken Dinner — Berry Boost Variation",
+        ]
+      - [
+          "Root > MealPlan_Version 1 > Father > Day 2 > Dinner > Sheet-Pan Pork Dinner — Smoky Bake",
+        ]
+      - ["Root > MealPlan_Version 3 > Father > Day 1"]
+
+config:
+  active_schema: "nutrition" # Options: itinerary, todolist, session_recommendation
+  active_data: "nutrition_7day" # Options: todolist, travel_toronto_10day
+  # LLM Client configuration
+  # Model options: "gpt-4o", "gpt-5", "gpt-5-mini", "o1", "o3-mini", etc.
+  openai:
+    #api_key: "${OPENROUTER_API_KEY}" # or point this env var to your OpenRouter key
+    api_key: "${OPENAI_API_KEY}"
+    # base_url: "https://openrouter.ai/api/v1"
+    model: "gpt-5-mini" # or whatever Qwen model ID OpenRouter uses
+
+    max_tokens: 128000
+    # For GPT-4 series: temperature controls creativity (0-1)
+    temperature: 0
+
+    # For GPT-5/o1/o3 series: reasoning_effort controls reasoning depth
+    # Options: none (fastest), low, medium (default), high, xhigh (deepest)
+    reasoning_effort: "low"
+
+  # openai:
+  #   api_key: "${OPENROUTER_API_KEY}"      # or point this env var to your OpenRouter key
+  #   base_url: "https://openrouter.ai/api/v1"
+  #   model: "google/gemini-3-flash-preview"     # or whatever Qwen model ID OpenRouter uses
+  #   max_tokens: 128000
+  #   temperature: 0
+
+  # XPath executor settings
+  xpath_executor:
+    top_k: 5
+    score_threshold: 0.05
+    # Scoring method: "llm", "entailment", or "cosine"
+    scoring_method: "entailment"
+
+  # In-context pipeline settings (single LLM call with full tree)
+  incontext_pipeline:
+    temperature: 0
+    max_tokens: 16384
+
+  # Entailment scorer settings
+  entailment:
+    model: "facebook/bart-large-mnli"
+    hypothesis_template: "This is related to {predicate}."
+    # device: auto-detected if not set (cuda > mps > cpu)
+
+  # Cosine similarity scorer settings
+  cosine:
+    model: "qwen/qwen3-embedding-8b"
+    predicate_template: "{predicate}"
+    openai:
+      api_key: "${OPENROUTER_API_KEY}"
+      base_url: "https://openrouter.ai/api/v1"
+    # device: auto-detected if not set (cuda > mps > cpu)

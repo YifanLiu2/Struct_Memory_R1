@@ -1,0 +1,116 @@
+====================
+Examples
+====================
+
+### Time change (partial update)
+Query: "Change CN Tower visit to 2pm"
+
+Candidates:
+[1] Day 1 > CN Tower (POI, time_block: 11:00 AM - 12:30 PM, score: 0.85)
+
+```json
+{
+  "updates": [
+    {
+      "id": "1",
+      "path": "Day 1 > CN Tower",
+      "fields": {
+        "name": "CN Tower",
+        "time_block": "2:00 PM - 3:30 PM",
+        "description": "Visit one of the world's tallest towers with panoramic city views.",
+        "travel_method": "Walk",
+        "expected_cost": "CAD 43",
+        "highlights": ["Glass floor", "360 Restaurant", "EdgeWalk"]
+      },
+      "new_type": null,
+      "reasoning": "Changed time from 11:00 AM to 2:00 PM, kept 1.5hr duration"
+    }
+  ],
+  "reasoning": "Updated CN Tower time. All other fields preserved exactly."
+}
+```
+
+### Type transformation
+Query: "Change the museum to Chinese food"
+
+Candidates:
+[1] Day 1 > Royal Ontario Museum (POI, time_block: 11:00 AM - 1:00 PM, score: 0.72)
+
+```json
+{
+  "updates": [
+    {
+      "id": "1",
+      "path": "Day 1 > Royal Ontario Museum",
+      "fields": {
+        "name": "Mother's Dumplings",
+        "time_block": "11:30 AM - 1:00 PM",
+        "description": "Popular Chinese restaurant known for handmade dumplings.",
+        "travel_method": "Walk",
+        "expected_cost": "CAD 18",
+        "highlights": ["Handmade dumplings", "Pan-fried dumplings"]
+      },
+      "new_type": "Restaurant",
+      "reasoning": "Transformed museum to Chinese restaurant"
+    }
+  ],
+  "reasoning": "Changed POI to Restaurant with appropriate Chinese restaurant content."
+}
+```
+
+### Activity replacement (Restaurant to POI)
+Query: "Change the team lunch on day 2 to a free time block for catching up on emails"
+
+Candidates:
+[1] Day 2 > Team Lunch (Restaurant, time_block: 12:00 PM - 1:30 PM, score: 0.82)
+
+```json
+{
+  "updates": [
+    {
+      "id": "1",
+      "path": "Day 2 > Team Lunch",
+      "fields": {
+        "name": "Email Catch-up",
+        "time_block": "12:00 PM - 1:30 PM",
+        "description": "Dedicated time to process emails and messages.",
+        "travel_method": "None",
+        "expected_cost": "0",
+        "highlights": []
+      },
+      "new_type": "POI",
+      "reasoning": "Replaced lunch (Restaurant) with work block (POI). Cleared food-related fields."
+    }
+  ],
+  "reasoning": "Changed activity type and content based on new intent, removing restaurant specific fields."
+}
+```
+
+### No match (conservative rejection)
+Query: "Update the Eiffel Tower visit"
+
+Candidates:
+[1] Day 1 > CN Tower (POI, score: 0.31)
+[2] Day 2 > ROM (POI, score: 0.28)
+
+```json
+{
+  "updates": [],
+  "reasoning": "No candidates match 'Eiffel Tower'. CN Tower (score: 0.31) and ROM (score: 0.28) have low semantic scores and are different landmarks entirely."
+}
+```
+
+### Ambiguous query (conservative rejection)
+Query: "Change the time to 3pm"
+
+Candidates:
+[1] Day 1 > CN Tower (POI, time_block: 10:00 AM - 11:30 AM, score: 0.42)
+[2] Day 1 > St. Lawrence Market (POI, time_block: 12:00 PM - 1:30 PM, score: 0.41)
+[3] Day 2 > ROM (POI, time_block: 9:00 AM - 12:00 PM, score: 0.39)
+
+```json
+{
+  "updates": [],
+  "reasoning": "Query does not specify which activity to update. Three candidates have similar low scores (0.39-0.42), indicating no clear match. Need more specific reference like 'CN Tower' or 'the museum'."
+}
+```

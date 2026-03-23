@@ -1,0 +1,5739 @@
+{
+  "timestamp": "20260323_003922_087976",
+  "query": "/Root/Conversation_Version[1]/Speaker[atom(content =~ \"Dave\")]/Session[atom(content =~ \"music genre\")]/Observation[atom(content =~ \"type of music\")]",
+  "canonical_query": "/Root/Conversation_Version[1]/Speaker[content =~ \"Dave\"]/Session[content =~ \"music genre\"]/Observation[content =~ \"type of music\"]",
+  "data_file": "tree.xml",
+  "execution_time_ms": 756.2835999997333,
+  "parsed_ast": {
+    "steps": [
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Root",
+            "span": {
+              "start": 1,
+              "end": 5
+            }
+          },
+          "span": {
+            "start": 1,
+            "end": 5
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Conversation_Version",
+            "index": {
+              "start": 1,
+              "type": "single",
+              "span": {
+                "start": 26,
+                "end": 29
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 29
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 29
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Speaker",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "Dave",
+              "operator": "=~",
+              "span": {
+                "start": 38,
+                "end": 61
+              }
+            },
+            "predicate_str": "atom(content =~ \"Dave\")",
+            "span": {
+              "start": 30,
+              "end": 62
+            }
+          },
+          "span": {
+            "start": 30,
+            "end": 62
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Session",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "music genre",
+              "operator": "=~",
+              "span": {
+                "start": 71,
+                "end": 101
+              }
+            },
+            "predicate_str": "atom(content =~ \"music genre\")",
+            "span": {
+              "start": 63,
+              "end": 102
+            }
+          },
+          "span": {
+            "start": 63,
+            "end": 102
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Observation",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "type of music",
+              "operator": "=~",
+              "span": {
+                "start": 115,
+                "end": 147
+              }
+            },
+            "predicate_str": "atom(content =~ \"type of music\")",
+            "span": {
+              "start": 103,
+              "end": 148
+            }
+          },
+          "span": {
+            "start": 103,
+            "end": 148
+          }
+        }
+      }
+    ],
+    "global_index": null
+  },
+  "parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: Conversation_Version[1]\n├── Step 2: Speaker[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"Dave\")\n├── Step 3: Session[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"music genre\")\n└── Step 4: Observation[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"type of music\")",
+  "canonical_parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: Conversation_Version[1]\n├── Step 2: Speaker[content =~ \"Dave\"]\n├── Step 3: Session[content =~ \"music genre\"]\n└── Step 4: Observation[content =~ \"type of music\"]",
+  "execution_log": [
+    "[20260323_003922_087976] Executing query: /Root/Conversation_Version[1]/Speaker[atom(content =~ \"Dave\")]/Session[atom(content =~ \"music genre\")]/Observation[atom(content =~ \"type of music\")]",
+    "Data file: tree.xml",
+    "Parsed steps: [Root, Conversation_Version[1], Speaker[atom(content =~ \"Dave\")], Session[atom(content =~ \"music genre\")], Observation[atom(content =~ \"type of music\")]]",
+    "",
+    "Query AST:\n├── Step 0: Root\n├── Step 1: Conversation_Version[1]\n├── Step 2: Speaker[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"Dave\")\n├── Step 3: Session[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"music genre\")\n└── Step 4: Observation[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"type of music\")",
+    "\n--- Step 1: Root ---",
+    "Matched Root root",
+    "\n--- Step 2: Conversation_Version[1] ---",
+    "Selected node at index 1 (0-based: 0)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 3: Speaker[atom(content =~ \"Dave\")] ---",
+    "Scoring predicate: atom(content =~ \"Dave\") (atomic values: ['Dave'])",
+    "  Node 0 (Calvin): score = 0.0000 (exact match)",
+    "  Node 1 (Dave): score = 1.0000 (exact match)",
+    "  Exact attribute match on @name: 1/2 nodes matched",
+    "  Top-K Pruning: Reduced from 2 to 1 nodes (K=5)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 4: Session[atom(content =~ \"music genre\")] ---",
+    "Scoring predicate: atom(content =~ \"music genre\") (atomic values: ['music genre'])",
+    "  Collected 30 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 30 total descriptions",
+    "  Node 0 (Session): score = 0.1928",
+    "  Node 1 (Session): score = 0.9830",
+    "  Node 2 (Session): score = 0.9668",
+    "  Node 3 (Session): score = 0.0546",
+    "  Node 4 (Session): score = 0.1312",
+    "  Node 5 (Session): score = 0.9379",
+    "  Node 6 (Session): score = 0.8964",
+    "  Node 7 (Session): score = 0.6889",
+    "  Node 8 (Session): score = 0.0568",
+    "  Node 9 (Session): score = 0.9728",
+    "  Node 10 (Session): score = 0.9871",
+    "  Node 11 (Session): score = 0.0078",
+    "  Node 12 (Session): score = 0.2294",
+    "  Node 13 (Session): score = 0.8612",
+    "  Node 14 (Session): score = 0.9802",
+    "  Node 15 (Session): score = 0.9905",
+    "  Node 16 (Session): score = 0.1580",
+    "  Node 17 (Session): score = 0.9820",
+    "  Node 18 (Session): score = 0.9733",
+    "  Node 19 (Session): score = 0.8781",
+    "  Node 20 (Session): score = 0.4357",
+    "  Node 21 (Session): score = 0.0591",
+    "  Node 22 (Session): score = 0.4620",
+    "  Node 23 (Session): score = 0.8380",
+    "  Node 24 (Session): score = 0.8904",
+    "  Node 25 (Session): score = 0.9966",
+    "  Node 26 (Session): score = 0.9518",
+    "  Node 27 (Session): score = 0.8375",
+    "  Node 28 (Session): score = 0.8852",
+    "  Node 29 (Session): score = 0.0809",
+    "  Top-K Pruning: Reduced from 30 to 5 nodes (K=5)",
+    "After step: 5 nodes remaining",
+    "\n--- Step 5: Observation[atom(content =~ \"type of music\")] ---",
+    "Scoring predicate: atom(content =~ \"type of music\") (atomic values: ['type of music'])",
+    "  Collected 5 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 5 total descriptions",
+    "  Node 0 (Observation): score = 0.1505",
+    "  Node 1 (Observation): score = 0.0162",
+    "  Node 2 (Observation): score = 0.0031",
+    "  Node 3 (Observation): score = 0.9079",
+    "  Node 4 (Observation): score = 0.0913",
+    "Scoring predicate: atom(content =~ \"type of music\") (atomic values: ['type of music'])",
+    "  Collected 2 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 2 total descriptions",
+    "  Node 0 (Observation): score = 0.9688",
+    "  Node 1 (Observation): score = 0.9840",
+    "Scoring predicate: atom(content =~ \"type of music\") (atomic values: ['type of music'])",
+    "  Collected 1 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 1 total descriptions",
+    "  Node 0 (Observation): score = 0.0108",
+    "Scoring predicate: atom(content =~ \"type of music\") (atomic values: ['type of music'])",
+    "  Collected 3 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 3 total descriptions",
+    "  Node 0 (Observation): score = 0.9956",
+    "  Node 1 (Observation): score = 0.9980",
+    "  Node 2 (Observation): score = 0.9930",
+    "Scoring predicate: atom(content =~ \"type of music\") (atomic values: ['type of music'])",
+    "  Collected 3 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 3 total descriptions",
+    "  Node 0 (Observation): score = 0.0091",
+    "  Node 1 (Observation): score = 0.9968",
+    "  Node 2 (Observation): score = 0.9249",
+    "  Top-K Pruning: Reduced from 14 to 10 nodes (K=5)",
+    "After step: 10 nodes remaining",
+    "\n=== Score Fusion ===",
+    "  Root > Conversation_Version 1 > Dave > Session 26 > Observation 4: product=0.9079 → score=0.9079",
+    "  Root > Conversation_Version 1 > Dave > Session 26 > Observation 1: product=0.1505 → score=0.1505",
+    "  Root > Conversation_Version 1 > Dave > Session 26 > Observation 5: product=0.0913 → score=0.0913",
+    "  Root > Conversation_Version 1 > Dave > Session 16 > Observation 2: product=0.9840 → score=0.9840",
+    "  Root > Conversation_Version 1 > Dave > Session 16 > Observation 1: product=0.9688 → score=0.9688",
+    "  Root > Conversation_Version 1 > Dave > Session 2 > Observation 2: product=0.9980 → score=0.9980",
+    "  Root > Conversation_Version 1 > Dave > Session 2 > Observation 1: product=0.9956 → score=0.9956",
+    "  Root > Conversation_Version 1 > Dave > Session 2 > Observation 3: product=0.9930 → score=0.9930",
+    "  Root > Conversation_Version 1 > Dave > Session 18 > Observation 2: product=0.9968 → score=0.9968",
+    "  Root > Conversation_Version 1 > Dave > Session 18 > Observation 3: product=0.9249 → score=0.9249",
+    "  Parent propagation: Root > Conversation_Version 1 > Dave > Session 26 > Observation 4: own=0.9079 × parent=0.9966 → 0.9048",
+    "  Parent propagation: Root > Conversation_Version 1 > Dave > Session 26 > Observation 1: own=0.1505 × parent=0.9966 → 0.1500",
+    "  Parent propagation: Root > Conversation_Version 1 > Dave > Session 26 > Observation 5: own=0.0913 × parent=0.9966 → 0.0910",
+    "  Parent propagation: Root > Conversation_Version 1 > Dave > Session 16 > Observation 2: own=0.9840 × parent=0.9905 → 0.9747",
+    "  Parent propagation: Root > Conversation_Version 1 > Dave > Session 16 > Observation 1: own=0.9688 × parent=0.9905 → 0.9596",
+    "  Parent propagation: Root > Conversation_Version 1 > Dave > Session 2 > Observation 2: own=0.9980 × parent=0.9830 → 0.9810",
+    "  Parent propagation: Root > Conversation_Version 1 > Dave > Session 2 > Observation 1: own=0.9956 × parent=0.9830 → 0.9786",
+    "  Parent propagation: Root > Conversation_Version 1 > Dave > Session 2 > Observation 3: own=0.9930 × parent=0.9830 → 0.9761",
+    "  Parent propagation: Root > Conversation_Version 1 > Dave > Session 18 > Observation 2: own=0.9968 × parent=0.9820 → 0.9788",
+    "  Parent propagation: Root > Conversation_Version 1 > Dave > Session 18 > Observation 3: own=0.9249 × parent=0.9820 → 0.9083",
+    "\n=== Parent Score Propagation: 10 nodes updated ===",
+    "\n=== Threshold Filtering (threshold=0.05) ===",
+    "  Filtered: 10 → 10 nodes",
+    "\n=== Final Filtering (top_k=10) ===",
+    "  After top_k: 10 → 10 nodes",
+    "\nFinal result: 10 nodes (sorted by score)",
+    "⏱️  Query execution time: 756.28ms"
+  ],
+  "traversal_steps": [
+    {
+      "step_index": 0,
+      "step_query": "Root",
+      "action": "root_match",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "type": "root"
+        }
+      ],
+      "nodes_after": [
+        {
+          "type": "Root",
+          "path": "Root"
+        }
+      ],
+      "details": {
+        "matched": true
+      }
+    },
+    {
+      "step_index": 1,
+      "step_query": "Conversation_Version[1]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root",
+          "name": "Root",
+          "type": "Root",
+          "score": 1.0,
+          "node_id": 2567218197296
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Conversation_Version 1",
+          "name": "Conversation_Version 1",
+          "type": "Conversation_Version",
+          "score": 1.0,
+          "node_id": 2567218196976
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Conversation_Version",
+            "index": {
+              "start": 1,
+              "type": "single",
+              "span": {
+                "start": 26,
+                "end": 29
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 29
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 29
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 2,
+      "step_query": "Speaker[atom(content =~ \"Dave\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root > Conversation_Version 1",
+          "name": "Conversation_Version 1",
+          "type": "Conversation_Version",
+          "score": 1.0,
+          "node_id": 2567218196976
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Conversation_Version 1 > Dave",
+          "name": "Dave",
+          "type": "Speaker",
+          "score": 1.0,
+          "node_id": 2567217309440
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Speaker",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "Dave",
+              "operator": "=~",
+              "span": {
+                "start": 38,
+                "end": 61
+              }
+            },
+            "predicate_str": "atom(content =~ \"Dave\")",
+            "span": {
+              "start": 30,
+              "end": 62
+            }
+          },
+          "span": {
+            "start": 30,
+            "end": 62
+          }
+        },
+        "found_count": 2,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"Dave\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "Dave",
+              "operator": "=~",
+              "span": {
+                "start": 38,
+                "end": 61
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 2567218200496,
+                "node_name": "Calvin",
+                "node_type": "Speaker",
+                "final_score": 0.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Calvin",
+                    "query_value": "Dave",
+                    "matched": false,
+                    "score": 0.0
+                  }
+                ]
+              },
+              {
+                "node_idx": 1,
+                "node_id": 2567217309440,
+                "node_name": "Dave",
+                "node_type": "Speaker",
+                "final_score": 1.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Dave",
+                    "query_value": "Dave",
+                    "matched": true,
+                    "score": 1.0
+                  }
+                ]
+              }
+            ],
+            "batch_scoring": {
+              "exact_match": true,
+              "matched_attribute": "name",
+              "query_value": "Dave",
+              "matched_count": 1
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 1,
+                "score": 1.0,
+                "name": "Dave"
+              },
+              {
+                "idx": 0,
+                "score": 0.0,
+                "name": "Calvin"
+              }
+            ]
+          }
+        ],
+        "pruned_count": 1
+      }
+    },
+    {
+      "step_index": 3,
+      "step_query": "Session[atom(content =~ \"music genre\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 5,
+      "nodes_before": [
+        {
+          "path": "Root > Conversation_Version 1 > Dave",
+          "name": "Dave",
+          "type": "Speaker",
+          "score": 1.0,
+          "node_id": 2567217309440
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Conversation_Version 1 > Dave > Session 26",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.9966177344322205,
+          "node_id": 2567216037328
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Dave > Session 16",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.9905449151992798,
+          "node_id": 2567025693680
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Dave > Session 11",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.9870778322219849,
+          "node_id": 2567217154544
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Dave > Session 2",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.9829649329185486,
+          "node_id": 2567217306240
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Dave > Session 18",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.9819716811180115,
+          "node_id": 2567025694080
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Session",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "music genre",
+              "operator": "=~",
+              "span": {
+                "start": 71,
+                "end": 101
+              }
+            },
+            "predicate_str": "atom(content =~ \"music genre\")",
+            "span": {
+              "start": 63,
+              "end": 102
+            }
+          },
+          "span": {
+            "start": 63,
+            "end": 102
+          }
+        },
+        "found_count": 30,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"music genre\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "music genre",
+              "operator": "=~",
+              "span": {
+                "start": 71,
+                "end": 101
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 2567217302800,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "music genre",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 101
+                      }
+                    },
+                    "score": 0.19281621277332306,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.19281621277332306
+              },
+              {
+                "node_idx": 1,
+                "node_id": 2567217306240,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "music genre",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 101
+                      }
+                    },
+                    "score": 0.9829649329185486,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.9829649329185486
+              },
+              {
+                "node_idx": 2,
+                "node_id": 2567217310320,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "music genre",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 101
+                      }
+                    },
+                    "score": 0.9668118953704834,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.9668118953704834
+              },
+              {
+                "node_idx": 3,
+                "node_id": 2567217304560,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "music genre",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 101
+                      }
+                    },
+                    "score": 0.05456291884183884,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.05456291884183884
+              },
+              {
+                "node_idx": 4,
+                "node_id": 2567217153264,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "music genre",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 101
+                      }
+                    },
+                    "score": 0.13120892643928528,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.13120892643928528
+              },
+              {
+                "node_idx": 5,
+                "node_id": 2567217152464,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "music genre",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 101
+                      }
+                    },
+                    "score": 0.9379017353057861,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.9379017353057861
+              },
+              {
+                "node_idx": 6,
+                "node_id": 2567217159104,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "music genre",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 101
+                      }
+                    },
+                    "score": 0.8963833451271057,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.8963833451271057
+              },
+              {
+                "node_idx": 7,
+                "node_id": 2567217154464,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "music genre",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 101
+                      }
+                    },
+                    "score": 0.6888835430145264,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.6888835430145264
+              },
+              {
+                "node_idx": 8,
+                "node_id": 2567217158864,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "music genre",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 101
+                      }
+                    },
+                    "score": 0.05681077390909195,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.05681077390909195
+              },
+              {
+                "node_idx": 9,
+                "node_id": 2567217152384,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "music genre",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 101
+                      }
+                    },
+                    "score": 0.972822904586792,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.972822904586792
+              },
+              {
+                "node_idx": 10,
+                "node_id": 2567217154544,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "music genre",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 101
+                      }
+                    },
+                    "score": 0.9870778322219849,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.9870778322219849
+              },
+              {
+                "node_idx": 11,
+                "node_id": 2567217167264,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "music genre",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 101
+                      }
+                    },
+                    "score": 0.007816780358552933,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.007816780358552933
+              },
+              {
+                "node_idx": 12,
+                "node_id": 2567217157664,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "music genre",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 101
+                      }
+                    },
+                    "score": 0.22938434779644012,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.22938434779644012
+              },
+              {
+                "node_idx": 13,
+                "node_id": 2567217163344,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "music genre",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 101
+                      }
+                    },
+                    "score": 0.8612416982650757,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.8612416982650757
+              },
+              {
+                "node_idx": 14,
+                "node_id": 2567217156144,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "music genre",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 101
+                      }
+                    },
+                    "score": 0.9802085161209106,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.9802085161209106
+              },
+              {
+                "node_idx": 15,
+                "node_id": 2567025693680,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "music genre",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 101
+                      }
+                    },
+                    "score": 0.9905449151992798,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.9905449151992798
+              },
+              {
+                "node_idx": 16,
+                "node_id": 2567025689280,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "music genre",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 101
+                      }
+                    },
+                    "score": 0.1580379456281662,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.1580379456281662
+              },
+              {
+                "node_idx": 17,
+                "node_id": 2567025694080,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "music genre",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 101
+                      }
+                    },
+                    "score": 0.9819716811180115,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.9819716811180115
+              },
+              {
+                "node_idx": 18,
+                "node_id": 2567025689360,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "music genre",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 101
+                      }
+                    },
+                    "score": 0.9733023643493652,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.9733023643493652
+              },
+              {
+                "node_idx": 19,
+                "node_id": 2567025690560,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "music genre",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 101
+                      }
+                    },
+                    "score": 0.8781194090843201,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.8781194090843201
+              },
+              {
+                "node_idx": 20,
+                "node_id": 2567214386288,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "music genre",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 101
+                      }
+                    },
+                    "score": 0.4357396066188812,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.4357396066188812
+              },
+              {
+                "node_idx": 21,
+                "node_id": 2567216026688,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "music genre",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 101
+                      }
+                    },
+                    "score": 0.05914930999279022,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.05914930999279022
+              },
+              {
+                "node_idx": 22,
+                "node_id": 2567216027888,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "music genre",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 101
+                      }
+                    },
+                    "score": 0.4619951844215393,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.4619951844215393
+              },
+              {
+                "node_idx": 23,
+                "node_id": 2567216030208,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "music genre",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 101
+                      }
+                    },
+                    "score": 0.8379554748535156,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.8379554748535156
+              },
+              {
+                "node_idx": 24,
+                "node_id": 2567216033008,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "music genre",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 101
+                      }
+                    },
+                    "score": 0.8903601169586182,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.8903601169586182
+              },
+              {
+                "node_idx": 25,
+                "node_id": 2567216037328,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "music genre",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 101
+                      }
+                    },
+                    "score": 0.9966177344322205,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.9966177344322205
+              },
+              {
+                "node_idx": 26,
+                "node_id": 2567216032848,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "music genre",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 101
+                      }
+                    },
+                    "score": 0.9518091082572937,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.9518091082572937
+              },
+              {
+                "node_idx": 27,
+                "node_id": 2567216029728,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "music genre",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 101
+                      }
+                    },
+                    "score": 0.8374796509742737,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.8374796509742737
+              },
+              {
+                "node_idx": 28,
+                "node_id": 2567216022128,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "music genre",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 101
+                      }
+                    },
+                    "score": 0.8852352499961853,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.8852352499961853
+              },
+              {
+                "node_idx": 29,
+                "node_id": 2567149219696,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "music genre",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 101
+                      }
+                    },
+                    "score": 0.08086485415697098,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.08086485415697098
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "music genre"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "music genre",
+                  "num_descriptions": 30,
+                  "call_time_ms": 576.42
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 30
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 25,
+                "score": 0.9966177344322205,
+                "name": "Session"
+              },
+              {
+                "idx": 15,
+                "score": 0.9905449151992798,
+                "name": "Session"
+              },
+              {
+                "idx": 10,
+                "score": 0.9870778322219849,
+                "name": "Session"
+              },
+              {
+                "idx": 1,
+                "score": 0.9829649329185486,
+                "name": "Session"
+              },
+              {
+                "idx": 17,
+                "score": 0.9819716811180115,
+                "name": "Session"
+              },
+              {
+                "idx": 14,
+                "score": 0.9802085161209106,
+                "name": "Session"
+              },
+              {
+                "idx": 18,
+                "score": 0.9733023643493652,
+                "name": "Session"
+              },
+              {
+                "idx": 9,
+                "score": 0.972822904586792,
+                "name": "Session"
+              },
+              {
+                "idx": 2,
+                "score": 0.9668118953704834,
+                "name": "Session"
+              },
+              {
+                "idx": 26,
+                "score": 0.9518091082572937,
+                "name": "Session"
+              },
+              {
+                "idx": 5,
+                "score": 0.9379017353057861,
+                "name": "Session"
+              },
+              {
+                "idx": 6,
+                "score": 0.8963833451271057,
+                "name": "Session"
+              },
+              {
+                "idx": 24,
+                "score": 0.8903601169586182,
+                "name": "Session"
+              },
+              {
+                "idx": 28,
+                "score": 0.8852352499961853,
+                "name": "Session"
+              },
+              {
+                "idx": 19,
+                "score": 0.8781194090843201,
+                "name": "Session"
+              },
+              {
+                "idx": 13,
+                "score": 0.8612416982650757,
+                "name": "Session"
+              },
+              {
+                "idx": 23,
+                "score": 0.8379554748535156,
+                "name": "Session"
+              },
+              {
+                "idx": 27,
+                "score": 0.8374796509742737,
+                "name": "Session"
+              },
+              {
+                "idx": 7,
+                "score": 0.6888835430145264,
+                "name": "Session"
+              },
+              {
+                "idx": 22,
+                "score": 0.4619951844215393,
+                "name": "Session"
+              },
+              {
+                "idx": 20,
+                "score": 0.4357396066188812,
+                "name": "Session"
+              },
+              {
+                "idx": 12,
+                "score": 0.22938434779644012,
+                "name": "Session"
+              },
+              {
+                "idx": 0,
+                "score": 0.19281621277332306,
+                "name": "Session"
+              },
+              {
+                "idx": 16,
+                "score": 0.1580379456281662,
+                "name": "Session"
+              },
+              {
+                "idx": 4,
+                "score": 0.13120892643928528,
+                "name": "Session"
+              },
+              {
+                "idx": 29,
+                "score": 0.08086485415697098,
+                "name": "Session"
+              },
+              {
+                "idx": 21,
+                "score": 0.05914930999279022,
+                "name": "Session"
+              },
+              {
+                "idx": 8,
+                "score": 0.05681077390909195,
+                "name": "Session"
+              },
+              {
+                "idx": 3,
+                "score": 0.05456291884183884,
+                "name": "Session"
+              },
+              {
+                "idx": 11,
+                "score": 0.007816780358552933,
+                "name": "Session"
+              }
+            ]
+          }
+        ],
+        "pruned_count": 25
+      }
+    },
+    {
+      "step_index": 4,
+      "step_query": "Observation[atom(content =~ \"type of music\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 5,
+      "nodes_after_count": 10,
+      "nodes_before": [
+        {
+          "path": "Root > Conversation_Version 1 > Dave > Session 26",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.9966177344322205,
+          "node_id": 2567216037328
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Dave > Session 16",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.9905449151992798,
+          "node_id": 2567025693680
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Dave > Session 11",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.9870778322219849,
+          "node_id": 2567217154544
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Dave > Session 2",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.9829649329185486,
+          "node_id": 2567217306240
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Dave > Session 18",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.9819716811180115,
+          "node_id": 2567025694080
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Conversation_Version 1 > Dave > Session 26 > Observation 4",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.907852828502655,
+          "node_id": 2567216036848
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Dave > Session 26 > Observation 1",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.15054722130298615,
+          "node_id": 2567216033808
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Dave > Session 26 > Observation 5",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.09130823612213135,
+          "node_id": 2567216031328
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Dave > Session 16 > Observation 2",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.9840090274810791,
+          "node_id": 2567025690720
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Dave > Session 16 > Observation 1",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.9687682390213013,
+          "node_id": 2567025689680
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Dave > Session 2 > Observation 2",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.9980025887489319,
+          "node_id": 2567217308240
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Dave > Session 2 > Observation 1",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.9955880641937256,
+          "node_id": 2567217309520
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Dave > Session 2 > Observation 3",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.9930493831634521,
+          "node_id": 2567217304720
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Dave > Session 18 > Observation 2",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.9967999458312988,
+          "node_id": 2567025695760
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Dave > Session 18 > Observation 3",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.9249439239501953,
+          "node_id": 2567025693600
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Observation",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "type of music",
+              "operator": "=~",
+              "span": {
+                "start": 115,
+                "end": 147
+              }
+            },
+            "predicate_str": "atom(content =~ \"type of music\")",
+            "span": {
+              "start": 103,
+              "end": 148
+            }
+          },
+          "span": {
+            "start": 103,
+            "end": 148
+          }
+        },
+        "found_count": 14,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"type of music\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "type of music",
+              "operator": "=~",
+              "span": {
+                "start": 115,
+                "end": 147
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 2567216033808,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "type of music",
+                      "operator": "=~",
+                      "span": {
+                        "start": 115,
+                        "end": 147
+                      }
+                    },
+                    "score": 0.15054722130298615,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.15054722130298615
+              },
+              {
+                "node_idx": 1,
+                "node_id": 2567216030448,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "type of music",
+                      "operator": "=~",
+                      "span": {
+                        "start": 115,
+                        "end": 147
+                      }
+                    },
+                    "score": 0.016238315030932426,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.016238315030932426
+              },
+              {
+                "node_idx": 2,
+                "node_id": 2567216023088,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "type of music",
+                      "operator": "=~",
+                      "span": {
+                        "start": 115,
+                        "end": 147
+                      }
+                    },
+                    "score": 0.003053683787584305,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.003053683787584305
+              },
+              {
+                "node_idx": 3,
+                "node_id": 2567216036848,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "type of music",
+                      "operator": "=~",
+                      "span": {
+                        "start": 115,
+                        "end": 147
+                      }
+                    },
+                    "score": 0.907852828502655,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.907852828502655
+              },
+              {
+                "node_idx": 4,
+                "node_id": 2567216031328,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "type of music",
+                      "operator": "=~",
+                      "span": {
+                        "start": 115,
+                        "end": 147
+                      }
+                    },
+                    "score": 0.09130823612213135,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.09130823612213135
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "type of music"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "type of music",
+                  "num_descriptions": 5,
+                  "call_time_ms": 53.45
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 5
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 3,
+                "score": 0.907852828502655,
+                "name": "Observation"
+              },
+              {
+                "idx": 0,
+                "score": 0.15054722130298615,
+                "name": "Observation"
+              },
+              {
+                "idx": 4,
+                "score": 0.09130823612213135,
+                "name": "Observation"
+              },
+              {
+                "idx": 1,
+                "score": 0.016238315030932426,
+                "name": "Observation"
+              },
+              {
+                "idx": 2,
+                "score": 0.003053683787584305,
+                "name": "Observation"
+              }
+            ]
+          },
+          {
+            "predicate": "atom(content =~ \"type of music\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "type of music",
+              "operator": "=~",
+              "span": {
+                "start": 115,
+                "end": 147
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 2567025689680,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "type of music",
+                      "operator": "=~",
+                      "span": {
+                        "start": 115,
+                        "end": 147
+                      }
+                    },
+                    "score": 0.9687682390213013,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.9687682390213013
+              },
+              {
+                "node_idx": 1,
+                "node_id": 2567025690720,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "type of music",
+                      "operator": "=~",
+                      "span": {
+                        "start": 115,
+                        "end": 147
+                      }
+                    },
+                    "score": 0.9840090274810791,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.9840090274810791
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "type of music"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "type of music",
+                  "num_descriptions": 2,
+                  "call_time_ms": 29.5
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 2
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 1,
+                "score": 0.9840090274810791,
+                "name": "Observation"
+              },
+              {
+                "idx": 0,
+                "score": 0.9687682390213013,
+                "name": "Observation"
+              }
+            ]
+          },
+          {
+            "predicate": "atom(content =~ \"type of music\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "type of music",
+              "operator": "=~",
+              "span": {
+                "start": 115,
+                "end": 147
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 2567217152624,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "type of music",
+                      "operator": "=~",
+                      "span": {
+                        "start": 115,
+                        "end": 147
+                      }
+                    },
+                    "score": 0.01081822533160448,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.01081822533160448
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "type of music"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "type of music",
+                  "num_descriptions": 1,
+                  "call_time_ms": 26.68
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 1
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 0,
+                "score": 0.01081822533160448,
+                "name": "Observation"
+              }
+            ]
+          },
+          {
+            "predicate": "atom(content =~ \"type of music\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "type of music",
+              "operator": "=~",
+              "span": {
+                "start": 115,
+                "end": 147
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 2567217309520,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "type of music",
+                      "operator": "=~",
+                      "span": {
+                        "start": 115,
+                        "end": 147
+                      }
+                    },
+                    "score": 0.9955880641937256,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.9955880641937256
+              },
+              {
+                "node_idx": 1,
+                "node_id": 2567217308240,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "type of music",
+                      "operator": "=~",
+                      "span": {
+                        "start": 115,
+                        "end": 147
+                      }
+                    },
+                    "score": 0.9980025887489319,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.9980025887489319
+              },
+              {
+                "node_idx": 2,
+                "node_id": 2567217304720,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "type of music",
+                      "operator": "=~",
+                      "span": {
+                        "start": 115,
+                        "end": 147
+                      }
+                    },
+                    "score": 0.9930493831634521,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.9930493831634521
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "type of music"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "type of music",
+                  "num_descriptions": 3,
+                  "call_time_ms": 33.82
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 3
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 1,
+                "score": 0.9980025887489319,
+                "name": "Observation"
+              },
+              {
+                "idx": 0,
+                "score": 0.9955880641937256,
+                "name": "Observation"
+              },
+              {
+                "idx": 2,
+                "score": 0.9930493831634521,
+                "name": "Observation"
+              }
+            ]
+          },
+          {
+            "predicate": "atom(content =~ \"type of music\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "type of music",
+              "operator": "=~",
+              "span": {
+                "start": 115,
+                "end": 147
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 2567025688800,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "type of music",
+                      "operator": "=~",
+                      "span": {
+                        "start": 115,
+                        "end": 147
+                      }
+                    },
+                    "score": 0.00910400040447712,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.00910400040447712
+              },
+              {
+                "node_idx": 1,
+                "node_id": 2567025695760,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "type of music",
+                      "operator": "=~",
+                      "span": {
+                        "start": 115,
+                        "end": 147
+                      }
+                    },
+                    "score": 0.9967999458312988,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.9967999458312988
+              },
+              {
+                "node_idx": 2,
+                "node_id": 2567025693600,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "type of music",
+                      "operator": "=~",
+                      "span": {
+                        "start": 115,
+                        "end": 147
+                      }
+                    },
+                    "score": 0.9249439239501953,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.9249439239501953
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "type of music"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "type of music",
+                  "num_descriptions": 3,
+                  "call_time_ms": 33.84
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 3
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 1,
+                "score": 0.9967999458312988,
+                "name": "Observation"
+              },
+              {
+                "idx": 2,
+                "score": 0.9249439239501953,
+                "name": "Observation"
+              },
+              {
+                "idx": 0,
+                "score": 0.00910400040447712,
+                "name": "Observation"
+              }
+            ]
+          }
+        ],
+        "pruned_count": 4
+      }
+    }
+  ],
+  "scoring_traces": [
+    {
+      "predicate": "atom(content =~ \"Dave\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "Dave",
+        "operator": "=~",
+        "span": {
+          "start": 38,
+          "end": 61
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 2567218200496,
+          "node_name": "Calvin",
+          "node_type": "Speaker",
+          "final_score": 0.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Calvin",
+              "query_value": "Dave",
+              "matched": false,
+              "score": 0.0
+            }
+          ]
+        },
+        {
+          "node_idx": 1,
+          "node_id": 2567217309440,
+          "node_name": "Dave",
+          "node_type": "Speaker",
+          "final_score": 1.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Dave",
+              "query_value": "Dave",
+              "matched": true,
+              "score": 1.0
+            }
+          ]
+        }
+      ],
+      "batch_scoring": {
+        "exact_match": true,
+        "matched_attribute": "name",
+        "query_value": "Dave",
+        "matched_count": 1
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 1,
+          "score": 1.0,
+          "name": "Dave"
+        },
+        {
+          "idx": 0,
+          "score": 0.0,
+          "name": "Calvin"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"music genre\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "music genre",
+        "operator": "=~",
+        "span": {
+          "start": 71,
+          "end": 101
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 2567217302800,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "music genre",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 101
+                }
+              },
+              "score": 0.19281621277332306,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.19281621277332306
+        },
+        {
+          "node_idx": 1,
+          "node_id": 2567217306240,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "music genre",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 101
+                }
+              },
+              "score": 0.9829649329185486,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.9829649329185486
+        },
+        {
+          "node_idx": 2,
+          "node_id": 2567217310320,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "music genre",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 101
+                }
+              },
+              "score": 0.9668118953704834,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.9668118953704834
+        },
+        {
+          "node_idx": 3,
+          "node_id": 2567217304560,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "music genre",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 101
+                }
+              },
+              "score": 0.05456291884183884,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.05456291884183884
+        },
+        {
+          "node_idx": 4,
+          "node_id": 2567217153264,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "music genre",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 101
+                }
+              },
+              "score": 0.13120892643928528,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.13120892643928528
+        },
+        {
+          "node_idx": 5,
+          "node_id": 2567217152464,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "music genre",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 101
+                }
+              },
+              "score": 0.9379017353057861,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.9379017353057861
+        },
+        {
+          "node_idx": 6,
+          "node_id": 2567217159104,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "music genre",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 101
+                }
+              },
+              "score": 0.8963833451271057,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.8963833451271057
+        },
+        {
+          "node_idx": 7,
+          "node_id": 2567217154464,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "music genre",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 101
+                }
+              },
+              "score": 0.6888835430145264,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.6888835430145264
+        },
+        {
+          "node_idx": 8,
+          "node_id": 2567217158864,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "music genre",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 101
+                }
+              },
+              "score": 0.05681077390909195,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.05681077390909195
+        },
+        {
+          "node_idx": 9,
+          "node_id": 2567217152384,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "music genre",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 101
+                }
+              },
+              "score": 0.972822904586792,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.972822904586792
+        },
+        {
+          "node_idx": 10,
+          "node_id": 2567217154544,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "music genre",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 101
+                }
+              },
+              "score": 0.9870778322219849,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.9870778322219849
+        },
+        {
+          "node_idx": 11,
+          "node_id": 2567217167264,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "music genre",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 101
+                }
+              },
+              "score": 0.007816780358552933,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.007816780358552933
+        },
+        {
+          "node_idx": 12,
+          "node_id": 2567217157664,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "music genre",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 101
+                }
+              },
+              "score": 0.22938434779644012,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.22938434779644012
+        },
+        {
+          "node_idx": 13,
+          "node_id": 2567217163344,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "music genre",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 101
+                }
+              },
+              "score": 0.8612416982650757,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.8612416982650757
+        },
+        {
+          "node_idx": 14,
+          "node_id": 2567217156144,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "music genre",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 101
+                }
+              },
+              "score": 0.9802085161209106,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.9802085161209106
+        },
+        {
+          "node_idx": 15,
+          "node_id": 2567025693680,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "music genre",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 101
+                }
+              },
+              "score": 0.9905449151992798,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.9905449151992798
+        },
+        {
+          "node_idx": 16,
+          "node_id": 2567025689280,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "music genre",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 101
+                }
+              },
+              "score": 0.1580379456281662,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.1580379456281662
+        },
+        {
+          "node_idx": 17,
+          "node_id": 2567025694080,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "music genre",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 101
+                }
+              },
+              "score": 0.9819716811180115,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.9819716811180115
+        },
+        {
+          "node_idx": 18,
+          "node_id": 2567025689360,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "music genre",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 101
+                }
+              },
+              "score": 0.9733023643493652,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.9733023643493652
+        },
+        {
+          "node_idx": 19,
+          "node_id": 2567025690560,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "music genre",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 101
+                }
+              },
+              "score": 0.8781194090843201,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.8781194090843201
+        },
+        {
+          "node_idx": 20,
+          "node_id": 2567214386288,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "music genre",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 101
+                }
+              },
+              "score": 0.4357396066188812,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.4357396066188812
+        },
+        {
+          "node_idx": 21,
+          "node_id": 2567216026688,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "music genre",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 101
+                }
+              },
+              "score": 0.05914930999279022,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.05914930999279022
+        },
+        {
+          "node_idx": 22,
+          "node_id": 2567216027888,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "music genre",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 101
+                }
+              },
+              "score": 0.4619951844215393,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.4619951844215393
+        },
+        {
+          "node_idx": 23,
+          "node_id": 2567216030208,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "music genre",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 101
+                }
+              },
+              "score": 0.8379554748535156,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.8379554748535156
+        },
+        {
+          "node_idx": 24,
+          "node_id": 2567216033008,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "music genre",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 101
+                }
+              },
+              "score": 0.8903601169586182,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.8903601169586182
+        },
+        {
+          "node_idx": 25,
+          "node_id": 2567216037328,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "music genre",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 101
+                }
+              },
+              "score": 0.9966177344322205,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.9966177344322205
+        },
+        {
+          "node_idx": 26,
+          "node_id": 2567216032848,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "music genre",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 101
+                }
+              },
+              "score": 0.9518091082572937,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.9518091082572937
+        },
+        {
+          "node_idx": 27,
+          "node_id": 2567216029728,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "music genre",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 101
+                }
+              },
+              "score": 0.8374796509742737,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.8374796509742737
+        },
+        {
+          "node_idx": 28,
+          "node_id": 2567216022128,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "music genre",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 101
+                }
+              },
+              "score": 0.8852352499961853,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.8852352499961853
+        },
+        {
+          "node_idx": 29,
+          "node_id": 2567149219696,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "music genre",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 101
+                }
+              },
+              "score": 0.08086485415697098,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.08086485415697098
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "music genre"
+        ],
+        "per_value_stats": [
+          {
+            "value": "music genre",
+            "num_descriptions": 30,
+            "call_time_ms": 576.42
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 30
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 25,
+          "score": 0.9966177344322205,
+          "name": "Session"
+        },
+        {
+          "idx": 15,
+          "score": 0.9905449151992798,
+          "name": "Session"
+        },
+        {
+          "idx": 10,
+          "score": 0.9870778322219849,
+          "name": "Session"
+        },
+        {
+          "idx": 1,
+          "score": 0.9829649329185486,
+          "name": "Session"
+        },
+        {
+          "idx": 17,
+          "score": 0.9819716811180115,
+          "name": "Session"
+        },
+        {
+          "idx": 14,
+          "score": 0.9802085161209106,
+          "name": "Session"
+        },
+        {
+          "idx": 18,
+          "score": 0.9733023643493652,
+          "name": "Session"
+        },
+        {
+          "idx": 9,
+          "score": 0.972822904586792,
+          "name": "Session"
+        },
+        {
+          "idx": 2,
+          "score": 0.9668118953704834,
+          "name": "Session"
+        },
+        {
+          "idx": 26,
+          "score": 0.9518091082572937,
+          "name": "Session"
+        },
+        {
+          "idx": 5,
+          "score": 0.9379017353057861,
+          "name": "Session"
+        },
+        {
+          "idx": 6,
+          "score": 0.8963833451271057,
+          "name": "Session"
+        },
+        {
+          "idx": 24,
+          "score": 0.8903601169586182,
+          "name": "Session"
+        },
+        {
+          "idx": 28,
+          "score": 0.8852352499961853,
+          "name": "Session"
+        },
+        {
+          "idx": 19,
+          "score": 0.8781194090843201,
+          "name": "Session"
+        },
+        {
+          "idx": 13,
+          "score": 0.8612416982650757,
+          "name": "Session"
+        },
+        {
+          "idx": 23,
+          "score": 0.8379554748535156,
+          "name": "Session"
+        },
+        {
+          "idx": 27,
+          "score": 0.8374796509742737,
+          "name": "Session"
+        },
+        {
+          "idx": 7,
+          "score": 0.6888835430145264,
+          "name": "Session"
+        },
+        {
+          "idx": 22,
+          "score": 0.4619951844215393,
+          "name": "Session"
+        },
+        {
+          "idx": 20,
+          "score": 0.4357396066188812,
+          "name": "Session"
+        },
+        {
+          "idx": 12,
+          "score": 0.22938434779644012,
+          "name": "Session"
+        },
+        {
+          "idx": 0,
+          "score": 0.19281621277332306,
+          "name": "Session"
+        },
+        {
+          "idx": 16,
+          "score": 0.1580379456281662,
+          "name": "Session"
+        },
+        {
+          "idx": 4,
+          "score": 0.13120892643928528,
+          "name": "Session"
+        },
+        {
+          "idx": 29,
+          "score": 0.08086485415697098,
+          "name": "Session"
+        },
+        {
+          "idx": 21,
+          "score": 0.05914930999279022,
+          "name": "Session"
+        },
+        {
+          "idx": 8,
+          "score": 0.05681077390909195,
+          "name": "Session"
+        },
+        {
+          "idx": 3,
+          "score": 0.05456291884183884,
+          "name": "Session"
+        },
+        {
+          "idx": 11,
+          "score": 0.007816780358552933,
+          "name": "Session"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"type of music\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "type of music",
+        "operator": "=~",
+        "span": {
+          "start": 115,
+          "end": 147
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 2567216033808,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "type of music",
+                "operator": "=~",
+                "span": {
+                  "start": 115,
+                  "end": 147
+                }
+              },
+              "score": 0.15054722130298615,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.15054722130298615
+        },
+        {
+          "node_idx": 1,
+          "node_id": 2567216030448,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "type of music",
+                "operator": "=~",
+                "span": {
+                  "start": 115,
+                  "end": 147
+                }
+              },
+              "score": 0.016238315030932426,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.016238315030932426
+        },
+        {
+          "node_idx": 2,
+          "node_id": 2567216023088,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "type of music",
+                "operator": "=~",
+                "span": {
+                  "start": 115,
+                  "end": 147
+                }
+              },
+              "score": 0.003053683787584305,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.003053683787584305
+        },
+        {
+          "node_idx": 3,
+          "node_id": 2567216036848,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "type of music",
+                "operator": "=~",
+                "span": {
+                  "start": 115,
+                  "end": 147
+                }
+              },
+              "score": 0.907852828502655,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.907852828502655
+        },
+        {
+          "node_idx": 4,
+          "node_id": 2567216031328,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "type of music",
+                "operator": "=~",
+                "span": {
+                  "start": 115,
+                  "end": 147
+                }
+              },
+              "score": 0.09130823612213135,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.09130823612213135
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "type of music"
+        ],
+        "per_value_stats": [
+          {
+            "value": "type of music",
+            "num_descriptions": 5,
+            "call_time_ms": 53.45
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 5
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 3,
+          "score": 0.907852828502655,
+          "name": "Observation"
+        },
+        {
+          "idx": 0,
+          "score": 0.15054722130298615,
+          "name": "Observation"
+        },
+        {
+          "idx": 4,
+          "score": 0.09130823612213135,
+          "name": "Observation"
+        },
+        {
+          "idx": 1,
+          "score": 0.016238315030932426,
+          "name": "Observation"
+        },
+        {
+          "idx": 2,
+          "score": 0.003053683787584305,
+          "name": "Observation"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"type of music\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "type of music",
+        "operator": "=~",
+        "span": {
+          "start": 115,
+          "end": 147
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 2567025689680,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "type of music",
+                "operator": "=~",
+                "span": {
+                  "start": 115,
+                  "end": 147
+                }
+              },
+              "score": 0.9687682390213013,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.9687682390213013
+        },
+        {
+          "node_idx": 1,
+          "node_id": 2567025690720,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "type of music",
+                "operator": "=~",
+                "span": {
+                  "start": 115,
+                  "end": 147
+                }
+              },
+              "score": 0.9840090274810791,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.9840090274810791
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "type of music"
+        ],
+        "per_value_stats": [
+          {
+            "value": "type of music",
+            "num_descriptions": 2,
+            "call_time_ms": 29.5
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 2
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 1,
+          "score": 0.9840090274810791,
+          "name": "Observation"
+        },
+        {
+          "idx": 0,
+          "score": 0.9687682390213013,
+          "name": "Observation"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"type of music\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "type of music",
+        "operator": "=~",
+        "span": {
+          "start": 115,
+          "end": 147
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 2567217152624,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "type of music",
+                "operator": "=~",
+                "span": {
+                  "start": 115,
+                  "end": 147
+                }
+              },
+              "score": 0.01081822533160448,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.01081822533160448
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "type of music"
+        ],
+        "per_value_stats": [
+          {
+            "value": "type of music",
+            "num_descriptions": 1,
+            "call_time_ms": 26.68
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 1
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 0,
+          "score": 0.01081822533160448,
+          "name": "Observation"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"type of music\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "type of music",
+        "operator": "=~",
+        "span": {
+          "start": 115,
+          "end": 147
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 2567217309520,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "type of music",
+                "operator": "=~",
+                "span": {
+                  "start": 115,
+                  "end": 147
+                }
+              },
+              "score": 0.9955880641937256,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.9955880641937256
+        },
+        {
+          "node_idx": 1,
+          "node_id": 2567217308240,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "type of music",
+                "operator": "=~",
+                "span": {
+                  "start": 115,
+                  "end": 147
+                }
+              },
+              "score": 0.9980025887489319,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.9980025887489319
+        },
+        {
+          "node_idx": 2,
+          "node_id": 2567217304720,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "type of music",
+                "operator": "=~",
+                "span": {
+                  "start": 115,
+                  "end": 147
+                }
+              },
+              "score": 0.9930493831634521,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.9930493831634521
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "type of music"
+        ],
+        "per_value_stats": [
+          {
+            "value": "type of music",
+            "num_descriptions": 3,
+            "call_time_ms": 33.82
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 3
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 1,
+          "score": 0.9980025887489319,
+          "name": "Observation"
+        },
+        {
+          "idx": 0,
+          "score": 0.9955880641937256,
+          "name": "Observation"
+        },
+        {
+          "idx": 2,
+          "score": 0.9930493831634521,
+          "name": "Observation"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"type of music\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "type of music",
+        "operator": "=~",
+        "span": {
+          "start": 115,
+          "end": 147
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 2567025688800,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "type of music",
+                "operator": "=~",
+                "span": {
+                  "start": 115,
+                  "end": 147
+                }
+              },
+              "score": 0.00910400040447712,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.00910400040447712
+        },
+        {
+          "node_idx": 1,
+          "node_id": 2567025695760,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "type of music",
+                "operator": "=~",
+                "span": {
+                  "start": 115,
+                  "end": 147
+                }
+              },
+              "score": 0.9967999458312988,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.9967999458312988
+        },
+        {
+          "node_idx": 2,
+          "node_id": 2567025693600,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "type of music",
+                "operator": "=~",
+                "span": {
+                  "start": 115,
+                  "end": 147
+                }
+              },
+              "score": 0.9249439239501953,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.9249439239501953
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "type of music"
+        ],
+        "per_value_stats": [
+          {
+            "value": "type of music",
+            "num_descriptions": 3,
+            "call_time_ms": 33.84
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 3
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 1,
+          "score": 0.9967999458312988,
+          "name": "Observation"
+        },
+        {
+          "idx": 2,
+          "score": 0.9249439239501953,
+          "name": "Observation"
+        },
+        {
+          "idx": 0,
+          "score": 0.00910400040447712,
+          "name": "Observation"
+        }
+      ]
+    }
+  ],
+  "scoring_details": {
+    "step_scores": [
+      {
+        "step_index": 0,
+        "predicate": "atom(content =~ \"Dave\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "Dave",
+          "operator": "=~",
+          "span": {
+            "start": 38,
+            "end": 61
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 2567218200496,
+            "node_name": "Calvin",
+            "node_type": "Speaker",
+            "final_score": 0.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Calvin",
+                "query_value": "Dave",
+                "matched": false,
+                "score": 0.0
+              }
+            ]
+          },
+          {
+            "node_idx": 1,
+            "node_id": 2567217309440,
+            "node_name": "Dave",
+            "node_type": "Speaker",
+            "final_score": 1.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Dave",
+                "query_value": "Dave",
+                "matched": true,
+                "score": 1.0
+              }
+            ]
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 1,
+            "score": 1.0,
+            "name": "Dave"
+          },
+          {
+            "idx": 0,
+            "score": 0.0,
+            "name": "Calvin"
+          }
+        ]
+      },
+      {
+        "step_index": 1,
+        "predicate": "atom(content =~ \"music genre\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "music genre",
+          "operator": "=~",
+          "span": {
+            "start": 71,
+            "end": 101
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 2567217302800,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "music genre",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 101
+                  }
+                },
+                "score": 0.19281621277332306,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.19281621277332306
+          },
+          {
+            "node_idx": 1,
+            "node_id": 2567217306240,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "music genre",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 101
+                  }
+                },
+                "score": 0.9829649329185486,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.9829649329185486
+          },
+          {
+            "node_idx": 2,
+            "node_id": 2567217310320,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "music genre",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 101
+                  }
+                },
+                "score": 0.9668118953704834,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.9668118953704834
+          },
+          {
+            "node_idx": 3,
+            "node_id": 2567217304560,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "music genre",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 101
+                  }
+                },
+                "score": 0.05456291884183884,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.05456291884183884
+          },
+          {
+            "node_idx": 4,
+            "node_id": 2567217153264,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "music genre",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 101
+                  }
+                },
+                "score": 0.13120892643928528,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.13120892643928528
+          },
+          {
+            "node_idx": 5,
+            "node_id": 2567217152464,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "music genre",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 101
+                  }
+                },
+                "score": 0.9379017353057861,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.9379017353057861
+          },
+          {
+            "node_idx": 6,
+            "node_id": 2567217159104,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "music genre",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 101
+                  }
+                },
+                "score": 0.8963833451271057,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.8963833451271057
+          },
+          {
+            "node_idx": 7,
+            "node_id": 2567217154464,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "music genre",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 101
+                  }
+                },
+                "score": 0.6888835430145264,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.6888835430145264
+          },
+          {
+            "node_idx": 8,
+            "node_id": 2567217158864,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "music genre",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 101
+                  }
+                },
+                "score": 0.05681077390909195,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.05681077390909195
+          },
+          {
+            "node_idx": 9,
+            "node_id": 2567217152384,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "music genre",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 101
+                  }
+                },
+                "score": 0.972822904586792,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.972822904586792
+          },
+          {
+            "node_idx": 10,
+            "node_id": 2567217154544,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "music genre",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 101
+                  }
+                },
+                "score": 0.9870778322219849,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.9870778322219849
+          },
+          {
+            "node_idx": 11,
+            "node_id": 2567217167264,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "music genre",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 101
+                  }
+                },
+                "score": 0.007816780358552933,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.007816780358552933
+          },
+          {
+            "node_idx": 12,
+            "node_id": 2567217157664,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "music genre",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 101
+                  }
+                },
+                "score": 0.22938434779644012,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.22938434779644012
+          },
+          {
+            "node_idx": 13,
+            "node_id": 2567217163344,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "music genre",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 101
+                  }
+                },
+                "score": 0.8612416982650757,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.8612416982650757
+          },
+          {
+            "node_idx": 14,
+            "node_id": 2567217156144,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "music genre",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 101
+                  }
+                },
+                "score": 0.9802085161209106,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.9802085161209106
+          },
+          {
+            "node_idx": 15,
+            "node_id": 2567025693680,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "music genre",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 101
+                  }
+                },
+                "score": 0.9905449151992798,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.9905449151992798
+          },
+          {
+            "node_idx": 16,
+            "node_id": 2567025689280,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "music genre",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 101
+                  }
+                },
+                "score": 0.1580379456281662,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.1580379456281662
+          },
+          {
+            "node_idx": 17,
+            "node_id": 2567025694080,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "music genre",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 101
+                  }
+                },
+                "score": 0.9819716811180115,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.9819716811180115
+          },
+          {
+            "node_idx": 18,
+            "node_id": 2567025689360,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "music genre",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 101
+                  }
+                },
+                "score": 0.9733023643493652,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.9733023643493652
+          },
+          {
+            "node_idx": 19,
+            "node_id": 2567025690560,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "music genre",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 101
+                  }
+                },
+                "score": 0.8781194090843201,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.8781194090843201
+          },
+          {
+            "node_idx": 20,
+            "node_id": 2567214386288,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "music genre",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 101
+                  }
+                },
+                "score": 0.4357396066188812,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.4357396066188812
+          },
+          {
+            "node_idx": 21,
+            "node_id": 2567216026688,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "music genre",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 101
+                  }
+                },
+                "score": 0.05914930999279022,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.05914930999279022
+          },
+          {
+            "node_idx": 22,
+            "node_id": 2567216027888,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "music genre",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 101
+                  }
+                },
+                "score": 0.4619951844215393,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.4619951844215393
+          },
+          {
+            "node_idx": 23,
+            "node_id": 2567216030208,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "music genre",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 101
+                  }
+                },
+                "score": 0.8379554748535156,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.8379554748535156
+          },
+          {
+            "node_idx": 24,
+            "node_id": 2567216033008,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "music genre",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 101
+                  }
+                },
+                "score": 0.8903601169586182,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.8903601169586182
+          },
+          {
+            "node_idx": 25,
+            "node_id": 2567216037328,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "music genre",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 101
+                  }
+                },
+                "score": 0.9966177344322205,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.9966177344322205
+          },
+          {
+            "node_idx": 26,
+            "node_id": 2567216032848,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "music genre",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 101
+                  }
+                },
+                "score": 0.9518091082572937,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.9518091082572937
+          },
+          {
+            "node_idx": 27,
+            "node_id": 2567216029728,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "music genre",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 101
+                  }
+                },
+                "score": 0.8374796509742737,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.8374796509742737
+          },
+          {
+            "node_idx": 28,
+            "node_id": 2567216022128,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "music genre",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 101
+                  }
+                },
+                "score": 0.8852352499961853,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.8852352499961853
+          },
+          {
+            "node_idx": 29,
+            "node_id": 2567149219696,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "music genre",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 101
+                  }
+                },
+                "score": 0.08086485415697098,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.08086485415697098
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 25,
+            "score": 0.9966177344322205,
+            "name": "Session"
+          },
+          {
+            "idx": 15,
+            "score": 0.9905449151992798,
+            "name": "Session"
+          },
+          {
+            "idx": 10,
+            "score": 0.9870778322219849,
+            "name": "Session"
+          },
+          {
+            "idx": 1,
+            "score": 0.9829649329185486,
+            "name": "Session"
+          },
+          {
+            "idx": 17,
+            "score": 0.9819716811180115,
+            "name": "Session"
+          },
+          {
+            "idx": 14,
+            "score": 0.9802085161209106,
+            "name": "Session"
+          },
+          {
+            "idx": 18,
+            "score": 0.9733023643493652,
+            "name": "Session"
+          },
+          {
+            "idx": 9,
+            "score": 0.972822904586792,
+            "name": "Session"
+          },
+          {
+            "idx": 2,
+            "score": 0.9668118953704834,
+            "name": "Session"
+          },
+          {
+            "idx": 26,
+            "score": 0.9518091082572937,
+            "name": "Session"
+          },
+          {
+            "idx": 5,
+            "score": 0.9379017353057861,
+            "name": "Session"
+          },
+          {
+            "idx": 6,
+            "score": 0.8963833451271057,
+            "name": "Session"
+          },
+          {
+            "idx": 24,
+            "score": 0.8903601169586182,
+            "name": "Session"
+          },
+          {
+            "idx": 28,
+            "score": 0.8852352499961853,
+            "name": "Session"
+          },
+          {
+            "idx": 19,
+            "score": 0.8781194090843201,
+            "name": "Session"
+          },
+          {
+            "idx": 13,
+            "score": 0.8612416982650757,
+            "name": "Session"
+          },
+          {
+            "idx": 23,
+            "score": 0.8379554748535156,
+            "name": "Session"
+          },
+          {
+            "idx": 27,
+            "score": 0.8374796509742737,
+            "name": "Session"
+          },
+          {
+            "idx": 7,
+            "score": 0.6888835430145264,
+            "name": "Session"
+          },
+          {
+            "idx": 22,
+            "score": 0.4619951844215393,
+            "name": "Session"
+          },
+          {
+            "idx": 20,
+            "score": 0.4357396066188812,
+            "name": "Session"
+          },
+          {
+            "idx": 12,
+            "score": 0.22938434779644012,
+            "name": "Session"
+          },
+          {
+            "idx": 0,
+            "score": 0.19281621277332306,
+            "name": "Session"
+          },
+          {
+            "idx": 16,
+            "score": 0.1580379456281662,
+            "name": "Session"
+          },
+          {
+            "idx": 4,
+            "score": 0.13120892643928528,
+            "name": "Session"
+          },
+          {
+            "idx": 29,
+            "score": 0.08086485415697098,
+            "name": "Session"
+          },
+          {
+            "idx": 21,
+            "score": 0.05914930999279022,
+            "name": "Session"
+          },
+          {
+            "idx": 8,
+            "score": 0.05681077390909195,
+            "name": "Session"
+          },
+          {
+            "idx": 3,
+            "score": 0.05456291884183884,
+            "name": "Session"
+          },
+          {
+            "idx": 11,
+            "score": 0.007816780358552933,
+            "name": "Session"
+          }
+        ]
+      },
+      {
+        "step_index": 2,
+        "predicate": "atom(content =~ \"type of music\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "type of music",
+          "operator": "=~",
+          "span": {
+            "start": 115,
+            "end": 147
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 2567216033808,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "type of music",
+                  "operator": "=~",
+                  "span": {
+                    "start": 115,
+                    "end": 147
+                  }
+                },
+                "score": 0.15054722130298615,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.15054722130298615
+          },
+          {
+            "node_idx": 1,
+            "node_id": 2567216030448,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "type of music",
+                  "operator": "=~",
+                  "span": {
+                    "start": 115,
+                    "end": 147
+                  }
+                },
+                "score": 0.016238315030932426,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.016238315030932426
+          },
+          {
+            "node_idx": 2,
+            "node_id": 2567216023088,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "type of music",
+                  "operator": "=~",
+                  "span": {
+                    "start": 115,
+                    "end": 147
+                  }
+                },
+                "score": 0.003053683787584305,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.003053683787584305
+          },
+          {
+            "node_idx": 3,
+            "node_id": 2567216036848,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "type of music",
+                  "operator": "=~",
+                  "span": {
+                    "start": 115,
+                    "end": 147
+                  }
+                },
+                "score": 0.907852828502655,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.907852828502655
+          },
+          {
+            "node_idx": 4,
+            "node_id": 2567216031328,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "type of music",
+                  "operator": "=~",
+                  "span": {
+                    "start": 115,
+                    "end": 147
+                  }
+                },
+                "score": 0.09130823612213135,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.09130823612213135
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 3,
+            "score": 0.907852828502655,
+            "name": "Observation"
+          },
+          {
+            "idx": 0,
+            "score": 0.15054722130298615,
+            "name": "Observation"
+          },
+          {
+            "idx": 4,
+            "score": 0.09130823612213135,
+            "name": "Observation"
+          },
+          {
+            "idx": 1,
+            "score": 0.016238315030932426,
+            "name": "Observation"
+          },
+          {
+            "idx": 2,
+            "score": 0.003053683787584305,
+            "name": "Observation"
+          }
+        ]
+      },
+      {
+        "step_index": 3,
+        "predicate": "atom(content =~ \"type of music\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "type of music",
+          "operator": "=~",
+          "span": {
+            "start": 115,
+            "end": 147
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 2567025689680,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "type of music",
+                  "operator": "=~",
+                  "span": {
+                    "start": 115,
+                    "end": 147
+                  }
+                },
+                "score": 0.9687682390213013,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.9687682390213013
+          },
+          {
+            "node_idx": 1,
+            "node_id": 2567025690720,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "type of music",
+                  "operator": "=~",
+                  "span": {
+                    "start": 115,
+                    "end": 147
+                  }
+                },
+                "score": 0.9840090274810791,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.9840090274810791
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 1,
+            "score": 0.9840090274810791,
+            "name": "Observation"
+          },
+          {
+            "idx": 0,
+            "score": 0.9687682390213013,
+            "name": "Observation"
+          }
+        ]
+      },
+      {
+        "step_index": 4,
+        "predicate": "atom(content =~ \"type of music\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "type of music",
+          "operator": "=~",
+          "span": {
+            "start": 115,
+            "end": 147
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 2567217152624,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "type of music",
+                  "operator": "=~",
+                  "span": {
+                    "start": 115,
+                    "end": 147
+                  }
+                },
+                "score": 0.01081822533160448,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.01081822533160448
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 0,
+            "score": 0.01081822533160448,
+            "name": "Observation"
+          }
+        ]
+      },
+      {
+        "step_index": 5,
+        "predicate": "atom(content =~ \"type of music\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "type of music",
+          "operator": "=~",
+          "span": {
+            "start": 115,
+            "end": 147
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 2567217309520,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "type of music",
+                  "operator": "=~",
+                  "span": {
+                    "start": 115,
+                    "end": 147
+                  }
+                },
+                "score": 0.9955880641937256,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.9955880641937256
+          },
+          {
+            "node_idx": 1,
+            "node_id": 2567217308240,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "type of music",
+                  "operator": "=~",
+                  "span": {
+                    "start": 115,
+                    "end": 147
+                  }
+                },
+                "score": 0.9980025887489319,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.9980025887489319
+          },
+          {
+            "node_idx": 2,
+            "node_id": 2567217304720,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "type of music",
+                  "operator": "=~",
+                  "span": {
+                    "start": 115,
+                    "end": 147
+                  }
+                },
+                "score": 0.9930493831634521,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.9930493831634521
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 1,
+            "score": 0.9980025887489319,
+            "name": "Observation"
+          },
+          {
+            "idx": 0,
+            "score": 0.9955880641937256,
+            "name": "Observation"
+          },
+          {
+            "idx": 2,
+            "score": 0.9930493831634521,
+            "name": "Observation"
+          }
+        ]
+      },
+      {
+        "step_index": 6,
+        "predicate": "atom(content =~ \"type of music\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "type of music",
+          "operator": "=~",
+          "span": {
+            "start": 115,
+            "end": 147
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 2567025688800,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "type of music",
+                  "operator": "=~",
+                  "span": {
+                    "start": 115,
+                    "end": 147
+                  }
+                },
+                "score": 0.00910400040447712,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.00910400040447712
+          },
+          {
+            "node_idx": 1,
+            "node_id": 2567025695760,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "type of music",
+                  "operator": "=~",
+                  "span": {
+                    "start": 115,
+                    "end": 147
+                  }
+                },
+                "score": 0.9967999458312988,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.9967999458312988
+          },
+          {
+            "node_idx": 2,
+            "node_id": 2567025693600,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "type of music",
+                  "operator": "=~",
+                  "span": {
+                    "start": 115,
+                    "end": 147
+                  }
+                },
+                "score": 0.9249439239501953,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.9249439239501953
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 1,
+            "score": 0.9967999458312988,
+            "name": "Observation"
+          },
+          {
+            "idx": 2,
+            "score": 0.9249439239501953,
+            "name": "Observation"
+          },
+          {
+            "idx": 0,
+            "score": 0.00910400040447712,
+            "name": "Observation"
+          }
+        ]
+      }
+    ],
+    "score_fusion": {
+      "per_node": [
+        {
+          "node_path": "Root > Conversation_Version 1 > Dave > Session 26 > Observation 4",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"type of music\")]",
+              "score": 0.907852828502655
+            }
+          ],
+          "accumulated_product": 0.907852828502655,
+          "final_score": 0.9047822282354171
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Dave > Session 26 > Observation 1",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"type of music\")]",
+              "score": 0.15054722130298615
+            }
+          ],
+          "accumulated_product": 0.15054722130298615,
+          "final_score": 0.15003803047001016
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Dave > Session 26 > Observation 5",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"type of music\")]",
+              "score": 0.09130823612213135
+            }
+          ],
+          "accumulated_product": 0.09130823612213135,
+          "final_score": 0.09099940732804138
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Dave > Session 16 > Observation 2",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"type of music\")]",
+              "score": 0.9840090274810791
+            }
+          ],
+          "accumulated_product": 0.9840090274810791,
+          "final_score": 0.9747051377068662
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Dave > Session 16 > Observation 1",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"type of music\")]",
+              "score": 0.9687682390213013
+            }
+          ],
+          "accumulated_product": 0.9687682390213013,
+          "final_score": 0.9596084522095021
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Dave > Session 2 > Observation 2",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"type of music\")]",
+              "score": 0.9980025887489319
+            }
+          ],
+          "accumulated_product": 0.9980025887489319,
+          "final_score": 0.9810015467211302
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Dave > Session 2 > Observation 1",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"type of music\")]",
+              "score": 0.9955880641937256
+            }
+          ],
+          "accumulated_product": 0.9955880641937256,
+          "final_score": 0.9786281537560649
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Dave > Session 2 > Observation 3",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"type of music\")]",
+              "score": 0.9930493831634521
+            }
+          ],
+          "accumulated_product": 0.9930493831634521,
+          "final_score": 0.9761327193299361
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Dave > Session 18 > Observation 2",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"type of music\")]",
+              "score": 0.9967999458312988
+            }
+          ],
+          "accumulated_product": 0.9967999458312988,
+          "final_score": 0.978829317567474
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Dave > Session 18 > Observation 3",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"type of music\")]",
+              "score": 0.9249439239501953
+            }
+          ],
+          "accumulated_product": 0.9249439239501953,
+          "final_score": 0.9082687390329948
+        }
+      ]
+    }
+  },
+  "final_filtering": {
+    "before_filter_count": 10,
+    "threshold": 0.05,
+    "top_k": 10,
+    "after_filter_count": 10,
+    "filtered_nodes": [
+      {
+        "path": "Root > Conversation_Version 1 > Dave > Session 2 > Observation 2",
+        "score": 0.9810015467211302,
+        "type": "Observation",
+        "own_score": 0.9980025887489319,
+        "parent_score": 0.9829649319355837
+      },
+      {
+        "path": "Root > Conversation_Version 1 > Dave > Session 18 > Observation 2",
+        "score": 0.978829317567474,
+        "type": "Observation",
+        "own_score": 0.9967999458312988,
+        "parent_score": 0.9819716801360399
+      },
+      {
+        "path": "Root > Conversation_Version 1 > Dave > Session 2 > Observation 1",
+        "score": 0.9786281537560649,
+        "type": "Observation",
+        "own_score": 0.9955880641937256,
+        "parent_score": 0.9829649319355837
+      },
+      {
+        "path": "Root > Conversation_Version 1 > Dave > Session 2 > Observation 3",
+        "score": 0.9761327193299361,
+        "type": "Observation",
+        "own_score": 0.9930493831634521,
+        "parent_score": 0.9829649319355837
+      },
+      {
+        "path": "Root > Conversation_Version 1 > Dave > Session 16 > Observation 2",
+        "score": 0.9747051377068662,
+        "type": "Observation",
+        "own_score": 0.9840090274810791,
+        "parent_score": 0.9905449142087349
+      },
+      {
+        "path": "Root > Conversation_Version 1 > Dave > Session 16 > Observation 1",
+        "score": 0.9596084522095021,
+        "type": "Observation",
+        "own_score": 0.9687682390213013,
+        "parent_score": 0.9905449142087349
+      },
+      {
+        "path": "Root > Conversation_Version 1 > Dave > Session 18 > Observation 3",
+        "score": 0.9082687390329948,
+        "type": "Observation",
+        "own_score": 0.9249439239501953,
+        "parent_score": 0.9819716801360399
+      },
+      {
+        "path": "Root > Conversation_Version 1 > Dave > Session 26 > Observation 4",
+        "score": 0.9047822282354171,
+        "type": "Observation",
+        "own_score": 0.907852828502655,
+        "parent_score": 0.9966177334356028
+      },
+      {
+        "path": "Root > Conversation_Version 1 > Dave > Session 26 > Observation 1",
+        "score": 0.15003803047001016,
+        "type": "Observation",
+        "own_score": 0.15054722130298615,
+        "parent_score": 0.9966177334356028
+      },
+      {
+        "path": "Root > Conversation_Version 1 > Dave > Session 26 > Observation 5",
+        "score": 0.09099940732804138,
+        "type": "Observation",
+        "own_score": 0.09130823612213135,
+        "parent_score": 0.9966177334356028
+      }
+    ]
+  },
+  "matched_nodes": [
+    {
+      "tree_path": "Root > Conversation_Version 1 > Dave > Session 2 > Observation 2",
+      "score": 0.9810015467211302,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "Dave's favorite band from the music festival was Aerosmith, and he found their performance incredible.",
+        "source_dia_id": "D2:10"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Dave",
+          "predicate": "atom(content =~ \"Dave\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Dave\") on Dave (Score: 1.00)"
+        },
+        {
+          "node_name": "Session 2",
+          "predicate": "atom(content =~ \"music genre\")",
+          "score": 0.9829649329185486,
+          "description": "Matched atom(content =~ \"music genre\") on Session 2 (Score: 0.98)"
+        },
+        {
+          "node_name": "Observation 2",
+          "predicate": "atom(content =~ \"type of music\")",
+          "score": 0.9980025887489319,
+          "description": "Matched atom(content =~ \"type of music\") on Observation 2 (Score: 1.00)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > Dave > Session 18 > Observation 2",
+      "score": 0.978829317567474,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "Dave appreciates Calvin's music and is excited for his tour.",
+        "source_dia_id": "D18:6"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Dave",
+          "predicate": "atom(content =~ \"Dave\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Dave\") on Dave (Score: 1.00)"
+        },
+        {
+          "node_name": "Session 18",
+          "predicate": "atom(content =~ \"music genre\")",
+          "score": 0.9819716811180115,
+          "description": "Matched atom(content =~ \"music genre\") on Session 18 (Score: 0.98)"
+        },
+        {
+          "node_name": "Observation 2",
+          "predicate": "atom(content =~ \"type of music\")",
+          "score": 0.9967999458312988,
+          "description": "Matched atom(content =~ \"type of music\") on Observation 2 (Score: 1.00)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > Dave > Session 2 > Observation 1",
+      "score": 0.9786281537560649,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "Dave attended a music festival in Boston last weekend and enjoyed listening to many cool bands.",
+        "source_dia_id": "D2:8"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Dave",
+          "predicate": "atom(content =~ \"Dave\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Dave\") on Dave (Score: 1.00)"
+        },
+        {
+          "node_name": "Session 2",
+          "predicate": "atom(content =~ \"music genre\")",
+          "score": 0.9829649329185486,
+          "description": "Matched atom(content =~ \"music genre\") on Session 2 (Score: 0.98)"
+        },
+        {
+          "node_name": "Observation 1",
+          "predicate": "atom(content =~ \"type of music\")",
+          "score": 0.9955880641937256,
+          "description": "Matched atom(content =~ \"type of music\") on Observation 1 (Score: 1.00)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > Dave > Session 2 > Observation 3",
+      "score": 0.9761327193299361,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "Dave didn't get a chance to hang out with Aerosmith after the show but was content with seeing them live.",
+        "source_dia_id": "D2:14"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Dave",
+          "predicate": "atom(content =~ \"Dave\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Dave\") on Dave (Score: 1.00)"
+        },
+        {
+          "node_name": "Session 2",
+          "predicate": "atom(content =~ \"music genre\")",
+          "score": 0.9829649329185486,
+          "description": "Matched atom(content =~ \"music genre\") on Session 2 (Score: 0.98)"
+        },
+        {
+          "node_name": "Observation 3",
+          "predicate": "atom(content =~ \"type of music\")",
+          "score": 0.9930493831634521,
+          "description": "Matched atom(content =~ \"type of music\") on Observation 3 (Score: 0.99)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > Dave > Session 16 > Observation 2",
+      "score": 0.9747051377068662,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "Dave mentions a guitar that shows their different artistic styles, which he appreciates.",
+        "source_dia_id": "D16:13"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Dave",
+          "predicate": "atom(content =~ \"Dave\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Dave\") on Dave (Score: 1.00)"
+        },
+        {
+          "node_name": "Session 16",
+          "predicate": "atom(content =~ \"music genre\")",
+          "score": 0.9905449151992798,
+          "description": "Matched atom(content =~ \"music genre\") on Session 16 (Score: 0.99)"
+        },
+        {
+          "node_name": "Observation 2",
+          "predicate": "atom(content =~ \"type of music\")",
+          "score": 0.9840090274810791,
+          "description": "Matched atom(content =~ \"type of music\") on Observation 2 (Score: 0.98)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > Dave > Session 16 > Observation 1",
+      "score": 0.9596084522095021,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "Dave expresses support for Calvin's music and creative endeavors.",
+        "source_dia_id": "D16:11"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Dave",
+          "predicate": "atom(content =~ \"Dave\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Dave\") on Dave (Score: 1.00)"
+        },
+        {
+          "node_name": "Session 16",
+          "predicate": "atom(content =~ \"music genre\")",
+          "score": 0.9905449151992798,
+          "description": "Matched atom(content =~ \"music genre\") on Session 16 (Score: 0.99)"
+        },
+        {
+          "node_name": "Observation 1",
+          "predicate": "atom(content =~ \"type of music\")",
+          "score": 0.9687682390213013,
+          "description": "Matched atom(content =~ \"type of music\") on Observation 1 (Score: 0.97)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > Dave > Session 18 > Observation 3",
+      "score": 0.9082687390329948,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "Dave is supportive and encouraging of Calvin's music career.",
+        "source_dia_id": "D18:4"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Dave",
+          "predicate": "atom(content =~ \"Dave\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Dave\") on Dave (Score: 1.00)"
+        },
+        {
+          "node_name": "Session 18",
+          "predicate": "atom(content =~ \"music genre\")",
+          "score": 0.9819716811180115,
+          "description": "Matched atom(content =~ \"music genre\") on Session 18 (Score: 0.98)"
+        },
+        {
+          "node_name": "Observation 3",
+          "predicate": "atom(content =~ \"type of music\")",
+          "score": 0.9249439239501953,
+          "description": "Matched atom(content =~ \"type of music\") on Observation 3 (Score: 0.92)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > Dave > Session 26 > Observation 4",
+      "score": 0.9047822282354171,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "Dave is supportive and inspiring towards Calvin's music pursuits.",
+        "source_dia_id": "D26:7"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Dave",
+          "predicate": "atom(content =~ \"Dave\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Dave\") on Dave (Score: 1.00)"
+        },
+        {
+          "node_name": "Session 26",
+          "predicate": "atom(content =~ \"music genre\")",
+          "score": 0.9966177344322205,
+          "description": "Matched atom(content =~ \"music genre\") on Session 26 (Score: 1.00)"
+        },
+        {
+          "node_name": "Observation 4",
+          "predicate": "atom(content =~ \"type of music\")",
+          "score": 0.907852828502655,
+          "description": "Matched atom(content =~ \"type of music\") on Observation 4 (Score: 0.91)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > Dave > Session 26 > Observation 1",
+      "score": 0.15003803047001016,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "Dave recently attended a conference in Detroit and learned a lot from it.",
+        "source_dia_id": "D26:2"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Dave",
+          "predicate": "atom(content =~ \"Dave\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Dave\") on Dave (Score: 1.00)"
+        },
+        {
+          "node_name": "Session 26",
+          "predicate": "atom(content =~ \"music genre\")",
+          "score": 0.9966177344322205,
+          "description": "Matched atom(content =~ \"music genre\") on Session 26 (Score: 1.00)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > Dave > Session 26 > Observation 5",
+      "score": 0.09099940732804138,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "Dave expresses gratitude and mutual support towards Calvin, aiming to keep inspiring each other.",
+        "source_dia_id": "D26:14"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Dave",
+          "predicate": "atom(content =~ \"Dave\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Dave\") on Dave (Score: 1.00)"
+        },
+        {
+          "node_name": "Session 26",
+          "predicate": "atom(content =~ \"music genre\")",
+          "score": 0.9966177344322205,
+          "description": "Matched atom(content =~ \"music genre\") on Session 26 (Score: 1.00)"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total_steps": 5,
+    "total_scoring_calls": 7,
+    "matched_count": 10,
+    "execution_time_ms": 756.2835999997333,
+    "has_score_fusion": true,
+    "num_nodes_before_filter": 10,
+    "num_nodes_after_filter": 10
+  }
+}

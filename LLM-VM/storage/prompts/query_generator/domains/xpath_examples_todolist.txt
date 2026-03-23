@@ -1,0 +1,135 @@
+## Examples
+
+### Basic Queries
+User: find all urgent tasks that need immediate attention
+Output: /Category/Project/Task[atom(content =~ "urgent")]
+
+User: show me all tasks in the thesis project
+Output: /Category[atom(content =~"Work")]/Project[atom(content =~ "thesis")]/Task
+
+User: what tasks are in the Work category?
+Output: /Category[atom(content =~"Work")]/Project/Task
+
+### Category-Specific Queries (filter by category when context is clear)
+User: what work projects are behind schedule?
+Output: /Category[atom(content =~"Work")]/Project[atom(content =~ "behind schedule")]
+
+User: show me my health and fitness tasks
+Output: /Category[atom(content =~"Health")]/Project/Task
+
+User: what personal tasks do I need to complete?
+Output: /Category[atom(content =~"Personal")]/Project/Task[not(atom(content =~ "done"))]
+
+User: find blocked tasks in my work projects
+Output: /Category[atom(content =~"Work")]/Project/Task[atom(content =~ "blocked")]
+
+User: show me household chores that are todo
+Output: /Category[atom(content =~"Household")]/Project/Task[atom(content =~ "todo")]
+
+User: what research tasks am I working on?
+Output: /Category[atom(content =~"Work")]/Project[atom(content =~ "research")]/Task
+
+User: show me all my exercise and training tasks
+Output: /Category[atom(content =~"Health")]/Project/Task[atom(content =~ "exercise") OR atom(content =~ "training")]
+
+### Aggregation Queries
+User: which projects have at least one blocked task?
+Output: /Category/Project[agg_exists(Task[atom(content =~ "blocked")])]
+
+User: find projects that contain any high priority tasks
+Output: /Category/Project[agg_exists(Task[atom(content =~ "high priority")])]
+
+User: show me projects that have a stuck or blocked task preventing progress
+Output: /Category/Project[agg_exists(Task[atom(content =~ "blocked")])]
+
+User: which categories have projects with incomplete tasks?
+Output: /Category[agg_exists(Project[agg_exists(Task[atom(content =~ "incomplete")])])]
+
+### Negation Queries
+User: find tasks that are not done so I can work on them
+Output: /Category/Project/Task[not(atom(content =~ "done"))]
+
+User: show me tasks that are high priority but not yet done
+Output: /Category/Project/Task[atom(content =~ "high priority") AND not(atom(content =~ "done"))]
+
+### Universal Quantification (all children satisfy a condition)
+# Pattern: "all X satisfy P" = not(agg_exists(X[not(P)]))
+# Read as: no X exists that does NOT satisfy P
+User: find projects where all tasks are done
+Output: /Category/Project[not(agg_exists(Task[not(atom(content =~ "done"))]))]
+
+User: which projects have every task marked as high priority?
+Output: /Category/Project[not(agg_exists(Task[not(atom(content =~ "high priority"))]))]
+
+### Local Index Queries (per-parent selection)
+User: show me all projects in the Health category
+Output: /Category[atom(content =~"Health")]/Project
+
+User: review everything in the first project
+Output: /Project[1]/.
+
+User: give me tasks from the first 2 projects in each category
+Output: /Category/Project[1:2]/Task
+
+User: show me the last task in each project
+Output: /Category/Project/Task[-1]
+
+### Global Index Queries (overall result selection)
+User: show me the first 5 tasks across all categories
+Output: (/Category/Project/Task)[1:5]
+
+User: what is the 3rd task overall in the todolist?
+Output: (/Category/Project/Task)[3]
+
+User: find the last task in the entire todolist
+Output: (/Category/Project/Task)[-1]
+
+### Descendant Axis Queries (schema: Project → Task → SubTask)
+User: show me all subtasks in the latest version
+Output: /Project//SubTask
+
+User: find all tasks across all projects in the current version
+Output: /Project//Task
+
+User: which projects have urgent subtasks that need attention?
+Output: /Project[agg_exists(//SubTask[atom(content =~ "urgent")])]
+
+User: find tasks that have blocking subtasks preventing progress
+Output: /Project/Task[agg_exists(SubTask[atom(content =~ "blocking")])]
+
+User: show me all bug-related subtasks across the entire todolist
+Output: /Project//SubTask[atom(content =~ "bug")]
+
+### Wildcard Queries (select all children)
+User: show me everything in the first project
+Output: /Project[1]/*
+
+User: review all items in the last project
+Output: /Project[-1]/*
+
+User: give me the first 5 items across all projects
+Output: (/Project/*)[1:5]
+
+### Combined Index and Predicate
+User: find the first urgent task in each project
+Output: /Project/Task[atom(content =~ "urgent")][1]
+
+### CRUD Operations
+Operation: CREATE
+User: add a new task for reviewing the proposal in the grant application project
+Output: /Category[atom(content =~ "Work")]/Project[atom(content =~ "grant application")], Task, reviewing the proposal
+
+User: add a task to buy groceries in the household category
+Output: /Category[atom(content =~ "household")]/Project, Task, buy groceries
+
+Operation: UPDATE
+User: mark the literature review task as done
+Output: /Category[atom(content =~ "Work")]/Project/Task[atom(content =~ "literature review")], status: done
+
+Operation: DELETE
+User: delete all done tasks in the Work category
+Output: /Category[atom(content =~ "Work")]/Project/Task[atom(content =~ "done")]
+
+Operation: DELETE
+User: remove the first task in the marathon training project
+Output: /Category[atom(content =~ "Health")]/Project[atom(content =~ "marathon training")]/Task[1]

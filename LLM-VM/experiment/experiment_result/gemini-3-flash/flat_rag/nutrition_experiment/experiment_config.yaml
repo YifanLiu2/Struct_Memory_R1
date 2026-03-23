@@ -1,0 +1,163 @@
+name: "nutrition_experiment"
+
+queries:
+  - name: "read_queries"
+    use_versions: "false"
+    tree_path: "storage/memory/nutrition/nutrition_7day.xml"
+    queries:
+      - "I can't decide between the three options for Father's lunch on Day 1. Which one has the highest protein?"
+      - "Looking at the Mother's breakfast proposals for Day 1.. which of these three is the fastest to prep? I'm going to be in a rush."
+      - "What is a fun finger food dinner option for child"
+      - "Child needs something portable for lunch - What days have caprese sandwich option"
+      - "Show me a one-bowl dinner for Mother that's plant-based and light - something with grains and veggies all mixed together."
+
+    ground_truth:
+      - any:
+          - "Root > MealPlan_Version 1 > Father > Day 1 > Lunch > Grilled Chicken Souvlaki Plate"
+          - "Root > MealPlan_Version 1 > Father > Day 1 > Lunch > Mediterranean Lentil & Feta Salad"
+
+      - any:
+          - "Root > MealPlan_Version 1 > Mother > Day 1 > Breakfast > Cottage Cheese Bowl — Citrus Fresh Bowl"
+          - "Root > MealPlan_Version 1 > Mother > Day 1 > Breakfast > Smoothie — Sesame Twist"
+      - any:
+          - "Root > MealPlan_Version 1 > Child > Day 2 > Dinner > Creamy Tomato Soup with Grilled Cheese Dippers"
+          - "Root > MealPlan_Version 1 > Child > Day 1 > Dinner > Homemade Pizza Night — Garden Veg Combo"
+          - "Root > MealPlan_Version 1 > Child > Day 1 > Dinner > DIY Taco Night — Mild-Spice Style"
+      - [
+          "Root > MealPlan_Version 1 > Child > Day 2",
+          "Root > MealPlan_Version 1 > Child > Day 5",
+        ]
+      - any:
+          - "Root > MealPlan_Version 1 > Mother > Day 5 > Dinner > Tofu Veggie Curry — Smoky Bake"
+          - "Root > MealPlan_Version 1 > Mother > Day 4 > Dinner > Vegetable Soup & Bread — Garden Veg Variation"
+
+  - name: "create_queries"
+    use_versions: "false"
+    tree_path: "storage/memory/nutrition/nutrition_7day.xml"
+    queries:
+      - "For fathers greek food filled day, please add a classic american breakfast option."
+      - "Add a zucchini noodle pesto bowl dinner option for mother on day 4"
+      - "Father likes eggs for breakfast. Add a classic egg based breakfast option for him on the day with the Smoky Base Pork Dinner"
+      - "On fathers third day, add a superfood breakfast"
+      - "On childs first day, add cinnamon toast crunch for breakfast"
+    ground_truth:
+      - ["Root > MealPlan_Version 1 > Father > Day 1 > Breakfast/Meal"]
+      - ["Root > MealPlan_Version 1 > Mother > Day 4 > Dinner/Meal"]
+      - ["Root > MealPlan_Version 1 > Father > Day 2 > Breakfast/Meal"]
+      - ["Root > MealPlan_Version 1 > Father > Day 3 > Breakfast/Meal"]
+      - ["Root > MealPlan_Version 1 > Child > Day 1 > Breakfast/Meal"]
+
+  - name: "update_queries"
+    use_versions: "false"
+    tree_path: "storage/memory/nutrition/nutrition_7day.xml"
+    queries:
+      - "Update fathers maple kissed taco option to Birria tacos"
+      - "Update mothers teriyaki salmon bowl lunch to a tofu based dish"
+      - "Change the second lunch on fathers third day to starbucks sandwhich"
+      - "Change childs third day, second breakfast option to spagetti with maple syrup"
+      - "On childs day with homemade pizza spice wrap, change the first breakfast to the nectar of the gods."
+
+    ground_truth:
+      - [
+          "Root > MealPlan_Version 1 > Father > Day 7 > Dinner > DIY Taco Night — Maple-Kissed Skillet",
+        ]
+      - [
+          "Root > MealPlan_Version 1 > Mother > Day 2 > Lunch > Japanese Teriyaki Salmon Donburi",
+        ]
+      - [
+          "Root > MealPlan_Version 1 > Father > Day 3 > Lunch > Hummus Snack Plate — Citrus Fresh Style",
+        ]
+      - [
+          "Root > MealPlan_Version 1 > Child > Day 3 > Breakfast > Avocado Toast — Garlic-Ginger Combo",
+        ]
+      - [
+          "Root > MealPlan_Version 1 > Child > Day 7 > Breakfast > Miso Breakfast Set — Maple-Kissed Skillet",
+        ]
+
+  - name: "delete_queries"
+    use_versions: "false"
+    tree_path: "storage/memory/nutrition/nutrition_7day.xml"
+    queries:
+      - "Remove all meals for child that contain peanuts, as they have an allergy"
+      - "Child has some messy lunches that won't pack well for school - delete a few options that sounds hard to transport or eat cleanly."
+      - "Child needs more protein, remove all dinner options with no meat."
+      - "On the day that child has lots of shrimp meals, remove the first breakfast option"
+      - "On fathers greek inspired day, delete the second lunch option"
+
+    ground_truth:
+      - [
+          "Root > MealPlan_Version 1 > Child > Day 1 > Breakfast > Smoothie — Smoky Variation",
+          "Root > MealPlan_Version 1 > Child > Day 2 > Breakfast > Smoothie — Lemon-Herb Style",
+          "Root > MealPlan_Version 1 > Child > Day 5 > Breakfast > Smoothie — Berry Boost Skillet",
+        ]
+      - any:
+          - "Root > MealPlan_Version 1 > Child > Day 2 > Lunch > Lentil Soup — Citrus Fresh Set"
+          - "Root > MealPlan_Version 1 > Child > Day 2 > Lunch > Chicken Noodle Soup — Citrus Fresh Twist"
+          - "Root > MealPlan_Version 1 > Child > Day 3 > Lunch > Bean Burrito Bowl — Berry Boost Style"
+          - "Root > MealPlan_Version 1 > Child > Day 4 > Lunch > Mediterranean Grain Bowl — Maple-Kissed Wrap"
+          - "Root > MealPlan_Version 1 > Child > Day 5 > Lunch > Teriyaki Chicken Bowl — Garden Veg Style"
+          - "Root > MealPlan_Version 1 > Child > Day 6 > Lunch > Mediterranean Grain Bowl — Garlic-Ginger Twist"
+          - "Root > MealPlan_Version 1 > Child > Day 7 > Lunch > Soba Noodle Bowl — Garlic-Ginger Wrap"
+      - [
+          "Root > MealPlan_Version 1 > Child > Day 2 > Dinner > Creamy Tomato Soup with Grilled Cheese Dippers",
+          "Root > MealPlan_Version 1 > Child > Day 1 > Dinner > Homemade Pizza Night — Garden Veg Combo",
+          "Root > MealPlan_Version 1 > Child > Day 3 > Dinner > Pasta Primavera — Classic Style",
+          "Root > MealPlan_Version 1 > Child > Day 7 > Dinner > Homemade Pizza Night — Mild-Spice Wrap",
+          "Root > MealPlan_Version 1 > Child > Day 6 > Dinner > Tofu Veggie Curry — Citrus Fresh Wrap",
+        ]
+      - [
+          "Root > MealPlan_Version 1 > Child > Day 5 > Breakfast > Granola & Milk — Garden Veg Bowl",
+        ]
+      - [
+          "Root > MealPlan_Version 1 > Father > Day 1 > Lunch > Mediterranean Lentil & Feta Salad",
+        ]
+
+config:
+  active_schema: "nutrition" # Options: itinerary, todolist, session_recommendation
+  active_data: "nutrition_7day" # Options: todolist, travel_toronto_10day
+
+  # LLM Client configuration
+  # Model options: "gpt-4o", "gpt-5", "gpt-5-mini", "o1", "o3-mini", etc.
+  # openai:
+  #   api_key: "${OPENAI_API_KEY}"
+  #   model: "gpt-5-mini"
+  #   max_tokens: 128000
+  #   # For GPT-4 series: temperature controls creativity (0-1)
+  #   temperature: 0
+  #   # For GPT-5/o1/o3 series: reasoning_effort controls reasoning depth
+  #   # Options: none (fastest), low, medium (default), high, xhigh (deepest)
+  #   reasoning_effort: "low"
+
+  openai:
+    api_key: "${OPENROUTER_API_KEY}"      # or point this env var to your OpenRouter key
+    base_url: "https://openrouter.ai/api/v1"
+    model: "google/gemini-3-flash-preview"     # or whatever Qwen model ID OpenRouter uses
+    max_tokens: 128000
+    temperature: 0
+
+  # XPath executor settings
+  xpath_executor:
+    top_k: 5
+    score_threshold: 0.05
+    # Scoring method: "llm", "entailment", or "cosine"
+    scoring_method: "cosine"
+
+  # In-context pipeline settings (single LLM call with full tree)
+  incontext_pipeline:
+    temperature: 0
+    max_tokens: 128000
+
+  # Entailment scorer settings
+  entailment:
+    model: "facebook/bart-large-mnli"
+    hypothesis_template: "This is related to {predicate}."
+    # device: auto-detected if not set (cuda > mps > cpu)
+
+  # Cosine similarity scorer settings
+  cosine:
+    model: "qwen/qwen3-embedding-8b"  
+    predicate_template: "{predicate}"
+    openai:
+      api_key: "${OPENROUTER_API_KEY}"
+      base_url: "https://openrouter.ai/api/v1"
+    # device: auto-detected if not set (cuda > mps > cpu)

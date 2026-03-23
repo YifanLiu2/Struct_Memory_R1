@@ -1,0 +1,89 @@
+====================
+Examples
+====================
+
+### Add smoothie for breakfast
+User: "Add a green smoothie to Father's breakfast on day 1"
+Context: - Root > MealPlan_Version 1 > Father > Day 1 > Breakfast children: [0] Greek Protein Power Bowl (Meal), [1] Shakshuka (Meal), [2] Mediterranean Fig & Honey Oatmeal (Meal)
+Output:
+```json
+{
+  "parent_path": "Root > MealPlan_Version 1 > Father > Day 1 > Breakfast",
+  "position": -1,
+  "node_type": "Meal",
+  "fields": {
+    "name": "Green Power Smoothie",
+    "short_description": "A refreshing blend of spinach, banana, avocado, and protein powder — a quick nutrient-packed start to the day.",
+    "meal_suggestion": "Blend a large handful of fresh spinach, one frozen banana, half an avocado, a scoop of vanilla protein powder, and a cup of almond milk until smooth. Pour into a tall glass and top with a sprinkle of chia seeds and a drizzle of honey.",
+    "ingredients": [
+      {"name": "spinach"},
+      {"name": "banana"},
+      {"name": "avocado"},
+      {"name": "vanilla protein powder"},
+      {"name": "almond milk"},
+      {"name": "chia seeds"},
+      {"name": "honey"}
+    ],
+    "nutrition_note": "Spinach provides iron and folate; banana adds potassium; natural sweetness; avocado contributes heart-healthy fats; protein powder boosts protein content. A low-prep, high-nutrient breakfast option."
+  },
+  "reasoning": "Position -1 appends after existing breakfast options. Quick smoothie complements the heavier existing meals."
+}
+```
+
+### Add lunch meal at start
+User: "Add a light salad as the first lunch option on day 3 for Mother"
+Context: - Root > MealPlan_Version 1 > Mother > Day 3 > Lunch children: [0] Turkey & Avocado Wrap (Meal), [1] Lentil Soup (Meal)
+Output:
+```json
+{
+  "parent_path": "Root > MealPlan_Version 1 > Mother > Day 3 > Lunch",
+  "position": 0,
+  "node_type": "Meal",
+  "fields": {
+    "name": "Mediterranean Chickpea Salad",
+    "short_description": "A crisp and colorful salad with chickpeas, cucumber, tomatoes, red onion, and feta tossed in a lemon-herb vinaigrette.",
+    "meal_suggestion": "Combine drained chickpeas with diced cucumber, halved cherry tomatoes, thinly sliced red onion, and crumbled feta cheese. Toss with a dressing of lemon juice, olive oil, minced garlic, dried oregano, and salt and pepper. Serve chilled on a bed of mixed greens.",
+    "ingredients": [
+      {"name": "chickpeas"},
+      {"name": "cucumber"},
+      {"name": "cherry tomatoes"},
+      {"name": "red onion"},
+      {"name": "feta cheese"},
+      {"name": "lemon juice"},
+      {"name": "olive oil"},
+      {"name": "mixed greens"}
+    ],
+    "nutrition_note": "Chickpeas provide plant-based protein and fiber; feta adds calcium; olive oil supplies healthy monounsaturated fats. A light, refreshing option rich in vitamins and antioxidants."
+  },
+  "reasoning": "Position 0 places the light salad as the first lunch option, before heavier choices."
+}
+```
+
+### Add dinner meal
+User: "Add a pasta dish for Child's dinner on day 5"
+Context: - Root > MealPlan_Version 1 > Child > Day 5 > Dinner children: [0] Grilled Chicken Thighs (Meal)
+Output:
+```json
+{
+  "parent_path": "Root > MealPlan_Version 1 > Child > Day 5 > Dinner",
+  "position": -1,
+  "node_type": "Meal",
+  "fields": {
+    "name": "Creamy Pesto Penne",
+    "short_description": "Kid-friendly penne pasta tossed in a creamy basil pesto sauce with peas and parmesan — simple, comforting, and packed with hidden greens.",
+    "meal_suggestion": "Cook penne pasta until al dente. Blend fresh basil, pine nuts, garlic, parmesan, and olive oil into a smooth pesto. Stir a spoonful of cream cheese into the warm pesto for a creamy texture. Toss with the pasta and steamed peas. Serve with extra grated parmesan on top.",
+    "ingredients": [
+      {"name": "penne pasta"},
+      {"name": "basil"},
+      {"name": "pine nuts"},
+      {"name": "parmesan cheese"},
+      {"name": "olive oil"},
+      {"name": "cream cheese"},
+      {"name": "peas"},
+      {"name": "garlic"}
+    ],
+    "nutrition_note": "Pasta provides complex carbohydrates for energy; basil pesto offers antioxidants; peas add fiber and plant protein; parmesan contributes calcium. A balanced kid-friendly dinner."
+  },
+  "reasoning": "Position -1 appends after the existing dinner option. Pasta is a kid-friendly complement to the grilled chicken."
+}
+```

@@ -1,0 +1,38 @@
+====================
+Examples
+====================
+
+### Finding adoption-related observations
+Query: "Find observations about adoption for Caroline"
+
+Candidates:
+[1] Speaker Caroline > Session 2 > Observation: "Caroline is researching adoption agencies..." (score: 0.91)
+[2] Speaker Caroline > Session 13 > Observation: "Caroline took the first step towards becoming a mom by applying to adoption agencies." (score: 0.88)
+[3] Speaker Melanie > Session 2 > Observation: "Melanie thinks Caroline will be an awesome mom." (score: 0.52)
+
+```json
+{
+  "selected_nodes": [
+    {"id": "1", "reasoning": "Directly about Caroline researching adoption agencies"},
+    {"id": "2", "reasoning": "About Caroline applying to adoption agencies"}
+  ],
+  "reasoning": "Selected Caroline's adoption observations. Excluded Melanie's observation (about Melanie's opinion, not Caroline's adoption activity)."
+}
+```
+
+### Finding pet-related observations
+Query: "What pets does Caroline have?"
+
+Candidates:
+[1] Speaker Caroline > Session 13 > Observation: "Caroline has a guinea pig named Oscar." (score: 0.87)
+[2] Speaker Melanie > Session 13 > Observation: "Melanie has two cats and a dog named Oliver." (score: 0.72)
+[3] Speaker Caroline > Session 7 > Observation: "Caroline values the role of pets in bringing joy and comfort." (score: 0.65)
+
+```json
+{
+  "selected_nodes": [
+    {"id": "1", "reasoning": "Directly states Caroline's pet: a guinea pig named Oscar"}
+  ],
+  "reasoning": "Selected the observation naming Caroline's pet. Excluded Melanie's pets (wrong speaker) and the general sentiment about pets (doesn't name a specific pet)."
+}
+```

@@ -1,0 +1,219 @@
+{
+  "query_index": 2,
+  "query": "My sister and nephew are joining me on Day 6. What activities would be fun for a kid?",
+  "operation": "READ",
+  "success": true,
+  "execution_time_ms": 26125.03,
+  "token_usage": {
+    "prompt_tokens": 4494,
+    "completion_tokens": 1526,
+    "total_tokens": 6020
+  },
+  "selected_nodes": [
+    {
+      "type": "POI",
+      "attributes": {},
+      "name": "Ripley's Aquarium",
+      "time_block": "3:30 PM - 5:30 PM",
+      "description": "World-class aquarium with underwater tunnel and interactive exhibits. Indoor family attraction perfect for kids. Sharks, jellyfish, and touch tanks.",
+      "travel_method": "Ferry and Walk",
+      "expected_cost": "CAD 45",
+      "highlights": [
+        "Indoor attraction",
+        "Kid-friendly family activity",
+        "Marine life"
+      ],
+      "tree_path": "Root > Itinerary_Version 1 > Itinerary > Day 6 > Ripley's Aquarium",
+      "reasoning": "Ripley's Aquarium is explicitly described as an indoor family attraction perfect for kids, with interactive exhibits, touch tanks, and marine life—clearly a kid-friendly activity."
+    },
+    {
+      "type": "POI",
+      "attributes": {},
+      "name": "Toronto Islands Ferry and Bike Ride",
+      "time_block": "10:30 AM - 1:30 PM",
+      "description": "Ferry ride to Toronto Islands followed by bike rental and exploration. Outdoor nature activity with beaches, gardens, and stunning skyline views. Perfect for families and kids.",
+      "travel_method": "Walk and Ferry",
+      "expected_cost": "CAD 35",
+      "highlights": [
+        "Outdoor nature",
+        "Kid-friendly family activity",
+        "Bike riding",
+        "Beach access"
+      ],
+      "tree_path": "Root > Itinerary_Version 1 > Itinerary > Day 6 > Toronto Islands Ferry and Bike Ride",
+      "reasoning": "Toronto Islands Ferry and Bike Ride is described as an outdoor family activity 'perfect for families and kids' with a ferry ride, bike rental, beaches and exploration—suitable and engaging for a child."
+    }
+  ],
+  "raw_result": {
+    "timestamp": "20260204_001007_187490",
+    "user_query": "My sister and nephew are joining me on Day 6. What activities would be fun for a kid?",
+    "task_query": "suggest kid-friendly activities for Day 6",
+    "operation": "READ",
+    "success": true,
+    "version_resolution": {
+      "selector_type": "at",
+      "semantic_query": null,
+      "index": -1,
+      "crud_operation": "Read",
+      "raw_response": "at([-1]), READ\ntask: suggest kid-friendly activities for Day 6",
+      "task_query": "suggest kid-friendly activities for Day 6",
+      "token_usage": {
+        "prompt_tokens": 984,
+        "completion_tokens": 153,
+        "total_tokens": 1137
+      }
+    },
+    "parsed_query": {
+      "operation": "Read",
+      "xpath": "/Itinerary/Day[6]/.[atom(content =~ \"kid-friendly\")]",
+      "full_query": "Read(/Itinerary/Day[6]/.[atom(content =~ \"kid-friendly\")])",
+      "token_usage": {
+        "prompt_tokens": 2203,
+        "completion_tokens": 601,
+        "total_tokens": 2804
+      }
+    },
+    "version_used": "1",
+    "xpath_execution": {
+      "query": "/Root/Itinerary_Version[1]/Itinerary/Day[6]/.[atom(content =~ \"kid-friendly\")]",
+      "matched_count": 5,
+      "execution_time_ms": 1711.5368000231683,
+      "token_usage": null
+    },
+    "handler_result": {
+      "success": true,
+      "operation": "READ",
+      "processing_time_ms": 11639.048399985768,
+      "output": {
+        "selected_nodes": [
+          {
+            "tree_path": "Root > Itinerary_Version 1 > Itinerary > Day 6 > Ripley's Aquarium",
+            "node_data": {
+              "type": "POI",
+              "attributes": {},
+              "name": "Ripley's Aquarium",
+              "time_block": "3:30 PM - 5:30 PM",
+              "description": "World-class aquarium with underwater tunnel and interactive exhibits. Indoor family attraction perfect for kids. Sharks, jellyfish, and touch tanks.",
+              "travel_method": "Ferry and Walk",
+              "expected_cost": "CAD 45",
+              "highlights": [
+                "Indoor attraction",
+                "Kid-friendly family activity",
+                "Marine life"
+              ]
+            },
+            "reasoning": "Ripley's Aquarium is explicitly described as an indoor family attraction perfect for kids, with interactive exhibits, touch tanks, and marine life—clearly a kid-friendly activity."
+          },
+          {
+            "tree_path": "Root > Itinerary_Version 1 > Itinerary > Day 6 > Toronto Islands Ferry and Bike Ride",
+            "node_data": {
+              "type": "POI",
+              "attributes": {},
+              "name": "Toronto Islands Ferry and Bike Ride",
+              "time_block": "10:30 AM - 1:30 PM",
+              "description": "Ferry ride to Toronto Islands followed by bike rental and exploration. Outdoor nature activity with beaches, gardens, and stunning skyline views. Perfect for families and kids.",
+              "travel_method": "Walk and Ferry",
+              "expected_cost": "CAD 35",
+              "highlights": [
+                "Outdoor nature",
+                "Kid-friendly family activity",
+                "Bike riding",
+                "Beach access"
+              ]
+            },
+            "reasoning": "Toronto Islands Ferry and Bike Ride is described as an outdoor family activity 'perfect for families and kids' with a ferry ride, bike rental, beaches and exploration—suitable and engaging for a child."
+          }
+        ]
+      },
+      "token_usage": {
+        "prompt_tokens": 1307,
+        "completion_tokens": 772,
+        "total_tokens": 2079
+      }
+    },
+    "timing": {
+      "stages": [
+        {
+          "name": "version_resolution",
+          "time_ms": 4092.71,
+          "token_usage": {
+            "prompt_tokens": 984,
+            "completion_tokens": 153,
+            "total_tokens": 1137
+          }
+        },
+        {
+          "name": "version_lookup",
+          "time_ms": 0.01
+        },
+        {
+          "name": "query_generation",
+          "time_ms": 8670.28,
+          "token_usage": {
+            "prompt_tokens": 2203,
+            "completion_tokens": 601,
+            "total_tokens": 2804
+          }
+        },
+        {
+          "name": "xpath_execution",
+          "time_ms": 1715.98
+        },
+        {
+          "name": "downstream_task",
+          "time_ms": 11640.13,
+          "token_usage": {
+            "prompt_tokens": 1307,
+            "completion_tokens": 772,
+            "total_tokens": 2079
+          }
+        }
+      ],
+      "total_time_ms": 26119.12,
+      "total_tokens": {
+        "prompt_tokens": 4494,
+        "completion_tokens": 1526,
+        "total_tokens": 6020
+      },
+      "pipeline_total_ms": 26123.247800045647
+    },
+    "candidates_count": 5,
+    "selected_count": 2,
+    "selected_nodes": [
+      {
+        "type": "POI",
+        "attributes": {},
+        "name": "Ripley's Aquarium",
+        "time_block": "3:30 PM - 5:30 PM",
+        "description": "World-class aquarium with underwater tunnel and interactive exhibits. Indoor family attraction perfect for kids. Sharks, jellyfish, and touch tanks.",
+        "travel_method": "Ferry and Walk",
+        "expected_cost": "CAD 45",
+        "highlights": [
+          "Indoor attraction",
+          "Kid-friendly family activity",
+          "Marine life"
+        ],
+        "tree_path": "Root > Itinerary_Version 1 > Itinerary > Day 6 > Ripley's Aquarium",
+        "reasoning": "Ripley's Aquarium is explicitly described as an indoor family attraction perfect for kids, with interactive exhibits, touch tanks, and marine life—clearly a kid-friendly activity."
+      },
+      {
+        "type": "POI",
+        "attributes": {},
+        "name": "Toronto Islands Ferry and Bike Ride",
+        "time_block": "10:30 AM - 1:30 PM",
+        "description": "Ferry ride to Toronto Islands followed by bike rental and exploration. Outdoor nature activity with beaches, gardens, and stunning skyline views. Perfect for families and kids.",
+        "travel_method": "Walk and Ferry",
+        "expected_cost": "CAD 35",
+        "highlights": [
+          "Outdoor nature",
+          "Kid-friendly family activity",
+          "Bike riding",
+          "Beach access"
+        ],
+        "tree_path": "Root > Itinerary_Version 1 > Itinerary > Day 6 > Toronto Islands Ferry and Bike Ride",
+        "reasoning": "Toronto Islands Ferry and Bike Ride is described as an outdoor family activity 'perfect for families and kids' with a ferry ride, bike rental, beaches and exploration—suitable and engaging for a child."
+      }
+    ],
+    "total_time_ms": 26123.247800045647
+  }
+}

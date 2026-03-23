@@ -1,0 +1,126 @@
+{
+  "query": "/Itinerary/Day[-2]/Restaurant[description =~ \"lunch\"]",
+  "timestamp": "2025-12-23T09:32:32.202163",
+  "segments": [
+    "/Itinerary",
+    "/Day[-2]",
+    "/Restaurant[description =~ \"lunch\"]"
+  ],
+  "steps": [
+    {
+      "step": 1,
+      "action": "index_match",
+      "segment": "/Day[-2]",
+      "nodes_before": 1,
+      "nodes_after": 1,
+      "details": {}
+    },
+    {
+      "step": 2,
+      "action": "type_match",
+      "segment": "/Restaurant[description =~ \"lunch\"]",
+      "nodes_before": 1,
+      "nodes_after": 3,
+      "details": {}
+    },
+    {
+      "step": 3,
+      "action": "predicate_batch",
+      "segment": "[description =~ \"lunch\"]",
+      "nodes_before": 3,
+      "nodes_after": 3,
+      "details": {
+        "predicate": "lunch",
+        "level": 2,
+        "batch_classification_index": 0,
+        "matched_paths": [
+          "/Itinerary/Day[2]/Restaurant[1]",
+          "/Itinerary/Day[2]/Restaurant[2]",
+          "/Itinerary/Day[2]/Restaurant[3]"
+        ]
+      },
+      "duration_ms": 2062.19
+    }
+  ],
+  "batch_classifications": [
+    {
+      "classifier_type": "llm",
+      "predicate": "lunch",
+      "input_count": 3,
+      "input_nodes": [
+        {
+          "tree_path": "/Itinerary/Day[2]/Restaurant[1]",
+          "node_type": "Restaurant",
+          "name": "Pow Wow Cafe",
+          "description": "Indigenous-inspired brunch featuring bannock tacos in Kensington Market."
+        },
+        {
+          "tree_path": "/Itinerary/Day[2]/Restaurant[2]",
+          "node_type": "Restaurant",
+          "name": "Annona Restaurant",
+          "description": "Sophisticated international cuisine in a bright, modern setting."
+        },
+        {
+          "tree_path": "/Itinerary/Day[2]/Restaurant[3]",
+          "node_type": "Restaurant",
+          "name": "DaiLo",
+          "description": "Modern Asian-Canadian fusion cuisine with creative flavors."
+        }
+      ],
+      "results": [
+        {
+          "tree_path": "/Itinerary/Day[2]/Restaurant[1]",
+          "name": "Pow Wow Cafe",
+          "is_match": true,
+          "confidence": 1.0,
+          "reasoning": "Brunch is a meal that can include lunch, making it relevant to the predicate."
+        },
+        {
+          "tree_path": "/Itinerary/Day[2]/Restaurant[2]",
+          "name": "Annona Restaurant",
+          "is_match": true,
+          "confidence": 1.0,
+          "reasoning": "The restaurant offers international cuisine, which is suitable for lunch."
+        },
+        {
+          "tree_path": "/Itinerary/Day[2]/Restaurant[3]",
+          "name": "DaiLo",
+          "is_match": true,
+          "confidence": 1.0,
+          "reasoning": "The restaurant's cuisine is suitable for lunch, as it does not specify a meal time."
+        }
+      ],
+      "matched_count": 3,
+      "matched_paths": [
+        "/Itinerary/Day[2]/Restaurant[1]",
+        "/Itinerary/Day[2]/Restaurant[2]",
+        "/Itinerary/Day[2]/Restaurant[3]"
+      ],
+      "duration_ms": 2062.19,
+      "prompt_sent": "Predicate: \"lunch\"\n\nNodes:\n\n[0] /Itinerary/Day[2]/Restaurant[1]\nType: Restaurant\nName: Pow Wow Cafe\nDescription: Indigenous-inspired brunch featuring bannock tacos in Kensington Market.\nChildren:\n  [1] name: unnamed\n  [2] time_block: unnamed\n  [3] description: unnamed\n  [4] travel_method: unnamed\n  [5] expected_cost: unnamed\n  [6] highlights: unnamed\n\n[1] /Itinerary/Day[2]/Restaurant[2]\nType: Restaurant\nName: Annona Restaurant\nDescription: Sophisticated international cuisine in a bright, modern setting.\nChildren:\n  [1] name: unnamed\n  [2] time_block: unnamed\n  [3] description: unnamed\n  [4] travel_method: unnamed\n  [5] expected_cost: unnamed\n  [6] highlights: unnamed\n\n[2] /Itinerary/Day[2]/Restaurant[3]\nType: Restaurant\nName: DaiLo\nDescription: Modern Asian-Canadian fusion cuisine with creative flavors.\nChildren:\n  [1] name: unnamed\n  [2] time_block: unnamed\n  [3] description: unnamed\n  [4] travel_method: unnamed\n  [5] expected_cost: unnamed\n  [6] highlights: unnamed\n\nClassify each node. Output JSON only.",
+      "raw_response": "```json\n{\n  \"results\": [\n    {\"index\": 0, \"match\": true, \"reasoning\": \"Brunch is a meal that can include lunch, making it relevant to the predicate.\"},\n    {\"index\": 1, \"match\": true, \"reasoning\": \"The restaurant offers international cuisine, which is suitable for lunch.\"},\n    {\"index\": 2, \"match\": true, \"reasoning\": \"The restaurant's cuisine is suitable for lunch, as it does not specify a meal time.\"}\n  ]\n}\n```"
+    }
+  ],
+  "results": [
+    {
+      "tree_path": "/Itinerary/Day[2]/Restaurant[1]",
+      "type": "Restaurant",
+      "name": "Pow Wow Cafe",
+      "description": "Indigenous-inspired brunch featuring bannock tacos in Kensington Market."
+    },
+    {
+      "tree_path": "/Itinerary/Day[2]/Restaurant[2]",
+      "type": "Restaurant",
+      "name": "Annona Restaurant",
+      "description": "Sophisticated international cuisine in a bright, modern setting."
+    },
+    {
+      "tree_path": "/Itinerary/Day[2]/Restaurant[3]",
+      "type": "Restaurant",
+      "name": "DaiLo",
+      "description": "Modern Asian-Canadian fusion cuisine with creative flavors."
+    }
+  ],
+  "total_duration_ms": 2063.53,
+  "classification_duration_ms": 2062.19
+}

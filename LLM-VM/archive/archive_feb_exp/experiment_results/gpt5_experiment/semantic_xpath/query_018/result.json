@@ -1,0 +1,257 @@
+{
+  "query_index": 17,
+  "query": "Some work events got cancelled. On Day 2, change any work related events to Personal Day.",
+  "operation": "UPDATE",
+  "success": true,
+  "execution_time_ms": 55682.16,
+  "token_usage": {
+    "prompt_tokens": 5477,
+    "completion_tokens": 2565,
+    "total_tokens": 8042
+  },
+  "changes": [
+    {
+      "path": "Root > Itinerary_Version 12 > Itinerary > Day 2 > Client Kickoff Meeting",
+      "change_type": "updated",
+      "old_node": null,
+      "new_node": null,
+      "field_changes": {}
+    },
+    {
+      "path": "Root > Itinerary_Version 12 > Itinerary > Day 2 > Strategy Workshop",
+      "change_type": "updated",
+      "old_node": null,
+      "new_node": null,
+      "field_changes": {}
+    }
+  ],
+  "raw_result": {
+    "timestamp": "20260204_001946_630758",
+    "user_query": "Some work events got cancelled. On Day 2, change any work related events to Personal Day.",
+    "task_query": "On Day 2, change any work related events to Personal Day",
+    "operation": "UPDATE",
+    "success": true,
+    "version_resolution": {
+      "selector_type": "at",
+      "semantic_query": null,
+      "index": -1,
+      "crud_operation": "Update",
+      "raw_response": "at([-1]), UPDATE\ntask: On Day 2, change any work related events to Personal Day",
+      "task_query": "On Day 2, change any work related events to Personal Day",
+      "token_usage": {
+        "prompt_tokens": 983,
+        "completion_tokens": 158,
+        "total_tokens": 1141
+      }
+    },
+    "parsed_query": {
+      "operation": "Update",
+      "xpath": "/Itinerary/Day[2]/desc::.[atom(content =~ \"work related\")]",
+      "full_query": "Update(/Itinerary/Day[2]/desc::.[atom(content =~ \"work related\")])",
+      "token_usage": {
+        "prompt_tokens": 2208,
+        "completion_tokens": 667,
+        "total_tokens": 2875
+      }
+    },
+    "version_used": "12",
+    "xpath_execution": {
+      "query": "/Root/Itinerary_Version[12]/Itinerary/Day[2]/desc::.[atom(content =~ \"work related\")]",
+      "matched_count": 4,
+      "execution_time_ms": 1750.6449000211433,
+      "token_usage": null
+    },
+    "handler_result": {
+      "success": true,
+      "operation": "UPDATE",
+      "processing_time_ms": 42518.50840006955,
+      "output": {
+        "updates": [
+          {
+            "tree_path": "Root > Itinerary_Version 12 > Itinerary > Day 2 > Client Kickoff Meeting",
+            "changes": {
+              "expected_cost": {
+                "from": "Work",
+                "to": "Personal"
+              },
+              "name": {
+                "from": "Client Kickoff Meeting",
+                "to": "Personal Morning — Relaxation & Local Exploration"
+              },
+              "highlights": {
+                "from": [
+                  "Work meeting",
+                  "Client presentation",
+                  "Corporate formal"
+                ],
+                "to": [
+                  "Relax at hotel",
+                  "Visit a local café",
+                  "Leisurely walk or light sightseeing",
+                  "Unscheduled personal time"
+                ]
+              },
+              "description": {
+                "from": "Formal business meeting at TD Tower with key stakeholders. High-pressure work presentation and strategy discussion. Professional corporate environment.",
+                "to": "Morning set aside for personal time: relax at the hotel, visit a nearby café, take a leisurely walk, or do light sightseeing. No work commitments or meetings scheduled."
+              }
+            },
+            "reasoning": "Transformed the work meeting into a Personal Day morning block; preserved the original 9:00 AM–12:00 PM time_block and travel_method, changed description, expected_cost, name, and highlights to reflect personal activities."
+          },
+          {
+            "tree_path": "Root > Itinerary_Version 12 > Itinerary > Day 2 > Strategy Workshop",
+            "changes": {
+              "expected_cost": {
+                "from": "Work",
+                "to": "Personal"
+              },
+              "name": {
+                "from": "Strategy Workshop",
+                "to": "Personal Afternoon — Leisure & Flexible Activities"
+              },
+              "highlights": {
+                "from": [
+                  "Work session",
+                  "Team collaboration",
+                  "Meeting room"
+                ],
+                "to": [
+                  "Flexible leisure activities",
+                  "Museum or shopping options",
+                  "Spa or relaxation time",
+                  "No meetings"
+                ]
+              },
+              "description": {
+                "from": "Intensive afternoon workshop session with the team. Long work hours in conference room. Mentally draining but productive.",
+                "to": "Afternoon reserved for personal activities: visit a museum, go shopping, enjoy a spa treatment, or relax at a café. No work sessions or team meetings planned."
+              }
+            },
+            "reasoning": "Converted the afternoon workshop into a Personal Day block; kept the original 1:00 PM–5:00 PM duration and travel_method, replaced work-oriented content with personal/leisure details and set expected_cost to Personal."
+          }
+        ]
+      },
+      "token_usage": {
+        "prompt_tokens": 2286,
+        "completion_tokens": 1740,
+        "total_tokens": 4026
+      }
+    },
+    "timing": {
+      "stages": [
+        {
+          "name": "version_resolution",
+          "time_ms": 3635.06,
+          "token_usage": {
+            "prompt_tokens": 983,
+            "completion_tokens": 158,
+            "total_tokens": 1141
+          }
+        },
+        {
+          "name": "version_lookup",
+          "time_ms": 0.01
+        },
+        {
+          "name": "query_generation",
+          "time_ms": 7698.14,
+          "token_usage": {
+            "prompt_tokens": 2208,
+            "completion_tokens": 667,
+            "total_tokens": 2875
+          }
+        },
+        {
+          "name": "xpath_execution",
+          "time_ms": 1763.3
+        },
+        {
+          "name": "downstream_task",
+          "time_ms": 42556.18,
+          "token_usage": {
+            "prompt_tokens": 2286,
+            "completion_tokens": 1740,
+            "total_tokens": 4026
+          }
+        }
+      ],
+      "total_time_ms": 55652.68,
+      "total_tokens": {
+        "prompt_tokens": 5477,
+        "completion_tokens": 2565,
+        "total_tokens": 8042
+      },
+      "pipeline_total_ms": 55655.781899928115
+    },
+    "updated_count": 2,
+    "updated_paths": [
+      "Root > Itinerary_Version 12 > Itinerary > Day 2 > Client Kickoff Meeting",
+      "Root > Itinerary_Version 12 > Itinerary > Day 2 > Strategy Workshop"
+    ],
+    "update_results": [
+      {
+        "path": "Root > Itinerary_Version 12 > Itinerary > Day 2 > Client Kickoff Meeting",
+        "changes": {
+          "expected_cost": {
+            "from": "Work",
+            "to": "Personal"
+          },
+          "name": {
+            "from": "Client Kickoff Meeting",
+            "to": "Personal Morning — Relaxation & Local Exploration"
+          },
+          "highlights": {
+            "from": [
+              "Work meeting",
+              "Client presentation",
+              "Corporate formal"
+            ],
+            "to": [
+              "Relax at hotel",
+              "Visit a local café",
+              "Leisurely walk or light sightseeing",
+              "Unscheduled personal time"
+            ]
+          },
+          "description": {
+            "from": "Formal business meeting at TD Tower with key stakeholders. High-pressure work presentation and strategy discussion. Professional corporate environment.",
+            "to": "Morning set aside for personal time: relax at the hotel, visit a nearby café, take a leisurely walk, or do light sightseeing. No work commitments or meetings scheduled."
+          }
+        },
+        "success": true
+      },
+      {
+        "path": "Root > Itinerary_Version 12 > Itinerary > Day 2 > Strategy Workshop",
+        "changes": {
+          "expected_cost": {
+            "from": "Work",
+            "to": "Personal"
+          },
+          "name": {
+            "from": "Strategy Workshop",
+            "to": "Personal Afternoon — Leisure & Flexible Activities"
+          },
+          "highlights": {
+            "from": [
+              "Work session",
+              "Team collaboration",
+              "Meeting room"
+            ],
+            "to": [
+              "Flexible leisure activities",
+              "Museum or shopping options",
+              "Spa or relaxation time",
+              "No meetings"
+            ]
+          },
+          "description": {
+            "from": "Intensive afternoon workshop session with the team. Long work hours in conference room. Mentally draining but productive.",
+            "to": "Afternoon reserved for personal activities: visit a museum, go shopping, enjoy a spa treatment, or relax at a café. No work sessions or team meetings planned."
+          }
+        },
+        "success": true
+      }
+    ],
+    "total_time_ms": 55655.781899928115
+  }
+}

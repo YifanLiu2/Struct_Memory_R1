@@ -1,0 +1,106 @@
+{
+  "user_query": "Some work events got cancelled. On Day 2, change any work related events to Personal Day.",
+  "operation": "UPDATE",
+  "success": true,
+  "version_used": 1,
+  "retrieved_documents": [
+    {
+      "tree_path": "Root > Itinerary_Version 1 > Day 4 > Full-Day Workshop",
+      "score": 0.8068800568580627,
+      "node_type": "POI",
+      "node_name": "Full-Day Workshop"
+    },
+    {
+      "tree_path": "Root > Itinerary_Version 1 > Day 5 > Email Catch-up Block",
+      "score": 0.8009198904037476,
+      "node_type": "POI",
+      "node_name": "Email Catch-up Block"
+    },
+    {
+      "tree_path": "Root > Itinerary_Version 1 > Day 3 > Stakeholder Presentation",
+      "score": 0.7987247705459595,
+      "node_type": "POI",
+      "node_name": "Stakeholder Presentation"
+    },
+    {
+      "tree_path": "Root > Itinerary_Version 1 > Day 2 > Client Kickoff Meeting",
+      "score": 0.7967116236686707,
+      "node_type": "POI",
+      "node_name": "Client Kickoff Meeting"
+    },
+    {
+      "tree_path": "Root > Itinerary_Version 1 > Day 8 > Niagara Falls Day Trip",
+      "score": 0.78999924659729,
+      "node_type": "POI",
+      "node_name": "Niagara Falls Day Trip"
+    }
+  ],
+  "retrieval_time_ms": 6.61,
+  "downstream_task_result": {
+    "success": true,
+    "operation": "UPDATE",
+    "processing_time_ms": 9276.484333910048,
+    "output": {
+      "updates": [
+        {
+          "tree_path": "Root > Itinerary_Version 1 > Day 2 > Client Kickoff Meeting",
+          "changes": {
+            "expected_cost": {
+              "from": "Work",
+              "to": "0"
+            },
+            "travel_method": {
+              "from": "Walk",
+              "to": "None"
+            },
+            "highlights": {
+              "from": [
+                "Work meeting",
+                "Client presentation",
+                "Corporate formal"
+              ],
+              "to": [
+                "Personal time"
+              ]
+            },
+            "description": {
+              "from": "Formal business meeting at TD Tower with key stakeholders. High-pressure work presentation and strategy discussion. Professional corporate environment.",
+              "to": "Personal day reserved for rest, errands, and personal appointments. No work activities scheduled."
+            },
+            "name": {
+              "from": "Client Kickoff Meeting",
+              "to": "Personal Day"
+            }
+          },
+          "reasoning": "Replaced work-related Client Kickoff Meeting on Day 2 with a Personal Day: updated name, description, expected_cost and highlights; preserved the original time block and changed travel_method to None to reflect no planned work travel."
+        }
+      ]
+    },
+    "token_usage": {
+      "prompt_tokens": 2574,
+      "completion_tokens": 619,
+      "total_tokens": 3193
+    }
+  },
+  "execution_time_ms": 11131.2,
+  "token_usage": {
+    "prompt_tokens": 4023,
+    "completion_tokens": 714,
+    "total_tokens": 4737,
+    "by_stage": {
+      "version_resolution": {
+        "prompt_tokens": 1449,
+        "completion_tokens": 95,
+        "total_tokens": 1544
+      },
+      "update_handler": {
+        "prompt_tokens": 2574,
+        "completion_tokens": 619,
+        "total_tokens": 3193
+      }
+    },
+    "cost_usd": 0.06165
+  },
+  "cost_usd": 0.06165,
+  "error": null
+}

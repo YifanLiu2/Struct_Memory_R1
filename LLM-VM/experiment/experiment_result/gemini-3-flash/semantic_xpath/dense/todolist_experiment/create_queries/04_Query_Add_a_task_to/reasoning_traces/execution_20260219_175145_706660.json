@@ -1,0 +1,1061 @@
+{
+  "timestamp": "20260219_175145_706660",
+  "query": "/Root/ToDoList_Version[1]/Category[atom(content =~ \"Work\")]/Project",
+  "canonical_query": "/Root/ToDoList_Version[1]/Category[content =~ \"Work\"]/Project",
+  "data_file": "tree.xml",
+  "execution_time_ms": 1.2445410247892141,
+  "parsed_ast": {
+    "steps": [
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Root",
+            "span": {
+              "start": 1,
+              "end": 5
+            }
+          },
+          "span": {
+            "start": 1,
+            "end": 5
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "ToDoList_Version",
+            "index": {
+              "start": 1,
+              "type": "single",
+              "span": {
+                "start": 22,
+                "end": 25
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 25
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 25
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Category",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "Work",
+              "operator": "=~",
+              "span": {
+                "start": 35,
+                "end": 58
+              }
+            },
+            "predicate_str": "atom(content =~ \"Work\")",
+            "span": {
+              "start": 26,
+              "end": 59
+            }
+          },
+          "span": {
+            "start": 26,
+            "end": 59
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Project",
+            "span": {
+              "start": 60,
+              "end": 67
+            }
+          },
+          "span": {
+            "start": 60,
+            "end": 67
+          }
+        }
+      }
+    ],
+    "global_index": null
+  },
+  "parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: ToDoList_Version[1]\n├── Step 2: Category[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"Work\")\n└── Step 3: Project",
+  "canonical_parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: ToDoList_Version[1]\n├── Step 2: Category[content =~ \"Work\"]\n└── Step 3: Project",
+  "execution_log": [
+    "[20260219_175145_706660] Executing query: /Root/ToDoList_Version[1]/Category[atom(content =~ \"Work\")]/Project",
+    "Data file: tree.xml",
+    "Parsed steps: [Root, ToDoList_Version[1], Category[atom(content =~ \"Work\")], Project]",
+    "",
+    "Query AST:\n├── Step 0: Root\n├── Step 1: ToDoList_Version[1]\n├── Step 2: Category[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"Work\")\n└── Step 3: Project",
+    "\n--- Step 1: Root ---",
+    "Matched Root root",
+    "\n--- Step 2: ToDoList_Version[1] ---",
+    "Selected node at index 1 (0-based: 0)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 3: Category[atom(content =~ \"Work\")] ---",
+    "Scoring predicate: atom(content =~ \"Work\") (atomic values: ['Work'])",
+    "  Node 0 (Work): score = 1.0000 (exact match)",
+    "  Node 1 (Personal): score = 0.0000 (exact match)",
+    "  Node 2 (Household): score = 0.0000 (exact match)",
+    "  Node 3 (Health): score = 0.0000 (exact match)",
+    "  Node 4 (Learning): score = 0.0000 (exact match)",
+    "  Exact attribute match on @name: 1/5 nodes matched",
+    "After step: 5 nodes remaining",
+    "\n--- Step 4: Project ---",
+    "  Zero-score pruning: skipping 4 items (Personal, Household, Health, Learning)",
+    "After step: 4 nodes remaining",
+    "\n=== Score Fusion ===",
+    "  Root > ToDoList_Version 1 > Work > NSERC CGS-M Grant Application: product=1.0000 → score=1.0000",
+    "  Root > ToDoList_Version 1 > Work > Thesis: Solve AI: product=1.0000 → score=1.0000",
+    "  Root > ToDoList_Version 1 > Work > TA: Intro to ML (CS480): product=1.0000 → score=1.0000",
+    "  Root > ToDoList_Version 1 > Work > Probabilistic Graphical Models Assignment: product=1.0000 → score=1.0000",
+    "  Parent propagation: Root > ToDoList_Version 1 > Work > NSERC CGS-M Grant Application: own=1.0000 × parent=1.0000 → 1.0000",
+    "  Parent propagation: Root > ToDoList_Version 1 > Work > Thesis: Solve AI: own=1.0000 × parent=1.0000 → 1.0000",
+    "  Parent propagation: Root > ToDoList_Version 1 > Work > TA: Intro to ML (CS480): own=1.0000 × parent=1.0000 → 1.0000",
+    "  Parent propagation: Root > ToDoList_Version 1 > Work > Probabilistic Graphical Models Assignment: own=1.0000 × parent=1.0000 → 1.0000",
+    "\n=== Parent Score Propagation: 4 nodes updated ===",
+    "\n=== Threshold Filtering (threshold=0.05) ===",
+    "  Filtered: 4 → 4 nodes",
+    "\n=== Final Filtering (top_k=5) ===",
+    "  After top_k: 4 → 4 nodes",
+    "\nFinal result: 4 nodes (sorted by score)",
+    "⏱️  Query execution time: 1.24ms"
+  ],
+  "traversal_steps": [
+    {
+      "step_index": 0,
+      "step_query": "Root",
+      "action": "root_match",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "type": "root"
+        }
+      ],
+      "nodes_after": [
+        {
+          "type": "Root",
+          "path": "Root"
+        }
+      ],
+      "details": {
+        "matched": true
+      }
+    },
+    {
+      "step_index": 1,
+      "step_query": "ToDoList_Version[1]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root",
+          "name": "Root",
+          "type": "Root",
+          "score": 1.0,
+          "node_id": 6142614304
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > ToDoList_Version 1",
+          "name": "ToDoList_Version 1",
+          "type": "ToDoList_Version",
+          "score": 1.0,
+          "node_id": 6142611984
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "ToDoList_Version",
+            "index": {
+              "start": 1,
+              "type": "single",
+              "span": {
+                "start": 22,
+                "end": 25
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 25
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 25
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 2,
+      "step_query": "Category[atom(content =~ \"Work\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 5,
+      "nodes_before": [
+        {
+          "path": "Root > ToDoList_Version 1",
+          "name": "ToDoList_Version 1",
+          "type": "ToDoList_Version",
+          "score": 1.0,
+          "node_id": 6142611984
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > ToDoList_Version 1 > Work",
+          "name": "Work",
+          "type": "Category",
+          "score": 1.0,
+          "node_id": 6142609664
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Personal",
+          "name": "Personal",
+          "type": "Category",
+          "score": 0.0,
+          "node_id": 6142615424
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Household",
+          "name": "Household",
+          "type": "Category",
+          "score": 0.0,
+          "node_id": 6142560032
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Health",
+          "name": "Health",
+          "type": "Category",
+          "score": 0.0,
+          "node_id": 6142566832
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Learning",
+          "name": "Learning",
+          "type": "Category",
+          "score": 0.0,
+          "node_id": 6142567632
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Category",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "Work",
+              "operator": "=~",
+              "span": {
+                "start": 35,
+                "end": 58
+              }
+            },
+            "predicate_str": "atom(content =~ \"Work\")",
+            "span": {
+              "start": 26,
+              "end": 59
+            }
+          },
+          "span": {
+            "start": 26,
+            "end": 59
+          }
+        },
+        "found_count": 5,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"Work\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "Work",
+              "operator": "=~",
+              "span": {
+                "start": 35,
+                "end": 58
+              }
+            },
+            "config": {
+              "top_k": 5,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 6142609664,
+                "node_name": "Work",
+                "node_type": "Category",
+                "final_score": 1.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Work",
+                    "query_value": "Work",
+                    "matched": true,
+                    "score": 1.0
+                  }
+                ]
+              },
+              {
+                "node_idx": 1,
+                "node_id": 6142615424,
+                "node_name": "Personal",
+                "node_type": "Category",
+                "final_score": 0.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Personal",
+                    "query_value": "Work",
+                    "matched": false,
+                    "score": 0.0
+                  }
+                ]
+              },
+              {
+                "node_idx": 2,
+                "node_id": 6142560032,
+                "node_name": "Household",
+                "node_type": "Category",
+                "final_score": 0.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Household",
+                    "query_value": "Work",
+                    "matched": false,
+                    "score": 0.0
+                  }
+                ]
+              },
+              {
+                "node_idx": 3,
+                "node_id": 6142566832,
+                "node_name": "Health",
+                "node_type": "Category",
+                "final_score": 0.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Health",
+                    "query_value": "Work",
+                    "matched": false,
+                    "score": 0.0
+                  }
+                ]
+              },
+              {
+                "node_idx": 4,
+                "node_id": 6142567632,
+                "node_name": "Learning",
+                "node_type": "Category",
+                "final_score": 0.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Learning",
+                    "query_value": "Work",
+                    "matched": false,
+                    "score": 0.0
+                  }
+                ]
+              }
+            ],
+            "batch_scoring": {
+              "exact_match": true,
+              "matched_attribute": "name",
+              "query_value": "Work",
+              "matched_count": 1
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 0,
+                "score": 1.0,
+                "name": "Work"
+              },
+              {
+                "idx": 1,
+                "score": 0.0,
+                "name": "Personal"
+              },
+              {
+                "idx": 2,
+                "score": 0.0,
+                "name": "Household"
+              },
+              {
+                "idx": 3,
+                "score": 0.0,
+                "name": "Health"
+              },
+              {
+                "idx": 4,
+                "score": 0.0,
+                "name": "Learning"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "step_index": 3,
+      "step_query": "Project",
+      "action": "node_test_expr",
+      "nodes_before_count": 5,
+      "nodes_after_count": 4,
+      "nodes_before": [
+        {
+          "path": "Root > ToDoList_Version 1 > Work",
+          "name": "Work",
+          "type": "Category",
+          "score": 1.0,
+          "node_id": 6142609664
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Personal",
+          "name": "Personal",
+          "type": "Category",
+          "score": 0.0,
+          "node_id": 6142615424
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Household",
+          "name": "Household",
+          "type": "Category",
+          "score": 0.0,
+          "node_id": 6142560032
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Health",
+          "name": "Health",
+          "type": "Category",
+          "score": 0.0,
+          "node_id": 6142566832
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Learning",
+          "name": "Learning",
+          "type": "Category",
+          "score": 0.0,
+          "node_id": 6142567632
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > ToDoList_Version 1 > Work > NSERC CGS-M Grant Application",
+          "name": "NSERC CGS-M Grant Application",
+          "type": "Project",
+          "score": 1.0,
+          "node_id": 6142614624
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Work > Thesis: Solve AI",
+          "name": "Thesis: Solve AI",
+          "type": "Project",
+          "score": 1.0,
+          "node_id": 6142623584
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Work > TA: Intro to ML (CS480)",
+          "name": "TA: Intro to ML (CS480)",
+          "type": "Project",
+          "score": 1.0,
+          "node_id": 6142618944
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Work > Probabilistic Graphical Models Assignment",
+          "name": "Probabilistic Graphical Models Assignment",
+          "type": "Project",
+          "score": 1.0,
+          "node_id": 6142615504
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Project",
+            "span": {
+              "start": 60,
+              "end": 67
+            }
+          },
+          "span": {
+            "start": 60,
+            "end": 67
+          }
+        },
+        "found_count": 4,
+        "scoring_trace": []
+      }
+    }
+  ],
+  "scoring_traces": [
+    {
+      "predicate": "atom(content =~ \"Work\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "Work",
+        "operator": "=~",
+        "span": {
+          "start": 35,
+          "end": 58
+        }
+      },
+      "config": {
+        "top_k": 5,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 6142609664,
+          "node_name": "Work",
+          "node_type": "Category",
+          "final_score": 1.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Work",
+              "query_value": "Work",
+              "matched": true,
+              "score": 1.0
+            }
+          ]
+        },
+        {
+          "node_idx": 1,
+          "node_id": 6142615424,
+          "node_name": "Personal",
+          "node_type": "Category",
+          "final_score": 0.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Personal",
+              "query_value": "Work",
+              "matched": false,
+              "score": 0.0
+            }
+          ]
+        },
+        {
+          "node_idx": 2,
+          "node_id": 6142560032,
+          "node_name": "Household",
+          "node_type": "Category",
+          "final_score": 0.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Household",
+              "query_value": "Work",
+              "matched": false,
+              "score": 0.0
+            }
+          ]
+        },
+        {
+          "node_idx": 3,
+          "node_id": 6142566832,
+          "node_name": "Health",
+          "node_type": "Category",
+          "final_score": 0.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Health",
+              "query_value": "Work",
+              "matched": false,
+              "score": 0.0
+            }
+          ]
+        },
+        {
+          "node_idx": 4,
+          "node_id": 6142567632,
+          "node_name": "Learning",
+          "node_type": "Category",
+          "final_score": 0.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Learning",
+              "query_value": "Work",
+              "matched": false,
+              "score": 0.0
+            }
+          ]
+        }
+      ],
+      "batch_scoring": {
+        "exact_match": true,
+        "matched_attribute": "name",
+        "query_value": "Work",
+        "matched_count": 1
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 0,
+          "score": 1.0,
+          "name": "Work"
+        },
+        {
+          "idx": 1,
+          "score": 0.0,
+          "name": "Personal"
+        },
+        {
+          "idx": 2,
+          "score": 0.0,
+          "name": "Household"
+        },
+        {
+          "idx": 3,
+          "score": 0.0,
+          "name": "Health"
+        },
+        {
+          "idx": 4,
+          "score": 0.0,
+          "name": "Learning"
+        }
+      ]
+    }
+  ],
+  "scoring_details": {
+    "step_scores": [
+      {
+        "step_index": 0,
+        "predicate": "atom(content =~ \"Work\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "Work",
+          "operator": "=~",
+          "span": {
+            "start": 35,
+            "end": 58
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 6142609664,
+            "node_name": "Work",
+            "node_type": "Category",
+            "final_score": 1.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Work",
+                "query_value": "Work",
+                "matched": true,
+                "score": 1.0
+              }
+            ]
+          },
+          {
+            "node_idx": 1,
+            "node_id": 6142615424,
+            "node_name": "Personal",
+            "node_type": "Category",
+            "final_score": 0.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Personal",
+                "query_value": "Work",
+                "matched": false,
+                "score": 0.0
+              }
+            ]
+          },
+          {
+            "node_idx": 2,
+            "node_id": 6142560032,
+            "node_name": "Household",
+            "node_type": "Category",
+            "final_score": 0.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Household",
+                "query_value": "Work",
+                "matched": false,
+                "score": 0.0
+              }
+            ]
+          },
+          {
+            "node_idx": 3,
+            "node_id": 6142566832,
+            "node_name": "Health",
+            "node_type": "Category",
+            "final_score": 0.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Health",
+                "query_value": "Work",
+                "matched": false,
+                "score": 0.0
+              }
+            ]
+          },
+          {
+            "node_idx": 4,
+            "node_id": 6142567632,
+            "node_name": "Learning",
+            "node_type": "Category",
+            "final_score": 0.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Learning",
+                "query_value": "Work",
+                "matched": false,
+                "score": 0.0
+              }
+            ]
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 0,
+            "score": 1.0,
+            "name": "Work"
+          },
+          {
+            "idx": 1,
+            "score": 0.0,
+            "name": "Personal"
+          },
+          {
+            "idx": 2,
+            "score": 0.0,
+            "name": "Household"
+          },
+          {
+            "idx": 3,
+            "score": 0.0,
+            "name": "Health"
+          },
+          {
+            "idx": 4,
+            "score": 0.0,
+            "name": "Learning"
+          }
+        ]
+      }
+    ],
+    "score_fusion": {
+      "per_node": [
+        {
+          "node_path": "Root > ToDoList_Version 1 > Work > NSERC CGS-M Grant Application",
+          "node_type": "Project",
+          "step_contributions": [],
+          "accumulated_product": 1.0,
+          "final_score": 0.999999999
+        },
+        {
+          "node_path": "Root > ToDoList_Version 1 > Work > Thesis: Solve AI",
+          "node_type": "Project",
+          "step_contributions": [],
+          "accumulated_product": 1.0,
+          "final_score": 0.999999999
+        },
+        {
+          "node_path": "Root > ToDoList_Version 1 > Work > TA: Intro to ML (CS480)",
+          "node_type": "Project",
+          "step_contributions": [],
+          "accumulated_product": 1.0,
+          "final_score": 0.999999999
+        },
+        {
+          "node_path": "Root > ToDoList_Version 1 > Work > Probabilistic Graphical Models Assignment",
+          "node_type": "Project",
+          "step_contributions": [],
+          "accumulated_product": 1.0,
+          "final_score": 0.999999999
+        }
+      ]
+    }
+  },
+  "final_filtering": {
+    "before_filter_count": 4,
+    "threshold": 0.05,
+    "top_k": 5,
+    "after_filter_count": 4,
+    "filtered_nodes": [
+      {
+        "path": "Root > ToDoList_Version 1 > Work > NSERC CGS-M Grant Application",
+        "score": 0.999999999,
+        "type": "Project",
+        "own_score": 1.0,
+        "parent_score": 0.999999999
+      },
+      {
+        "path": "Root > ToDoList_Version 1 > Work > Thesis: Solve AI",
+        "score": 0.999999999,
+        "type": "Project",
+        "own_score": 1.0,
+        "parent_score": 0.999999999
+      },
+      {
+        "path": "Root > ToDoList_Version 1 > Work > TA: Intro to ML (CS480)",
+        "score": 0.999999999,
+        "type": "Project",
+        "own_score": 1.0,
+        "parent_score": 0.999999999
+      },
+      {
+        "path": "Root > ToDoList_Version 1 > Work > Probabilistic Graphical Models Assignment",
+        "score": 0.999999999,
+        "type": "Project",
+        "own_score": 1.0,
+        "parent_score": 0.999999999
+      }
+    ]
+  },
+  "matched_nodes": [
+    {
+      "tree_path": "Root > ToDoList_Version 1 > Work > NSERC CGS-M Grant Application",
+      "score": 0.999999999,
+      "node": {
+        "type": "Project",
+        "attributes": {},
+        "name": "NSERC CGS-M Grant Application",
+        "status": "Active",
+        "priority": "High"
+      },
+      "children": [
+        {
+          "type": "Task",
+          "attributes": {},
+          "description": "Draft research proposal (max 1 page)",
+          "status": "In Progress",
+          "priority": "High",
+          "due_date": "2026-11-15"
+        },
+        {
+          "type": "Task",
+          "attributes": {},
+          "description": "Request reference letters",
+          "status": "Done",
+          "priority": "High",
+          "due_date": "2025-10-30"
+        },
+        {
+          "type": "Task",
+          "attributes": {},
+          "description": "Finalize CCV (Canadian Common CV) updates",
+          "status": "Todo",
+          "priority": "Medium",
+          "due_date": "2026-11-20"
+        }
+      ],
+      "context_trace": [
+        {
+          "node_name": "Work",
+          "predicate": "atom(content =~ \"Work\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Work\") on Work (Score: 1.00)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > ToDoList_Version 1 > Work > Thesis: Solve AI",
+      "score": 0.999999999,
+      "node": {
+        "type": "Project",
+        "attributes": {},
+        "name": "Thesis: Solve AI",
+        "status": "Active",
+        "priority": "High"
+      },
+      "children": [
+        {
+          "type": "Task",
+          "attributes": {},
+          "description": "Run benchmarks on cluster",
+          "status": "Blocked",
+          "priority": "High",
+          "due_date": "2026-02-12",
+          "note": "Waiting for compute allocation"
+        },
+        {
+          "type": "Task",
+          "attributes": {},
+          "description": "Literature review on Flow Matching",
+          "status": "Done",
+          "priority": "Medium",
+          "due_date": "2026-01-15"
+        },
+        {
+          "type": "Task",
+          "attributes": {},
+          "description": "Weekly meeting prep: Slides on experiments",
+          "status": "Todo",
+          "priority": "High",
+          "due_date": "2026-02-10"
+        }
+      ],
+      "context_trace": [
+        {
+          "node_name": "Work",
+          "predicate": "atom(content =~ \"Work\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Work\") on Work (Score: 1.00)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > ToDoList_Version 1 > Work > TA: Intro to ML (CS480)",
+      "score": 0.999999999,
+      "node": {
+        "type": "Project",
+        "attributes": {},
+        "name": "TA: Intro to ML (CS480)",
+        "status": "Active",
+        "priority": "Medium"
+      },
+      "children": [
+        {
+          "type": "Task",
+          "attributes": {},
+          "description": "Grade midterm exams (Batch 1 of 3)",
+          "status": "Todo",
+          "priority": "Medium",
+          "due_date": "2026-02-14"
+        },
+        {
+          "type": "Task",
+          "attributes": {},
+          "description": "Hold office hours",
+          "status": "Done",
+          "priority": "Low",
+          "due_date": "2026-02-08"
+        }
+      ],
+      "context_trace": [
+        {
+          "node_name": "Work",
+          "predicate": "atom(content =~ \"Work\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Work\") on Work (Score: 1.00)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > ToDoList_Version 1 > Work > Probabilistic Graphical Models Assignment",
+      "score": 0.999999999,
+      "node": {
+        "type": "Project",
+        "attributes": {},
+        "name": "Probabilistic Graphical Models Assignment",
+        "status": "Active",
+        "priority": "High"
+      },
+      "children": [
+        {
+          "type": "Task",
+          "attributes": {},
+          "description": "Implement Gibbs Sampling",
+          "status": "Done",
+          "priority": "Medium",
+          "due_date": "2026-02-17"
+        },
+        {
+          "type": "Task",
+          "attributes": {},
+          "description": "Tune hyperparameters",
+          "status": "Todo",
+          "priority": "Medium",
+          "due_date": "2026-02-20"
+        }
+      ],
+      "context_trace": [
+        {
+          "node_name": "Work",
+          "predicate": "atom(content =~ \"Work\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Work\") on Work (Score: 1.00)"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total_steps": 4,
+    "total_scoring_calls": 1,
+    "matched_count": 4,
+    "execution_time_ms": 1.2445410247892141,
+    "has_score_fusion": true,
+    "num_nodes_before_filter": 4,
+    "num_nodes_after_filter": 4
+  }
+}

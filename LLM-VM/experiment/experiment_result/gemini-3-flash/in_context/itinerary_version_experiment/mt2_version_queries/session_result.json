@@ -1,0 +1,53 @@
+{
+  "session_id": "mt2_version_queries",
+  "queries": [
+    {
+      "query_id": "Query_001",
+      "user_query": "What was the most expensive restaurant before we cancelled them? Check the previous itinerary versions",
+      "selected_nodes": [
+        "Root > Itinerary_Version 1 > Day 2 > Alo Restaurant"
+      ],
+      "related_nodes": [
+        "Alo Restaurant"
+      ],
+      "downstream_task_result": {
+        "operation": "READ",
+        "success": true,
+        "version_used": 1,
+        "reasoning": "I checked the restaurant costs in Version 1 (the version before the 'Cheap Eats' budget update in Version 2). Alo Restaurant is the most expensive with an expected cost of CAD 300-400.",
+        "token_usage": {
+          "prompt_tokens": 32072,
+          "completion_tokens": 270,
+          "total_tokens": 32342
+        },
+        "error": null
+      },
+      "execution_time_ms": 2910.56
+    },
+    {
+      "query_id": "Query_002",
+      "user_query": "Where was the breakfast we cancelled? Check the previous itinerary versions",
+      "selected_nodes": [
+        "Root > Itinerary_Version 4 > Day 9 > Lady Marmalade"
+      ],
+      "related_nodes": [
+        "Lady Marmalade"
+      ],
+      "downstream_task_result": {
+        "operation": "READ",
+        "success": true,
+        "version_used": 4,
+        "reasoning": "The user asked to locate the breakfast that was cancelled (replaced by 'Sleep In' in version 5). I checked version 4 and found 'Lady Marmalade' on Day 9, which was the brunch/breakfast location replaced.",
+        "token_usage": {
+          "prompt_tokens": 32068,
+          "completion_tokens": 248,
+          "total_tokens": 32316
+        },
+        "error": null
+      },
+      "execution_time_ms": 2645.37
+    }
+  ],
+  "final_tree_version": 1,
+  "total_execution_time_ms": 5555.93
+}

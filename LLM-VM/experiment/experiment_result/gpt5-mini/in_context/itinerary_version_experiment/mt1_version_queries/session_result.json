@@ -1,0 +1,65 @@
+{
+  "session_id": "mt1_version_queries",
+  "queries": [
+    {
+      "query_id": "Query_001",
+      "user_query": "What was flight time before we updated it? Check the previous itinerary versions",
+      "selected_nodes": [
+        "Root > Itinerary_Version 1 > Day 10 > YYZ Departure",
+        "Root > Itinerary_Version 2 > Day 10 > YYZ Departure",
+        "Root > Itinerary_Version 3 > Day 10 > YYZ Departure",
+        "Root > Itinerary_Version 4 > Day 10 > YYZ Departure",
+        "Root > Itinerary_Version 5 > Day 10 > YYZ Departure"
+      ],
+      "related_nodes": [
+        "results > YYZ Departure",
+        "results > YYZ Departure",
+        "results > YYZ Departure",
+        "results > YYZ Departure",
+        "results > YYZ Departure"
+      ],
+      "downstream_task_result": {
+        "operation": "READ",
+        "success": true,
+        "version_used": 5,
+        "reasoning": "User asked for the flight time before it was updated; returned the YYZ Departure nodes from previous itinerary versions (Versions 1–5) to show the change (6:00 PM → 10:00 PM).",
+        "token_usage": {
+          "prompt_tokens": 28424,
+          "completion_tokens": 1258,
+          "total_tokens": 29682
+        },
+        "error": null
+      },
+      "execution_time_ms": 17389.44
+    },
+    {
+      "query_id": "Query_002",
+      "user_query": "What work events did we cancel? Check the previous itinerary versions",
+      "selected_nodes": [
+        "Root > Itinerary_Version 4 > Day 5 > Client Check-in Call",
+        "Root > Itinerary_Version 4 > Day 5 > Email Catch-up Block",
+        "Root > Itinerary_Version 4 > Day 5 > Networking Drinks"
+      ],
+      "related_nodes": [
+        "results > Client Check-in Call",
+        "results > Email Catch-up Block",
+        "results > Networking Drinks"
+      ],
+      "downstream_task_result": {
+        "operation": "READ",
+        "success": true,
+        "version_used": 5,
+        "reasoning": "Found work-related activities that were deleted in Itinerary_Version 5 (removed from Version 4 Day 5). Returning those nodes as they appeared previously.",
+        "token_usage": {
+          "prompt_tokens": 28422,
+          "completion_tokens": 1025,
+          "total_tokens": 29447
+        },
+        "error": null
+      },
+      "execution_time_ms": 14899.9
+    }
+  ],
+  "final_tree_version": 1,
+  "total_execution_time_ms": 32289.35
+}

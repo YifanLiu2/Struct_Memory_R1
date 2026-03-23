@@ -1,0 +1,194 @@
+{
+  "session_id": "mt3",
+  "queries": [
+    {
+      "query_id": "Query_001",
+      "user_query": "The workshop on Day 3 ends at 11am and then I have nothing until the AGO at noon. Add a coffee break in between. there's a good cafe near the gallery.",
+      "selected_nodes": [
+        "Root > Itinerary_Version 1 > Day 3"
+      ],
+      "related_nodes": [
+        "Day 3"
+      ],
+      "downstream_task_result": {
+        "operation": "CREATE",
+        "success": true,
+        "version_used": 1,
+        "reasoning": "Inserted a short coffee break (Restaurant) on Day 3 between the 11:00 AM end of the Stakeholder Presentation and the 12:00 PM Art Gallery of Ontario visit.",
+        "token_usage": {
+          "prompt_tokens": 7275,
+          "completion_tokens": 6306,
+          "total_tokens": 13581
+        },
+        "error": null
+      },
+      "execution_time_ms": 77941.4
+    },
+    {
+      "query_id": "Query_002",
+      "user_query": "I'd rather do the ROM than the AGO. Change the activity on Day 3 to the ROM.",
+      "selected_nodes": [
+        "Root > Itinerary_Version 2 > Day 3 > Art Gallery of Ontario"
+      ],
+      "related_nodes": [
+        "Day 3"
+      ],
+      "downstream_task_result": {
+        "operation": "UPDATE",
+        "success": true,
+        "version_used": 2,
+        "reasoning": "Replaced Day 3's 'Art Gallery of Ontario' POI with 'Royal Ontario Museum' POI content (user prefers ROM instead of AGO).",
+        "token_usage": {
+          "prompt_tokens": 12850,
+          "completion_tokens": 6547,
+          "total_tokens": 19397
+        },
+        "error": null
+      },
+      "execution_time_ms": 84474.65
+    },
+    {
+      "query_id": "Query_003",
+      "user_query": "My friend lives in Mississauga, about an hour from downtown. What days are without any work commitments or flights?",
+      "selected_nodes": [
+        "Root > Itinerary_Version 3 > Day 6",
+        "Root > Itinerary_Version 3 > Day 7",
+        "Root > Itinerary_Version 3 > Day 8",
+        "Root > Itinerary_Version 3 > Day 9"
+      ],
+      "related_nodes": [
+        "results > Day 6",
+        "results > Day 6 > Sunset Grill",
+        "results > Day 6 > Toronto Islands Ferry and Bike Ride",
+        "results > Day 6 > Island Cafe Picnic Lunch",
+        "results > Day 6 > Ripley's Aquarium",
+        "results > Day 6 > The Keg Steakhouse",
+        "results > Day 7",
+        "results > Day 7 > Fran's Restaurant",
+        "results > Day 7 > Royal Ontario Museum",
+        "results > Day 7 > Eataly Toronto",
+        "results > Day 7 > Distillery District Walk",
+        "results > Day 7 > Cluny Bistro",
+        "results > Day 8",
+        "results > Day 8 > Niagara Falls Day Trip",
+        "results > Day 8 > Elements on the Falls",
+        "results > Day 8 > Antler Kitchen",
+        "results > Day 9",
+        "results > Day 9 > Lady Marmalade",
+        "results > Day 9 > Eaton Centre Shopping",
+        "results > Day 9 > Urban Eatery Food Court",
+        "results > Day 9 > Queen Street West Boutiques",
+        "results > Day 9 > Bar Isabel"
+      ],
+      "downstream_task_result": {
+        "operation": "READ",
+        "success": true,
+        "version_used": 3,
+        "reasoning": "Found Day nodes with no entries marked as work (expected_cost='Work') and no travel_method='Flight' — Days 6, 7, 8, and 9",
+        "token_usage": {
+          "prompt_tokens": 18431,
+          "completion_tokens": 3147,
+          "total_tokens": 21578
+        },
+        "error": null
+      },
+      "execution_time_ms": 45301.86
+    },
+    {
+      "query_id": "Query_004",
+      "user_query": "Bad news. my friend who was going to host me at Niagara just tested positive for COVID. I need to cancel the Niagara Falls trip.",
+      "selected_nodes": [
+        "Root > Itinerary_Version 3 > Day 8"
+      ],
+      "related_nodes": [
+        "Day"
+      ],
+      "downstream_task_result": {
+        "operation": "DELETE",
+        "success": true,
+        "version_used": 3,
+        "reasoning": "User asked to cancel the Niagara Falls trip; removed Day index=\"8\" (which contained the 'Niagara Falls Day Trip' POI and its associated restaurants) from Itinerary_Version 3.",
+        "token_usage": {
+          "prompt_tokens": 18435,
+          "completion_tokens": 6165,
+          "total_tokens": 24600
+        },
+        "error": null
+      },
+      "execution_time_ms": 133320.28
+    },
+    {
+      "query_id": "Query_005",
+      "user_query": "I'd like to end the first day with some live music. Add Pj O'Brien's to the end of Day 1.",
+      "selected_nodes": [
+        "Root > Itinerary_Version 4 > Day 1"
+      ],
+      "related_nodes": [
+        "Day",
+        "day"
+      ],
+      "downstream_task_result": {
+        "operation": "CREATE",
+        "success": true,
+        "version_used": 4,
+        "reasoning": "Inserted a new Restaurant node for 'Pj O'Brien's' at the end of Day index=\"1\" to provide live music to end the first day.",
+        "token_usage": {
+          "prompt_tokens": 23670,
+          "completion_tokens": 6071,
+          "total_tokens": 29741
+        },
+        "error": null
+      },
+      "execution_time_ms": 88223.58
+    },
+    {
+      "query_id": "Query_006",
+      "user_query": "My departure flight got pushed back to 10pm. Update my day 10 to reflect this.",
+      "selected_nodes": [
+        "Root > Itinerary_Version 5 > Day 10 > YYZ Departure"
+      ],
+      "related_nodes": [
+        "Day 10"
+      ],
+      "downstream_task_result": {
+        "operation": "UPDATE",
+        "success": true,
+        "version_used": 5,
+        "reasoning": "User changed departure time — updated Day 10 YYZ Departure time_block from '6:00 PM' to '10:00 PM'",
+        "token_usage": {
+          "prompt_tokens": 28998,
+          "completion_tokens": 6071,
+          "total_tokens": 35069
+        },
+        "error": null
+      },
+      "execution_time_ms": 83062.21
+    },
+    {
+      "query_id": "Query_007",
+      "user_query": "On the day we go to the ROM, cancel the breakfast.",
+      "selected_nodes": [
+        "Root > Itinerary_Version 6 > Day 3 > Hotel Continental Breakfast"
+      ],
+      "related_nodes": [
+        "Day",
+        "day"
+      ],
+      "downstream_task_result": {
+        "operation": "DELETE",
+        "success": true,
+        "version_used": 6,
+        "reasoning": "Removed the breakfast Restaurant 'Hotel Continental Breakfast' from Day index=\"3\", which is the day containing the Royal Ontario Museum POI.",
+        "token_usage": {
+          "prompt_tokens": 34319,
+          "completion_tokens": 5949,
+          "total_tokens": 40268
+        },
+        "error": null
+      },
+      "execution_time_ms": 73095.86
+    }
+  ],
+  "final_tree_version": 7,
+  "total_execution_time_ms": 585419.85
+}

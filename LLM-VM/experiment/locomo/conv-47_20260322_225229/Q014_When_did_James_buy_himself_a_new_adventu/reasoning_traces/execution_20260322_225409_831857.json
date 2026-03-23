@@ -1,0 +1,6145 @@
+{
+  "timestamp": "20260322_225409_831857",
+  "query": "/Root/Conversation_Version[1]/Speaker[atom(content =~ \"James\")]/Session[atom(content =~ \"buy adventure book\")]/Observation[atom(content =~ \"buy new adventure book\")]",
+  "canonical_query": "/Root/Conversation_Version[1]/Speaker[content =~ \"James\"]/Session[content =~ \"buy adventure book\"]/Observation[content =~ \"buy new adventure book\"]",
+  "data_file": "tree.xml",
+  "execution_time_ms": 842.3739999998361,
+  "parsed_ast": {
+    "steps": [
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Root",
+            "span": {
+              "start": 1,
+              "end": 5
+            }
+          },
+          "span": {
+            "start": 1,
+            "end": 5
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Conversation_Version",
+            "index": {
+              "start": 1,
+              "type": "single",
+              "span": {
+                "start": 26,
+                "end": 29
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 29
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 29
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Speaker",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "James",
+              "operator": "=~",
+              "span": {
+                "start": 38,
+                "end": 62
+              }
+            },
+            "predicate_str": "atom(content =~ \"James\")",
+            "span": {
+              "start": 30,
+              "end": 63
+            }
+          },
+          "span": {
+            "start": 30,
+            "end": 63
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Session",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "buy adventure book",
+              "operator": "=~",
+              "span": {
+                "start": 72,
+                "end": 109
+              }
+            },
+            "predicate_str": "atom(content =~ \"buy adventure book\")",
+            "span": {
+              "start": 64,
+              "end": 110
+            }
+          },
+          "span": {
+            "start": 64,
+            "end": 110
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Observation",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "buy new adventure book",
+              "operator": "=~",
+              "span": {
+                "start": 123,
+                "end": 164
+              }
+            },
+            "predicate_str": "atom(content =~ \"buy new adventure book\")",
+            "span": {
+              "start": 111,
+              "end": 165
+            }
+          },
+          "span": {
+            "start": 111,
+            "end": 165
+          }
+        }
+      }
+    ],
+    "global_index": null
+  },
+  "parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: Conversation_Version[1]\n├── Step 2: Speaker[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"James\")\n├── Step 3: Session[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"buy adventure book\")\n└── Step 4: Observation[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"buy new adventure book\")",
+  "canonical_parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: Conversation_Version[1]\n├── Step 2: Speaker[content =~ \"James\"]\n├── Step 3: Session[content =~ \"buy adventure book\"]\n└── Step 4: Observation[content =~ \"buy new adventure book\"]",
+  "execution_log": [
+    "[20260322_225409_831857] Executing query: /Root/Conversation_Version[1]/Speaker[atom(content =~ \"James\")]/Session[atom(content =~ \"buy adventure book\")]/Observation[atom(content =~ \"buy new adventure book\")]",
+    "Data file: tree.xml",
+    "Parsed steps: [Root, Conversation_Version[1], Speaker[atom(content =~ \"James\")], Session[atom(content =~ \"buy adventure book\")], Observation[atom(content =~ \"buy new adventure book\")]]",
+    "",
+    "Query AST:\n├── Step 0: Root\n├── Step 1: Conversation_Version[1]\n├── Step 2: Speaker[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"James\")\n├── Step 3: Session[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"buy adventure book\")\n└── Step 4: Observation[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"buy new adventure book\")",
+    "\n--- Step 1: Root ---",
+    "Matched Root root",
+    "\n--- Step 2: Conversation_Version[1] ---",
+    "Selected node at index 1 (0-based: 0)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 3: Speaker[atom(content =~ \"James\")] ---",
+    "Scoring predicate: atom(content =~ \"James\") (atomic values: ['James'])",
+    "  Node 0 (James): score = 1.0000 (exact match)",
+    "  Node 1 (John): score = 0.0000 (exact match)",
+    "  Exact attribute match on @name: 1/2 nodes matched",
+    "  Top-K Pruning: Reduced from 2 to 1 nodes (K=5)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 4: Session[atom(content =~ \"buy adventure book\")] ---",
+    "Scoring predicate: atom(content =~ \"buy adventure book\") (atomic values: ['buy adventure book'])",
+    "  Collected 31 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 31 total descriptions",
+    "  Node 0 (Session): score = 0.0752",
+    "  Node 1 (Session): score = 0.1695",
+    "  Node 2 (Session): score = 0.2902",
+    "  Node 3 (Session): score = 0.2767",
+    "  Node 4 (Session): score = 0.1479",
+    "  Node 5 (Session): score = 0.3954",
+    "  Node 6 (Session): score = 0.2215",
+    "  Node 7 (Session): score = 0.3421",
+    "  Node 8 (Session): score = 0.2833",
+    "  Node 9 (Session): score = 0.3419",
+    "  Node 10 (Session): score = 0.3795",
+    "  Node 11 (Session): score = 0.0686",
+    "  Node 12 (Session): score = 0.1216",
+    "  Node 13 (Session): score = 0.3839",
+    "  Node 14 (Session): score = 0.2541",
+    "  Node 15 (Session): score = 0.4621",
+    "  Node 16 (Session): score = 0.0775",
+    "  Node 17 (Session): score = 0.0932",
+    "  Node 18 (Session): score = 0.2312",
+    "  Node 19 (Session): score = 0.0401",
+    "  Node 20 (Session): score = 0.6101",
+    "  Node 21 (Session): score = 0.1746",
+    "  Node 22 (Session): score = 0.0083",
+    "  Node 23 (Session): score = 0.2021",
+    "  Node 24 (Session): score = 0.1986",
+    "  Node 25 (Session): score = 0.1832",
+    "  Node 26 (Session): score = 0.2552",
+    "  Node 27 (Session): score = 0.0644",
+    "  Node 28 (Session): score = 0.0270",
+    "  Node 29 (Session): score = 0.1200",
+    "  Node 30 (Session): score = 0.0289",
+    "  Top-K Pruning: Reduced from 31 to 5 nodes (K=5)",
+    "After step: 5 nodes remaining",
+    "\n--- Step 5: Observation[atom(content =~ \"buy new adventure book\")] ---",
+    "Scoring predicate: atom(content =~ \"buy new adventure book\") (atomic values: ['buy new adventure book'])",
+    "  Collected 3 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 3 total descriptions",
+    "  Node 0 (Observation): score = 0.0094",
+    "  Node 1 (Observation): score = 0.0009",
+    "  Node 2 (Observation): score = 0.0126",
+    "Scoring predicate: atom(content =~ \"buy new adventure book\") (atomic values: ['buy new adventure book'])",
+    "  Collected 5 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 5 total descriptions",
+    "  Node 0 (Observation): score = 0.0012",
+    "  Node 1 (Observation): score = 0.0637",
+    "  Node 2 (Observation): score = 0.1231",
+    "  Node 3 (Observation): score = 0.0682",
+    "  Node 4 (Observation): score = 0.0115",
+    "Scoring predicate: atom(content =~ \"buy new adventure book\") (atomic values: ['buy new adventure book'])",
+    "  Collected 4 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 4 total descriptions",
+    "  Node 0 (Observation): score = 0.0020",
+    "  Node 1 (Observation): score = 0.0379",
+    "  Node 2 (Observation): score = 0.0232",
+    "  Node 3 (Observation): score = 0.1144",
+    "Scoring predicate: atom(content =~ \"buy new adventure book\") (atomic values: ['buy new adventure book'])",
+    "  Collected 7 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 7 total descriptions",
+    "  Node 0 (Observation): score = 0.0306",
+    "  Node 1 (Observation): score = 0.0008",
+    "  Node 2 (Observation): score = 0.0106",
+    "  Node 3 (Observation): score = 0.0052",
+    "  Node 4 (Observation): score = 0.0078",
+    "  Node 5 (Observation): score = 0.0017",
+    "  Node 6 (Observation): score = 0.0230",
+    "Scoring predicate: atom(content =~ \"buy new adventure book\") (atomic values: ['buy new adventure book'])",
+    "  Collected 4 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 4 total descriptions",
+    "  Node 0 (Observation): score = 0.0060",
+    "  Node 1 (Observation): score = 0.0016",
+    "  Node 2 (Observation): score = 0.0127",
+    "  Node 3 (Observation): score = 0.0036",
+    "  Top-K Pruning: Reduced from 23 to 4 nodes (K=5)",
+    "After step: 4 nodes remaining",
+    "\n=== Score Fusion ===",
+    "  Root > Conversation_Version 1 > James > Session 16 > Observation 3: product=0.1231 → score=0.1231",
+    "  Root > Conversation_Version 1 > James > Session 16 > Observation 4: product=0.0682 → score=0.0682",
+    "  Root > Conversation_Version 1 > James > Session 16 > Observation 2: product=0.0637 → score=0.0637",
+    "  Root > Conversation_Version 1 > James > Session 6 > Observation 4: product=0.1144 → score=0.1144",
+    "  Parent propagation: Root > Conversation_Version 1 > James > Session 16 > Observation 3: own=0.1231 × parent=0.4621 → 0.0569",
+    "  Parent propagation: Root > Conversation_Version 1 > James > Session 16 > Observation 4: own=0.0682 × parent=0.4621 → 0.0315",
+    "  Parent propagation: Root > Conversation_Version 1 > James > Session 16 > Observation 2: own=0.0637 × parent=0.4621 → 0.0294",
+    "  Parent propagation: Root > Conversation_Version 1 > James > Session 6 > Observation 4: own=0.1144 × parent=0.3954 → 0.0452",
+    "\n=== Parent Score Propagation: 4 nodes updated ===",
+    "\n=== Threshold Filtering (threshold=0.05) ===",
+    "  Filtered: 4 → 1 nodes",
+    "\n=== Final Filtering (top_k=10) ===",
+    "  After top_k: 1 → 1 nodes",
+    "\nFinal result: 1 nodes (sorted by score)",
+    "⏱️  Query execution time: 842.37ms"
+  ],
+  "traversal_steps": [
+    {
+      "step_index": 0,
+      "step_query": "Root",
+      "action": "root_match",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "type": "root"
+        }
+      ],
+      "nodes_after": [
+        {
+          "type": "Root",
+          "path": "Root"
+        }
+      ],
+      "details": {
+        "matched": true
+      }
+    },
+    {
+      "step_index": 1,
+      "step_query": "Conversation_Version[1]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root",
+          "name": "Root",
+          "type": "Root",
+          "score": 1.0,
+          "node_id": 3001249235808
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Conversation_Version 1",
+          "name": "Conversation_Version 1",
+          "type": "Conversation_Version",
+          "score": 1.0,
+          "node_id": 3001249240848
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Conversation_Version",
+            "index": {
+              "start": 1,
+              "type": "single",
+              "span": {
+                "start": 26,
+                "end": 29
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 29
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 29
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 2,
+      "step_query": "Speaker[atom(content =~ \"James\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root > Conversation_Version 1",
+          "name": "Conversation_Version 1",
+          "type": "Conversation_Version",
+          "score": 1.0,
+          "node_id": 3001249240848
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Conversation_Version 1 > James",
+          "name": "James",
+          "type": "Speaker",
+          "score": 1.0,
+          "node_id": 3001249243888
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Speaker",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "James",
+              "operator": "=~",
+              "span": {
+                "start": 38,
+                "end": 62
+              }
+            },
+            "predicate_str": "atom(content =~ \"James\")",
+            "span": {
+              "start": 30,
+              "end": 63
+            }
+          },
+          "span": {
+            "start": 30,
+            "end": 63
+          }
+        },
+        "found_count": 2,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"James\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "James",
+              "operator": "=~",
+              "span": {
+                "start": 38,
+                "end": 62
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 3001249243888,
+                "node_name": "James",
+                "node_type": "Speaker",
+                "final_score": 1.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "James",
+                    "query_value": "James",
+                    "matched": true,
+                    "score": 1.0
+                  }
+                ]
+              },
+              {
+                "node_idx": 1,
+                "node_id": 3001249032736,
+                "node_name": "John",
+                "node_type": "Speaker",
+                "final_score": 0.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "John",
+                    "query_value": "James",
+                    "matched": false,
+                    "score": 0.0
+                  }
+                ]
+              }
+            ],
+            "batch_scoring": {
+              "exact_match": true,
+              "matched_attribute": "name",
+              "query_value": "James",
+              "matched_count": 1
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 0,
+                "score": 1.0,
+                "name": "James"
+              },
+              {
+                "idx": 1,
+                "score": 0.0,
+                "name": "John"
+              }
+            ]
+          }
+        ],
+        "pruned_count": 1
+      }
+    },
+    {
+      "step_index": 3,
+      "step_query": "Session[atom(content =~ \"buy adventure book\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 5,
+      "nodes_before": [
+        {
+          "path": "Root > Conversation_Version 1 > James",
+          "name": "James",
+          "type": "Speaker",
+          "score": 1.0,
+          "node_id": 3001249243888
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Conversation_Version 1 > James > Session 21",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.6101160645484924,
+          "node_id": 3001250379424
+        },
+        {
+          "path": "Root > Conversation_Version 1 > James > Session 16",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.4621005654335022,
+          "node_id": 3001249303664
+        },
+        {
+          "path": "Root > Conversation_Version 1 > James > Session 6",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.3953743577003479,
+          "node_id": 3001249382624
+        },
+        {
+          "path": "Root > Conversation_Version 1 > James > Session 14",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.38388076424598694,
+          "node_id": 3001249308464
+        },
+        {
+          "path": "Root > Conversation_Version 1 > James > Session 11",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.3795049786567688,
+          "node_id": 3001249386624
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Session",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "buy adventure book",
+              "operator": "=~",
+              "span": {
+                "start": 72,
+                "end": 109
+              }
+            },
+            "predicate_str": "atom(content =~ \"buy adventure book\")",
+            "span": {
+              "start": 64,
+              "end": 110
+            }
+          },
+          "span": {
+            "start": 64,
+            "end": 110
+          }
+        },
+        "found_count": 31,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"buy adventure book\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "buy adventure book",
+              "operator": "=~",
+              "span": {
+                "start": 72,
+                "end": 109
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 3001249235328,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.075230173766613,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.075230173766613
+              },
+              {
+                "node_idx": 1,
+                "node_id": 3001249388544,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.1694711148738861,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.1694711148738861
+              },
+              {
+                "node_idx": 2,
+                "node_id": 3001249388064,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.290174275636673,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.290174275636673
+              },
+              {
+                "node_idx": 3,
+                "node_id": 3001249390944,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.27670979499816895,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.27670979499816895
+              },
+              {
+                "node_idx": 4,
+                "node_id": 3001249383424,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.14789238572120667,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.14789238572120667
+              },
+              {
+                "node_idx": 5,
+                "node_id": 3001249382624,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.3953743577003479,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.3953743577003479
+              },
+              {
+                "node_idx": 6,
+                "node_id": 3001249386544,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.2215190827846527,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.2215190827846527
+              },
+              {
+                "node_idx": 7,
+                "node_id": 3001249392464,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.3420509994029999,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.3420509994029999
+              },
+              {
+                "node_idx": 8,
+                "node_id": 3001249397024,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.28331929445266724,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.28331929445266724
+              },
+              {
+                "node_idx": 9,
+                "node_id": 3001249393984,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.34190991520881653,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.34190991520881653
+              },
+              {
+                "node_idx": 10,
+                "node_id": 3001249386624,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.3795049786567688,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.3795049786567688
+              },
+              {
+                "node_idx": 11,
+                "node_id": 3001249309744,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.06857000291347504,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.06857000291347504
+              },
+              {
+                "node_idx": 12,
+                "node_id": 3001249302864,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.12164121121168137,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.12164121121168137
+              },
+              {
+                "node_idx": 13,
+                "node_id": 3001249308464,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.38388076424598694,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.38388076424598694
+              },
+              {
+                "node_idx": 14,
+                "node_id": 3001249316464,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.2541149854660034,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.2541149854660034
+              },
+              {
+                "node_idx": 15,
+                "node_id": 3001249303664,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.4621005654335022,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.4621005654335022
+              },
+              {
+                "node_idx": 16,
+                "node_id": 3001250403712,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.07745645195245743,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.07745645195245743
+              },
+              {
+                "node_idx": 17,
+                "node_id": 3001250401072,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.09315546602010727,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.09315546602010727
+              },
+              {
+                "node_idx": 18,
+                "node_id": 3001250400912,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.2312057763338089,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.2312057763338089
+              },
+              {
+                "node_idx": 19,
+                "node_id": 3001250378304,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.0401083379983902,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0401083379983902
+              },
+              {
+                "node_idx": 20,
+                "node_id": 3001250379424,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.6101160645484924,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.6101160645484924
+              },
+              {
+                "node_idx": 21,
+                "node_id": 3001250377184,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.17455488443374634,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.17455488443374634
+              },
+              {
+                "node_idx": 22,
+                "node_id": 3001250376304,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.008342158049345016,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.008342158049345016
+              },
+              {
+                "node_idx": 23,
+                "node_id": 3001250374544,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.20214030146598816,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.20214030146598816
+              },
+              {
+                "node_idx": 24,
+                "node_id": 3001250380464,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.1985771507024765,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.1985771507024765
+              },
+              {
+                "node_idx": 25,
+                "node_id": 3001250379504,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.18315109610557556,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.18315109610557556
+              },
+              {
+                "node_idx": 26,
+                "node_id": 3001250372784,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.2551504671573639,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.2551504671573639
+              },
+              {
+                "node_idx": 27,
+                "node_id": 3001212915120,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.0643552765250206,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0643552765250206
+              },
+              {
+                "node_idx": 28,
+                "node_id": 3001249032816,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.026968399062752724,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.026968399062752724
+              },
+              {
+                "node_idx": 29,
+                "node_id": 3001249032336,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.12003736197948456,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.12003736197948456
+              },
+              {
+                "node_idx": 30,
+                "node_id": 3001249035376,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.028871634975075722,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.028871634975075722
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "buy adventure book"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "buy adventure book",
+                  "num_descriptions": 31,
+                  "call_time_ms": 610.95
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 31
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 20,
+                "score": 0.6101160645484924,
+                "name": "Session"
+              },
+              {
+                "idx": 15,
+                "score": 0.4621005654335022,
+                "name": "Session"
+              },
+              {
+                "idx": 5,
+                "score": 0.3953743577003479,
+                "name": "Session"
+              },
+              {
+                "idx": 13,
+                "score": 0.38388076424598694,
+                "name": "Session"
+              },
+              {
+                "idx": 10,
+                "score": 0.3795049786567688,
+                "name": "Session"
+              },
+              {
+                "idx": 7,
+                "score": 0.3420509994029999,
+                "name": "Session"
+              },
+              {
+                "idx": 9,
+                "score": 0.34190991520881653,
+                "name": "Session"
+              },
+              {
+                "idx": 2,
+                "score": 0.290174275636673,
+                "name": "Session"
+              },
+              {
+                "idx": 8,
+                "score": 0.28331929445266724,
+                "name": "Session"
+              },
+              {
+                "idx": 3,
+                "score": 0.27670979499816895,
+                "name": "Session"
+              },
+              {
+                "idx": 26,
+                "score": 0.2551504671573639,
+                "name": "Session"
+              },
+              {
+                "idx": 14,
+                "score": 0.2541149854660034,
+                "name": "Session"
+              },
+              {
+                "idx": 18,
+                "score": 0.2312057763338089,
+                "name": "Session"
+              },
+              {
+                "idx": 6,
+                "score": 0.2215190827846527,
+                "name": "Session"
+              },
+              {
+                "idx": 23,
+                "score": 0.20214030146598816,
+                "name": "Session"
+              },
+              {
+                "idx": 24,
+                "score": 0.1985771507024765,
+                "name": "Session"
+              },
+              {
+                "idx": 25,
+                "score": 0.18315109610557556,
+                "name": "Session"
+              },
+              {
+                "idx": 21,
+                "score": 0.17455488443374634,
+                "name": "Session"
+              },
+              {
+                "idx": 1,
+                "score": 0.1694711148738861,
+                "name": "Session"
+              },
+              {
+                "idx": 4,
+                "score": 0.14789238572120667,
+                "name": "Session"
+              },
+              {
+                "idx": 12,
+                "score": 0.12164121121168137,
+                "name": "Session"
+              },
+              {
+                "idx": 29,
+                "score": 0.12003736197948456,
+                "name": "Session"
+              },
+              {
+                "idx": 17,
+                "score": 0.09315546602010727,
+                "name": "Session"
+              },
+              {
+                "idx": 16,
+                "score": 0.07745645195245743,
+                "name": "Session"
+              },
+              {
+                "idx": 0,
+                "score": 0.075230173766613,
+                "name": "Session"
+              },
+              {
+                "idx": 11,
+                "score": 0.06857000291347504,
+                "name": "Session"
+              },
+              {
+                "idx": 27,
+                "score": 0.0643552765250206,
+                "name": "Session"
+              },
+              {
+                "idx": 19,
+                "score": 0.0401083379983902,
+                "name": "Session"
+              },
+              {
+                "idx": 30,
+                "score": 0.028871634975075722,
+                "name": "Session"
+              },
+              {
+                "idx": 28,
+                "score": 0.026968399062752724,
+                "name": "Session"
+              },
+              {
+                "idx": 22,
+                "score": 0.008342158049345016,
+                "name": "Session"
+              }
+            ]
+          }
+        ],
+        "pruned_count": 26
+      }
+    },
+    {
+      "step_index": 4,
+      "step_query": "Observation[atom(content =~ \"buy new adventure book\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 5,
+      "nodes_after_count": 4,
+      "nodes_before": [
+        {
+          "path": "Root > Conversation_Version 1 > James > Session 21",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.6101160645484924,
+          "node_id": 3001250379424
+        },
+        {
+          "path": "Root > Conversation_Version 1 > James > Session 16",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.4621005654335022,
+          "node_id": 3001249303664
+        },
+        {
+          "path": "Root > Conversation_Version 1 > James > Session 6",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.3953743577003479,
+          "node_id": 3001249382624
+        },
+        {
+          "path": "Root > Conversation_Version 1 > James > Session 14",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.38388076424598694,
+          "node_id": 3001249308464
+        },
+        {
+          "path": "Root > Conversation_Version 1 > James > Session 11",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.3795049786567688,
+          "node_id": 3001249386624
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Conversation_Version 1 > James > Session 16 > Observation 3",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.12306587398052216,
+          "node_id": 3001222276144
+        },
+        {
+          "path": "Root > Conversation_Version 1 > James > Session 16 > Observation 4",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.06820708513259888,
+          "node_id": 3001250412832
+        },
+        {
+          "path": "Root > Conversation_Version 1 > James > Session 16 > Observation 2",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.06372933089733124,
+          "node_id": 3001249312304
+        },
+        {
+          "path": "Root > Conversation_Version 1 > James > Session 6 > Observation 4",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.11436212062835693,
+          "node_id": 3001249387984
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Observation",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "buy new adventure book",
+              "operator": "=~",
+              "span": {
+                "start": 123,
+                "end": 164
+              }
+            },
+            "predicate_str": "atom(content =~ \"buy new adventure book\")",
+            "span": {
+              "start": 111,
+              "end": 165
+            }
+          },
+          "span": {
+            "start": 111,
+            "end": 165
+          }
+        },
+        "found_count": 23,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"buy new adventure book\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "buy new adventure book",
+              "operator": "=~",
+              "span": {
+                "start": 123,
+                "end": 164
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 3001250378624,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy new adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 123,
+                        "end": 164
+                      }
+                    },
+                    "score": 0.009356752038002014,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.009356752038002014
+              },
+              {
+                "node_idx": 1,
+                "node_id": 3001250380864,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy new adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 123,
+                        "end": 164
+                      }
+                    },
+                    "score": 0.0009460002183914185,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0009460002183914185
+              },
+              {
+                "node_idx": 2,
+                "node_id": 3001250376064,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy new adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 123,
+                        "end": 164
+                      }
+                    },
+                    "score": 0.012603068724274635,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.012603068724274635
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "buy new adventure book"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "buy new adventure book",
+                  "num_descriptions": 3,
+                  "call_time_ms": 35.73
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 3
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 2,
+                "score": 0.012603068724274635,
+                "name": "Observation"
+              },
+              {
+                "idx": 0,
+                "score": 0.009356752038002014,
+                "name": "Observation"
+              },
+              {
+                "idx": 1,
+                "score": 0.0009460002183914185,
+                "name": "Observation"
+              }
+            ]
+          },
+          {
+            "predicate": "atom(content =~ \"buy new adventure book\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "buy new adventure book",
+              "operator": "=~",
+              "span": {
+                "start": 123,
+                "end": 164
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 3001249305424,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy new adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 123,
+                        "end": 164
+                      }
+                    },
+                    "score": 0.0011826622067019343,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0011826622067019343
+              },
+              {
+                "node_idx": 1,
+                "node_id": 3001249312304,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy new adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 123,
+                        "end": 164
+                      }
+                    },
+                    "score": 0.06372933089733124,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.06372933089733124
+              },
+              {
+                "node_idx": 2,
+                "node_id": 3001222276144,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy new adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 123,
+                        "end": 164
+                      }
+                    },
+                    "score": 0.12306587398052216,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.12306587398052216
+              },
+              {
+                "node_idx": 3,
+                "node_id": 3001250412832,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy new adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 123,
+                        "end": 164
+                      }
+                    },
+                    "score": 0.06820708513259888,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.06820708513259888
+              },
+              {
+                "node_idx": 4,
+                "node_id": 3001250400032,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy new adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 123,
+                        "end": 164
+                      }
+                    },
+                    "score": 0.011540284380316734,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.011540284380316734
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "buy new adventure book"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "buy new adventure book",
+                  "num_descriptions": 5,
+                  "call_time_ms": 48.16
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 5
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 2,
+                "score": 0.12306587398052216,
+                "name": "Observation"
+              },
+              {
+                "idx": 3,
+                "score": 0.06820708513259888,
+                "name": "Observation"
+              },
+              {
+                "idx": 1,
+                "score": 0.06372933089733124,
+                "name": "Observation"
+              },
+              {
+                "idx": 4,
+                "score": 0.011540284380316734,
+                "name": "Observation"
+              },
+              {
+                "idx": 0,
+                "score": 0.0011826622067019343,
+                "name": "Observation"
+              }
+            ]
+          },
+          {
+            "predicate": "atom(content =~ \"buy new adventure book\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "buy new adventure book",
+              "operator": "=~",
+              "span": {
+                "start": 123,
+                "end": 164
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 3001249382464,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy new adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 123,
+                        "end": 164
+                      }
+                    },
+                    "score": 0.001972874626517296,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.001972874626517296
+              },
+              {
+                "node_idx": 1,
+                "node_id": 3001249389664,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy new adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 123,
+                        "end": 164
+                      }
+                    },
+                    "score": 0.03788246214389801,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.03788246214389801
+              },
+              {
+                "node_idx": 2,
+                "node_id": 3001249395424,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy new adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 123,
+                        "end": 164
+                      }
+                    },
+                    "score": 0.023193202912807465,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.023193202912807465
+              },
+              {
+                "node_idx": 3,
+                "node_id": 3001249387984,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy new adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 123,
+                        "end": 164
+                      }
+                    },
+                    "score": 0.11436212062835693,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.11436212062835693
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "buy new adventure book"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "buy new adventure book",
+                  "num_descriptions": 4,
+                  "call_time_ms": 44.38
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 4
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 3,
+                "score": 0.11436212062835693,
+                "name": "Observation"
+              },
+              {
+                "idx": 1,
+                "score": 0.03788246214389801,
+                "name": "Observation"
+              },
+              {
+                "idx": 2,
+                "score": 0.023193202912807465,
+                "name": "Observation"
+              },
+              {
+                "idx": 0,
+                "score": 0.001972874626517296,
+                "name": "Observation"
+              }
+            ]
+          },
+          {
+            "predicate": "atom(content =~ \"buy new adventure book\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "buy new adventure book",
+              "operator": "=~",
+              "span": {
+                "start": 123,
+                "end": 164
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 3001249307504,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy new adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 123,
+                        "end": 164
+                      }
+                    },
+                    "score": 0.03059629537165165,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.03059629537165165
+              },
+              {
+                "node_idx": 1,
+                "node_id": 3001249314224,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy new adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 123,
+                        "end": 164
+                      }
+                    },
+                    "score": 0.0008289815741591156,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0008289815741591156
+              },
+              {
+                "node_idx": 2,
+                "node_id": 3001249314544,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy new adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 123,
+                        "end": 164
+                      }
+                    },
+                    "score": 0.010631917044520378,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.010631917044520378
+              },
+              {
+                "node_idx": 3,
+                "node_id": 3001249308624,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy new adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 123,
+                        "end": 164
+                      }
+                    },
+                    "score": 0.005181506741791964,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.005181506741791964
+              },
+              {
+                "node_idx": 4,
+                "node_id": 3001249312624,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy new adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 123,
+                        "end": 164
+                      }
+                    },
+                    "score": 0.007750911638140678,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.007750911638140678
+              },
+              {
+                "node_idx": 5,
+                "node_id": 3001249303984,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy new adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 123,
+                        "end": 164
+                      }
+                    },
+                    "score": 0.0017072863411158323,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0017072863411158323
+              },
+              {
+                "node_idx": 6,
+                "node_id": 3001249315344,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy new adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 123,
+                        "end": 164
+                      }
+                    },
+                    "score": 0.022997749969363213,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.022997749969363213
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "buy new adventure book"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "buy new adventure book",
+                  "num_descriptions": 7,
+                  "call_time_ms": 56.05
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 7
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 0,
+                "score": 0.03059629537165165,
+                "name": "Observation"
+              },
+              {
+                "idx": 6,
+                "score": 0.022997749969363213,
+                "name": "Observation"
+              },
+              {
+                "idx": 2,
+                "score": 0.010631917044520378,
+                "name": "Observation"
+              },
+              {
+                "idx": 4,
+                "score": 0.007750911638140678,
+                "name": "Observation"
+              },
+              {
+                "idx": 3,
+                "score": 0.005181506741791964,
+                "name": "Observation"
+              },
+              {
+                "idx": 5,
+                "score": 0.0017072863411158323,
+                "name": "Observation"
+              },
+              {
+                "idx": 1,
+                "score": 0.0008289815741591156,
+                "name": "Observation"
+              }
+            ]
+          },
+          {
+            "predicate": "atom(content =~ \"buy new adventure book\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "buy new adventure book",
+              "operator": "=~",
+              "span": {
+                "start": 123,
+                "end": 164
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 3001249384704,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy new adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 123,
+                        "end": 164
+                      }
+                    },
+                    "score": 0.006040641106665134,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.006040641106665134
+              },
+              {
+                "node_idx": 1,
+                "node_id": 3001249383984,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy new adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 123,
+                        "end": 164
+                      }
+                    },
+                    "score": 0.0016187508590519428,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0016187508590519428
+              },
+              {
+                "node_idx": 2,
+                "node_id": 3001249386784,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy new adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 123,
+                        "end": 164
+                      }
+                    },
+                    "score": 0.01274884957820177,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.01274884957820177
+              },
+              {
+                "node_idx": 3,
+                "node_id": 3001212649536,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "buy new adventure book",
+                      "operator": "=~",
+                      "span": {
+                        "start": 123,
+                        "end": 164
+                      }
+                    },
+                    "score": 0.003592552850022912,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.003592552850022912
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "buy new adventure book"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "buy new adventure book",
+                  "num_descriptions": 4,
+                  "call_time_ms": 44.66
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 4
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 2,
+                "score": 0.01274884957820177,
+                "name": "Observation"
+              },
+              {
+                "idx": 0,
+                "score": 0.006040641106665134,
+                "name": "Observation"
+              },
+              {
+                "idx": 3,
+                "score": 0.003592552850022912,
+                "name": "Observation"
+              },
+              {
+                "idx": 1,
+                "score": 0.0016187508590519428,
+                "name": "Observation"
+              }
+            ]
+          }
+        ],
+        "pruned_count": 19
+      }
+    }
+  ],
+  "scoring_traces": [
+    {
+      "predicate": "atom(content =~ \"James\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "James",
+        "operator": "=~",
+        "span": {
+          "start": 38,
+          "end": 62
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 3001249243888,
+          "node_name": "James",
+          "node_type": "Speaker",
+          "final_score": 1.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "James",
+              "query_value": "James",
+              "matched": true,
+              "score": 1.0
+            }
+          ]
+        },
+        {
+          "node_idx": 1,
+          "node_id": 3001249032736,
+          "node_name": "John",
+          "node_type": "Speaker",
+          "final_score": 0.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "John",
+              "query_value": "James",
+              "matched": false,
+              "score": 0.0
+            }
+          ]
+        }
+      ],
+      "batch_scoring": {
+        "exact_match": true,
+        "matched_attribute": "name",
+        "query_value": "James",
+        "matched_count": 1
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 0,
+          "score": 1.0,
+          "name": "James"
+        },
+        {
+          "idx": 1,
+          "score": 0.0,
+          "name": "John"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"buy adventure book\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "buy adventure book",
+        "operator": "=~",
+        "span": {
+          "start": 72,
+          "end": 109
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 3001249235328,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 109
+                }
+              },
+              "score": 0.075230173766613,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.075230173766613
+        },
+        {
+          "node_idx": 1,
+          "node_id": 3001249388544,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 109
+                }
+              },
+              "score": 0.1694711148738861,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.1694711148738861
+        },
+        {
+          "node_idx": 2,
+          "node_id": 3001249388064,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 109
+                }
+              },
+              "score": 0.290174275636673,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.290174275636673
+        },
+        {
+          "node_idx": 3,
+          "node_id": 3001249390944,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 109
+                }
+              },
+              "score": 0.27670979499816895,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.27670979499816895
+        },
+        {
+          "node_idx": 4,
+          "node_id": 3001249383424,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 109
+                }
+              },
+              "score": 0.14789238572120667,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.14789238572120667
+        },
+        {
+          "node_idx": 5,
+          "node_id": 3001249382624,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 109
+                }
+              },
+              "score": 0.3953743577003479,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.3953743577003479
+        },
+        {
+          "node_idx": 6,
+          "node_id": 3001249386544,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 109
+                }
+              },
+              "score": 0.2215190827846527,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.2215190827846527
+        },
+        {
+          "node_idx": 7,
+          "node_id": 3001249392464,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 109
+                }
+              },
+              "score": 0.3420509994029999,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.3420509994029999
+        },
+        {
+          "node_idx": 8,
+          "node_id": 3001249397024,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 109
+                }
+              },
+              "score": 0.28331929445266724,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.28331929445266724
+        },
+        {
+          "node_idx": 9,
+          "node_id": 3001249393984,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 109
+                }
+              },
+              "score": 0.34190991520881653,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.34190991520881653
+        },
+        {
+          "node_idx": 10,
+          "node_id": 3001249386624,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 109
+                }
+              },
+              "score": 0.3795049786567688,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.3795049786567688
+        },
+        {
+          "node_idx": 11,
+          "node_id": 3001249309744,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 109
+                }
+              },
+              "score": 0.06857000291347504,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.06857000291347504
+        },
+        {
+          "node_idx": 12,
+          "node_id": 3001249302864,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 109
+                }
+              },
+              "score": 0.12164121121168137,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.12164121121168137
+        },
+        {
+          "node_idx": 13,
+          "node_id": 3001249308464,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 109
+                }
+              },
+              "score": 0.38388076424598694,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.38388076424598694
+        },
+        {
+          "node_idx": 14,
+          "node_id": 3001249316464,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 109
+                }
+              },
+              "score": 0.2541149854660034,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.2541149854660034
+        },
+        {
+          "node_idx": 15,
+          "node_id": 3001249303664,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 109
+                }
+              },
+              "score": 0.4621005654335022,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.4621005654335022
+        },
+        {
+          "node_idx": 16,
+          "node_id": 3001250403712,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 109
+                }
+              },
+              "score": 0.07745645195245743,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.07745645195245743
+        },
+        {
+          "node_idx": 17,
+          "node_id": 3001250401072,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 109
+                }
+              },
+              "score": 0.09315546602010727,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.09315546602010727
+        },
+        {
+          "node_idx": 18,
+          "node_id": 3001250400912,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 109
+                }
+              },
+              "score": 0.2312057763338089,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.2312057763338089
+        },
+        {
+          "node_idx": 19,
+          "node_id": 3001250378304,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 109
+                }
+              },
+              "score": 0.0401083379983902,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0401083379983902
+        },
+        {
+          "node_idx": 20,
+          "node_id": 3001250379424,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 109
+                }
+              },
+              "score": 0.6101160645484924,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.6101160645484924
+        },
+        {
+          "node_idx": 21,
+          "node_id": 3001250377184,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 109
+                }
+              },
+              "score": 0.17455488443374634,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.17455488443374634
+        },
+        {
+          "node_idx": 22,
+          "node_id": 3001250376304,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 109
+                }
+              },
+              "score": 0.008342158049345016,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.008342158049345016
+        },
+        {
+          "node_idx": 23,
+          "node_id": 3001250374544,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 109
+                }
+              },
+              "score": 0.20214030146598816,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.20214030146598816
+        },
+        {
+          "node_idx": 24,
+          "node_id": 3001250380464,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 109
+                }
+              },
+              "score": 0.1985771507024765,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.1985771507024765
+        },
+        {
+          "node_idx": 25,
+          "node_id": 3001250379504,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 109
+                }
+              },
+              "score": 0.18315109610557556,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.18315109610557556
+        },
+        {
+          "node_idx": 26,
+          "node_id": 3001250372784,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 109
+                }
+              },
+              "score": 0.2551504671573639,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.2551504671573639
+        },
+        {
+          "node_idx": 27,
+          "node_id": 3001212915120,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 109
+                }
+              },
+              "score": 0.0643552765250206,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0643552765250206
+        },
+        {
+          "node_idx": 28,
+          "node_id": 3001249032816,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 109
+                }
+              },
+              "score": 0.026968399062752724,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.026968399062752724
+        },
+        {
+          "node_idx": 29,
+          "node_id": 3001249032336,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 109
+                }
+              },
+              "score": 0.12003736197948456,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.12003736197948456
+        },
+        {
+          "node_idx": 30,
+          "node_id": 3001249035376,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 109
+                }
+              },
+              "score": 0.028871634975075722,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.028871634975075722
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "buy adventure book"
+        ],
+        "per_value_stats": [
+          {
+            "value": "buy adventure book",
+            "num_descriptions": 31,
+            "call_time_ms": 610.95
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 31
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 20,
+          "score": 0.6101160645484924,
+          "name": "Session"
+        },
+        {
+          "idx": 15,
+          "score": 0.4621005654335022,
+          "name": "Session"
+        },
+        {
+          "idx": 5,
+          "score": 0.3953743577003479,
+          "name": "Session"
+        },
+        {
+          "idx": 13,
+          "score": 0.38388076424598694,
+          "name": "Session"
+        },
+        {
+          "idx": 10,
+          "score": 0.3795049786567688,
+          "name": "Session"
+        },
+        {
+          "idx": 7,
+          "score": 0.3420509994029999,
+          "name": "Session"
+        },
+        {
+          "idx": 9,
+          "score": 0.34190991520881653,
+          "name": "Session"
+        },
+        {
+          "idx": 2,
+          "score": 0.290174275636673,
+          "name": "Session"
+        },
+        {
+          "idx": 8,
+          "score": 0.28331929445266724,
+          "name": "Session"
+        },
+        {
+          "idx": 3,
+          "score": 0.27670979499816895,
+          "name": "Session"
+        },
+        {
+          "idx": 26,
+          "score": 0.2551504671573639,
+          "name": "Session"
+        },
+        {
+          "idx": 14,
+          "score": 0.2541149854660034,
+          "name": "Session"
+        },
+        {
+          "idx": 18,
+          "score": 0.2312057763338089,
+          "name": "Session"
+        },
+        {
+          "idx": 6,
+          "score": 0.2215190827846527,
+          "name": "Session"
+        },
+        {
+          "idx": 23,
+          "score": 0.20214030146598816,
+          "name": "Session"
+        },
+        {
+          "idx": 24,
+          "score": 0.1985771507024765,
+          "name": "Session"
+        },
+        {
+          "idx": 25,
+          "score": 0.18315109610557556,
+          "name": "Session"
+        },
+        {
+          "idx": 21,
+          "score": 0.17455488443374634,
+          "name": "Session"
+        },
+        {
+          "idx": 1,
+          "score": 0.1694711148738861,
+          "name": "Session"
+        },
+        {
+          "idx": 4,
+          "score": 0.14789238572120667,
+          "name": "Session"
+        },
+        {
+          "idx": 12,
+          "score": 0.12164121121168137,
+          "name": "Session"
+        },
+        {
+          "idx": 29,
+          "score": 0.12003736197948456,
+          "name": "Session"
+        },
+        {
+          "idx": 17,
+          "score": 0.09315546602010727,
+          "name": "Session"
+        },
+        {
+          "idx": 16,
+          "score": 0.07745645195245743,
+          "name": "Session"
+        },
+        {
+          "idx": 0,
+          "score": 0.075230173766613,
+          "name": "Session"
+        },
+        {
+          "idx": 11,
+          "score": 0.06857000291347504,
+          "name": "Session"
+        },
+        {
+          "idx": 27,
+          "score": 0.0643552765250206,
+          "name": "Session"
+        },
+        {
+          "idx": 19,
+          "score": 0.0401083379983902,
+          "name": "Session"
+        },
+        {
+          "idx": 30,
+          "score": 0.028871634975075722,
+          "name": "Session"
+        },
+        {
+          "idx": 28,
+          "score": 0.026968399062752724,
+          "name": "Session"
+        },
+        {
+          "idx": 22,
+          "score": 0.008342158049345016,
+          "name": "Session"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"buy new adventure book\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "buy new adventure book",
+        "operator": "=~",
+        "span": {
+          "start": 123,
+          "end": 164
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 3001250378624,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy new adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 123,
+                  "end": 164
+                }
+              },
+              "score": 0.009356752038002014,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.009356752038002014
+        },
+        {
+          "node_idx": 1,
+          "node_id": 3001250380864,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy new adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 123,
+                  "end": 164
+                }
+              },
+              "score": 0.0009460002183914185,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0009460002183914185
+        },
+        {
+          "node_idx": 2,
+          "node_id": 3001250376064,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy new adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 123,
+                  "end": 164
+                }
+              },
+              "score": 0.012603068724274635,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.012603068724274635
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "buy new adventure book"
+        ],
+        "per_value_stats": [
+          {
+            "value": "buy new adventure book",
+            "num_descriptions": 3,
+            "call_time_ms": 35.73
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 3
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 2,
+          "score": 0.012603068724274635,
+          "name": "Observation"
+        },
+        {
+          "idx": 0,
+          "score": 0.009356752038002014,
+          "name": "Observation"
+        },
+        {
+          "idx": 1,
+          "score": 0.0009460002183914185,
+          "name": "Observation"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"buy new adventure book\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "buy new adventure book",
+        "operator": "=~",
+        "span": {
+          "start": 123,
+          "end": 164
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 3001249305424,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy new adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 123,
+                  "end": 164
+                }
+              },
+              "score": 0.0011826622067019343,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0011826622067019343
+        },
+        {
+          "node_idx": 1,
+          "node_id": 3001249312304,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy new adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 123,
+                  "end": 164
+                }
+              },
+              "score": 0.06372933089733124,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.06372933089733124
+        },
+        {
+          "node_idx": 2,
+          "node_id": 3001222276144,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy new adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 123,
+                  "end": 164
+                }
+              },
+              "score": 0.12306587398052216,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.12306587398052216
+        },
+        {
+          "node_idx": 3,
+          "node_id": 3001250412832,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy new adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 123,
+                  "end": 164
+                }
+              },
+              "score": 0.06820708513259888,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.06820708513259888
+        },
+        {
+          "node_idx": 4,
+          "node_id": 3001250400032,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy new adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 123,
+                  "end": 164
+                }
+              },
+              "score": 0.011540284380316734,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.011540284380316734
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "buy new adventure book"
+        ],
+        "per_value_stats": [
+          {
+            "value": "buy new adventure book",
+            "num_descriptions": 5,
+            "call_time_ms": 48.16
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 5
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 2,
+          "score": 0.12306587398052216,
+          "name": "Observation"
+        },
+        {
+          "idx": 3,
+          "score": 0.06820708513259888,
+          "name": "Observation"
+        },
+        {
+          "idx": 1,
+          "score": 0.06372933089733124,
+          "name": "Observation"
+        },
+        {
+          "idx": 4,
+          "score": 0.011540284380316734,
+          "name": "Observation"
+        },
+        {
+          "idx": 0,
+          "score": 0.0011826622067019343,
+          "name": "Observation"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"buy new adventure book\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "buy new adventure book",
+        "operator": "=~",
+        "span": {
+          "start": 123,
+          "end": 164
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 3001249382464,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy new adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 123,
+                  "end": 164
+                }
+              },
+              "score": 0.001972874626517296,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.001972874626517296
+        },
+        {
+          "node_idx": 1,
+          "node_id": 3001249389664,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy new adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 123,
+                  "end": 164
+                }
+              },
+              "score": 0.03788246214389801,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.03788246214389801
+        },
+        {
+          "node_idx": 2,
+          "node_id": 3001249395424,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy new adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 123,
+                  "end": 164
+                }
+              },
+              "score": 0.023193202912807465,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.023193202912807465
+        },
+        {
+          "node_idx": 3,
+          "node_id": 3001249387984,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy new adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 123,
+                  "end": 164
+                }
+              },
+              "score": 0.11436212062835693,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.11436212062835693
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "buy new adventure book"
+        ],
+        "per_value_stats": [
+          {
+            "value": "buy new adventure book",
+            "num_descriptions": 4,
+            "call_time_ms": 44.38
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 4
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 3,
+          "score": 0.11436212062835693,
+          "name": "Observation"
+        },
+        {
+          "idx": 1,
+          "score": 0.03788246214389801,
+          "name": "Observation"
+        },
+        {
+          "idx": 2,
+          "score": 0.023193202912807465,
+          "name": "Observation"
+        },
+        {
+          "idx": 0,
+          "score": 0.001972874626517296,
+          "name": "Observation"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"buy new adventure book\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "buy new adventure book",
+        "operator": "=~",
+        "span": {
+          "start": 123,
+          "end": 164
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 3001249307504,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy new adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 123,
+                  "end": 164
+                }
+              },
+              "score": 0.03059629537165165,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.03059629537165165
+        },
+        {
+          "node_idx": 1,
+          "node_id": 3001249314224,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy new adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 123,
+                  "end": 164
+                }
+              },
+              "score": 0.0008289815741591156,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0008289815741591156
+        },
+        {
+          "node_idx": 2,
+          "node_id": 3001249314544,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy new adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 123,
+                  "end": 164
+                }
+              },
+              "score": 0.010631917044520378,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.010631917044520378
+        },
+        {
+          "node_idx": 3,
+          "node_id": 3001249308624,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy new adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 123,
+                  "end": 164
+                }
+              },
+              "score": 0.005181506741791964,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.005181506741791964
+        },
+        {
+          "node_idx": 4,
+          "node_id": 3001249312624,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy new adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 123,
+                  "end": 164
+                }
+              },
+              "score": 0.007750911638140678,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.007750911638140678
+        },
+        {
+          "node_idx": 5,
+          "node_id": 3001249303984,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy new adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 123,
+                  "end": 164
+                }
+              },
+              "score": 0.0017072863411158323,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0017072863411158323
+        },
+        {
+          "node_idx": 6,
+          "node_id": 3001249315344,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy new adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 123,
+                  "end": 164
+                }
+              },
+              "score": 0.022997749969363213,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.022997749969363213
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "buy new adventure book"
+        ],
+        "per_value_stats": [
+          {
+            "value": "buy new adventure book",
+            "num_descriptions": 7,
+            "call_time_ms": 56.05
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 7
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 0,
+          "score": 0.03059629537165165,
+          "name": "Observation"
+        },
+        {
+          "idx": 6,
+          "score": 0.022997749969363213,
+          "name": "Observation"
+        },
+        {
+          "idx": 2,
+          "score": 0.010631917044520378,
+          "name": "Observation"
+        },
+        {
+          "idx": 4,
+          "score": 0.007750911638140678,
+          "name": "Observation"
+        },
+        {
+          "idx": 3,
+          "score": 0.005181506741791964,
+          "name": "Observation"
+        },
+        {
+          "idx": 5,
+          "score": 0.0017072863411158323,
+          "name": "Observation"
+        },
+        {
+          "idx": 1,
+          "score": 0.0008289815741591156,
+          "name": "Observation"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"buy new adventure book\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "buy new adventure book",
+        "operator": "=~",
+        "span": {
+          "start": 123,
+          "end": 164
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 3001249384704,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy new adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 123,
+                  "end": 164
+                }
+              },
+              "score": 0.006040641106665134,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.006040641106665134
+        },
+        {
+          "node_idx": 1,
+          "node_id": 3001249383984,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy new adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 123,
+                  "end": 164
+                }
+              },
+              "score": 0.0016187508590519428,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0016187508590519428
+        },
+        {
+          "node_idx": 2,
+          "node_id": 3001249386784,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy new adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 123,
+                  "end": 164
+                }
+              },
+              "score": 0.01274884957820177,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.01274884957820177
+        },
+        {
+          "node_idx": 3,
+          "node_id": 3001212649536,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "buy new adventure book",
+                "operator": "=~",
+                "span": {
+                  "start": 123,
+                  "end": 164
+                }
+              },
+              "score": 0.003592552850022912,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.003592552850022912
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "buy new adventure book"
+        ],
+        "per_value_stats": [
+          {
+            "value": "buy new adventure book",
+            "num_descriptions": 4,
+            "call_time_ms": 44.66
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 4
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 2,
+          "score": 0.01274884957820177,
+          "name": "Observation"
+        },
+        {
+          "idx": 0,
+          "score": 0.006040641106665134,
+          "name": "Observation"
+        },
+        {
+          "idx": 3,
+          "score": 0.003592552850022912,
+          "name": "Observation"
+        },
+        {
+          "idx": 1,
+          "score": 0.0016187508590519428,
+          "name": "Observation"
+        }
+      ]
+    }
+  ],
+  "scoring_details": {
+    "step_scores": [
+      {
+        "step_index": 0,
+        "predicate": "atom(content =~ \"James\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "James",
+          "operator": "=~",
+          "span": {
+            "start": 38,
+            "end": 62
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 3001249243888,
+            "node_name": "James",
+            "node_type": "Speaker",
+            "final_score": 1.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "James",
+                "query_value": "James",
+                "matched": true,
+                "score": 1.0
+              }
+            ]
+          },
+          {
+            "node_idx": 1,
+            "node_id": 3001249032736,
+            "node_name": "John",
+            "node_type": "Speaker",
+            "final_score": 0.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "John",
+                "query_value": "James",
+                "matched": false,
+                "score": 0.0
+              }
+            ]
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 0,
+            "score": 1.0,
+            "name": "James"
+          },
+          {
+            "idx": 1,
+            "score": 0.0,
+            "name": "John"
+          }
+        ]
+      },
+      {
+        "step_index": 1,
+        "predicate": "atom(content =~ \"buy adventure book\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "buy adventure book",
+          "operator": "=~",
+          "span": {
+            "start": 72,
+            "end": 109
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 3001249235328,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 109
+                  }
+                },
+                "score": 0.075230173766613,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.075230173766613
+          },
+          {
+            "node_idx": 1,
+            "node_id": 3001249388544,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 109
+                  }
+                },
+                "score": 0.1694711148738861,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.1694711148738861
+          },
+          {
+            "node_idx": 2,
+            "node_id": 3001249388064,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 109
+                  }
+                },
+                "score": 0.290174275636673,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.290174275636673
+          },
+          {
+            "node_idx": 3,
+            "node_id": 3001249390944,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 109
+                  }
+                },
+                "score": 0.27670979499816895,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.27670979499816895
+          },
+          {
+            "node_idx": 4,
+            "node_id": 3001249383424,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 109
+                  }
+                },
+                "score": 0.14789238572120667,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.14789238572120667
+          },
+          {
+            "node_idx": 5,
+            "node_id": 3001249382624,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 109
+                  }
+                },
+                "score": 0.3953743577003479,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.3953743577003479
+          },
+          {
+            "node_idx": 6,
+            "node_id": 3001249386544,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 109
+                  }
+                },
+                "score": 0.2215190827846527,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.2215190827846527
+          },
+          {
+            "node_idx": 7,
+            "node_id": 3001249392464,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 109
+                  }
+                },
+                "score": 0.3420509994029999,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.3420509994029999
+          },
+          {
+            "node_idx": 8,
+            "node_id": 3001249397024,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 109
+                  }
+                },
+                "score": 0.28331929445266724,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.28331929445266724
+          },
+          {
+            "node_idx": 9,
+            "node_id": 3001249393984,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 109
+                  }
+                },
+                "score": 0.34190991520881653,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.34190991520881653
+          },
+          {
+            "node_idx": 10,
+            "node_id": 3001249386624,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 109
+                  }
+                },
+                "score": 0.3795049786567688,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.3795049786567688
+          },
+          {
+            "node_idx": 11,
+            "node_id": 3001249309744,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 109
+                  }
+                },
+                "score": 0.06857000291347504,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.06857000291347504
+          },
+          {
+            "node_idx": 12,
+            "node_id": 3001249302864,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 109
+                  }
+                },
+                "score": 0.12164121121168137,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.12164121121168137
+          },
+          {
+            "node_idx": 13,
+            "node_id": 3001249308464,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 109
+                  }
+                },
+                "score": 0.38388076424598694,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.38388076424598694
+          },
+          {
+            "node_idx": 14,
+            "node_id": 3001249316464,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 109
+                  }
+                },
+                "score": 0.2541149854660034,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.2541149854660034
+          },
+          {
+            "node_idx": 15,
+            "node_id": 3001249303664,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 109
+                  }
+                },
+                "score": 0.4621005654335022,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.4621005654335022
+          },
+          {
+            "node_idx": 16,
+            "node_id": 3001250403712,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 109
+                  }
+                },
+                "score": 0.07745645195245743,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.07745645195245743
+          },
+          {
+            "node_idx": 17,
+            "node_id": 3001250401072,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 109
+                  }
+                },
+                "score": 0.09315546602010727,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.09315546602010727
+          },
+          {
+            "node_idx": 18,
+            "node_id": 3001250400912,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 109
+                  }
+                },
+                "score": 0.2312057763338089,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.2312057763338089
+          },
+          {
+            "node_idx": 19,
+            "node_id": 3001250378304,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 109
+                  }
+                },
+                "score": 0.0401083379983902,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0401083379983902
+          },
+          {
+            "node_idx": 20,
+            "node_id": 3001250379424,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 109
+                  }
+                },
+                "score": 0.6101160645484924,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.6101160645484924
+          },
+          {
+            "node_idx": 21,
+            "node_id": 3001250377184,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 109
+                  }
+                },
+                "score": 0.17455488443374634,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.17455488443374634
+          },
+          {
+            "node_idx": 22,
+            "node_id": 3001250376304,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 109
+                  }
+                },
+                "score": 0.008342158049345016,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.008342158049345016
+          },
+          {
+            "node_idx": 23,
+            "node_id": 3001250374544,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 109
+                  }
+                },
+                "score": 0.20214030146598816,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.20214030146598816
+          },
+          {
+            "node_idx": 24,
+            "node_id": 3001250380464,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 109
+                  }
+                },
+                "score": 0.1985771507024765,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.1985771507024765
+          },
+          {
+            "node_idx": 25,
+            "node_id": 3001250379504,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 109
+                  }
+                },
+                "score": 0.18315109610557556,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.18315109610557556
+          },
+          {
+            "node_idx": 26,
+            "node_id": 3001250372784,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 109
+                  }
+                },
+                "score": 0.2551504671573639,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.2551504671573639
+          },
+          {
+            "node_idx": 27,
+            "node_id": 3001212915120,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 109
+                  }
+                },
+                "score": 0.0643552765250206,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0643552765250206
+          },
+          {
+            "node_idx": 28,
+            "node_id": 3001249032816,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 109
+                  }
+                },
+                "score": 0.026968399062752724,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.026968399062752724
+          },
+          {
+            "node_idx": 29,
+            "node_id": 3001249032336,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 109
+                  }
+                },
+                "score": 0.12003736197948456,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.12003736197948456
+          },
+          {
+            "node_idx": 30,
+            "node_id": 3001249035376,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 109
+                  }
+                },
+                "score": 0.028871634975075722,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.028871634975075722
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 20,
+            "score": 0.6101160645484924,
+            "name": "Session"
+          },
+          {
+            "idx": 15,
+            "score": 0.4621005654335022,
+            "name": "Session"
+          },
+          {
+            "idx": 5,
+            "score": 0.3953743577003479,
+            "name": "Session"
+          },
+          {
+            "idx": 13,
+            "score": 0.38388076424598694,
+            "name": "Session"
+          },
+          {
+            "idx": 10,
+            "score": 0.3795049786567688,
+            "name": "Session"
+          },
+          {
+            "idx": 7,
+            "score": 0.3420509994029999,
+            "name": "Session"
+          },
+          {
+            "idx": 9,
+            "score": 0.34190991520881653,
+            "name": "Session"
+          },
+          {
+            "idx": 2,
+            "score": 0.290174275636673,
+            "name": "Session"
+          },
+          {
+            "idx": 8,
+            "score": 0.28331929445266724,
+            "name": "Session"
+          },
+          {
+            "idx": 3,
+            "score": 0.27670979499816895,
+            "name": "Session"
+          },
+          {
+            "idx": 26,
+            "score": 0.2551504671573639,
+            "name": "Session"
+          },
+          {
+            "idx": 14,
+            "score": 0.2541149854660034,
+            "name": "Session"
+          },
+          {
+            "idx": 18,
+            "score": 0.2312057763338089,
+            "name": "Session"
+          },
+          {
+            "idx": 6,
+            "score": 0.2215190827846527,
+            "name": "Session"
+          },
+          {
+            "idx": 23,
+            "score": 0.20214030146598816,
+            "name": "Session"
+          },
+          {
+            "idx": 24,
+            "score": 0.1985771507024765,
+            "name": "Session"
+          },
+          {
+            "idx": 25,
+            "score": 0.18315109610557556,
+            "name": "Session"
+          },
+          {
+            "idx": 21,
+            "score": 0.17455488443374634,
+            "name": "Session"
+          },
+          {
+            "idx": 1,
+            "score": 0.1694711148738861,
+            "name": "Session"
+          },
+          {
+            "idx": 4,
+            "score": 0.14789238572120667,
+            "name": "Session"
+          },
+          {
+            "idx": 12,
+            "score": 0.12164121121168137,
+            "name": "Session"
+          },
+          {
+            "idx": 29,
+            "score": 0.12003736197948456,
+            "name": "Session"
+          },
+          {
+            "idx": 17,
+            "score": 0.09315546602010727,
+            "name": "Session"
+          },
+          {
+            "idx": 16,
+            "score": 0.07745645195245743,
+            "name": "Session"
+          },
+          {
+            "idx": 0,
+            "score": 0.075230173766613,
+            "name": "Session"
+          },
+          {
+            "idx": 11,
+            "score": 0.06857000291347504,
+            "name": "Session"
+          },
+          {
+            "idx": 27,
+            "score": 0.0643552765250206,
+            "name": "Session"
+          },
+          {
+            "idx": 19,
+            "score": 0.0401083379983902,
+            "name": "Session"
+          },
+          {
+            "idx": 30,
+            "score": 0.028871634975075722,
+            "name": "Session"
+          },
+          {
+            "idx": 28,
+            "score": 0.026968399062752724,
+            "name": "Session"
+          },
+          {
+            "idx": 22,
+            "score": 0.008342158049345016,
+            "name": "Session"
+          }
+        ]
+      },
+      {
+        "step_index": 2,
+        "predicate": "atom(content =~ \"buy new adventure book\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "buy new adventure book",
+          "operator": "=~",
+          "span": {
+            "start": 123,
+            "end": 164
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 3001250378624,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy new adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 123,
+                    "end": 164
+                  }
+                },
+                "score": 0.009356752038002014,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.009356752038002014
+          },
+          {
+            "node_idx": 1,
+            "node_id": 3001250380864,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy new adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 123,
+                    "end": 164
+                  }
+                },
+                "score": 0.0009460002183914185,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0009460002183914185
+          },
+          {
+            "node_idx": 2,
+            "node_id": 3001250376064,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy new adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 123,
+                    "end": 164
+                  }
+                },
+                "score": 0.012603068724274635,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.012603068724274635
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 2,
+            "score": 0.012603068724274635,
+            "name": "Observation"
+          },
+          {
+            "idx": 0,
+            "score": 0.009356752038002014,
+            "name": "Observation"
+          },
+          {
+            "idx": 1,
+            "score": 0.0009460002183914185,
+            "name": "Observation"
+          }
+        ]
+      },
+      {
+        "step_index": 3,
+        "predicate": "atom(content =~ \"buy new adventure book\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "buy new adventure book",
+          "operator": "=~",
+          "span": {
+            "start": 123,
+            "end": 164
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 3001249305424,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy new adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 123,
+                    "end": 164
+                  }
+                },
+                "score": 0.0011826622067019343,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0011826622067019343
+          },
+          {
+            "node_idx": 1,
+            "node_id": 3001249312304,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy new adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 123,
+                    "end": 164
+                  }
+                },
+                "score": 0.06372933089733124,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.06372933089733124
+          },
+          {
+            "node_idx": 2,
+            "node_id": 3001222276144,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy new adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 123,
+                    "end": 164
+                  }
+                },
+                "score": 0.12306587398052216,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.12306587398052216
+          },
+          {
+            "node_idx": 3,
+            "node_id": 3001250412832,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy new adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 123,
+                    "end": 164
+                  }
+                },
+                "score": 0.06820708513259888,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.06820708513259888
+          },
+          {
+            "node_idx": 4,
+            "node_id": 3001250400032,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy new adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 123,
+                    "end": 164
+                  }
+                },
+                "score": 0.011540284380316734,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.011540284380316734
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 2,
+            "score": 0.12306587398052216,
+            "name": "Observation"
+          },
+          {
+            "idx": 3,
+            "score": 0.06820708513259888,
+            "name": "Observation"
+          },
+          {
+            "idx": 1,
+            "score": 0.06372933089733124,
+            "name": "Observation"
+          },
+          {
+            "idx": 4,
+            "score": 0.011540284380316734,
+            "name": "Observation"
+          },
+          {
+            "idx": 0,
+            "score": 0.0011826622067019343,
+            "name": "Observation"
+          }
+        ]
+      },
+      {
+        "step_index": 4,
+        "predicate": "atom(content =~ \"buy new adventure book\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "buy new adventure book",
+          "operator": "=~",
+          "span": {
+            "start": 123,
+            "end": 164
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 3001249382464,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy new adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 123,
+                    "end": 164
+                  }
+                },
+                "score": 0.001972874626517296,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.001972874626517296
+          },
+          {
+            "node_idx": 1,
+            "node_id": 3001249389664,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy new adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 123,
+                    "end": 164
+                  }
+                },
+                "score": 0.03788246214389801,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.03788246214389801
+          },
+          {
+            "node_idx": 2,
+            "node_id": 3001249395424,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy new adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 123,
+                    "end": 164
+                  }
+                },
+                "score": 0.023193202912807465,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.023193202912807465
+          },
+          {
+            "node_idx": 3,
+            "node_id": 3001249387984,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy new adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 123,
+                    "end": 164
+                  }
+                },
+                "score": 0.11436212062835693,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.11436212062835693
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 3,
+            "score": 0.11436212062835693,
+            "name": "Observation"
+          },
+          {
+            "idx": 1,
+            "score": 0.03788246214389801,
+            "name": "Observation"
+          },
+          {
+            "idx": 2,
+            "score": 0.023193202912807465,
+            "name": "Observation"
+          },
+          {
+            "idx": 0,
+            "score": 0.001972874626517296,
+            "name": "Observation"
+          }
+        ]
+      },
+      {
+        "step_index": 5,
+        "predicate": "atom(content =~ \"buy new adventure book\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "buy new adventure book",
+          "operator": "=~",
+          "span": {
+            "start": 123,
+            "end": 164
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 3001249307504,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy new adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 123,
+                    "end": 164
+                  }
+                },
+                "score": 0.03059629537165165,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.03059629537165165
+          },
+          {
+            "node_idx": 1,
+            "node_id": 3001249314224,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy new adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 123,
+                    "end": 164
+                  }
+                },
+                "score": 0.0008289815741591156,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0008289815741591156
+          },
+          {
+            "node_idx": 2,
+            "node_id": 3001249314544,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy new adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 123,
+                    "end": 164
+                  }
+                },
+                "score": 0.010631917044520378,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.010631917044520378
+          },
+          {
+            "node_idx": 3,
+            "node_id": 3001249308624,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy new adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 123,
+                    "end": 164
+                  }
+                },
+                "score": 0.005181506741791964,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.005181506741791964
+          },
+          {
+            "node_idx": 4,
+            "node_id": 3001249312624,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy new adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 123,
+                    "end": 164
+                  }
+                },
+                "score": 0.007750911638140678,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.007750911638140678
+          },
+          {
+            "node_idx": 5,
+            "node_id": 3001249303984,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy new adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 123,
+                    "end": 164
+                  }
+                },
+                "score": 0.0017072863411158323,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0017072863411158323
+          },
+          {
+            "node_idx": 6,
+            "node_id": 3001249315344,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy new adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 123,
+                    "end": 164
+                  }
+                },
+                "score": 0.022997749969363213,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.022997749969363213
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 0,
+            "score": 0.03059629537165165,
+            "name": "Observation"
+          },
+          {
+            "idx": 6,
+            "score": 0.022997749969363213,
+            "name": "Observation"
+          },
+          {
+            "idx": 2,
+            "score": 0.010631917044520378,
+            "name": "Observation"
+          },
+          {
+            "idx": 4,
+            "score": 0.007750911638140678,
+            "name": "Observation"
+          },
+          {
+            "idx": 3,
+            "score": 0.005181506741791964,
+            "name": "Observation"
+          },
+          {
+            "idx": 5,
+            "score": 0.0017072863411158323,
+            "name": "Observation"
+          },
+          {
+            "idx": 1,
+            "score": 0.0008289815741591156,
+            "name": "Observation"
+          }
+        ]
+      },
+      {
+        "step_index": 6,
+        "predicate": "atom(content =~ \"buy new adventure book\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "buy new adventure book",
+          "operator": "=~",
+          "span": {
+            "start": 123,
+            "end": 164
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 3001249384704,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy new adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 123,
+                    "end": 164
+                  }
+                },
+                "score": 0.006040641106665134,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.006040641106665134
+          },
+          {
+            "node_idx": 1,
+            "node_id": 3001249383984,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy new adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 123,
+                    "end": 164
+                  }
+                },
+                "score": 0.0016187508590519428,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0016187508590519428
+          },
+          {
+            "node_idx": 2,
+            "node_id": 3001249386784,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy new adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 123,
+                    "end": 164
+                  }
+                },
+                "score": 0.01274884957820177,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.01274884957820177
+          },
+          {
+            "node_idx": 3,
+            "node_id": 3001212649536,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "buy new adventure book",
+                  "operator": "=~",
+                  "span": {
+                    "start": 123,
+                    "end": 164
+                  }
+                },
+                "score": 0.003592552850022912,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.003592552850022912
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 2,
+            "score": 0.01274884957820177,
+            "name": "Observation"
+          },
+          {
+            "idx": 0,
+            "score": 0.006040641106665134,
+            "name": "Observation"
+          },
+          {
+            "idx": 3,
+            "score": 0.003592552850022912,
+            "name": "Observation"
+          },
+          {
+            "idx": 1,
+            "score": 0.0016187508590519428,
+            "name": "Observation"
+          }
+        ]
+      }
+    ],
+    "score_fusion": {
+      "per_node": [
+        {
+          "node_path": "Root > Conversation_Version 1 > James > Session 16 > Observation 3",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"buy new adventure book\")]",
+              "score": 0.12306587398052216
+            }
+          ],
+          "accumulated_product": 0.12306587398052216,
+          "final_score": 0.0568688098950986
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > James > Session 16 > Observation 4",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"buy new adventure book\")]",
+              "score": 0.06820708513259888
+            }
+          ],
+          "accumulated_product": 0.06820708513259888,
+          "final_score": 0.03151853257482643
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > James > Session 16 > Observation 2",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"buy new adventure book\")]",
+              "score": 0.06372933089733124
+            }
+          ],
+          "accumulated_product": 0.06372933089733124,
+          "final_score": 0.029449359812906167
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > James > Session 6 > Observation 4",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"buy new adventure book\")]",
+              "score": 0.11436212062835693
+            }
+          ],
+          "accumulated_product": 0.11436212062835693,
+          "final_score": 0.04521584994347048
+        }
+      ]
+    }
+  },
+  "final_filtering": {
+    "before_filter_count": 4,
+    "threshold": 0.05,
+    "top_k": 10,
+    "after_filter_count": 1,
+    "filtered_nodes": [
+      {
+        "path": "Root > Conversation_Version 1 > James > Session 16 > Observation 3",
+        "score": 0.0568688098950986,
+        "type": "Observation",
+        "own_score": 0.12306587398052216,
+        "parent_score": 0.4621005649714016
+      }
+    ]
+  },
+  "matched_nodes": [
+    {
+      "tree_path": "Root > Conversation_Version 1 > James > Session 16 > Observation 3",
+      "score": 0.0568688098950986,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "James enjoys reading, especially during cold winter days, but finds it exciting to do something different in the summer.",
+        "source_dia_id": "D16:9"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "James",
+          "predicate": "atom(content =~ \"James\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"James\") on James (Score: 1.00)"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total_steps": 5,
+    "total_scoring_calls": 7,
+    "matched_count": 1,
+    "execution_time_ms": 842.3739999998361,
+    "has_score_fusion": true,
+    "num_nodes_before_filter": 4,
+    "num_nodes_after_filter": 1
+  }
+}

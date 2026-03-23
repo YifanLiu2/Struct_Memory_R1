@@ -1,0 +1,54 @@
+{
+  "timestamp": "20260220_011510_679573",
+  "operation": "READ",
+  "user_query": "What was the original grocery list before I we changed something to salad? Check the previous versions",
+  "full_query": "READ(/Root/ToDoList_Version[3]/Category[atom(content =~ \"Household\")]/Project[atom(content =~ \"Weekly Groceries\") AND agg_exists(Task[atom(content =~ \"ramen\")])]/Task)",
+  "xpath_query": "/Root/ToDoList_Version[3]/Category[atom(content =~ \"Household\")]/Project[atom(content =~ \"Weekly Groceries\") AND agg_exists(Task[atom(content =~ \"ramen\")])]/Task",
+  "canonical_full_query": "READ(/Root/ToDoList_Version[3]/Category[content =~ \"Household\"]/min(Project[content =~ \"Weekly Groceries\"], Project[max(Task[content =~ \"ramen\"])])/Task)",
+  "canonical_xpath_query": "/Root/ToDoList_Version[3]/Category[content =~ \"Household\"]/min(Project[content =~ \"Weekly Groceries\"], Project[max(Task[content =~ \"ramen\"])])/Task",
+  "success": true,
+  "intent": null,
+  "reasoning_trace": null,
+  "operation_data": {
+    "candidates_count": 5,
+    "selected_count": 3,
+    "selected_nodes": [
+      {
+        "type": "Task",
+        "attributes": {},
+        "description": "Buy Milk (Oat)",
+        "status": "Todo",
+        "priority": "Medium",
+        "due_date": "2026-02-10",
+        "tree_path": "Root > ToDoList_Version 3 > Household > Weekly Groceries > Task 1",
+        "reasoning": "Part of Weekly Groceries in the referenced version; represents an item on the grocery list (Buy Milk) and is semantically part of the original grocery list context."
+      },
+      {
+        "type": "Task",
+        "attributes": {},
+        "description": "Buy Coffee Beans",
+        "status": "Todo",
+        "priority": "High",
+        "due_date": "2026-02-10",
+        "tree_path": "Root > ToDoList_Version 3 > Household > Weekly Groceries > Task 2",
+        "reasoning": "Part of Weekly Groceries in the referenced version; represents an item on the grocery list (Buy Coffee Beans) and is semantically part of the original grocery list context."
+      },
+      {
+        "type": "Task",
+        "attributes": {},
+        "description": "Buy Ramen (Emergency deadline food)",
+        "status": "Todo",
+        "priority": "Low",
+        "due_date": "2026-02-10",
+        "tree_path": "Root > ToDoList_Version 3 > Household > Weekly Groceries > Task 3",
+        "reasoning": "Direct match to the change context: Weekly Groceries Task 3 description is 'Buy Ramen', which is the item the user said was changed to 'salad' — this shows the original item before the change."
+      }
+    ]
+  },
+  "tree_version": null,
+  "summary": {
+    "operation": "READ",
+    "success": true,
+    "affected_count": 0
+  }
+}

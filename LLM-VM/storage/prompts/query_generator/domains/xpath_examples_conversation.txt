@@ -1,0 +1,23 @@
+## Examples
+
+### Query Pattern: /Speaker[predicate]/Session[predicate]/Observation[predicate]
+All queries follow the same structure:
+1. Filter by Speaker when a specific person is mentioned
+2. Narrow Sessions using a session-level content predicate
+3. Filter Observations with a content predicate matching the user's information need
+
+User: what does Alex say about volunteering?
+Output: /Speaker[atom(content =~ "Alex")]/Session[atom(content =~ "volunteering community service")]/Observation[atom(content =~ "volunteering")]
+
+User: when did Jordan go rock climbing?
+Output: /Speaker[atom(content =~ "Jordan")]/Session[atom(content =~ "rock climbing outdoor")]/Observation[atom(content =~ "rock climbing")]
+
+User: what instruments does Sam play?
+Output: /Speaker[atom(content =~ "Sam")]/Session[atom(content =~ "music instrument")]/Observation[atom(content =~ "instrument play music")]
+
+User: has anyone talked about moving to a new city?
+Output: /Speaker/Session[atom(content =~ "moving relocation city")]/Observation[atom(content =~ "moving new city")]
+
+User: what career is Taylor pursuing?
+Output: /Speaker[atom(content =~ "Taylor")]/Session[atom(content =~ "career job profession")]/Observation[atom(content =~ "career pursuing")]
+

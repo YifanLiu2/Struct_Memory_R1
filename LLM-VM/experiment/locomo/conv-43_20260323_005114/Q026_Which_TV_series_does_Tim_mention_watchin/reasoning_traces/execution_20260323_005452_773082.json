@@ -1,0 +1,4424 @@
+{
+  "timestamp": "20260323_005452_773082",
+  "query": "/Root/Conversation_Version[1]/Speaker[atom(content =~ \"Tim\")]/Session[atom(content =~ \"TV series watching\")]/Observation[atom(content =~ \"TV series\")]",
+  "canonical_query": "/Root/Conversation_Version[1]/Speaker[content =~ \"Tim\"]/Session[content =~ \"TV series watching\"]/Observation[content =~ \"TV series\"]",
+  "data_file": "tree.xml",
+  "execution_time_ms": 916.5262999958941,
+  "parsed_ast": {
+    "steps": [
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Root",
+            "span": {
+              "start": 1,
+              "end": 5
+            }
+          },
+          "span": {
+            "start": 1,
+            "end": 5
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Conversation_Version",
+            "index": {
+              "start": 1,
+              "type": "single",
+              "span": {
+                "start": 26,
+                "end": 29
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 29
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 29
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Speaker",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "Tim",
+              "operator": "=~",
+              "span": {
+                "start": 38,
+                "end": 60
+              }
+            },
+            "predicate_str": "atom(content =~ \"Tim\")",
+            "span": {
+              "start": 30,
+              "end": 61
+            }
+          },
+          "span": {
+            "start": 30,
+            "end": 61
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Session",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "TV series watching",
+              "operator": "=~",
+              "span": {
+                "start": 70,
+                "end": 107
+              }
+            },
+            "predicate_str": "atom(content =~ \"TV series watching\")",
+            "span": {
+              "start": 62,
+              "end": 108
+            }
+          },
+          "span": {
+            "start": 62,
+            "end": 108
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Observation",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "TV series",
+              "operator": "=~",
+              "span": {
+                "start": 121,
+                "end": 149
+              }
+            },
+            "predicate_str": "atom(content =~ \"TV series\")",
+            "span": {
+              "start": 109,
+              "end": 150
+            }
+          },
+          "span": {
+            "start": 109,
+            "end": 150
+          }
+        }
+      }
+    ],
+    "global_index": null
+  },
+  "parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: Conversation_Version[1]\n├── Step 2: Speaker[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"Tim\")\n├── Step 3: Session[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"TV series watching\")\n└── Step 4: Observation[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"TV series\")",
+  "canonical_parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: Conversation_Version[1]\n├── Step 2: Speaker[content =~ \"Tim\"]\n├── Step 3: Session[content =~ \"TV series watching\"]\n└── Step 4: Observation[content =~ \"TV series\"]",
+  "execution_log": [
+    "[20260323_005452_773082] Executing query: /Root/Conversation_Version[1]/Speaker[atom(content =~ \"Tim\")]/Session[atom(content =~ \"TV series watching\")]/Observation[atom(content =~ \"TV series\")]",
+    "Data file: tree.xml",
+    "Parsed steps: [Root, Conversation_Version[1], Speaker[atom(content =~ \"Tim\")], Session[atom(content =~ \"TV series watching\")], Observation[atom(content =~ \"TV series\")]]",
+    "",
+    "Query AST:\n├── Step 0: Root\n├── Step 1: Conversation_Version[1]\n├── Step 2: Speaker[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"Tim\")\n├── Step 3: Session[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"TV series watching\")\n└── Step 4: Observation[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"TV series\")",
+    "\n--- Step 1: Root ---",
+    "Matched Root root",
+    "\n--- Step 2: Conversation_Version[1] ---",
+    "Selected node at index 1 (0-based: 0)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 3: Speaker[atom(content =~ \"Tim\")] ---",
+    "Scoring predicate: atom(content =~ \"Tim\") (atomic values: ['Tim'])",
+    "  Node 0 (Tim): score = 1.0000 (exact match)",
+    "  Node 1 (John): score = 0.0000 (exact match)",
+    "  Exact attribute match on @name: 1/2 nodes matched",
+    "  Top-K Pruning: Reduced from 2 to 1 nodes (K=5)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 4: Session[atom(content =~ \"TV series watching\")] ---",
+    "Scoring predicate: atom(content =~ \"TV series watching\") (atomic values: ['TV series watching'])",
+    "  Collected 29 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 29 total descriptions",
+    "  Node 0 (Session): score = 0.0471",
+    "  Node 1 (Session): score = 0.0075",
+    "  Node 2 (Session): score = 0.0164",
+    "  Node 3 (Session): score = 0.0125",
+    "  Node 4 (Session): score = 0.0110",
+    "  Node 5 (Session): score = 0.0012",
+    "  Node 6 (Session): score = 0.0112",
+    "  Node 7 (Session): score = 0.3210",
+    "  Node 8 (Session): score = 0.0027",
+    "  Node 9 (Session): score = 0.0316",
+    "  Node 10 (Session): score = 0.0039",
+    "  Node 11 (Session): score = 0.0024",
+    "  Node 12 (Session): score = 0.0231",
+    "  Node 13 (Session): score = 0.0028",
+    "  Node 14 (Session): score = 0.0029",
+    "  Node 15 (Session): score = 0.0034",
+    "  Node 16 (Session): score = 0.7070",
+    "  Node 17 (Session): score = 0.0025",
+    "  Node 18 (Session): score = 0.0388",
+    "  Node 19 (Session): score = 0.0185",
+    "  Node 20 (Session): score = 0.0053",
+    "  Node 21 (Session): score = 0.0017",
+    "  Node 22 (Session): score = 0.0039",
+    "  Node 23 (Session): score = 0.0093",
+    "  Node 24 (Session): score = 0.0045",
+    "  Node 25 (Session): score = 0.0040",
+    "  Node 26 (Session): score = 0.0226",
+    "  Node 27 (Session): score = 0.0014",
+    "  Node 28 (Session): score = 0.0117",
+    "  Top-K Pruning: Reduced from 29 to 2 nodes (K=5)",
+    "After step: 2 nodes remaining",
+    "\n--- Step 5: Observation[atom(content =~ \"TV series\")] ---",
+    "Scoring predicate: atom(content =~ \"TV series\") (atomic values: ['TV series'])",
+    "  Collected 4 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 4 total descriptions",
+    "  Node 0 (Observation): score = 0.0065",
+    "  Node 1 (Observation): score = 0.5928",
+    "  Node 2 (Observation): score = 0.1059",
+    "  Node 3 (Observation): score = 0.1272",
+    "Scoring predicate: atom(content =~ \"TV series\") (atomic values: ['TV series'])",
+    "  Collected 3 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 3 total descriptions",
+    "  Node 0 (Observation): score = 0.0567",
+    "  Node 1 (Observation): score = 0.9835",
+    "  Node 2 (Observation): score = 0.9982",
+    "  Top-K Pruning: Reduced from 7 to 6 nodes (K=5)",
+    "After step: 6 nodes remaining",
+    "\n=== Score Fusion ===",
+    "  Root > Conversation_Version 1 > Tim > Session 17 > Observation 2: product=0.5928 → score=0.5928",
+    "  Root > Conversation_Version 1 > Tim > Session 17 > Observation 4: product=0.1272 → score=0.1272",
+    "  Root > Conversation_Version 1 > Tim > Session 17 > Observation 3: product=0.1059 → score=0.1059",
+    "  Root > Conversation_Version 1 > Tim > Session 8 > Observation 3: product=0.9982 → score=0.9982",
+    "  Root > Conversation_Version 1 > Tim > Session 8 > Observation 2: product=0.9835 → score=0.9835",
+    "  Root > Conversation_Version 1 > Tim > Session 8 > Observation 1: product=0.0567 → score=0.0567",
+    "  Parent propagation: Root > Conversation_Version 1 > Tim > Session 17 > Observation 2: own=0.5928 × parent=0.7070 → 0.4192",
+    "  Parent propagation: Root > Conversation_Version 1 > Tim > Session 17 > Observation 4: own=0.1272 × parent=0.7070 → 0.0899",
+    "  Parent propagation: Root > Conversation_Version 1 > Tim > Session 17 > Observation 3: own=0.1059 × parent=0.7070 → 0.0749",
+    "  Parent propagation: Root > Conversation_Version 1 > Tim > Session 8 > Observation 3: own=0.9982 × parent=0.3210 → 0.3204",
+    "  Parent propagation: Root > Conversation_Version 1 > Tim > Session 8 > Observation 2: own=0.9835 × parent=0.3210 → 0.3157",
+    "  Parent propagation: Root > Conversation_Version 1 > Tim > Session 8 > Observation 1: own=0.0567 × parent=0.3210 → 0.0182",
+    "\n=== Parent Score Propagation: 6 nodes updated ===",
+    "\n=== Threshold Filtering (threshold=0.05) ===",
+    "  Filtered: 6 → 5 nodes",
+    "\n=== Final Filtering (top_k=10) ===",
+    "  After top_k: 5 → 5 nodes",
+    "\nFinal result: 5 nodes (sorted by score)",
+    "⏱️  Query execution time: 916.53ms"
+  ],
+  "traversal_steps": [
+    {
+      "step_index": 0,
+      "step_query": "Root",
+      "action": "root_match",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "type": "root"
+        }
+      ],
+      "nodes_after": [
+        {
+          "type": "Root",
+          "path": "Root"
+        }
+      ],
+      "details": {
+        "matched": true
+      }
+    },
+    {
+      "step_index": 1,
+      "step_query": "Conversation_Version[1]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root",
+          "name": "Root",
+          "type": "Root",
+          "score": 1.0,
+          "node_id": 2773543385056
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Conversation_Version 1",
+          "name": "Conversation_Version 1",
+          "type": "Conversation_Version",
+          "score": 1.0,
+          "node_id": 2773543381136
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Conversation_Version",
+            "index": {
+              "start": 1,
+              "type": "single",
+              "span": {
+                "start": 26,
+                "end": 29
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 29
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 29
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 2,
+      "step_query": "Speaker[atom(content =~ \"Tim\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root > Conversation_Version 1",
+          "name": "Conversation_Version 1",
+          "type": "Conversation_Version",
+          "score": 1.0,
+          "node_id": 2773543381136
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Conversation_Version 1 > Tim",
+          "name": "Tim",
+          "type": "Speaker",
+          "score": 1.0,
+          "node_id": 2773543375376
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Speaker",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "Tim",
+              "operator": "=~",
+              "span": {
+                "start": 38,
+                "end": 60
+              }
+            },
+            "predicate_str": "atom(content =~ \"Tim\")",
+            "span": {
+              "start": 30,
+              "end": 61
+            }
+          },
+          "span": {
+            "start": 30,
+            "end": 61
+          }
+        },
+        "found_count": 2,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"Tim\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "Tim",
+              "operator": "=~",
+              "span": {
+                "start": 38,
+                "end": 60
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 2773543375376,
+                "node_name": "Tim",
+                "node_type": "Speaker",
+                "final_score": 1.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Tim",
+                    "query_value": "Tim",
+                    "matched": true,
+                    "score": 1.0
+                  }
+                ]
+              },
+              {
+                "node_idx": 1,
+                "node_id": 2774403966880,
+                "node_name": "John",
+                "node_type": "Speaker",
+                "final_score": 0.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "John",
+                    "query_value": "Tim",
+                    "matched": false,
+                    "score": 0.0
+                  }
+                ]
+              }
+            ],
+            "batch_scoring": {
+              "exact_match": true,
+              "matched_attribute": "name",
+              "query_value": "Tim",
+              "matched_count": 1
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 0,
+                "score": 1.0,
+                "name": "Tim"
+              },
+              {
+                "idx": 1,
+                "score": 0.0,
+                "name": "John"
+              }
+            ]
+          }
+        ],
+        "pruned_count": 1
+      }
+    },
+    {
+      "step_index": 3,
+      "step_query": "Session[atom(content =~ \"TV series watching\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 2,
+      "nodes_before": [
+        {
+          "path": "Root > Conversation_Version 1 > Tim",
+          "name": "Tim",
+          "type": "Speaker",
+          "score": 1.0,
+          "node_id": 2773543375376
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Conversation_Version 1 > Tim > Session 17",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.7070390582084656,
+          "node_id": 2773543751328
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Tim > Session 8",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.32100847363471985,
+          "node_id": 2773542314416
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Session",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "TV series watching",
+              "operator": "=~",
+              "span": {
+                "start": 70,
+                "end": 107
+              }
+            },
+            "predicate_str": "atom(content =~ \"TV series watching\")",
+            "span": {
+              "start": 62,
+              "end": 108
+            }
+          },
+          "span": {
+            "start": 62,
+            "end": 108
+          }
+        },
+        "found_count": 29,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"TV series watching\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "TV series watching",
+              "operator": "=~",
+              "span": {
+                "start": 70,
+                "end": 107
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 2773543372816,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "TV series watching",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.047069478780031204,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.047069478780031204
+              },
+              {
+                "node_idx": 1,
+                "node_id": 2773542312416,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "TV series watching",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.007547540590167046,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.007547540590167046
+              },
+              {
+                "node_idx": 2,
+                "node_id": 2773542305936,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "TV series watching",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.01639261096715927,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.01639261096715927
+              },
+              {
+                "node_idx": 3,
+                "node_id": 2773542307216,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "TV series watching",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.012518668547272682,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.012518668547272682
+              },
+              {
+                "node_idx": 4,
+                "node_id": 2773542309936,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "TV series watching",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.010993385687470436,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.010993385687470436
+              },
+              {
+                "node_idx": 5,
+                "node_id": 2773542311216,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "TV series watching",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.0011569138150662184,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0011569138150662184
+              },
+              {
+                "node_idx": 6,
+                "node_id": 2773542313936,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "TV series watching",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.011159461922943592,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.011159461922943592
+              },
+              {
+                "node_idx": 7,
+                "node_id": 2773542314416,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "TV series watching",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.32100847363471985,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.32100847363471985
+              },
+              {
+                "node_idx": 8,
+                "node_id": 2773542316656,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "TV series watching",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.0026778611354529858,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0026778611354529858
+              },
+              {
+                "node_idx": 9,
+                "node_id": 2773542314576,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "TV series watching",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.03156797215342522,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.03156797215342522
+              },
+              {
+                "node_idx": 10,
+                "node_id": 2773542306976,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "TV series watching",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.003943233750760555,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.003943233750760555
+              },
+              {
+                "node_idx": 11,
+                "node_id": 2773542308096,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "TV series watching",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.0023818155750632286,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0023818155750632286
+              },
+              {
+                "node_idx": 12,
+                "node_id": 2773542234656,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "TV series watching",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.02313270978629589,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.02313270978629589
+              },
+              {
+                "node_idx": 13,
+                "node_id": 2773542238176,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "TV series watching",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.002819444751366973,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.002819444751366973
+              },
+              {
+                "node_idx": 14,
+                "node_id": 2773542235456,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "TV series watching",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.002887909533455968,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.002887909533455968
+              },
+              {
+                "node_idx": 15,
+                "node_id": 2773543756528,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "TV series watching",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.003420455614104867,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.003420455614104867
+              },
+              {
+                "node_idx": 16,
+                "node_id": 2773543751328,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "TV series watching",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.7070390582084656,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.7070390582084656
+              },
+              {
+                "node_idx": 17,
+                "node_id": 2773543754128,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "TV series watching",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.0025127946864813566,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0025127946864813566
+              },
+              {
+                "node_idx": 18,
+                "node_id": 2773543748448,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "TV series watching",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.03880397602915764,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.03880397602915764
+              },
+              {
+                "node_idx": 19,
+                "node_id": 2773543755888,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "TV series watching",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.01848081313073635,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.01848081313073635
+              },
+              {
+                "node_idx": 20,
+                "node_id": 2773543748288,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "TV series watching",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.005317634902894497,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.005317634902894497
+              },
+              {
+                "node_idx": 21,
+                "node_id": 2773543755728,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "TV series watching",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.0016863130731508136,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0016863130731508136
+              },
+              {
+                "node_idx": 22,
+                "node_id": 2773543758688,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "TV series watching",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.003876624396070838,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.003876624396070838
+              },
+              {
+                "node_idx": 23,
+                "node_id": 2773543752608,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "TV series watching",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.009256829507648945,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.009256829507648945
+              },
+              {
+                "node_idx": 24,
+                "node_id": 2773543753408,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "TV series watching",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.0044594802893698215,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0044594802893698215
+              },
+              {
+                "node_idx": 25,
+                "node_id": 2773543755648,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "TV series watching",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.004020362161099911,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.004020362161099911
+              },
+              {
+                "node_idx": 26,
+                "node_id": 2774403961680,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "TV series watching",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.02262006513774395,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.02262006513774395
+              },
+              {
+                "node_idx": 27,
+                "node_id": 2774403958960,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "TV series watching",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.0013635173672810197,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0013635173672810197
+              },
+              {
+                "node_idx": 28,
+                "node_id": 2774403968800,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "TV series watching",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.011697705835103989,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.011697705835103989
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "TV series watching"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "TV series watching",
+                  "num_descriptions": 29,
+                  "call_time_ms": 818.4
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 29
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 16,
+                "score": 0.7070390582084656,
+                "name": "Session"
+              },
+              {
+                "idx": 7,
+                "score": 0.32100847363471985,
+                "name": "Session"
+              },
+              {
+                "idx": 0,
+                "score": 0.047069478780031204,
+                "name": "Session"
+              },
+              {
+                "idx": 18,
+                "score": 0.03880397602915764,
+                "name": "Session"
+              },
+              {
+                "idx": 9,
+                "score": 0.03156797215342522,
+                "name": "Session"
+              },
+              {
+                "idx": 12,
+                "score": 0.02313270978629589,
+                "name": "Session"
+              },
+              {
+                "idx": 26,
+                "score": 0.02262006513774395,
+                "name": "Session"
+              },
+              {
+                "idx": 19,
+                "score": 0.01848081313073635,
+                "name": "Session"
+              },
+              {
+                "idx": 2,
+                "score": 0.01639261096715927,
+                "name": "Session"
+              },
+              {
+                "idx": 3,
+                "score": 0.012518668547272682,
+                "name": "Session"
+              },
+              {
+                "idx": 28,
+                "score": 0.011697705835103989,
+                "name": "Session"
+              },
+              {
+                "idx": 6,
+                "score": 0.011159461922943592,
+                "name": "Session"
+              },
+              {
+                "idx": 4,
+                "score": 0.010993385687470436,
+                "name": "Session"
+              },
+              {
+                "idx": 23,
+                "score": 0.009256829507648945,
+                "name": "Session"
+              },
+              {
+                "idx": 1,
+                "score": 0.007547540590167046,
+                "name": "Session"
+              },
+              {
+                "idx": 20,
+                "score": 0.005317634902894497,
+                "name": "Session"
+              },
+              {
+                "idx": 24,
+                "score": 0.0044594802893698215,
+                "name": "Session"
+              },
+              {
+                "idx": 25,
+                "score": 0.004020362161099911,
+                "name": "Session"
+              },
+              {
+                "idx": 10,
+                "score": 0.003943233750760555,
+                "name": "Session"
+              },
+              {
+                "idx": 22,
+                "score": 0.003876624396070838,
+                "name": "Session"
+              },
+              {
+                "idx": 15,
+                "score": 0.003420455614104867,
+                "name": "Session"
+              },
+              {
+                "idx": 14,
+                "score": 0.002887909533455968,
+                "name": "Session"
+              },
+              {
+                "idx": 13,
+                "score": 0.002819444751366973,
+                "name": "Session"
+              },
+              {
+                "idx": 8,
+                "score": 0.0026778611354529858,
+                "name": "Session"
+              },
+              {
+                "idx": 17,
+                "score": 0.0025127946864813566,
+                "name": "Session"
+              },
+              {
+                "idx": 11,
+                "score": 0.0023818155750632286,
+                "name": "Session"
+              },
+              {
+                "idx": 21,
+                "score": 0.0016863130731508136,
+                "name": "Session"
+              },
+              {
+                "idx": 27,
+                "score": 0.0013635173672810197,
+                "name": "Session"
+              },
+              {
+                "idx": 5,
+                "score": 0.0011569138150662184,
+                "name": "Session"
+              }
+            ]
+          }
+        ],
+        "pruned_count": 27
+      }
+    },
+    {
+      "step_index": 4,
+      "step_query": "Observation[atom(content =~ \"TV series\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 2,
+      "nodes_after_count": 6,
+      "nodes_before": [
+        {
+          "path": "Root > Conversation_Version 1 > Tim > Session 17",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.7070390582084656,
+          "node_id": 2773543751328
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Tim > Session 8",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.32100847363471985,
+          "node_id": 2773542314416
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Conversation_Version 1 > Tim > Session 17 > Observation 2",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.5928338766098022,
+          "node_id": 2773543761648
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Tim > Session 17 > Observation 4",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.12719717621803284,
+          "node_id": 2773543753488
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Tim > Session 17 > Observation 3",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.10586754977703094,
+          "node_id": 2773543756128
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Tim > Session 8 > Observation 3",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.9982333183288574,
+          "node_id": 2773542318576
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Tim > Session 8 > Observation 2",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.9835054278373718,
+          "node_id": 2773542321296
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Tim > Session 8 > Observation 1",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.056685563176870346,
+          "node_id": 2773542315056
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Observation",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "TV series",
+              "operator": "=~",
+              "span": {
+                "start": 121,
+                "end": 149
+              }
+            },
+            "predicate_str": "atom(content =~ \"TV series\")",
+            "span": {
+              "start": 109,
+              "end": 150
+            }
+          },
+          "span": {
+            "start": 109,
+            "end": 150
+          }
+        },
+        "found_count": 7,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"TV series\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "TV series",
+              "operator": "=~",
+              "span": {
+                "start": 121,
+                "end": 149
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 2773543753168,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "TV series",
+                      "operator": "=~",
+                      "span": {
+                        "start": 121,
+                        "end": 149
+                      }
+                    },
+                    "score": 0.006497017573565245,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.006497017573565245
+              },
+              {
+                "node_idx": 1,
+                "node_id": 2773543761648,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "TV series",
+                      "operator": "=~",
+                      "span": {
+                        "start": 121,
+                        "end": 149
+                      }
+                    },
+                    "score": 0.5928338766098022,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.5928338766098022
+              },
+              {
+                "node_idx": 2,
+                "node_id": 2773543756128,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "TV series",
+                      "operator": "=~",
+                      "span": {
+                        "start": 121,
+                        "end": 149
+                      }
+                    },
+                    "score": 0.10586754977703094,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.10586754977703094
+              },
+              {
+                "node_idx": 3,
+                "node_id": 2773543753488,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "TV series",
+                      "operator": "=~",
+                      "span": {
+                        "start": 121,
+                        "end": 149
+                      }
+                    },
+                    "score": 0.12719717621803284,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.12719717621803284
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "TV series"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "TV series",
+                  "num_descriptions": 4,
+                  "call_time_ms": 51.06
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 4
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 1,
+                "score": 0.5928338766098022,
+                "name": "Observation"
+              },
+              {
+                "idx": 3,
+                "score": 0.12719717621803284,
+                "name": "Observation"
+              },
+              {
+                "idx": 2,
+                "score": 0.10586754977703094,
+                "name": "Observation"
+              },
+              {
+                "idx": 0,
+                "score": 0.006497017573565245,
+                "name": "Observation"
+              }
+            ]
+          },
+          {
+            "predicate": "atom(content =~ \"TV series\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "TV series",
+              "operator": "=~",
+              "span": {
+                "start": 121,
+                "end": 149
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 2773542315056,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "TV series",
+                      "operator": "=~",
+                      "span": {
+                        "start": 121,
+                        "end": 149
+                      }
+                    },
+                    "score": 0.056685563176870346,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.056685563176870346
+              },
+              {
+                "node_idx": 1,
+                "node_id": 2773542321296,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "TV series",
+                      "operator": "=~",
+                      "span": {
+                        "start": 121,
+                        "end": 149
+                      }
+                    },
+                    "score": 0.9835054278373718,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.9835054278373718
+              },
+              {
+                "node_idx": 2,
+                "node_id": 2773542318576,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "TV series",
+                      "operator": "=~",
+                      "span": {
+                        "start": 121,
+                        "end": 149
+                      }
+                    },
+                    "score": 0.9982333183288574,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.9982333183288574
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "TV series"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "TV series",
+                  "num_descriptions": 3,
+                  "call_time_ms": 45.45
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 3
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 2,
+                "score": 0.9982333183288574,
+                "name": "Observation"
+              },
+              {
+                "idx": 1,
+                "score": 0.9835054278373718,
+                "name": "Observation"
+              },
+              {
+                "idx": 0,
+                "score": 0.056685563176870346,
+                "name": "Observation"
+              }
+            ]
+          }
+        ],
+        "pruned_count": 1
+      }
+    }
+  ],
+  "scoring_traces": [
+    {
+      "predicate": "atom(content =~ \"Tim\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "Tim",
+        "operator": "=~",
+        "span": {
+          "start": 38,
+          "end": 60
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 2773543375376,
+          "node_name": "Tim",
+          "node_type": "Speaker",
+          "final_score": 1.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Tim",
+              "query_value": "Tim",
+              "matched": true,
+              "score": 1.0
+            }
+          ]
+        },
+        {
+          "node_idx": 1,
+          "node_id": 2774403966880,
+          "node_name": "John",
+          "node_type": "Speaker",
+          "final_score": 0.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "John",
+              "query_value": "Tim",
+              "matched": false,
+              "score": 0.0
+            }
+          ]
+        }
+      ],
+      "batch_scoring": {
+        "exact_match": true,
+        "matched_attribute": "name",
+        "query_value": "Tim",
+        "matched_count": 1
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 0,
+          "score": 1.0,
+          "name": "Tim"
+        },
+        {
+          "idx": 1,
+          "score": 0.0,
+          "name": "John"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"TV series watching\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "TV series watching",
+        "operator": "=~",
+        "span": {
+          "start": 70,
+          "end": 107
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 2773543372816,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "TV series watching",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 107
+                }
+              },
+              "score": 0.047069478780031204,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.047069478780031204
+        },
+        {
+          "node_idx": 1,
+          "node_id": 2773542312416,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "TV series watching",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 107
+                }
+              },
+              "score": 0.007547540590167046,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.007547540590167046
+        },
+        {
+          "node_idx": 2,
+          "node_id": 2773542305936,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "TV series watching",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 107
+                }
+              },
+              "score": 0.01639261096715927,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.01639261096715927
+        },
+        {
+          "node_idx": 3,
+          "node_id": 2773542307216,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "TV series watching",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 107
+                }
+              },
+              "score": 0.012518668547272682,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.012518668547272682
+        },
+        {
+          "node_idx": 4,
+          "node_id": 2773542309936,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "TV series watching",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 107
+                }
+              },
+              "score": 0.010993385687470436,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.010993385687470436
+        },
+        {
+          "node_idx": 5,
+          "node_id": 2773542311216,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "TV series watching",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 107
+                }
+              },
+              "score": 0.0011569138150662184,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0011569138150662184
+        },
+        {
+          "node_idx": 6,
+          "node_id": 2773542313936,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "TV series watching",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 107
+                }
+              },
+              "score": 0.011159461922943592,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.011159461922943592
+        },
+        {
+          "node_idx": 7,
+          "node_id": 2773542314416,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "TV series watching",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 107
+                }
+              },
+              "score": 0.32100847363471985,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.32100847363471985
+        },
+        {
+          "node_idx": 8,
+          "node_id": 2773542316656,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "TV series watching",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 107
+                }
+              },
+              "score": 0.0026778611354529858,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0026778611354529858
+        },
+        {
+          "node_idx": 9,
+          "node_id": 2773542314576,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "TV series watching",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 107
+                }
+              },
+              "score": 0.03156797215342522,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.03156797215342522
+        },
+        {
+          "node_idx": 10,
+          "node_id": 2773542306976,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "TV series watching",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 107
+                }
+              },
+              "score": 0.003943233750760555,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.003943233750760555
+        },
+        {
+          "node_idx": 11,
+          "node_id": 2773542308096,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "TV series watching",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 107
+                }
+              },
+              "score": 0.0023818155750632286,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0023818155750632286
+        },
+        {
+          "node_idx": 12,
+          "node_id": 2773542234656,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "TV series watching",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 107
+                }
+              },
+              "score": 0.02313270978629589,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.02313270978629589
+        },
+        {
+          "node_idx": 13,
+          "node_id": 2773542238176,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "TV series watching",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 107
+                }
+              },
+              "score": 0.002819444751366973,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.002819444751366973
+        },
+        {
+          "node_idx": 14,
+          "node_id": 2773542235456,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "TV series watching",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 107
+                }
+              },
+              "score": 0.002887909533455968,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.002887909533455968
+        },
+        {
+          "node_idx": 15,
+          "node_id": 2773543756528,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "TV series watching",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 107
+                }
+              },
+              "score": 0.003420455614104867,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.003420455614104867
+        },
+        {
+          "node_idx": 16,
+          "node_id": 2773543751328,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "TV series watching",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 107
+                }
+              },
+              "score": 0.7070390582084656,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.7070390582084656
+        },
+        {
+          "node_idx": 17,
+          "node_id": 2773543754128,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "TV series watching",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 107
+                }
+              },
+              "score": 0.0025127946864813566,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0025127946864813566
+        },
+        {
+          "node_idx": 18,
+          "node_id": 2773543748448,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "TV series watching",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 107
+                }
+              },
+              "score": 0.03880397602915764,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.03880397602915764
+        },
+        {
+          "node_idx": 19,
+          "node_id": 2773543755888,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "TV series watching",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 107
+                }
+              },
+              "score": 0.01848081313073635,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.01848081313073635
+        },
+        {
+          "node_idx": 20,
+          "node_id": 2773543748288,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "TV series watching",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 107
+                }
+              },
+              "score": 0.005317634902894497,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.005317634902894497
+        },
+        {
+          "node_idx": 21,
+          "node_id": 2773543755728,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "TV series watching",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 107
+                }
+              },
+              "score": 0.0016863130731508136,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0016863130731508136
+        },
+        {
+          "node_idx": 22,
+          "node_id": 2773543758688,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "TV series watching",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 107
+                }
+              },
+              "score": 0.003876624396070838,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.003876624396070838
+        },
+        {
+          "node_idx": 23,
+          "node_id": 2773543752608,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "TV series watching",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 107
+                }
+              },
+              "score": 0.009256829507648945,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.009256829507648945
+        },
+        {
+          "node_idx": 24,
+          "node_id": 2773543753408,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "TV series watching",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 107
+                }
+              },
+              "score": 0.0044594802893698215,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0044594802893698215
+        },
+        {
+          "node_idx": 25,
+          "node_id": 2773543755648,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "TV series watching",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 107
+                }
+              },
+              "score": 0.004020362161099911,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.004020362161099911
+        },
+        {
+          "node_idx": 26,
+          "node_id": 2774403961680,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "TV series watching",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 107
+                }
+              },
+              "score": 0.02262006513774395,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.02262006513774395
+        },
+        {
+          "node_idx": 27,
+          "node_id": 2774403958960,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "TV series watching",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 107
+                }
+              },
+              "score": 0.0013635173672810197,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0013635173672810197
+        },
+        {
+          "node_idx": 28,
+          "node_id": 2774403968800,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "TV series watching",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 107
+                }
+              },
+              "score": 0.011697705835103989,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.011697705835103989
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "TV series watching"
+        ],
+        "per_value_stats": [
+          {
+            "value": "TV series watching",
+            "num_descriptions": 29,
+            "call_time_ms": 818.4
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 29
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 16,
+          "score": 0.7070390582084656,
+          "name": "Session"
+        },
+        {
+          "idx": 7,
+          "score": 0.32100847363471985,
+          "name": "Session"
+        },
+        {
+          "idx": 0,
+          "score": 0.047069478780031204,
+          "name": "Session"
+        },
+        {
+          "idx": 18,
+          "score": 0.03880397602915764,
+          "name": "Session"
+        },
+        {
+          "idx": 9,
+          "score": 0.03156797215342522,
+          "name": "Session"
+        },
+        {
+          "idx": 12,
+          "score": 0.02313270978629589,
+          "name": "Session"
+        },
+        {
+          "idx": 26,
+          "score": 0.02262006513774395,
+          "name": "Session"
+        },
+        {
+          "idx": 19,
+          "score": 0.01848081313073635,
+          "name": "Session"
+        },
+        {
+          "idx": 2,
+          "score": 0.01639261096715927,
+          "name": "Session"
+        },
+        {
+          "idx": 3,
+          "score": 0.012518668547272682,
+          "name": "Session"
+        },
+        {
+          "idx": 28,
+          "score": 0.011697705835103989,
+          "name": "Session"
+        },
+        {
+          "idx": 6,
+          "score": 0.011159461922943592,
+          "name": "Session"
+        },
+        {
+          "idx": 4,
+          "score": 0.010993385687470436,
+          "name": "Session"
+        },
+        {
+          "idx": 23,
+          "score": 0.009256829507648945,
+          "name": "Session"
+        },
+        {
+          "idx": 1,
+          "score": 0.007547540590167046,
+          "name": "Session"
+        },
+        {
+          "idx": 20,
+          "score": 0.005317634902894497,
+          "name": "Session"
+        },
+        {
+          "idx": 24,
+          "score": 0.0044594802893698215,
+          "name": "Session"
+        },
+        {
+          "idx": 25,
+          "score": 0.004020362161099911,
+          "name": "Session"
+        },
+        {
+          "idx": 10,
+          "score": 0.003943233750760555,
+          "name": "Session"
+        },
+        {
+          "idx": 22,
+          "score": 0.003876624396070838,
+          "name": "Session"
+        },
+        {
+          "idx": 15,
+          "score": 0.003420455614104867,
+          "name": "Session"
+        },
+        {
+          "idx": 14,
+          "score": 0.002887909533455968,
+          "name": "Session"
+        },
+        {
+          "idx": 13,
+          "score": 0.002819444751366973,
+          "name": "Session"
+        },
+        {
+          "idx": 8,
+          "score": 0.0026778611354529858,
+          "name": "Session"
+        },
+        {
+          "idx": 17,
+          "score": 0.0025127946864813566,
+          "name": "Session"
+        },
+        {
+          "idx": 11,
+          "score": 0.0023818155750632286,
+          "name": "Session"
+        },
+        {
+          "idx": 21,
+          "score": 0.0016863130731508136,
+          "name": "Session"
+        },
+        {
+          "idx": 27,
+          "score": 0.0013635173672810197,
+          "name": "Session"
+        },
+        {
+          "idx": 5,
+          "score": 0.0011569138150662184,
+          "name": "Session"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"TV series\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "TV series",
+        "operator": "=~",
+        "span": {
+          "start": 121,
+          "end": 149
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 2773543753168,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "TV series",
+                "operator": "=~",
+                "span": {
+                  "start": 121,
+                  "end": 149
+                }
+              },
+              "score": 0.006497017573565245,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.006497017573565245
+        },
+        {
+          "node_idx": 1,
+          "node_id": 2773543761648,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "TV series",
+                "operator": "=~",
+                "span": {
+                  "start": 121,
+                  "end": 149
+                }
+              },
+              "score": 0.5928338766098022,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.5928338766098022
+        },
+        {
+          "node_idx": 2,
+          "node_id": 2773543756128,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "TV series",
+                "operator": "=~",
+                "span": {
+                  "start": 121,
+                  "end": 149
+                }
+              },
+              "score": 0.10586754977703094,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.10586754977703094
+        },
+        {
+          "node_idx": 3,
+          "node_id": 2773543753488,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "TV series",
+                "operator": "=~",
+                "span": {
+                  "start": 121,
+                  "end": 149
+                }
+              },
+              "score": 0.12719717621803284,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.12719717621803284
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "TV series"
+        ],
+        "per_value_stats": [
+          {
+            "value": "TV series",
+            "num_descriptions": 4,
+            "call_time_ms": 51.06
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 4
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 1,
+          "score": 0.5928338766098022,
+          "name": "Observation"
+        },
+        {
+          "idx": 3,
+          "score": 0.12719717621803284,
+          "name": "Observation"
+        },
+        {
+          "idx": 2,
+          "score": 0.10586754977703094,
+          "name": "Observation"
+        },
+        {
+          "idx": 0,
+          "score": 0.006497017573565245,
+          "name": "Observation"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"TV series\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "TV series",
+        "operator": "=~",
+        "span": {
+          "start": 121,
+          "end": 149
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 2773542315056,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "TV series",
+                "operator": "=~",
+                "span": {
+                  "start": 121,
+                  "end": 149
+                }
+              },
+              "score": 0.056685563176870346,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.056685563176870346
+        },
+        {
+          "node_idx": 1,
+          "node_id": 2773542321296,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "TV series",
+                "operator": "=~",
+                "span": {
+                  "start": 121,
+                  "end": 149
+                }
+              },
+              "score": 0.9835054278373718,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.9835054278373718
+        },
+        {
+          "node_idx": 2,
+          "node_id": 2773542318576,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "TV series",
+                "operator": "=~",
+                "span": {
+                  "start": 121,
+                  "end": 149
+                }
+              },
+              "score": 0.9982333183288574,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.9982333183288574
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "TV series"
+        ],
+        "per_value_stats": [
+          {
+            "value": "TV series",
+            "num_descriptions": 3,
+            "call_time_ms": 45.45
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 3
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 2,
+          "score": 0.9982333183288574,
+          "name": "Observation"
+        },
+        {
+          "idx": 1,
+          "score": 0.9835054278373718,
+          "name": "Observation"
+        },
+        {
+          "idx": 0,
+          "score": 0.056685563176870346,
+          "name": "Observation"
+        }
+      ]
+    }
+  ],
+  "scoring_details": {
+    "step_scores": [
+      {
+        "step_index": 0,
+        "predicate": "atom(content =~ \"Tim\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "Tim",
+          "operator": "=~",
+          "span": {
+            "start": 38,
+            "end": 60
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 2773543375376,
+            "node_name": "Tim",
+            "node_type": "Speaker",
+            "final_score": 1.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Tim",
+                "query_value": "Tim",
+                "matched": true,
+                "score": 1.0
+              }
+            ]
+          },
+          {
+            "node_idx": 1,
+            "node_id": 2774403966880,
+            "node_name": "John",
+            "node_type": "Speaker",
+            "final_score": 0.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "John",
+                "query_value": "Tim",
+                "matched": false,
+                "score": 0.0
+              }
+            ]
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 0,
+            "score": 1.0,
+            "name": "Tim"
+          },
+          {
+            "idx": 1,
+            "score": 0.0,
+            "name": "John"
+          }
+        ]
+      },
+      {
+        "step_index": 1,
+        "predicate": "atom(content =~ \"TV series watching\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "TV series watching",
+          "operator": "=~",
+          "span": {
+            "start": 70,
+            "end": 107
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 2773543372816,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "TV series watching",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 107
+                  }
+                },
+                "score": 0.047069478780031204,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.047069478780031204
+          },
+          {
+            "node_idx": 1,
+            "node_id": 2773542312416,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "TV series watching",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 107
+                  }
+                },
+                "score": 0.007547540590167046,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.007547540590167046
+          },
+          {
+            "node_idx": 2,
+            "node_id": 2773542305936,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "TV series watching",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 107
+                  }
+                },
+                "score": 0.01639261096715927,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.01639261096715927
+          },
+          {
+            "node_idx": 3,
+            "node_id": 2773542307216,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "TV series watching",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 107
+                  }
+                },
+                "score": 0.012518668547272682,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.012518668547272682
+          },
+          {
+            "node_idx": 4,
+            "node_id": 2773542309936,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "TV series watching",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 107
+                  }
+                },
+                "score": 0.010993385687470436,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.010993385687470436
+          },
+          {
+            "node_idx": 5,
+            "node_id": 2773542311216,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "TV series watching",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 107
+                  }
+                },
+                "score": 0.0011569138150662184,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0011569138150662184
+          },
+          {
+            "node_idx": 6,
+            "node_id": 2773542313936,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "TV series watching",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 107
+                  }
+                },
+                "score": 0.011159461922943592,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.011159461922943592
+          },
+          {
+            "node_idx": 7,
+            "node_id": 2773542314416,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "TV series watching",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 107
+                  }
+                },
+                "score": 0.32100847363471985,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.32100847363471985
+          },
+          {
+            "node_idx": 8,
+            "node_id": 2773542316656,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "TV series watching",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 107
+                  }
+                },
+                "score": 0.0026778611354529858,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0026778611354529858
+          },
+          {
+            "node_idx": 9,
+            "node_id": 2773542314576,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "TV series watching",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 107
+                  }
+                },
+                "score": 0.03156797215342522,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.03156797215342522
+          },
+          {
+            "node_idx": 10,
+            "node_id": 2773542306976,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "TV series watching",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 107
+                  }
+                },
+                "score": 0.003943233750760555,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.003943233750760555
+          },
+          {
+            "node_idx": 11,
+            "node_id": 2773542308096,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "TV series watching",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 107
+                  }
+                },
+                "score": 0.0023818155750632286,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0023818155750632286
+          },
+          {
+            "node_idx": 12,
+            "node_id": 2773542234656,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "TV series watching",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 107
+                  }
+                },
+                "score": 0.02313270978629589,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.02313270978629589
+          },
+          {
+            "node_idx": 13,
+            "node_id": 2773542238176,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "TV series watching",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 107
+                  }
+                },
+                "score": 0.002819444751366973,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.002819444751366973
+          },
+          {
+            "node_idx": 14,
+            "node_id": 2773542235456,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "TV series watching",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 107
+                  }
+                },
+                "score": 0.002887909533455968,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.002887909533455968
+          },
+          {
+            "node_idx": 15,
+            "node_id": 2773543756528,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "TV series watching",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 107
+                  }
+                },
+                "score": 0.003420455614104867,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.003420455614104867
+          },
+          {
+            "node_idx": 16,
+            "node_id": 2773543751328,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "TV series watching",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 107
+                  }
+                },
+                "score": 0.7070390582084656,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.7070390582084656
+          },
+          {
+            "node_idx": 17,
+            "node_id": 2773543754128,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "TV series watching",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 107
+                  }
+                },
+                "score": 0.0025127946864813566,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0025127946864813566
+          },
+          {
+            "node_idx": 18,
+            "node_id": 2773543748448,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "TV series watching",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 107
+                  }
+                },
+                "score": 0.03880397602915764,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.03880397602915764
+          },
+          {
+            "node_idx": 19,
+            "node_id": 2773543755888,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "TV series watching",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 107
+                  }
+                },
+                "score": 0.01848081313073635,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.01848081313073635
+          },
+          {
+            "node_idx": 20,
+            "node_id": 2773543748288,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "TV series watching",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 107
+                  }
+                },
+                "score": 0.005317634902894497,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.005317634902894497
+          },
+          {
+            "node_idx": 21,
+            "node_id": 2773543755728,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "TV series watching",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 107
+                  }
+                },
+                "score": 0.0016863130731508136,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0016863130731508136
+          },
+          {
+            "node_idx": 22,
+            "node_id": 2773543758688,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "TV series watching",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 107
+                  }
+                },
+                "score": 0.003876624396070838,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.003876624396070838
+          },
+          {
+            "node_idx": 23,
+            "node_id": 2773543752608,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "TV series watching",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 107
+                  }
+                },
+                "score": 0.009256829507648945,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.009256829507648945
+          },
+          {
+            "node_idx": 24,
+            "node_id": 2773543753408,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "TV series watching",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 107
+                  }
+                },
+                "score": 0.0044594802893698215,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0044594802893698215
+          },
+          {
+            "node_idx": 25,
+            "node_id": 2773543755648,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "TV series watching",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 107
+                  }
+                },
+                "score": 0.004020362161099911,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.004020362161099911
+          },
+          {
+            "node_idx": 26,
+            "node_id": 2774403961680,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "TV series watching",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 107
+                  }
+                },
+                "score": 0.02262006513774395,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.02262006513774395
+          },
+          {
+            "node_idx": 27,
+            "node_id": 2774403958960,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "TV series watching",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 107
+                  }
+                },
+                "score": 0.0013635173672810197,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0013635173672810197
+          },
+          {
+            "node_idx": 28,
+            "node_id": 2774403968800,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "TV series watching",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 107
+                  }
+                },
+                "score": 0.011697705835103989,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.011697705835103989
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 16,
+            "score": 0.7070390582084656,
+            "name": "Session"
+          },
+          {
+            "idx": 7,
+            "score": 0.32100847363471985,
+            "name": "Session"
+          },
+          {
+            "idx": 0,
+            "score": 0.047069478780031204,
+            "name": "Session"
+          },
+          {
+            "idx": 18,
+            "score": 0.03880397602915764,
+            "name": "Session"
+          },
+          {
+            "idx": 9,
+            "score": 0.03156797215342522,
+            "name": "Session"
+          },
+          {
+            "idx": 12,
+            "score": 0.02313270978629589,
+            "name": "Session"
+          },
+          {
+            "idx": 26,
+            "score": 0.02262006513774395,
+            "name": "Session"
+          },
+          {
+            "idx": 19,
+            "score": 0.01848081313073635,
+            "name": "Session"
+          },
+          {
+            "idx": 2,
+            "score": 0.01639261096715927,
+            "name": "Session"
+          },
+          {
+            "idx": 3,
+            "score": 0.012518668547272682,
+            "name": "Session"
+          },
+          {
+            "idx": 28,
+            "score": 0.011697705835103989,
+            "name": "Session"
+          },
+          {
+            "idx": 6,
+            "score": 0.011159461922943592,
+            "name": "Session"
+          },
+          {
+            "idx": 4,
+            "score": 0.010993385687470436,
+            "name": "Session"
+          },
+          {
+            "idx": 23,
+            "score": 0.009256829507648945,
+            "name": "Session"
+          },
+          {
+            "idx": 1,
+            "score": 0.007547540590167046,
+            "name": "Session"
+          },
+          {
+            "idx": 20,
+            "score": 0.005317634902894497,
+            "name": "Session"
+          },
+          {
+            "idx": 24,
+            "score": 0.0044594802893698215,
+            "name": "Session"
+          },
+          {
+            "idx": 25,
+            "score": 0.004020362161099911,
+            "name": "Session"
+          },
+          {
+            "idx": 10,
+            "score": 0.003943233750760555,
+            "name": "Session"
+          },
+          {
+            "idx": 22,
+            "score": 0.003876624396070838,
+            "name": "Session"
+          },
+          {
+            "idx": 15,
+            "score": 0.003420455614104867,
+            "name": "Session"
+          },
+          {
+            "idx": 14,
+            "score": 0.002887909533455968,
+            "name": "Session"
+          },
+          {
+            "idx": 13,
+            "score": 0.002819444751366973,
+            "name": "Session"
+          },
+          {
+            "idx": 8,
+            "score": 0.0026778611354529858,
+            "name": "Session"
+          },
+          {
+            "idx": 17,
+            "score": 0.0025127946864813566,
+            "name": "Session"
+          },
+          {
+            "idx": 11,
+            "score": 0.0023818155750632286,
+            "name": "Session"
+          },
+          {
+            "idx": 21,
+            "score": 0.0016863130731508136,
+            "name": "Session"
+          },
+          {
+            "idx": 27,
+            "score": 0.0013635173672810197,
+            "name": "Session"
+          },
+          {
+            "idx": 5,
+            "score": 0.0011569138150662184,
+            "name": "Session"
+          }
+        ]
+      },
+      {
+        "step_index": 2,
+        "predicate": "atom(content =~ \"TV series\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "TV series",
+          "operator": "=~",
+          "span": {
+            "start": 121,
+            "end": 149
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 2773543753168,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "TV series",
+                  "operator": "=~",
+                  "span": {
+                    "start": 121,
+                    "end": 149
+                  }
+                },
+                "score": 0.006497017573565245,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.006497017573565245
+          },
+          {
+            "node_idx": 1,
+            "node_id": 2773543761648,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "TV series",
+                  "operator": "=~",
+                  "span": {
+                    "start": 121,
+                    "end": 149
+                  }
+                },
+                "score": 0.5928338766098022,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.5928338766098022
+          },
+          {
+            "node_idx": 2,
+            "node_id": 2773543756128,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "TV series",
+                  "operator": "=~",
+                  "span": {
+                    "start": 121,
+                    "end": 149
+                  }
+                },
+                "score": 0.10586754977703094,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.10586754977703094
+          },
+          {
+            "node_idx": 3,
+            "node_id": 2773543753488,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "TV series",
+                  "operator": "=~",
+                  "span": {
+                    "start": 121,
+                    "end": 149
+                  }
+                },
+                "score": 0.12719717621803284,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.12719717621803284
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 1,
+            "score": 0.5928338766098022,
+            "name": "Observation"
+          },
+          {
+            "idx": 3,
+            "score": 0.12719717621803284,
+            "name": "Observation"
+          },
+          {
+            "idx": 2,
+            "score": 0.10586754977703094,
+            "name": "Observation"
+          },
+          {
+            "idx": 0,
+            "score": 0.006497017573565245,
+            "name": "Observation"
+          }
+        ]
+      },
+      {
+        "step_index": 3,
+        "predicate": "atom(content =~ \"TV series\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "TV series",
+          "operator": "=~",
+          "span": {
+            "start": 121,
+            "end": 149
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 2773542315056,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "TV series",
+                  "operator": "=~",
+                  "span": {
+                    "start": 121,
+                    "end": 149
+                  }
+                },
+                "score": 0.056685563176870346,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.056685563176870346
+          },
+          {
+            "node_idx": 1,
+            "node_id": 2773542321296,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "TV series",
+                  "operator": "=~",
+                  "span": {
+                    "start": 121,
+                    "end": 149
+                  }
+                },
+                "score": 0.9835054278373718,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.9835054278373718
+          },
+          {
+            "node_idx": 2,
+            "node_id": 2773542318576,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "TV series",
+                  "operator": "=~",
+                  "span": {
+                    "start": 121,
+                    "end": 149
+                  }
+                },
+                "score": 0.9982333183288574,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.9982333183288574
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 2,
+            "score": 0.9982333183288574,
+            "name": "Observation"
+          },
+          {
+            "idx": 1,
+            "score": 0.9835054278373718,
+            "name": "Observation"
+          },
+          {
+            "idx": 0,
+            "score": 0.056685563176870346,
+            "name": "Observation"
+          }
+        ]
+      }
+    ],
+    "score_fusion": {
+      "per_node": [
+        {
+          "node_path": "Root > Conversation_Version 1 > Tim > Session 17 > Observation 2",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"TV series\")]",
+              "score": 0.5928338766098022
+            }
+          ],
+          "accumulated_product": 0.5928338766098022,
+          "final_score": 0.4191567053731116
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Tim > Session 17 > Observation 4",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"TV series\")]",
+              "score": 0.12719717621803284
+            }
+          ],
+          "accumulated_product": 0.12719717621803284,
+          "final_score": 0.0899333715900408
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Tim > Session 17 > Observation 3",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"TV series\")]",
+              "score": 0.10586754977703094
+            }
+          ],
+          "accumulated_product": 0.10586754977703094,
+          "final_score": 0.07485249261433732
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Tim > Session 8 > Observation 3",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"TV series\")]",
+              "score": 0.9982333183288574
+            }
+          ],
+          "accumulated_product": 0.9982333183288574,
+          "final_score": 0.3204413535276266
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Tim > Session 8 > Observation 2",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"TV series\")]",
+              "score": 0.9835054278373718
+            }
+          ],
+          "accumulated_product": 0.9835054278373718,
+          "final_score": 0.31571357588582327
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Tim > Session 8 > Observation 1",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"TV series\")]",
+              "score": 0.056685563176870346
+            }
+          ],
+          "accumulated_product": 0.056685563176870346,
+          "final_score": 0.018196546094335086
+        }
+      ]
+    }
+  },
+  "final_filtering": {
+    "before_filter_count": 6,
+    "threshold": 0.05,
+    "top_k": 10,
+    "after_filter_count": 5,
+    "filtered_nodes": [
+      {
+        "path": "Root > Conversation_Version 1 > Tim > Session 17 > Observation 2",
+        "score": 0.4191567053731116,
+        "type": "Observation",
+        "own_score": 0.5928338766098022,
+        "parent_score": 0.7070390575014266
+      },
+      {
+        "path": "Root > Conversation_Version 1 > Tim > Session 8 > Observation 3",
+        "score": 0.3204413535276266,
+        "type": "Observation",
+        "own_score": 0.9982333183288574,
+        "parent_score": 0.3210084733137114
+      },
+      {
+        "path": "Root > Conversation_Version 1 > Tim > Session 8 > Observation 2",
+        "score": 0.31571357588582327,
+        "type": "Observation",
+        "own_score": 0.9835054278373718,
+        "parent_score": 0.3210084733137114
+      },
+      {
+        "path": "Root > Conversation_Version 1 > Tim > Session 17 > Observation 4",
+        "score": 0.0899333715900408,
+        "type": "Observation",
+        "own_score": 0.12719717621803284,
+        "parent_score": 0.7070390575014266
+      },
+      {
+        "path": "Root > Conversation_Version 1 > Tim > Session 17 > Observation 3",
+        "score": 0.07485249261433732,
+        "type": "Observation",
+        "own_score": 0.10586754977703094,
+        "parent_score": 0.7070390575014266
+      }
+    ]
+  },
+  "matched_nodes": [
+    {
+      "tree_path": "Root > Conversation_Version 1 > Tim > Session 17 > Observation 2",
+      "score": 0.4191567053731116,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "Tim believes books and movies serve as a mental break and allow minds to wander, giving a sense of refreshment.",
+        "source_dia_id": "D17:14"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Tim",
+          "predicate": "atom(content =~ \"Tim\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Tim\") on Tim (Score: 1.00)"
+        },
+        {
+          "node_name": "Session 17",
+          "predicate": "atom(content =~ \"TV series watching\")",
+          "score": 0.7070390582084656,
+          "description": "Matched atom(content =~ \"TV series watching\") on Session 17 (Score: 0.71)"
+        },
+        {
+          "node_name": "Observation 2",
+          "predicate": "atom(content =~ \"TV series\")",
+          "score": 0.5928338766098022,
+          "description": "Matched atom(content =~ \"TV series\") on Observation 2 (Score: 0.59)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > Tim > Session 8 > Observation 3",
+      "score": 0.3204413535276266,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "During Thanksgiving, Tim's family enjoys watching movies like 'Home Alone', 'Elf', and 'The Santa Clause'.",
+        "source_dia_id": "['D8:24', 'D8:26', 'D8:28']"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Tim",
+          "predicate": "atom(content =~ \"Tim\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Tim\") on Tim (Score: 1.00)"
+        },
+        {
+          "node_name": "Observation 3",
+          "predicate": "atom(content =~ \"TV series\")",
+          "score": 0.9982333183288574,
+          "description": "Matched atom(content =~ \"TV series\") on Observation 3 (Score: 1.00)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > Tim > Session 8 > Observation 2",
+      "score": 0.31571357588582327,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "Tim's favorite song to play on the piano is a theme from the movie Harry Potter and the Philosopher's Stone.",
+        "source_dia_id": "D8:14"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Tim",
+          "predicate": "atom(content =~ \"Tim\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Tim\") on Tim (Score: 1.00)"
+        },
+        {
+          "node_name": "Observation 2",
+          "predicate": "atom(content =~ \"TV series\")",
+          "score": 0.9835054278373718,
+          "description": "Matched atom(content =~ \"TV series\") on Observation 2 (Score: 0.98)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > Tim > Session 17 > Observation 4",
+      "score": 0.0899333715900408,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "Tim emphasizes that balance, taking care of oneself mentally and physically, is key for success.",
+        "source_dia_id": "D17:18"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Tim",
+          "predicate": "atom(content =~ \"Tim\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Tim\") on Tim (Score: 1.00)"
+        },
+        {
+          "node_name": "Session 17",
+          "predicate": "atom(content =~ \"TV series watching\")",
+          "score": 0.7070390582084656,
+          "description": "Matched atom(content =~ \"TV series watching\") on Session 17 (Score: 0.71)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > Tim > Session 17 > Observation 3",
+      "score": 0.07485249261433732,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "Tim thinks taking a break from life helps recharge, gain peace, reconnect with oneself, and approach life's challenges with a new outlook.",
+        "source_dia_id": "D17:16"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Tim",
+          "predicate": "atom(content =~ \"Tim\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Tim\") on Tim (Score: 1.00)"
+        },
+        {
+          "node_name": "Session 17",
+          "predicate": "atom(content =~ \"TV series watching\")",
+          "score": 0.7070390582084656,
+          "description": "Matched atom(content =~ \"TV series watching\") on Session 17 (Score: 0.71)"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total_steps": 5,
+    "total_scoring_calls": 4,
+    "matched_count": 5,
+    "execution_time_ms": 916.5262999958941,
+    "has_score_fusion": true,
+    "num_nodes_before_filter": 6,
+    "num_nodes_after_filter": 5
+  }
+}

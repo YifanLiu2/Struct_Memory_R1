@@ -1,0 +1,4825 @@
+{
+  "timestamp": "20260322_235900_559755",
+  "query": "/Root/Conversation_Version[1]/Speaker[atom(content =~ \"Sam\")]/Session[atom(content =~ \"ER emergency room\")]/Observation[atom(content =~ \"ER\")]",
+  "canonical_query": "/Root/Conversation_Version[1]/Speaker[content =~ \"Sam\"]/Session[content =~ \"ER emergency room\"]/Observation[content =~ \"ER\"]",
+  "data_file": "tree.xml",
+  "execution_time_ms": 610.8428000006825,
+  "parsed_ast": {
+    "steps": [
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Root",
+            "span": {
+              "start": 1,
+              "end": 5
+            }
+          },
+          "span": {
+            "start": 1,
+            "end": 5
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Conversation_Version",
+            "index": {
+              "start": 1,
+              "type": "single",
+              "span": {
+                "start": 26,
+                "end": 29
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 29
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 29
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Speaker",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "Sam",
+              "operator": "=~",
+              "span": {
+                "start": 38,
+                "end": 60
+              }
+            },
+            "predicate_str": "atom(content =~ \"Sam\")",
+            "span": {
+              "start": 30,
+              "end": 61
+            }
+          },
+          "span": {
+            "start": 30,
+            "end": 61
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Session",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "ER emergency room",
+              "operator": "=~",
+              "span": {
+                "start": 70,
+                "end": 106
+              }
+            },
+            "predicate_str": "atom(content =~ \"ER emergency room\")",
+            "span": {
+              "start": 62,
+              "end": 107
+            }
+          },
+          "span": {
+            "start": 62,
+            "end": 107
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Observation",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "ER",
+              "operator": "=~",
+              "span": {
+                "start": 120,
+                "end": 141
+              }
+            },
+            "predicate_str": "atom(content =~ \"ER\")",
+            "span": {
+              "start": 108,
+              "end": 142
+            }
+          },
+          "span": {
+            "start": 108,
+            "end": 142
+          }
+        }
+      }
+    ],
+    "global_index": null
+  },
+  "parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: Conversation_Version[1]\n├── Step 2: Speaker[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"Sam\")\n├── Step 3: Session[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"ER emergency room\")\n└── Step 4: Observation[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"ER\")",
+  "canonical_parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: Conversation_Version[1]\n├── Step 2: Speaker[content =~ \"Sam\"]\n├── Step 3: Session[content =~ \"ER emergency room\"]\n└── Step 4: Observation[content =~ \"ER\"]",
+  "execution_log": [
+    "[20260322_235900_559755] Executing query: /Root/Conversation_Version[1]/Speaker[atom(content =~ \"Sam\")]/Session[atom(content =~ \"ER emergency room\")]/Observation[atom(content =~ \"ER\")]",
+    "Data file: tree.xml",
+    "Parsed steps: [Root, Conversation_Version[1], Speaker[atom(content =~ \"Sam\")], Session[atom(content =~ \"ER emergency room\")], Observation[atom(content =~ \"ER\")]]",
+    "",
+    "Query AST:\n├── Step 0: Root\n├── Step 1: Conversation_Version[1]\n├── Step 2: Speaker[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"Sam\")\n├── Step 3: Session[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"ER emergency room\")\n└── Step 4: Observation[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"ER\")",
+    "\n--- Step 1: Root ---",
+    "Matched Root root",
+    "\n--- Step 2: Conversation_Version[1] ---",
+    "Selected node at index 1 (0-based: 0)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 3: Speaker[atom(content =~ \"Sam\")] ---",
+    "Scoring predicate: atom(content =~ \"Sam\") (atomic values: ['Sam'])",
+    "  Node 0 (Evan): score = 0.0000 (exact match)",
+    "  Node 1 (Sam): score = 1.0000 (exact match)",
+    "  Exact attribute match on @name: 1/2 nodes matched",
+    "  Top-K Pruning: Reduced from 2 to 1 nodes (K=5)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 4: Session[atom(content =~ \"ER emergency room\")] ---",
+    "Scoring predicate: atom(content =~ \"ER emergency room\") (atomic values: ['ER emergency room'])",
+    "  Collected 25 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 25 total descriptions",
+    "  Node 0 (Session): score = 0.0119",
+    "  Node 1 (Session): score = 0.0049",
+    "  Node 2 (Session): score = 0.0692",
+    "  Node 3 (Session): score = 0.0248",
+    "  Node 4 (Session): score = 0.0706",
+    "  Node 5 (Session): score = 0.0466",
+    "  Node 6 (Session): score = 0.0153",
+    "  Node 7 (Session): score = 0.0011",
+    "  Node 8 (Session): score = 0.0086",
+    "  Node 9 (Session): score = 0.0126",
+    "  Node 10 (Session): score = 0.0151",
+    "  Node 11 (Session): score = 0.0856",
+    "  Node 12 (Session): score = 0.0047",
+    "  Node 13 (Session): score = 0.0201",
+    "  Node 14 (Session): score = 0.0475",
+    "  Node 15 (Session): score = 0.0039",
+    "  Node 16 (Session): score = 0.0470",
+    "  Node 17 (Session): score = 0.0114",
+    "  Node 18 (Session): score = 0.0290",
+    "  Node 19 (Session): score = 0.0117",
+    "  Node 20 (Session): score = 0.0055",
+    "  Node 21 (Session): score = 0.0030",
+    "  Node 22 (Session): score = 0.0160",
+    "  Node 23 (Session): score = 0.0162",
+    "  Node 24 (Session): score = 0.0198",
+    "  Top-K Pruning: Reduced from 25 to 3 nodes (K=5)",
+    "After step: 3 nodes remaining",
+    "\n--- Step 5: Observation[atom(content =~ \"ER\")] ---",
+    "Scoring predicate: atom(content =~ \"ER\") (atomic values: ['ER'])",
+    "  Collected 7 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 7 total descriptions",
+    "  Node 0 (Observation): score = 0.5323",
+    "  Node 1 (Observation): score = 0.3790",
+    "  Node 2 (Observation): score = 0.5000",
+    "  Node 3 (Observation): score = 0.5026",
+    "  Node 4 (Observation): score = 0.6345",
+    "  Node 5 (Observation): score = 0.4594",
+    "  Node 6 (Observation): score = 0.6518",
+    "Scoring predicate: atom(content =~ \"ER\") (atomic values: ['ER'])",
+    "  Collected 3 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 3 total descriptions",
+    "  Node 0 (Observation): score = 0.5258",
+    "  Node 1 (Observation): score = 0.3454",
+    "  Node 2 (Observation): score = 0.3234",
+    "Scoring predicate: atom(content =~ \"ER\") (atomic values: ['ER'])",
+    "  Collected 4 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 4 total descriptions",
+    "  Node 0 (Observation): score = 0.2832",
+    "  Node 1 (Observation): score = 0.2195",
+    "  Node 2 (Observation): score = 0.3385",
+    "  Node 3 (Observation): score = 0.1401",
+    "  Top-K Pruning: Reduced from 14 to 12 nodes (K=5)",
+    "After step: 12 nodes remaining",
+    "\n=== Score Fusion ===",
+    "  Root > Conversation_Version 1 > Sam > Session 12 > Observation 7: product=0.6518 → score=0.6518",
+    "  Root > Conversation_Version 1 > Sam > Session 12 > Observation 5: product=0.6345 → score=0.6345",
+    "  Root > Conversation_Version 1 > Sam > Session 12 > Observation 1: product=0.5323 → score=0.5323",
+    "  Root > Conversation_Version 1 > Sam > Session 12 > Observation 4: product=0.5026 → score=0.5026",
+    "  Root > Conversation_Version 1 > Sam > Session 12 > Observation 3: product=0.5000 → score=0.5000",
+    "  Root > Conversation_Version 1 > Sam > Session 5 > Observation 1: product=0.5258 → score=0.5258",
+    "  Root > Conversation_Version 1 > Sam > Session 5 > Observation 2: product=0.3454 → score=0.3454",
+    "  Root > Conversation_Version 1 > Sam > Session 5 > Observation 3: product=0.3234 → score=0.3234",
+    "  Root > Conversation_Version 1 > Sam > Session 3 > Observation 3: product=0.3385 → score=0.3385",
+    "  Root > Conversation_Version 1 > Sam > Session 3 > Observation 1: product=0.2832 → score=0.2832",
+    "  Root > Conversation_Version 1 > Sam > Session 3 > Observation 2: product=0.2195 → score=0.2195",
+    "  Root > Conversation_Version 1 > Sam > Session 3 > Observation 4: product=0.1401 → score=0.1401",
+    "  Parent propagation: Root > Conversation_Version 1 > Sam > Session 12 > Observation 7: own=0.6518 × parent=0.0856 → 0.0558",
+    "  Parent propagation: Root > Conversation_Version 1 > Sam > Session 12 > Observation 5: own=0.6345 × parent=0.0856 → 0.0543",
+    "  Parent propagation: Root > Conversation_Version 1 > Sam > Session 12 > Observation 1: own=0.5323 × parent=0.0856 → 0.0455",
+    "  Parent propagation: Root > Conversation_Version 1 > Sam > Session 12 > Observation 4: own=0.5026 × parent=0.0856 → 0.0430",
+    "  Parent propagation: Root > Conversation_Version 1 > Sam > Session 12 > Observation 3: own=0.5000 × parent=0.0856 → 0.0428",
+    "  Parent propagation: Root > Conversation_Version 1 > Sam > Session 5 > Observation 1: own=0.5258 × parent=0.0706 → 0.0371",
+    "  Parent propagation: Root > Conversation_Version 1 > Sam > Session 5 > Observation 2: own=0.3454 × parent=0.0706 → 0.0244",
+    "  Parent propagation: Root > Conversation_Version 1 > Sam > Session 5 > Observation 3: own=0.3234 × parent=0.0706 → 0.0228",
+    "  Parent propagation: Root > Conversation_Version 1 > Sam > Session 3 > Observation 3: own=0.3385 × parent=0.0692 → 0.0234",
+    "  Parent propagation: Root > Conversation_Version 1 > Sam > Session 3 > Observation 1: own=0.2832 × parent=0.0692 → 0.0196",
+    "  Parent propagation: Root > Conversation_Version 1 > Sam > Session 3 > Observation 2: own=0.2195 × parent=0.0692 → 0.0152",
+    "  Parent propagation: Root > Conversation_Version 1 > Sam > Session 3 > Observation 4: own=0.1401 × parent=0.0692 → 0.0097",
+    "\n=== Parent Score Propagation: 12 nodes updated ===",
+    "\n=== Threshold Filtering (threshold=0.05) ===",
+    "  Filtered: 12 → 2 nodes",
+    "\n=== Final Filtering (top_k=10) ===",
+    "  After top_k: 2 → 2 nodes",
+    "\nFinal result: 2 nodes (sorted by score)",
+    "⏱️  Query execution time: 610.84ms"
+  ],
+  "traversal_steps": [
+    {
+      "step_index": 0,
+      "step_query": "Root",
+      "action": "root_match",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "type": "root"
+        }
+      ],
+      "nodes_after": [
+        {
+          "type": "Root",
+          "path": "Root"
+        }
+      ],
+      "details": {
+        "matched": true
+      }
+    },
+    {
+      "step_index": 1,
+      "step_query": "Conversation_Version[1]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root",
+          "name": "Root",
+          "type": "Root",
+          "score": 1.0,
+          "node_id": 2277228273776
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Conversation_Version 1",
+          "name": "Conversation_Version 1",
+          "type": "Conversation_Version",
+          "score": 1.0,
+          "node_id": 2277228277536
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Conversation_Version",
+            "index": {
+              "start": 1,
+              "type": "single",
+              "span": {
+                "start": 26,
+                "end": 29
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 29
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 29
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 2,
+      "step_query": "Speaker[atom(content =~ \"Sam\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root > Conversation_Version 1",
+          "name": "Conversation_Version 1",
+          "type": "Conversation_Version",
+          "score": 1.0,
+          "node_id": 2277228277536
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Conversation_Version 1 > Sam",
+          "name": "Sam",
+          "type": "Speaker",
+          "score": 1.0,
+          "node_id": 2277226990064
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Speaker",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "Sam",
+              "operator": "=~",
+              "span": {
+                "start": 38,
+                "end": 60
+              }
+            },
+            "predicate_str": "atom(content =~ \"Sam\")",
+            "span": {
+              "start": 30,
+              "end": 61
+            }
+          },
+          "span": {
+            "start": 30,
+            "end": 61
+          }
+        },
+        "found_count": 2,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"Sam\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "Sam",
+              "operator": "=~",
+              "span": {
+                "start": 38,
+                "end": 60
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 2277228272816,
+                "node_name": "Evan",
+                "node_type": "Speaker",
+                "final_score": 0.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Evan",
+                    "query_value": "Sam",
+                    "matched": false,
+                    "score": 0.0
+                  }
+                ]
+              },
+              {
+                "node_idx": 1,
+                "node_id": 2277226990064,
+                "node_name": "Sam",
+                "node_type": "Speaker",
+                "final_score": 1.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Sam",
+                    "query_value": "Sam",
+                    "matched": true,
+                    "score": 1.0
+                  }
+                ]
+              }
+            ],
+            "batch_scoring": {
+              "exact_match": true,
+              "matched_attribute": "name",
+              "query_value": "Sam",
+              "matched_count": 1
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 1,
+                "score": 1.0,
+                "name": "Sam"
+              },
+              {
+                "idx": 0,
+                "score": 0.0,
+                "name": "Evan"
+              }
+            ]
+          }
+        ],
+        "pruned_count": 1
+      }
+    },
+    {
+      "step_index": 3,
+      "step_query": "Session[atom(content =~ \"ER emergency room\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 3,
+      "nodes_before": [
+        {
+          "path": "Root > Conversation_Version 1 > Sam",
+          "name": "Sam",
+          "type": "Speaker",
+          "score": 1.0,
+          "node_id": 2277226990064
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Conversation_Version 1 > Sam > Session 12",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.08556200563907623,
+          "node_id": 2277227174608
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Sam > Session 5",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.07057181745767593,
+          "node_id": 2277227172768
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Sam > Session 3",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.06918085366487503,
+          "node_id": 2278157975392
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Session",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "ER emergency room",
+              "operator": "=~",
+              "span": {
+                "start": 70,
+                "end": 106
+              }
+            },
+            "predicate_str": "atom(content =~ \"ER emergency room\")",
+            "span": {
+              "start": 62,
+              "end": 107
+            }
+          },
+          "span": {
+            "start": 62,
+            "end": 107
+          }
+        },
+        "found_count": 25,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"ER emergency room\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "ER emergency room",
+              "operator": "=~",
+              "span": {
+                "start": 70,
+                "end": 106
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 2277226994384,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "ER emergency room",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 106
+                      }
+                    },
+                    "score": 0.011866544373333454,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.011866544373333454
+              },
+              {
+                "node_idx": 1,
+                "node_id": 2278157973952,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "ER emergency room",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 106
+                      }
+                    },
+                    "score": 0.0048909494653344154,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0048909494653344154
+              },
+              {
+                "node_idx": 2,
+                "node_id": 2278157975392,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "ER emergency room",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 106
+                      }
+                    },
+                    "score": 0.06918085366487503,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.06918085366487503
+              },
+              {
+                "node_idx": 3,
+                "node_id": 2277036223328,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "ER emergency room",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 106
+                      }
+                    },
+                    "score": 0.024795614182949066,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.024795614182949066
+              },
+              {
+                "node_idx": 4,
+                "node_id": 2277227172768,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "ER emergency room",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 106
+                      }
+                    },
+                    "score": 0.07057181745767593,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.07057181745767593
+              },
+              {
+                "node_idx": 5,
+                "node_id": 2277227175168,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "ER emergency room",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 106
+                      }
+                    },
+                    "score": 0.04658319801092148,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.04658319801092148
+              },
+              {
+                "node_idx": 6,
+                "node_id": 2277227175648,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "ER emergency room",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 106
+                      }
+                    },
+                    "score": 0.015279829502105713,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.015279829502105713
+              },
+              {
+                "node_idx": 7,
+                "node_id": 2277227168608,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "ER emergency room",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 106
+                      }
+                    },
+                    "score": 0.0010674272198230028,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0010674272198230028
+              },
+              {
+                "node_idx": 8,
+                "node_id": 2277227180368,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "ER emergency room",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 106
+                      }
+                    },
+                    "score": 0.00857129879295826,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.00857129879295826
+              },
+              {
+                "node_idx": 9,
+                "node_id": 2277227173088,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "ER emergency room",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 106
+                      }
+                    },
+                    "score": 0.01255105435848236,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.01255105435848236
+              },
+              {
+                "node_idx": 10,
+                "node_id": 2277227175728,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "ER emergency room",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 106
+                      }
+                    },
+                    "score": 0.015114442445337772,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.015114442445337772
+              },
+              {
+                "node_idx": 11,
+                "node_id": 2277227174608,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "ER emergency room",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 106
+                      }
+                    },
+                    "score": 0.08556200563907623,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.08556200563907623
+              },
+              {
+                "node_idx": 12,
+                "node_id": 2277227168528,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "ER emergency room",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 106
+                      }
+                    },
+                    "score": 0.004708187188953161,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.004708187188953161
+              },
+              {
+                "node_idx": 13,
+                "node_id": 2278157713712,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "ER emergency room",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 106
+                      }
+                    },
+                    "score": 0.02012701891362667,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.02012701891362667
+              },
+              {
+                "node_idx": 14,
+                "node_id": 2277227128496,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "ER emergency room",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 106
+                      }
+                    },
+                    "score": 0.047524698078632355,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.047524698078632355
+              },
+              {
+                "node_idx": 15,
+                "node_id": 2277227129776,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "ER emergency room",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 106
+                      }
+                    },
+                    "score": 0.003927081357687712,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.003927081357687712
+              },
+              {
+                "node_idx": 16,
+                "node_id": 2277227129696,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "ER emergency room",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 106
+                      }
+                    },
+                    "score": 0.047049202024936676,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.047049202024936676
+              },
+              {
+                "node_idx": 17,
+                "node_id": 2277227125856,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "ER emergency room",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 106
+                      }
+                    },
+                    "score": 0.011377166025340557,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.011377166025340557
+              },
+              {
+                "node_idx": 18,
+                "node_id": 2277227120736,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "ER emergency room",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 106
+                      }
+                    },
+                    "score": 0.029013799503445625,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.029013799503445625
+              },
+              {
+                "node_idx": 19,
+                "node_id": 2277227123376,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "ER emergency room",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 106
+                      }
+                    },
+                    "score": 0.011716430075466633,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.011716430075466633
+              },
+              {
+                "node_idx": 20,
+                "node_id": 2277227125936,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "ER emergency room",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 106
+                      }
+                    },
+                    "score": 0.0055068242363631725,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0055068242363631725
+              },
+              {
+                "node_idx": 21,
+                "node_id": 2277227122016,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "ER emergency room",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 106
+                      }
+                    },
+                    "score": 0.0030454727821052074,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0030454727821052074
+              },
+              {
+                "node_idx": 22,
+                "node_id": 2277227132176,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "ER emergency room",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 106
+                      }
+                    },
+                    "score": 0.015962740406394005,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.015962740406394005
+              },
+              {
+                "node_idx": 23,
+                "node_id": 2277227127776,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "ER emergency room",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 106
+                      }
+                    },
+                    "score": 0.016163676977157593,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.016163676977157593
+              },
+              {
+                "node_idx": 24,
+                "node_id": 2277227127696,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "ER emergency room",
+                      "operator": "=~",
+                      "span": {
+                        "start": 70,
+                        "end": 106
+                      }
+                    },
+                    "score": 0.01984928548336029,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.01984928548336029
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "ER emergency room"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "ER emergency room",
+                  "num_descriptions": 25,
+                  "call_time_ms": 472.42
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 25
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 11,
+                "score": 0.08556200563907623,
+                "name": "Session"
+              },
+              {
+                "idx": 4,
+                "score": 0.07057181745767593,
+                "name": "Session"
+              },
+              {
+                "idx": 2,
+                "score": 0.06918085366487503,
+                "name": "Session"
+              },
+              {
+                "idx": 14,
+                "score": 0.047524698078632355,
+                "name": "Session"
+              },
+              {
+                "idx": 16,
+                "score": 0.047049202024936676,
+                "name": "Session"
+              },
+              {
+                "idx": 5,
+                "score": 0.04658319801092148,
+                "name": "Session"
+              },
+              {
+                "idx": 18,
+                "score": 0.029013799503445625,
+                "name": "Session"
+              },
+              {
+                "idx": 3,
+                "score": 0.024795614182949066,
+                "name": "Session"
+              },
+              {
+                "idx": 13,
+                "score": 0.02012701891362667,
+                "name": "Session"
+              },
+              {
+                "idx": 24,
+                "score": 0.01984928548336029,
+                "name": "Session"
+              },
+              {
+                "idx": 23,
+                "score": 0.016163676977157593,
+                "name": "Session"
+              },
+              {
+                "idx": 22,
+                "score": 0.015962740406394005,
+                "name": "Session"
+              },
+              {
+                "idx": 6,
+                "score": 0.015279829502105713,
+                "name": "Session"
+              },
+              {
+                "idx": 10,
+                "score": 0.015114442445337772,
+                "name": "Session"
+              },
+              {
+                "idx": 9,
+                "score": 0.01255105435848236,
+                "name": "Session"
+              },
+              {
+                "idx": 0,
+                "score": 0.011866544373333454,
+                "name": "Session"
+              },
+              {
+                "idx": 19,
+                "score": 0.011716430075466633,
+                "name": "Session"
+              },
+              {
+                "idx": 17,
+                "score": 0.011377166025340557,
+                "name": "Session"
+              },
+              {
+                "idx": 8,
+                "score": 0.00857129879295826,
+                "name": "Session"
+              },
+              {
+                "idx": 20,
+                "score": 0.0055068242363631725,
+                "name": "Session"
+              },
+              {
+                "idx": 1,
+                "score": 0.0048909494653344154,
+                "name": "Session"
+              },
+              {
+                "idx": 12,
+                "score": 0.004708187188953161,
+                "name": "Session"
+              },
+              {
+                "idx": 15,
+                "score": 0.003927081357687712,
+                "name": "Session"
+              },
+              {
+                "idx": 21,
+                "score": 0.0030454727821052074,
+                "name": "Session"
+              },
+              {
+                "idx": 7,
+                "score": 0.0010674272198230028,
+                "name": "Session"
+              }
+            ]
+          }
+        ],
+        "pruned_count": 22
+      }
+    },
+    {
+      "step_index": 4,
+      "step_query": "Observation[atom(content =~ \"ER\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 3,
+      "nodes_after_count": 12,
+      "nodes_before": [
+        {
+          "path": "Root > Conversation_Version 1 > Sam > Session 12",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.08556200563907623,
+          "node_id": 2277227174608
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Sam > Session 5",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.07057181745767593,
+          "node_id": 2277227172768
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Sam > Session 3",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.06918085366487503,
+          "node_id": 2278157975392
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Conversation_Version 1 > Sam > Session 12 > Observation 7",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.6517590284347534,
+          "node_id": 2277227179968
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Sam > Session 12 > Observation 5",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.6345476508140564,
+          "node_id": 2277227173648
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Sam > Session 12 > Observation 1",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.532342255115509,
+          "node_id": 2277227181648
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Sam > Session 12 > Observation 4",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.502590537071228,
+          "node_id": 2277227175408
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Sam > Session 12 > Observation 3",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.5000201463699341,
+          "node_id": 2277227182928
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Sam > Session 5 > Observation 1",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.5257874727249146,
+          "node_id": 2277227172368
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Sam > Session 5 > Observation 2",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.34536314010620117,
+          "node_id": 2277227173168
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Sam > Session 5 > Observation 3",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.32338154315948486,
+          "node_id": 2277227167808
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Sam > Session 3 > Observation 3",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.33854013681411743,
+          "node_id": 2277036213408
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Sam > Session 3 > Observation 1",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.2831517159938812,
+          "node_id": 2278157971472
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Sam > Session 3 > Observation 2",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.21945782005786896,
+          "node_id": 2277036217888
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Sam > Session 3 > Observation 4",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.14014525711536407,
+          "node_id": 2277036215568
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Observation",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "ER",
+              "operator": "=~",
+              "span": {
+                "start": 120,
+                "end": 141
+              }
+            },
+            "predicate_str": "atom(content =~ \"ER\")",
+            "span": {
+              "start": 108,
+              "end": 142
+            }
+          },
+          "span": {
+            "start": 108,
+            "end": 142
+          }
+        },
+        "found_count": 14,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"ER\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "ER",
+              "operator": "=~",
+              "span": {
+                "start": 120,
+                "end": 141
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 2277227181648,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "ER",
+                      "operator": "=~",
+                      "span": {
+                        "start": 120,
+                        "end": 141
+                      }
+                    },
+                    "score": 0.532342255115509,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.532342255115509
+              },
+              {
+                "node_idx": 1,
+                "node_id": 2277227172848,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "ER",
+                      "operator": "=~",
+                      "span": {
+                        "start": 120,
+                        "end": 141
+                      }
+                    },
+                    "score": 0.37899014353752136,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.37899014353752136
+              },
+              {
+                "node_idx": 2,
+                "node_id": 2277227182928,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "ER",
+                      "operator": "=~",
+                      "span": {
+                        "start": 120,
+                        "end": 141
+                      }
+                    },
+                    "score": 0.5000201463699341,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.5000201463699341
+              },
+              {
+                "node_idx": 3,
+                "node_id": 2277227175408,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "ER",
+                      "operator": "=~",
+                      "span": {
+                        "start": 120,
+                        "end": 141
+                      }
+                    },
+                    "score": 0.502590537071228,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.502590537071228
+              },
+              {
+                "node_idx": 4,
+                "node_id": 2277227173648,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "ER",
+                      "operator": "=~",
+                      "span": {
+                        "start": 120,
+                        "end": 141
+                      }
+                    },
+                    "score": 0.6345476508140564,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.6345476508140564
+              },
+              {
+                "node_idx": 5,
+                "node_id": 2277227182368,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "ER",
+                      "operator": "=~",
+                      "span": {
+                        "start": 120,
+                        "end": 141
+                      }
+                    },
+                    "score": 0.4593588411808014,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.4593588411808014
+              },
+              {
+                "node_idx": 6,
+                "node_id": 2277227179968,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "ER",
+                      "operator": "=~",
+                      "span": {
+                        "start": 120,
+                        "end": 141
+                      }
+                    },
+                    "score": 0.6517590284347534,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.6517590284347534
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "ER"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "ER",
+                  "num_descriptions": 7,
+                  "call_time_ms": 56.38
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 7
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 6,
+                "score": 0.6517590284347534,
+                "name": "Observation"
+              },
+              {
+                "idx": 4,
+                "score": 0.6345476508140564,
+                "name": "Observation"
+              },
+              {
+                "idx": 0,
+                "score": 0.532342255115509,
+                "name": "Observation"
+              },
+              {
+                "idx": 3,
+                "score": 0.502590537071228,
+                "name": "Observation"
+              },
+              {
+                "idx": 2,
+                "score": 0.5000201463699341,
+                "name": "Observation"
+              },
+              {
+                "idx": 5,
+                "score": 0.4593588411808014,
+                "name": "Observation"
+              },
+              {
+                "idx": 1,
+                "score": 0.37899014353752136,
+                "name": "Observation"
+              }
+            ]
+          },
+          {
+            "predicate": "atom(content =~ \"ER\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "ER",
+              "operator": "=~",
+              "span": {
+                "start": 120,
+                "end": 141
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 2277227172368,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "ER",
+                      "operator": "=~",
+                      "span": {
+                        "start": 120,
+                        "end": 141
+                      }
+                    },
+                    "score": 0.5257874727249146,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.5257874727249146
+              },
+              {
+                "node_idx": 1,
+                "node_id": 2277227173168,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "ER",
+                      "operator": "=~",
+                      "span": {
+                        "start": 120,
+                        "end": 141
+                      }
+                    },
+                    "score": 0.34536314010620117,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.34536314010620117
+              },
+              {
+                "node_idx": 2,
+                "node_id": 2277227167808,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "ER",
+                      "operator": "=~",
+                      "span": {
+                        "start": 120,
+                        "end": 141
+                      }
+                    },
+                    "score": 0.32338154315948486,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.32338154315948486
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "ER"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "ER",
+                  "num_descriptions": 3,
+                  "call_time_ms": 35.71
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 3
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 0,
+                "score": 0.5257874727249146,
+                "name": "Observation"
+              },
+              {
+                "idx": 1,
+                "score": 0.34536314010620117,
+                "name": "Observation"
+              },
+              {
+                "idx": 2,
+                "score": 0.32338154315948486,
+                "name": "Observation"
+              }
+            ]
+          },
+          {
+            "predicate": "atom(content =~ \"ER\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "ER",
+              "operator": "=~",
+              "span": {
+                "start": 120,
+                "end": 141
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 2278157971472,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "ER",
+                      "operator": "=~",
+                      "span": {
+                        "start": 120,
+                        "end": 141
+                      }
+                    },
+                    "score": 0.2831517159938812,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.2831517159938812
+              },
+              {
+                "node_idx": 1,
+                "node_id": 2277036217888,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "ER",
+                      "operator": "=~",
+                      "span": {
+                        "start": 120,
+                        "end": 141
+                      }
+                    },
+                    "score": 0.21945782005786896,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.21945782005786896
+              },
+              {
+                "node_idx": 2,
+                "node_id": 2277036213408,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "ER",
+                      "operator": "=~",
+                      "span": {
+                        "start": 120,
+                        "end": 141
+                      }
+                    },
+                    "score": 0.33854013681411743,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.33854013681411743
+              },
+              {
+                "node_idx": 3,
+                "node_id": 2277036215568,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "ER",
+                      "operator": "=~",
+                      "span": {
+                        "start": 120,
+                        "end": 141
+                      }
+                    },
+                    "score": 0.14014525711536407,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.14014525711536407
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "ER"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "ER",
+                  "num_descriptions": 4,
+                  "call_time_ms": 41.69
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 4
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 2,
+                "score": 0.33854013681411743,
+                "name": "Observation"
+              },
+              {
+                "idx": 0,
+                "score": 0.2831517159938812,
+                "name": "Observation"
+              },
+              {
+                "idx": 1,
+                "score": 0.21945782005786896,
+                "name": "Observation"
+              },
+              {
+                "idx": 3,
+                "score": 0.14014525711536407,
+                "name": "Observation"
+              }
+            ]
+          }
+        ],
+        "pruned_count": 2
+      }
+    }
+  ],
+  "scoring_traces": [
+    {
+      "predicate": "atom(content =~ \"Sam\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "Sam",
+        "operator": "=~",
+        "span": {
+          "start": 38,
+          "end": 60
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 2277228272816,
+          "node_name": "Evan",
+          "node_type": "Speaker",
+          "final_score": 0.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Evan",
+              "query_value": "Sam",
+              "matched": false,
+              "score": 0.0
+            }
+          ]
+        },
+        {
+          "node_idx": 1,
+          "node_id": 2277226990064,
+          "node_name": "Sam",
+          "node_type": "Speaker",
+          "final_score": 1.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Sam",
+              "query_value": "Sam",
+              "matched": true,
+              "score": 1.0
+            }
+          ]
+        }
+      ],
+      "batch_scoring": {
+        "exact_match": true,
+        "matched_attribute": "name",
+        "query_value": "Sam",
+        "matched_count": 1
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 1,
+          "score": 1.0,
+          "name": "Sam"
+        },
+        {
+          "idx": 0,
+          "score": 0.0,
+          "name": "Evan"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"ER emergency room\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "ER emergency room",
+        "operator": "=~",
+        "span": {
+          "start": 70,
+          "end": 106
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 2277226994384,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "ER emergency room",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 106
+                }
+              },
+              "score": 0.011866544373333454,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.011866544373333454
+        },
+        {
+          "node_idx": 1,
+          "node_id": 2278157973952,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "ER emergency room",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 106
+                }
+              },
+              "score": 0.0048909494653344154,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0048909494653344154
+        },
+        {
+          "node_idx": 2,
+          "node_id": 2278157975392,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "ER emergency room",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 106
+                }
+              },
+              "score": 0.06918085366487503,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.06918085366487503
+        },
+        {
+          "node_idx": 3,
+          "node_id": 2277036223328,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "ER emergency room",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 106
+                }
+              },
+              "score": 0.024795614182949066,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.024795614182949066
+        },
+        {
+          "node_idx": 4,
+          "node_id": 2277227172768,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "ER emergency room",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 106
+                }
+              },
+              "score": 0.07057181745767593,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.07057181745767593
+        },
+        {
+          "node_idx": 5,
+          "node_id": 2277227175168,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "ER emergency room",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 106
+                }
+              },
+              "score": 0.04658319801092148,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.04658319801092148
+        },
+        {
+          "node_idx": 6,
+          "node_id": 2277227175648,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "ER emergency room",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 106
+                }
+              },
+              "score": 0.015279829502105713,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.015279829502105713
+        },
+        {
+          "node_idx": 7,
+          "node_id": 2277227168608,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "ER emergency room",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 106
+                }
+              },
+              "score": 0.0010674272198230028,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0010674272198230028
+        },
+        {
+          "node_idx": 8,
+          "node_id": 2277227180368,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "ER emergency room",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 106
+                }
+              },
+              "score": 0.00857129879295826,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.00857129879295826
+        },
+        {
+          "node_idx": 9,
+          "node_id": 2277227173088,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "ER emergency room",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 106
+                }
+              },
+              "score": 0.01255105435848236,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.01255105435848236
+        },
+        {
+          "node_idx": 10,
+          "node_id": 2277227175728,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "ER emergency room",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 106
+                }
+              },
+              "score": 0.015114442445337772,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.015114442445337772
+        },
+        {
+          "node_idx": 11,
+          "node_id": 2277227174608,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "ER emergency room",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 106
+                }
+              },
+              "score": 0.08556200563907623,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.08556200563907623
+        },
+        {
+          "node_idx": 12,
+          "node_id": 2277227168528,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "ER emergency room",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 106
+                }
+              },
+              "score": 0.004708187188953161,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.004708187188953161
+        },
+        {
+          "node_idx": 13,
+          "node_id": 2278157713712,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "ER emergency room",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 106
+                }
+              },
+              "score": 0.02012701891362667,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.02012701891362667
+        },
+        {
+          "node_idx": 14,
+          "node_id": 2277227128496,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "ER emergency room",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 106
+                }
+              },
+              "score": 0.047524698078632355,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.047524698078632355
+        },
+        {
+          "node_idx": 15,
+          "node_id": 2277227129776,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "ER emergency room",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 106
+                }
+              },
+              "score": 0.003927081357687712,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.003927081357687712
+        },
+        {
+          "node_idx": 16,
+          "node_id": 2277227129696,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "ER emergency room",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 106
+                }
+              },
+              "score": 0.047049202024936676,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.047049202024936676
+        },
+        {
+          "node_idx": 17,
+          "node_id": 2277227125856,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "ER emergency room",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 106
+                }
+              },
+              "score": 0.011377166025340557,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.011377166025340557
+        },
+        {
+          "node_idx": 18,
+          "node_id": 2277227120736,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "ER emergency room",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 106
+                }
+              },
+              "score": 0.029013799503445625,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.029013799503445625
+        },
+        {
+          "node_idx": 19,
+          "node_id": 2277227123376,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "ER emergency room",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 106
+                }
+              },
+              "score": 0.011716430075466633,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.011716430075466633
+        },
+        {
+          "node_idx": 20,
+          "node_id": 2277227125936,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "ER emergency room",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 106
+                }
+              },
+              "score": 0.0055068242363631725,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0055068242363631725
+        },
+        {
+          "node_idx": 21,
+          "node_id": 2277227122016,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "ER emergency room",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 106
+                }
+              },
+              "score": 0.0030454727821052074,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0030454727821052074
+        },
+        {
+          "node_idx": 22,
+          "node_id": 2277227132176,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "ER emergency room",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 106
+                }
+              },
+              "score": 0.015962740406394005,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.015962740406394005
+        },
+        {
+          "node_idx": 23,
+          "node_id": 2277227127776,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "ER emergency room",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 106
+                }
+              },
+              "score": 0.016163676977157593,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.016163676977157593
+        },
+        {
+          "node_idx": 24,
+          "node_id": 2277227127696,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "ER emergency room",
+                "operator": "=~",
+                "span": {
+                  "start": 70,
+                  "end": 106
+                }
+              },
+              "score": 0.01984928548336029,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.01984928548336029
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "ER emergency room"
+        ],
+        "per_value_stats": [
+          {
+            "value": "ER emergency room",
+            "num_descriptions": 25,
+            "call_time_ms": 472.42
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 25
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 11,
+          "score": 0.08556200563907623,
+          "name": "Session"
+        },
+        {
+          "idx": 4,
+          "score": 0.07057181745767593,
+          "name": "Session"
+        },
+        {
+          "idx": 2,
+          "score": 0.06918085366487503,
+          "name": "Session"
+        },
+        {
+          "idx": 14,
+          "score": 0.047524698078632355,
+          "name": "Session"
+        },
+        {
+          "idx": 16,
+          "score": 0.047049202024936676,
+          "name": "Session"
+        },
+        {
+          "idx": 5,
+          "score": 0.04658319801092148,
+          "name": "Session"
+        },
+        {
+          "idx": 18,
+          "score": 0.029013799503445625,
+          "name": "Session"
+        },
+        {
+          "idx": 3,
+          "score": 0.024795614182949066,
+          "name": "Session"
+        },
+        {
+          "idx": 13,
+          "score": 0.02012701891362667,
+          "name": "Session"
+        },
+        {
+          "idx": 24,
+          "score": 0.01984928548336029,
+          "name": "Session"
+        },
+        {
+          "idx": 23,
+          "score": 0.016163676977157593,
+          "name": "Session"
+        },
+        {
+          "idx": 22,
+          "score": 0.015962740406394005,
+          "name": "Session"
+        },
+        {
+          "idx": 6,
+          "score": 0.015279829502105713,
+          "name": "Session"
+        },
+        {
+          "idx": 10,
+          "score": 0.015114442445337772,
+          "name": "Session"
+        },
+        {
+          "idx": 9,
+          "score": 0.01255105435848236,
+          "name": "Session"
+        },
+        {
+          "idx": 0,
+          "score": 0.011866544373333454,
+          "name": "Session"
+        },
+        {
+          "idx": 19,
+          "score": 0.011716430075466633,
+          "name": "Session"
+        },
+        {
+          "idx": 17,
+          "score": 0.011377166025340557,
+          "name": "Session"
+        },
+        {
+          "idx": 8,
+          "score": 0.00857129879295826,
+          "name": "Session"
+        },
+        {
+          "idx": 20,
+          "score": 0.0055068242363631725,
+          "name": "Session"
+        },
+        {
+          "idx": 1,
+          "score": 0.0048909494653344154,
+          "name": "Session"
+        },
+        {
+          "idx": 12,
+          "score": 0.004708187188953161,
+          "name": "Session"
+        },
+        {
+          "idx": 15,
+          "score": 0.003927081357687712,
+          "name": "Session"
+        },
+        {
+          "idx": 21,
+          "score": 0.0030454727821052074,
+          "name": "Session"
+        },
+        {
+          "idx": 7,
+          "score": 0.0010674272198230028,
+          "name": "Session"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"ER\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "ER",
+        "operator": "=~",
+        "span": {
+          "start": 120,
+          "end": 141
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 2277227181648,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "ER",
+                "operator": "=~",
+                "span": {
+                  "start": 120,
+                  "end": 141
+                }
+              },
+              "score": 0.532342255115509,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.532342255115509
+        },
+        {
+          "node_idx": 1,
+          "node_id": 2277227172848,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "ER",
+                "operator": "=~",
+                "span": {
+                  "start": 120,
+                  "end": 141
+                }
+              },
+              "score": 0.37899014353752136,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.37899014353752136
+        },
+        {
+          "node_idx": 2,
+          "node_id": 2277227182928,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "ER",
+                "operator": "=~",
+                "span": {
+                  "start": 120,
+                  "end": 141
+                }
+              },
+              "score": 0.5000201463699341,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.5000201463699341
+        },
+        {
+          "node_idx": 3,
+          "node_id": 2277227175408,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "ER",
+                "operator": "=~",
+                "span": {
+                  "start": 120,
+                  "end": 141
+                }
+              },
+              "score": 0.502590537071228,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.502590537071228
+        },
+        {
+          "node_idx": 4,
+          "node_id": 2277227173648,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "ER",
+                "operator": "=~",
+                "span": {
+                  "start": 120,
+                  "end": 141
+                }
+              },
+              "score": 0.6345476508140564,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.6345476508140564
+        },
+        {
+          "node_idx": 5,
+          "node_id": 2277227182368,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "ER",
+                "operator": "=~",
+                "span": {
+                  "start": 120,
+                  "end": 141
+                }
+              },
+              "score": 0.4593588411808014,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.4593588411808014
+        },
+        {
+          "node_idx": 6,
+          "node_id": 2277227179968,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "ER",
+                "operator": "=~",
+                "span": {
+                  "start": 120,
+                  "end": 141
+                }
+              },
+              "score": 0.6517590284347534,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.6517590284347534
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "ER"
+        ],
+        "per_value_stats": [
+          {
+            "value": "ER",
+            "num_descriptions": 7,
+            "call_time_ms": 56.38
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 7
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 6,
+          "score": 0.6517590284347534,
+          "name": "Observation"
+        },
+        {
+          "idx": 4,
+          "score": 0.6345476508140564,
+          "name": "Observation"
+        },
+        {
+          "idx": 0,
+          "score": 0.532342255115509,
+          "name": "Observation"
+        },
+        {
+          "idx": 3,
+          "score": 0.502590537071228,
+          "name": "Observation"
+        },
+        {
+          "idx": 2,
+          "score": 0.5000201463699341,
+          "name": "Observation"
+        },
+        {
+          "idx": 5,
+          "score": 0.4593588411808014,
+          "name": "Observation"
+        },
+        {
+          "idx": 1,
+          "score": 0.37899014353752136,
+          "name": "Observation"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"ER\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "ER",
+        "operator": "=~",
+        "span": {
+          "start": 120,
+          "end": 141
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 2277227172368,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "ER",
+                "operator": "=~",
+                "span": {
+                  "start": 120,
+                  "end": 141
+                }
+              },
+              "score": 0.5257874727249146,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.5257874727249146
+        },
+        {
+          "node_idx": 1,
+          "node_id": 2277227173168,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "ER",
+                "operator": "=~",
+                "span": {
+                  "start": 120,
+                  "end": 141
+                }
+              },
+              "score": 0.34536314010620117,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.34536314010620117
+        },
+        {
+          "node_idx": 2,
+          "node_id": 2277227167808,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "ER",
+                "operator": "=~",
+                "span": {
+                  "start": 120,
+                  "end": 141
+                }
+              },
+              "score": 0.32338154315948486,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.32338154315948486
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "ER"
+        ],
+        "per_value_stats": [
+          {
+            "value": "ER",
+            "num_descriptions": 3,
+            "call_time_ms": 35.71
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 3
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 0,
+          "score": 0.5257874727249146,
+          "name": "Observation"
+        },
+        {
+          "idx": 1,
+          "score": 0.34536314010620117,
+          "name": "Observation"
+        },
+        {
+          "idx": 2,
+          "score": 0.32338154315948486,
+          "name": "Observation"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"ER\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "ER",
+        "operator": "=~",
+        "span": {
+          "start": 120,
+          "end": 141
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 2278157971472,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "ER",
+                "operator": "=~",
+                "span": {
+                  "start": 120,
+                  "end": 141
+                }
+              },
+              "score": 0.2831517159938812,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.2831517159938812
+        },
+        {
+          "node_idx": 1,
+          "node_id": 2277036217888,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "ER",
+                "operator": "=~",
+                "span": {
+                  "start": 120,
+                  "end": 141
+                }
+              },
+              "score": 0.21945782005786896,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.21945782005786896
+        },
+        {
+          "node_idx": 2,
+          "node_id": 2277036213408,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "ER",
+                "operator": "=~",
+                "span": {
+                  "start": 120,
+                  "end": 141
+                }
+              },
+              "score": 0.33854013681411743,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.33854013681411743
+        },
+        {
+          "node_idx": 3,
+          "node_id": 2277036215568,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "ER",
+                "operator": "=~",
+                "span": {
+                  "start": 120,
+                  "end": 141
+                }
+              },
+              "score": 0.14014525711536407,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.14014525711536407
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "ER"
+        ],
+        "per_value_stats": [
+          {
+            "value": "ER",
+            "num_descriptions": 4,
+            "call_time_ms": 41.69
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 4
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 2,
+          "score": 0.33854013681411743,
+          "name": "Observation"
+        },
+        {
+          "idx": 0,
+          "score": 0.2831517159938812,
+          "name": "Observation"
+        },
+        {
+          "idx": 1,
+          "score": 0.21945782005786896,
+          "name": "Observation"
+        },
+        {
+          "idx": 3,
+          "score": 0.14014525711536407,
+          "name": "Observation"
+        }
+      ]
+    }
+  ],
+  "scoring_details": {
+    "step_scores": [
+      {
+        "step_index": 0,
+        "predicate": "atom(content =~ \"Sam\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "Sam",
+          "operator": "=~",
+          "span": {
+            "start": 38,
+            "end": 60
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 2277228272816,
+            "node_name": "Evan",
+            "node_type": "Speaker",
+            "final_score": 0.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Evan",
+                "query_value": "Sam",
+                "matched": false,
+                "score": 0.0
+              }
+            ]
+          },
+          {
+            "node_idx": 1,
+            "node_id": 2277226990064,
+            "node_name": "Sam",
+            "node_type": "Speaker",
+            "final_score": 1.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Sam",
+                "query_value": "Sam",
+                "matched": true,
+                "score": 1.0
+              }
+            ]
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 1,
+            "score": 1.0,
+            "name": "Sam"
+          },
+          {
+            "idx": 0,
+            "score": 0.0,
+            "name": "Evan"
+          }
+        ]
+      },
+      {
+        "step_index": 1,
+        "predicate": "atom(content =~ \"ER emergency room\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "ER emergency room",
+          "operator": "=~",
+          "span": {
+            "start": 70,
+            "end": 106
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 2277226994384,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "ER emergency room",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 106
+                  }
+                },
+                "score": 0.011866544373333454,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.011866544373333454
+          },
+          {
+            "node_idx": 1,
+            "node_id": 2278157973952,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "ER emergency room",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 106
+                  }
+                },
+                "score": 0.0048909494653344154,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0048909494653344154
+          },
+          {
+            "node_idx": 2,
+            "node_id": 2278157975392,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "ER emergency room",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 106
+                  }
+                },
+                "score": 0.06918085366487503,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.06918085366487503
+          },
+          {
+            "node_idx": 3,
+            "node_id": 2277036223328,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "ER emergency room",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 106
+                  }
+                },
+                "score": 0.024795614182949066,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.024795614182949066
+          },
+          {
+            "node_idx": 4,
+            "node_id": 2277227172768,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "ER emergency room",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 106
+                  }
+                },
+                "score": 0.07057181745767593,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.07057181745767593
+          },
+          {
+            "node_idx": 5,
+            "node_id": 2277227175168,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "ER emergency room",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 106
+                  }
+                },
+                "score": 0.04658319801092148,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.04658319801092148
+          },
+          {
+            "node_idx": 6,
+            "node_id": 2277227175648,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "ER emergency room",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 106
+                  }
+                },
+                "score": 0.015279829502105713,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.015279829502105713
+          },
+          {
+            "node_idx": 7,
+            "node_id": 2277227168608,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "ER emergency room",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 106
+                  }
+                },
+                "score": 0.0010674272198230028,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0010674272198230028
+          },
+          {
+            "node_idx": 8,
+            "node_id": 2277227180368,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "ER emergency room",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 106
+                  }
+                },
+                "score": 0.00857129879295826,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.00857129879295826
+          },
+          {
+            "node_idx": 9,
+            "node_id": 2277227173088,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "ER emergency room",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 106
+                  }
+                },
+                "score": 0.01255105435848236,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.01255105435848236
+          },
+          {
+            "node_idx": 10,
+            "node_id": 2277227175728,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "ER emergency room",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 106
+                  }
+                },
+                "score": 0.015114442445337772,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.015114442445337772
+          },
+          {
+            "node_idx": 11,
+            "node_id": 2277227174608,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "ER emergency room",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 106
+                  }
+                },
+                "score": 0.08556200563907623,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.08556200563907623
+          },
+          {
+            "node_idx": 12,
+            "node_id": 2277227168528,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "ER emergency room",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 106
+                  }
+                },
+                "score": 0.004708187188953161,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.004708187188953161
+          },
+          {
+            "node_idx": 13,
+            "node_id": 2278157713712,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "ER emergency room",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 106
+                  }
+                },
+                "score": 0.02012701891362667,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.02012701891362667
+          },
+          {
+            "node_idx": 14,
+            "node_id": 2277227128496,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "ER emergency room",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 106
+                  }
+                },
+                "score": 0.047524698078632355,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.047524698078632355
+          },
+          {
+            "node_idx": 15,
+            "node_id": 2277227129776,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "ER emergency room",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 106
+                  }
+                },
+                "score": 0.003927081357687712,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.003927081357687712
+          },
+          {
+            "node_idx": 16,
+            "node_id": 2277227129696,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "ER emergency room",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 106
+                  }
+                },
+                "score": 0.047049202024936676,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.047049202024936676
+          },
+          {
+            "node_idx": 17,
+            "node_id": 2277227125856,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "ER emergency room",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 106
+                  }
+                },
+                "score": 0.011377166025340557,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.011377166025340557
+          },
+          {
+            "node_idx": 18,
+            "node_id": 2277227120736,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "ER emergency room",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 106
+                  }
+                },
+                "score": 0.029013799503445625,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.029013799503445625
+          },
+          {
+            "node_idx": 19,
+            "node_id": 2277227123376,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "ER emergency room",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 106
+                  }
+                },
+                "score": 0.011716430075466633,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.011716430075466633
+          },
+          {
+            "node_idx": 20,
+            "node_id": 2277227125936,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "ER emergency room",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 106
+                  }
+                },
+                "score": 0.0055068242363631725,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0055068242363631725
+          },
+          {
+            "node_idx": 21,
+            "node_id": 2277227122016,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "ER emergency room",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 106
+                  }
+                },
+                "score": 0.0030454727821052074,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0030454727821052074
+          },
+          {
+            "node_idx": 22,
+            "node_id": 2277227132176,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "ER emergency room",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 106
+                  }
+                },
+                "score": 0.015962740406394005,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.015962740406394005
+          },
+          {
+            "node_idx": 23,
+            "node_id": 2277227127776,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "ER emergency room",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 106
+                  }
+                },
+                "score": 0.016163676977157593,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.016163676977157593
+          },
+          {
+            "node_idx": 24,
+            "node_id": 2277227127696,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "ER emergency room",
+                  "operator": "=~",
+                  "span": {
+                    "start": 70,
+                    "end": 106
+                  }
+                },
+                "score": 0.01984928548336029,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.01984928548336029
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 11,
+            "score": 0.08556200563907623,
+            "name": "Session"
+          },
+          {
+            "idx": 4,
+            "score": 0.07057181745767593,
+            "name": "Session"
+          },
+          {
+            "idx": 2,
+            "score": 0.06918085366487503,
+            "name": "Session"
+          },
+          {
+            "idx": 14,
+            "score": 0.047524698078632355,
+            "name": "Session"
+          },
+          {
+            "idx": 16,
+            "score": 0.047049202024936676,
+            "name": "Session"
+          },
+          {
+            "idx": 5,
+            "score": 0.04658319801092148,
+            "name": "Session"
+          },
+          {
+            "idx": 18,
+            "score": 0.029013799503445625,
+            "name": "Session"
+          },
+          {
+            "idx": 3,
+            "score": 0.024795614182949066,
+            "name": "Session"
+          },
+          {
+            "idx": 13,
+            "score": 0.02012701891362667,
+            "name": "Session"
+          },
+          {
+            "idx": 24,
+            "score": 0.01984928548336029,
+            "name": "Session"
+          },
+          {
+            "idx": 23,
+            "score": 0.016163676977157593,
+            "name": "Session"
+          },
+          {
+            "idx": 22,
+            "score": 0.015962740406394005,
+            "name": "Session"
+          },
+          {
+            "idx": 6,
+            "score": 0.015279829502105713,
+            "name": "Session"
+          },
+          {
+            "idx": 10,
+            "score": 0.015114442445337772,
+            "name": "Session"
+          },
+          {
+            "idx": 9,
+            "score": 0.01255105435848236,
+            "name": "Session"
+          },
+          {
+            "idx": 0,
+            "score": 0.011866544373333454,
+            "name": "Session"
+          },
+          {
+            "idx": 19,
+            "score": 0.011716430075466633,
+            "name": "Session"
+          },
+          {
+            "idx": 17,
+            "score": 0.011377166025340557,
+            "name": "Session"
+          },
+          {
+            "idx": 8,
+            "score": 0.00857129879295826,
+            "name": "Session"
+          },
+          {
+            "idx": 20,
+            "score": 0.0055068242363631725,
+            "name": "Session"
+          },
+          {
+            "idx": 1,
+            "score": 0.0048909494653344154,
+            "name": "Session"
+          },
+          {
+            "idx": 12,
+            "score": 0.004708187188953161,
+            "name": "Session"
+          },
+          {
+            "idx": 15,
+            "score": 0.003927081357687712,
+            "name": "Session"
+          },
+          {
+            "idx": 21,
+            "score": 0.0030454727821052074,
+            "name": "Session"
+          },
+          {
+            "idx": 7,
+            "score": 0.0010674272198230028,
+            "name": "Session"
+          }
+        ]
+      },
+      {
+        "step_index": 2,
+        "predicate": "atom(content =~ \"ER\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "ER",
+          "operator": "=~",
+          "span": {
+            "start": 120,
+            "end": 141
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 2277227181648,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "ER",
+                  "operator": "=~",
+                  "span": {
+                    "start": 120,
+                    "end": 141
+                  }
+                },
+                "score": 0.532342255115509,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.532342255115509
+          },
+          {
+            "node_idx": 1,
+            "node_id": 2277227172848,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "ER",
+                  "operator": "=~",
+                  "span": {
+                    "start": 120,
+                    "end": 141
+                  }
+                },
+                "score": 0.37899014353752136,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.37899014353752136
+          },
+          {
+            "node_idx": 2,
+            "node_id": 2277227182928,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "ER",
+                  "operator": "=~",
+                  "span": {
+                    "start": 120,
+                    "end": 141
+                  }
+                },
+                "score": 0.5000201463699341,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.5000201463699341
+          },
+          {
+            "node_idx": 3,
+            "node_id": 2277227175408,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "ER",
+                  "operator": "=~",
+                  "span": {
+                    "start": 120,
+                    "end": 141
+                  }
+                },
+                "score": 0.502590537071228,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.502590537071228
+          },
+          {
+            "node_idx": 4,
+            "node_id": 2277227173648,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "ER",
+                  "operator": "=~",
+                  "span": {
+                    "start": 120,
+                    "end": 141
+                  }
+                },
+                "score": 0.6345476508140564,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.6345476508140564
+          },
+          {
+            "node_idx": 5,
+            "node_id": 2277227182368,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "ER",
+                  "operator": "=~",
+                  "span": {
+                    "start": 120,
+                    "end": 141
+                  }
+                },
+                "score": 0.4593588411808014,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.4593588411808014
+          },
+          {
+            "node_idx": 6,
+            "node_id": 2277227179968,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "ER",
+                  "operator": "=~",
+                  "span": {
+                    "start": 120,
+                    "end": 141
+                  }
+                },
+                "score": 0.6517590284347534,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.6517590284347534
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 6,
+            "score": 0.6517590284347534,
+            "name": "Observation"
+          },
+          {
+            "idx": 4,
+            "score": 0.6345476508140564,
+            "name": "Observation"
+          },
+          {
+            "idx": 0,
+            "score": 0.532342255115509,
+            "name": "Observation"
+          },
+          {
+            "idx": 3,
+            "score": 0.502590537071228,
+            "name": "Observation"
+          },
+          {
+            "idx": 2,
+            "score": 0.5000201463699341,
+            "name": "Observation"
+          },
+          {
+            "idx": 5,
+            "score": 0.4593588411808014,
+            "name": "Observation"
+          },
+          {
+            "idx": 1,
+            "score": 0.37899014353752136,
+            "name": "Observation"
+          }
+        ]
+      },
+      {
+        "step_index": 3,
+        "predicate": "atom(content =~ \"ER\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "ER",
+          "operator": "=~",
+          "span": {
+            "start": 120,
+            "end": 141
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 2277227172368,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "ER",
+                  "operator": "=~",
+                  "span": {
+                    "start": 120,
+                    "end": 141
+                  }
+                },
+                "score": 0.5257874727249146,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.5257874727249146
+          },
+          {
+            "node_idx": 1,
+            "node_id": 2277227173168,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "ER",
+                  "operator": "=~",
+                  "span": {
+                    "start": 120,
+                    "end": 141
+                  }
+                },
+                "score": 0.34536314010620117,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.34536314010620117
+          },
+          {
+            "node_idx": 2,
+            "node_id": 2277227167808,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "ER",
+                  "operator": "=~",
+                  "span": {
+                    "start": 120,
+                    "end": 141
+                  }
+                },
+                "score": 0.32338154315948486,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.32338154315948486
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 0,
+            "score": 0.5257874727249146,
+            "name": "Observation"
+          },
+          {
+            "idx": 1,
+            "score": 0.34536314010620117,
+            "name": "Observation"
+          },
+          {
+            "idx": 2,
+            "score": 0.32338154315948486,
+            "name": "Observation"
+          }
+        ]
+      },
+      {
+        "step_index": 4,
+        "predicate": "atom(content =~ \"ER\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "ER",
+          "operator": "=~",
+          "span": {
+            "start": 120,
+            "end": 141
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 2278157971472,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "ER",
+                  "operator": "=~",
+                  "span": {
+                    "start": 120,
+                    "end": 141
+                  }
+                },
+                "score": 0.2831517159938812,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.2831517159938812
+          },
+          {
+            "node_idx": 1,
+            "node_id": 2277036217888,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "ER",
+                  "operator": "=~",
+                  "span": {
+                    "start": 120,
+                    "end": 141
+                  }
+                },
+                "score": 0.21945782005786896,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.21945782005786896
+          },
+          {
+            "node_idx": 2,
+            "node_id": 2277036213408,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "ER",
+                  "operator": "=~",
+                  "span": {
+                    "start": 120,
+                    "end": 141
+                  }
+                },
+                "score": 0.33854013681411743,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.33854013681411743
+          },
+          {
+            "node_idx": 3,
+            "node_id": 2277036215568,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "ER",
+                  "operator": "=~",
+                  "span": {
+                    "start": 120,
+                    "end": 141
+                  }
+                },
+                "score": 0.14014525711536407,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.14014525711536407
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 2,
+            "score": 0.33854013681411743,
+            "name": "Observation"
+          },
+          {
+            "idx": 0,
+            "score": 0.2831517159938812,
+            "name": "Observation"
+          },
+          {
+            "idx": 1,
+            "score": 0.21945782005786896,
+            "name": "Observation"
+          },
+          {
+            "idx": 3,
+            "score": 0.14014525711536407,
+            "name": "Observation"
+          }
+        ]
+      }
+    ],
+    "score_fusion": {
+      "per_node": [
+        {
+          "node_path": "Root > Conversation_Version 1 > Sam > Session 12 > Observation 7",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"ER\")]",
+              "score": 0.6517590284347534
+            }
+          ],
+          "accumulated_product": 0.6517590284347534,
+          "final_score": 0.05576580961048741
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Sam > Session 12 > Observation 5",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"ER\")]",
+              "score": 0.6345476508140564
+            }
+          ],
+          "accumulated_product": 0.6345476508140564,
+          "final_score": 0.0542931696229217
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Sam > Session 12 > Observation 1",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"ER\")]",
+              "score": 0.532342255115509
+            }
+          ],
+          "accumulated_product": 0.532342255115509,
+          "final_score": 0.045548270988563476
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Sam > Session 12 > Observation 4",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"ER\")]",
+              "score": 0.502590537071228
+            }
+          ],
+          "accumulated_product": 0.502590537071228,
+          "final_score": 0.043002654324032115
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Sam > Session 12 > Observation 3",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"ER\")]",
+              "score": 0.5000201463699341
+            }
+          ],
+          "accumulated_product": 0.5000201463699341,
+          "final_score": 0.0427827265405733
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Sam > Session 5 > Observation 1",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"ER\")]",
+              "score": 0.5257874727249146
+            }
+          ],
+          "accumulated_product": 0.5257874727249146,
+          "final_score": 0.03710577750956966
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Sam > Session 5 > Observation 2",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"ER\")]",
+              "score": 0.34536314010620117
+            }
+          ],
+          "accumulated_product": 0.34536314010620117,
+          "final_score": 0.024372904455811684
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Sam > Session 5 > Observation 3",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"ER\")]",
+              "score": 0.32338154315948486
+            }
+          ],
+          "accumulated_product": 0.32338154315948486,
+          "final_score": 0.022821623210211094
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Sam > Session 3 > Observation 3",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"ER\")]",
+              "score": 0.33854013681411743
+            }
+          ],
+          "accumulated_product": 0.33854013681411743,
+          "final_score": 0.023420495641203735
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Sam > Session 3 > Observation 1",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"ER\")]",
+              "score": 0.2831517159938812
+            }
+          ],
+          "accumulated_product": 0.2831517159938812,
+          "final_score": 0.019588677409542274
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Sam > Session 3 > Observation 2",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"ER\")]",
+              "score": 0.21945782005786896
+            }
+          ],
+          "accumulated_product": 0.21945782005786896,
+          "final_score": 0.01518227931985363
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Sam > Session 3 > Observation 4",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"ER\")]",
+              "score": 0.14014525711536407
+            }
+          ],
+          "accumulated_product": 0.14014525711536407,
+          "final_score": 0.009695368514628919
+        }
+      ]
+    }
+  },
+  "final_filtering": {
+    "before_filter_count": 12,
+    "threshold": 0.05,
+    "top_k": 10,
+    "after_filter_count": 2,
+    "filtered_nodes": [
+      {
+        "path": "Root > Conversation_Version 1 > Sam > Session 12 > Observation 7",
+        "score": 0.05576580961048741,
+        "type": "Observation",
+        "own_score": 0.6517590284347534,
+        "parent_score": 0.08556200555351423
+      },
+      {
+        "path": "Root > Conversation_Version 1 > Sam > Session 12 > Observation 5",
+        "score": 0.0542931696229217,
+        "type": "Observation",
+        "own_score": 0.6345476508140564,
+        "parent_score": 0.08556200555351423
+      }
+    ]
+  },
+  "matched_nodes": [
+    {
+      "tree_path": "Root > Conversation_Version 1 > Sam > Session 12 > Observation 7",
+      "score": 0.05576580961048741,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "Sam expressed that Evan's support means a lot to them.",
+        "source_dia_id": "D12:15"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Sam",
+          "predicate": "atom(content =~ \"Sam\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Sam\") on Sam (Score: 1.00)"
+        },
+        {
+          "node_name": "Observation 7",
+          "predicate": "atom(content =~ \"ER\")",
+          "score": 0.6517590284347534,
+          "description": "Matched atom(content =~ \"ER\") on Observation 7 (Score: 0.65)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > Sam > Session 12 > Observation 5",
+      "score": 0.0542931696229217,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "Sam mentioned that Evan's words inspired and motivated them.",
+        "source_dia_id": "D12:11"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Sam",
+          "predicate": "atom(content =~ \"Sam\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Sam\") on Sam (Score: 1.00)"
+        },
+        {
+          "node_name": "Observation 5",
+          "predicate": "atom(content =~ \"ER\")",
+          "score": 0.6345476508140564,
+          "description": "Matched atom(content =~ \"ER\") on Observation 5 (Score: 0.63)"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total_steps": 5,
+    "total_scoring_calls": 5,
+    "matched_count": 2,
+    "execution_time_ms": 610.8428000006825,
+    "has_score_fusion": true,
+    "num_nodes_before_filter": 12,
+    "num_nodes_after_filter": 2
+  }
+}

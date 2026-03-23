@@ -1,0 +1,60 @@
+name: "itinerary"
+description: "Travel itinerary with days, POIs and restaurants"
+
+# Tree hierarchy (for documentation and LLM prompt generation)
+hierarchy: |
+  Day (root, indexed by @index)
+  ├── POI (leaf)
+  └── Restaurant (leaf)
+
+# Node type definitions with fields
+nodes:
+  Day:
+    type: root
+    index_attr: "index" # Uses <Day index="1"> for identification
+    fields: [] # Container node - no direct content fields
+    children: ["POI", "Restaurant"]
+
+  POI:
+    type: leaf
+    fields:
+      - name
+      - time_block
+      - description
+      - travel_method
+      - expected_cost
+      - highlights
+    children: []
+
+  Restaurant:
+    type: leaf
+    fields:
+      - name
+      - time_block
+      - description
+      - travel_method
+      - expected_cost
+      - highlights
+    children: []
+
+# Available data files for this schema
+data_files:
+  travel_memory_3day: "memory/itinerary/travel_memory_3day.xml"
+  travel_memory_5day: "memory/itinerary/travel_memory_5day.xml"
+  travel_memory_3day_diff: "memory/itinerary/travel_memory_3day_diff.xml"
+  travel_memory_10day_themed: "memory/itinerary/travel_memory_10day_themed.xml"
+  travel_toronto_10day: "memory/itinerary/travel_toronto_10day.xml"
+
+# Default data file to use
+default_data: "travel_memory_3day"
+
+# XPath query generation prompt components
+examples_file: "prompts/query_generator/domains/xpath_examples_itinerary.txt"
+
+# Syntax rules specific to this schema
+syntax_rules: |
+  - Paths start with /Day
+  - Node types: Day, POI, Restaurant
+  - Indices: Day[2], POI[-1], POI[1:3]
+  - Logical: AND / OR / not() combine predicates WITHIN brackets (e.g., [A OR B], [not(A)]), never between paths
+  - Food related nodes always have type Restaurant

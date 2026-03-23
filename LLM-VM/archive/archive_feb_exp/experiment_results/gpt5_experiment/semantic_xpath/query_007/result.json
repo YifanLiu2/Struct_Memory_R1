@@ -1,0 +1,138 @@
+{
+  "query_index": 6,
+  "query": "I actually went to the CN Tower on my last trip to Toronto. Remove any CN Tower activities. I'd rather do something new.",
+  "operation": "DELETE",
+  "success": true,
+  "execution_time_ms": 25815.57,
+  "token_usage": {
+    "prompt_tokens": 5904,
+    "completion_tokens": 1455,
+    "total_tokens": 7359
+  },
+  "changes": [
+    {
+      "path": "Itinerary > Day 10 > CN Tower EdgeWalk",
+      "change_type": "deleted",
+      "old_node": {
+        "path": "Itinerary > Day 10 > CN Tower EdgeWalk"
+      },
+      "new_node": null,
+      "field_changes": null
+    },
+    {
+      "path": "Itinerary > Day 10 > 360 Restaurant at CN Tower",
+      "change_type": "deleted",
+      "old_node": {
+        "path": "Itinerary > Day 10 > 360 Restaurant at CN Tower"
+      },
+      "new_node": null,
+      "field_changes": null
+    }
+  ],
+  "raw_result": {
+    "timestamp": "20260204_001245_286239",
+    "user_query": "I actually went to the CN Tower on my last trip to Toronto. Remove any CN Tower activities. I'd rather do something new.",
+    "task_query": "remove any CN Tower activities",
+    "operation": "DELETE",
+    "success": true,
+    "version_resolution": {
+      "selector_type": "at",
+      "semantic_query": null,
+      "index": -1,
+      "crud_operation": "Delete",
+      "raw_response": "at([-1]), DELETE\ntask: remove any CN Tower activities",
+      "task_query": "remove any CN Tower activities",
+      "token_usage": {
+        "prompt_tokens": 989,
+        "completion_tokens": 150,
+        "total_tokens": 1139
+      }
+    },
+    "parsed_query": {
+      "operation": "Delete",
+      "xpath": "/Itinerary/desc::.[atom(content =~ \"CN Tower\")]",
+      "full_query": "Delete(/Itinerary/desc::.[atom(content =~ \"CN Tower\")])",
+      "token_usage": {
+        "prompt_tokens": 2200,
+        "completion_tokens": 535,
+        "total_tokens": 2735
+      }
+    },
+    "version_used": "2",
+    "xpath_execution": {
+      "query": "/Root/Itinerary_Version[2]/Itinerary/desc::.[atom(content =~ \"CN Tower\")]",
+      "matched_count": 5,
+      "execution_time_ms": 4603.616999927908,
+      "token_usage": null
+    },
+    "handler_result": {
+      "success": true,
+      "operation": "DELETE",
+      "processing_time_ms": 10243.935300037265,
+      "output": {
+        "nodes_to_delete": [
+          "Itinerary > Day 10 > CN Tower EdgeWalk",
+          "Itinerary > Day 10 > 360 Restaurant at CN Tower"
+        ],
+        "reasoning": "Deleted the two Day 10 child nodes that explicitly reference CN Tower. Other candidate days and activities do not mention CN Tower and were excluded."
+      },
+      "token_usage": {
+        "prompt_tokens": 2715,
+        "completion_tokens": 770,
+        "total_tokens": 3485
+      }
+    },
+    "timing": {
+      "stages": [
+        {
+          "name": "version_resolution",
+          "time_ms": 3914.4,
+          "token_usage": {
+            "prompt_tokens": 989,
+            "completion_tokens": 150,
+            "total_tokens": 1139
+          }
+        },
+        {
+          "name": "version_lookup",
+          "time_ms": 0.05
+        },
+        {
+          "name": "query_generation",
+          "time_ms": 7036.34,
+          "token_usage": {
+            "prompt_tokens": 2200,
+            "completion_tokens": 535,
+            "total_tokens": 2735
+          }
+        },
+        {
+          "name": "xpath_execution",
+          "time_ms": 4609.36
+        },
+        {
+          "name": "downstream_task",
+          "time_ms": 10249.31,
+          "token_usage": {
+            "prompt_tokens": 2715,
+            "completion_tokens": 770,
+            "total_tokens": 3485
+          }
+        }
+      ],
+      "total_time_ms": 25809.45,
+      "total_tokens": {
+        "prompt_tokens": 5904,
+        "completion_tokens": 1455,
+        "total_tokens": 7359
+      },
+      "pipeline_total_ms": 25814.230900024995
+    },
+    "deleted_count": 2,
+    "deleted_paths": [
+      "Itinerary > Day 10 > CN Tower EdgeWalk",
+      "Itinerary > Day 10 > 360 Restaurant at CN Tower"
+    ],
+    "total_time_ms": 25814.230900024995
+  }
+}

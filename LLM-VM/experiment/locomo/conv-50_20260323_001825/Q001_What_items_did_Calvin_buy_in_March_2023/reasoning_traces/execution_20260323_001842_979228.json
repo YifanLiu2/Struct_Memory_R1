@@ -1,0 +1,5629 @@
+{
+  "timestamp": "20260323_001842_979228",
+  "query": "/Root/Conversation_Version[1]/Speaker[atom(content =~ \"Calvin\")]/Session[atom(content =~ \"March 2023 purchase\")]/Observation[atom(content =~ \"items buy\")]",
+  "canonical_query": "/Root/Conversation_Version[1]/Speaker[content =~ \"Calvin\"]/Session[content =~ \"March 2023 purchase\"]/Observation[content =~ \"items buy\"]",
+  "data_file": "tree.xml",
+  "execution_time_ms": 884.4506000023102,
+  "parsed_ast": {
+    "steps": [
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Root",
+            "span": {
+              "start": 1,
+              "end": 5
+            }
+          },
+          "span": {
+            "start": 1,
+            "end": 5
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Conversation_Version",
+            "index": {
+              "start": 1,
+              "type": "single",
+              "span": {
+                "start": 26,
+                "end": 29
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 29
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 29
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Speaker",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "Calvin",
+              "operator": "=~",
+              "span": {
+                "start": 38,
+                "end": 63
+              }
+            },
+            "predicate_str": "atom(content =~ \"Calvin\")",
+            "span": {
+              "start": 30,
+              "end": 64
+            }
+          },
+          "span": {
+            "start": 30,
+            "end": 64
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Session",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "March 2023 purchase",
+              "operator": "=~",
+              "span": {
+                "start": 73,
+                "end": 111
+              }
+            },
+            "predicate_str": "atom(content =~ \"March 2023 purchase\")",
+            "span": {
+              "start": 65,
+              "end": 112
+            }
+          },
+          "span": {
+            "start": 65,
+            "end": 112
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Observation",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "items buy",
+              "operator": "=~",
+              "span": {
+                "start": 125,
+                "end": 153
+              }
+            },
+            "predicate_str": "atom(content =~ \"items buy\")",
+            "span": {
+              "start": 113,
+              "end": 154
+            }
+          },
+          "span": {
+            "start": 113,
+            "end": 154
+          }
+        }
+      }
+    ],
+    "global_index": null
+  },
+  "parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: Conversation_Version[1]\n├── Step 2: Speaker[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"Calvin\")\n├── Step 3: Session[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"March 2023 purchase\")\n└── Step 4: Observation[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"items buy\")",
+  "canonical_parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: Conversation_Version[1]\n├── Step 2: Speaker[content =~ \"Calvin\"]\n├── Step 3: Session[content =~ \"March 2023 purchase\"]\n└── Step 4: Observation[content =~ \"items buy\"]",
+  "execution_log": [
+    "[20260323_001842_979228] Executing query: /Root/Conversation_Version[1]/Speaker[atom(content =~ \"Calvin\")]/Session[atom(content =~ \"March 2023 purchase\")]/Observation[atom(content =~ \"items buy\")]",
+    "Data file: tree.xml",
+    "Parsed steps: [Root, Conversation_Version[1], Speaker[atom(content =~ \"Calvin\")], Session[atom(content =~ \"March 2023 purchase\")], Observation[atom(content =~ \"items buy\")]]",
+    "",
+    "Query AST:\n├── Step 0: Root\n├── Step 1: Conversation_Version[1]\n├── Step 2: Speaker[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"Calvin\")\n├── Step 3: Session[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"March 2023 purchase\")\n└── Step 4: Observation[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"items buy\")",
+    "\n--- Step 1: Root ---",
+    "Matched Root root",
+    "\n--- Step 2: Conversation_Version[1] ---",
+    "Selected node at index 1 (0-based: 0)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 3: Speaker[atom(content =~ \"Calvin\")] ---",
+    "Scoring predicate: atom(content =~ \"Calvin\") (atomic values: ['Calvin'])",
+    "  Node 0 (Calvin): score = 1.0000 (exact match)",
+    "  Node 1 (Dave): score = 0.0000 (exact match)",
+    "  Exact attribute match on @name: 1/2 nodes matched",
+    "  Top-K Pruning: Reduced from 2 to 1 nodes (K=5)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 4: Session[atom(content =~ \"March 2023 purchase\")] ---",
+    "Scoring predicate: atom(content =~ \"March 2023 purchase\") (atomic values: ['March 2023 purchase'])",
+    "  Collected 30 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 30 total descriptions",
+    "  Node 0 (Session): score = 0.9726",
+    "  Node 1 (Session): score = 0.9905",
+    "  Node 2 (Session): score = 0.0746",
+    "  Node 3 (Session): score = 0.0232",
+    "  Node 4 (Session): score = 0.0246",
+    "  Node 5 (Session): score = 0.0204",
+    "  Node 6 (Session): score = 0.0417",
+    "  Node 7 (Session): score = 0.0116",
+    "  Node 8 (Session): score = 0.0039",
+    "  Node 9 (Session): score = 0.0052",
+    "  Node 10 (Session): score = 0.0062",
+    "  Node 11 (Session): score = 0.0145",
+    "  Node 12 (Session): score = 0.0021",
+    "  Node 13 (Session): score = 0.0148",
+    "  Node 14 (Session): score = 0.0015",
+    "  Node 15 (Session): score = 0.0066",
+    "  Node 16 (Session): score = 0.0042",
+    "  Node 17 (Session): score = 0.0085",
+    "  Node 18 (Session): score = 0.0090",
+    "  Node 19 (Session): score = 0.0020",
+    "  Node 20 (Session): score = 0.0018",
+    "  Node 21 (Session): score = 0.0028",
+    "  Node 22 (Session): score = 0.0005",
+    "  Node 23 (Session): score = 0.0018",
+    "  Node 24 (Session): score = 0.0063",
+    "  Node 25 (Session): score = 0.0030",
+    "  Node 26 (Session): score = 0.0038",
+    "  Node 27 (Session): score = 0.0011",
+    "  Node 28 (Session): score = 0.0013",
+    "  Node 29 (Session): score = 0.0033",
+    "  Top-K Pruning: Reduced from 30 to 3 nodes (K=5)",
+    "After step: 3 nodes remaining",
+    "\n--- Step 5: Observation[atom(content =~ \"items buy\")] ---",
+    "Scoring predicate: atom(content =~ \"items buy\") (atomic values: ['items buy'])",
+    "  Collected 3 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 3 total descriptions",
+    "  Node 0 (Observation): score = 0.9970",
+    "  Node 1 (Observation): score = 0.9864",
+    "  Node 2 (Observation): score = 0.3920",
+    "Scoring predicate: atom(content =~ \"items buy\") (atomic values: ['items buy'])",
+    "  Collected 6 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 6 total descriptions",
+    "  Node 0 (Observation): score = 0.8566",
+    "  Node 1 (Observation): score = 0.2165",
+    "  Node 2 (Observation): score = 0.1186",
+    "  Node 3 (Observation): score = 0.8580",
+    "  Node 4 (Observation): score = 0.2532",
+    "  Node 5 (Observation): score = 0.7260",
+    "Scoring predicate: atom(content =~ \"items buy\") (atomic values: ['items buy'])",
+    "  Collected 6 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 6 total descriptions",
+    "  Node 0 (Observation): score = 0.2161",
+    "  Node 1 (Observation): score = 0.3161",
+    "  Node 2 (Observation): score = 0.2540",
+    "  Node 3 (Observation): score = 0.5211",
+    "  Node 4 (Observation): score = 0.9539",
+    "  Node 5 (Observation): score = 0.6175",
+    "  Top-K Pruning: Reduced from 15 to 13 nodes (K=5)",
+    "After step: 13 nodes remaining",
+    "\n=== Score Fusion ===",
+    "  Root > Conversation_Version 1 > Calvin > Session 2 > Observation 1: product=0.9970 → score=0.9970",
+    "  Root > Conversation_Version 1 > Calvin > Session 2 > Observation 2: product=0.9864 → score=0.9864",
+    "  Root > Conversation_Version 1 > Calvin > Session 2 > Observation 3: product=0.3920 → score=0.3920",
+    "  Root > Conversation_Version 1 > Calvin > Session 1 > Observation 4: product=0.8580 → score=0.8580",
+    "  Root > Conversation_Version 1 > Calvin > Session 1 > Observation 1: product=0.8566 → score=0.8566",
+    "  Root > Conversation_Version 1 > Calvin > Session 1 > Observation 6: product=0.7260 → score=0.7260",
+    "  Root > Conversation_Version 1 > Calvin > Session 1 > Observation 5: product=0.2532 → score=0.2532",
+    "  Root > Conversation_Version 1 > Calvin > Session 1 > Observation 2: product=0.2165 → score=0.2165",
+    "  Root > Conversation_Version 1 > Calvin > Session 3 > Observation 5: product=0.9539 → score=0.9539",
+    "  Root > Conversation_Version 1 > Calvin > Session 3 > Observation 6: product=0.6175 → score=0.6175",
+    "  Root > Conversation_Version 1 > Calvin > Session 3 > Observation 4: product=0.5211 → score=0.5211",
+    "  Root > Conversation_Version 1 > Calvin > Session 3 > Observation 2: product=0.3161 → score=0.3161",
+    "  Root > Conversation_Version 1 > Calvin > Session 3 > Observation 3: product=0.2540 → score=0.2540",
+    "  Parent propagation: Root > Conversation_Version 1 > Calvin > Session 2 > Observation 1: own=0.9970 × parent=0.9905 → 0.9875",
+    "  Parent propagation: Root > Conversation_Version 1 > Calvin > Session 2 > Observation 2: own=0.9864 × parent=0.9905 → 0.9770",
+    "  Parent propagation: Root > Conversation_Version 1 > Calvin > Session 2 > Observation 3: own=0.3920 × parent=0.9905 → 0.3883",
+    "  Parent propagation: Root > Conversation_Version 1 > Calvin > Session 1 > Observation 4: own=0.8580 × parent=0.9726 → 0.8345",
+    "  Parent propagation: Root > Conversation_Version 1 > Calvin > Session 1 > Observation 1: own=0.8566 × parent=0.9726 → 0.8331",
+    "  Parent propagation: Root > Conversation_Version 1 > Calvin > Session 1 > Observation 6: own=0.7260 × parent=0.9726 → 0.7060",
+    "  Parent propagation: Root > Conversation_Version 1 > Calvin > Session 1 > Observation 5: own=0.2532 × parent=0.9726 → 0.2463",
+    "  Parent propagation: Root > Conversation_Version 1 > Calvin > Session 1 > Observation 2: own=0.2165 × parent=0.9726 → 0.2106",
+    "  Parent propagation: Root > Conversation_Version 1 > Calvin > Session 3 > Observation 5: own=0.9539 × parent=0.0746 → 0.0711",
+    "  Parent propagation: Root > Conversation_Version 1 > Calvin > Session 3 > Observation 6: own=0.6175 × parent=0.0746 → 0.0461",
+    "  Parent propagation: Root > Conversation_Version 1 > Calvin > Session 3 > Observation 4: own=0.5211 × parent=0.0746 → 0.0389",
+    "  Parent propagation: Root > Conversation_Version 1 > Calvin > Session 3 > Observation 2: own=0.3161 × parent=0.0746 → 0.0236",
+    "  Parent propagation: Root > Conversation_Version 1 > Calvin > Session 3 > Observation 3: own=0.2540 × parent=0.0746 → 0.0189",
+    "\n=== Parent Score Propagation: 13 nodes updated ===",
+    "\n=== Threshold Filtering (threshold=0.05) ===",
+    "  Filtered: 13 → 9 nodes",
+    "\n=== Final Filtering (top_k=10) ===",
+    "  After top_k: 9 → 9 nodes",
+    "\nFinal result: 9 nodes (sorted by score)",
+    "⏱️  Query execution time: 884.45ms"
+  ],
+  "traversal_steps": [
+    {
+      "step_index": 0,
+      "step_query": "Root",
+      "action": "root_match",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "type": "root"
+        }
+      ],
+      "nodes_after": [
+        {
+          "type": "Root",
+          "path": "Root"
+        }
+      ],
+      "details": {
+        "matched": true
+      }
+    },
+    {
+      "step_index": 1,
+      "step_query": "Conversation_Version[1]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root",
+          "name": "Root",
+          "type": "Root",
+          "score": 1.0,
+          "node_id": 2567023820560
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Conversation_Version 1",
+          "name": "Conversation_Version 1",
+          "type": "Conversation_Version",
+          "score": 1.0,
+          "node_id": 2567023820640
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Conversation_Version",
+            "index": {
+              "start": 1,
+              "type": "single",
+              "span": {
+                "start": 26,
+                "end": 29
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 29
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 29
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 2,
+      "step_query": "Speaker[atom(content =~ \"Calvin\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root > Conversation_Version 1",
+          "name": "Conversation_Version 1",
+          "type": "Conversation_Version",
+          "score": 1.0,
+          "node_id": 2567023820640
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Conversation_Version 1 > Calvin",
+          "name": "Calvin",
+          "type": "Speaker",
+          "score": 1.0,
+          "node_id": 2567023816560
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Speaker",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "Calvin",
+              "operator": "=~",
+              "span": {
+                "start": 38,
+                "end": 63
+              }
+            },
+            "predicate_str": "atom(content =~ \"Calvin\")",
+            "span": {
+              "start": 30,
+              "end": 64
+            }
+          },
+          "span": {
+            "start": 30,
+            "end": 64
+          }
+        },
+        "found_count": 2,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"Calvin\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "Calvin",
+              "operator": "=~",
+              "span": {
+                "start": 38,
+                "end": 63
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 2567023816560,
+                "node_name": "Calvin",
+                "node_type": "Speaker",
+                "final_score": 1.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Calvin",
+                    "query_value": "Calvin",
+                    "matched": true,
+                    "score": 1.0
+                  }
+                ]
+              },
+              {
+                "node_idx": 1,
+                "node_id": 2567149221536,
+                "node_name": "Dave",
+                "node_type": "Speaker",
+                "final_score": 0.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Dave",
+                    "query_value": "Calvin",
+                    "matched": false,
+                    "score": 0.0
+                  }
+                ]
+              }
+            ],
+            "batch_scoring": {
+              "exact_match": true,
+              "matched_attribute": "name",
+              "query_value": "Calvin",
+              "matched_count": 1
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 0,
+                "score": 1.0,
+                "name": "Calvin"
+              },
+              {
+                "idx": 1,
+                "score": 0.0,
+                "name": "Dave"
+              }
+            ]
+          }
+        ],
+        "pruned_count": 1
+      }
+    },
+    {
+      "step_index": 3,
+      "step_query": "Session[atom(content =~ \"March 2023 purchase\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 3,
+      "nodes_before": [
+        {
+          "path": "Root > Conversation_Version 1 > Calvin",
+          "name": "Calvin",
+          "type": "Speaker",
+          "score": 1.0,
+          "node_id": 2567023816560
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Conversation_Version 1 > Calvin > Session 2",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.990498960018158,
+          "node_id": 2567023818720
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Calvin > Session 1",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.9725571870803833,
+          "node_id": 2567023820240
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Calvin > Session 3",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.07457808405160904,
+          "node_id": 2567023816640
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Session",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "March 2023 purchase",
+              "operator": "=~",
+              "span": {
+                "start": 73,
+                "end": 111
+              }
+            },
+            "predicate_str": "atom(content =~ \"March 2023 purchase\")",
+            "span": {
+              "start": 65,
+              "end": 112
+            }
+          },
+          "span": {
+            "start": 65,
+            "end": 112
+          }
+        },
+        "found_count": 30,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"March 2023 purchase\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "March 2023 purchase",
+              "operator": "=~",
+              "span": {
+                "start": 73,
+                "end": 111
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 2567023820240,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "March 2023 purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 111
+                      }
+                    },
+                    "score": 0.9725571870803833,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.9725571870803833
+              },
+              {
+                "node_idx": 1,
+                "node_id": 2567023818720,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "March 2023 purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 111
+                      }
+                    },
+                    "score": 0.990498960018158,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.990498960018158
+              },
+              {
+                "node_idx": 2,
+                "node_id": 2567023816640,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "March 2023 purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 111
+                      }
+                    },
+                    "score": 0.07457808405160904,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.07457808405160904
+              },
+              {
+                "node_idx": 3,
+                "node_id": 2567023816160,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "March 2023 purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 111
+                      }
+                    },
+                    "score": 0.02316785790026188,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.02316785790026188
+              },
+              {
+                "node_idx": 4,
+                "node_id": 2567023815120,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "March 2023 purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 111
+                      }
+                    },
+                    "score": 0.024614965543150902,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.024614965543150902
+              },
+              {
+                "node_idx": 5,
+                "node_id": 2567023814240,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "March 2023 purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 111
+                      }
+                    },
+                    "score": 0.020438402891159058,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.020438402891159058
+              },
+              {
+                "node_idx": 6,
+                "node_id": 2567023813120,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "March 2023 purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 111
+                      }
+                    },
+                    "score": 0.0417492613196373,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0417492613196373
+              },
+              {
+                "node_idx": 7,
+                "node_id": 2567023812080,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "March 2023 purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 111
+                      }
+                    },
+                    "score": 0.01160663552582264,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.01160663552582264
+              },
+              {
+                "node_idx": 8,
+                "node_id": 2567023810960,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "March 2023 purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 111
+                      }
+                    },
+                    "score": 0.00392748462036252,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.00392748462036252
+              },
+              {
+                "node_idx": 9,
+                "node_id": 2567023808880,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "March 2023 purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 111
+                      }
+                    },
+                    "score": 0.005171355325728655,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.005171355325728655
+              },
+              {
+                "node_idx": 10,
+                "node_id": 2567023807520,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "March 2023 purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 111
+                      }
+                    },
+                    "score": 0.006222307216376066,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.006222307216376066
+              },
+              {
+                "node_idx": 11,
+                "node_id": 2568147300608,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "March 2023 purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 111
+                      }
+                    },
+                    "score": 0.014520944096148014,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.014520944096148014
+              },
+              {
+                "node_idx": 12,
+                "node_id": 2568147302448,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "March 2023 purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 111
+                      }
+                    },
+                    "score": 0.0021160640753805637,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0021160640753805637
+              },
+              {
+                "node_idx": 13,
+                "node_id": 2568147298368,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "March 2023 purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 111
+                      }
+                    },
+                    "score": 0.014832032844424248,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.014832032844424248
+              },
+              {
+                "node_idx": 14,
+                "node_id": 2567025694000,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "March 2023 purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 111
+                      }
+                    },
+                    "score": 0.0014639253495261073,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0014639253495261073
+              },
+              {
+                "node_idx": 15,
+                "node_id": 2567025692880,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "March 2023 purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 111
+                      }
+                    },
+                    "score": 0.006590033881366253,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.006590033881366253
+              },
+              {
+                "node_idx": 16,
+                "node_id": 2567025691760,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "March 2023 purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 111
+                      }
+                    },
+                    "score": 0.004223646130412817,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.004223646130412817
+              },
+              {
+                "node_idx": 17,
+                "node_id": 2567025690880,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "March 2023 purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 111
+                      }
+                    },
+                    "score": 0.008491535671055317,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.008491535671055317
+              },
+              {
+                "node_idx": 18,
+                "node_id": 2567025690000,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "March 2023 purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 111
+                      }
+                    },
+                    "score": 0.00900478195399046,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.00900478195399046
+              },
+              {
+                "node_idx": 19,
+                "node_id": 2567025689040,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "March 2023 purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 111
+                      }
+                    },
+                    "score": 0.002026147907599807,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.002026147907599807
+              },
+              {
+                "node_idx": 20,
+                "node_id": 2567217259728,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "March 2023 purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 111
+                      }
+                    },
+                    "score": 0.0018322207033634186,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0018322207033634186
+              },
+              {
+                "node_idx": 21,
+                "node_id": 2567216026688,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "March 2023 purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 111
+                      }
+                    },
+                    "score": 0.0027796439826488495,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0027796439826488495
+              },
+              {
+                "node_idx": 22,
+                "node_id": 2567216052352,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "March 2023 purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 111
+                      }
+                    },
+                    "score": 0.00046090042451396585,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.00046090042451396585
+              },
+              {
+                "node_idx": 23,
+                "node_id": 2567216053632,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "March 2023 purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 111
+                      }
+                    },
+                    "score": 0.0018139794701710343,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0018139794701710343
+              },
+              {
+                "node_idx": 24,
+                "node_id": 2567217178608,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "March 2023 purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 111
+                      }
+                    },
+                    "score": 0.006308682728558779,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.006308682728558779
+              },
+              {
+                "node_idx": 25,
+                "node_id": 2567217170528,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "March 2023 purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 111
+                      }
+                    },
+                    "score": 0.0030088152270764112,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0030088152270764112
+              },
+              {
+                "node_idx": 26,
+                "node_id": 2567217178848,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "March 2023 purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 111
+                      }
+                    },
+                    "score": 0.0038387603126466274,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0038387603126466274
+              },
+              {
+                "node_idx": 27,
+                "node_id": 2567217182928,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "March 2023 purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 111
+                      }
+                    },
+                    "score": 0.0011083732824772596,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0011083732824772596
+              },
+              {
+                "node_idx": 28,
+                "node_id": 2567217179168,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "March 2023 purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 111
+                      }
+                    },
+                    "score": 0.0013052970170974731,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0013052970170974731
+              },
+              {
+                "node_idx": 29,
+                "node_id": 2567217181408,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "March 2023 purchase",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 111
+                      }
+                    },
+                    "score": 0.0032960467506200075,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0032960467506200075
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "March 2023 purchase"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "March 2023 purchase",
+                  "num_descriptions": 30,
+                  "call_time_ms": 734.98
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 30
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 1,
+                "score": 0.990498960018158,
+                "name": "Session"
+              },
+              {
+                "idx": 0,
+                "score": 0.9725571870803833,
+                "name": "Session"
+              },
+              {
+                "idx": 2,
+                "score": 0.07457808405160904,
+                "name": "Session"
+              },
+              {
+                "idx": 6,
+                "score": 0.0417492613196373,
+                "name": "Session"
+              },
+              {
+                "idx": 4,
+                "score": 0.024614965543150902,
+                "name": "Session"
+              },
+              {
+                "idx": 3,
+                "score": 0.02316785790026188,
+                "name": "Session"
+              },
+              {
+                "idx": 5,
+                "score": 0.020438402891159058,
+                "name": "Session"
+              },
+              {
+                "idx": 13,
+                "score": 0.014832032844424248,
+                "name": "Session"
+              },
+              {
+                "idx": 11,
+                "score": 0.014520944096148014,
+                "name": "Session"
+              },
+              {
+                "idx": 7,
+                "score": 0.01160663552582264,
+                "name": "Session"
+              },
+              {
+                "idx": 18,
+                "score": 0.00900478195399046,
+                "name": "Session"
+              },
+              {
+                "idx": 17,
+                "score": 0.008491535671055317,
+                "name": "Session"
+              },
+              {
+                "idx": 15,
+                "score": 0.006590033881366253,
+                "name": "Session"
+              },
+              {
+                "idx": 24,
+                "score": 0.006308682728558779,
+                "name": "Session"
+              },
+              {
+                "idx": 10,
+                "score": 0.006222307216376066,
+                "name": "Session"
+              },
+              {
+                "idx": 9,
+                "score": 0.005171355325728655,
+                "name": "Session"
+              },
+              {
+                "idx": 16,
+                "score": 0.004223646130412817,
+                "name": "Session"
+              },
+              {
+                "idx": 8,
+                "score": 0.00392748462036252,
+                "name": "Session"
+              },
+              {
+                "idx": 26,
+                "score": 0.0038387603126466274,
+                "name": "Session"
+              },
+              {
+                "idx": 29,
+                "score": 0.0032960467506200075,
+                "name": "Session"
+              },
+              {
+                "idx": 25,
+                "score": 0.0030088152270764112,
+                "name": "Session"
+              },
+              {
+                "idx": 21,
+                "score": 0.0027796439826488495,
+                "name": "Session"
+              },
+              {
+                "idx": 12,
+                "score": 0.0021160640753805637,
+                "name": "Session"
+              },
+              {
+                "idx": 19,
+                "score": 0.002026147907599807,
+                "name": "Session"
+              },
+              {
+                "idx": 20,
+                "score": 0.0018322207033634186,
+                "name": "Session"
+              },
+              {
+                "idx": 23,
+                "score": 0.0018139794701710343,
+                "name": "Session"
+              },
+              {
+                "idx": 14,
+                "score": 0.0014639253495261073,
+                "name": "Session"
+              },
+              {
+                "idx": 28,
+                "score": 0.0013052970170974731,
+                "name": "Session"
+              },
+              {
+                "idx": 27,
+                "score": 0.0011083732824772596,
+                "name": "Session"
+              },
+              {
+                "idx": 22,
+                "score": 0.00046090042451396585,
+                "name": "Session"
+              }
+            ]
+          }
+        ],
+        "pruned_count": 27
+      }
+    },
+    {
+      "step_index": 4,
+      "step_query": "Observation[atom(content =~ \"items buy\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 3,
+      "nodes_after_count": 13,
+      "nodes_before": [
+        {
+          "path": "Root > Conversation_Version 1 > Calvin > Session 2",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.990498960018158,
+          "node_id": 2567023818720
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Calvin > Session 1",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.9725571870803833,
+          "node_id": 2567023820240
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Calvin > Session 3",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.07457808405160904,
+          "node_id": 2567023816640
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Conversation_Version 1 > Calvin > Session 2 > Observation 1",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.9969624876976013,
+          "node_id": 2567023818640
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Calvin > Session 2 > Observation 2",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.986404299736023,
+          "node_id": 2567023818400
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Calvin > Session 2 > Observation 3",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.39200538396835327,
+          "node_id": 2567023818160
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Calvin > Session 1 > Observation 4",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.8580411076545715,
+          "node_id": 2567023819600
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Calvin > Session 1 > Observation 1",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.8566098213195801,
+          "node_id": 2567023820400
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Calvin > Session 1 > Observation 6",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.7259669899940491,
+          "node_id": 2567023818800
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Calvin > Session 1 > Observation 5",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.2532224655151367,
+          "node_id": 2567023819040
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Calvin > Session 1 > Observation 2",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.2165485918521881,
+          "node_id": 2567023819360
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Calvin > Session 3 > Observation 5",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.9538950324058533,
+          "node_id": 2567023815280
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Calvin > Session 3 > Observation 6",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.6174972057342529,
+          "node_id": 2567023816400
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Calvin > Session 3 > Observation 4",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.5210868716239929,
+          "node_id": 2567023816720
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Calvin > Session 3 > Observation 2",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.31611567735671997,
+          "node_id": 2567023817200
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Calvin > Session 3 > Observation 3",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.2539631724357605,
+          "node_id": 2567023816960
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Observation",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "items buy",
+              "operator": "=~",
+              "span": {
+                "start": 125,
+                "end": 153
+              }
+            },
+            "predicate_str": "atom(content =~ \"items buy\")",
+            "span": {
+              "start": 113,
+              "end": 154
+            }
+          },
+          "span": {
+            "start": 113,
+            "end": 154
+          }
+        },
+        "found_count": 15,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"items buy\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "items buy",
+              "operator": "=~",
+              "span": {
+                "start": 125,
+                "end": 153
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 2567023818640,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "items buy",
+                      "operator": "=~",
+                      "span": {
+                        "start": 125,
+                        "end": 153
+                      }
+                    },
+                    "score": 0.9969624876976013,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.9969624876976013
+              },
+              {
+                "node_idx": 1,
+                "node_id": 2567023818400,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "items buy",
+                      "operator": "=~",
+                      "span": {
+                        "start": 125,
+                        "end": 153
+                      }
+                    },
+                    "score": 0.986404299736023,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.986404299736023
+              },
+              {
+                "node_idx": 2,
+                "node_id": 2567023818160,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "items buy",
+                      "operator": "=~",
+                      "span": {
+                        "start": 125,
+                        "end": 153
+                      }
+                    },
+                    "score": 0.39200538396835327,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.39200538396835327
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "items buy"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "items buy",
+                  "num_descriptions": 3,
+                  "call_time_ms": 36.41
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 3
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 0,
+                "score": 0.9969624876976013,
+                "name": "Observation"
+              },
+              {
+                "idx": 1,
+                "score": 0.986404299736023,
+                "name": "Observation"
+              },
+              {
+                "idx": 2,
+                "score": 0.39200538396835327,
+                "name": "Observation"
+              }
+            ]
+          },
+          {
+            "predicate": "atom(content =~ \"items buy\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "items buy",
+              "operator": "=~",
+              "span": {
+                "start": 125,
+                "end": 153
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 2567023820400,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "items buy",
+                      "operator": "=~",
+                      "span": {
+                        "start": 125,
+                        "end": 153
+                      }
+                    },
+                    "score": 0.8566098213195801,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.8566098213195801
+              },
+              {
+                "node_idx": 1,
+                "node_id": 2567023819360,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "items buy",
+                      "operator": "=~",
+                      "span": {
+                        "start": 125,
+                        "end": 153
+                      }
+                    },
+                    "score": 0.2165485918521881,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.2165485918521881
+              },
+              {
+                "node_idx": 2,
+                "node_id": 2567023819840,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "items buy",
+                      "operator": "=~",
+                      "span": {
+                        "start": 125,
+                        "end": 153
+                      }
+                    },
+                    "score": 0.11855995655059814,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.11855995655059814
+              },
+              {
+                "node_idx": 3,
+                "node_id": 2567023819600,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "items buy",
+                      "operator": "=~",
+                      "span": {
+                        "start": 125,
+                        "end": 153
+                      }
+                    },
+                    "score": 0.8580411076545715,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.8580411076545715
+              },
+              {
+                "node_idx": 4,
+                "node_id": 2567023819040,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "items buy",
+                      "operator": "=~",
+                      "span": {
+                        "start": 125,
+                        "end": 153
+                      }
+                    },
+                    "score": 0.2532224655151367,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.2532224655151367
+              },
+              {
+                "node_idx": 5,
+                "node_id": 2567023818800,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "items buy",
+                      "operator": "=~",
+                      "span": {
+                        "start": 125,
+                        "end": 153
+                      }
+                    },
+                    "score": 0.7259669899940491,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.7259669899940491
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "items buy"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "items buy",
+                  "num_descriptions": 6,
+                  "call_time_ms": 54.08
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 6
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 3,
+                "score": 0.8580411076545715,
+                "name": "Observation"
+              },
+              {
+                "idx": 0,
+                "score": 0.8566098213195801,
+                "name": "Observation"
+              },
+              {
+                "idx": 5,
+                "score": 0.7259669899940491,
+                "name": "Observation"
+              },
+              {
+                "idx": 4,
+                "score": 0.2532224655151367,
+                "name": "Observation"
+              },
+              {
+                "idx": 1,
+                "score": 0.2165485918521881,
+                "name": "Observation"
+              },
+              {
+                "idx": 2,
+                "score": 0.11855995655059814,
+                "name": "Observation"
+              }
+            ]
+          },
+          {
+            "predicate": "atom(content =~ \"items buy\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "items buy",
+              "operator": "=~",
+              "span": {
+                "start": 125,
+                "end": 153
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 2567023817440,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "items buy",
+                      "operator": "=~",
+                      "span": {
+                        "start": 125,
+                        "end": 153
+                      }
+                    },
+                    "score": 0.21611738204956055,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.21611738204956055
+              },
+              {
+                "node_idx": 1,
+                "node_id": 2567023817200,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "items buy",
+                      "operator": "=~",
+                      "span": {
+                        "start": 125,
+                        "end": 153
+                      }
+                    },
+                    "score": 0.31611567735671997,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.31611567735671997
+              },
+              {
+                "node_idx": 2,
+                "node_id": 2567023816960,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "items buy",
+                      "operator": "=~",
+                      "span": {
+                        "start": 125,
+                        "end": 153
+                      }
+                    },
+                    "score": 0.2539631724357605,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.2539631724357605
+              },
+              {
+                "node_idx": 3,
+                "node_id": 2567023816720,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "items buy",
+                      "operator": "=~",
+                      "span": {
+                        "start": 125,
+                        "end": 153
+                      }
+                    },
+                    "score": 0.5210868716239929,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.5210868716239929
+              },
+              {
+                "node_idx": 4,
+                "node_id": 2567023815280,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "items buy",
+                      "operator": "=~",
+                      "span": {
+                        "start": 125,
+                        "end": 153
+                      }
+                    },
+                    "score": 0.9538950324058533,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.9538950324058533
+              },
+              {
+                "node_idx": 5,
+                "node_id": 2567023816400,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "items buy",
+                      "operator": "=~",
+                      "span": {
+                        "start": 125,
+                        "end": 153
+                      }
+                    },
+                    "score": 0.6174972057342529,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.6174972057342529
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "items buy"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "items buy",
+                  "num_descriptions": 6,
+                  "call_time_ms": 56.94
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 6
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 4,
+                "score": 0.9538950324058533,
+                "name": "Observation"
+              },
+              {
+                "idx": 5,
+                "score": 0.6174972057342529,
+                "name": "Observation"
+              },
+              {
+                "idx": 3,
+                "score": 0.5210868716239929,
+                "name": "Observation"
+              },
+              {
+                "idx": 1,
+                "score": 0.31611567735671997,
+                "name": "Observation"
+              },
+              {
+                "idx": 2,
+                "score": 0.2539631724357605,
+                "name": "Observation"
+              },
+              {
+                "idx": 0,
+                "score": 0.21611738204956055,
+                "name": "Observation"
+              }
+            ]
+          }
+        ],
+        "pruned_count": 2
+      }
+    }
+  ],
+  "scoring_traces": [
+    {
+      "predicate": "atom(content =~ \"Calvin\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "Calvin",
+        "operator": "=~",
+        "span": {
+          "start": 38,
+          "end": 63
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 2567023816560,
+          "node_name": "Calvin",
+          "node_type": "Speaker",
+          "final_score": 1.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Calvin",
+              "query_value": "Calvin",
+              "matched": true,
+              "score": 1.0
+            }
+          ]
+        },
+        {
+          "node_idx": 1,
+          "node_id": 2567149221536,
+          "node_name": "Dave",
+          "node_type": "Speaker",
+          "final_score": 0.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Dave",
+              "query_value": "Calvin",
+              "matched": false,
+              "score": 0.0
+            }
+          ]
+        }
+      ],
+      "batch_scoring": {
+        "exact_match": true,
+        "matched_attribute": "name",
+        "query_value": "Calvin",
+        "matched_count": 1
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 0,
+          "score": 1.0,
+          "name": "Calvin"
+        },
+        {
+          "idx": 1,
+          "score": 0.0,
+          "name": "Dave"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"March 2023 purchase\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "March 2023 purchase",
+        "operator": "=~",
+        "span": {
+          "start": 73,
+          "end": 111
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 2567023820240,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "March 2023 purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 111
+                }
+              },
+              "score": 0.9725571870803833,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.9725571870803833
+        },
+        {
+          "node_idx": 1,
+          "node_id": 2567023818720,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "March 2023 purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 111
+                }
+              },
+              "score": 0.990498960018158,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.990498960018158
+        },
+        {
+          "node_idx": 2,
+          "node_id": 2567023816640,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "March 2023 purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 111
+                }
+              },
+              "score": 0.07457808405160904,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.07457808405160904
+        },
+        {
+          "node_idx": 3,
+          "node_id": 2567023816160,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "March 2023 purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 111
+                }
+              },
+              "score": 0.02316785790026188,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.02316785790026188
+        },
+        {
+          "node_idx": 4,
+          "node_id": 2567023815120,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "March 2023 purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 111
+                }
+              },
+              "score": 0.024614965543150902,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.024614965543150902
+        },
+        {
+          "node_idx": 5,
+          "node_id": 2567023814240,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "March 2023 purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 111
+                }
+              },
+              "score": 0.020438402891159058,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.020438402891159058
+        },
+        {
+          "node_idx": 6,
+          "node_id": 2567023813120,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "March 2023 purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 111
+                }
+              },
+              "score": 0.0417492613196373,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0417492613196373
+        },
+        {
+          "node_idx": 7,
+          "node_id": 2567023812080,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "March 2023 purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 111
+                }
+              },
+              "score": 0.01160663552582264,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.01160663552582264
+        },
+        {
+          "node_idx": 8,
+          "node_id": 2567023810960,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "March 2023 purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 111
+                }
+              },
+              "score": 0.00392748462036252,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.00392748462036252
+        },
+        {
+          "node_idx": 9,
+          "node_id": 2567023808880,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "March 2023 purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 111
+                }
+              },
+              "score": 0.005171355325728655,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.005171355325728655
+        },
+        {
+          "node_idx": 10,
+          "node_id": 2567023807520,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "March 2023 purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 111
+                }
+              },
+              "score": 0.006222307216376066,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.006222307216376066
+        },
+        {
+          "node_idx": 11,
+          "node_id": 2568147300608,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "March 2023 purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 111
+                }
+              },
+              "score": 0.014520944096148014,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.014520944096148014
+        },
+        {
+          "node_idx": 12,
+          "node_id": 2568147302448,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "March 2023 purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 111
+                }
+              },
+              "score": 0.0021160640753805637,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0021160640753805637
+        },
+        {
+          "node_idx": 13,
+          "node_id": 2568147298368,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "March 2023 purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 111
+                }
+              },
+              "score": 0.014832032844424248,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.014832032844424248
+        },
+        {
+          "node_idx": 14,
+          "node_id": 2567025694000,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "March 2023 purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 111
+                }
+              },
+              "score": 0.0014639253495261073,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0014639253495261073
+        },
+        {
+          "node_idx": 15,
+          "node_id": 2567025692880,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "March 2023 purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 111
+                }
+              },
+              "score": 0.006590033881366253,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.006590033881366253
+        },
+        {
+          "node_idx": 16,
+          "node_id": 2567025691760,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "March 2023 purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 111
+                }
+              },
+              "score": 0.004223646130412817,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.004223646130412817
+        },
+        {
+          "node_idx": 17,
+          "node_id": 2567025690880,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "March 2023 purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 111
+                }
+              },
+              "score": 0.008491535671055317,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.008491535671055317
+        },
+        {
+          "node_idx": 18,
+          "node_id": 2567025690000,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "March 2023 purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 111
+                }
+              },
+              "score": 0.00900478195399046,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.00900478195399046
+        },
+        {
+          "node_idx": 19,
+          "node_id": 2567025689040,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "March 2023 purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 111
+                }
+              },
+              "score": 0.002026147907599807,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.002026147907599807
+        },
+        {
+          "node_idx": 20,
+          "node_id": 2567217259728,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "March 2023 purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 111
+                }
+              },
+              "score": 0.0018322207033634186,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0018322207033634186
+        },
+        {
+          "node_idx": 21,
+          "node_id": 2567216026688,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "March 2023 purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 111
+                }
+              },
+              "score": 0.0027796439826488495,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0027796439826488495
+        },
+        {
+          "node_idx": 22,
+          "node_id": 2567216052352,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "March 2023 purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 111
+                }
+              },
+              "score": 0.00046090042451396585,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.00046090042451396585
+        },
+        {
+          "node_idx": 23,
+          "node_id": 2567216053632,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "March 2023 purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 111
+                }
+              },
+              "score": 0.0018139794701710343,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0018139794701710343
+        },
+        {
+          "node_idx": 24,
+          "node_id": 2567217178608,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "March 2023 purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 111
+                }
+              },
+              "score": 0.006308682728558779,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.006308682728558779
+        },
+        {
+          "node_idx": 25,
+          "node_id": 2567217170528,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "March 2023 purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 111
+                }
+              },
+              "score": 0.0030088152270764112,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0030088152270764112
+        },
+        {
+          "node_idx": 26,
+          "node_id": 2567217178848,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "March 2023 purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 111
+                }
+              },
+              "score": 0.0038387603126466274,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0038387603126466274
+        },
+        {
+          "node_idx": 27,
+          "node_id": 2567217182928,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "March 2023 purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 111
+                }
+              },
+              "score": 0.0011083732824772596,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0011083732824772596
+        },
+        {
+          "node_idx": 28,
+          "node_id": 2567217179168,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "March 2023 purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 111
+                }
+              },
+              "score": 0.0013052970170974731,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0013052970170974731
+        },
+        {
+          "node_idx": 29,
+          "node_id": 2567217181408,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "March 2023 purchase",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 111
+                }
+              },
+              "score": 0.0032960467506200075,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0032960467506200075
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "March 2023 purchase"
+        ],
+        "per_value_stats": [
+          {
+            "value": "March 2023 purchase",
+            "num_descriptions": 30,
+            "call_time_ms": 734.98
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 30
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 1,
+          "score": 0.990498960018158,
+          "name": "Session"
+        },
+        {
+          "idx": 0,
+          "score": 0.9725571870803833,
+          "name": "Session"
+        },
+        {
+          "idx": 2,
+          "score": 0.07457808405160904,
+          "name": "Session"
+        },
+        {
+          "idx": 6,
+          "score": 0.0417492613196373,
+          "name": "Session"
+        },
+        {
+          "idx": 4,
+          "score": 0.024614965543150902,
+          "name": "Session"
+        },
+        {
+          "idx": 3,
+          "score": 0.02316785790026188,
+          "name": "Session"
+        },
+        {
+          "idx": 5,
+          "score": 0.020438402891159058,
+          "name": "Session"
+        },
+        {
+          "idx": 13,
+          "score": 0.014832032844424248,
+          "name": "Session"
+        },
+        {
+          "idx": 11,
+          "score": 0.014520944096148014,
+          "name": "Session"
+        },
+        {
+          "idx": 7,
+          "score": 0.01160663552582264,
+          "name": "Session"
+        },
+        {
+          "idx": 18,
+          "score": 0.00900478195399046,
+          "name": "Session"
+        },
+        {
+          "idx": 17,
+          "score": 0.008491535671055317,
+          "name": "Session"
+        },
+        {
+          "idx": 15,
+          "score": 0.006590033881366253,
+          "name": "Session"
+        },
+        {
+          "idx": 24,
+          "score": 0.006308682728558779,
+          "name": "Session"
+        },
+        {
+          "idx": 10,
+          "score": 0.006222307216376066,
+          "name": "Session"
+        },
+        {
+          "idx": 9,
+          "score": 0.005171355325728655,
+          "name": "Session"
+        },
+        {
+          "idx": 16,
+          "score": 0.004223646130412817,
+          "name": "Session"
+        },
+        {
+          "idx": 8,
+          "score": 0.00392748462036252,
+          "name": "Session"
+        },
+        {
+          "idx": 26,
+          "score": 0.0038387603126466274,
+          "name": "Session"
+        },
+        {
+          "idx": 29,
+          "score": 0.0032960467506200075,
+          "name": "Session"
+        },
+        {
+          "idx": 25,
+          "score": 0.0030088152270764112,
+          "name": "Session"
+        },
+        {
+          "idx": 21,
+          "score": 0.0027796439826488495,
+          "name": "Session"
+        },
+        {
+          "idx": 12,
+          "score": 0.0021160640753805637,
+          "name": "Session"
+        },
+        {
+          "idx": 19,
+          "score": 0.002026147907599807,
+          "name": "Session"
+        },
+        {
+          "idx": 20,
+          "score": 0.0018322207033634186,
+          "name": "Session"
+        },
+        {
+          "idx": 23,
+          "score": 0.0018139794701710343,
+          "name": "Session"
+        },
+        {
+          "idx": 14,
+          "score": 0.0014639253495261073,
+          "name": "Session"
+        },
+        {
+          "idx": 28,
+          "score": 0.0013052970170974731,
+          "name": "Session"
+        },
+        {
+          "idx": 27,
+          "score": 0.0011083732824772596,
+          "name": "Session"
+        },
+        {
+          "idx": 22,
+          "score": 0.00046090042451396585,
+          "name": "Session"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"items buy\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "items buy",
+        "operator": "=~",
+        "span": {
+          "start": 125,
+          "end": 153
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 2567023818640,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "items buy",
+                "operator": "=~",
+                "span": {
+                  "start": 125,
+                  "end": 153
+                }
+              },
+              "score": 0.9969624876976013,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.9969624876976013
+        },
+        {
+          "node_idx": 1,
+          "node_id": 2567023818400,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "items buy",
+                "operator": "=~",
+                "span": {
+                  "start": 125,
+                  "end": 153
+                }
+              },
+              "score": 0.986404299736023,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.986404299736023
+        },
+        {
+          "node_idx": 2,
+          "node_id": 2567023818160,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "items buy",
+                "operator": "=~",
+                "span": {
+                  "start": 125,
+                  "end": 153
+                }
+              },
+              "score": 0.39200538396835327,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.39200538396835327
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "items buy"
+        ],
+        "per_value_stats": [
+          {
+            "value": "items buy",
+            "num_descriptions": 3,
+            "call_time_ms": 36.41
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 3
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 0,
+          "score": 0.9969624876976013,
+          "name": "Observation"
+        },
+        {
+          "idx": 1,
+          "score": 0.986404299736023,
+          "name": "Observation"
+        },
+        {
+          "idx": 2,
+          "score": 0.39200538396835327,
+          "name": "Observation"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"items buy\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "items buy",
+        "operator": "=~",
+        "span": {
+          "start": 125,
+          "end": 153
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 2567023820400,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "items buy",
+                "operator": "=~",
+                "span": {
+                  "start": 125,
+                  "end": 153
+                }
+              },
+              "score": 0.8566098213195801,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.8566098213195801
+        },
+        {
+          "node_idx": 1,
+          "node_id": 2567023819360,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "items buy",
+                "operator": "=~",
+                "span": {
+                  "start": 125,
+                  "end": 153
+                }
+              },
+              "score": 0.2165485918521881,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.2165485918521881
+        },
+        {
+          "node_idx": 2,
+          "node_id": 2567023819840,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "items buy",
+                "operator": "=~",
+                "span": {
+                  "start": 125,
+                  "end": 153
+                }
+              },
+              "score": 0.11855995655059814,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.11855995655059814
+        },
+        {
+          "node_idx": 3,
+          "node_id": 2567023819600,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "items buy",
+                "operator": "=~",
+                "span": {
+                  "start": 125,
+                  "end": 153
+                }
+              },
+              "score": 0.8580411076545715,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.8580411076545715
+        },
+        {
+          "node_idx": 4,
+          "node_id": 2567023819040,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "items buy",
+                "operator": "=~",
+                "span": {
+                  "start": 125,
+                  "end": 153
+                }
+              },
+              "score": 0.2532224655151367,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.2532224655151367
+        },
+        {
+          "node_idx": 5,
+          "node_id": 2567023818800,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "items buy",
+                "operator": "=~",
+                "span": {
+                  "start": 125,
+                  "end": 153
+                }
+              },
+              "score": 0.7259669899940491,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.7259669899940491
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "items buy"
+        ],
+        "per_value_stats": [
+          {
+            "value": "items buy",
+            "num_descriptions": 6,
+            "call_time_ms": 54.08
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 6
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 3,
+          "score": 0.8580411076545715,
+          "name": "Observation"
+        },
+        {
+          "idx": 0,
+          "score": 0.8566098213195801,
+          "name": "Observation"
+        },
+        {
+          "idx": 5,
+          "score": 0.7259669899940491,
+          "name": "Observation"
+        },
+        {
+          "idx": 4,
+          "score": 0.2532224655151367,
+          "name": "Observation"
+        },
+        {
+          "idx": 1,
+          "score": 0.2165485918521881,
+          "name": "Observation"
+        },
+        {
+          "idx": 2,
+          "score": 0.11855995655059814,
+          "name": "Observation"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"items buy\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "items buy",
+        "operator": "=~",
+        "span": {
+          "start": 125,
+          "end": 153
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 2567023817440,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "items buy",
+                "operator": "=~",
+                "span": {
+                  "start": 125,
+                  "end": 153
+                }
+              },
+              "score": 0.21611738204956055,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.21611738204956055
+        },
+        {
+          "node_idx": 1,
+          "node_id": 2567023817200,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "items buy",
+                "operator": "=~",
+                "span": {
+                  "start": 125,
+                  "end": 153
+                }
+              },
+              "score": 0.31611567735671997,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.31611567735671997
+        },
+        {
+          "node_idx": 2,
+          "node_id": 2567023816960,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "items buy",
+                "operator": "=~",
+                "span": {
+                  "start": 125,
+                  "end": 153
+                }
+              },
+              "score": 0.2539631724357605,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.2539631724357605
+        },
+        {
+          "node_idx": 3,
+          "node_id": 2567023816720,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "items buy",
+                "operator": "=~",
+                "span": {
+                  "start": 125,
+                  "end": 153
+                }
+              },
+              "score": 0.5210868716239929,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.5210868716239929
+        },
+        {
+          "node_idx": 4,
+          "node_id": 2567023815280,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "items buy",
+                "operator": "=~",
+                "span": {
+                  "start": 125,
+                  "end": 153
+                }
+              },
+              "score": 0.9538950324058533,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.9538950324058533
+        },
+        {
+          "node_idx": 5,
+          "node_id": 2567023816400,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "items buy",
+                "operator": "=~",
+                "span": {
+                  "start": 125,
+                  "end": 153
+                }
+              },
+              "score": 0.6174972057342529,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.6174972057342529
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "items buy"
+        ],
+        "per_value_stats": [
+          {
+            "value": "items buy",
+            "num_descriptions": 6,
+            "call_time_ms": 56.94
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 6
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 4,
+          "score": 0.9538950324058533,
+          "name": "Observation"
+        },
+        {
+          "idx": 5,
+          "score": 0.6174972057342529,
+          "name": "Observation"
+        },
+        {
+          "idx": 3,
+          "score": 0.5210868716239929,
+          "name": "Observation"
+        },
+        {
+          "idx": 1,
+          "score": 0.31611567735671997,
+          "name": "Observation"
+        },
+        {
+          "idx": 2,
+          "score": 0.2539631724357605,
+          "name": "Observation"
+        },
+        {
+          "idx": 0,
+          "score": 0.21611738204956055,
+          "name": "Observation"
+        }
+      ]
+    }
+  ],
+  "scoring_details": {
+    "step_scores": [
+      {
+        "step_index": 0,
+        "predicate": "atom(content =~ \"Calvin\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "Calvin",
+          "operator": "=~",
+          "span": {
+            "start": 38,
+            "end": 63
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 2567023816560,
+            "node_name": "Calvin",
+            "node_type": "Speaker",
+            "final_score": 1.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Calvin",
+                "query_value": "Calvin",
+                "matched": true,
+                "score": 1.0
+              }
+            ]
+          },
+          {
+            "node_idx": 1,
+            "node_id": 2567149221536,
+            "node_name": "Dave",
+            "node_type": "Speaker",
+            "final_score": 0.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Dave",
+                "query_value": "Calvin",
+                "matched": false,
+                "score": 0.0
+              }
+            ]
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 0,
+            "score": 1.0,
+            "name": "Calvin"
+          },
+          {
+            "idx": 1,
+            "score": 0.0,
+            "name": "Dave"
+          }
+        ]
+      },
+      {
+        "step_index": 1,
+        "predicate": "atom(content =~ \"March 2023 purchase\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "March 2023 purchase",
+          "operator": "=~",
+          "span": {
+            "start": 73,
+            "end": 111
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 2567023820240,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "March 2023 purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 111
+                  }
+                },
+                "score": 0.9725571870803833,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.9725571870803833
+          },
+          {
+            "node_idx": 1,
+            "node_id": 2567023818720,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "March 2023 purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 111
+                  }
+                },
+                "score": 0.990498960018158,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.990498960018158
+          },
+          {
+            "node_idx": 2,
+            "node_id": 2567023816640,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "March 2023 purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 111
+                  }
+                },
+                "score": 0.07457808405160904,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.07457808405160904
+          },
+          {
+            "node_idx": 3,
+            "node_id": 2567023816160,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "March 2023 purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 111
+                  }
+                },
+                "score": 0.02316785790026188,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.02316785790026188
+          },
+          {
+            "node_idx": 4,
+            "node_id": 2567023815120,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "March 2023 purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 111
+                  }
+                },
+                "score": 0.024614965543150902,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.024614965543150902
+          },
+          {
+            "node_idx": 5,
+            "node_id": 2567023814240,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "March 2023 purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 111
+                  }
+                },
+                "score": 0.020438402891159058,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.020438402891159058
+          },
+          {
+            "node_idx": 6,
+            "node_id": 2567023813120,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "March 2023 purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 111
+                  }
+                },
+                "score": 0.0417492613196373,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0417492613196373
+          },
+          {
+            "node_idx": 7,
+            "node_id": 2567023812080,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "March 2023 purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 111
+                  }
+                },
+                "score": 0.01160663552582264,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.01160663552582264
+          },
+          {
+            "node_idx": 8,
+            "node_id": 2567023810960,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "March 2023 purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 111
+                  }
+                },
+                "score": 0.00392748462036252,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.00392748462036252
+          },
+          {
+            "node_idx": 9,
+            "node_id": 2567023808880,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "March 2023 purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 111
+                  }
+                },
+                "score": 0.005171355325728655,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.005171355325728655
+          },
+          {
+            "node_idx": 10,
+            "node_id": 2567023807520,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "March 2023 purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 111
+                  }
+                },
+                "score": 0.006222307216376066,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.006222307216376066
+          },
+          {
+            "node_idx": 11,
+            "node_id": 2568147300608,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "March 2023 purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 111
+                  }
+                },
+                "score": 0.014520944096148014,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.014520944096148014
+          },
+          {
+            "node_idx": 12,
+            "node_id": 2568147302448,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "March 2023 purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 111
+                  }
+                },
+                "score": 0.0021160640753805637,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0021160640753805637
+          },
+          {
+            "node_idx": 13,
+            "node_id": 2568147298368,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "March 2023 purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 111
+                  }
+                },
+                "score": 0.014832032844424248,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.014832032844424248
+          },
+          {
+            "node_idx": 14,
+            "node_id": 2567025694000,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "March 2023 purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 111
+                  }
+                },
+                "score": 0.0014639253495261073,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0014639253495261073
+          },
+          {
+            "node_idx": 15,
+            "node_id": 2567025692880,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "March 2023 purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 111
+                  }
+                },
+                "score": 0.006590033881366253,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.006590033881366253
+          },
+          {
+            "node_idx": 16,
+            "node_id": 2567025691760,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "March 2023 purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 111
+                  }
+                },
+                "score": 0.004223646130412817,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.004223646130412817
+          },
+          {
+            "node_idx": 17,
+            "node_id": 2567025690880,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "March 2023 purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 111
+                  }
+                },
+                "score": 0.008491535671055317,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.008491535671055317
+          },
+          {
+            "node_idx": 18,
+            "node_id": 2567025690000,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "March 2023 purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 111
+                  }
+                },
+                "score": 0.00900478195399046,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.00900478195399046
+          },
+          {
+            "node_idx": 19,
+            "node_id": 2567025689040,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "March 2023 purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 111
+                  }
+                },
+                "score": 0.002026147907599807,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.002026147907599807
+          },
+          {
+            "node_idx": 20,
+            "node_id": 2567217259728,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "March 2023 purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 111
+                  }
+                },
+                "score": 0.0018322207033634186,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0018322207033634186
+          },
+          {
+            "node_idx": 21,
+            "node_id": 2567216026688,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "March 2023 purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 111
+                  }
+                },
+                "score": 0.0027796439826488495,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0027796439826488495
+          },
+          {
+            "node_idx": 22,
+            "node_id": 2567216052352,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "March 2023 purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 111
+                  }
+                },
+                "score": 0.00046090042451396585,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.00046090042451396585
+          },
+          {
+            "node_idx": 23,
+            "node_id": 2567216053632,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "March 2023 purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 111
+                  }
+                },
+                "score": 0.0018139794701710343,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0018139794701710343
+          },
+          {
+            "node_idx": 24,
+            "node_id": 2567217178608,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "March 2023 purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 111
+                  }
+                },
+                "score": 0.006308682728558779,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.006308682728558779
+          },
+          {
+            "node_idx": 25,
+            "node_id": 2567217170528,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "March 2023 purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 111
+                  }
+                },
+                "score": 0.0030088152270764112,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0030088152270764112
+          },
+          {
+            "node_idx": 26,
+            "node_id": 2567217178848,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "March 2023 purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 111
+                  }
+                },
+                "score": 0.0038387603126466274,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0038387603126466274
+          },
+          {
+            "node_idx": 27,
+            "node_id": 2567217182928,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "March 2023 purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 111
+                  }
+                },
+                "score": 0.0011083732824772596,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0011083732824772596
+          },
+          {
+            "node_idx": 28,
+            "node_id": 2567217179168,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "March 2023 purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 111
+                  }
+                },
+                "score": 0.0013052970170974731,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0013052970170974731
+          },
+          {
+            "node_idx": 29,
+            "node_id": 2567217181408,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "March 2023 purchase",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 111
+                  }
+                },
+                "score": 0.0032960467506200075,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0032960467506200075
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 1,
+            "score": 0.990498960018158,
+            "name": "Session"
+          },
+          {
+            "idx": 0,
+            "score": 0.9725571870803833,
+            "name": "Session"
+          },
+          {
+            "idx": 2,
+            "score": 0.07457808405160904,
+            "name": "Session"
+          },
+          {
+            "idx": 6,
+            "score": 0.0417492613196373,
+            "name": "Session"
+          },
+          {
+            "idx": 4,
+            "score": 0.024614965543150902,
+            "name": "Session"
+          },
+          {
+            "idx": 3,
+            "score": 0.02316785790026188,
+            "name": "Session"
+          },
+          {
+            "idx": 5,
+            "score": 0.020438402891159058,
+            "name": "Session"
+          },
+          {
+            "idx": 13,
+            "score": 0.014832032844424248,
+            "name": "Session"
+          },
+          {
+            "idx": 11,
+            "score": 0.014520944096148014,
+            "name": "Session"
+          },
+          {
+            "idx": 7,
+            "score": 0.01160663552582264,
+            "name": "Session"
+          },
+          {
+            "idx": 18,
+            "score": 0.00900478195399046,
+            "name": "Session"
+          },
+          {
+            "idx": 17,
+            "score": 0.008491535671055317,
+            "name": "Session"
+          },
+          {
+            "idx": 15,
+            "score": 0.006590033881366253,
+            "name": "Session"
+          },
+          {
+            "idx": 24,
+            "score": 0.006308682728558779,
+            "name": "Session"
+          },
+          {
+            "idx": 10,
+            "score": 0.006222307216376066,
+            "name": "Session"
+          },
+          {
+            "idx": 9,
+            "score": 0.005171355325728655,
+            "name": "Session"
+          },
+          {
+            "idx": 16,
+            "score": 0.004223646130412817,
+            "name": "Session"
+          },
+          {
+            "idx": 8,
+            "score": 0.00392748462036252,
+            "name": "Session"
+          },
+          {
+            "idx": 26,
+            "score": 0.0038387603126466274,
+            "name": "Session"
+          },
+          {
+            "idx": 29,
+            "score": 0.0032960467506200075,
+            "name": "Session"
+          },
+          {
+            "idx": 25,
+            "score": 0.0030088152270764112,
+            "name": "Session"
+          },
+          {
+            "idx": 21,
+            "score": 0.0027796439826488495,
+            "name": "Session"
+          },
+          {
+            "idx": 12,
+            "score": 0.0021160640753805637,
+            "name": "Session"
+          },
+          {
+            "idx": 19,
+            "score": 0.002026147907599807,
+            "name": "Session"
+          },
+          {
+            "idx": 20,
+            "score": 0.0018322207033634186,
+            "name": "Session"
+          },
+          {
+            "idx": 23,
+            "score": 0.0018139794701710343,
+            "name": "Session"
+          },
+          {
+            "idx": 14,
+            "score": 0.0014639253495261073,
+            "name": "Session"
+          },
+          {
+            "idx": 28,
+            "score": 0.0013052970170974731,
+            "name": "Session"
+          },
+          {
+            "idx": 27,
+            "score": 0.0011083732824772596,
+            "name": "Session"
+          },
+          {
+            "idx": 22,
+            "score": 0.00046090042451396585,
+            "name": "Session"
+          }
+        ]
+      },
+      {
+        "step_index": 2,
+        "predicate": "atom(content =~ \"items buy\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "items buy",
+          "operator": "=~",
+          "span": {
+            "start": 125,
+            "end": 153
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 2567023818640,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "items buy",
+                  "operator": "=~",
+                  "span": {
+                    "start": 125,
+                    "end": 153
+                  }
+                },
+                "score": 0.9969624876976013,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.9969624876976013
+          },
+          {
+            "node_idx": 1,
+            "node_id": 2567023818400,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "items buy",
+                  "operator": "=~",
+                  "span": {
+                    "start": 125,
+                    "end": 153
+                  }
+                },
+                "score": 0.986404299736023,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.986404299736023
+          },
+          {
+            "node_idx": 2,
+            "node_id": 2567023818160,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "items buy",
+                  "operator": "=~",
+                  "span": {
+                    "start": 125,
+                    "end": 153
+                  }
+                },
+                "score": 0.39200538396835327,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.39200538396835327
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 0,
+            "score": 0.9969624876976013,
+            "name": "Observation"
+          },
+          {
+            "idx": 1,
+            "score": 0.986404299736023,
+            "name": "Observation"
+          },
+          {
+            "idx": 2,
+            "score": 0.39200538396835327,
+            "name": "Observation"
+          }
+        ]
+      },
+      {
+        "step_index": 3,
+        "predicate": "atom(content =~ \"items buy\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "items buy",
+          "operator": "=~",
+          "span": {
+            "start": 125,
+            "end": 153
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 2567023820400,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "items buy",
+                  "operator": "=~",
+                  "span": {
+                    "start": 125,
+                    "end": 153
+                  }
+                },
+                "score": 0.8566098213195801,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.8566098213195801
+          },
+          {
+            "node_idx": 1,
+            "node_id": 2567023819360,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "items buy",
+                  "operator": "=~",
+                  "span": {
+                    "start": 125,
+                    "end": 153
+                  }
+                },
+                "score": 0.2165485918521881,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.2165485918521881
+          },
+          {
+            "node_idx": 2,
+            "node_id": 2567023819840,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "items buy",
+                  "operator": "=~",
+                  "span": {
+                    "start": 125,
+                    "end": 153
+                  }
+                },
+                "score": 0.11855995655059814,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.11855995655059814
+          },
+          {
+            "node_idx": 3,
+            "node_id": 2567023819600,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "items buy",
+                  "operator": "=~",
+                  "span": {
+                    "start": 125,
+                    "end": 153
+                  }
+                },
+                "score": 0.8580411076545715,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.8580411076545715
+          },
+          {
+            "node_idx": 4,
+            "node_id": 2567023819040,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "items buy",
+                  "operator": "=~",
+                  "span": {
+                    "start": 125,
+                    "end": 153
+                  }
+                },
+                "score": 0.2532224655151367,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.2532224655151367
+          },
+          {
+            "node_idx": 5,
+            "node_id": 2567023818800,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "items buy",
+                  "operator": "=~",
+                  "span": {
+                    "start": 125,
+                    "end": 153
+                  }
+                },
+                "score": 0.7259669899940491,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.7259669899940491
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 3,
+            "score": 0.8580411076545715,
+            "name": "Observation"
+          },
+          {
+            "idx": 0,
+            "score": 0.8566098213195801,
+            "name": "Observation"
+          },
+          {
+            "idx": 5,
+            "score": 0.7259669899940491,
+            "name": "Observation"
+          },
+          {
+            "idx": 4,
+            "score": 0.2532224655151367,
+            "name": "Observation"
+          },
+          {
+            "idx": 1,
+            "score": 0.2165485918521881,
+            "name": "Observation"
+          },
+          {
+            "idx": 2,
+            "score": 0.11855995655059814,
+            "name": "Observation"
+          }
+        ]
+      },
+      {
+        "step_index": 4,
+        "predicate": "atom(content =~ \"items buy\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "items buy",
+          "operator": "=~",
+          "span": {
+            "start": 125,
+            "end": 153
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 2567023817440,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "items buy",
+                  "operator": "=~",
+                  "span": {
+                    "start": 125,
+                    "end": 153
+                  }
+                },
+                "score": 0.21611738204956055,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.21611738204956055
+          },
+          {
+            "node_idx": 1,
+            "node_id": 2567023817200,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "items buy",
+                  "operator": "=~",
+                  "span": {
+                    "start": 125,
+                    "end": 153
+                  }
+                },
+                "score": 0.31611567735671997,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.31611567735671997
+          },
+          {
+            "node_idx": 2,
+            "node_id": 2567023816960,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "items buy",
+                  "operator": "=~",
+                  "span": {
+                    "start": 125,
+                    "end": 153
+                  }
+                },
+                "score": 0.2539631724357605,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.2539631724357605
+          },
+          {
+            "node_idx": 3,
+            "node_id": 2567023816720,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "items buy",
+                  "operator": "=~",
+                  "span": {
+                    "start": 125,
+                    "end": 153
+                  }
+                },
+                "score": 0.5210868716239929,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.5210868716239929
+          },
+          {
+            "node_idx": 4,
+            "node_id": 2567023815280,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "items buy",
+                  "operator": "=~",
+                  "span": {
+                    "start": 125,
+                    "end": 153
+                  }
+                },
+                "score": 0.9538950324058533,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.9538950324058533
+          },
+          {
+            "node_idx": 5,
+            "node_id": 2567023816400,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "items buy",
+                  "operator": "=~",
+                  "span": {
+                    "start": 125,
+                    "end": 153
+                  }
+                },
+                "score": 0.6174972057342529,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.6174972057342529
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 4,
+            "score": 0.9538950324058533,
+            "name": "Observation"
+          },
+          {
+            "idx": 5,
+            "score": 0.6174972057342529,
+            "name": "Observation"
+          },
+          {
+            "idx": 3,
+            "score": 0.5210868716239929,
+            "name": "Observation"
+          },
+          {
+            "idx": 1,
+            "score": 0.31611567735671997,
+            "name": "Observation"
+          },
+          {
+            "idx": 2,
+            "score": 0.2539631724357605,
+            "name": "Observation"
+          },
+          {
+            "idx": 0,
+            "score": 0.21611738204956055,
+            "name": "Observation"
+          }
+        ]
+      }
+    ],
+    "score_fusion": {
+      "per_node": [
+        {
+          "node_path": "Root > Conversation_Version 1 > Calvin > Session 2 > Observation 1",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"items buy\")]",
+              "score": 0.9969624876976013
+            }
+          ],
+          "accumulated_product": 0.9969624876976013,
+          "final_score": 0.9874903062540995
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Calvin > Session 2 > Observation 2",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"items buy\")]",
+              "score": 0.986404299736023
+            }
+          ],
+          "accumulated_product": 0.986404299736023,
+          "final_score": 0.9770324320689378
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Calvin > Session 2 > Observation 3",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"items buy\")]",
+              "score": 0.39200538396835327
+            }
+          ],
+          "accumulated_product": 0.39200538396835327,
+          "final_score": 0.3882809247538917
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Calvin > Session 1 > Observation 4",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"items buy\")]",
+              "score": 0.8580411076545715
+            }
+          ],
+          "accumulated_product": 0.8580411076545715,
+          "final_score": 0.8344940452253724
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Calvin > Session 1 > Observation 1",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"items buy\")]",
+              "score": 0.8566098213195801
+            }
+          ],
+          "accumulated_product": 0.8566098213195801,
+          "final_score": 0.8331020374148985
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Calvin > Session 1 > Observation 6",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"items buy\")]",
+              "score": 0.7259669899940491
+            }
+          ],
+          "accumulated_product": 0.7259669899940491,
+          "final_score": 0.7060444129957808
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Calvin > Session 1 > Observation 5",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"items buy\")]",
+              "score": 0.2532224655151367
+            }
+          ],
+          "accumulated_product": 0.2532224655151367,
+          "final_score": 0.24627332852068742
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Calvin > Session 1 > Observation 2",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"items buy\")]",
+              "score": 0.2165485918521881
+            }
+          ],
+          "accumulated_product": 0.2165485918521881,
+          "final_score": 0.21060588914737619
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Calvin > Session 3 > Observation 5",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"items buy\")]",
+              "score": 0.9538950324058533
+            }
+          ],
+          "accumulated_product": 0.9538950324058533,
+          "final_score": 0.07113966383203639
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Calvin > Session 3 > Observation 6",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"items buy\")]",
+              "score": 0.6174972057342529
+            }
+          ],
+          "accumulated_product": 0.6174972057342529,
+          "final_score": 0.04605175846483108
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Calvin > Session 3 > Observation 4",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"items buy\")]",
+              "score": 0.5210868716239929
+            }
+          ],
+          "accumulated_product": 0.5210868716239929,
+          "final_score": 0.038861660471302496
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Calvin > Session 3 > Observation 2",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"items buy\")]",
+              "score": 0.31611567735671997
+            }
+          ],
+          "accumulated_product": 0.31611567735671997,
+          "final_score": 0.023575301532365485
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Calvin > Session 3 > Observation 3",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"items buy\")]",
+              "score": 0.2539631724357605
+            }
+          ],
+          "accumulated_product": 0.2539631724357605,
+          "final_score": 0.01894008680098734
+        }
+      ]
+    }
+  },
+  "final_filtering": {
+    "before_filter_count": 13,
+    "threshold": 0.05,
+    "top_k": 10,
+    "after_filter_count": 9,
+    "filtered_nodes": [
+      {
+        "path": "Root > Conversation_Version 1 > Calvin > Session 2 > Observation 1",
+        "score": 0.9874903062540995,
+        "type": "Observation",
+        "own_score": 0.9969624876976013,
+        "parent_score": 0.990498959027659
+      },
+      {
+        "path": "Root > Conversation_Version 1 > Calvin > Session 2 > Observation 2",
+        "score": 0.9770324320689378,
+        "type": "Observation",
+        "own_score": 0.986404299736023,
+        "parent_score": 0.990498959027659
+      },
+      {
+        "path": "Root > Conversation_Version 1 > Calvin > Session 1 > Observation 4",
+        "score": 0.8344940452253724,
+        "type": "Observation",
+        "own_score": 0.8580411076545715,
+        "parent_score": 0.9725571861078262
+      },
+      {
+        "path": "Root > Conversation_Version 1 > Calvin > Session 1 > Observation 1",
+        "score": 0.8331020374148985,
+        "type": "Observation",
+        "own_score": 0.8566098213195801,
+        "parent_score": 0.9725571861078262
+      },
+      {
+        "path": "Root > Conversation_Version 1 > Calvin > Session 1 > Observation 6",
+        "score": 0.7060444129957808,
+        "type": "Observation",
+        "own_score": 0.7259669899940491,
+        "parent_score": 0.9725571861078262
+      },
+      {
+        "path": "Root > Conversation_Version 1 > Calvin > Session 2 > Observation 3",
+        "score": 0.3882809247538917,
+        "type": "Observation",
+        "own_score": 0.39200538396835327,
+        "parent_score": 0.990498959027659
+      },
+      {
+        "path": "Root > Conversation_Version 1 > Calvin > Session 1 > Observation 5",
+        "score": 0.24627332852068742,
+        "type": "Observation",
+        "own_score": 0.2532224655151367,
+        "parent_score": 0.9725571861078262
+      },
+      {
+        "path": "Root > Conversation_Version 1 > Calvin > Session 1 > Observation 2",
+        "score": 0.21060588914737619,
+        "type": "Observation",
+        "own_score": 0.2165485918521881,
+        "parent_score": 0.9725571861078262
+      },
+      {
+        "path": "Root > Conversation_Version 1 > Calvin > Session 3 > Observation 5",
+        "score": 0.07113966383203639,
+        "type": "Observation",
+        "own_score": 0.9538950324058533,
+        "parent_score": 0.07457808397703096
+      }
+    ]
+  },
+  "matched_nodes": [
+    {
+      "tree_path": "Root > Conversation_Version 1 > Calvin > Session 2 > Observation 1",
+      "score": 0.9874903062540995,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "Calvin recently got a new car which is a luxury car and a dream come true for him.",
+        "source_dia_id": "D2:1"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Calvin",
+          "predicate": "atom(content =~ \"Calvin\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Calvin\") on Calvin (Score: 1.00)"
+        },
+        {
+          "node_name": "Session 2",
+          "predicate": "atom(content =~ \"March 2023 purchase\")",
+          "score": 0.990498960018158,
+          "description": "Matched atom(content =~ \"March 2023 purchase\") on Session 2 (Score: 0.99)"
+        },
+        {
+          "node_name": "Observation 1",
+          "predicate": "atom(content =~ \"items buy\")",
+          "score": 0.9969624876976013,
+          "description": "Matched atom(content =~ \"items buy\") on Observation 1 (Score: 1.00)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > Calvin > Session 2 > Observation 2",
+      "score": 0.9770324320689378,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "Calvin's new car gives him an adrenaline rush every time he steps into it.",
+        "source_dia_id": "D2:5"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Calvin",
+          "predicate": "atom(content =~ \"Calvin\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Calvin\") on Calvin (Score: 1.00)"
+        },
+        {
+          "node_name": "Session 2",
+          "predicate": "atom(content =~ \"March 2023 purchase\")",
+          "score": 0.990498960018158,
+          "description": "Matched atom(content =~ \"March 2023 purchase\") on Session 2 (Score: 0.99)"
+        },
+        {
+          "node_name": "Observation 2",
+          "predicate": "atom(content =~ \"items buy\")",
+          "score": 0.986404299736023,
+          "description": "Matched atom(content =~ \"items buy\") on Observation 2 (Score: 0.99)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > Calvin > Session 1 > Observation 4",
+      "score": 0.8344940452253724,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "Calvin's agent found him an awesome place to stay in Japan.",
+        "source_dia_id": "D1:11"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Calvin",
+          "predicate": "atom(content =~ \"Calvin\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Calvin\") on Calvin (Score: 1.00)"
+        },
+        {
+          "node_name": "Session 1",
+          "predicate": "atom(content =~ \"March 2023 purchase\")",
+          "score": 0.9725571870803833,
+          "description": "Matched atom(content =~ \"March 2023 purchase\") on Session 1 (Score: 0.97)"
+        },
+        {
+          "node_name": "Observation 4",
+          "predicate": "atom(content =~ \"items buy\")",
+          "score": 0.8580411076545715,
+          "description": "Matched atom(content =~ \"items buy\") on Observation 4 (Score: 0.86)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > Calvin > Session 1 > Observation 1",
+      "score": 0.8331020374148985,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "Calvin recently had a big life change and now has a new mansion.",
+        "source_dia_id": "D1:3"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Calvin",
+          "predicate": "atom(content =~ \"Calvin\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Calvin\") on Calvin (Score: 1.00)"
+        },
+        {
+          "node_name": "Session 1",
+          "predicate": "atom(content =~ \"March 2023 purchase\")",
+          "score": 0.9725571870803833,
+          "description": "Matched atom(content =~ \"March 2023 purchase\") on Session 1 (Score: 0.97)"
+        },
+        {
+          "node_name": "Observation 1",
+          "predicate": "atom(content =~ \"items buy\")",
+          "score": 0.8566098213195801,
+          "description": "Matched atom(content =~ \"items buy\") on Observation 1 (Score: 0.86)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > Calvin > Session 1 > Observation 6",
+      "score": 0.7060444129957808,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "Calvin will be in Japan for a few months before heading to Boston.",
+        "source_dia_id": "D1:15"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Calvin",
+          "predicate": "atom(content =~ \"Calvin\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Calvin\") on Calvin (Score: 1.00)"
+        },
+        {
+          "node_name": "Session 1",
+          "predicate": "atom(content =~ \"March 2023 purchase\")",
+          "score": 0.9725571870803833,
+          "description": "Matched atom(content =~ \"March 2023 purchase\") on Session 1 (Score: 0.97)"
+        },
+        {
+          "node_name": "Observation 6",
+          "predicate": "atom(content =~ \"items buy\")",
+          "score": 0.7259669899940491,
+          "description": "Matched atom(content =~ \"items buy\") on Observation 6 (Score: 0.73)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > Calvin > Session 2 > Observation 3",
+      "score": 0.3882809247538917,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "Calvin wrote some new tunes and had studio sessions last week, excited to collaborate and share the music.",
+        "source_dia_id": "D2:17"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Calvin",
+          "predicate": "atom(content =~ \"Calvin\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Calvin\") on Calvin (Score: 1.00)"
+        },
+        {
+          "node_name": "Session 2",
+          "predicate": "atom(content =~ \"March 2023 purchase\")",
+          "score": 0.990498960018158,
+          "description": "Matched atom(content =~ \"March 2023 purchase\") on Session 2 (Score: 0.99)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > Calvin > Session 1 > Observation 5",
+      "score": 0.24627332852068742,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "Calvin plans to explore the city, try different local cuisines, and collaborate with musicians during his trip to Japan.",
+        "source_dia_id": "D1:13"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Calvin",
+          "predicate": "atom(content =~ \"Calvin\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Calvin\") on Calvin (Score: 1.00)"
+        },
+        {
+          "node_name": "Session 1",
+          "predicate": "atom(content =~ \"March 2023 purchase\")",
+          "score": 0.9725571870803833,
+          "description": "Matched atom(content =~ \"March 2023 purchase\") on Session 1 (Score: 0.97)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > Calvin > Session 1 > Observation 2",
+      "score": 0.21060588914737619,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "Calvin is excited to learn about Japanese culture and is heading to Japan next month.",
+        "source_dia_id": "D1:5"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Calvin",
+          "predicate": "atom(content =~ \"Calvin\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Calvin\") on Calvin (Score: 1.00)"
+        },
+        {
+          "node_name": "Session 1",
+          "predicate": "atom(content =~ \"March 2023 purchase\")",
+          "score": 0.9725571870803833,
+          "description": "Matched atom(content =~ \"March 2023 purchase\") on Session 1 (Score: 0.97)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > Calvin > Session 3 > Observation 5",
+      "score": 0.07113966383203639,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "Calvin has a car that he has put a lot of work into and is looking forward to showing it to Dave when he visits Boston.",
+        "source_dia_id": "D3:13"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Calvin",
+          "predicate": "atom(content =~ \"Calvin\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Calvin\") on Calvin (Score: 1.00)"
+        },
+        {
+          "node_name": "Observation 5",
+          "predicate": "atom(content =~ \"items buy\")",
+          "score": 0.9538950324058533,
+          "description": "Matched atom(content =~ \"items buy\") on Observation 5 (Score: 0.95)"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total_steps": 5,
+    "total_scoring_calls": 5,
+    "matched_count": 9,
+    "execution_time_ms": 884.4506000023102,
+    "has_score_fusion": true,
+    "num_nodes_before_filter": 13,
+    "num_nodes_after_filter": 9
+  }
+}

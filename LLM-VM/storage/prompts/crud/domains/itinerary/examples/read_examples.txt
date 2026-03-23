@@ -1,0 +1,37 @@
+====================
+Examples
+====================
+
+### Finding museums
+Query: "Find museums in the itinerary"
+
+Candidates:
+[1] Day 1 > Art Gallery of Ontario (POI, score: 0.85)
+[2] Day 2 > Royal Ontario Museum (POI, score: 0.92)
+[3] Day 1 > Buca Yorkville (Restaurant, score: 0.45)
+
+```json
+{
+  "selected_nodes": [
+    {"id": "1", "reasoning": "Art Gallery is a museum"},
+    {"id": "2", "reasoning": "Royal Ontario Museum is explicitly a museum"}
+  ],
+  "reasoning": "Selected museum/gallery POIs. Excluded restaurant."
+}
+```
+
+### Finding dinners
+Query: "Show me all the dinners"
+
+Candidates:
+[1] Day 1 > Lee Restaurant (time_block: 7:30 PM, score: 0.92)
+[2] Day 2 > 360 Restaurant (time_block: 12:30 PM, score: 0.88)
+
+```json
+{
+  "selected_nodes": [
+    {"id": "1", "reasoning": "7:30 PM = dinner time"}
+  ],
+  "reasoning": "Selected Lee Restaurant. Excluded 360 Restaurant (12:30 PM = lunch)."
+}
+```

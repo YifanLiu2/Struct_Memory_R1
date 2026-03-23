@@ -1,0 +1,35 @@
+====================
+Examples
+====================
+
+### Delete cafe on day 2
+Query: "Remove the cafe on day 2"
+
+Candidates:
+[1] Day 2 > Pow Wow Cafe (Restaurant, score: 0.88)
+[2] Day 3 > Amsterdam BrewHouse (Restaurant, score: 0.35)
+
+```json
+{
+  "nodes_to_delete": [
+    {"id": "1", "path": "Itinerary > Day 2 > Pow Wow Cafe", "reasoning": "Cafe on Day 2 matches target"}
+  ],
+  "reasoning": "Selected Pow Wow Cafe. Excluded BrewHouse (Day 3, pub not cafe)."
+}
+```
+
+### Cut expensive dinners
+Query: "Cut expensive dinners"
+
+Candidates:
+[1] Day 5 > Lee Restaurant (time_block: 7:30 PM, cost: CAD 80-120, score: 0.92)
+[2] Day 10 > 360 Restaurant (time_block: 12:30 PM, cost: CAD 75-100, score: 0.88)
+
+```json
+{
+  "nodes_to_delete": [
+    {"id": "1", "path": "Day 5 > Lee Restaurant", "reasoning": "7:30 PM = dinner, high cost matches 'expensive dinner'"}
+  ],
+  "reasoning": "Selected Lee Restaurant. Excluded 360 Restaurant (12:30 PM = lunch, not dinner)."
+}
+```

@@ -1,0 +1,49 @@
+name: "gpt5_experiment"
+
+# Pipelines to run for each query
+pipelines:
+  - semantic_xpath
+  - incontext
+
+incontext_config:
+  input_mode: "latest" # "full" (all versions) or "latest" (only latest version)
+
+# Queries to run
+queries:
+  # READ Queries
+  - "My friend lives in Mississauga, about an hour from downtown. What days are without any work commitments or flights?"
+  - "The weather forecast shows heavy rain on Day 7. Which activities are outdoors?"
+  - "My sister and nephew are joining me on Day 6. What activities would be fun for a kid?"
+  - "I'm putting together my expense report. What are the most expensive restaurants I've booked?"
+  - "I've been stuck in meetings most of the week. Which days have nature activities where I can actually get outside?"
+  # # Bonus testing queries
+  # - "Show me days where I have both outdoor activities and a fine dining dinner planned."
+  # - "List all expensive restaurants that are not serving Italian cuisine."
+  # - "Which days include a visit to a museum or a gallery, but have absolutely no work-related commitments?"
+  # - "Identify days where no restaurant is described as expensive or formal."
+  # - "What free activities can I walk to?"
+  # - "Find restaurants serving French or Japanese cuisine."
+  # DELETE Queries
+  - "It's definitely going to rain all day on Day 7. Cancel any outdoor activities, I'll figure out replacements."
+  - "I actually went to the CN Tower on my last trip to Toronto. Remove any CN Tower activities. I'd rather do something new."
+  - "Bad news. my friend who was going to host me at Niagara just tested positive for COVID. I need to cancel the Niagara Falls trip."
+  - "I'm exhausted. I'm going to take Day 5 as a personal day and skip all the work stuff. Cancel every work-related activity on that day."
+  - "On the day we go to the ROM, cancel the breakfast. "
+  # CREATE Queries
+  - "For all days that don't have a dinner planned, add a cheap dinner option."
+  - "I just noticed Day 2 has no breakfast, my first meeting is at 9am and I'll be starving. Add a quick hotel breakfast before the meeting."
+  - "The workshop on Day 3 ends at 11am and then I have nothing until the AGO at noon. Add a coffee break in between. there's a good cafe near the gallery."
+  - "I completely forgot about souvenirs. Add a stop at Roots or the Hudson's Bay flagship on Day 10 morning before the CN Tower. I need to grab gifts before I fly out."
+  - "I'd like to end the first day with some live music. Add Pj O'Brien's to the end of Day 1."
+  # UPDATE Queries
+  - "I just checked my spending and I'm way over budget. Replace all expensive dinners with a cheap eats placeholder and set cost to $10"
+  - "I'd rather do the ROM than the AGO. Change the activity on Day 3 to the ROM."
+  - "Some work events got cancelled. On Day 2, change any work related events to Personal Day."
+  - "I had a long day so am going to sleep in tomorrow. Change my Leslieville brunch to a dedicated sleep in time block"
+  - "My departure flight got pushed back to 10pm. Update my day 10 to reflect this."
+  # # Version Queries
+  # - "What was the original time block for the Client Kickoff Meeting on Day 2?"
+  # - "Show me the cost of the Alo Restaurant tasting menu from the first version of the itinerary."
+  # - "Did I have any outdoor activities scheduled for Day 7 in the initial version?"
+  # - "What was the description of the Harbourfront Stroll on Day 1?"
+  # - "List all the restaurants that were planned for Day 4 in the original itinerary."

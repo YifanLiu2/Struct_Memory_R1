@@ -1,0 +1,107 @@
+## Examples
+
+### Basic Queries
+User: find all museum visits in the current itinerary
+Output: /Day/POI[atom(content =~ "museum")]
+
+User: show me all restaurants that are scheduled on day 2
+Output: /Day[2]/Restaurant
+
+User: check what activities are planned on the final day of the trip
+Output: /Day[-1]/*
+
+### Aggregation Queries
+User: which days include at least one jazz-related activity?
+Output: /Day[agg_exists(*[atom(content =~ "jazz")])]
+
+User: which are the museums in an artistic day?
+Output: /Day[agg_prev(*[atom(content =~ "artistic")])]/POI[atom(content =~ "museum")]
+
+User: Show me days where I have both outdoor activities and a fine dining dinner planned.
+Output: /Day[agg_prev(*[atom(content =~ "outdoor")]) AND agg_exists(*[atom(content =~ "fine dining")])]
+
+User: find scenic places like parks or lakes that are not crowded
+Output: /Day/POI[atom(content =~ "park") OR atom(content =~ "lake")]
+
+### Negation Queries
+User: show me all activities that are not museums
+Output: /Day//POI[not(atom(content =~ "museum"))]
+
+User: find days that do not include any shopping
+Output: /Day[not(agg_exists(*[atom(content =~ "shopping")]))]
+
+### Local Index Queries (per-parent selection)
+User: review everything currently planned under day 1
+Output: /Day[1]/*
+
+User: give me all POIs planned from day 2 through day 4 so I can review them
+Output: /Day[2:4]/POI
+
+User: the first two POIs on day 3
+Output: /Day[3]/POI[1:2]
+
+User: the last two activities on each day
+Output: /Day/POI[-2:]
+
+### Global Index Queries (overall result selection)
+User: the first 3 activities in the entire trip
+Output: (/Day/POI)[1:3]
+
+User: the 5th restaurant overall
+Output: (/Day/Restaurant)[5]
+
+User: the last activity of the entire trip
+Output: (/Day/POI)[-1]
+
+User: the last 2 museums across all days
+Output: (/Day/POI[atom(content =~ "museum")])[-2:]
+
+### Descendant Axis Queries (schema: Day → POI/Restaurant)
+User: all POIs in the entire itinerary
+Output: /Day//POI
+
+User: all restaurants across the trip
+Output: /Day//Restaurant
+
+User: the first 5 POIs in the whole trip
+Output: (/Day//POI)[1:5]
+
+User: all museums in the itinerary
+Output: /Day//POI[atom(content =~ "museum")]
+
+### Wildcard Queries (select all children)
+User: everything planned on day 1
+Output: /Day[1]/*
+
+User: all items on the last day
+Output: /Day[-1]/*
+
+User: the first 3 items across all days
+Output: (/Day/*)[1:3]
+
+### Combined Index and Predicate
+User: the first outdoor activity each day
+Output: /Day/POI[atom(content =~ "outdoor")][1]
+
+User: the second museum overall
+Output: (/Day/POI[atom(content =~ "museum")])[2]
+
+### CRUD Operations
+Operation: CREATE
+User: add a sushi restaurant for lunch on day 1
+Output: /Day[1], Restaurant, sushi lunch
+
+User: add a business meeting before dinner on day 1
+Output: /Day[1], POI, business meeting before dinner
+
+Operation: UPDATE
+User: change the dinner reservation time to 8pm on day 1
+Output: /Day[1]/Restaurant[atom(content =~ "dinner")], time_block: 8:00 PM
+
+Operation: DELETE
+User: remove all expensive POIs
+Output: /Day/POI[atom(content =~ "expensive")]
+
+Operation: DELETE
+User: remove the last activity on day 2
+Output: /Day[2]/POI[-1]

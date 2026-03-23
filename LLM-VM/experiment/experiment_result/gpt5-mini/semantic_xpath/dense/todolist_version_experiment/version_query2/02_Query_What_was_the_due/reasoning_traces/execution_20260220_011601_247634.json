@@ -1,0 +1,3003 @@
+{
+  "timestamp": "20260220_011601_247634",
+  "query": "/Root/ToDoList_Version[4]/Category[atom(content =~ \"Household\")]/Project/Task[atom(content =~ \"repair man\")]",
+  "canonical_query": "/Root/ToDoList_Version[4]/Category[content =~ \"Household\"]/Project/Task[content =~ \"repair man\"]",
+  "data_file": "tree.xml",
+  "execution_time_ms": 12.540332973003387,
+  "parsed_ast": {
+    "steps": [
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Root",
+            "span": {
+              "start": 1,
+              "end": 5
+            }
+          },
+          "span": {
+            "start": 1,
+            "end": 5
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "ToDoList_Version",
+            "index": {
+              "start": 4,
+              "type": "single",
+              "span": {
+                "start": 22,
+                "end": 25
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 25
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 25
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Category",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "Household",
+              "operator": "=~",
+              "span": {
+                "start": 35,
+                "end": 63
+              }
+            },
+            "predicate_str": "atom(content =~ \"Household\")",
+            "span": {
+              "start": 26,
+              "end": 64
+            }
+          },
+          "span": {
+            "start": 26,
+            "end": 64
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Project",
+            "span": {
+              "start": 65,
+              "end": 72
+            }
+          },
+          "span": {
+            "start": 65,
+            "end": 72
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Task",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "repair man",
+              "operator": "=~",
+              "span": {
+                "start": 78,
+                "end": 107
+              }
+            },
+            "predicate_str": "atom(content =~ \"repair man\")",
+            "span": {
+              "start": 73,
+              "end": 108
+            }
+          },
+          "span": {
+            "start": 73,
+            "end": 108
+          }
+        }
+      }
+    ],
+    "global_index": null
+  },
+  "parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: ToDoList_Version[4]\n├── Step 2: Category[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"Household\")\n├── Step 3: Project\n└── Step 4: Task[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"repair man\")",
+  "canonical_parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: ToDoList_Version[4]\n├── Step 2: Category[content =~ \"Household\"]\n├── Step 3: Project\n└── Step 4: Task[content =~ \"repair man\"]",
+  "execution_log": [
+    "[20260220_011601_247634] Executing query: /Root/ToDoList_Version[4]/Category[atom(content =~ \"Household\")]/Project/Task[atom(content =~ \"repair man\")]",
+    "Data file: tree.xml",
+    "Parsed steps: [Root, ToDoList_Version[4], Category[atom(content =~ \"Household\")], Project, Task[atom(content =~ \"repair man\")]]",
+    "",
+    "Query AST:\n├── Step 0: Root\n├── Step 1: ToDoList_Version[4]\n├── Step 2: Category[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"Household\")\n├── Step 3: Project\n└── Step 4: Task[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"repair man\")",
+    "\n--- Step 1: Root ---",
+    "Matched Root root",
+    "\n--- Step 2: ToDoList_Version[4] ---",
+    "Selected node at index 4 (0-based: 3)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 3: Category[atom(content =~ \"Household\")] ---",
+    "Scoring predicate: atom(content =~ \"Household\") (atomic values: ['Household'])",
+    "  Node 0 (Work): score = 0.0000 (exact match)",
+    "  Node 1 (Personal): score = 0.0000 (exact match)",
+    "  Node 2 (Household): score = 1.0000 (exact match)",
+    "  Node 3 (Health): score = 0.0000 (exact match)",
+    "  Node 4 (Learning): score = 0.0000 (exact match)",
+    "  Exact attribute match on @name: 1/5 nodes matched",
+    "After step: 5 nodes remaining",
+    "\n--- Step 4: Project ---",
+    "  Zero-score pruning: skipping 4 items (Work, Personal, Health, Learning)",
+    "After step: 5 nodes remaining",
+    "\n--- Step 5: Task[atom(content =~ \"repair man\")] ---",
+    "Scoring predicate: atom(content =~ \"repair man\") (atomic values: ['repair man'])",
+    "  Collected 3 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 3 total descriptions",
+    "  Node 0 (Task): score = 0.4723",
+    "  Node 1 (Task): score = 0.5690",
+    "  Node 2 (Task): score = 0.7189",
+    "Scoring predicate: atom(content =~ \"repair man\") (atomic values: ['repair man'])",
+    "  Collected 3 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 3 total descriptions",
+    "  Node 0 (Task): score = 0.4718",
+    "  Node 1 (Task): score = 0.4156",
+    "  Node 2 (Task): score = 0.4961",
+    "Scoring predicate: atom(content =~ \"repair man\") (atomic values: ['repair man'])",
+    "  Collected 1 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 1 total descriptions",
+    "  Node 0 (Task): score = 0.4705",
+    "Scoring predicate: atom(content =~ \"repair man\") (atomic values: ['repair man'])",
+    "  Collected 3 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 3 total descriptions",
+    "  Node 0 (Task): score = 0.4744",
+    "  Node 1 (Task): score = 0.4625",
+    "  Node 2 (Task): score = 0.5205",
+    "Scoring predicate: atom(content =~ \"repair man\") (atomic values: ['repair man'])",
+    "  Collected 3 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 3 total descriptions",
+    "  Node 0 (Task): score = 0.4323",
+    "  Node 1 (Task): score = 0.4456",
+    "  Node 2 (Task): score = 0.4636",
+    "After step: 13 nodes remaining",
+    "\n=== Score Fusion ===",
+    "  Root > ToDoList_Version 4 > Household > Fix Garage Door > Task 1: product=0.4723 → score=0.4723",
+    "  Root > ToDoList_Version 4 > Household > Fix Garage Door > Task 2: product=0.5690 → score=0.5690",
+    "  Root > ToDoList_Version 4 > Household > Fix Garage Door > Task 3: product=0.7189 → score=0.7189",
+    "  Root > ToDoList_Version 4 > Household > Weekly Groceries > Task 1: product=0.4718 → score=0.4718",
+    "  Root > ToDoList_Version 4 > Household > Weekly Groceries > Task 2: product=0.4156 → score=0.4156",
+    "  Root > ToDoList_Version 4 > Household > Weekly Groceries > Task 3: product=0.4961 → score=0.4961",
+    "  Root > ToDoList_Version 4 > Household > General > Task: product=0.4705 → score=0.4705",
+    "  Root > ToDoList_Version 4 > Household > Kitchen Deep Clean > Task 1: product=0.4744 → score=0.4744",
+    "  Root > ToDoList_Version 4 > Household > Kitchen Deep Clean > Task 2: product=0.4625 → score=0.4625",
+    "  Root > ToDoList_Version 4 > Household > Kitchen Deep Clean > Task 3: product=0.5205 → score=0.5205",
+    "  Root > ToDoList_Version 4 > Household > Seasonal Wardrobe Swap > Task 1: product=0.4323 → score=0.4323",
+    "  Root > ToDoList_Version 4 > Household > Seasonal Wardrobe Swap > Task 2: product=0.4456 → score=0.4456",
+    "  Root > ToDoList_Version 4 > Household > Seasonal Wardrobe Swap > Task 3: product=0.4636 → score=0.4636",
+    "  Parent propagation: Root > ToDoList_Version 4 > Household > Fix Garage Door > Task 1: own=0.4723 × parent=1.0000 → 0.4723",
+    "  Parent propagation: Root > ToDoList_Version 4 > Household > Fix Garage Door > Task 2: own=0.5690 × parent=1.0000 → 0.5690",
+    "  Parent propagation: Root > ToDoList_Version 4 > Household > Fix Garage Door > Task 3: own=0.7189 × parent=1.0000 → 0.7189",
+    "  Parent propagation: Root > ToDoList_Version 4 > Household > Weekly Groceries > Task 1: own=0.4718 × parent=1.0000 → 0.4718",
+    "  Parent propagation: Root > ToDoList_Version 4 > Household > Weekly Groceries > Task 2: own=0.4156 × parent=1.0000 → 0.4156",
+    "  Parent propagation: Root > ToDoList_Version 4 > Household > Weekly Groceries > Task 3: own=0.4961 × parent=1.0000 → 0.4961",
+    "  Parent propagation: Root > ToDoList_Version 4 > Household > General > Task: own=0.4705 × parent=1.0000 → 0.4705",
+    "  Parent propagation: Root > ToDoList_Version 4 > Household > Kitchen Deep Clean > Task 1: own=0.4744 × parent=1.0000 → 0.4744",
+    "  Parent propagation: Root > ToDoList_Version 4 > Household > Kitchen Deep Clean > Task 2: own=0.4625 × parent=1.0000 → 0.4625",
+    "  Parent propagation: Root > ToDoList_Version 4 > Household > Kitchen Deep Clean > Task 3: own=0.5205 × parent=1.0000 → 0.5205",
+    "  Parent propagation: Root > ToDoList_Version 4 > Household > Seasonal Wardrobe Swap > Task 1: own=0.4323 × parent=1.0000 → 0.4323",
+    "  Parent propagation: Root > ToDoList_Version 4 > Household > Seasonal Wardrobe Swap > Task 2: own=0.4456 × parent=1.0000 → 0.4456",
+    "  Parent propagation: Root > ToDoList_Version 4 > Household > Seasonal Wardrobe Swap > Task 3: own=0.4636 × parent=1.0000 → 0.4636",
+    "\n=== Parent Score Propagation: 13 nodes updated ===",
+    "\n=== Threshold Filtering (threshold=0.05) ===",
+    "  Filtered: 13 → 13 nodes",
+    "\n=== Final Filtering (top_k=5) ===",
+    "  After top_k: 13 → 5 nodes",
+    "\nFinal result: 5 nodes (sorted by score)",
+    "⏱️  Query execution time: 12.54ms"
+  ],
+  "traversal_steps": [
+    {
+      "step_index": 0,
+      "step_query": "Root",
+      "action": "root_match",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "type": "root"
+        }
+      ],
+      "nodes_after": [
+        {
+          "type": "Root",
+          "path": "Root"
+        }
+      ],
+      "details": {
+        "matched": true
+      }
+    },
+    {
+      "step_index": 1,
+      "step_query": "ToDoList_Version[4]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root",
+          "name": "Root",
+          "type": "Root",
+          "score": 1.0,
+          "node_id": 6094468368
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > ToDoList_Version 4",
+          "name": "ToDoList_Version 4",
+          "type": "ToDoList_Version",
+          "score": 1.0,
+          "node_id": 6096829104
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "ToDoList_Version",
+            "index": {
+              "start": 4,
+              "type": "single",
+              "span": {
+                "start": 22,
+                "end": 25
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 25
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 25
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 2,
+      "step_query": "Category[atom(content =~ \"Household\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 5,
+      "nodes_before": [
+        {
+          "path": "Root > ToDoList_Version 4",
+          "name": "ToDoList_Version 4",
+          "type": "ToDoList_Version",
+          "score": 1.0,
+          "node_id": 6096829104
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > ToDoList_Version 4 > Work",
+          "name": "Work",
+          "type": "Category",
+          "score": 0.0,
+          "node_id": 6096829344
+        },
+        {
+          "path": "Root > ToDoList_Version 4 > Personal",
+          "name": "Personal",
+          "type": "Category",
+          "score": 0.0,
+          "node_id": 6096809440
+        },
+        {
+          "path": "Root > ToDoList_Version 4 > Household",
+          "name": "Household",
+          "type": "Category",
+          "score": 1.0,
+          "node_id": 6096800640
+        },
+        {
+          "path": "Root > ToDoList_Version 4 > Health",
+          "name": "Health",
+          "type": "Category",
+          "score": 0.0,
+          "node_id": 6097014752
+        },
+        {
+          "path": "Root > ToDoList_Version 4 > Learning",
+          "name": "Learning",
+          "type": "Category",
+          "score": 0.0,
+          "node_id": 6097020592
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Category",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "Household",
+              "operator": "=~",
+              "span": {
+                "start": 35,
+                "end": 63
+              }
+            },
+            "predicate_str": "atom(content =~ \"Household\")",
+            "span": {
+              "start": 26,
+              "end": 64
+            }
+          },
+          "span": {
+            "start": 26,
+            "end": 64
+          }
+        },
+        "found_count": 5,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"Household\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "Household",
+              "operator": "=~",
+              "span": {
+                "start": 35,
+                "end": 63
+              }
+            },
+            "config": {
+              "top_k": 5,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 6096829344,
+                "node_name": "Work",
+                "node_type": "Category",
+                "final_score": 0.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Work",
+                    "query_value": "Household",
+                    "matched": false,
+                    "score": 0.0
+                  }
+                ]
+              },
+              {
+                "node_idx": 1,
+                "node_id": 6096809440,
+                "node_name": "Personal",
+                "node_type": "Category",
+                "final_score": 0.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Personal",
+                    "query_value": "Household",
+                    "matched": false,
+                    "score": 0.0
+                  }
+                ]
+              },
+              {
+                "node_idx": 2,
+                "node_id": 6096800640,
+                "node_name": "Household",
+                "node_type": "Category",
+                "final_score": 1.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Household",
+                    "query_value": "Household",
+                    "matched": true,
+                    "score": 1.0
+                  }
+                ]
+              },
+              {
+                "node_idx": 3,
+                "node_id": 6097014752,
+                "node_name": "Health",
+                "node_type": "Category",
+                "final_score": 0.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Health",
+                    "query_value": "Household",
+                    "matched": false,
+                    "score": 0.0
+                  }
+                ]
+              },
+              {
+                "node_idx": 4,
+                "node_id": 6097020592,
+                "node_name": "Learning",
+                "node_type": "Category",
+                "final_score": 0.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Learning",
+                    "query_value": "Household",
+                    "matched": false,
+                    "score": 0.0
+                  }
+                ]
+              }
+            ],
+            "batch_scoring": {
+              "exact_match": true,
+              "matched_attribute": "name",
+              "query_value": "Household",
+              "matched_count": 1
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 2,
+                "score": 1.0,
+                "name": "Household"
+              },
+              {
+                "idx": 0,
+                "score": 0.0,
+                "name": "Work"
+              },
+              {
+                "idx": 1,
+                "score": 0.0,
+                "name": "Personal"
+              },
+              {
+                "idx": 3,
+                "score": 0.0,
+                "name": "Health"
+              },
+              {
+                "idx": 4,
+                "score": 0.0,
+                "name": "Learning"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "step_index": 3,
+      "step_query": "Project",
+      "action": "node_test_expr",
+      "nodes_before_count": 5,
+      "nodes_after_count": 5,
+      "nodes_before": [
+        {
+          "path": "Root > ToDoList_Version 4 > Work",
+          "name": "Work",
+          "type": "Category",
+          "score": 0.0,
+          "node_id": 6096829344
+        },
+        {
+          "path": "Root > ToDoList_Version 4 > Personal",
+          "name": "Personal",
+          "type": "Category",
+          "score": 0.0,
+          "node_id": 6096809440
+        },
+        {
+          "path": "Root > ToDoList_Version 4 > Household",
+          "name": "Household",
+          "type": "Category",
+          "score": 1.0,
+          "node_id": 6096800640
+        },
+        {
+          "path": "Root > ToDoList_Version 4 > Health",
+          "name": "Health",
+          "type": "Category",
+          "score": 0.0,
+          "node_id": 6097014752
+        },
+        {
+          "path": "Root > ToDoList_Version 4 > Learning",
+          "name": "Learning",
+          "type": "Category",
+          "score": 0.0,
+          "node_id": 6097020592
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > ToDoList_Version 4 > Household > Fix Garage Door",
+          "name": "Fix Garage Door",
+          "type": "Project",
+          "score": 1.0,
+          "node_id": 6096801600
+        },
+        {
+          "path": "Root > ToDoList_Version 4 > Household > Weekly Groceries",
+          "name": "Weekly Groceries",
+          "type": "Project",
+          "score": 1.0,
+          "node_id": 6096799680
+        },
+        {
+          "path": "Root > ToDoList_Version 4 > Household > General",
+          "name": "General",
+          "type": "Project",
+          "score": 1.0,
+          "node_id": 6096798000
+        },
+        {
+          "path": "Root > ToDoList_Version 4 > Household > Kitchen Deep Clean",
+          "name": "Kitchen Deep Clean",
+          "type": "Project",
+          "score": 1.0,
+          "node_id": 6097011312
+        },
+        {
+          "path": "Root > ToDoList_Version 4 > Household > Seasonal Wardrobe Swap",
+          "name": "Seasonal Wardrobe Swap",
+          "type": "Project",
+          "score": 1.0,
+          "node_id": 6097012992
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Project",
+            "span": {
+              "start": 65,
+              "end": 72
+            }
+          },
+          "span": {
+            "start": 65,
+            "end": 72
+          }
+        },
+        "found_count": 5,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 4,
+      "step_query": "Task[atom(content =~ \"repair man\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 5,
+      "nodes_after_count": 13,
+      "nodes_before": [
+        {
+          "path": "Root > ToDoList_Version 4 > Household > Fix Garage Door",
+          "name": "Fix Garage Door",
+          "type": "Project",
+          "score": 1.0,
+          "node_id": 6096801600
+        },
+        {
+          "path": "Root > ToDoList_Version 4 > Household > Weekly Groceries",
+          "name": "Weekly Groceries",
+          "type": "Project",
+          "score": 1.0,
+          "node_id": 6096799680
+        },
+        {
+          "path": "Root > ToDoList_Version 4 > Household > General",
+          "name": "General",
+          "type": "Project",
+          "score": 1.0,
+          "node_id": 6096798000
+        },
+        {
+          "path": "Root > ToDoList_Version 4 > Household > Kitchen Deep Clean",
+          "name": "Kitchen Deep Clean",
+          "type": "Project",
+          "score": 1.0,
+          "node_id": 6097011312
+        },
+        {
+          "path": "Root > ToDoList_Version 4 > Household > Seasonal Wardrobe Swap",
+          "name": "Seasonal Wardrobe Swap",
+          "type": "Project",
+          "score": 1.0,
+          "node_id": 6097012992
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > ToDoList_Version 4 > Household > Fix Garage Door > Task 1",
+          "name": "Task",
+          "type": "Task",
+          "score": 0.4722771942615509,
+          "node_id": 6096801280
+        },
+        {
+          "path": "Root > ToDoList_Version 4 > Household > Fix Garage Door > Task 2",
+          "name": "Task",
+          "type": "Task",
+          "score": 0.5689858198165894,
+          "node_id": 6096800720
+        },
+        {
+          "path": "Root > ToDoList_Version 4 > Household > Fix Garage Door > Task 3",
+          "name": "Task",
+          "type": "Task",
+          "score": 0.7188577651977539,
+          "node_id": 6096800160
+        },
+        {
+          "path": "Root > ToDoList_Version 4 > Household > Weekly Groceries > Task 1",
+          "name": "Task",
+          "type": "Task",
+          "score": 0.47176361083984375,
+          "node_id": 6096798160
+        },
+        {
+          "path": "Root > ToDoList_Version 4 > Household > Weekly Groceries > Task 2",
+          "name": "Task",
+          "type": "Task",
+          "score": 0.4155600666999817,
+          "node_id": 6096798960
+        },
+        {
+          "path": "Root > ToDoList_Version 4 > Household > Weekly Groceries > Task 3",
+          "name": "Task",
+          "type": "Task",
+          "score": 0.4960743188858032,
+          "node_id": 6096798560
+        },
+        {
+          "path": "Root > ToDoList_Version 4 > Household > General > Task",
+          "name": "Task",
+          "type": "Task",
+          "score": 0.4704751670360565,
+          "node_id": 6097010832
+        },
+        {
+          "path": "Root > ToDoList_Version 4 > Household > Kitchen Deep Clean > Task 1",
+          "name": "Task",
+          "type": "Task",
+          "score": 0.47444766759872437,
+          "node_id": 6097011632
+        },
+        {
+          "path": "Root > ToDoList_Version 4 > Household > Kitchen Deep Clean > Task 2",
+          "name": "Task",
+          "type": "Task",
+          "score": 0.4625062048435211,
+          "node_id": 6097012032
+        },
+        {
+          "path": "Root > ToDoList_Version 4 > Household > Kitchen Deep Clean > Task 3",
+          "name": "Task",
+          "type": "Task",
+          "score": 0.5204702615737915,
+          "node_id": 6097012512
+        },
+        {
+          "path": "Root > ToDoList_Version 4 > Household > Seasonal Wardrobe Swap > Task 1",
+          "name": "Task",
+          "type": "Task",
+          "score": 0.43230533599853516,
+          "node_id": 6097013312
+        },
+        {
+          "path": "Root > ToDoList_Version 4 > Household > Seasonal Wardrobe Swap > Task 2",
+          "name": "Task",
+          "type": "Task",
+          "score": 0.44556093215942383,
+          "node_id": 6097013792
+        },
+        {
+          "path": "Root > ToDoList_Version 4 > Household > Seasonal Wardrobe Swap > Task 3",
+          "name": "Task",
+          "type": "Task",
+          "score": 0.4636465609073639,
+          "node_id": 6097014272
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Task",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "repair man",
+              "operator": "=~",
+              "span": {
+                "start": 78,
+                "end": 107
+              }
+            },
+            "predicate_str": "atom(content =~ \"repair man\")",
+            "span": {
+              "start": 73,
+              "end": 108
+            }
+          },
+          "span": {
+            "start": 73,
+            "end": 108
+          }
+        },
+        "found_count": 13,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"repair man\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "repair man",
+              "operator": "=~",
+              "span": {
+                "start": 78,
+                "end": 107
+              }
+            },
+            "config": {
+              "top_k": 5,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 6096801280,
+                "node_name": "Task",
+                "node_type": "Task",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "repair man",
+                      "operator": "=~",
+                      "span": {
+                        "start": 78,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.4722771942615509,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.4722771942615509
+              },
+              {
+                "node_idx": 1,
+                "node_id": 6096800720,
+                "node_name": "Task",
+                "node_type": "Task",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "repair man",
+                      "operator": "=~",
+                      "span": {
+                        "start": 78,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.5689858198165894,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.5689858198165894
+              },
+              {
+                "node_idx": 2,
+                "node_id": 6096800160,
+                "node_name": "Task",
+                "node_type": "Task",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "repair man",
+                      "operator": "=~",
+                      "span": {
+                        "start": 78,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.7188577651977539,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.7188577651977539
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "repair man"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "repair man",
+                  "num_descriptions": 3,
+                  "call_time_ms": 4.72
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 3
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 2,
+                "score": 0.7188577651977539,
+                "name": "Task"
+              },
+              {
+                "idx": 1,
+                "score": 0.5689858198165894,
+                "name": "Task"
+              },
+              {
+                "idx": 0,
+                "score": 0.4722771942615509,
+                "name": "Task"
+              }
+            ]
+          },
+          {
+            "predicate": "atom(content =~ \"repair man\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "repair man",
+              "operator": "=~",
+              "span": {
+                "start": 78,
+                "end": 107
+              }
+            },
+            "config": {
+              "top_k": 5,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 6096798160,
+                "node_name": "Task",
+                "node_type": "Task",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "repair man",
+                      "operator": "=~",
+                      "span": {
+                        "start": 78,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.47176361083984375,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.47176361083984375
+              },
+              {
+                "node_idx": 1,
+                "node_id": 6096798960,
+                "node_name": "Task",
+                "node_type": "Task",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "repair man",
+                      "operator": "=~",
+                      "span": {
+                        "start": 78,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.4155600666999817,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.4155600666999817
+              },
+              {
+                "node_idx": 2,
+                "node_id": 6096798560,
+                "node_name": "Task",
+                "node_type": "Task",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "repair man",
+                      "operator": "=~",
+                      "span": {
+                        "start": 78,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.4960743188858032,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.4960743188858032
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "repair man"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "repair man",
+                  "num_descriptions": 3,
+                  "call_time_ms": 1.91
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 3
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 2,
+                "score": 0.4960743188858032,
+                "name": "Task"
+              },
+              {
+                "idx": 0,
+                "score": 0.47176361083984375,
+                "name": "Task"
+              },
+              {
+                "idx": 1,
+                "score": 0.4155600666999817,
+                "name": "Task"
+              }
+            ]
+          },
+          {
+            "predicate": "atom(content =~ \"repair man\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "repair man",
+              "operator": "=~",
+              "span": {
+                "start": 78,
+                "end": 107
+              }
+            },
+            "config": {
+              "top_k": 5,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 6097010832,
+                "node_name": "Task",
+                "node_type": "Task",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "repair man",
+                      "operator": "=~",
+                      "span": {
+                        "start": 78,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.4704751670360565,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.4704751670360565
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "repair man"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "repair man",
+                  "num_descriptions": 1,
+                  "call_time_ms": 0.86
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 1
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 0,
+                "score": 0.4704751670360565,
+                "name": "Task"
+              }
+            ]
+          },
+          {
+            "predicate": "atom(content =~ \"repair man\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "repair man",
+              "operator": "=~",
+              "span": {
+                "start": 78,
+                "end": 107
+              }
+            },
+            "config": {
+              "top_k": 5,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 6097011632,
+                "node_name": "Task",
+                "node_type": "Task",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "repair man",
+                      "operator": "=~",
+                      "span": {
+                        "start": 78,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.47444766759872437,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.47444766759872437
+              },
+              {
+                "node_idx": 1,
+                "node_id": 6097012032,
+                "node_name": "Task",
+                "node_type": "Task",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "repair man",
+                      "operator": "=~",
+                      "span": {
+                        "start": 78,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.4625062048435211,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.4625062048435211
+              },
+              {
+                "node_idx": 2,
+                "node_id": 6097012512,
+                "node_name": "Task",
+                "node_type": "Task",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "repair man",
+                      "operator": "=~",
+                      "span": {
+                        "start": 78,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.5204702615737915,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.5204702615737915
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "repair man"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "repair man",
+                  "num_descriptions": 3,
+                  "call_time_ms": 1.72
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 3
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 2,
+                "score": 0.5204702615737915,
+                "name": "Task"
+              },
+              {
+                "idx": 0,
+                "score": 0.47444766759872437,
+                "name": "Task"
+              },
+              {
+                "idx": 1,
+                "score": 0.4625062048435211,
+                "name": "Task"
+              }
+            ]
+          },
+          {
+            "predicate": "atom(content =~ \"repair man\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "repair man",
+              "operator": "=~",
+              "span": {
+                "start": 78,
+                "end": 107
+              }
+            },
+            "config": {
+              "top_k": 5,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 6097013312,
+                "node_name": "Task",
+                "node_type": "Task",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "repair man",
+                      "operator": "=~",
+                      "span": {
+                        "start": 78,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.43230533599853516,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.43230533599853516
+              },
+              {
+                "node_idx": 1,
+                "node_id": 6097013792,
+                "node_name": "Task",
+                "node_type": "Task",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "repair man",
+                      "operator": "=~",
+                      "span": {
+                        "start": 78,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.44556093215942383,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.44556093215942383
+              },
+              {
+                "node_idx": 2,
+                "node_id": 6097014272,
+                "node_name": "Task",
+                "node_type": "Task",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "repair man",
+                      "operator": "=~",
+                      "span": {
+                        "start": 78,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.4636465609073639,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.4636465609073639
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "repair man"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "repair man",
+                  "num_descriptions": 3,
+                  "call_time_ms": 1.39
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 3
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 2,
+                "score": 0.4636465609073639,
+                "name": "Task"
+              },
+              {
+                "idx": 1,
+                "score": 0.44556093215942383,
+                "name": "Task"
+              },
+              {
+                "idx": 0,
+                "score": 0.43230533599853516,
+                "name": "Task"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "scoring_traces": [
+    {
+      "predicate": "atom(content =~ \"Household\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "Household",
+        "operator": "=~",
+        "span": {
+          "start": 35,
+          "end": 63
+        }
+      },
+      "config": {
+        "top_k": 5,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 6096829344,
+          "node_name": "Work",
+          "node_type": "Category",
+          "final_score": 0.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Work",
+              "query_value": "Household",
+              "matched": false,
+              "score": 0.0
+            }
+          ]
+        },
+        {
+          "node_idx": 1,
+          "node_id": 6096809440,
+          "node_name": "Personal",
+          "node_type": "Category",
+          "final_score": 0.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Personal",
+              "query_value": "Household",
+              "matched": false,
+              "score": 0.0
+            }
+          ]
+        },
+        {
+          "node_idx": 2,
+          "node_id": 6096800640,
+          "node_name": "Household",
+          "node_type": "Category",
+          "final_score": 1.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Household",
+              "query_value": "Household",
+              "matched": true,
+              "score": 1.0
+            }
+          ]
+        },
+        {
+          "node_idx": 3,
+          "node_id": 6097014752,
+          "node_name": "Health",
+          "node_type": "Category",
+          "final_score": 0.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Health",
+              "query_value": "Household",
+              "matched": false,
+              "score": 0.0
+            }
+          ]
+        },
+        {
+          "node_idx": 4,
+          "node_id": 6097020592,
+          "node_name": "Learning",
+          "node_type": "Category",
+          "final_score": 0.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Learning",
+              "query_value": "Household",
+              "matched": false,
+              "score": 0.0
+            }
+          ]
+        }
+      ],
+      "batch_scoring": {
+        "exact_match": true,
+        "matched_attribute": "name",
+        "query_value": "Household",
+        "matched_count": 1
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 2,
+          "score": 1.0,
+          "name": "Household"
+        },
+        {
+          "idx": 0,
+          "score": 0.0,
+          "name": "Work"
+        },
+        {
+          "idx": 1,
+          "score": 0.0,
+          "name": "Personal"
+        },
+        {
+          "idx": 3,
+          "score": 0.0,
+          "name": "Health"
+        },
+        {
+          "idx": 4,
+          "score": 0.0,
+          "name": "Learning"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"repair man\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "repair man",
+        "operator": "=~",
+        "span": {
+          "start": 78,
+          "end": 107
+        }
+      },
+      "config": {
+        "top_k": 5,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 6096801280,
+          "node_name": "Task",
+          "node_type": "Task",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "repair man",
+                "operator": "=~",
+                "span": {
+                  "start": 78,
+                  "end": 107
+                }
+              },
+              "score": 0.4722771942615509,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.4722771942615509
+        },
+        {
+          "node_idx": 1,
+          "node_id": 6096800720,
+          "node_name": "Task",
+          "node_type": "Task",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "repair man",
+                "operator": "=~",
+                "span": {
+                  "start": 78,
+                  "end": 107
+                }
+              },
+              "score": 0.5689858198165894,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.5689858198165894
+        },
+        {
+          "node_idx": 2,
+          "node_id": 6096800160,
+          "node_name": "Task",
+          "node_type": "Task",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "repair man",
+                "operator": "=~",
+                "span": {
+                  "start": 78,
+                  "end": 107
+                }
+              },
+              "score": 0.7188577651977539,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.7188577651977539
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "repair man"
+        ],
+        "per_value_stats": [
+          {
+            "value": "repair man",
+            "num_descriptions": 3,
+            "call_time_ms": 4.72
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 3
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 2,
+          "score": 0.7188577651977539,
+          "name": "Task"
+        },
+        {
+          "idx": 1,
+          "score": 0.5689858198165894,
+          "name": "Task"
+        },
+        {
+          "idx": 0,
+          "score": 0.4722771942615509,
+          "name": "Task"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"repair man\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "repair man",
+        "operator": "=~",
+        "span": {
+          "start": 78,
+          "end": 107
+        }
+      },
+      "config": {
+        "top_k": 5,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 6096798160,
+          "node_name": "Task",
+          "node_type": "Task",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "repair man",
+                "operator": "=~",
+                "span": {
+                  "start": 78,
+                  "end": 107
+                }
+              },
+              "score": 0.47176361083984375,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.47176361083984375
+        },
+        {
+          "node_idx": 1,
+          "node_id": 6096798960,
+          "node_name": "Task",
+          "node_type": "Task",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "repair man",
+                "operator": "=~",
+                "span": {
+                  "start": 78,
+                  "end": 107
+                }
+              },
+              "score": 0.4155600666999817,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.4155600666999817
+        },
+        {
+          "node_idx": 2,
+          "node_id": 6096798560,
+          "node_name": "Task",
+          "node_type": "Task",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "repair man",
+                "operator": "=~",
+                "span": {
+                  "start": 78,
+                  "end": 107
+                }
+              },
+              "score": 0.4960743188858032,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.4960743188858032
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "repair man"
+        ],
+        "per_value_stats": [
+          {
+            "value": "repair man",
+            "num_descriptions": 3,
+            "call_time_ms": 1.91
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 3
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 2,
+          "score": 0.4960743188858032,
+          "name": "Task"
+        },
+        {
+          "idx": 0,
+          "score": 0.47176361083984375,
+          "name": "Task"
+        },
+        {
+          "idx": 1,
+          "score": 0.4155600666999817,
+          "name": "Task"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"repair man\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "repair man",
+        "operator": "=~",
+        "span": {
+          "start": 78,
+          "end": 107
+        }
+      },
+      "config": {
+        "top_k": 5,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 6097010832,
+          "node_name": "Task",
+          "node_type": "Task",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "repair man",
+                "operator": "=~",
+                "span": {
+                  "start": 78,
+                  "end": 107
+                }
+              },
+              "score": 0.4704751670360565,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.4704751670360565
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "repair man"
+        ],
+        "per_value_stats": [
+          {
+            "value": "repair man",
+            "num_descriptions": 1,
+            "call_time_ms": 0.86
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 1
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 0,
+          "score": 0.4704751670360565,
+          "name": "Task"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"repair man\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "repair man",
+        "operator": "=~",
+        "span": {
+          "start": 78,
+          "end": 107
+        }
+      },
+      "config": {
+        "top_k": 5,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 6097011632,
+          "node_name": "Task",
+          "node_type": "Task",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "repair man",
+                "operator": "=~",
+                "span": {
+                  "start": 78,
+                  "end": 107
+                }
+              },
+              "score": 0.47444766759872437,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.47444766759872437
+        },
+        {
+          "node_idx": 1,
+          "node_id": 6097012032,
+          "node_name": "Task",
+          "node_type": "Task",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "repair man",
+                "operator": "=~",
+                "span": {
+                  "start": 78,
+                  "end": 107
+                }
+              },
+              "score": 0.4625062048435211,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.4625062048435211
+        },
+        {
+          "node_idx": 2,
+          "node_id": 6097012512,
+          "node_name": "Task",
+          "node_type": "Task",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "repair man",
+                "operator": "=~",
+                "span": {
+                  "start": 78,
+                  "end": 107
+                }
+              },
+              "score": 0.5204702615737915,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.5204702615737915
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "repair man"
+        ],
+        "per_value_stats": [
+          {
+            "value": "repair man",
+            "num_descriptions": 3,
+            "call_time_ms": 1.72
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 3
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 2,
+          "score": 0.5204702615737915,
+          "name": "Task"
+        },
+        {
+          "idx": 0,
+          "score": 0.47444766759872437,
+          "name": "Task"
+        },
+        {
+          "idx": 1,
+          "score": 0.4625062048435211,
+          "name": "Task"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"repair man\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "repair man",
+        "operator": "=~",
+        "span": {
+          "start": 78,
+          "end": 107
+        }
+      },
+      "config": {
+        "top_k": 5,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 6097013312,
+          "node_name": "Task",
+          "node_type": "Task",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "repair man",
+                "operator": "=~",
+                "span": {
+                  "start": 78,
+                  "end": 107
+                }
+              },
+              "score": 0.43230533599853516,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.43230533599853516
+        },
+        {
+          "node_idx": 1,
+          "node_id": 6097013792,
+          "node_name": "Task",
+          "node_type": "Task",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "repair man",
+                "operator": "=~",
+                "span": {
+                  "start": 78,
+                  "end": 107
+                }
+              },
+              "score": 0.44556093215942383,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.44556093215942383
+        },
+        {
+          "node_idx": 2,
+          "node_id": 6097014272,
+          "node_name": "Task",
+          "node_type": "Task",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "repair man",
+                "operator": "=~",
+                "span": {
+                  "start": 78,
+                  "end": 107
+                }
+              },
+              "score": 0.4636465609073639,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.4636465609073639
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "repair man"
+        ],
+        "per_value_stats": [
+          {
+            "value": "repair man",
+            "num_descriptions": 3,
+            "call_time_ms": 1.39
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 3
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 2,
+          "score": 0.4636465609073639,
+          "name": "Task"
+        },
+        {
+          "idx": 1,
+          "score": 0.44556093215942383,
+          "name": "Task"
+        },
+        {
+          "idx": 0,
+          "score": 0.43230533599853516,
+          "name": "Task"
+        }
+      ]
+    }
+  ],
+  "scoring_details": {
+    "step_scores": [
+      {
+        "step_index": 0,
+        "predicate": "atom(content =~ \"Household\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "Household",
+          "operator": "=~",
+          "span": {
+            "start": 35,
+            "end": 63
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 6096829344,
+            "node_name": "Work",
+            "node_type": "Category",
+            "final_score": 0.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Work",
+                "query_value": "Household",
+                "matched": false,
+                "score": 0.0
+              }
+            ]
+          },
+          {
+            "node_idx": 1,
+            "node_id": 6096809440,
+            "node_name": "Personal",
+            "node_type": "Category",
+            "final_score": 0.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Personal",
+                "query_value": "Household",
+                "matched": false,
+                "score": 0.0
+              }
+            ]
+          },
+          {
+            "node_idx": 2,
+            "node_id": 6096800640,
+            "node_name": "Household",
+            "node_type": "Category",
+            "final_score": 1.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Household",
+                "query_value": "Household",
+                "matched": true,
+                "score": 1.0
+              }
+            ]
+          },
+          {
+            "node_idx": 3,
+            "node_id": 6097014752,
+            "node_name": "Health",
+            "node_type": "Category",
+            "final_score": 0.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Health",
+                "query_value": "Household",
+                "matched": false,
+                "score": 0.0
+              }
+            ]
+          },
+          {
+            "node_idx": 4,
+            "node_id": 6097020592,
+            "node_name": "Learning",
+            "node_type": "Category",
+            "final_score": 0.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Learning",
+                "query_value": "Household",
+                "matched": false,
+                "score": 0.0
+              }
+            ]
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 2,
+            "score": 1.0,
+            "name": "Household"
+          },
+          {
+            "idx": 0,
+            "score": 0.0,
+            "name": "Work"
+          },
+          {
+            "idx": 1,
+            "score": 0.0,
+            "name": "Personal"
+          },
+          {
+            "idx": 3,
+            "score": 0.0,
+            "name": "Health"
+          },
+          {
+            "idx": 4,
+            "score": 0.0,
+            "name": "Learning"
+          }
+        ]
+      },
+      {
+        "step_index": 1,
+        "predicate": "atom(content =~ \"repair man\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "repair man",
+          "operator": "=~",
+          "span": {
+            "start": 78,
+            "end": 107
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 6096801280,
+            "node_name": "Task",
+            "node_type": "Task",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "repair man",
+                  "operator": "=~",
+                  "span": {
+                    "start": 78,
+                    "end": 107
+                  }
+                },
+                "score": 0.4722771942615509,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.4722771942615509
+          },
+          {
+            "node_idx": 1,
+            "node_id": 6096800720,
+            "node_name": "Task",
+            "node_type": "Task",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "repair man",
+                  "operator": "=~",
+                  "span": {
+                    "start": 78,
+                    "end": 107
+                  }
+                },
+                "score": 0.5689858198165894,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.5689858198165894
+          },
+          {
+            "node_idx": 2,
+            "node_id": 6096800160,
+            "node_name": "Task",
+            "node_type": "Task",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "repair man",
+                  "operator": "=~",
+                  "span": {
+                    "start": 78,
+                    "end": 107
+                  }
+                },
+                "score": 0.7188577651977539,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.7188577651977539
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 2,
+            "score": 0.7188577651977539,
+            "name": "Task"
+          },
+          {
+            "idx": 1,
+            "score": 0.5689858198165894,
+            "name": "Task"
+          },
+          {
+            "idx": 0,
+            "score": 0.4722771942615509,
+            "name": "Task"
+          }
+        ]
+      },
+      {
+        "step_index": 2,
+        "predicate": "atom(content =~ \"repair man\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "repair man",
+          "operator": "=~",
+          "span": {
+            "start": 78,
+            "end": 107
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 6096798160,
+            "node_name": "Task",
+            "node_type": "Task",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "repair man",
+                  "operator": "=~",
+                  "span": {
+                    "start": 78,
+                    "end": 107
+                  }
+                },
+                "score": 0.47176361083984375,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.47176361083984375
+          },
+          {
+            "node_idx": 1,
+            "node_id": 6096798960,
+            "node_name": "Task",
+            "node_type": "Task",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "repair man",
+                  "operator": "=~",
+                  "span": {
+                    "start": 78,
+                    "end": 107
+                  }
+                },
+                "score": 0.4155600666999817,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.4155600666999817
+          },
+          {
+            "node_idx": 2,
+            "node_id": 6096798560,
+            "node_name": "Task",
+            "node_type": "Task",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "repair man",
+                  "operator": "=~",
+                  "span": {
+                    "start": 78,
+                    "end": 107
+                  }
+                },
+                "score": 0.4960743188858032,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.4960743188858032
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 2,
+            "score": 0.4960743188858032,
+            "name": "Task"
+          },
+          {
+            "idx": 0,
+            "score": 0.47176361083984375,
+            "name": "Task"
+          },
+          {
+            "idx": 1,
+            "score": 0.4155600666999817,
+            "name": "Task"
+          }
+        ]
+      },
+      {
+        "step_index": 3,
+        "predicate": "atom(content =~ \"repair man\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "repair man",
+          "operator": "=~",
+          "span": {
+            "start": 78,
+            "end": 107
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 6097010832,
+            "node_name": "Task",
+            "node_type": "Task",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "repair man",
+                  "operator": "=~",
+                  "span": {
+                    "start": 78,
+                    "end": 107
+                  }
+                },
+                "score": 0.4704751670360565,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.4704751670360565
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 0,
+            "score": 0.4704751670360565,
+            "name": "Task"
+          }
+        ]
+      },
+      {
+        "step_index": 4,
+        "predicate": "atom(content =~ \"repair man\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "repair man",
+          "operator": "=~",
+          "span": {
+            "start": 78,
+            "end": 107
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 6097011632,
+            "node_name": "Task",
+            "node_type": "Task",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "repair man",
+                  "operator": "=~",
+                  "span": {
+                    "start": 78,
+                    "end": 107
+                  }
+                },
+                "score": 0.47444766759872437,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.47444766759872437
+          },
+          {
+            "node_idx": 1,
+            "node_id": 6097012032,
+            "node_name": "Task",
+            "node_type": "Task",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "repair man",
+                  "operator": "=~",
+                  "span": {
+                    "start": 78,
+                    "end": 107
+                  }
+                },
+                "score": 0.4625062048435211,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.4625062048435211
+          },
+          {
+            "node_idx": 2,
+            "node_id": 6097012512,
+            "node_name": "Task",
+            "node_type": "Task",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "repair man",
+                  "operator": "=~",
+                  "span": {
+                    "start": 78,
+                    "end": 107
+                  }
+                },
+                "score": 0.5204702615737915,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.5204702615737915
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 2,
+            "score": 0.5204702615737915,
+            "name": "Task"
+          },
+          {
+            "idx": 0,
+            "score": 0.47444766759872437,
+            "name": "Task"
+          },
+          {
+            "idx": 1,
+            "score": 0.4625062048435211,
+            "name": "Task"
+          }
+        ]
+      },
+      {
+        "step_index": 5,
+        "predicate": "atom(content =~ \"repair man\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "repair man",
+          "operator": "=~",
+          "span": {
+            "start": 78,
+            "end": 107
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 6097013312,
+            "node_name": "Task",
+            "node_type": "Task",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "repair man",
+                  "operator": "=~",
+                  "span": {
+                    "start": 78,
+                    "end": 107
+                  }
+                },
+                "score": 0.43230533599853516,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.43230533599853516
+          },
+          {
+            "node_idx": 1,
+            "node_id": 6097013792,
+            "node_name": "Task",
+            "node_type": "Task",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "repair man",
+                  "operator": "=~",
+                  "span": {
+                    "start": 78,
+                    "end": 107
+                  }
+                },
+                "score": 0.44556093215942383,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.44556093215942383
+          },
+          {
+            "node_idx": 2,
+            "node_id": 6097014272,
+            "node_name": "Task",
+            "node_type": "Task",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "repair man",
+                  "operator": "=~",
+                  "span": {
+                    "start": 78,
+                    "end": 107
+                  }
+                },
+                "score": 0.4636465609073639,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.4636465609073639
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 2,
+            "score": 0.4636465609073639,
+            "name": "Task"
+          },
+          {
+            "idx": 1,
+            "score": 0.44556093215942383,
+            "name": "Task"
+          },
+          {
+            "idx": 0,
+            "score": 0.43230533599853516,
+            "name": "Task"
+          }
+        ]
+      }
+    ],
+    "score_fusion": {
+      "per_node": [
+        {
+          "node_path": "Root > ToDoList_Version 4 > Household > Fix Garage Door > Task 1",
+          "node_type": "Task",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Task[atom(content =~ \"repair man\")]",
+              "score": 0.4722771942615509
+            }
+          ],
+          "accumulated_product": 0.4722771942615509,
+          "final_score": 0.47227719378927374
+        },
+        {
+          "node_path": "Root > ToDoList_Version 4 > Household > Fix Garage Door > Task 2",
+          "node_type": "Task",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Task[atom(content =~ \"repair man\")]",
+              "score": 0.5689858198165894
+            }
+          ],
+          "accumulated_product": 0.5689858198165894,
+          "final_score": 0.5689858192476035
+        },
+        {
+          "node_path": "Root > ToDoList_Version 4 > Household > Fix Garage Door > Task 3",
+          "node_type": "Task",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Task[atom(content =~ \"repair man\")]",
+              "score": 0.7188577651977539
+            }
+          ],
+          "accumulated_product": 0.7188577651977539,
+          "final_score": 0.7188577644788962
+        },
+        {
+          "node_path": "Root > ToDoList_Version 4 > Household > Weekly Groceries > Task 1",
+          "node_type": "Task",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Task[atom(content =~ \"repair man\")]",
+              "score": 0.47176361083984375
+            }
+          ],
+          "accumulated_product": 0.47176361083984375,
+          "final_score": 0.4717636103680802
+        },
+        {
+          "node_path": "Root > ToDoList_Version 4 > Household > Weekly Groceries > Task 2",
+          "node_type": "Task",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Task[atom(content =~ \"repair man\")]",
+              "score": 0.4155600666999817
+            }
+          ],
+          "accumulated_product": 0.4155600666999817,
+          "final_score": 0.41556006628442166
+        },
+        {
+          "node_path": "Root > ToDoList_Version 4 > Household > Weekly Groceries > Task 3",
+          "node_type": "Task",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Task[atom(content =~ \"repair man\")]",
+              "score": 0.4960743188858032
+            }
+          ],
+          "accumulated_product": 0.4960743188858032,
+          "final_score": 0.49607431838972893
+        },
+        {
+          "node_path": "Root > ToDoList_Version 4 > Household > General > Task",
+          "node_type": "Task",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Task[atom(content =~ \"repair man\")]",
+              "score": 0.4704751670360565
+            }
+          ],
+          "accumulated_product": 0.4704751670360565,
+          "final_score": 0.47047516656558136
+        },
+        {
+          "node_path": "Root > ToDoList_Version 4 > Household > Kitchen Deep Clean > Task 1",
+          "node_type": "Task",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Task[atom(content =~ \"repair man\")]",
+              "score": 0.47444766759872437
+            }
+          ],
+          "accumulated_product": 0.47444766759872437,
+          "final_score": 0.4744476671242767
+        },
+        {
+          "node_path": "Root > ToDoList_Version 4 > Household > Kitchen Deep Clean > Task 2",
+          "node_type": "Task",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Task[atom(content =~ \"repair man\")]",
+              "score": 0.4625062048435211
+            }
+          ],
+          "accumulated_product": 0.4625062048435211,
+          "final_score": 0.4625062043810149
+        },
+        {
+          "node_path": "Root > ToDoList_Version 4 > Household > Kitchen Deep Clean > Task 3",
+          "node_type": "Task",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Task[atom(content =~ \"repair man\")]",
+              "score": 0.5204702615737915
+            }
+          ],
+          "accumulated_product": 0.5204702615737915,
+          "final_score": 0.5204702610533213
+        },
+        {
+          "node_path": "Root > ToDoList_Version 4 > Household > Seasonal Wardrobe Swap > Task 1",
+          "node_type": "Task",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Task[atom(content =~ \"repair man\")]",
+              "score": 0.43230533599853516
+            }
+          ],
+          "accumulated_product": 0.43230533599853516,
+          "final_score": 0.43230533556622985
+        },
+        {
+          "node_path": "Root > ToDoList_Version 4 > Household > Seasonal Wardrobe Swap > Task 2",
+          "node_type": "Task",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Task[atom(content =~ \"repair man\")]",
+              "score": 0.44556093215942383
+            }
+          ],
+          "accumulated_product": 0.44556093215942383,
+          "final_score": 0.4455609317138629
+        },
+        {
+          "node_path": "Root > ToDoList_Version 4 > Household > Seasonal Wardrobe Swap > Task 3",
+          "node_type": "Task",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Task[atom(content =~ \"repair man\")]",
+              "score": 0.4636465609073639
+            }
+          ],
+          "accumulated_product": 0.4636465609073639,
+          "final_score": 0.4636465604437173
+        }
+      ]
+    }
+  },
+  "final_filtering": {
+    "before_filter_count": 13,
+    "threshold": 0.05,
+    "top_k": 5,
+    "after_filter_count": 5,
+    "filtered_nodes": [
+      {
+        "path": "Root > ToDoList_Version 4 > Household > Fix Garage Door > Task 3",
+        "score": 0.7188577644788962,
+        "type": "Task",
+        "own_score": 0.7188577651977539,
+        "parent_score": 0.999999999
+      },
+      {
+        "path": "Root > ToDoList_Version 4 > Household > Fix Garage Door > Task 2",
+        "score": 0.5689858192476035,
+        "type": "Task",
+        "own_score": 0.5689858198165894,
+        "parent_score": 0.999999999
+      },
+      {
+        "path": "Root > ToDoList_Version 4 > Household > Kitchen Deep Clean > Task 3",
+        "score": 0.5204702610533213,
+        "type": "Task",
+        "own_score": 0.5204702615737915,
+        "parent_score": 0.999999999
+      },
+      {
+        "path": "Root > ToDoList_Version 4 > Household > Weekly Groceries > Task 3",
+        "score": 0.49607431838972893,
+        "type": "Task",
+        "own_score": 0.4960743188858032,
+        "parent_score": 0.999999999
+      },
+      {
+        "path": "Root > ToDoList_Version 4 > Household > Kitchen Deep Clean > Task 1",
+        "score": 0.4744476671242767,
+        "type": "Task",
+        "own_score": 0.47444766759872437,
+        "parent_score": 0.999999999
+      }
+    ]
+  },
+  "matched_nodes": [
+    {
+      "tree_path": "Root > ToDoList_Version 4 > Household > Fix Garage Door > Task 3",
+      "score": 0.7188577644788962,
+      "node": {
+        "type": "Task",
+        "attributes": {},
+        "description": "Schedule repair technician",
+        "status": "Todo",
+        "priority": "Medium",
+        "due_date": "2026-02-15"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Household",
+          "predicate": "atom(content =~ \"Household\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Household\") on Household (Score: 1.00)"
+        },
+        {
+          "node_name": "Task 3",
+          "predicate": "atom(content =~ \"repair man\")",
+          "score": 0.7188577651977539,
+          "description": "Matched atom(content =~ \"repair man\") on Task 3 (Score: 0.72)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > ToDoList_Version 4 > Household > Fix Garage Door > Task 2",
+      "score": 0.5689858192476035,
+      "node": {
+        "type": "Task",
+        "attributes": {},
+        "description": "Buy replacement torsion spring",
+        "status": "Todo",
+        "priority": "High",
+        "due_date": "2026-02-12"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Household",
+          "predicate": "atom(content =~ \"Household\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Household\") on Household (Score: 1.00)"
+        },
+        {
+          "node_name": "Task 2",
+          "predicate": "atom(content =~ \"repair man\")",
+          "score": 0.5689858198165894,
+          "description": "Matched atom(content =~ \"repair man\") on Task 2 (Score: 0.57)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > ToDoList_Version 4 > Household > Kitchen Deep Clean > Task 3",
+      "score": 0.5204702610533213,
+      "node": {
+        "type": "Task",
+        "attributes": {},
+        "description": "Wipe down all cabinet exteriors",
+        "status": "Todo",
+        "priority": "Low",
+        "due_date": "2026-02-22"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Household",
+          "predicate": "atom(content =~ \"Household\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Household\") on Household (Score: 1.00)"
+        },
+        {
+          "node_name": "Task 3",
+          "predicate": "atom(content =~ \"repair man\")",
+          "score": 0.5204702615737915,
+          "description": "Matched atom(content =~ \"repair man\") on Task 3 (Score: 0.52)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > ToDoList_Version 4 > Household > Weekly Groceries > Task 3",
+      "score": 0.49607431838972893,
+      "node": {
+        "type": "Task",
+        "attributes": {},
+        "description": "Buy Ramen (Emergency deadline food)",
+        "status": "Todo",
+        "priority": "Low",
+        "due_date": "2026-02-10"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Household",
+          "predicate": "atom(content =~ \"Household\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Household\") on Household (Score: 1.00)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > ToDoList_Version 4 > Household > Kitchen Deep Clean > Task 1",
+      "score": 0.4744476671242767,
+      "node": {
+        "type": "Task",
+        "attributes": {},
+        "description": "Clean oven and stovetop",
+        "status": "Todo",
+        "priority": "Medium",
+        "due_date": "2026-02-21"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Household",
+          "predicate": "atom(content =~ \"Household\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Household\") on Household (Score: 1.00)"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total_steps": 5,
+    "total_scoring_calls": 6,
+    "matched_count": 5,
+    "execution_time_ms": 12.540332973003387,
+    "has_score_fusion": true,
+    "num_nodes_before_filter": 13,
+    "num_nodes_after_filter": 5
+  }
+}

@@ -1,0 +1,5929 @@
+{
+  "timestamp": "20260323_011125_101246",
+  "query": "/Root/Conversation_Version[1]/ Speaker[atom(content =~ \"Tim\")]/Session[atom(content =~ \"playing piano music\")]/Observation[atom(content =~ \"playing piano\") ]",
+  "canonical_query": "/Root/Conversation_Version[1]/Speaker[content =~ \"Tim\"]/Session[content =~ \"playing piano music\"]/Observation[content =~ \"playing piano\"]",
+  "data_file": "tree.xml",
+  "execution_time_ms": 989.2397000003257,
+  "parsed_ast": {
+    "steps": [
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Root",
+            "span": {
+              "start": 1,
+              "end": 5
+            }
+          },
+          "span": {
+            "start": 1,
+            "end": 5
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Conversation_Version",
+            "index": {
+              "start": 1,
+              "type": "single",
+              "span": {
+                "start": 26,
+                "end": 29
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 29
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 29
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Speaker",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "Tim",
+              "operator": "=~",
+              "span": {
+                "start": 39,
+                "end": 61
+              }
+            },
+            "predicate_str": "atom(content =~ \"Tim\")",
+            "span": {
+              "start": 31,
+              "end": 62
+            }
+          },
+          "span": {
+            "start": 31,
+            "end": 62
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Session",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "playing piano music",
+              "operator": "=~",
+              "span": {
+                "start": 71,
+                "end": 109
+              }
+            },
+            "predicate_str": "atom(content =~ \"playing piano music\")",
+            "span": {
+              "start": 63,
+              "end": 110
+            }
+          },
+          "span": {
+            "start": 63,
+            "end": 110
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Observation",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "playing piano",
+              "operator": "=~",
+              "span": {
+                "start": 123,
+                "end": 155
+              }
+            },
+            "predicate_str": "atom(content =~ \"playing piano\")",
+            "span": {
+              "start": 111,
+              "end": 157
+            }
+          },
+          "span": {
+            "start": 111,
+            "end": 157
+          }
+        }
+      }
+    ],
+    "global_index": null
+  },
+  "parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: Conversation_Version[1]\n├── Step 2: Speaker[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"Tim\")\n├── Step 3: Session[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"playing piano music\")\n└── Step 4: Observation[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"playing piano\")",
+  "canonical_parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: Conversation_Version[1]\n├── Step 2: Speaker[content =~ \"Tim\"]\n├── Step 3: Session[content =~ \"playing piano music\"]\n└── Step 4: Observation[content =~ \"playing piano\"]",
+  "execution_log": [
+    "[20260323_011125_101246] Executing query: /Root/Conversation_Version[1]/ Speaker[atom(content =~ \"Tim\")]/Session[atom(content =~ \"playing piano music\")]/Observation[atom(content =~ \"playing piano\") ]",
+    "Data file: tree.xml",
+    "Parsed steps: [Root, Conversation_Version[1], Speaker[atom(content =~ \"Tim\")], Session[atom(content =~ \"playing piano music\")], Observation[atom(content =~ \"playing piano\")]]",
+    "",
+    "Query AST:\n├── Step 0: Root\n├── Step 1: Conversation_Version[1]\n├── Step 2: Speaker[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"Tim\")\n├── Step 3: Session[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"playing piano music\")\n└── Step 4: Observation[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"playing piano\")",
+    "\n--- Step 1: Root ---",
+    "Matched Root root",
+    "\n--- Step 2: Conversation_Version[1] ---",
+    "Selected node at index 1 (0-based: 0)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 3: Speaker[atom(content =~ \"Tim\")] ---",
+    "Scoring predicate: atom(content =~ \"Tim\") (atomic values: ['Tim'])",
+    "  Node 0 (Tim): score = 1.0000 (exact match)",
+    "  Node 1 (John): score = 0.0000 (exact match)",
+    "  Exact attribute match on @name: 1/2 nodes matched",
+    "  Top-K Pruning: Reduced from 2 to 1 nodes (K=5)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 4: Session[atom(content =~ \"playing piano music\")] ---",
+    "Scoring predicate: atom(content =~ \"playing piano music\") (atomic values: ['playing piano music'])",
+    "  Collected 29 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 29 total descriptions",
+    "  Node 0 (Session): score = 0.0006",
+    "  Node 1 (Session): score = 0.0242",
+    "  Node 2 (Session): score = 0.0511",
+    "  Node 3 (Session): score = 0.0046",
+    "  Node 4 (Session): score = 0.0191",
+    "  Node 5 (Session): score = 0.0045",
+    "  Node 6 (Session): score = 0.2959",
+    "  Node 7 (Session): score = 0.9526",
+    "  Node 8 (Session): score = 0.0113",
+    "  Node 9 (Session): score = 0.3966",
+    "  Node 10 (Session): score = 0.0140",
+    "  Node 11 (Session): score = 0.2300",
+    "  Node 12 (Session): score = 0.0750",
+    "  Node 13 (Session): score = 0.1908",
+    "  Node 14 (Session): score = 0.0070",
+    "  Node 15 (Session): score = 0.0026",
+    "  Node 16 (Session): score = 0.2818",
+    "  Node 17 (Session): score = 0.5072",
+    "  Node 18 (Session): score = 0.1003",
+    "  Node 19 (Session): score = 0.0312",
+    "  Node 20 (Session): score = 0.0128",
+    "  Node 21 (Session): score = 0.0052",
+    "  Node 22 (Session): score = 0.0353",
+    "  Node 23 (Session): score = 0.1380",
+    "  Node 24 (Session): score = 0.0453",
+    "  Node 25 (Session): score = 0.0531",
+    "  Node 26 (Session): score = 0.0367",
+    "  Node 27 (Session): score = 0.3858",
+    "  Node 28 (Session): score = 0.2535",
+    "  Top-K Pruning: Reduced from 29 to 5 nodes (K=5)",
+    "After step: 5 nodes remaining",
+    "\n--- Step 5: Observation[atom(content =~ \"playing piano\")] ---",
+    "Scoring predicate: atom(content =~ \"playing piano\") (atomic values: ['playing piano'])",
+    "  Collected 3 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 3 total descriptions",
+    "  Node 0 (Observation): score = 0.9998",
+    "  Node 1 (Observation): score = 0.9994",
+    "  Node 2 (Observation): score = 0.0017",
+    "Scoring predicate: atom(content =~ \"playing piano\") (atomic values: ['playing piano'])",
+    "  Collected 3 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 3 total descriptions",
+    "  Node 0 (Observation): score = 0.0081",
+    "  Node 1 (Observation): score = 0.0655",
+    "  Node 2 (Observation): score = 0.5182",
+    "Scoring predicate: atom(content =~ \"playing piano\") (atomic values: ['playing piano'])",
+    "  Collected 4 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 4 total descriptions",
+    "  Node 0 (Observation): score = 0.1782",
+    "  Node 1 (Observation): score = 0.6818",
+    "  Node 2 (Observation): score = 0.0006",
+    "  Node 3 (Observation): score = 0.0073",
+    "Scoring predicate: atom(content =~ \"playing piano\") (atomic values: ['playing piano'])",
+    "  Collected 5 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 5 total descriptions",
+    "  Node 0 (Observation): score = 0.2753",
+    "  Node 1 (Observation): score = 0.5697",
+    "  Node 2 (Observation): score = 0.0020",
+    "  Node 3 (Observation): score = 0.0058",
+    "  Node 4 (Observation): score = 0.0006",
+    "Scoring predicate: atom(content =~ \"playing piano\") (atomic values: ['playing piano'])",
+    "  Collected 3 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 3 total descriptions",
+    "  Node 0 (Observation): score = 0.7469",
+    "  Node 1 (Observation): score = 0.0005",
+    "  Node 2 (Observation): score = 0.6648",
+    "  Top-K Pruning: Reduced from 18 to 10 nodes (K=5)",
+    "After step: 10 nodes remaining",
+    "\n=== Score Fusion ===",
+    "  Root > Conversation_Version 1 > Tim > Session 8 > Observation 1: product=0.9998 → score=0.9998",
+    "  Root > Conversation_Version 1 > Tim > Session 8 > Observation 2: product=0.9994 → score=0.9994",
+    "  Root > Conversation_Version 1 > Tim > Session 18 > Observation 3: product=0.5182 → score=0.5182",
+    "  Root > Conversation_Version 1 > Tim > Session 18 > Observation 2: product=0.0655 → score=0.0655",
+    "  Root > Conversation_Version 1 > Tim > Session 10 > Observation 2: product=0.6818 → score=0.6818",
+    "  Root > Conversation_Version 1 > Tim > Session 10 > Observation 1: product=0.1782 → score=0.1782",
+    "  Root > Conversation_Version 1 > Tim > Session 28 > Observation 2: product=0.5697 → score=0.5697",
+    "  Root > Conversation_Version 1 > Tim > Session 28 > Observation 1: product=0.2753 → score=0.2753",
+    "  Root > Conversation_Version 1 > Tim > Session 7 > Observation 1: product=0.7469 → score=0.7469",
+    "  Root > Conversation_Version 1 > Tim > Session 7 > Observation 3: product=0.6648 → score=0.6648",
+    "  Parent propagation: Root > Conversation_Version 1 > Tim > Session 8 > Observation 1: own=0.9998 × parent=0.9526 → 0.9524",
+    "  Parent propagation: Root > Conversation_Version 1 > Tim > Session 8 > Observation 2: own=0.9994 × parent=0.9526 → 0.9521",
+    "  Parent propagation: Root > Conversation_Version 1 > Tim > Session 18 > Observation 3: own=0.5182 × parent=0.5072 → 0.2629",
+    "  Parent propagation: Root > Conversation_Version 1 > Tim > Session 18 > Observation 2: own=0.0655 × parent=0.5072 → 0.0332",
+    "  Parent propagation: Root > Conversation_Version 1 > Tim > Session 10 > Observation 2: own=0.6818 × parent=0.3966 → 0.2704",
+    "  Parent propagation: Root > Conversation_Version 1 > Tim > Session 10 > Observation 1: own=0.1782 × parent=0.3966 → 0.0707",
+    "  Parent propagation: Root > Conversation_Version 1 > Tim > Session 28 > Observation 2: own=0.5697 × parent=0.3858 → 0.2198",
+    "  Parent propagation: Root > Conversation_Version 1 > Tim > Session 28 > Observation 1: own=0.2753 × parent=0.3858 → 0.1062",
+    "  Parent propagation: Root > Conversation_Version 1 > Tim > Session 7 > Observation 1: own=0.7469 × parent=0.2959 → 0.2210",
+    "  Parent propagation: Root > Conversation_Version 1 > Tim > Session 7 > Observation 3: own=0.6648 × parent=0.2959 → 0.1967",
+    "\n=== Parent Score Propagation: 10 nodes updated ===",
+    "\n=== Threshold Filtering (threshold=0.05) ===",
+    "  Filtered: 10 → 9 nodes",
+    "\n=== Final Filtering (top_k=10) ===",
+    "  After top_k: 9 → 9 nodes",
+    "\nFinal result: 9 nodes (sorted by score)",
+    "⏱️  Query execution time: 989.24ms"
+  ],
+  "traversal_steps": [
+    {
+      "step_index": 0,
+      "step_query": "Root",
+      "action": "root_match",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "type": "root"
+        }
+      ],
+      "nodes_after": [
+        {
+          "type": "Root",
+          "path": "Root"
+        }
+      ],
+      "details": {
+        "matched": true
+      }
+    },
+    {
+      "step_index": 1,
+      "step_query": "Conversation_Version[1]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root",
+          "name": "Root",
+          "type": "Root",
+          "score": 1.0,
+          "node_id": 2773542287408
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Conversation_Version 1",
+          "name": "Conversation_Version 1",
+          "type": "Conversation_Version",
+          "score": 1.0,
+          "node_id": 2773542283808
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Conversation_Version",
+            "index": {
+              "start": 1,
+              "type": "single",
+              "span": {
+                "start": 26,
+                "end": 29
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 29
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 29
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 2,
+      "step_query": "Speaker[atom(content =~ \"Tim\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root > Conversation_Version 1",
+          "name": "Conversation_Version 1",
+          "type": "Conversation_Version",
+          "score": 1.0,
+          "node_id": 2773542283808
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Conversation_Version 1 > Tim",
+          "name": "Tim",
+          "type": "Speaker",
+          "score": 1.0,
+          "node_id": 2773542277168
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Speaker",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "Tim",
+              "operator": "=~",
+              "span": {
+                "start": 39,
+                "end": 61
+              }
+            },
+            "predicate_str": "atom(content =~ \"Tim\")",
+            "span": {
+              "start": 31,
+              "end": 62
+            }
+          },
+          "span": {
+            "start": 31,
+            "end": 62
+          }
+        },
+        "found_count": 2,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"Tim\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "Tim",
+              "operator": "=~",
+              "span": {
+                "start": 39,
+                "end": 61
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 2773542277168,
+                "node_name": "Tim",
+                "node_type": "Speaker",
+                "final_score": 1.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Tim",
+                    "query_value": "Tim",
+                    "matched": true,
+                    "score": 1.0
+                  }
+                ]
+              },
+              {
+                "node_idx": 1,
+                "node_id": 2773349596224,
+                "node_name": "John",
+                "node_type": "Speaker",
+                "final_score": 0.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "John",
+                    "query_value": "Tim",
+                    "matched": false,
+                    "score": 0.0
+                  }
+                ]
+              }
+            ],
+            "batch_scoring": {
+              "exact_match": true,
+              "matched_attribute": "name",
+              "query_value": "Tim",
+              "matched_count": 1
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 0,
+                "score": 1.0,
+                "name": "Tim"
+              },
+              {
+                "idx": 1,
+                "score": 0.0,
+                "name": "John"
+              }
+            ]
+          }
+        ],
+        "pruned_count": 1
+      }
+    },
+    {
+      "step_index": 3,
+      "step_query": "Session[atom(content =~ \"playing piano music\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 5,
+      "nodes_before": [
+        {
+          "path": "Root > Conversation_Version 1 > Tim",
+          "name": "Tim",
+          "type": "Speaker",
+          "score": 1.0,
+          "node_id": 2773542277168
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Conversation_Version 1 > Tim > Session 8",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.9526086449623108,
+          "node_id": 2773542345104
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Tim > Session 18",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.5072490572929382,
+          "node_id": 2773542407040
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Tim > Session 10",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.39660876989364624,
+          "node_id": 2773542348624
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Tim > Session 28",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.3858254849910736,
+          "node_id": 2773349585744
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Tim > Session 7",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.2959047555923462,
+          "node_id": 2773542349984
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Session",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "playing piano music",
+              "operator": "=~",
+              "span": {
+                "start": 71,
+                "end": 109
+              }
+            },
+            "predicate_str": "atom(content =~ \"playing piano music\")",
+            "span": {
+              "start": 63,
+              "end": 110
+            }
+          },
+          "span": {
+            "start": 63,
+            "end": 110
+          }
+        },
+        "found_count": 29,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"playing piano music\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "playing piano music",
+              "operator": "=~",
+              "span": {
+                "start": 71,
+                "end": 109
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 2773542284528,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "playing piano music",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.0005692456034012139,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0005692456034012139
+              },
+              {
+                "node_idx": 1,
+                "node_id": 2773542280688,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "playing piano music",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.024229932576417923,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.024229932576417923
+              },
+              {
+                "node_idx": 2,
+                "node_id": 2773542354384,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "playing piano music",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.051137253642082214,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.051137253642082214
+              },
+              {
+                "node_idx": 3,
+                "node_id": 2773542338784,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "playing piano music",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.004644656088203192,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.004644656088203192
+              },
+              {
+                "node_idx": 4,
+                "node_id": 2773542352384,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "playing piano music",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.019062094390392303,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.019062094390392303
+              },
+              {
+                "node_idx": 5,
+                "node_id": 2773542343744,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "playing piano music",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.004462741315364838,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.004462741315364838
+              },
+              {
+                "node_idx": 6,
+                "node_id": 2773542349984,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "playing piano music",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.2959047555923462,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.2959047555923462
+              },
+              {
+                "node_idx": 7,
+                "node_id": 2773542345104,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "playing piano music",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.9526086449623108,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.9526086449623108
+              },
+              {
+                "node_idx": 8,
+                "node_id": 2773542346784,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "playing piano music",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.01129425410181284,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.01129425410181284
+              },
+              {
+                "node_idx": 9,
+                "node_id": 2773542348624,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "playing piano music",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.39660876989364624,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.39660876989364624
+              },
+              {
+                "node_idx": 10,
+                "node_id": 2773542411280,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "playing piano music",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.013998820446431637,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.013998820446431637
+              },
+              {
+                "node_idx": 11,
+                "node_id": 2773542409120,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "playing piano music",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.22995725274085999,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.22995725274085999
+              },
+              {
+                "node_idx": 12,
+                "node_id": 2773542416240,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "playing piano music",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.07497931271791458,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.07497931271791458
+              },
+              {
+                "node_idx": 13,
+                "node_id": 2773542408400,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "playing piano music",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.19081324338912964,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.19081324338912964
+              },
+              {
+                "node_idx": 14,
+                "node_id": 2773542408880,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "playing piano music",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.006965583190321922,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.006965583190321922
+              },
+              {
+                "node_idx": 15,
+                "node_id": 2773542408000,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "playing piano music",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.002636105753481388,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.002636105753481388
+              },
+              {
+                "node_idx": 16,
+                "node_id": 2773542414240,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "playing piano music",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.28179314732551575,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.28179314732551575
+              },
+              {
+                "node_idx": 17,
+                "node_id": 2773542407040,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "playing piano music",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.5072490572929382,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.5072490572929382
+              },
+              {
+                "node_idx": 18,
+                "node_id": 2773542410640,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "playing piano music",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.1003057062625885,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.1003057062625885
+              },
+              {
+                "node_idx": 19,
+                "node_id": 2773542411840,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "playing piano music",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.03123476356267929,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.03123476356267929
+              },
+              {
+                "node_idx": 20,
+                "node_id": 2773349589984,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "playing piano music",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.01278628222644329,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.01278628222644329
+              },
+              {
+                "node_idx": 21,
+                "node_id": 2773349595184,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "playing piano music",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.005153586156666279,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.005153586156666279
+              },
+              {
+                "node_idx": 22,
+                "node_id": 2773349591824,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "playing piano music",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.035250138491392136,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.035250138491392136
+              },
+              {
+                "node_idx": 23,
+                "node_id": 2773349591264,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "playing piano music",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.13795426487922668,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.13795426487922668
+              },
+              {
+                "node_idx": 24,
+                "node_id": 2773349589904,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "playing piano music",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.04529837891459465,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.04529837891459465
+              },
+              {
+                "node_idx": 25,
+                "node_id": 2773349594304,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "playing piano music",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.053050827234983444,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.053050827234983444
+              },
+              {
+                "node_idx": 26,
+                "node_id": 2773349583984,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "playing piano music",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.0367448627948761,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0367448627948761
+              },
+              {
+                "node_idx": 27,
+                "node_id": 2773349585744,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "playing piano music",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.3858254849910736,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.3858254849910736
+              },
+              {
+                "node_idx": 28,
+                "node_id": 2773349593424,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "playing piano music",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 109
+                      }
+                    },
+                    "score": 0.25345396995544434,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.25345396995544434
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "playing piano music"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "playing piano music",
+                  "num_descriptions": 29,
+                  "call_time_ms": 789.5
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 29
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 7,
+                "score": 0.9526086449623108,
+                "name": "Session"
+              },
+              {
+                "idx": 17,
+                "score": 0.5072490572929382,
+                "name": "Session"
+              },
+              {
+                "idx": 9,
+                "score": 0.39660876989364624,
+                "name": "Session"
+              },
+              {
+                "idx": 27,
+                "score": 0.3858254849910736,
+                "name": "Session"
+              },
+              {
+                "idx": 6,
+                "score": 0.2959047555923462,
+                "name": "Session"
+              },
+              {
+                "idx": 16,
+                "score": 0.28179314732551575,
+                "name": "Session"
+              },
+              {
+                "idx": 28,
+                "score": 0.25345396995544434,
+                "name": "Session"
+              },
+              {
+                "idx": 11,
+                "score": 0.22995725274085999,
+                "name": "Session"
+              },
+              {
+                "idx": 13,
+                "score": 0.19081324338912964,
+                "name": "Session"
+              },
+              {
+                "idx": 23,
+                "score": 0.13795426487922668,
+                "name": "Session"
+              },
+              {
+                "idx": 18,
+                "score": 0.1003057062625885,
+                "name": "Session"
+              },
+              {
+                "idx": 12,
+                "score": 0.07497931271791458,
+                "name": "Session"
+              },
+              {
+                "idx": 25,
+                "score": 0.053050827234983444,
+                "name": "Session"
+              },
+              {
+                "idx": 2,
+                "score": 0.051137253642082214,
+                "name": "Session"
+              },
+              {
+                "idx": 24,
+                "score": 0.04529837891459465,
+                "name": "Session"
+              },
+              {
+                "idx": 26,
+                "score": 0.0367448627948761,
+                "name": "Session"
+              },
+              {
+                "idx": 22,
+                "score": 0.035250138491392136,
+                "name": "Session"
+              },
+              {
+                "idx": 19,
+                "score": 0.03123476356267929,
+                "name": "Session"
+              },
+              {
+                "idx": 1,
+                "score": 0.024229932576417923,
+                "name": "Session"
+              },
+              {
+                "idx": 4,
+                "score": 0.019062094390392303,
+                "name": "Session"
+              },
+              {
+                "idx": 10,
+                "score": 0.013998820446431637,
+                "name": "Session"
+              },
+              {
+                "idx": 20,
+                "score": 0.01278628222644329,
+                "name": "Session"
+              },
+              {
+                "idx": 8,
+                "score": 0.01129425410181284,
+                "name": "Session"
+              },
+              {
+                "idx": 14,
+                "score": 0.006965583190321922,
+                "name": "Session"
+              },
+              {
+                "idx": 21,
+                "score": 0.005153586156666279,
+                "name": "Session"
+              },
+              {
+                "idx": 3,
+                "score": 0.004644656088203192,
+                "name": "Session"
+              },
+              {
+                "idx": 5,
+                "score": 0.004462741315364838,
+                "name": "Session"
+              },
+              {
+                "idx": 15,
+                "score": 0.002636105753481388,
+                "name": "Session"
+              },
+              {
+                "idx": 0,
+                "score": 0.0005692456034012139,
+                "name": "Session"
+              }
+            ]
+          }
+        ],
+        "pruned_count": 24
+      }
+    },
+    {
+      "step_index": 4,
+      "step_query": "Observation[atom(content =~ \"playing piano\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 5,
+      "nodes_after_count": 10,
+      "nodes_before": [
+        {
+          "path": "Root > Conversation_Version 1 > Tim > Session 8",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.9526086449623108,
+          "node_id": 2773542345104
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Tim > Session 18",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.5072490572929382,
+          "node_id": 2773542407040
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Tim > Session 10",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.39660876989364624,
+          "node_id": 2773542348624
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Tim > Session 28",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.3858254849910736,
+          "node_id": 2773349585744
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Tim > Session 7",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.2959047555923462,
+          "node_id": 2773542349984
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Conversation_Version 1 > Tim > Session 8 > Observation 1",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.9997633099555969,
+          "node_id": 2773542353104
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Tim > Session 8 > Observation 2",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.9994267225265503,
+          "node_id": 2773542346224
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Tim > Session 18 > Observation 3",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.5182164311408997,
+          "node_id": 2773542408720
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Tim > Session 18 > Observation 2",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.0655420571565628,
+          "node_id": 2773542411520
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Tim > Session 10 > Observation 2",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.6818355917930603,
+          "node_id": 2773541150112
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Tim > Session 10 > Observation 1",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.1781938672065735,
+          "node_id": 2773542349184
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Tim > Session 28 > Observation 2",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.5697137713432312,
+          "node_id": 2773349590624
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Tim > Session 28 > Observation 1",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.275259405374527,
+          "node_id": 2773349586384
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Tim > Session 7 > Observation 1",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.746904194355011,
+          "node_id": 2773542351104
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Tim > Session 7 > Observation 3",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.6648362874984741,
+          "node_id": 2773542345184
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Observation",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "playing piano",
+              "operator": "=~",
+              "span": {
+                "start": 123,
+                "end": 155
+              }
+            },
+            "predicate_str": "atom(content =~ \"playing piano\")",
+            "span": {
+              "start": 111,
+              "end": 157
+            }
+          },
+          "span": {
+            "start": 111,
+            "end": 157
+          }
+        },
+        "found_count": 18,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"playing piano\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "playing piano",
+              "operator": "=~",
+              "span": {
+                "start": 123,
+                "end": 155
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 2773542353104,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "playing piano",
+                      "operator": "=~",
+                      "span": {
+                        "start": 123,
+                        "end": 155
+                      }
+                    },
+                    "score": 0.9997633099555969,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.9997633099555969
+              },
+              {
+                "node_idx": 1,
+                "node_id": 2773542346224,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "playing piano",
+                      "operator": "=~",
+                      "span": {
+                        "start": 123,
+                        "end": 155
+                      }
+                    },
+                    "score": 0.9994267225265503,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.9994267225265503
+              },
+              {
+                "node_idx": 2,
+                "node_id": 2773542348144,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "playing piano",
+                      "operator": "=~",
+                      "span": {
+                        "start": 123,
+                        "end": 155
+                      }
+                    },
+                    "score": 0.0016703271539881825,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0016703271539881825
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "playing piano"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "playing piano",
+                  "num_descriptions": 3,
+                  "call_time_ms": 45.21
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 3
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 0,
+                "score": 0.9997633099555969,
+                "name": "Observation"
+              },
+              {
+                "idx": 1,
+                "score": 0.9994267225265503,
+                "name": "Observation"
+              },
+              {
+                "idx": 2,
+                "score": 0.0016703271539881825,
+                "name": "Observation"
+              }
+            ]
+          },
+          {
+            "predicate": "atom(content =~ \"playing piano\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "playing piano",
+              "operator": "=~",
+              "span": {
+                "start": 123,
+                "end": 155
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 2773542405120,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "playing piano",
+                      "operator": "=~",
+                      "span": {
+                        "start": 123,
+                        "end": 155
+                      }
+                    },
+                    "score": 0.008087236434221268,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.008087236434221268
+              },
+              {
+                "node_idx": 1,
+                "node_id": 2773542411520,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "playing piano",
+                      "operator": "=~",
+                      "span": {
+                        "start": 123,
+                        "end": 155
+                      }
+                    },
+                    "score": 0.0655420571565628,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0655420571565628
+              },
+              {
+                "node_idx": 2,
+                "node_id": 2773542408720,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "playing piano",
+                      "operator": "=~",
+                      "span": {
+                        "start": 123,
+                        "end": 155
+                      }
+                    },
+                    "score": 0.5182164311408997,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.5182164311408997
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "playing piano"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "playing piano",
+                  "num_descriptions": 3,
+                  "call_time_ms": 34.48
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 3
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 2,
+                "score": 0.5182164311408997,
+                "name": "Observation"
+              },
+              {
+                "idx": 1,
+                "score": 0.0655420571565628,
+                "name": "Observation"
+              },
+              {
+                "idx": 0,
+                "score": 0.008087236434221268,
+                "name": "Observation"
+              }
+            ]
+          },
+          {
+            "predicate": "atom(content =~ \"playing piano\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "playing piano",
+              "operator": "=~",
+              "span": {
+                "start": 123,
+                "end": 155
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 2773542349184,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "playing piano",
+                      "operator": "=~",
+                      "span": {
+                        "start": 123,
+                        "end": 155
+                      }
+                    },
+                    "score": 0.1781938672065735,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.1781938672065735
+              },
+              {
+                "node_idx": 1,
+                "node_id": 2773541150112,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "playing piano",
+                      "operator": "=~",
+                      "span": {
+                        "start": 123,
+                        "end": 155
+                      }
+                    },
+                    "score": 0.6818355917930603,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.6818355917930603
+              },
+              {
+                "node_idx": 2,
+                "node_id": 2773542420160,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "playing piano",
+                      "operator": "=~",
+                      "span": {
+                        "start": 123,
+                        "end": 155
+                      }
+                    },
+                    "score": 0.0006035232217982411,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0006035232217982411
+              },
+              {
+                "node_idx": 3,
+                "node_id": 2773542408480,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "playing piano",
+                      "operator": "=~",
+                      "span": {
+                        "start": 123,
+                        "end": 155
+                      }
+                    },
+                    "score": 0.0073146759532392025,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0073146759532392025
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "playing piano"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "playing piano",
+                  "num_descriptions": 4,
+                  "call_time_ms": 36.8
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 4
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 1,
+                "score": 0.6818355917930603,
+                "name": "Observation"
+              },
+              {
+                "idx": 0,
+                "score": 0.1781938672065735,
+                "name": "Observation"
+              },
+              {
+                "idx": 3,
+                "score": 0.0073146759532392025,
+                "name": "Observation"
+              },
+              {
+                "idx": 2,
+                "score": 0.0006035232217982411,
+                "name": "Observation"
+              }
+            ]
+          },
+          {
+            "predicate": "atom(content =~ \"playing piano\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "playing piano",
+              "operator": "=~",
+              "span": {
+                "start": 123,
+                "end": 155
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 2773349586384,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "playing piano",
+                      "operator": "=~",
+                      "span": {
+                        "start": 123,
+                        "end": 155
+                      }
+                    },
+                    "score": 0.275259405374527,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.275259405374527
+              },
+              {
+                "node_idx": 1,
+                "node_id": 2773349590624,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "playing piano",
+                      "operator": "=~",
+                      "span": {
+                        "start": 123,
+                        "end": 155
+                      }
+                    },
+                    "score": 0.5697137713432312,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.5697137713432312
+              },
+              {
+                "node_idx": 2,
+                "node_id": 2773349585504,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "playing piano",
+                      "operator": "=~",
+                      "span": {
+                        "start": 123,
+                        "end": 155
+                      }
+                    },
+                    "score": 0.002043152693659067,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.002043152693659067
+              },
+              {
+                "node_idx": 3,
+                "node_id": 2773349592624,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "playing piano",
+                      "operator": "=~",
+                      "span": {
+                        "start": 123,
+                        "end": 155
+                      }
+                    },
+                    "score": 0.005775142926722765,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.005775142926722765
+              },
+              {
+                "node_idx": 4,
+                "node_id": 2773349584864,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "playing piano",
+                      "operator": "=~",
+                      "span": {
+                        "start": 123,
+                        "end": 155
+                      }
+                    },
+                    "score": 0.0006300433888100088,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0006300433888100088
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "playing piano"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "playing piano",
+                  "num_descriptions": 5,
+                  "call_time_ms": 45.87
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 5
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 1,
+                "score": 0.5697137713432312,
+                "name": "Observation"
+              },
+              {
+                "idx": 0,
+                "score": 0.275259405374527,
+                "name": "Observation"
+              },
+              {
+                "idx": 3,
+                "score": 0.005775142926722765,
+                "name": "Observation"
+              },
+              {
+                "idx": 2,
+                "score": 0.002043152693659067,
+                "name": "Observation"
+              },
+              {
+                "idx": 4,
+                "score": 0.0006300433888100088,
+                "name": "Observation"
+              }
+            ]
+          },
+          {
+            "predicate": "atom(content =~ \"playing piano\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "playing piano",
+              "operator": "=~",
+              "span": {
+                "start": 123,
+                "end": 155
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 2773542351104,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "playing piano",
+                      "operator": "=~",
+                      "span": {
+                        "start": 123,
+                        "end": 155
+                      }
+                    },
+                    "score": 0.746904194355011,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.746904194355011
+              },
+              {
+                "node_idx": 1,
+                "node_id": 2773542349424,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "playing piano",
+                      "operator": "=~",
+                      "span": {
+                        "start": 123,
+                        "end": 155
+                      }
+                    },
+                    "score": 0.0005365274264477193,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0005365274264477193
+              },
+              {
+                "node_idx": 2,
+                "node_id": 2773542345184,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "playing piano",
+                      "operator": "=~",
+                      "span": {
+                        "start": 123,
+                        "end": 155
+                      }
+                    },
+                    "score": 0.6648362874984741,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.6648362874984741
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "playing piano"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "playing piano",
+                  "num_descriptions": 3,
+                  "call_time_ms": 35.44
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 3
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 0,
+                "score": 0.746904194355011,
+                "name": "Observation"
+              },
+              {
+                "idx": 2,
+                "score": 0.6648362874984741,
+                "name": "Observation"
+              },
+              {
+                "idx": 1,
+                "score": 0.0005365274264477193,
+                "name": "Observation"
+              }
+            ]
+          }
+        ],
+        "pruned_count": 8
+      }
+    }
+  ],
+  "scoring_traces": [
+    {
+      "predicate": "atom(content =~ \"Tim\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "Tim",
+        "operator": "=~",
+        "span": {
+          "start": 39,
+          "end": 61
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 2773542277168,
+          "node_name": "Tim",
+          "node_type": "Speaker",
+          "final_score": 1.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Tim",
+              "query_value": "Tim",
+              "matched": true,
+              "score": 1.0
+            }
+          ]
+        },
+        {
+          "node_idx": 1,
+          "node_id": 2773349596224,
+          "node_name": "John",
+          "node_type": "Speaker",
+          "final_score": 0.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "John",
+              "query_value": "Tim",
+              "matched": false,
+              "score": 0.0
+            }
+          ]
+        }
+      ],
+      "batch_scoring": {
+        "exact_match": true,
+        "matched_attribute": "name",
+        "query_value": "Tim",
+        "matched_count": 1
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 0,
+          "score": 1.0,
+          "name": "Tim"
+        },
+        {
+          "idx": 1,
+          "score": 0.0,
+          "name": "John"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"playing piano music\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "playing piano music",
+        "operator": "=~",
+        "span": {
+          "start": 71,
+          "end": 109
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 2773542284528,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "playing piano music",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 109
+                }
+              },
+              "score": 0.0005692456034012139,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0005692456034012139
+        },
+        {
+          "node_idx": 1,
+          "node_id": 2773542280688,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "playing piano music",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 109
+                }
+              },
+              "score": 0.024229932576417923,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.024229932576417923
+        },
+        {
+          "node_idx": 2,
+          "node_id": 2773542354384,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "playing piano music",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 109
+                }
+              },
+              "score": 0.051137253642082214,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.051137253642082214
+        },
+        {
+          "node_idx": 3,
+          "node_id": 2773542338784,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "playing piano music",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 109
+                }
+              },
+              "score": 0.004644656088203192,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.004644656088203192
+        },
+        {
+          "node_idx": 4,
+          "node_id": 2773542352384,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "playing piano music",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 109
+                }
+              },
+              "score": 0.019062094390392303,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.019062094390392303
+        },
+        {
+          "node_idx": 5,
+          "node_id": 2773542343744,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "playing piano music",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 109
+                }
+              },
+              "score": 0.004462741315364838,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.004462741315364838
+        },
+        {
+          "node_idx": 6,
+          "node_id": 2773542349984,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "playing piano music",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 109
+                }
+              },
+              "score": 0.2959047555923462,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.2959047555923462
+        },
+        {
+          "node_idx": 7,
+          "node_id": 2773542345104,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "playing piano music",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 109
+                }
+              },
+              "score": 0.9526086449623108,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.9526086449623108
+        },
+        {
+          "node_idx": 8,
+          "node_id": 2773542346784,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "playing piano music",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 109
+                }
+              },
+              "score": 0.01129425410181284,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.01129425410181284
+        },
+        {
+          "node_idx": 9,
+          "node_id": 2773542348624,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "playing piano music",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 109
+                }
+              },
+              "score": 0.39660876989364624,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.39660876989364624
+        },
+        {
+          "node_idx": 10,
+          "node_id": 2773542411280,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "playing piano music",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 109
+                }
+              },
+              "score": 0.013998820446431637,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.013998820446431637
+        },
+        {
+          "node_idx": 11,
+          "node_id": 2773542409120,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "playing piano music",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 109
+                }
+              },
+              "score": 0.22995725274085999,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.22995725274085999
+        },
+        {
+          "node_idx": 12,
+          "node_id": 2773542416240,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "playing piano music",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 109
+                }
+              },
+              "score": 0.07497931271791458,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.07497931271791458
+        },
+        {
+          "node_idx": 13,
+          "node_id": 2773542408400,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "playing piano music",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 109
+                }
+              },
+              "score": 0.19081324338912964,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.19081324338912964
+        },
+        {
+          "node_idx": 14,
+          "node_id": 2773542408880,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "playing piano music",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 109
+                }
+              },
+              "score": 0.006965583190321922,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.006965583190321922
+        },
+        {
+          "node_idx": 15,
+          "node_id": 2773542408000,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "playing piano music",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 109
+                }
+              },
+              "score": 0.002636105753481388,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.002636105753481388
+        },
+        {
+          "node_idx": 16,
+          "node_id": 2773542414240,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "playing piano music",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 109
+                }
+              },
+              "score": 0.28179314732551575,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.28179314732551575
+        },
+        {
+          "node_idx": 17,
+          "node_id": 2773542407040,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "playing piano music",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 109
+                }
+              },
+              "score": 0.5072490572929382,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.5072490572929382
+        },
+        {
+          "node_idx": 18,
+          "node_id": 2773542410640,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "playing piano music",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 109
+                }
+              },
+              "score": 0.1003057062625885,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.1003057062625885
+        },
+        {
+          "node_idx": 19,
+          "node_id": 2773542411840,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "playing piano music",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 109
+                }
+              },
+              "score": 0.03123476356267929,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.03123476356267929
+        },
+        {
+          "node_idx": 20,
+          "node_id": 2773349589984,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "playing piano music",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 109
+                }
+              },
+              "score": 0.01278628222644329,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.01278628222644329
+        },
+        {
+          "node_idx": 21,
+          "node_id": 2773349595184,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "playing piano music",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 109
+                }
+              },
+              "score": 0.005153586156666279,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.005153586156666279
+        },
+        {
+          "node_idx": 22,
+          "node_id": 2773349591824,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "playing piano music",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 109
+                }
+              },
+              "score": 0.035250138491392136,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.035250138491392136
+        },
+        {
+          "node_idx": 23,
+          "node_id": 2773349591264,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "playing piano music",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 109
+                }
+              },
+              "score": 0.13795426487922668,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.13795426487922668
+        },
+        {
+          "node_idx": 24,
+          "node_id": 2773349589904,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "playing piano music",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 109
+                }
+              },
+              "score": 0.04529837891459465,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.04529837891459465
+        },
+        {
+          "node_idx": 25,
+          "node_id": 2773349594304,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "playing piano music",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 109
+                }
+              },
+              "score": 0.053050827234983444,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.053050827234983444
+        },
+        {
+          "node_idx": 26,
+          "node_id": 2773349583984,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "playing piano music",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 109
+                }
+              },
+              "score": 0.0367448627948761,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0367448627948761
+        },
+        {
+          "node_idx": 27,
+          "node_id": 2773349585744,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "playing piano music",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 109
+                }
+              },
+              "score": 0.3858254849910736,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.3858254849910736
+        },
+        {
+          "node_idx": 28,
+          "node_id": 2773349593424,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "playing piano music",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 109
+                }
+              },
+              "score": 0.25345396995544434,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.25345396995544434
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "playing piano music"
+        ],
+        "per_value_stats": [
+          {
+            "value": "playing piano music",
+            "num_descriptions": 29,
+            "call_time_ms": 789.5
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 29
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 7,
+          "score": 0.9526086449623108,
+          "name": "Session"
+        },
+        {
+          "idx": 17,
+          "score": 0.5072490572929382,
+          "name": "Session"
+        },
+        {
+          "idx": 9,
+          "score": 0.39660876989364624,
+          "name": "Session"
+        },
+        {
+          "idx": 27,
+          "score": 0.3858254849910736,
+          "name": "Session"
+        },
+        {
+          "idx": 6,
+          "score": 0.2959047555923462,
+          "name": "Session"
+        },
+        {
+          "idx": 16,
+          "score": 0.28179314732551575,
+          "name": "Session"
+        },
+        {
+          "idx": 28,
+          "score": 0.25345396995544434,
+          "name": "Session"
+        },
+        {
+          "idx": 11,
+          "score": 0.22995725274085999,
+          "name": "Session"
+        },
+        {
+          "idx": 13,
+          "score": 0.19081324338912964,
+          "name": "Session"
+        },
+        {
+          "idx": 23,
+          "score": 0.13795426487922668,
+          "name": "Session"
+        },
+        {
+          "idx": 18,
+          "score": 0.1003057062625885,
+          "name": "Session"
+        },
+        {
+          "idx": 12,
+          "score": 0.07497931271791458,
+          "name": "Session"
+        },
+        {
+          "idx": 25,
+          "score": 0.053050827234983444,
+          "name": "Session"
+        },
+        {
+          "idx": 2,
+          "score": 0.051137253642082214,
+          "name": "Session"
+        },
+        {
+          "idx": 24,
+          "score": 0.04529837891459465,
+          "name": "Session"
+        },
+        {
+          "idx": 26,
+          "score": 0.0367448627948761,
+          "name": "Session"
+        },
+        {
+          "idx": 22,
+          "score": 0.035250138491392136,
+          "name": "Session"
+        },
+        {
+          "idx": 19,
+          "score": 0.03123476356267929,
+          "name": "Session"
+        },
+        {
+          "idx": 1,
+          "score": 0.024229932576417923,
+          "name": "Session"
+        },
+        {
+          "idx": 4,
+          "score": 0.019062094390392303,
+          "name": "Session"
+        },
+        {
+          "idx": 10,
+          "score": 0.013998820446431637,
+          "name": "Session"
+        },
+        {
+          "idx": 20,
+          "score": 0.01278628222644329,
+          "name": "Session"
+        },
+        {
+          "idx": 8,
+          "score": 0.01129425410181284,
+          "name": "Session"
+        },
+        {
+          "idx": 14,
+          "score": 0.006965583190321922,
+          "name": "Session"
+        },
+        {
+          "idx": 21,
+          "score": 0.005153586156666279,
+          "name": "Session"
+        },
+        {
+          "idx": 3,
+          "score": 0.004644656088203192,
+          "name": "Session"
+        },
+        {
+          "idx": 5,
+          "score": 0.004462741315364838,
+          "name": "Session"
+        },
+        {
+          "idx": 15,
+          "score": 0.002636105753481388,
+          "name": "Session"
+        },
+        {
+          "idx": 0,
+          "score": 0.0005692456034012139,
+          "name": "Session"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"playing piano\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "playing piano",
+        "operator": "=~",
+        "span": {
+          "start": 123,
+          "end": 155
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 2773542353104,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "playing piano",
+                "operator": "=~",
+                "span": {
+                  "start": 123,
+                  "end": 155
+                }
+              },
+              "score": 0.9997633099555969,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.9997633099555969
+        },
+        {
+          "node_idx": 1,
+          "node_id": 2773542346224,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "playing piano",
+                "operator": "=~",
+                "span": {
+                  "start": 123,
+                  "end": 155
+                }
+              },
+              "score": 0.9994267225265503,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.9994267225265503
+        },
+        {
+          "node_idx": 2,
+          "node_id": 2773542348144,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "playing piano",
+                "operator": "=~",
+                "span": {
+                  "start": 123,
+                  "end": 155
+                }
+              },
+              "score": 0.0016703271539881825,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0016703271539881825
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "playing piano"
+        ],
+        "per_value_stats": [
+          {
+            "value": "playing piano",
+            "num_descriptions": 3,
+            "call_time_ms": 45.21
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 3
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 0,
+          "score": 0.9997633099555969,
+          "name": "Observation"
+        },
+        {
+          "idx": 1,
+          "score": 0.9994267225265503,
+          "name": "Observation"
+        },
+        {
+          "idx": 2,
+          "score": 0.0016703271539881825,
+          "name": "Observation"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"playing piano\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "playing piano",
+        "operator": "=~",
+        "span": {
+          "start": 123,
+          "end": 155
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 2773542405120,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "playing piano",
+                "operator": "=~",
+                "span": {
+                  "start": 123,
+                  "end": 155
+                }
+              },
+              "score": 0.008087236434221268,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.008087236434221268
+        },
+        {
+          "node_idx": 1,
+          "node_id": 2773542411520,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "playing piano",
+                "operator": "=~",
+                "span": {
+                  "start": 123,
+                  "end": 155
+                }
+              },
+              "score": 0.0655420571565628,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0655420571565628
+        },
+        {
+          "node_idx": 2,
+          "node_id": 2773542408720,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "playing piano",
+                "operator": "=~",
+                "span": {
+                  "start": 123,
+                  "end": 155
+                }
+              },
+              "score": 0.5182164311408997,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.5182164311408997
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "playing piano"
+        ],
+        "per_value_stats": [
+          {
+            "value": "playing piano",
+            "num_descriptions": 3,
+            "call_time_ms": 34.48
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 3
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 2,
+          "score": 0.5182164311408997,
+          "name": "Observation"
+        },
+        {
+          "idx": 1,
+          "score": 0.0655420571565628,
+          "name": "Observation"
+        },
+        {
+          "idx": 0,
+          "score": 0.008087236434221268,
+          "name": "Observation"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"playing piano\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "playing piano",
+        "operator": "=~",
+        "span": {
+          "start": 123,
+          "end": 155
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 2773542349184,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "playing piano",
+                "operator": "=~",
+                "span": {
+                  "start": 123,
+                  "end": 155
+                }
+              },
+              "score": 0.1781938672065735,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.1781938672065735
+        },
+        {
+          "node_idx": 1,
+          "node_id": 2773541150112,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "playing piano",
+                "operator": "=~",
+                "span": {
+                  "start": 123,
+                  "end": 155
+                }
+              },
+              "score": 0.6818355917930603,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.6818355917930603
+        },
+        {
+          "node_idx": 2,
+          "node_id": 2773542420160,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "playing piano",
+                "operator": "=~",
+                "span": {
+                  "start": 123,
+                  "end": 155
+                }
+              },
+              "score": 0.0006035232217982411,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0006035232217982411
+        },
+        {
+          "node_idx": 3,
+          "node_id": 2773542408480,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "playing piano",
+                "operator": "=~",
+                "span": {
+                  "start": 123,
+                  "end": 155
+                }
+              },
+              "score": 0.0073146759532392025,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0073146759532392025
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "playing piano"
+        ],
+        "per_value_stats": [
+          {
+            "value": "playing piano",
+            "num_descriptions": 4,
+            "call_time_ms": 36.8
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 4
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 1,
+          "score": 0.6818355917930603,
+          "name": "Observation"
+        },
+        {
+          "idx": 0,
+          "score": 0.1781938672065735,
+          "name": "Observation"
+        },
+        {
+          "idx": 3,
+          "score": 0.0073146759532392025,
+          "name": "Observation"
+        },
+        {
+          "idx": 2,
+          "score": 0.0006035232217982411,
+          "name": "Observation"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"playing piano\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "playing piano",
+        "operator": "=~",
+        "span": {
+          "start": 123,
+          "end": 155
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 2773349586384,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "playing piano",
+                "operator": "=~",
+                "span": {
+                  "start": 123,
+                  "end": 155
+                }
+              },
+              "score": 0.275259405374527,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.275259405374527
+        },
+        {
+          "node_idx": 1,
+          "node_id": 2773349590624,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "playing piano",
+                "operator": "=~",
+                "span": {
+                  "start": 123,
+                  "end": 155
+                }
+              },
+              "score": 0.5697137713432312,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.5697137713432312
+        },
+        {
+          "node_idx": 2,
+          "node_id": 2773349585504,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "playing piano",
+                "operator": "=~",
+                "span": {
+                  "start": 123,
+                  "end": 155
+                }
+              },
+              "score": 0.002043152693659067,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.002043152693659067
+        },
+        {
+          "node_idx": 3,
+          "node_id": 2773349592624,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "playing piano",
+                "operator": "=~",
+                "span": {
+                  "start": 123,
+                  "end": 155
+                }
+              },
+              "score": 0.005775142926722765,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.005775142926722765
+        },
+        {
+          "node_idx": 4,
+          "node_id": 2773349584864,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "playing piano",
+                "operator": "=~",
+                "span": {
+                  "start": 123,
+                  "end": 155
+                }
+              },
+              "score": 0.0006300433888100088,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0006300433888100088
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "playing piano"
+        ],
+        "per_value_stats": [
+          {
+            "value": "playing piano",
+            "num_descriptions": 5,
+            "call_time_ms": 45.87
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 5
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 1,
+          "score": 0.5697137713432312,
+          "name": "Observation"
+        },
+        {
+          "idx": 0,
+          "score": 0.275259405374527,
+          "name": "Observation"
+        },
+        {
+          "idx": 3,
+          "score": 0.005775142926722765,
+          "name": "Observation"
+        },
+        {
+          "idx": 2,
+          "score": 0.002043152693659067,
+          "name": "Observation"
+        },
+        {
+          "idx": 4,
+          "score": 0.0006300433888100088,
+          "name": "Observation"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"playing piano\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "playing piano",
+        "operator": "=~",
+        "span": {
+          "start": 123,
+          "end": 155
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 2773542351104,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "playing piano",
+                "operator": "=~",
+                "span": {
+                  "start": 123,
+                  "end": 155
+                }
+              },
+              "score": 0.746904194355011,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.746904194355011
+        },
+        {
+          "node_idx": 1,
+          "node_id": 2773542349424,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "playing piano",
+                "operator": "=~",
+                "span": {
+                  "start": 123,
+                  "end": 155
+                }
+              },
+              "score": 0.0005365274264477193,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0005365274264477193
+        },
+        {
+          "node_idx": 2,
+          "node_id": 2773542345184,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "playing piano",
+                "operator": "=~",
+                "span": {
+                  "start": 123,
+                  "end": 155
+                }
+              },
+              "score": 0.6648362874984741,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.6648362874984741
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "playing piano"
+        ],
+        "per_value_stats": [
+          {
+            "value": "playing piano",
+            "num_descriptions": 3,
+            "call_time_ms": 35.44
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 3
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 0,
+          "score": 0.746904194355011,
+          "name": "Observation"
+        },
+        {
+          "idx": 2,
+          "score": 0.6648362874984741,
+          "name": "Observation"
+        },
+        {
+          "idx": 1,
+          "score": 0.0005365274264477193,
+          "name": "Observation"
+        }
+      ]
+    }
+  ],
+  "scoring_details": {
+    "step_scores": [
+      {
+        "step_index": 0,
+        "predicate": "atom(content =~ \"Tim\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "Tim",
+          "operator": "=~",
+          "span": {
+            "start": 39,
+            "end": 61
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 2773542277168,
+            "node_name": "Tim",
+            "node_type": "Speaker",
+            "final_score": 1.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Tim",
+                "query_value": "Tim",
+                "matched": true,
+                "score": 1.0
+              }
+            ]
+          },
+          {
+            "node_idx": 1,
+            "node_id": 2773349596224,
+            "node_name": "John",
+            "node_type": "Speaker",
+            "final_score": 0.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "John",
+                "query_value": "Tim",
+                "matched": false,
+                "score": 0.0
+              }
+            ]
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 0,
+            "score": 1.0,
+            "name": "Tim"
+          },
+          {
+            "idx": 1,
+            "score": 0.0,
+            "name": "John"
+          }
+        ]
+      },
+      {
+        "step_index": 1,
+        "predicate": "atom(content =~ \"playing piano music\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "playing piano music",
+          "operator": "=~",
+          "span": {
+            "start": 71,
+            "end": 109
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 2773542284528,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "playing piano music",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 109
+                  }
+                },
+                "score": 0.0005692456034012139,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0005692456034012139
+          },
+          {
+            "node_idx": 1,
+            "node_id": 2773542280688,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "playing piano music",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 109
+                  }
+                },
+                "score": 0.024229932576417923,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.024229932576417923
+          },
+          {
+            "node_idx": 2,
+            "node_id": 2773542354384,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "playing piano music",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 109
+                  }
+                },
+                "score": 0.051137253642082214,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.051137253642082214
+          },
+          {
+            "node_idx": 3,
+            "node_id": 2773542338784,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "playing piano music",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 109
+                  }
+                },
+                "score": 0.004644656088203192,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.004644656088203192
+          },
+          {
+            "node_idx": 4,
+            "node_id": 2773542352384,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "playing piano music",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 109
+                  }
+                },
+                "score": 0.019062094390392303,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.019062094390392303
+          },
+          {
+            "node_idx": 5,
+            "node_id": 2773542343744,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "playing piano music",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 109
+                  }
+                },
+                "score": 0.004462741315364838,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.004462741315364838
+          },
+          {
+            "node_idx": 6,
+            "node_id": 2773542349984,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "playing piano music",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 109
+                  }
+                },
+                "score": 0.2959047555923462,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.2959047555923462
+          },
+          {
+            "node_idx": 7,
+            "node_id": 2773542345104,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "playing piano music",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 109
+                  }
+                },
+                "score": 0.9526086449623108,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.9526086449623108
+          },
+          {
+            "node_idx": 8,
+            "node_id": 2773542346784,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "playing piano music",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 109
+                  }
+                },
+                "score": 0.01129425410181284,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.01129425410181284
+          },
+          {
+            "node_idx": 9,
+            "node_id": 2773542348624,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "playing piano music",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 109
+                  }
+                },
+                "score": 0.39660876989364624,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.39660876989364624
+          },
+          {
+            "node_idx": 10,
+            "node_id": 2773542411280,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "playing piano music",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 109
+                  }
+                },
+                "score": 0.013998820446431637,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.013998820446431637
+          },
+          {
+            "node_idx": 11,
+            "node_id": 2773542409120,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "playing piano music",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 109
+                  }
+                },
+                "score": 0.22995725274085999,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.22995725274085999
+          },
+          {
+            "node_idx": 12,
+            "node_id": 2773542416240,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "playing piano music",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 109
+                  }
+                },
+                "score": 0.07497931271791458,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.07497931271791458
+          },
+          {
+            "node_idx": 13,
+            "node_id": 2773542408400,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "playing piano music",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 109
+                  }
+                },
+                "score": 0.19081324338912964,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.19081324338912964
+          },
+          {
+            "node_idx": 14,
+            "node_id": 2773542408880,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "playing piano music",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 109
+                  }
+                },
+                "score": 0.006965583190321922,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.006965583190321922
+          },
+          {
+            "node_idx": 15,
+            "node_id": 2773542408000,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "playing piano music",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 109
+                  }
+                },
+                "score": 0.002636105753481388,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.002636105753481388
+          },
+          {
+            "node_idx": 16,
+            "node_id": 2773542414240,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "playing piano music",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 109
+                  }
+                },
+                "score": 0.28179314732551575,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.28179314732551575
+          },
+          {
+            "node_idx": 17,
+            "node_id": 2773542407040,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "playing piano music",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 109
+                  }
+                },
+                "score": 0.5072490572929382,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.5072490572929382
+          },
+          {
+            "node_idx": 18,
+            "node_id": 2773542410640,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "playing piano music",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 109
+                  }
+                },
+                "score": 0.1003057062625885,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.1003057062625885
+          },
+          {
+            "node_idx": 19,
+            "node_id": 2773542411840,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "playing piano music",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 109
+                  }
+                },
+                "score": 0.03123476356267929,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.03123476356267929
+          },
+          {
+            "node_idx": 20,
+            "node_id": 2773349589984,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "playing piano music",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 109
+                  }
+                },
+                "score": 0.01278628222644329,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.01278628222644329
+          },
+          {
+            "node_idx": 21,
+            "node_id": 2773349595184,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "playing piano music",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 109
+                  }
+                },
+                "score": 0.005153586156666279,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.005153586156666279
+          },
+          {
+            "node_idx": 22,
+            "node_id": 2773349591824,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "playing piano music",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 109
+                  }
+                },
+                "score": 0.035250138491392136,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.035250138491392136
+          },
+          {
+            "node_idx": 23,
+            "node_id": 2773349591264,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "playing piano music",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 109
+                  }
+                },
+                "score": 0.13795426487922668,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.13795426487922668
+          },
+          {
+            "node_idx": 24,
+            "node_id": 2773349589904,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "playing piano music",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 109
+                  }
+                },
+                "score": 0.04529837891459465,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.04529837891459465
+          },
+          {
+            "node_idx": 25,
+            "node_id": 2773349594304,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "playing piano music",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 109
+                  }
+                },
+                "score": 0.053050827234983444,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.053050827234983444
+          },
+          {
+            "node_idx": 26,
+            "node_id": 2773349583984,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "playing piano music",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 109
+                  }
+                },
+                "score": 0.0367448627948761,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0367448627948761
+          },
+          {
+            "node_idx": 27,
+            "node_id": 2773349585744,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "playing piano music",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 109
+                  }
+                },
+                "score": 0.3858254849910736,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.3858254849910736
+          },
+          {
+            "node_idx": 28,
+            "node_id": 2773349593424,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "playing piano music",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 109
+                  }
+                },
+                "score": 0.25345396995544434,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.25345396995544434
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 7,
+            "score": 0.9526086449623108,
+            "name": "Session"
+          },
+          {
+            "idx": 17,
+            "score": 0.5072490572929382,
+            "name": "Session"
+          },
+          {
+            "idx": 9,
+            "score": 0.39660876989364624,
+            "name": "Session"
+          },
+          {
+            "idx": 27,
+            "score": 0.3858254849910736,
+            "name": "Session"
+          },
+          {
+            "idx": 6,
+            "score": 0.2959047555923462,
+            "name": "Session"
+          },
+          {
+            "idx": 16,
+            "score": 0.28179314732551575,
+            "name": "Session"
+          },
+          {
+            "idx": 28,
+            "score": 0.25345396995544434,
+            "name": "Session"
+          },
+          {
+            "idx": 11,
+            "score": 0.22995725274085999,
+            "name": "Session"
+          },
+          {
+            "idx": 13,
+            "score": 0.19081324338912964,
+            "name": "Session"
+          },
+          {
+            "idx": 23,
+            "score": 0.13795426487922668,
+            "name": "Session"
+          },
+          {
+            "idx": 18,
+            "score": 0.1003057062625885,
+            "name": "Session"
+          },
+          {
+            "idx": 12,
+            "score": 0.07497931271791458,
+            "name": "Session"
+          },
+          {
+            "idx": 25,
+            "score": 0.053050827234983444,
+            "name": "Session"
+          },
+          {
+            "idx": 2,
+            "score": 0.051137253642082214,
+            "name": "Session"
+          },
+          {
+            "idx": 24,
+            "score": 0.04529837891459465,
+            "name": "Session"
+          },
+          {
+            "idx": 26,
+            "score": 0.0367448627948761,
+            "name": "Session"
+          },
+          {
+            "idx": 22,
+            "score": 0.035250138491392136,
+            "name": "Session"
+          },
+          {
+            "idx": 19,
+            "score": 0.03123476356267929,
+            "name": "Session"
+          },
+          {
+            "idx": 1,
+            "score": 0.024229932576417923,
+            "name": "Session"
+          },
+          {
+            "idx": 4,
+            "score": 0.019062094390392303,
+            "name": "Session"
+          },
+          {
+            "idx": 10,
+            "score": 0.013998820446431637,
+            "name": "Session"
+          },
+          {
+            "idx": 20,
+            "score": 0.01278628222644329,
+            "name": "Session"
+          },
+          {
+            "idx": 8,
+            "score": 0.01129425410181284,
+            "name": "Session"
+          },
+          {
+            "idx": 14,
+            "score": 0.006965583190321922,
+            "name": "Session"
+          },
+          {
+            "idx": 21,
+            "score": 0.005153586156666279,
+            "name": "Session"
+          },
+          {
+            "idx": 3,
+            "score": 0.004644656088203192,
+            "name": "Session"
+          },
+          {
+            "idx": 5,
+            "score": 0.004462741315364838,
+            "name": "Session"
+          },
+          {
+            "idx": 15,
+            "score": 0.002636105753481388,
+            "name": "Session"
+          },
+          {
+            "idx": 0,
+            "score": 0.0005692456034012139,
+            "name": "Session"
+          }
+        ]
+      },
+      {
+        "step_index": 2,
+        "predicate": "atom(content =~ \"playing piano\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "playing piano",
+          "operator": "=~",
+          "span": {
+            "start": 123,
+            "end": 155
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 2773542353104,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "playing piano",
+                  "operator": "=~",
+                  "span": {
+                    "start": 123,
+                    "end": 155
+                  }
+                },
+                "score": 0.9997633099555969,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.9997633099555969
+          },
+          {
+            "node_idx": 1,
+            "node_id": 2773542346224,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "playing piano",
+                  "operator": "=~",
+                  "span": {
+                    "start": 123,
+                    "end": 155
+                  }
+                },
+                "score": 0.9994267225265503,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.9994267225265503
+          },
+          {
+            "node_idx": 2,
+            "node_id": 2773542348144,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "playing piano",
+                  "operator": "=~",
+                  "span": {
+                    "start": 123,
+                    "end": 155
+                  }
+                },
+                "score": 0.0016703271539881825,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0016703271539881825
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 0,
+            "score": 0.9997633099555969,
+            "name": "Observation"
+          },
+          {
+            "idx": 1,
+            "score": 0.9994267225265503,
+            "name": "Observation"
+          },
+          {
+            "idx": 2,
+            "score": 0.0016703271539881825,
+            "name": "Observation"
+          }
+        ]
+      },
+      {
+        "step_index": 3,
+        "predicate": "atom(content =~ \"playing piano\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "playing piano",
+          "operator": "=~",
+          "span": {
+            "start": 123,
+            "end": 155
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 2773542405120,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "playing piano",
+                  "operator": "=~",
+                  "span": {
+                    "start": 123,
+                    "end": 155
+                  }
+                },
+                "score": 0.008087236434221268,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.008087236434221268
+          },
+          {
+            "node_idx": 1,
+            "node_id": 2773542411520,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "playing piano",
+                  "operator": "=~",
+                  "span": {
+                    "start": 123,
+                    "end": 155
+                  }
+                },
+                "score": 0.0655420571565628,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0655420571565628
+          },
+          {
+            "node_idx": 2,
+            "node_id": 2773542408720,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "playing piano",
+                  "operator": "=~",
+                  "span": {
+                    "start": 123,
+                    "end": 155
+                  }
+                },
+                "score": 0.5182164311408997,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.5182164311408997
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 2,
+            "score": 0.5182164311408997,
+            "name": "Observation"
+          },
+          {
+            "idx": 1,
+            "score": 0.0655420571565628,
+            "name": "Observation"
+          },
+          {
+            "idx": 0,
+            "score": 0.008087236434221268,
+            "name": "Observation"
+          }
+        ]
+      },
+      {
+        "step_index": 4,
+        "predicate": "atom(content =~ \"playing piano\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "playing piano",
+          "operator": "=~",
+          "span": {
+            "start": 123,
+            "end": 155
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 2773542349184,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "playing piano",
+                  "operator": "=~",
+                  "span": {
+                    "start": 123,
+                    "end": 155
+                  }
+                },
+                "score": 0.1781938672065735,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.1781938672065735
+          },
+          {
+            "node_idx": 1,
+            "node_id": 2773541150112,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "playing piano",
+                  "operator": "=~",
+                  "span": {
+                    "start": 123,
+                    "end": 155
+                  }
+                },
+                "score": 0.6818355917930603,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.6818355917930603
+          },
+          {
+            "node_idx": 2,
+            "node_id": 2773542420160,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "playing piano",
+                  "operator": "=~",
+                  "span": {
+                    "start": 123,
+                    "end": 155
+                  }
+                },
+                "score": 0.0006035232217982411,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0006035232217982411
+          },
+          {
+            "node_idx": 3,
+            "node_id": 2773542408480,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "playing piano",
+                  "operator": "=~",
+                  "span": {
+                    "start": 123,
+                    "end": 155
+                  }
+                },
+                "score": 0.0073146759532392025,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0073146759532392025
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 1,
+            "score": 0.6818355917930603,
+            "name": "Observation"
+          },
+          {
+            "idx": 0,
+            "score": 0.1781938672065735,
+            "name": "Observation"
+          },
+          {
+            "idx": 3,
+            "score": 0.0073146759532392025,
+            "name": "Observation"
+          },
+          {
+            "idx": 2,
+            "score": 0.0006035232217982411,
+            "name": "Observation"
+          }
+        ]
+      },
+      {
+        "step_index": 5,
+        "predicate": "atom(content =~ \"playing piano\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "playing piano",
+          "operator": "=~",
+          "span": {
+            "start": 123,
+            "end": 155
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 2773349586384,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "playing piano",
+                  "operator": "=~",
+                  "span": {
+                    "start": 123,
+                    "end": 155
+                  }
+                },
+                "score": 0.275259405374527,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.275259405374527
+          },
+          {
+            "node_idx": 1,
+            "node_id": 2773349590624,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "playing piano",
+                  "operator": "=~",
+                  "span": {
+                    "start": 123,
+                    "end": 155
+                  }
+                },
+                "score": 0.5697137713432312,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.5697137713432312
+          },
+          {
+            "node_idx": 2,
+            "node_id": 2773349585504,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "playing piano",
+                  "operator": "=~",
+                  "span": {
+                    "start": 123,
+                    "end": 155
+                  }
+                },
+                "score": 0.002043152693659067,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.002043152693659067
+          },
+          {
+            "node_idx": 3,
+            "node_id": 2773349592624,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "playing piano",
+                  "operator": "=~",
+                  "span": {
+                    "start": 123,
+                    "end": 155
+                  }
+                },
+                "score": 0.005775142926722765,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.005775142926722765
+          },
+          {
+            "node_idx": 4,
+            "node_id": 2773349584864,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "playing piano",
+                  "operator": "=~",
+                  "span": {
+                    "start": 123,
+                    "end": 155
+                  }
+                },
+                "score": 0.0006300433888100088,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0006300433888100088
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 1,
+            "score": 0.5697137713432312,
+            "name": "Observation"
+          },
+          {
+            "idx": 0,
+            "score": 0.275259405374527,
+            "name": "Observation"
+          },
+          {
+            "idx": 3,
+            "score": 0.005775142926722765,
+            "name": "Observation"
+          },
+          {
+            "idx": 2,
+            "score": 0.002043152693659067,
+            "name": "Observation"
+          },
+          {
+            "idx": 4,
+            "score": 0.0006300433888100088,
+            "name": "Observation"
+          }
+        ]
+      },
+      {
+        "step_index": 6,
+        "predicate": "atom(content =~ \"playing piano\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "playing piano",
+          "operator": "=~",
+          "span": {
+            "start": 123,
+            "end": 155
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 2773542351104,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "playing piano",
+                  "operator": "=~",
+                  "span": {
+                    "start": 123,
+                    "end": 155
+                  }
+                },
+                "score": 0.746904194355011,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.746904194355011
+          },
+          {
+            "node_idx": 1,
+            "node_id": 2773542349424,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "playing piano",
+                  "operator": "=~",
+                  "span": {
+                    "start": 123,
+                    "end": 155
+                  }
+                },
+                "score": 0.0005365274264477193,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0005365274264477193
+          },
+          {
+            "node_idx": 2,
+            "node_id": 2773542345184,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "playing piano",
+                  "operator": "=~",
+                  "span": {
+                    "start": 123,
+                    "end": 155
+                  }
+                },
+                "score": 0.6648362874984741,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.6648362874984741
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 0,
+            "score": 0.746904194355011,
+            "name": "Observation"
+          },
+          {
+            "idx": 2,
+            "score": 0.6648362874984741,
+            "name": "Observation"
+          },
+          {
+            "idx": 1,
+            "score": 0.0005365274264477193,
+            "name": "Observation"
+          }
+        ]
+      }
+    ],
+    "score_fusion": {
+      "per_node": [
+        {
+          "node_path": "Root > Conversation_Version 1 > Tim > Session 8 > Observation 1",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"playing piano\")]",
+              "score": 0.9997633099555969
+            }
+          ],
+          "accumulated_product": 0.9997633099555969,
+          "final_score": 0.9523831710274527
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Tim > Session 8 > Observation 2",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"playing piano\")]",
+              "score": 0.9994267225265503
+            }
+          ],
+          "accumulated_product": 0.9994267225265503,
+          "final_score": 0.9520625349330779
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Tim > Session 18 > Observation 3",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"playing piano\")]",
+              "score": 0.5182164311408997
+            }
+          ],
+          "accumulated_product": 0.5182164311408997,
+          "final_score": 0.2628647959070674
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Tim > Session 18 > Observation 2",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"playing piano\")]",
+              "score": 0.0655420571565628
+            }
+          ],
+          "accumulated_product": 0.0655420571565628,
+          "final_score": 0.03324614667246022
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Tim > Session 10 > Observation 2",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"playing piano\")]",
+              "score": 0.6818355917930603
+            }
+          ],
+          "accumulated_product": 0.6818355917930603,
+          "final_score": 0.27042197506033
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Tim > Session 10 > Observation 1",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"playing piano\")]",
+              "score": 0.1781938672065735
+            }
+          ],
+          "accumulated_product": 0.1781938672065735,
+          "final_score": 0.07067325040471761
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Tim > Session 28 > Observation 2",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"playing piano\")]",
+              "score": 0.5697137713432312
+            }
+          ],
+          "accumulated_product": 0.5697137713432312,
+          "final_score": 0.2198100919147857
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Tim > Session 28 > Observation 1",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"playing piano\")]",
+              "score": 0.275259405374527
+            }
+          ],
+          "accumulated_product": 0.275259405374527,
+          "final_score": 0.10620209347077932
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Tim > Session 7 > Observation 1",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"playing piano\")]",
+              "score": 0.746904194355011
+            }
+          ],
+          "accumulated_product": 0.746904194355011,
+          "final_score": 0.22101250286050528
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Tim > Session 7 > Observation 3",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"playing piano\")]",
+              "score": 0.6648362874984741
+            }
+          ],
+          "accumulated_product": 0.6648362874984741,
+          "final_score": 0.19672821896443057
+        }
+      ]
+    }
+  },
+  "final_filtering": {
+    "before_filter_count": 10,
+    "threshold": 0.05,
+    "top_k": 10,
+    "after_filter_count": 9,
+    "filtered_nodes": [
+      {
+        "path": "Root > Conversation_Version 1 > Tim > Session 8 > Observation 1",
+        "score": 0.9523831710274527,
+        "type": "Observation",
+        "own_score": 0.9997633099555969,
+        "parent_score": 0.9526086440097021
+      },
+      {
+        "path": "Root > Conversation_Version 1 > Tim > Session 8 > Observation 2",
+        "score": 0.9520625349330779,
+        "type": "Observation",
+        "own_score": 0.9994267225265503,
+        "parent_score": 0.9526086440097021
+      },
+      {
+        "path": "Root > Conversation_Version 1 > Tim > Session 10 > Observation 2",
+        "score": 0.27042197506033,
+        "type": "Observation",
+        "own_score": 0.6818355917930603,
+        "parent_score": 0.3966087694970375
+      },
+      {
+        "path": "Root > Conversation_Version 1 > Tim > Session 18 > Observation 3",
+        "score": 0.2628647959070674,
+        "type": "Observation",
+        "own_score": 0.5182164311408997,
+        "parent_score": 0.5072490567856892
+      },
+      {
+        "path": "Root > Conversation_Version 1 > Tim > Session 7 > Observation 1",
+        "score": 0.22101250286050528,
+        "type": "Observation",
+        "own_score": 0.746904194355011,
+        "parent_score": 0.29590475529644145
+      },
+      {
+        "path": "Root > Conversation_Version 1 > Tim > Session 28 > Observation 2",
+        "score": 0.2198100919147857,
+        "type": "Observation",
+        "own_score": 0.5697137713432312,
+        "parent_score": 0.3858254846052481
+      },
+      {
+        "path": "Root > Conversation_Version 1 > Tim > Session 7 > Observation 3",
+        "score": 0.19672821896443057,
+        "type": "Observation",
+        "own_score": 0.6648362874984741,
+        "parent_score": 0.29590475529644145
+      },
+      {
+        "path": "Root > Conversation_Version 1 > Tim > Session 28 > Observation 1",
+        "score": 0.10620209347077932,
+        "type": "Observation",
+        "own_score": 0.275259405374527,
+        "parent_score": 0.3858254846052481
+      },
+      {
+        "path": "Root > Conversation_Version 1 > Tim > Session 10 > Observation 1",
+        "score": 0.07067325040471761,
+        "type": "Observation",
+        "own_score": 0.1781938672065735,
+        "parent_score": 0.3966087694970375
+      }
+    ]
+  },
+  "matched_nodes": [
+    {
+      "tree_path": "Root > Conversation_Version 1 > Tim > Session 8 > Observation 1",
+      "score": 0.9523831710274527,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "Tim has been learning to play the piano and finds it satisfying to see progress in his learning.",
+        "source_dia_id": "D8:12"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Tim",
+          "predicate": "atom(content =~ \"Tim\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Tim\") on Tim (Score: 1.00)"
+        },
+        {
+          "node_name": "Session 8",
+          "predicate": "atom(content =~ \"playing piano music\")",
+          "score": 0.9526086449623108,
+          "description": "Matched atom(content =~ \"playing piano music\") on Session 8 (Score: 0.95)"
+        },
+        {
+          "node_name": "Observation 1",
+          "predicate": "atom(content =~ \"playing piano\")",
+          "score": 0.9997633099555969,
+          "description": "Matched atom(content =~ \"playing piano\") on Observation 1 (Score: 1.00)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > Tim > Session 8 > Observation 2",
+      "score": 0.9520625349330779,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "Tim's favorite song to play on the piano is a theme from the movie Harry Potter and the Philosopher's Stone.",
+        "source_dia_id": "D8:14"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Tim",
+          "predicate": "atom(content =~ \"Tim\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Tim\") on Tim (Score: 1.00)"
+        },
+        {
+          "node_name": "Session 8",
+          "predicate": "atom(content =~ \"playing piano music\")",
+          "score": 0.9526086449623108,
+          "description": "Matched atom(content =~ \"playing piano music\") on Session 8 (Score: 0.95)"
+        },
+        {
+          "node_name": "Observation 2",
+          "predicate": "atom(content =~ \"playing piano\")",
+          "score": 0.9994267225265503,
+          "description": "Matched atom(content =~ \"playing piano\") on Observation 2 (Score: 1.00)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > Tim > Session 10 > Observation 2",
+      "score": 0.27042197506033,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "Tim recently gave a presentation in class and felt it was a small but significant progress.",
+        "source_dia_id": "D10:3"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Tim",
+          "predicate": "atom(content =~ \"Tim\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Tim\") on Tim (Score: 1.00)"
+        },
+        {
+          "node_name": "Observation 2",
+          "predicate": "atom(content =~ \"playing piano\")",
+          "score": 0.6818355917930603,
+          "description": "Matched atom(content =~ \"playing piano\") on Observation 2 (Score: 0.68)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > Tim > Session 18 > Observation 3",
+      "score": 0.2628647959070674,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "Tim breaks up his studying into smaller parts, with 25 minutes of study and 5 minutes of fun activities.",
+        "source_dia_id": "D18:7"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Tim",
+          "predicate": "atom(content =~ \"Tim\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Tim\") on Tim (Score: 1.00)"
+        },
+        {
+          "node_name": "Session 18",
+          "predicate": "atom(content =~ \"playing piano music\")",
+          "score": 0.5072490572929382,
+          "description": "Matched atom(content =~ \"playing piano music\") on Session 18 (Score: 0.51)"
+        },
+        {
+          "node_name": "Observation 3",
+          "predicate": "atom(content =~ \"playing piano\")",
+          "score": 0.5182164311408997,
+          "description": "Matched atom(content =~ \"playing piano\") on Observation 3 (Score: 0.52)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > Tim > Session 7 > Observation 1",
+      "score": 0.22101250286050528,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "Tim felt a sense of belonging at an event last month where everyone shared the same love for a common interest.",
+        "source_dia_id": "D7:4"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Tim",
+          "predicate": "atom(content =~ \"Tim\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Tim\") on Tim (Score: 1.00)"
+        },
+        {
+          "node_name": "Observation 1",
+          "predicate": "atom(content =~ \"playing piano\")",
+          "score": 0.746904194355011,
+          "description": "Matched atom(content =~ \"playing piano\") on Observation 1 (Score: 0.75)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > Tim > Session 28 > Observation 2",
+      "score": 0.2198100919147857,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "Tim will be staying in Galway for its arts and Irish music.",
+        "source_dia_id": "D28:3"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Tim",
+          "predicate": "atom(content =~ \"Tim\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Tim\") on Tim (Score: 1.00)"
+        },
+        {
+          "node_name": "Observation 2",
+          "predicate": "atom(content =~ \"playing piano\")",
+          "score": 0.5697137713432312,
+          "description": "Matched atom(content =~ \"playing piano\") on Observation 2 (Score: 0.57)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > Tim > Session 7 > Observation 3",
+      "score": 0.19672821896443057,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "Tim appreciates having something meaningful to keep him motivated, as seen from his conversation with John.",
+        "source_dia_id": "D7:12"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Tim",
+          "predicate": "atom(content =~ \"Tim\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Tim\") on Tim (Score: 1.00)"
+        },
+        {
+          "node_name": "Observation 3",
+          "predicate": "atom(content =~ \"playing piano\")",
+          "score": 0.6648362874984741,
+          "description": "Matched atom(content =~ \"playing piano\") on Observation 3 (Score: 0.66)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > Tim > Session 28 > Observation 1",
+      "score": 0.10620209347077932,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "Tim got accepted into a study abroad program in Ireland.",
+        "source_dia_id": "D28:1"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Tim",
+          "predicate": "atom(content =~ \"Tim\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Tim\") on Tim (Score: 1.00)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > Tim > Session 10 > Observation 1",
+      "score": 0.07067325040471761,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "Tim received a no for a summer job he wanted, but is staying positive.",
+        "source_dia_id": "D10:1"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Tim",
+          "predicate": "atom(content =~ \"Tim\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Tim\") on Tim (Score: 1.00)"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total_steps": 5,
+    "total_scoring_calls": 7,
+    "matched_count": 9,
+    "execution_time_ms": 989.2397000003257,
+    "has_score_fusion": true,
+    "num_nodes_before_filter": 10,
+    "num_nodes_after_filter": 9
+  }
+}

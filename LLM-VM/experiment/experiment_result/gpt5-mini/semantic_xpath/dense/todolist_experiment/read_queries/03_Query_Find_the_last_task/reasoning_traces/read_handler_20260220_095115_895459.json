@@ -1,0 +1,74 @@
+{
+  "user_query": "Find the last task I added to the Garage Repair project.",
+  "candidates_count": 5,
+  "selected_count": 5,
+  "selected_nodes": [
+    {
+      "tree_path": "Root > ToDoList_Version 1 > Household > Fix Garage Door > Task 3",
+      "node_data": {
+        "type": "Task",
+        "attributes": {},
+        "description": "Schedule repair technician",
+        "status": "Todo",
+        "priority": "Medium",
+        "due_date": "2026-02-15"
+      },
+      "reasoning": "Positional query ('last task') already resolved upstream; candidate is a Task under a Garage-related node (Fix Garage Door) and thus acceptable."
+    },
+    {
+      "tree_path": "Root > ToDoList_Version 1 > Personal > Vehicle Maintenance > Task 3",
+      "node_data": {
+        "type": "Task",
+        "attributes": {},
+        "description": "Clean interior and vacuum floor mats",
+        "status": "Todo",
+        "priority": "Low",
+        "due_date": "2026-03-01"
+      },
+      "reasoning": "Positional query handled upstream; candidate is a Task under Vehicle Maintenance that matched 'Garage Repair' in semantic search, so include."
+    },
+    {
+      "tree_path": "Root > ToDoList_Version 1 > Household > Kitchen Deep Clean > Task 3",
+      "node_data": {
+        "type": "Task",
+        "attributes": {},
+        "description": "Wipe down all cabinet exteriors",
+        "status": "Todo",
+        "priority": "Low",
+        "due_date": "2026-02-22"
+      },
+      "reasoning": "Positional query handled upstream; although this task is Kitchen-related and lower score, include because positional filtering is authoritative."
+    },
+    {
+      "tree_path": "Root > ToDoList_Version 1 > Personal > General > Task 2",
+      "node_data": {
+        "type": "Task",
+        "attributes": {},
+        "description": "Renew passport",
+        "status": "Todo",
+        "priority": "Low",
+        "due_date": "2026-06-01"
+      },
+      "reasoning": "Positional query handled upstream; include candidate as provided by the positional filter."
+    },
+    {
+      "tree_path": "Root > ToDoList_Version 1 > Household > General > Task",
+      "node_data": {
+        "type": "Task",
+        "attributes": {},
+        "description": "Replace burnt out light bulb in hallway",
+        "status": "Todo",
+        "priority": "Low",
+        "due_date": "2026-02-20"
+      },
+      "reasoning": "Positional query handled upstream; include candidate as provided by the positional filter."
+    }
+  ],
+  "raw_response": "{\n  \"selected_nodes\": [\n    {\n      \"id\": \"1\",\n      \"reasoning\": \"Positional query ('last task') already resolved upstream; candidate is a Task under a Garage-related node (Fix Garage Door) and thus acceptable.\"\n    },\n    {\n      \"id\": \"2\",\n      \"reasoning\": \"Positional query handled upstream; candidate is a Task under Vehicle Maintenance that matched 'Garage Repair' in semantic search, so include.\"\n    },\n    {\n      \"id\": \"3\",\n      \"reasoning\": \"Positional query handled upstream; although this task is Kitchen-related and lower score, include because positional filtering is authoritative.\"\n    },\n    {\n      \"id\": \"4\",\n      \"reasoning\": \"Positional query handled upstream; include candidate as provided by the positional filter.\"\n    },\n    {\n      \"id\": \"5\",\n      \"reasoning\": \"Positional query handled upstream; include candidate as provided by the positional filter.\"\n    }\n  ],\n  \"reasoning\": \"The user query is positional ('last task I added...') and per instructions positional logic has been resolved upstream. For purely positional queries we accept all provided candidates rather than re-evaluating position; therefore all candidates returned by the upstream filter are selected.\"\n}",
+  "token_usage": {
+    "prompt_tokens": 1121,
+    "completion_tokens": 588,
+    "total_tokens": 1709
+  },
+  "processing_time_ms": 8189.120583934709
+}

@@ -1,0 +1,36 @@
+====================
+Examples
+====================
+
+### Delete unhealthy breakfast
+Query: "Remove the sugary breakfast from Father's day 1"
+
+Candidates:
+[1] Father > Day 1 > Breakfast > Mediterranean Fig & Honey Oatmeal (Meal, score: 0.82)
+[2] Father > Day 1 > Breakfast > Greek Protein Power Bowl (Meal, score: 0.35)
+
+```json
+{
+  "nodes_to_delete": [
+    {"id": "1", "path": "Father > Day 1 > Breakfast > Mediterranean Fig & Honey Oatmeal", "reasoning": "Contains honey and figs — the most sugary breakfast option on Day 1"}
+  ],
+  "reasoning": "Selected Fig & Honey Oatmeal as the sugary breakfast. Excluded Greek Protein Power Bowl (protein-focused, not sugary)."
+}
+```
+
+### Delete processed meal
+Query: "Get rid of any lunch with processed meats for Mother"
+
+Candidates:
+[1] Mother > Day 3 > Lunch > Turkey Club Wrap (Meal, score: 0.88)
+[2] Mother > Day 5 > Lunch > Grilled Veggie Panini (Meal, score: 0.42)
+[3] Mother > Day 2 > Lunch > Chicken Caesar Salad (Meal, score: 0.38)
+
+```json
+{
+  "nodes_to_delete": [
+    {"id": "1", "path": "Mother > Day 3 > Lunch > Turkey Club Wrap", "reasoning": "Turkey club wrap contains deli turkey — processed meat matches the query"}
+  ],
+  "reasoning": "Selected Turkey Club Wrap (deli/processed meat). Excluded Grilled Veggie Panini (vegetarian) and Chicken Caesar Salad (grilled chicken, not processed)."
+}
+```

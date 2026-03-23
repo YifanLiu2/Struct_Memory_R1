@@ -1,0 +1,191 @@
+{
+  "query_index": 18,
+  "query": "My departure flight got pushed back to 10pm. Update my day 10 to reflect this.",
+  "operation": "UPDATE",
+  "success": true,
+  "execution_time_ms": 3955.23,
+  "token_usage": {
+    "prompt_tokens": 5307,
+    "completion_tokens": 234,
+    "total_tokens": 5541
+  },
+  "changes": [
+    {
+      "path": "Root > Itinerary_Version 12 > Itinerary > Day 10 > POI: YYZ Departure",
+      "change_type": "updated",
+      "old_node": null,
+      "new_node": null,
+      "field_changes": {}
+    }
+  ],
+  "raw_result": {
+    "timestamp": "20260203_205125_932272",
+    "user_query": "My departure flight got pushed back to 10pm. Update my day 10 to reflect this.",
+    "task_query": "update my day 10 to reflect departure flight at 10pm",
+    "operation": "UPDATE",
+    "success": true,
+    "version_resolution": {
+      "selector_type": "at",
+      "semantic_query": null,
+      "index": -1,
+      "crud_operation": "Update",
+      "raw_response": "at([-1]), UPDATE  \ntask: update my day 10 to reflect departure flight at 10pm",
+      "task_query": "update my day 10 to reflect departure flight at 10pm",
+      "token_usage": {
+        "prompt_tokens": 984,
+        "completion_tokens": 21,
+        "total_tokens": 1005
+      }
+    },
+    "parsed_query": {
+      "operation": "Update",
+      "xpath": "/Itinerary/Day[10]",
+      "full_query": "Update(/Itinerary/Day[10])",
+      "token_usage": {
+        "prompt_tokens": 2048,
+        "completion_tokens": 8,
+        "total_tokens": 2056
+      }
+    },
+    "version_used": "12",
+    "xpath_execution": {
+      "query": "/Root/Itinerary_Version[12]/Itinerary/Day[10]",
+      "matched_count": 1,
+      "execution_time_ms": 0.3437000559642911,
+      "token_usage": null
+    },
+    "handler_result": {
+      "success": true,
+      "operation": "UPDATE",
+      "processing_time_ms": 2806.495900033042,
+      "output": {
+        "updates": [
+          {
+            "tree_path": "Root > Itinerary_Version 12 > Itinerary > Day 10 > POI: YYZ Departure",
+            "changes": {
+              "name": {
+                "from": null,
+                "to": "YYZ Departure"
+              },
+              "description": {
+                "from": null,
+                "to": "Flight departure from Toronto Pearson International Airport. End of trip."
+              },
+              "time_block": {
+                "from": null,
+                "to": "10:00 PM"
+              },
+              "travel_method": {
+                "from": null,
+                "to": "Flight"
+              },
+              "expected_cost": {
+                "from": null,
+                "to": "Included"
+              },
+              "highlights": {
+                "from": null,
+                "to": [
+                  "Departure flight",
+                  "End of trip"
+                ]
+              }
+            },
+            "reasoning": "Changed departure time from 6:00 PM to 10:00 PM to reflect updated flight schedule."
+          }
+        ]
+      },
+      "token_usage": {
+        "prompt_tokens": 2275,
+        "completion_tokens": 205,
+        "total_tokens": 2480
+      }
+    },
+    "timing": {
+      "stages": [
+        {
+          "name": "version_resolution",
+          "time_ms": 614.59,
+          "token_usage": {
+            "prompt_tokens": 984,
+            "completion_tokens": 21,
+            "total_tokens": 1005
+          }
+        },
+        {
+          "name": "version_lookup",
+          "time_ms": 0.02
+        },
+        {
+          "name": "query_generation",
+          "time_ms": 526.31,
+          "token_usage": {
+            "prompt_tokens": 2048,
+            "completion_tokens": 8,
+            "total_tokens": 2056
+          }
+        },
+        {
+          "name": "xpath_execution",
+          "time_ms": 1.9
+        },
+        {
+          "name": "downstream_task",
+          "time_ms": 2808.06,
+          "token_usage": {
+            "prompt_tokens": 2275,
+            "completion_tokens": 205,
+            "total_tokens": 2480
+          }
+        }
+      ],
+      "total_time_ms": 3950.88,
+      "total_tokens": {
+        "prompt_tokens": 5307,
+        "completion_tokens": 234,
+        "total_tokens": 5541
+      },
+      "pipeline_total_ms": 3954.0937000419945
+    },
+    "updated_count": 1,
+    "updated_paths": [
+      "Root > Itinerary_Version 12 > Itinerary > Day 10 > POI: YYZ Departure"
+    ],
+    "update_results": [
+      {
+        "path": "Root > Itinerary_Version 12 > Itinerary > Day 10 > POI: YYZ Departure",
+        "changes": {
+          "name": {
+            "from": null,
+            "to": "YYZ Departure"
+          },
+          "description": {
+            "from": null,
+            "to": "Flight departure from Toronto Pearson International Airport. End of trip."
+          },
+          "time_block": {
+            "from": null,
+            "to": "10:00 PM"
+          },
+          "travel_method": {
+            "from": null,
+            "to": "Flight"
+          },
+          "expected_cost": {
+            "from": null,
+            "to": "Included"
+          },
+          "highlights": {
+            "from": null,
+            "to": [
+              "Departure flight",
+              "End of trip"
+            ]
+          }
+        },
+        "success": true
+      }
+    ],
+    "total_time_ms": 3954.0937000419945
+  }
+}

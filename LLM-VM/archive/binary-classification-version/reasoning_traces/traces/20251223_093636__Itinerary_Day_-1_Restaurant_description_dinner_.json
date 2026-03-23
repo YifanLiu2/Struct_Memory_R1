@@ -1,0 +1,135 @@
+{
+  "query": "/Itinerary/Day[-1]/Restaurant[description =~ \"dinner\"]",
+  "timestamp": "2025-12-23T09:36:30.380711",
+  "segments": [
+    "/Itinerary",
+    "/Day[-1]",
+    "/Restaurant[description =~ \"dinner\"]"
+  ],
+  "steps": [
+    {
+      "step": 1,
+      "action": "index_match",
+      "segment": "/Day[-1]",
+      "nodes_before": 1,
+      "nodes_after": 1,
+      "details": {}
+    },
+    {
+      "step": 2,
+      "action": "type_match",
+      "segment": "/Restaurant[description =~ \"dinner\"]",
+      "nodes_before": 1,
+      "nodes_after": 4,
+      "details": {}
+    },
+    {
+      "step": 3,
+      "action": "predicate_batch",
+      "segment": "[description =~ \"dinner\"]",
+      "nodes_before": 4,
+      "nodes_after": 2,
+      "details": {
+        "predicate": "dinner",
+        "level": 2,
+        "batch_classification_index": 0,
+        "matched_paths": [
+          "/Itinerary/Day[3]/Restaurant[3]",
+          "/Itinerary/Day[3]/Restaurant[4]"
+        ]
+      },
+      "duration_ms": 6132.12
+    }
+  ],
+  "batch_classifications": [
+    {
+      "classifier_type": "llm",
+      "predicate": "dinner",
+      "input_count": 4,
+      "input_nodes": [
+        {
+          "tree_path": "/Itinerary/Day[3]/Restaurant[1]",
+          "node_type": "Restaurant",
+          "name": "Beauty Barbecue & Smokehouse",
+          "description": "Hearty breakfast featuring smoked meats and classic comfort food.",
+          "time_block": "9:00 AM - 10:30 AM"
+        },
+        {
+          "tree_path": "/Itinerary/Day[3]/Restaurant[2]",
+          "node_type": "Restaurant",
+          "name": "Amsterdam BrewHouse",
+          "description": "Lakeside pub offering local craft beers and hearty meals.",
+          "time_block": "2:30 PM - 3:30 PM"
+        },
+        {
+          "tree_path": "/Itinerary/Day[3]/Restaurant[3]",
+          "node_type": "Restaurant",
+          "name": "Cluny Bistro",
+          "description": "French-inspired bistro serving classic and modern dishes.",
+          "time_block": "6:00 PM - 7:30 PM"
+        },
+        {
+          "tree_path": "/Itinerary/Day[3]/Restaurant[4]",
+          "node_type": "Restaurant",
+          "name": "Jazz Bistro",
+          "description": "Renowned jazz club with intimate setting and excellent acoustics.",
+          "time_block": "8:00 PM - 10:30 PM"
+        }
+      ],
+      "results": [
+        {
+          "tree_path": "/Itinerary/Day[3]/Restaurant[1]",
+          "name": "Beauty Barbecue & Smokehouse",
+          "is_match": false,
+          "confidence": 0.0,
+          "reasoning": "Time is 9:00 AM - 10:30 AM which is breakfast time, not dinner."
+        },
+        {
+          "tree_path": "/Itinerary/Day[3]/Restaurant[2]",
+          "name": "Amsterdam BrewHouse",
+          "is_match": false,
+          "confidence": 0.0,
+          "reasoning": "Time is 2:30 PM - 3:30 PM which is after lunch and before dinner."
+        },
+        {
+          "tree_path": "/Itinerary/Day[3]/Restaurant[3]",
+          "name": "Cluny Bistro",
+          "is_match": true,
+          "confidence": 1.0,
+          "reasoning": "Time is 6:00 PM - 7:30 PM which falls within typical dinner hours (5:00 PM - 9:00 PM)."
+        },
+        {
+          "tree_path": "/Itinerary/Day[3]/Restaurant[4]",
+          "name": "Jazz Bistro",
+          "is_match": true,
+          "confidence": 1.0,
+          "reasoning": "Time is 8:00 PM - 10:30 PM which includes dinner hours (5:00 PM - 9:00 PM) and extends into late night."
+        }
+      ],
+      "matched_count": 2,
+      "matched_paths": [
+        "/Itinerary/Day[3]/Restaurant[3]",
+        "/Itinerary/Day[3]/Restaurant[4]"
+      ],
+      "duration_ms": 6132.12,
+      "prompt_sent": "Predicate: \"dinner\"\n\nNodes:\n\n[0] /Itinerary/Day[3]/Restaurant[1]\nType: Restaurant\nName: Beauty Barbecue & Smokehouse\nTime: 9:00 AM - 10:30 AM\nDescription: Hearty breakfast featuring smoked meats and classic comfort food.\nChildren:\n  [1] name: unnamed\n  [2] time_block: unnamed\n  [3] description: unnamed\n  [4] travel_method: unnamed\n  [5] expected_cost: unnamed\n  [6] highlights: unnamed\n\n[1] /Itinerary/Day[3]/Restaurant[2]\nType: Restaurant\nName: Amsterdam BrewHouse\nTime: 2:30 PM - 3:30 PM\nDescription: Lakeside pub offering local craft beers and hearty meals.\nChildren:\n  [1] name: unnamed\n  [2] time_block: unnamed\n  [3] description: unnamed\n  [4] travel_method: unnamed\n  [5] expected_cost: unnamed\n  [6] highlights: unnamed\n\n[2] /Itinerary/Day[3]/Restaurant[3]\nType: Restaurant\nName: Cluny Bistro\nTime: 6:00 PM - 7:30 PM\nDescription: French-inspired bistro serving classic and modern dishes.\nChildren:\n  [1] name: unnamed\n  [2] time_block: unnamed\n  [3] description: unnamed\n  [4] travel_method: unnamed\n  [5] expected_cost: unnamed\n  [6] highlights: unnamed\n\n[3] /Itinerary/Day[3]/Restaurant[4]\nType: Restaurant\nName: Jazz Bistro\nTime: 8:00 PM - 10:30 PM\nDescription: Renowned jazz club with intimate setting and excellent acoustics.\nChildren:\n  [1] name: unnamed\n  [2] time_block: unnamed\n  [3] description: unnamed\n  [4] travel_method: unnamed\n  [5] expected_cost: unnamed\n  [6] highlights: unnamed\n\nClassify each node. Output JSON only.",
+      "raw_response": "```json\n{\n  \"results\": [\n    {\"index\": 0, \"match\": false, \"reasoning\": \"Time is 9:00 AM - 10:30 AM which is breakfast time, not dinner.\"},\n    {\"index\": 1, \"match\": false, \"reasoning\": \"Time is 2:30 PM - 3:30 PM which is after lunch and before dinner.\"},\n    {\"index\": 2, \"match\": true, \"reasoning\": \"Time is 6:00 PM - 7:30 PM which falls within typical dinner hours (5:00 PM - 9:00 PM).\"},\n    {\"index\": 3, \"match\": true, \"reasoning\": \"Time is 8:00 PM - 10:30 PM which includes dinner hours (5:00 PM - 9:00 PM) and extends into late night.\"}\n  ]\n}\n```"
+    }
+  ],
+  "results": [
+    {
+      "tree_path": "/Itinerary/Day[3]/Restaurant[3]",
+      "type": "Restaurant",
+      "name": "Cluny Bistro",
+      "description": "French-inspired bistro serving classic and modern dishes."
+    },
+    {
+      "tree_path": "/Itinerary/Day[3]/Restaurant[4]",
+      "type": "Restaurant",
+      "name": "Jazz Bistro",
+      "description": "Renowned jazz club with intimate setting and excellent acoustics."
+    }
+  ],
+  "total_duration_ms": 6134.45,
+  "classification_duration_ms": 6132.12
+}

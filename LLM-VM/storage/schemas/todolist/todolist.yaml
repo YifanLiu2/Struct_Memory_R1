@@ -1,0 +1,54 @@
+name: "todolist"
+description: "Hierarchical task manager with Categories, Projects, and Tasks"
+
+# Tree hierarchy (for documentation and LLM prompt generation)
+hierarchy: |
+  Category (root, indexed by @name)
+  └── Project (container)
+      └── Task (leaf)
+
+# Node type definitions
+nodes:
+  Category:
+    type: root
+    index_attr: "name" # Uses <Category name="Work">
+    fields:
+      - description
+    children: ["Project"]
+
+  Project:
+    type: container
+    fields:
+      - name
+      - status
+      - priority
+      - deadline
+    children: ["Task"]
+
+  Task:
+    type: leaf
+    fields:
+      - description
+      - status
+      - priority
+      - due_date
+      - note
+    children: []
+
+# Available data files for this schema
+data_files:
+  todolist: "memory/todo_list/todolist.xml"
+
+# Default data file to use
+default_data: "todolist"
+
+# XPath query generation prompt components
+examples_file: "prompts/query_generator/domains/xpath_examples_todolist.txt"
+
+# Syntax rules specific to this schema
+syntax_rules: |
+  - Node types: Category, Project, Task
+  - Hierarchy is strictly: Category -> Project -> Task
+  - Logical: AND / OR / not() combine predicates WITHIN brackets
+  - Categories: Work, Personal (Errands, social, and admin), Household (Maintenance and groceries), Health, or Learning.
+  - Filter categories with atom(content =~ "CategoryName"), e.g. /Category[atom(content =~ "Work")]

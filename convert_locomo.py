@@ -3,6 +3,8 @@ import xml.etree.ElementTree as ET
 from xml.dom import minidom
 import re
 import os
+from collections import defaultdict
+
 
 def sanitize_text(text):
     """Escape special XML characters in text."""
@@ -10,10 +12,12 @@ def sanitize_text(text):
         return ""
     return str(text)
 
+
 def get_session_number(key):
     """Extract integer session number from keys like 'session_3' or 'session_3_observation'."""
     match = re.search(r'session_(\d+)', key)
     return int(match.group(1)) if match else None
+
 
 def normalize_obs_key(key):
     """Handle the malformed '   ' key in conv-26 which should be session_1_observation."""
@@ -21,12 +25,14 @@ def normalize_obs_key(key):
         return 1
     return get_session_number(key)
 
+
 def convert_conversation(conv_data):
-    """Convert a single LoCoMo conversation dict to an XML Element tree."""
-    
+    """Convert a single LoCoMo conversation dict to an XML Element tree.
+
+    Structure: Conversation -> Speaker -> Session -> {Summary, Observation}
+    """
     conv = conv_data['conversation']
     observations = conv_data.get('observation', {})
-    event_summary = conv_data.get('event_summary', {})
     session_summary = conv_data.get('session_summary', {})
     sample_id = conv_data.get('sample_id', 'unknown')
 
@@ -41,89 +47,86 @@ def convert_conversation(conv_data):
     })
 
     # ----------------------------------------------------------------
-    # Build Speaker nodes with Observations
+    # Collect observations per speaker per session
     # ----------------------------------------------------------------
-    # Collect all observations per speaker across all sessions
-    speaker_observations = {speaker_a: [], speaker_b: []}
+    speaker_session_obs = defaultdict(lambda: defaultdict(list))
 
     for obs_key, obs_val in observations.items():
         session_num = normalize_obs_key(obs_key)
         if session_num is None:
             continue
         for speaker, claims in obs_val.items():
-            if speaker not in speaker_observations:
-                speaker_observations[speaker] = []
             for claim in claims:
-                # claim is [text, source_dia_id]
                 if isinstance(claim, list) and len(claim) == 2:
-                    speaker_observations[speaker].append({
+                    speaker_session_obs[speaker][session_num].append({
                         'text': claim[0],
                         'source_dia_id': claim[1],
-                        'session_id': str(session_num)
                     })
 
-    for speaker_name in [speaker_a, speaker_b]:
-        speaker_el = ET.SubElement(conversation_el, 'Speaker', attrib={
-            'name': speaker_name
-        })
-        for obs in speaker_observations.get(speaker_name, []):
-            ET.SubElement(speaker_el, 'Observation', attrib={
-                'text': sanitize_text(obs['text']),
-                'source_dia_id': sanitize_text(obs['source_dia_id']),
-                'session_id': sanitize_text(obs['session_id'])
-            })
-
     # ----------------------------------------------------------------
-    # Build Session nodes
+    # Collect session datetimes and summaries
     # ----------------------------------------------------------------
-    # Find all session numbers that have turn data
     session_keys_with_turns = [
         k for k in conv.keys()
         if re.match(r'^session_\d+$', k) and isinstance(conv[k], list)
     ]
-    session_numbers = sorted(
+    all_session_numbers = sorted(
         [get_session_number(k) for k in session_keys_with_turns]
     )
 
-    for sn in session_numbers:
-        datetime_val = conv.get(f'session_{sn}_date_time', '')
-        session_el = ET.SubElement(conversation_el, 'Session', attrib={
-            'session_id': str(sn),
-            'datetime': sanitize_text(datetime_val)
+    session_datetimes = {}
+    session_summaries = {}
+    for sn in all_session_numbers:
+        session_datetimes[sn] = conv.get(f'session_{sn}_date_time', '')
+        session_summaries[sn] = session_summary.get(f'session_{sn}_summary', '')
+
+    # ----------------------------------------------------------------
+    # Build Speaker -> Session -> {Summary, Observation} hierarchy
+    # ----------------------------------------------------------------
+    for speaker_name in [speaker_a, speaker_b]:
+        speaker_el = ET.SubElement(conversation_el, 'Speaker', attrib={
+            'name': speaker_name
         })
 
-        # Summary node
-        summary_text = session_summary.get(f'session_{sn}_summary', '')
-        if summary_text:
-            summary_el = ET.SubElement(session_el, 'Summary')
-            summary_el.text = sanitize_text(summary_text)
+        # Get all sessions where this speaker has observations
+        speaker_sessions = sorted(speaker_session_obs.get(speaker_name, {}).keys())
 
-        # Event nodes
-        event_key = f'events_session_{sn}'
-        if event_key in event_summary:
-            event_data = event_summary[event_key]
-            for speaker_name in [speaker_a, speaker_b]:
-                events = event_data.get(speaker_name, [])
-                for event_text in events:
-                    ET.SubElement(session_el, 'Event', attrib={
-                        'speaker': speaker_name,
-                        'description': sanitize_text(event_text)
-                    })
-
-        # Turn nodes
-        turns = conv.get(f'session_{sn}', [])
-        for turn in turns:
-            turn_attribs = {
-                'dia_id': sanitize_text(turn.get('dia_id', '')),
-                'speaker': sanitize_text(turn.get('speaker', '')),
-                'text': sanitize_text(turn.get('text', ''))
+        for sn in speaker_sessions:
+            datetime_val = session_datetimes.get(sn, '')
+            summary_text = session_summaries.get(sn, '')
+            session_attribs = {
+                'session_id': str(sn),
+                'datetime': sanitize_text(datetime_val)
             }
-            caption = turn.get('blip_caption', '')
-            if caption:
-                turn_attribs['image_caption'] = sanitize_text(caption)
-            ET.SubElement(session_el, 'Turn', attrib=turn_attribs)
+            if summary_text:
+                session_attribs['summary'] = sanitize_text(summary_text)
+                
+            session_el = ET.SubElement(speaker_el, 'Session', attrib=session_attribs)
 
-    return conversation_el
+            # Observation children (use child elements, not attributes)
+            for obs in speaker_session_obs[speaker_name][sn]:
+                obs_el = ET.SubElement(session_el, 'Observation')
+                obs_text_el = ET.SubElement(obs_el, 'text')
+                obs_text_el.text = sanitize_text(obs['text'])
+                obs_src_el = ET.SubElement(obs_el, 'source_dia_id')
+                obs_src_el.text = sanitize_text(obs['source_dia_id'])
+
+    # Wrap in version structure: Root -> Conversation_Version -> content
+    root_el = ET.Element('Root')
+    version_el = ET.SubElement(root_el, 'Conversation_Version', attrib={'number': '1'})
+    patch_el = ET.SubElement(version_el, 'patch_info')
+    patch_el.text = 'None'
+    conv_hist_el = ET.SubElement(version_el, 'conversation_history')
+    conv_hist_el.text = 'Initial_Version'
+
+    # Move all conversation children into the version node
+    for child in list(conversation_el):
+        version_el.append(child)
+    # Copy conversation attributes to version node for reference
+    for key, val in conversation_el.attrib.items():
+        version_el.set(key, val)
+
+    return root_el
 
 
 def prettify(element):
@@ -134,14 +137,17 @@ def prettify(element):
 
 
 def main():
-    input_path = '/mnt/user-data/uploads/locomo10.json'
-    output_dir = '/mnt/user-data/outputs'
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    input_path = os.path.join(script_dir, 'locomo_structured_data', 'locomo10.json')
+    output_dir = os.path.join(script_dir, 'locomo_structured_data')
     os.makedirs(output_dir, exist_ok=True)
 
-    with open(input_path) as f:
+    with open(input_path, encoding='utf-8') as f:
         data = json.load(f)
 
     print(f"Converting {len(data)} conversations...")
+    print(f"Structure: Conversation -> Speaker -> Session -> Observation")
+    print()
 
     # Write one XML file per conversation
     for conv_data in data:
@@ -153,18 +159,6 @@ def main():
             f.write(xml_str)
         print(f"  Written: {out_path}")
 
-    # Also write a single combined file
-    root = ET.Element('LoCoMo')
-    for conv_data in data:
-        conversation_el = convert_conversation(conv_data)
-        root.append(conversation_el)
-    
-    combined_xml = prettify(root)
-    combined_path = os.path.join(output_dir, 'locomo10_structured.xml')
-    with open(combined_path, 'w', encoding='utf-8') as f:
-        f.write(combined_xml)
-    print(f"\nCombined file written: {combined_path}")
-
     # Print stats
     print("\n--- Conversion Stats ---")
     for conv_data in data:
@@ -174,14 +168,19 @@ def main():
         speaker_b = conv['speaker_b']
         session_keys = [k for k in conv.keys() if re.match(r'^session_\d+$', k) and isinstance(conv[k], list)]
         n_sessions = len(session_keys)
-        n_turns = sum(len(conv[k]) for k in session_keys)
         obs = conv_data.get('observation', {})
         n_obs = sum(
             len(claims)
             for obs_val in obs.values()
             for claims in obs_val.values()
         )
-        print(f"  {sample_id} ({speaker_a} & {speaker_b}): {n_sessions} sessions, {n_turns} turns, {n_obs} observations")
+        # Count obs per speaker
+        speaker_obs_count = defaultdict(int)
+        for obs_val in obs.values():
+            for speaker, claims in obs_val.items():
+                speaker_obs_count[speaker] += len(claims)
+        obs_breakdown = ", ".join(f"{s}: {c}" for s, c in speaker_obs_count.items())
+        print(f"  {sample_id} ({speaker_a} & {speaker_b}): {n_sessions} sessions, {n_obs} observations ({obs_breakdown})")
 
 
 if __name__ == '__main__':

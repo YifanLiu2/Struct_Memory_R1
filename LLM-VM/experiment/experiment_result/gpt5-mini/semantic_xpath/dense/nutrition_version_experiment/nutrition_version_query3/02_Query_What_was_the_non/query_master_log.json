@@ -1,0 +1,59 @@
+{
+  "user_query": "What was the non toast and non yogurt breakfast option for child on day 1 before we deleted it? Check the previous versions.",
+  "version_xpath": "at(sem(content ~= \"delete child breakfast on day 1\"))",
+  "version_result": {
+    "selector_type": "before",
+    "index": null,
+    "semantic_query": "delete child breakfast on day 1",
+    "task_query": "What was the non toast and non yogurt breakfast option for child on day 1",
+    "resolved_version": 1
+  },
+  "operation_type": "READ",
+  "semantic_xpath_query": "/Root/MealPlan_Version[1]/Person[content =~ \"child\"]/Day[1]/Breakfast/Meal[1 - (max(content =~ \"toast\", content =~ \"yogurt\"))]",
+  "semantic_xpath_execution_log": {
+    "aggregation_execution_log": "reasoning_traces/execution_20260220_003035_584578.json",
+    "predicate_batch_scoring_log": null
+  },
+  "semantic_xpath_result": [
+    {
+      "node_relative_path": "Root > MealPlan_Version 1 > Child > Day 1 > Breakfast > Smoothie — Smoky Variation",
+      "node_info": {
+        "name": "Smoothie — Smoky Variation",
+        "type": "Meal"
+      },
+      "children_names": [],
+      "score": 0.0
+    }
+  ],
+  "downstream_task_result": {
+    "operation": "READ",
+    "success": true,
+    "selected_count": 1,
+    "candidates_count": 3,
+    "total_time_ms": 14145.29
+  },
+  "execution_time_ms": 14150.42,
+  "token_usage": {
+    "prompt_tokens": 5773,
+    "completion_tokens": 654,
+    "total_tokens": 6427,
+    "by_stage": {
+      "version_resolution": {
+        "prompt_tokens": 1455,
+        "completion_tokens": 171,
+        "total_tokens": 1626
+      },
+      "xpath_generation": {
+        "prompt_tokens": 2668,
+        "completion_tokens": 172,
+        "total_tokens": 2840
+      },
+      "read_handler": {
+        "prompt_tokens": 1650,
+        "completion_tokens": 311,
+        "total_tokens": 1961
+      }
+    },
+    "cost_usd": 0.07735
+  }
+}

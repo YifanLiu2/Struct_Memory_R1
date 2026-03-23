@@ -1,0 +1,4173 @@
+{
+  "timestamp": "20260219_172732_351662",
+  "query": "/Root/MealPlan_Version[1]/Person[atom(content =~ \"child\")]/Day[agg_exists(Lunch/Meal[atom(content =~ \"portable caprese sandwich\")])]",
+  "canonical_query": "/Root/MealPlan_Version[1]/Person[content =~ \"child\"]/Day[max(Meal[content =~ \"portable caprese sandwich\"])]",
+  "data_file": "tree.xml",
+  "execution_time_ms": 548.7592502031475,
+  "parsed_ast": {
+    "steps": [
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Root",
+            "span": {
+              "start": 1,
+              "end": 5
+            }
+          },
+          "span": {
+            "start": 1,
+            "end": 5
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "MealPlan_Version",
+            "index": {
+              "start": 1,
+              "type": "single",
+              "span": {
+                "start": 22,
+                "end": 25
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 25
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 25
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Person",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "child",
+              "operator": "=~",
+              "span": {
+                "start": 33,
+                "end": 57
+              }
+            },
+            "predicate_str": "atom(content =~ \"child\")",
+            "span": {
+              "start": 26,
+              "end": 58
+            }
+          },
+          "span": {
+            "start": 26,
+            "end": 58
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Day",
+            "predicate": {
+              "operator": "AGG_EXISTS",
+              "selector": {
+                "axis": "none",
+                "test": {
+                  "type": "leaf",
+                  "test": {
+                    "type": "node_test",
+                    "kind": "type",
+                    "name": "Meal",
+                    "span": {
+                      "start": 80,
+                      "end": 130
+                    }
+                  },
+                  "span": {
+                    "start": 80,
+                    "end": 130
+                  }
+                },
+                "path_prefix": [
+                  "Lunch"
+                ],
+                "span": {
+                  "start": 74,
+                  "end": 130
+                }
+              },
+              "child_predicate": {
+                "type": "atom",
+                "field": "content",
+                "value": "portable caprese sandwich",
+                "operator": "=~",
+                "span": {
+                  "start": 85,
+                  "end": 129
+                }
+              },
+              "child_type": "Meal",
+              "span": {
+                "start": 63,
+                "end": 131
+              }
+            },
+            "predicate_str": "agg_exists(Meal[atom(content =~ \"portable caprese sandwich\")])",
+            "span": {
+              "start": 59,
+              "end": 132
+            }
+          },
+          "span": {
+            "start": 59,
+            "end": 132
+          }
+        }
+      }
+    ],
+    "global_index": null
+  },
+  "parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: MealPlan_Version[1]\n├── Step 2: Person[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"child\")\n└── Step 3: Day[predicate]\n    │   predicate:\n        │   └── AGG_EXISTS(Meal)\n            │   └── ATOM(content =~ \"portable caprese sandwich\")",
+  "canonical_parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: MealPlan_Version[1]\n├── Step 2: Person[content =~ \"child\"]\n└── Step 3: Day[max(Meal[content =~ \"portable caprese sandwich\"])]",
+  "execution_log": [
+    "[20260219_172732_351662] Executing query: /Root/MealPlan_Version[1]/Person[atom(content =~ \"child\")]/Day[agg_exists(Lunch/Meal[atom(content =~ \"portable caprese sandwich\")])]",
+    "Data file: tree.xml",
+    "Parsed steps: [Root, MealPlan_Version[1], Person[atom(content =~ \"child\")], Day[agg_exists(Meal[atom(content =~ \"portable caprese sandwich\")])]]",
+    "",
+    "Query AST:\n├── Step 0: Root\n├── Step 1: MealPlan_Version[1]\n├── Step 2: Person[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"child\")\n└── Step 3: Day[predicate]\n    │   predicate:\n        │   └── AGG_EXISTS(Meal)\n            │   └── ATOM(content =~ \"portable caprese sandwich\")",
+    "\n--- Step 1: Root ---",
+    "Matched Root root",
+    "\n--- Step 2: MealPlan_Version[1] ---",
+    "Selected node at index 1 (0-based: 0)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 3: Person[atom(content =~ \"child\")] ---",
+    "Scoring predicate: atom(content =~ \"child\") (atomic values: ['child'])",
+    "  Node 0 (Father): score = 0.0000 (exact match)",
+    "  Node 1 (Mother): score = 0.0000 (exact match)",
+    "  Node 2 (Child): score = 1.0000 (exact match)",
+    "  Exact attribute match on @name: 1/3 nodes matched",
+    "After step: 3 nodes remaining",
+    "\n--- Step 4: Day[agg_exists(Meal[atom(content =~ \"portable caprese sandwich\")])] ---",
+    "  Zero-score pruning: skipping 2 items (Father, Mother)",
+    "Scoring predicate: agg_exists(Meal[atom(content =~ \"portable caprese sandwich\")]) (atomic values: ['portable caprese sandwich'])",
+    "  Collected 21 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 21 total descriptions",
+    "  Node 0 (Day 1): score = 0.4247",
+    "  Node 1 (Day 2): score = 0.5878",
+    "  Node 2 (Day 3): score = 0.5357",
+    "  Node 3 (Day 4): score = 0.4066",
+    "  Node 4 (Day 5): score = 0.6197",
+    "  Node 5 (Day 6): score = 0.4777",
+    "  Node 6 (Day 7): score = 0.4013",
+    "After step: 7 nodes remaining",
+    "\n=== Score Fusion ===",
+    "  Root > MealPlan_Version 1 > Child > Day 1: product=0.4247 → score=0.4247",
+    "  Root > MealPlan_Version 1 > Child > Day 2: product=0.5878 → score=0.5878",
+    "  Root > MealPlan_Version 1 > Child > Day 3: product=0.5357 → score=0.5357",
+    "  Root > MealPlan_Version 1 > Child > Day 4: product=0.4066 → score=0.4066",
+    "  Root > MealPlan_Version 1 > Child > Day 5: product=0.6197 → score=0.6197",
+    "  Root > MealPlan_Version 1 > Child > Day 6: product=0.4777 → score=0.4777",
+    "  Root > MealPlan_Version 1 > Child > Day 7: product=0.4013 → score=0.4013",
+    "  Parent propagation: Root > MealPlan_Version 1 > Child > Day 1: own=0.4247 × parent=1.0000 → 0.4247",
+    "  Parent propagation: Root > MealPlan_Version 1 > Child > Day 2: own=0.5878 × parent=1.0000 → 0.5878",
+    "  Parent propagation: Root > MealPlan_Version 1 > Child > Day 3: own=0.5357 × parent=1.0000 → 0.5357",
+    "  Parent propagation: Root > MealPlan_Version 1 > Child > Day 4: own=0.4066 × parent=1.0000 → 0.4066",
+    "  Parent propagation: Root > MealPlan_Version 1 > Child > Day 5: own=0.6197 × parent=1.0000 → 0.6197",
+    "  Parent propagation: Root > MealPlan_Version 1 > Child > Day 6: own=0.4777 × parent=1.0000 → 0.4777",
+    "  Parent propagation: Root > MealPlan_Version 1 > Child > Day 7: own=0.4013 × parent=1.0000 → 0.4013",
+    "\n=== Parent Score Propagation: 7 nodes updated ===",
+    "\n=== Threshold Filtering (threshold=0.05) ===",
+    "  Filtered: 7 → 7 nodes",
+    "\n=== Final Filtering (top_k=5) ===",
+    "  After top_k: 7 → 5 nodes",
+    "\nFinal result: 5 nodes (sorted by score)",
+    "⏱️  Query execution time: 548.76ms"
+  ],
+  "traversal_steps": [
+    {
+      "step_index": 0,
+      "step_query": "Root",
+      "action": "root_match",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "type": "root"
+        }
+      ],
+      "nodes_after": [
+        {
+          "type": "Root",
+          "path": "Root"
+        }
+      ],
+      "details": {
+        "matched": true
+      }
+    },
+    {
+      "step_index": 1,
+      "step_query": "MealPlan_Version[1]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root",
+          "name": "Root",
+          "type": "Root",
+          "score": 1.0,
+          "node_id": 6158432864
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > MealPlan_Version 1",
+          "name": "MealPlan_Version 1",
+          "type": "MealPlan_Version",
+          "score": 1.0,
+          "node_id": 6158433664
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "MealPlan_Version",
+            "index": {
+              "start": 1,
+              "type": "single",
+              "span": {
+                "start": 22,
+                "end": 25
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 25
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 25
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 2,
+      "step_query": "Person[atom(content =~ \"child\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 3,
+      "nodes_before": [
+        {
+          "path": "Root > MealPlan_Version 1",
+          "name": "MealPlan_Version 1",
+          "type": "MealPlan_Version",
+          "score": 1.0,
+          "node_id": 6158433664
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > MealPlan_Version 1 > Father",
+          "name": "Father",
+          "type": "Person",
+          "score": 0.0,
+          "node_id": 6158433424
+        },
+        {
+          "path": "Root > MealPlan_Version 1 > Mother",
+          "name": "Mother",
+          "type": "Person",
+          "score": 0.0,
+          "node_id": 6159947536
+        },
+        {
+          "path": "Root > MealPlan_Version 1 > Child",
+          "name": "Child",
+          "type": "Person",
+          "score": 1.0,
+          "node_id": 6159284832
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Person",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "child",
+              "operator": "=~",
+              "span": {
+                "start": 33,
+                "end": 57
+              }
+            },
+            "predicate_str": "atom(content =~ \"child\")",
+            "span": {
+              "start": 26,
+              "end": 58
+            }
+          },
+          "span": {
+            "start": 26,
+            "end": 58
+          }
+        },
+        "found_count": 3,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"child\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "child",
+              "operator": "=~",
+              "span": {
+                "start": 33,
+                "end": 57
+              }
+            },
+            "config": {
+              "top_k": 5,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 6158433424,
+                "node_name": "Father",
+                "node_type": "Person",
+                "final_score": 0.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Father",
+                    "query_value": "child",
+                    "matched": false,
+                    "score": 0.0
+                  }
+                ]
+              },
+              {
+                "node_idx": 1,
+                "node_id": 6159947536,
+                "node_name": "Mother",
+                "node_type": "Person",
+                "final_score": 0.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Mother",
+                    "query_value": "child",
+                    "matched": false,
+                    "score": 0.0
+                  }
+                ]
+              },
+              {
+                "node_idx": 2,
+                "node_id": 6159284832,
+                "node_name": "Child",
+                "node_type": "Person",
+                "final_score": 1.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Child",
+                    "query_value": "child",
+                    "matched": true,
+                    "score": 1.0
+                  }
+                ]
+              }
+            ],
+            "batch_scoring": {
+              "exact_match": true,
+              "matched_attribute": "name",
+              "query_value": "child",
+              "matched_count": 1
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 2,
+                "score": 1.0,
+                "name": "Child"
+              },
+              {
+                "idx": 0,
+                "score": 0.0,
+                "name": "Father"
+              },
+              {
+                "idx": 1,
+                "score": 0.0,
+                "name": "Mother"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "step_index": 3,
+      "step_query": "Day[agg_exists(Meal[atom(content =~ \"portable caprese sandwich\")])]",
+      "action": "node_test_expr",
+      "nodes_before_count": 3,
+      "nodes_after_count": 7,
+      "nodes_before": [
+        {
+          "path": "Root > MealPlan_Version 1 > Father",
+          "name": "Father",
+          "type": "Person",
+          "score": 0.0,
+          "node_id": 6158433424
+        },
+        {
+          "path": "Root > MealPlan_Version 1 > Mother",
+          "name": "Mother",
+          "type": "Person",
+          "score": 0.0,
+          "node_id": 6159947536
+        },
+        {
+          "path": "Root > MealPlan_Version 1 > Child",
+          "name": "Child",
+          "type": "Person",
+          "score": 1.0,
+          "node_id": 6159284832
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > MealPlan_Version 1 > Child > Day 1",
+          "name": "Day 1",
+          "type": "Day",
+          "score": 0.424737811088562,
+          "node_id": 6159284912
+        },
+        {
+          "path": "Root > MealPlan_Version 1 > Child > Day 2",
+          "name": "Day 2",
+          "type": "Day",
+          "score": 0.5878093838691711,
+          "node_id": 6159342288
+        },
+        {
+          "path": "Root > MealPlan_Version 1 > Child > Day 3",
+          "name": "Day 3",
+          "type": "Day",
+          "score": 0.5356636047363281,
+          "node_id": 6159351328
+        },
+        {
+          "path": "Root > MealPlan_Version 1 > Child > Day 4",
+          "name": "Day 4",
+          "type": "Day",
+          "score": 0.40662503242492676,
+          "node_id": 6158982640
+        },
+        {
+          "path": "Root > MealPlan_Version 1 > Child > Day 5",
+          "name": "Day 5",
+          "type": "Day",
+          "score": 0.6197353601455688,
+          "node_id": 6158990640
+        },
+        {
+          "path": "Root > MealPlan_Version 1 > Child > Day 6",
+          "name": "Day 6",
+          "type": "Day",
+          "score": 0.4776555895805359,
+          "node_id": 6159293616
+        },
+        {
+          "path": "Root > MealPlan_Version 1 > Child > Day 7",
+          "name": "Day 7",
+          "type": "Day",
+          "score": 0.4012698531150818,
+          "node_id": 6159301616
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Day",
+            "predicate": {
+              "operator": "AGG_EXISTS",
+              "selector": {
+                "axis": "none",
+                "test": {
+                  "type": "leaf",
+                  "test": {
+                    "type": "node_test",
+                    "kind": "type",
+                    "name": "Meal",
+                    "span": {
+                      "start": 80,
+                      "end": 130
+                    }
+                  },
+                  "span": {
+                    "start": 80,
+                    "end": 130
+                  }
+                },
+                "path_prefix": [
+                  "Lunch"
+                ],
+                "span": {
+                  "start": 74,
+                  "end": 130
+                }
+              },
+              "child_predicate": {
+                "type": "atom",
+                "field": "content",
+                "value": "portable caprese sandwich",
+                "operator": "=~",
+                "span": {
+                  "start": 85,
+                  "end": 129
+                }
+              },
+              "child_type": "Meal",
+              "span": {
+                "start": 63,
+                "end": 131
+              }
+            },
+            "predicate_str": "agg_exists(Meal[atom(content =~ \"portable caprese sandwich\")])",
+            "span": {
+              "start": 59,
+              "end": 132
+            }
+          },
+          "span": {
+            "start": 59,
+            "end": 132
+          }
+        },
+        "found_count": 7,
+        "scoring_trace": [
+          {
+            "predicate": "agg_exists(Meal[atom(content =~ \"portable caprese sandwich\")])",
+            "predicate_ast": {
+              "operator": "AGG_EXISTS",
+              "selector": {
+                "axis": "none",
+                "test": {
+                  "type": "leaf",
+                  "test": {
+                    "type": "node_test",
+                    "kind": "type",
+                    "name": "Meal",
+                    "span": {
+                      "start": 80,
+                      "end": 130
+                    }
+                  },
+                  "span": {
+                    "start": 80,
+                    "end": 130
+                  }
+                },
+                "path_prefix": [
+                  "Lunch"
+                ],
+                "span": {
+                  "start": 74,
+                  "end": 130
+                }
+              },
+              "child_predicate": {
+                "type": "atom",
+                "field": "content",
+                "value": "portable caprese sandwich",
+                "operator": "=~",
+                "span": {
+                  "start": 85,
+                  "end": 129
+                }
+              },
+              "child_type": "Meal",
+              "span": {
+                "start": 63,
+                "end": 131
+              }
+            },
+            "config": {
+              "top_k": 5,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 6159284912,
+                "node_name": "Day 1",
+                "node_type": "Day",
+                "scoring_steps": [
+                  {
+                    "type": "agg_exists_recursive",
+                    "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+                    "selector": {
+                      "axis": "none",
+                      "test": {
+                        "type": "leaf",
+                        "test": {
+                          "type": "node_test",
+                          "kind": "type",
+                          "name": "Meal",
+                          "span": {
+                            "start": 80,
+                            "end": 130
+                          }
+                        },
+                        "span": {
+                          "start": 80,
+                          "end": 130
+                        }
+                      },
+                      "path_prefix": [
+                        "Lunch"
+                      ],
+                      "span": {
+                        "start": 74,
+                        "end": 130
+                      }
+                    },
+                    "num_children": 3,
+                    "child_results": [
+                      {
+                        "score": 0.4029468297958374,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.35080116987228394,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.424737811088562,
+                        "subtree_size": 1
+                      }
+                    ],
+                    "child_contributions": [
+                      {
+                        "childName": "Veggie Quesadilla — Smoky Combo",
+                        "childPath": "Veggie Quesadilla — Smoky Combo",
+                        "childType": "Meal",
+                        "rawScore": 0.4029468297958374,
+                        "weight": 1.0,
+                        "weightedContribution": 0.4029468297958374,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      },
+                      {
+                        "childName": "Veggie Quesadilla — Sesame Wrap",
+                        "childPath": "Veggie Quesadilla — Sesame Wrap",
+                        "childType": "Meal",
+                        "rawScore": 0.35080116987228394,
+                        "weight": 1.0,
+                        "weightedContribution": 0.35080116987228394,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      },
+                      {
+                        "childName": "Salmon Salad Wrap — Classic Wrap",
+                        "childPath": "Salmon Salad Wrap — Classic Wrap",
+                        "childType": "Meal",
+                        "rawScore": 0.424737811088562,
+                        "weight": 1.0,
+                        "weightedContribution": 0.424737811088562,
+                        "subtreeSize": 1,
+                        "isBestMatch": true
+                      }
+                    ],
+                    "best_match_details": {
+                      "type": "node_match",
+                      "node_name": "Salmon Salad Wrap — Classic Wrap",
+                      "node_type": "Meal",
+                      "node_path": "Salmon Salad Wrap — Classic Wrap",
+                      "score": 0.424737811088562,
+                      "trace": [
+                        {
+                          "type": "atom",
+                          "condition": {
+                            "type": "atom",
+                            "field": "content",
+                            "value": "portable caprese sandwich",
+                            "operator": "=~",
+                            "span": {
+                              "start": 85,
+                              "end": 129
+                            }
+                          },
+                          "score": 0.424737811088562,
+                          "note": "Atom(u, φ) - local node content from attr(u)"
+                        }
+                      ]
+                    },
+                    "result": 0.424737811088562
+                  }
+                ],
+                "final_score": 0.424737811088562
+              },
+              {
+                "node_idx": 1,
+                "node_id": 6159342288,
+                "node_name": "Day 2",
+                "node_type": "Day",
+                "scoring_steps": [
+                  {
+                    "type": "agg_exists_recursive",
+                    "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+                    "selector": {
+                      "axis": "none",
+                      "test": {
+                        "type": "leaf",
+                        "test": {
+                          "type": "node_test",
+                          "kind": "type",
+                          "name": "Meal",
+                          "span": {
+                            "start": 80,
+                            "end": 130
+                          }
+                        },
+                        "span": {
+                          "start": 80,
+                          "end": 130
+                        }
+                      },
+                      "path_prefix": [
+                        "Lunch"
+                      ],
+                      "span": {
+                        "start": 74,
+                        "end": 130
+                      }
+                    },
+                    "num_children": 3,
+                    "child_results": [
+                      {
+                        "score": 0.5878093838691711,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.45848071575164795,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.3407723009586334,
+                        "subtree_size": 1
+                      }
+                    ],
+                    "child_contributions": [
+                      {
+                        "childName": "Caprese Sandwich — Maple-Kissed Variation",
+                        "childPath": "Caprese Sandwich — Maple-Kissed Variation",
+                        "childType": "Meal",
+                        "rawScore": 0.5878093838691711,
+                        "weight": 1.0,
+                        "weightedContribution": 0.5878093838691711,
+                        "subtreeSize": 1,
+                        "isBestMatch": true
+                      },
+                      {
+                        "childName": "Lentil Soup — Citrus Fresh Set",
+                        "childPath": "Lentil Soup — Citrus Fresh Set",
+                        "childType": "Meal",
+                        "rawScore": 0.45848071575164795,
+                        "weight": 1.0,
+                        "weightedContribution": 0.45848071575164795,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      },
+                      {
+                        "childName": "Chicken Noodle Soup — Citrus Fresh Twist",
+                        "childPath": "Chicken Noodle Soup — Citrus Fresh Twist",
+                        "childType": "Meal",
+                        "rawScore": 0.3407723009586334,
+                        "weight": 1.0,
+                        "weightedContribution": 0.3407723009586334,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      }
+                    ],
+                    "best_match_details": {
+                      "type": "node_match",
+                      "node_name": "Caprese Sandwich — Maple-Kissed Variation",
+                      "node_type": "Meal",
+                      "node_path": "Caprese Sandwich — Maple-Kissed Variation",
+                      "score": 0.5878093838691711,
+                      "trace": [
+                        {
+                          "type": "atom",
+                          "condition": {
+                            "type": "atom",
+                            "field": "content",
+                            "value": "portable caprese sandwich",
+                            "operator": "=~",
+                            "span": {
+                              "start": 85,
+                              "end": 129
+                            }
+                          },
+                          "score": 0.5878093838691711,
+                          "note": "Atom(u, φ) - local node content from attr(u)"
+                        }
+                      ]
+                    },
+                    "result": 0.5878093838691711
+                  }
+                ],
+                "final_score": 0.5878093838691711
+              },
+              {
+                "node_idx": 2,
+                "node_id": 6159351328,
+                "node_name": "Day 3",
+                "node_type": "Day",
+                "scoring_steps": [
+                  {
+                    "type": "agg_exists_recursive",
+                    "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+                    "selector": {
+                      "axis": "none",
+                      "test": {
+                        "type": "leaf",
+                        "test": {
+                          "type": "node_test",
+                          "kind": "type",
+                          "name": "Meal",
+                          "span": {
+                            "start": 80,
+                            "end": 130
+                          }
+                        },
+                        "span": {
+                          "start": 80,
+                          "end": 130
+                        }
+                      },
+                      "path_prefix": [
+                        "Lunch"
+                      ],
+                      "span": {
+                        "start": 74,
+                        "end": 130
+                      }
+                    },
+                    "num_children": 3,
+                    "child_results": [
+                      {
+                        "score": 0.36914509534835815,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.4301241636276245,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.5356636047363281,
+                        "subtree_size": 1
+                      }
+                    ],
+                    "child_contributions": [
+                      {
+                        "childName": "Bean Burrito Bowl — Berry Boost Style",
+                        "childPath": "Bean Burrito Bowl — Berry Boost Style",
+                        "childType": "Meal",
+                        "rawScore": 0.36914509534835815,
+                        "weight": 1.0,
+                        "weightedContribution": 0.36914509534835815,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      },
+                      {
+                        "childName": "Tuna Pasta Salad — Smoky Wrap",
+                        "childPath": "Tuna Pasta Salad — Smoky Wrap",
+                        "childType": "Meal",
+                        "rawScore": 0.4301241636276245,
+                        "weight": 1.0,
+                        "weightedContribution": 0.4301241636276245,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      },
+                      {
+                        "childName": "Turkey Sandwich — Garden Veg Combo",
+                        "childPath": "Turkey Sandwich — Garden Veg Combo",
+                        "childType": "Meal",
+                        "rawScore": 0.5356636047363281,
+                        "weight": 1.0,
+                        "weightedContribution": 0.5356636047363281,
+                        "subtreeSize": 1,
+                        "isBestMatch": true
+                      }
+                    ],
+                    "best_match_details": {
+                      "type": "node_match",
+                      "node_name": "Turkey Sandwich — Garden Veg Combo",
+                      "node_type": "Meal",
+                      "node_path": "Turkey Sandwich — Garden Veg Combo",
+                      "score": 0.5356636047363281,
+                      "trace": [
+                        {
+                          "type": "atom",
+                          "condition": {
+                            "type": "atom",
+                            "field": "content",
+                            "value": "portable caprese sandwich",
+                            "operator": "=~",
+                            "span": {
+                              "start": 85,
+                              "end": 129
+                            }
+                          },
+                          "score": 0.5356636047363281,
+                          "note": "Atom(u, φ) - local node content from attr(u)"
+                        }
+                      ]
+                    },
+                    "result": 0.5356636047363281
+                  }
+                ],
+                "final_score": 0.5356636047363281
+              },
+              {
+                "node_idx": 3,
+                "node_id": 6158982640,
+                "node_name": "Day 4",
+                "node_type": "Day",
+                "scoring_steps": [
+                  {
+                    "type": "agg_exists_recursive",
+                    "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+                    "selector": {
+                      "axis": "none",
+                      "test": {
+                        "type": "leaf",
+                        "test": {
+                          "type": "node_test",
+                          "kind": "type",
+                          "name": "Meal",
+                          "span": {
+                            "start": 80,
+                            "end": 130
+                          }
+                        },
+                        "span": {
+                          "start": 80,
+                          "end": 130
+                        }
+                      },
+                      "path_prefix": [
+                        "Lunch"
+                      ],
+                      "span": {
+                        "start": 74,
+                        "end": 130
+                      }
+                    },
+                    "num_children": 3,
+                    "child_results": [
+                      {
+                        "score": 0.40662503242492676,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.4059370756149292,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.37116217613220215,
+                        "subtree_size": 1
+                      }
+                    ],
+                    "child_contributions": [
+                      {
+                        "childName": "Salmon Salad Wrap — Citrus Fresh Style",
+                        "childPath": "Salmon Salad Wrap — Citrus Fresh Style",
+                        "childType": "Meal",
+                        "rawScore": 0.40662503242492676,
+                        "weight": 1.0,
+                        "weightedContribution": 0.40662503242492676,
+                        "subtreeSize": 1,
+                        "isBestMatch": true
+                      },
+                      {
+                        "childName": "Tuna Pasta Salad — Citrus Fresh Bake",
+                        "childPath": "Tuna Pasta Salad — Citrus Fresh Bake",
+                        "childType": "Meal",
+                        "rawScore": 0.4059370756149292,
+                        "weight": 1.0,
+                        "weightedContribution": 0.4059370756149292,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      },
+                      {
+                        "childName": "Mediterranean Grain Bowl — Maple-Kissed Wrap",
+                        "childPath": "Mediterranean Grain Bowl — Maple-Kissed Wrap",
+                        "childType": "Meal",
+                        "rawScore": 0.37116217613220215,
+                        "weight": 1.0,
+                        "weightedContribution": 0.37116217613220215,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      }
+                    ],
+                    "best_match_details": {
+                      "type": "node_match",
+                      "node_name": "Salmon Salad Wrap — Citrus Fresh Style",
+                      "node_type": "Meal",
+                      "node_path": "Salmon Salad Wrap — Citrus Fresh Style",
+                      "score": 0.40662503242492676,
+                      "trace": [
+                        {
+                          "type": "atom",
+                          "condition": {
+                            "type": "atom",
+                            "field": "content",
+                            "value": "portable caprese sandwich",
+                            "operator": "=~",
+                            "span": {
+                              "start": 85,
+                              "end": 129
+                            }
+                          },
+                          "score": 0.40662503242492676,
+                          "note": "Atom(u, φ) - local node content from attr(u)"
+                        }
+                      ]
+                    },
+                    "result": 0.40662503242492676
+                  }
+                ],
+                "final_score": 0.40662503242492676
+              },
+              {
+                "node_idx": 4,
+                "node_id": 6158990640,
+                "node_name": "Day 5",
+                "node_type": "Day",
+                "scoring_steps": [
+                  {
+                    "type": "agg_exists_recursive",
+                    "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+                    "selector": {
+                      "axis": "none",
+                      "test": {
+                        "type": "leaf",
+                        "test": {
+                          "type": "node_test",
+                          "kind": "type",
+                          "name": "Meal",
+                          "span": {
+                            "start": 80,
+                            "end": 130
+                          }
+                        },
+                        "span": {
+                          "start": 80,
+                          "end": 130
+                        }
+                      },
+                      "path_prefix": [
+                        "Lunch"
+                      ],
+                      "span": {
+                        "start": 74,
+                        "end": 130
+                      }
+                    },
+                    "num_children": 3,
+                    "child_results": [
+                      {
+                        "score": 0.5803813338279724,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.3616727292537689,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.6197353601455688,
+                        "subtree_size": 1
+                      }
+                    ],
+                    "child_contributions": [
+                      {
+                        "childName": "Caprese Sandwich — Citrus Fresh Variation",
+                        "childPath": "Caprese Sandwich — Citrus Fresh Variation",
+                        "childType": "Meal",
+                        "rawScore": 0.5803813338279724,
+                        "weight": 1.0,
+                        "weightedContribution": 0.5803813338279724,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      },
+                      {
+                        "childName": "Teriyaki Chicken Bowl — Garden Veg Style",
+                        "childPath": "Teriyaki Chicken Bowl — Garden Veg Style",
+                        "childType": "Meal",
+                        "rawScore": 0.3616727292537689,
+                        "weight": 1.0,
+                        "weightedContribution": 0.3616727292537689,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      },
+                      {
+                        "childName": "Caprese Sandwich — Maple-Kissed Set",
+                        "childPath": "Caprese Sandwich — Maple-Kissed Set",
+                        "childType": "Meal",
+                        "rawScore": 0.6197353601455688,
+                        "weight": 1.0,
+                        "weightedContribution": 0.6197353601455688,
+                        "subtreeSize": 1,
+                        "isBestMatch": true
+                      }
+                    ],
+                    "best_match_details": {
+                      "type": "node_match",
+                      "node_name": "Caprese Sandwich — Maple-Kissed Set",
+                      "node_type": "Meal",
+                      "node_path": "Caprese Sandwich — Maple-Kissed Set",
+                      "score": 0.6197353601455688,
+                      "trace": [
+                        {
+                          "type": "atom",
+                          "condition": {
+                            "type": "atom",
+                            "field": "content",
+                            "value": "portable caprese sandwich",
+                            "operator": "=~",
+                            "span": {
+                              "start": 85,
+                              "end": 129
+                            }
+                          },
+                          "score": 0.6197353601455688,
+                          "note": "Atom(u, φ) - local node content from attr(u)"
+                        }
+                      ]
+                    },
+                    "result": 0.6197353601455688
+                  }
+                ],
+                "final_score": 0.6197353601455688
+              },
+              {
+                "node_idx": 5,
+                "node_id": 6159293616,
+                "node_name": "Day 6",
+                "node_type": "Day",
+                "scoring_steps": [
+                  {
+                    "type": "agg_exists_recursive",
+                    "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+                    "selector": {
+                      "axis": "none",
+                      "test": {
+                        "type": "leaf",
+                        "test": {
+                          "type": "node_test",
+                          "kind": "type",
+                          "name": "Meal",
+                          "span": {
+                            "start": 80,
+                            "end": 130
+                          }
+                        },
+                        "span": {
+                          "start": 80,
+                          "end": 130
+                        }
+                      },
+                      "path_prefix": [
+                        "Lunch"
+                      ],
+                      "span": {
+                        "start": 74,
+                        "end": 130
+                      }
+                    },
+                    "num_children": 3,
+                    "child_results": [
+                      {
+                        "score": 0.38826656341552734,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.4776555895805359,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.43239879608154297,
+                        "subtree_size": 1
+                      }
+                    ],
+                    "child_contributions": [
+                      {
+                        "childName": "Mediterranean Grain Bowl — Garlic-Ginger Twist",
+                        "childPath": "Mediterranean Grain Bowl — Garlic-Ginger Twist",
+                        "childType": "Meal",
+                        "rawScore": 0.38826656341552734,
+                        "weight": 1.0,
+                        "weightedContribution": 0.38826656341552734,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      },
+                      {
+                        "childName": "Chickpea Salad Pita — Lemon-Herb Set",
+                        "childPath": "Chickpea Salad Pita — Lemon-Herb Set",
+                        "childType": "Meal",
+                        "rawScore": 0.4776555895805359,
+                        "weight": 1.0,
+                        "weightedContribution": 0.4776555895805359,
+                        "subtreeSize": 1,
+                        "isBestMatch": true
+                      },
+                      {
+                        "childName": "Chickpea Salad Pita — Citrus Fresh Plate",
+                        "childPath": "Chickpea Salad Pita — Citrus Fresh Plate",
+                        "childType": "Meal",
+                        "rawScore": 0.43239879608154297,
+                        "weight": 1.0,
+                        "weightedContribution": 0.43239879608154297,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      }
+                    ],
+                    "best_match_details": {
+                      "type": "node_match",
+                      "node_name": "Chickpea Salad Pita — Lemon-Herb Set",
+                      "node_type": "Meal",
+                      "node_path": "Chickpea Salad Pita — Lemon-Herb Set",
+                      "score": 0.4776555895805359,
+                      "trace": [
+                        {
+                          "type": "atom",
+                          "condition": {
+                            "type": "atom",
+                            "field": "content",
+                            "value": "portable caprese sandwich",
+                            "operator": "=~",
+                            "span": {
+                              "start": 85,
+                              "end": 129
+                            }
+                          },
+                          "score": 0.4776555895805359,
+                          "note": "Atom(u, φ) - local node content from attr(u)"
+                        }
+                      ]
+                    },
+                    "result": 0.4776555895805359
+                  }
+                ],
+                "final_score": 0.4776555895805359
+              },
+              {
+                "node_idx": 6,
+                "node_id": 6159301616,
+                "node_name": "Day 7",
+                "node_type": "Day",
+                "scoring_steps": [
+                  {
+                    "type": "agg_exists_recursive",
+                    "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+                    "selector": {
+                      "axis": "none",
+                      "test": {
+                        "type": "leaf",
+                        "test": {
+                          "type": "node_test",
+                          "kind": "type",
+                          "name": "Meal",
+                          "span": {
+                            "start": 80,
+                            "end": 130
+                          }
+                        },
+                        "span": {
+                          "start": 80,
+                          "end": 130
+                        }
+                      },
+                      "path_prefix": [
+                        "Lunch"
+                      ],
+                      "span": {
+                        "start": 74,
+                        "end": 130
+                      }
+                    },
+                    "num_children": 3,
+                    "child_results": [
+                      {
+                        "score": 0.4012698531150818,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.37968969345092773,
+                        "subtree_size": 1
+                      },
+                      {
+                        "score": 0.3669722378253937,
+                        "subtree_size": 1
+                      }
+                    ],
+                    "child_contributions": [
+                      {
+                        "childName": "Black Bean Wrap — Smoky Bake",
+                        "childPath": "Black Bean Wrap — Smoky Bake",
+                        "childType": "Meal",
+                        "rawScore": 0.4012698531150818,
+                        "weight": 1.0,
+                        "weightedContribution": 0.4012698531150818,
+                        "subtreeSize": 1,
+                        "isBestMatch": true
+                      },
+                      {
+                        "childName": "Soba Noodle Bowl — Garlic-Ginger Wrap",
+                        "childPath": "Soba Noodle Bowl — Garlic-Ginger Wrap",
+                        "childType": "Meal",
+                        "rawScore": 0.37968969345092773,
+                        "weight": 1.0,
+                        "weightedContribution": 0.37968969345092773,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      },
+                      {
+                        "childName": "Black Bean Wrap — Garlic-Ginger Bowl",
+                        "childPath": "Black Bean Wrap — Garlic-Ginger Bowl",
+                        "childType": "Meal",
+                        "rawScore": 0.3669722378253937,
+                        "weight": 1.0,
+                        "weightedContribution": 0.3669722378253937,
+                        "subtreeSize": 1,
+                        "isBestMatch": false
+                      }
+                    ],
+                    "best_match_details": {
+                      "type": "node_match",
+                      "node_name": "Black Bean Wrap — Smoky Bake",
+                      "node_type": "Meal",
+                      "node_path": "Black Bean Wrap — Smoky Bake",
+                      "score": 0.4012698531150818,
+                      "trace": [
+                        {
+                          "type": "atom",
+                          "condition": {
+                            "type": "atom",
+                            "field": "content",
+                            "value": "portable caprese sandwich",
+                            "operator": "=~",
+                            "span": {
+                              "start": 85,
+                              "end": 129
+                            }
+                          },
+                          "score": 0.4012698531150818,
+                          "note": "Atom(u, φ) - local node content from attr(u)"
+                        }
+                      ]
+                    },
+                    "result": 0.4012698531150818
+                  }
+                ],
+                "final_score": 0.4012698531150818
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "portable caprese sandwich"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "portable caprese sandwich",
+                  "num_descriptions": 21,
+                  "call_time_ms": 547.14
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 21
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 4,
+                "score": 0.6197353601455688,
+                "name": "Day 5"
+              },
+              {
+                "idx": 1,
+                "score": 0.5878093838691711,
+                "name": "Day 2"
+              },
+              {
+                "idx": 2,
+                "score": 0.5356636047363281,
+                "name": "Day 3"
+              },
+              {
+                "idx": 5,
+                "score": 0.4776555895805359,
+                "name": "Day 6"
+              },
+              {
+                "idx": 0,
+                "score": 0.424737811088562,
+                "name": "Day 1"
+              },
+              {
+                "idx": 3,
+                "score": 0.40662503242492676,
+                "name": "Day 4"
+              },
+              {
+                "idx": 6,
+                "score": 0.4012698531150818,
+                "name": "Day 7"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "scoring_traces": [
+    {
+      "predicate": "atom(content =~ \"child\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "child",
+        "operator": "=~",
+        "span": {
+          "start": 33,
+          "end": 57
+        }
+      },
+      "config": {
+        "top_k": 5,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 6158433424,
+          "node_name": "Father",
+          "node_type": "Person",
+          "final_score": 0.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Father",
+              "query_value": "child",
+              "matched": false,
+              "score": 0.0
+            }
+          ]
+        },
+        {
+          "node_idx": 1,
+          "node_id": 6159947536,
+          "node_name": "Mother",
+          "node_type": "Person",
+          "final_score": 0.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Mother",
+              "query_value": "child",
+              "matched": false,
+              "score": 0.0
+            }
+          ]
+        },
+        {
+          "node_idx": 2,
+          "node_id": 6159284832,
+          "node_name": "Child",
+          "node_type": "Person",
+          "final_score": 1.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Child",
+              "query_value": "child",
+              "matched": true,
+              "score": 1.0
+            }
+          ]
+        }
+      ],
+      "batch_scoring": {
+        "exact_match": true,
+        "matched_attribute": "name",
+        "query_value": "child",
+        "matched_count": 1
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 2,
+          "score": 1.0,
+          "name": "Child"
+        },
+        {
+          "idx": 0,
+          "score": 0.0,
+          "name": "Father"
+        },
+        {
+          "idx": 1,
+          "score": 0.0,
+          "name": "Mother"
+        }
+      ]
+    },
+    {
+      "predicate": "agg_exists(Meal[atom(content =~ \"portable caprese sandwich\")])",
+      "predicate_ast": {
+        "operator": "AGG_EXISTS",
+        "selector": {
+          "axis": "none",
+          "test": {
+            "type": "leaf",
+            "test": {
+              "type": "node_test",
+              "kind": "type",
+              "name": "Meal",
+              "span": {
+                "start": 80,
+                "end": 130
+              }
+            },
+            "span": {
+              "start": 80,
+              "end": 130
+            }
+          },
+          "path_prefix": [
+            "Lunch"
+          ],
+          "span": {
+            "start": 74,
+            "end": 130
+          }
+        },
+        "child_predicate": {
+          "type": "atom",
+          "field": "content",
+          "value": "portable caprese sandwich",
+          "operator": "=~",
+          "span": {
+            "start": 85,
+            "end": 129
+          }
+        },
+        "child_type": "Meal",
+        "span": {
+          "start": 63,
+          "end": 131
+        }
+      },
+      "config": {
+        "top_k": 5,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 6159284912,
+          "node_name": "Day 1",
+          "node_type": "Day",
+          "scoring_steps": [
+            {
+              "type": "agg_exists_recursive",
+              "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+              "selector": {
+                "axis": "none",
+                "test": {
+                  "type": "leaf",
+                  "test": {
+                    "type": "node_test",
+                    "kind": "type",
+                    "name": "Meal",
+                    "span": {
+                      "start": 80,
+                      "end": 130
+                    }
+                  },
+                  "span": {
+                    "start": 80,
+                    "end": 130
+                  }
+                },
+                "path_prefix": [
+                  "Lunch"
+                ],
+                "span": {
+                  "start": 74,
+                  "end": 130
+                }
+              },
+              "num_children": 3,
+              "child_results": [
+                {
+                  "score": 0.4029468297958374,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.35080116987228394,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.424737811088562,
+                  "subtree_size": 1
+                }
+              ],
+              "child_contributions": [
+                {
+                  "childName": "Veggie Quesadilla — Smoky Combo",
+                  "childPath": "Veggie Quesadilla — Smoky Combo",
+                  "childType": "Meal",
+                  "rawScore": 0.4029468297958374,
+                  "weight": 1.0,
+                  "weightedContribution": 0.4029468297958374,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                },
+                {
+                  "childName": "Veggie Quesadilla — Sesame Wrap",
+                  "childPath": "Veggie Quesadilla — Sesame Wrap",
+                  "childType": "Meal",
+                  "rawScore": 0.35080116987228394,
+                  "weight": 1.0,
+                  "weightedContribution": 0.35080116987228394,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                },
+                {
+                  "childName": "Salmon Salad Wrap — Classic Wrap",
+                  "childPath": "Salmon Salad Wrap — Classic Wrap",
+                  "childType": "Meal",
+                  "rawScore": 0.424737811088562,
+                  "weight": 1.0,
+                  "weightedContribution": 0.424737811088562,
+                  "subtreeSize": 1,
+                  "isBestMatch": true
+                }
+              ],
+              "best_match_details": {
+                "type": "node_match",
+                "node_name": "Salmon Salad Wrap — Classic Wrap",
+                "node_type": "Meal",
+                "node_path": "Salmon Salad Wrap — Classic Wrap",
+                "score": 0.424737811088562,
+                "trace": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "portable caprese sandwich",
+                      "operator": "=~",
+                      "span": {
+                        "start": 85,
+                        "end": 129
+                      }
+                    },
+                    "score": 0.424737811088562,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ]
+              },
+              "result": 0.424737811088562
+            }
+          ],
+          "final_score": 0.424737811088562
+        },
+        {
+          "node_idx": 1,
+          "node_id": 6159342288,
+          "node_name": "Day 2",
+          "node_type": "Day",
+          "scoring_steps": [
+            {
+              "type": "agg_exists_recursive",
+              "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+              "selector": {
+                "axis": "none",
+                "test": {
+                  "type": "leaf",
+                  "test": {
+                    "type": "node_test",
+                    "kind": "type",
+                    "name": "Meal",
+                    "span": {
+                      "start": 80,
+                      "end": 130
+                    }
+                  },
+                  "span": {
+                    "start": 80,
+                    "end": 130
+                  }
+                },
+                "path_prefix": [
+                  "Lunch"
+                ],
+                "span": {
+                  "start": 74,
+                  "end": 130
+                }
+              },
+              "num_children": 3,
+              "child_results": [
+                {
+                  "score": 0.5878093838691711,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.45848071575164795,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.3407723009586334,
+                  "subtree_size": 1
+                }
+              ],
+              "child_contributions": [
+                {
+                  "childName": "Caprese Sandwich — Maple-Kissed Variation",
+                  "childPath": "Caprese Sandwich — Maple-Kissed Variation",
+                  "childType": "Meal",
+                  "rawScore": 0.5878093838691711,
+                  "weight": 1.0,
+                  "weightedContribution": 0.5878093838691711,
+                  "subtreeSize": 1,
+                  "isBestMatch": true
+                },
+                {
+                  "childName": "Lentil Soup — Citrus Fresh Set",
+                  "childPath": "Lentil Soup — Citrus Fresh Set",
+                  "childType": "Meal",
+                  "rawScore": 0.45848071575164795,
+                  "weight": 1.0,
+                  "weightedContribution": 0.45848071575164795,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                },
+                {
+                  "childName": "Chicken Noodle Soup — Citrus Fresh Twist",
+                  "childPath": "Chicken Noodle Soup — Citrus Fresh Twist",
+                  "childType": "Meal",
+                  "rawScore": 0.3407723009586334,
+                  "weight": 1.0,
+                  "weightedContribution": 0.3407723009586334,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                }
+              ],
+              "best_match_details": {
+                "type": "node_match",
+                "node_name": "Caprese Sandwich — Maple-Kissed Variation",
+                "node_type": "Meal",
+                "node_path": "Caprese Sandwich — Maple-Kissed Variation",
+                "score": 0.5878093838691711,
+                "trace": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "portable caprese sandwich",
+                      "operator": "=~",
+                      "span": {
+                        "start": 85,
+                        "end": 129
+                      }
+                    },
+                    "score": 0.5878093838691711,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ]
+              },
+              "result": 0.5878093838691711
+            }
+          ],
+          "final_score": 0.5878093838691711
+        },
+        {
+          "node_idx": 2,
+          "node_id": 6159351328,
+          "node_name": "Day 3",
+          "node_type": "Day",
+          "scoring_steps": [
+            {
+              "type": "agg_exists_recursive",
+              "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+              "selector": {
+                "axis": "none",
+                "test": {
+                  "type": "leaf",
+                  "test": {
+                    "type": "node_test",
+                    "kind": "type",
+                    "name": "Meal",
+                    "span": {
+                      "start": 80,
+                      "end": 130
+                    }
+                  },
+                  "span": {
+                    "start": 80,
+                    "end": 130
+                  }
+                },
+                "path_prefix": [
+                  "Lunch"
+                ],
+                "span": {
+                  "start": 74,
+                  "end": 130
+                }
+              },
+              "num_children": 3,
+              "child_results": [
+                {
+                  "score": 0.36914509534835815,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.4301241636276245,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.5356636047363281,
+                  "subtree_size": 1
+                }
+              ],
+              "child_contributions": [
+                {
+                  "childName": "Bean Burrito Bowl — Berry Boost Style",
+                  "childPath": "Bean Burrito Bowl — Berry Boost Style",
+                  "childType": "Meal",
+                  "rawScore": 0.36914509534835815,
+                  "weight": 1.0,
+                  "weightedContribution": 0.36914509534835815,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                },
+                {
+                  "childName": "Tuna Pasta Salad — Smoky Wrap",
+                  "childPath": "Tuna Pasta Salad — Smoky Wrap",
+                  "childType": "Meal",
+                  "rawScore": 0.4301241636276245,
+                  "weight": 1.0,
+                  "weightedContribution": 0.4301241636276245,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                },
+                {
+                  "childName": "Turkey Sandwich — Garden Veg Combo",
+                  "childPath": "Turkey Sandwich — Garden Veg Combo",
+                  "childType": "Meal",
+                  "rawScore": 0.5356636047363281,
+                  "weight": 1.0,
+                  "weightedContribution": 0.5356636047363281,
+                  "subtreeSize": 1,
+                  "isBestMatch": true
+                }
+              ],
+              "best_match_details": {
+                "type": "node_match",
+                "node_name": "Turkey Sandwich — Garden Veg Combo",
+                "node_type": "Meal",
+                "node_path": "Turkey Sandwich — Garden Veg Combo",
+                "score": 0.5356636047363281,
+                "trace": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "portable caprese sandwich",
+                      "operator": "=~",
+                      "span": {
+                        "start": 85,
+                        "end": 129
+                      }
+                    },
+                    "score": 0.5356636047363281,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ]
+              },
+              "result": 0.5356636047363281
+            }
+          ],
+          "final_score": 0.5356636047363281
+        },
+        {
+          "node_idx": 3,
+          "node_id": 6158982640,
+          "node_name": "Day 4",
+          "node_type": "Day",
+          "scoring_steps": [
+            {
+              "type": "agg_exists_recursive",
+              "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+              "selector": {
+                "axis": "none",
+                "test": {
+                  "type": "leaf",
+                  "test": {
+                    "type": "node_test",
+                    "kind": "type",
+                    "name": "Meal",
+                    "span": {
+                      "start": 80,
+                      "end": 130
+                    }
+                  },
+                  "span": {
+                    "start": 80,
+                    "end": 130
+                  }
+                },
+                "path_prefix": [
+                  "Lunch"
+                ],
+                "span": {
+                  "start": 74,
+                  "end": 130
+                }
+              },
+              "num_children": 3,
+              "child_results": [
+                {
+                  "score": 0.40662503242492676,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.4059370756149292,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.37116217613220215,
+                  "subtree_size": 1
+                }
+              ],
+              "child_contributions": [
+                {
+                  "childName": "Salmon Salad Wrap — Citrus Fresh Style",
+                  "childPath": "Salmon Salad Wrap — Citrus Fresh Style",
+                  "childType": "Meal",
+                  "rawScore": 0.40662503242492676,
+                  "weight": 1.0,
+                  "weightedContribution": 0.40662503242492676,
+                  "subtreeSize": 1,
+                  "isBestMatch": true
+                },
+                {
+                  "childName": "Tuna Pasta Salad — Citrus Fresh Bake",
+                  "childPath": "Tuna Pasta Salad — Citrus Fresh Bake",
+                  "childType": "Meal",
+                  "rawScore": 0.4059370756149292,
+                  "weight": 1.0,
+                  "weightedContribution": 0.4059370756149292,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                },
+                {
+                  "childName": "Mediterranean Grain Bowl — Maple-Kissed Wrap",
+                  "childPath": "Mediterranean Grain Bowl — Maple-Kissed Wrap",
+                  "childType": "Meal",
+                  "rawScore": 0.37116217613220215,
+                  "weight": 1.0,
+                  "weightedContribution": 0.37116217613220215,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                }
+              ],
+              "best_match_details": {
+                "type": "node_match",
+                "node_name": "Salmon Salad Wrap — Citrus Fresh Style",
+                "node_type": "Meal",
+                "node_path": "Salmon Salad Wrap — Citrus Fresh Style",
+                "score": 0.40662503242492676,
+                "trace": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "portable caprese sandwich",
+                      "operator": "=~",
+                      "span": {
+                        "start": 85,
+                        "end": 129
+                      }
+                    },
+                    "score": 0.40662503242492676,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ]
+              },
+              "result": 0.40662503242492676
+            }
+          ],
+          "final_score": 0.40662503242492676
+        },
+        {
+          "node_idx": 4,
+          "node_id": 6158990640,
+          "node_name": "Day 5",
+          "node_type": "Day",
+          "scoring_steps": [
+            {
+              "type": "agg_exists_recursive",
+              "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+              "selector": {
+                "axis": "none",
+                "test": {
+                  "type": "leaf",
+                  "test": {
+                    "type": "node_test",
+                    "kind": "type",
+                    "name": "Meal",
+                    "span": {
+                      "start": 80,
+                      "end": 130
+                    }
+                  },
+                  "span": {
+                    "start": 80,
+                    "end": 130
+                  }
+                },
+                "path_prefix": [
+                  "Lunch"
+                ],
+                "span": {
+                  "start": 74,
+                  "end": 130
+                }
+              },
+              "num_children": 3,
+              "child_results": [
+                {
+                  "score": 0.5803813338279724,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.3616727292537689,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.6197353601455688,
+                  "subtree_size": 1
+                }
+              ],
+              "child_contributions": [
+                {
+                  "childName": "Caprese Sandwich — Citrus Fresh Variation",
+                  "childPath": "Caprese Sandwich — Citrus Fresh Variation",
+                  "childType": "Meal",
+                  "rawScore": 0.5803813338279724,
+                  "weight": 1.0,
+                  "weightedContribution": 0.5803813338279724,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                },
+                {
+                  "childName": "Teriyaki Chicken Bowl — Garden Veg Style",
+                  "childPath": "Teriyaki Chicken Bowl — Garden Veg Style",
+                  "childType": "Meal",
+                  "rawScore": 0.3616727292537689,
+                  "weight": 1.0,
+                  "weightedContribution": 0.3616727292537689,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                },
+                {
+                  "childName": "Caprese Sandwich — Maple-Kissed Set",
+                  "childPath": "Caprese Sandwich — Maple-Kissed Set",
+                  "childType": "Meal",
+                  "rawScore": 0.6197353601455688,
+                  "weight": 1.0,
+                  "weightedContribution": 0.6197353601455688,
+                  "subtreeSize": 1,
+                  "isBestMatch": true
+                }
+              ],
+              "best_match_details": {
+                "type": "node_match",
+                "node_name": "Caprese Sandwich — Maple-Kissed Set",
+                "node_type": "Meal",
+                "node_path": "Caprese Sandwich — Maple-Kissed Set",
+                "score": 0.6197353601455688,
+                "trace": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "portable caprese sandwich",
+                      "operator": "=~",
+                      "span": {
+                        "start": 85,
+                        "end": 129
+                      }
+                    },
+                    "score": 0.6197353601455688,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ]
+              },
+              "result": 0.6197353601455688
+            }
+          ],
+          "final_score": 0.6197353601455688
+        },
+        {
+          "node_idx": 5,
+          "node_id": 6159293616,
+          "node_name": "Day 6",
+          "node_type": "Day",
+          "scoring_steps": [
+            {
+              "type": "agg_exists_recursive",
+              "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+              "selector": {
+                "axis": "none",
+                "test": {
+                  "type": "leaf",
+                  "test": {
+                    "type": "node_test",
+                    "kind": "type",
+                    "name": "Meal",
+                    "span": {
+                      "start": 80,
+                      "end": 130
+                    }
+                  },
+                  "span": {
+                    "start": 80,
+                    "end": 130
+                  }
+                },
+                "path_prefix": [
+                  "Lunch"
+                ],
+                "span": {
+                  "start": 74,
+                  "end": 130
+                }
+              },
+              "num_children": 3,
+              "child_results": [
+                {
+                  "score": 0.38826656341552734,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.4776555895805359,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.43239879608154297,
+                  "subtree_size": 1
+                }
+              ],
+              "child_contributions": [
+                {
+                  "childName": "Mediterranean Grain Bowl — Garlic-Ginger Twist",
+                  "childPath": "Mediterranean Grain Bowl — Garlic-Ginger Twist",
+                  "childType": "Meal",
+                  "rawScore": 0.38826656341552734,
+                  "weight": 1.0,
+                  "weightedContribution": 0.38826656341552734,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                },
+                {
+                  "childName": "Chickpea Salad Pita — Lemon-Herb Set",
+                  "childPath": "Chickpea Salad Pita — Lemon-Herb Set",
+                  "childType": "Meal",
+                  "rawScore": 0.4776555895805359,
+                  "weight": 1.0,
+                  "weightedContribution": 0.4776555895805359,
+                  "subtreeSize": 1,
+                  "isBestMatch": true
+                },
+                {
+                  "childName": "Chickpea Salad Pita — Citrus Fresh Plate",
+                  "childPath": "Chickpea Salad Pita — Citrus Fresh Plate",
+                  "childType": "Meal",
+                  "rawScore": 0.43239879608154297,
+                  "weight": 1.0,
+                  "weightedContribution": 0.43239879608154297,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                }
+              ],
+              "best_match_details": {
+                "type": "node_match",
+                "node_name": "Chickpea Salad Pita — Lemon-Herb Set",
+                "node_type": "Meal",
+                "node_path": "Chickpea Salad Pita — Lemon-Herb Set",
+                "score": 0.4776555895805359,
+                "trace": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "portable caprese sandwich",
+                      "operator": "=~",
+                      "span": {
+                        "start": 85,
+                        "end": 129
+                      }
+                    },
+                    "score": 0.4776555895805359,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ]
+              },
+              "result": 0.4776555895805359
+            }
+          ],
+          "final_score": 0.4776555895805359
+        },
+        {
+          "node_idx": 6,
+          "node_id": 6159301616,
+          "node_name": "Day 7",
+          "node_type": "Day",
+          "scoring_steps": [
+            {
+              "type": "agg_exists_recursive",
+              "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+              "selector": {
+                "axis": "none",
+                "test": {
+                  "type": "leaf",
+                  "test": {
+                    "type": "node_test",
+                    "kind": "type",
+                    "name": "Meal",
+                    "span": {
+                      "start": 80,
+                      "end": 130
+                    }
+                  },
+                  "span": {
+                    "start": 80,
+                    "end": 130
+                  }
+                },
+                "path_prefix": [
+                  "Lunch"
+                ],
+                "span": {
+                  "start": 74,
+                  "end": 130
+                }
+              },
+              "num_children": 3,
+              "child_results": [
+                {
+                  "score": 0.4012698531150818,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.37968969345092773,
+                  "subtree_size": 1
+                },
+                {
+                  "score": 0.3669722378253937,
+                  "subtree_size": 1
+                }
+              ],
+              "child_contributions": [
+                {
+                  "childName": "Black Bean Wrap — Smoky Bake",
+                  "childPath": "Black Bean Wrap — Smoky Bake",
+                  "childType": "Meal",
+                  "rawScore": 0.4012698531150818,
+                  "weight": 1.0,
+                  "weightedContribution": 0.4012698531150818,
+                  "subtreeSize": 1,
+                  "isBestMatch": true
+                },
+                {
+                  "childName": "Soba Noodle Bowl — Garlic-Ginger Wrap",
+                  "childPath": "Soba Noodle Bowl — Garlic-Ginger Wrap",
+                  "childType": "Meal",
+                  "rawScore": 0.37968969345092773,
+                  "weight": 1.0,
+                  "weightedContribution": 0.37968969345092773,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                },
+                {
+                  "childName": "Black Bean Wrap — Garlic-Ginger Bowl",
+                  "childPath": "Black Bean Wrap — Garlic-Ginger Bowl",
+                  "childType": "Meal",
+                  "rawScore": 0.3669722378253937,
+                  "weight": 1.0,
+                  "weightedContribution": 0.3669722378253937,
+                  "subtreeSize": 1,
+                  "isBestMatch": false
+                }
+              ],
+              "best_match_details": {
+                "type": "node_match",
+                "node_name": "Black Bean Wrap — Smoky Bake",
+                "node_type": "Meal",
+                "node_path": "Black Bean Wrap — Smoky Bake",
+                "score": 0.4012698531150818,
+                "trace": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "portable caprese sandwich",
+                      "operator": "=~",
+                      "span": {
+                        "start": 85,
+                        "end": 129
+                      }
+                    },
+                    "score": 0.4012698531150818,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ]
+              },
+              "result": 0.4012698531150818
+            }
+          ],
+          "final_score": 0.4012698531150818
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "portable caprese sandwich"
+        ],
+        "per_value_stats": [
+          {
+            "value": "portable caprese sandwich",
+            "num_descriptions": 21,
+            "call_time_ms": 547.14
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 21
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 4,
+          "score": 0.6197353601455688,
+          "name": "Day 5"
+        },
+        {
+          "idx": 1,
+          "score": 0.5878093838691711,
+          "name": "Day 2"
+        },
+        {
+          "idx": 2,
+          "score": 0.5356636047363281,
+          "name": "Day 3"
+        },
+        {
+          "idx": 5,
+          "score": 0.4776555895805359,
+          "name": "Day 6"
+        },
+        {
+          "idx": 0,
+          "score": 0.424737811088562,
+          "name": "Day 1"
+        },
+        {
+          "idx": 3,
+          "score": 0.40662503242492676,
+          "name": "Day 4"
+        },
+        {
+          "idx": 6,
+          "score": 0.4012698531150818,
+          "name": "Day 7"
+        }
+      ]
+    }
+  ],
+  "scoring_details": {
+    "step_scores": [
+      {
+        "step_index": 0,
+        "predicate": "atom(content =~ \"child\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "child",
+          "operator": "=~",
+          "span": {
+            "start": 33,
+            "end": 57
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 6158433424,
+            "node_name": "Father",
+            "node_type": "Person",
+            "final_score": 0.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Father",
+                "query_value": "child",
+                "matched": false,
+                "score": 0.0
+              }
+            ]
+          },
+          {
+            "node_idx": 1,
+            "node_id": 6159947536,
+            "node_name": "Mother",
+            "node_type": "Person",
+            "final_score": 0.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Mother",
+                "query_value": "child",
+                "matched": false,
+                "score": 0.0
+              }
+            ]
+          },
+          {
+            "node_idx": 2,
+            "node_id": 6159284832,
+            "node_name": "Child",
+            "node_type": "Person",
+            "final_score": 1.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Child",
+                "query_value": "child",
+                "matched": true,
+                "score": 1.0
+              }
+            ]
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 2,
+            "score": 1.0,
+            "name": "Child"
+          },
+          {
+            "idx": 0,
+            "score": 0.0,
+            "name": "Father"
+          },
+          {
+            "idx": 1,
+            "score": 0.0,
+            "name": "Mother"
+          }
+        ]
+      },
+      {
+        "step_index": 1,
+        "predicate": "agg_exists(Meal[atom(content =~ \"portable caprese sandwich\")])",
+        "predicate_ast": {
+          "operator": "AGG_EXISTS",
+          "selector": {
+            "axis": "none",
+            "test": {
+              "type": "leaf",
+              "test": {
+                "type": "node_test",
+                "kind": "type",
+                "name": "Meal",
+                "span": {
+                  "start": 80,
+                  "end": 130
+                }
+              },
+              "span": {
+                "start": 80,
+                "end": 130
+              }
+            },
+            "path_prefix": [
+              "Lunch"
+            ],
+            "span": {
+              "start": 74,
+              "end": 130
+            }
+          },
+          "child_predicate": {
+            "type": "atom",
+            "field": "content",
+            "value": "portable caprese sandwich",
+            "operator": "=~",
+            "span": {
+              "start": 85,
+              "end": 129
+            }
+          },
+          "child_type": "Meal",
+          "span": {
+            "start": 63,
+            "end": 131
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 6159284912,
+            "node_name": "Day 1",
+            "node_type": "Day",
+            "scoring_steps": [
+              {
+                "type": "agg_exists_recursive",
+                "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+                "selector": {
+                  "axis": "none",
+                  "test": {
+                    "type": "leaf",
+                    "test": {
+                      "type": "node_test",
+                      "kind": "type",
+                      "name": "Meal",
+                      "span": {
+                        "start": 80,
+                        "end": 130
+                      }
+                    },
+                    "span": {
+                      "start": 80,
+                      "end": 130
+                    }
+                  },
+                  "path_prefix": [
+                    "Lunch"
+                  ],
+                  "span": {
+                    "start": 74,
+                    "end": 130
+                  }
+                },
+                "num_children": 3,
+                "child_results": [
+                  {
+                    "score": 0.4029468297958374,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.35080116987228394,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.424737811088562,
+                    "subtree_size": 1
+                  }
+                ],
+                "child_contributions": [
+                  {
+                    "childName": "Veggie Quesadilla — Smoky Combo",
+                    "childPath": "Veggie Quesadilla — Smoky Combo",
+                    "childType": "Meal",
+                    "rawScore": 0.4029468297958374,
+                    "weight": 1.0,
+                    "weightedContribution": 0.4029468297958374,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  },
+                  {
+                    "childName": "Veggie Quesadilla — Sesame Wrap",
+                    "childPath": "Veggie Quesadilla — Sesame Wrap",
+                    "childType": "Meal",
+                    "rawScore": 0.35080116987228394,
+                    "weight": 1.0,
+                    "weightedContribution": 0.35080116987228394,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  },
+                  {
+                    "childName": "Salmon Salad Wrap — Classic Wrap",
+                    "childPath": "Salmon Salad Wrap — Classic Wrap",
+                    "childType": "Meal",
+                    "rawScore": 0.424737811088562,
+                    "weight": 1.0,
+                    "weightedContribution": 0.424737811088562,
+                    "subtreeSize": 1,
+                    "isBestMatch": true
+                  }
+                ],
+                "best_match_details": {
+                  "type": "node_match",
+                  "node_name": "Salmon Salad Wrap — Classic Wrap",
+                  "node_type": "Meal",
+                  "node_path": "Salmon Salad Wrap — Classic Wrap",
+                  "score": 0.424737811088562,
+                  "trace": [
+                    {
+                      "type": "atom",
+                      "condition": {
+                        "type": "atom",
+                        "field": "content",
+                        "value": "portable caprese sandwich",
+                        "operator": "=~",
+                        "span": {
+                          "start": 85,
+                          "end": 129
+                        }
+                      },
+                      "score": 0.424737811088562,
+                      "note": "Atom(u, φ) - local node content from attr(u)"
+                    }
+                  ]
+                },
+                "result": 0.424737811088562
+              }
+            ],
+            "final_score": 0.424737811088562
+          },
+          {
+            "node_idx": 1,
+            "node_id": 6159342288,
+            "node_name": "Day 2",
+            "node_type": "Day",
+            "scoring_steps": [
+              {
+                "type": "agg_exists_recursive",
+                "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+                "selector": {
+                  "axis": "none",
+                  "test": {
+                    "type": "leaf",
+                    "test": {
+                      "type": "node_test",
+                      "kind": "type",
+                      "name": "Meal",
+                      "span": {
+                        "start": 80,
+                        "end": 130
+                      }
+                    },
+                    "span": {
+                      "start": 80,
+                      "end": 130
+                    }
+                  },
+                  "path_prefix": [
+                    "Lunch"
+                  ],
+                  "span": {
+                    "start": 74,
+                    "end": 130
+                  }
+                },
+                "num_children": 3,
+                "child_results": [
+                  {
+                    "score": 0.5878093838691711,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.45848071575164795,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.3407723009586334,
+                    "subtree_size": 1
+                  }
+                ],
+                "child_contributions": [
+                  {
+                    "childName": "Caprese Sandwich — Maple-Kissed Variation",
+                    "childPath": "Caprese Sandwich — Maple-Kissed Variation",
+                    "childType": "Meal",
+                    "rawScore": 0.5878093838691711,
+                    "weight": 1.0,
+                    "weightedContribution": 0.5878093838691711,
+                    "subtreeSize": 1,
+                    "isBestMatch": true
+                  },
+                  {
+                    "childName": "Lentil Soup — Citrus Fresh Set",
+                    "childPath": "Lentil Soup — Citrus Fresh Set",
+                    "childType": "Meal",
+                    "rawScore": 0.45848071575164795,
+                    "weight": 1.0,
+                    "weightedContribution": 0.45848071575164795,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  },
+                  {
+                    "childName": "Chicken Noodle Soup — Citrus Fresh Twist",
+                    "childPath": "Chicken Noodle Soup — Citrus Fresh Twist",
+                    "childType": "Meal",
+                    "rawScore": 0.3407723009586334,
+                    "weight": 1.0,
+                    "weightedContribution": 0.3407723009586334,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  }
+                ],
+                "best_match_details": {
+                  "type": "node_match",
+                  "node_name": "Caprese Sandwich — Maple-Kissed Variation",
+                  "node_type": "Meal",
+                  "node_path": "Caprese Sandwich — Maple-Kissed Variation",
+                  "score": 0.5878093838691711,
+                  "trace": [
+                    {
+                      "type": "atom",
+                      "condition": {
+                        "type": "atom",
+                        "field": "content",
+                        "value": "portable caprese sandwich",
+                        "operator": "=~",
+                        "span": {
+                          "start": 85,
+                          "end": 129
+                        }
+                      },
+                      "score": 0.5878093838691711,
+                      "note": "Atom(u, φ) - local node content from attr(u)"
+                    }
+                  ]
+                },
+                "result": 0.5878093838691711
+              }
+            ],
+            "final_score": 0.5878093838691711
+          },
+          {
+            "node_idx": 2,
+            "node_id": 6159351328,
+            "node_name": "Day 3",
+            "node_type": "Day",
+            "scoring_steps": [
+              {
+                "type": "agg_exists_recursive",
+                "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+                "selector": {
+                  "axis": "none",
+                  "test": {
+                    "type": "leaf",
+                    "test": {
+                      "type": "node_test",
+                      "kind": "type",
+                      "name": "Meal",
+                      "span": {
+                        "start": 80,
+                        "end": 130
+                      }
+                    },
+                    "span": {
+                      "start": 80,
+                      "end": 130
+                    }
+                  },
+                  "path_prefix": [
+                    "Lunch"
+                  ],
+                  "span": {
+                    "start": 74,
+                    "end": 130
+                  }
+                },
+                "num_children": 3,
+                "child_results": [
+                  {
+                    "score": 0.36914509534835815,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.4301241636276245,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.5356636047363281,
+                    "subtree_size": 1
+                  }
+                ],
+                "child_contributions": [
+                  {
+                    "childName": "Bean Burrito Bowl — Berry Boost Style",
+                    "childPath": "Bean Burrito Bowl — Berry Boost Style",
+                    "childType": "Meal",
+                    "rawScore": 0.36914509534835815,
+                    "weight": 1.0,
+                    "weightedContribution": 0.36914509534835815,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  },
+                  {
+                    "childName": "Tuna Pasta Salad — Smoky Wrap",
+                    "childPath": "Tuna Pasta Salad — Smoky Wrap",
+                    "childType": "Meal",
+                    "rawScore": 0.4301241636276245,
+                    "weight": 1.0,
+                    "weightedContribution": 0.4301241636276245,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  },
+                  {
+                    "childName": "Turkey Sandwich — Garden Veg Combo",
+                    "childPath": "Turkey Sandwich — Garden Veg Combo",
+                    "childType": "Meal",
+                    "rawScore": 0.5356636047363281,
+                    "weight": 1.0,
+                    "weightedContribution": 0.5356636047363281,
+                    "subtreeSize": 1,
+                    "isBestMatch": true
+                  }
+                ],
+                "best_match_details": {
+                  "type": "node_match",
+                  "node_name": "Turkey Sandwich — Garden Veg Combo",
+                  "node_type": "Meal",
+                  "node_path": "Turkey Sandwich — Garden Veg Combo",
+                  "score": 0.5356636047363281,
+                  "trace": [
+                    {
+                      "type": "atom",
+                      "condition": {
+                        "type": "atom",
+                        "field": "content",
+                        "value": "portable caprese sandwich",
+                        "operator": "=~",
+                        "span": {
+                          "start": 85,
+                          "end": 129
+                        }
+                      },
+                      "score": 0.5356636047363281,
+                      "note": "Atom(u, φ) - local node content from attr(u)"
+                    }
+                  ]
+                },
+                "result": 0.5356636047363281
+              }
+            ],
+            "final_score": 0.5356636047363281
+          },
+          {
+            "node_idx": 3,
+            "node_id": 6158982640,
+            "node_name": "Day 4",
+            "node_type": "Day",
+            "scoring_steps": [
+              {
+                "type": "agg_exists_recursive",
+                "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+                "selector": {
+                  "axis": "none",
+                  "test": {
+                    "type": "leaf",
+                    "test": {
+                      "type": "node_test",
+                      "kind": "type",
+                      "name": "Meal",
+                      "span": {
+                        "start": 80,
+                        "end": 130
+                      }
+                    },
+                    "span": {
+                      "start": 80,
+                      "end": 130
+                    }
+                  },
+                  "path_prefix": [
+                    "Lunch"
+                  ],
+                  "span": {
+                    "start": 74,
+                    "end": 130
+                  }
+                },
+                "num_children": 3,
+                "child_results": [
+                  {
+                    "score": 0.40662503242492676,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.4059370756149292,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.37116217613220215,
+                    "subtree_size": 1
+                  }
+                ],
+                "child_contributions": [
+                  {
+                    "childName": "Salmon Salad Wrap — Citrus Fresh Style",
+                    "childPath": "Salmon Salad Wrap — Citrus Fresh Style",
+                    "childType": "Meal",
+                    "rawScore": 0.40662503242492676,
+                    "weight": 1.0,
+                    "weightedContribution": 0.40662503242492676,
+                    "subtreeSize": 1,
+                    "isBestMatch": true
+                  },
+                  {
+                    "childName": "Tuna Pasta Salad — Citrus Fresh Bake",
+                    "childPath": "Tuna Pasta Salad — Citrus Fresh Bake",
+                    "childType": "Meal",
+                    "rawScore": 0.4059370756149292,
+                    "weight": 1.0,
+                    "weightedContribution": 0.4059370756149292,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  },
+                  {
+                    "childName": "Mediterranean Grain Bowl — Maple-Kissed Wrap",
+                    "childPath": "Mediterranean Grain Bowl — Maple-Kissed Wrap",
+                    "childType": "Meal",
+                    "rawScore": 0.37116217613220215,
+                    "weight": 1.0,
+                    "weightedContribution": 0.37116217613220215,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  }
+                ],
+                "best_match_details": {
+                  "type": "node_match",
+                  "node_name": "Salmon Salad Wrap — Citrus Fresh Style",
+                  "node_type": "Meal",
+                  "node_path": "Salmon Salad Wrap — Citrus Fresh Style",
+                  "score": 0.40662503242492676,
+                  "trace": [
+                    {
+                      "type": "atom",
+                      "condition": {
+                        "type": "atom",
+                        "field": "content",
+                        "value": "portable caprese sandwich",
+                        "operator": "=~",
+                        "span": {
+                          "start": 85,
+                          "end": 129
+                        }
+                      },
+                      "score": 0.40662503242492676,
+                      "note": "Atom(u, φ) - local node content from attr(u)"
+                    }
+                  ]
+                },
+                "result": 0.40662503242492676
+              }
+            ],
+            "final_score": 0.40662503242492676
+          },
+          {
+            "node_idx": 4,
+            "node_id": 6158990640,
+            "node_name": "Day 5",
+            "node_type": "Day",
+            "scoring_steps": [
+              {
+                "type": "agg_exists_recursive",
+                "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+                "selector": {
+                  "axis": "none",
+                  "test": {
+                    "type": "leaf",
+                    "test": {
+                      "type": "node_test",
+                      "kind": "type",
+                      "name": "Meal",
+                      "span": {
+                        "start": 80,
+                        "end": 130
+                      }
+                    },
+                    "span": {
+                      "start": 80,
+                      "end": 130
+                    }
+                  },
+                  "path_prefix": [
+                    "Lunch"
+                  ],
+                  "span": {
+                    "start": 74,
+                    "end": 130
+                  }
+                },
+                "num_children": 3,
+                "child_results": [
+                  {
+                    "score": 0.5803813338279724,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.3616727292537689,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.6197353601455688,
+                    "subtree_size": 1
+                  }
+                ],
+                "child_contributions": [
+                  {
+                    "childName": "Caprese Sandwich — Citrus Fresh Variation",
+                    "childPath": "Caprese Sandwich — Citrus Fresh Variation",
+                    "childType": "Meal",
+                    "rawScore": 0.5803813338279724,
+                    "weight": 1.0,
+                    "weightedContribution": 0.5803813338279724,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  },
+                  {
+                    "childName": "Teriyaki Chicken Bowl — Garden Veg Style",
+                    "childPath": "Teriyaki Chicken Bowl — Garden Veg Style",
+                    "childType": "Meal",
+                    "rawScore": 0.3616727292537689,
+                    "weight": 1.0,
+                    "weightedContribution": 0.3616727292537689,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  },
+                  {
+                    "childName": "Caprese Sandwich — Maple-Kissed Set",
+                    "childPath": "Caprese Sandwich — Maple-Kissed Set",
+                    "childType": "Meal",
+                    "rawScore": 0.6197353601455688,
+                    "weight": 1.0,
+                    "weightedContribution": 0.6197353601455688,
+                    "subtreeSize": 1,
+                    "isBestMatch": true
+                  }
+                ],
+                "best_match_details": {
+                  "type": "node_match",
+                  "node_name": "Caprese Sandwich — Maple-Kissed Set",
+                  "node_type": "Meal",
+                  "node_path": "Caprese Sandwich — Maple-Kissed Set",
+                  "score": 0.6197353601455688,
+                  "trace": [
+                    {
+                      "type": "atom",
+                      "condition": {
+                        "type": "atom",
+                        "field": "content",
+                        "value": "portable caprese sandwich",
+                        "operator": "=~",
+                        "span": {
+                          "start": 85,
+                          "end": 129
+                        }
+                      },
+                      "score": 0.6197353601455688,
+                      "note": "Atom(u, φ) - local node content from attr(u)"
+                    }
+                  ]
+                },
+                "result": 0.6197353601455688
+              }
+            ],
+            "final_score": 0.6197353601455688
+          },
+          {
+            "node_idx": 5,
+            "node_id": 6159293616,
+            "node_name": "Day 6",
+            "node_type": "Day",
+            "scoring_steps": [
+              {
+                "type": "agg_exists_recursive",
+                "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+                "selector": {
+                  "axis": "none",
+                  "test": {
+                    "type": "leaf",
+                    "test": {
+                      "type": "node_test",
+                      "kind": "type",
+                      "name": "Meal",
+                      "span": {
+                        "start": 80,
+                        "end": 130
+                      }
+                    },
+                    "span": {
+                      "start": 80,
+                      "end": 130
+                    }
+                  },
+                  "path_prefix": [
+                    "Lunch"
+                  ],
+                  "span": {
+                    "start": 74,
+                    "end": 130
+                  }
+                },
+                "num_children": 3,
+                "child_results": [
+                  {
+                    "score": 0.38826656341552734,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.4776555895805359,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.43239879608154297,
+                    "subtree_size": 1
+                  }
+                ],
+                "child_contributions": [
+                  {
+                    "childName": "Mediterranean Grain Bowl — Garlic-Ginger Twist",
+                    "childPath": "Mediterranean Grain Bowl — Garlic-Ginger Twist",
+                    "childType": "Meal",
+                    "rawScore": 0.38826656341552734,
+                    "weight": 1.0,
+                    "weightedContribution": 0.38826656341552734,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  },
+                  {
+                    "childName": "Chickpea Salad Pita — Lemon-Herb Set",
+                    "childPath": "Chickpea Salad Pita — Lemon-Herb Set",
+                    "childType": "Meal",
+                    "rawScore": 0.4776555895805359,
+                    "weight": 1.0,
+                    "weightedContribution": 0.4776555895805359,
+                    "subtreeSize": 1,
+                    "isBestMatch": true
+                  },
+                  {
+                    "childName": "Chickpea Salad Pita — Citrus Fresh Plate",
+                    "childPath": "Chickpea Salad Pita — Citrus Fresh Plate",
+                    "childType": "Meal",
+                    "rawScore": 0.43239879608154297,
+                    "weight": 1.0,
+                    "weightedContribution": 0.43239879608154297,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  }
+                ],
+                "best_match_details": {
+                  "type": "node_match",
+                  "node_name": "Chickpea Salad Pita — Lemon-Herb Set",
+                  "node_type": "Meal",
+                  "node_path": "Chickpea Salad Pita — Lemon-Herb Set",
+                  "score": 0.4776555895805359,
+                  "trace": [
+                    {
+                      "type": "atom",
+                      "condition": {
+                        "type": "atom",
+                        "field": "content",
+                        "value": "portable caprese sandwich",
+                        "operator": "=~",
+                        "span": {
+                          "start": 85,
+                          "end": 129
+                        }
+                      },
+                      "score": 0.4776555895805359,
+                      "note": "Atom(u, φ) - local node content from attr(u)"
+                    }
+                  ]
+                },
+                "result": 0.4776555895805359
+              }
+            ],
+            "final_score": 0.4776555895805359
+          },
+          {
+            "node_idx": 6,
+            "node_id": 6159301616,
+            "node_name": "Day 7",
+            "node_type": "Day",
+            "scoring_steps": [
+              {
+                "type": "agg_exists_recursive",
+                "formula": "Agg∃(A) = max(recursive_subtree_scores)",
+                "selector": {
+                  "axis": "none",
+                  "test": {
+                    "type": "leaf",
+                    "test": {
+                      "type": "node_test",
+                      "kind": "type",
+                      "name": "Meal",
+                      "span": {
+                        "start": 80,
+                        "end": 130
+                      }
+                    },
+                    "span": {
+                      "start": 80,
+                      "end": 130
+                    }
+                  },
+                  "path_prefix": [
+                    "Lunch"
+                  ],
+                  "span": {
+                    "start": 74,
+                    "end": 130
+                  }
+                },
+                "num_children": 3,
+                "child_results": [
+                  {
+                    "score": 0.4012698531150818,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.37968969345092773,
+                    "subtree_size": 1
+                  },
+                  {
+                    "score": 0.3669722378253937,
+                    "subtree_size": 1
+                  }
+                ],
+                "child_contributions": [
+                  {
+                    "childName": "Black Bean Wrap — Smoky Bake",
+                    "childPath": "Black Bean Wrap — Smoky Bake",
+                    "childType": "Meal",
+                    "rawScore": 0.4012698531150818,
+                    "weight": 1.0,
+                    "weightedContribution": 0.4012698531150818,
+                    "subtreeSize": 1,
+                    "isBestMatch": true
+                  },
+                  {
+                    "childName": "Soba Noodle Bowl — Garlic-Ginger Wrap",
+                    "childPath": "Soba Noodle Bowl — Garlic-Ginger Wrap",
+                    "childType": "Meal",
+                    "rawScore": 0.37968969345092773,
+                    "weight": 1.0,
+                    "weightedContribution": 0.37968969345092773,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  },
+                  {
+                    "childName": "Black Bean Wrap — Garlic-Ginger Bowl",
+                    "childPath": "Black Bean Wrap — Garlic-Ginger Bowl",
+                    "childType": "Meal",
+                    "rawScore": 0.3669722378253937,
+                    "weight": 1.0,
+                    "weightedContribution": 0.3669722378253937,
+                    "subtreeSize": 1,
+                    "isBestMatch": false
+                  }
+                ],
+                "best_match_details": {
+                  "type": "node_match",
+                  "node_name": "Black Bean Wrap — Smoky Bake",
+                  "node_type": "Meal",
+                  "node_path": "Black Bean Wrap — Smoky Bake",
+                  "score": 0.4012698531150818,
+                  "trace": [
+                    {
+                      "type": "atom",
+                      "condition": {
+                        "type": "atom",
+                        "field": "content",
+                        "value": "portable caprese sandwich",
+                        "operator": "=~",
+                        "span": {
+                          "start": 85,
+                          "end": 129
+                        }
+                      },
+                      "score": 0.4012698531150818,
+                      "note": "Atom(u, φ) - local node content from attr(u)"
+                    }
+                  ]
+                },
+                "result": 0.4012698531150818
+              }
+            ],
+            "final_score": 0.4012698531150818
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 4,
+            "score": 0.6197353601455688,
+            "name": "Day 5"
+          },
+          {
+            "idx": 1,
+            "score": 0.5878093838691711,
+            "name": "Day 2"
+          },
+          {
+            "idx": 2,
+            "score": 0.5356636047363281,
+            "name": "Day 3"
+          },
+          {
+            "idx": 5,
+            "score": 0.4776555895805359,
+            "name": "Day 6"
+          },
+          {
+            "idx": 0,
+            "score": 0.424737811088562,
+            "name": "Day 1"
+          },
+          {
+            "idx": 3,
+            "score": 0.40662503242492676,
+            "name": "Day 4"
+          },
+          {
+            "idx": 6,
+            "score": 0.4012698531150818,
+            "name": "Day 7"
+          }
+        ]
+      }
+    ],
+    "score_fusion": {
+      "per_node": [
+        {
+          "node_path": "Root > MealPlan_Version 1 > Child > Day 1",
+          "node_type": "Day",
+          "step_contributions": [
+            {
+              "step_index": 3,
+              "predicate": "Day[agg_exists(Meal[atom(content =~ \"portable caprese sandwich\")])]",
+              "score": 0.424737811088562
+            }
+          ],
+          "accumulated_product": 0.424737811088562,
+          "final_score": 0.4247378106638242
+        },
+        {
+          "node_path": "Root > MealPlan_Version 1 > Child > Day 2",
+          "node_type": "Day",
+          "step_contributions": [
+            {
+              "step_index": 3,
+              "predicate": "Day[agg_exists(Meal[atom(content =~ \"portable caprese sandwich\")])]",
+              "score": 0.5878093838691711
+            }
+          ],
+          "accumulated_product": 0.5878093838691711,
+          "final_score": 0.5878093832813618
+        },
+        {
+          "node_path": "Root > MealPlan_Version 1 > Child > Day 3",
+          "node_type": "Day",
+          "step_contributions": [
+            {
+              "step_index": 3,
+              "predicate": "Day[agg_exists(Meal[atom(content =~ \"portable caprese sandwich\")])]",
+              "score": 0.5356636047363281
+            }
+          ],
+          "accumulated_product": 0.5356636047363281,
+          "final_score": 0.5356636042006645
+        },
+        {
+          "node_path": "Root > MealPlan_Version 1 > Child > Day 4",
+          "node_type": "Day",
+          "step_contributions": [
+            {
+              "step_index": 3,
+              "predicate": "Day[agg_exists(Meal[atom(content =~ \"portable caprese sandwich\")])]",
+              "score": 0.40662503242492676
+            }
+          ],
+          "accumulated_product": 0.40662503242492676,
+          "final_score": 0.40662503201830175
+        },
+        {
+          "node_path": "Root > MealPlan_Version 1 > Child > Day 5",
+          "node_type": "Day",
+          "step_contributions": [
+            {
+              "step_index": 3,
+              "predicate": "Day[agg_exists(Meal[atom(content =~ \"portable caprese sandwich\")])]",
+              "score": 0.6197353601455688
+            }
+          ],
+          "accumulated_product": 0.6197353601455688,
+          "final_score": 0.6197353595258335
+        },
+        {
+          "node_path": "Root > MealPlan_Version 1 > Child > Day 6",
+          "node_type": "Day",
+          "step_contributions": [
+            {
+              "step_index": 3,
+              "predicate": "Day[agg_exists(Meal[atom(content =~ \"portable caprese sandwich\")])]",
+              "score": 0.4776555895805359
+            }
+          ],
+          "accumulated_product": 0.4776555895805359,
+          "final_score": 0.4776555891028803
+        },
+        {
+          "node_path": "Root > MealPlan_Version 1 > Child > Day 7",
+          "node_type": "Day",
+          "step_contributions": [
+            {
+              "step_index": 3,
+              "predicate": "Day[agg_exists(Meal[atom(content =~ \"portable caprese sandwich\")])]",
+              "score": 0.4012698531150818
+            }
+          ],
+          "accumulated_product": 0.4012698531150818,
+          "final_score": 0.40126985271381194
+        }
+      ]
+    }
+  },
+  "final_filtering": {
+    "before_filter_count": 7,
+    "threshold": 0.05,
+    "top_k": 5,
+    "after_filter_count": 5,
+    "filtered_nodes": [
+      {
+        "path": "Root > MealPlan_Version 1 > Child > Day 5",
+        "score": 0.6197353595258335,
+        "type": "Day",
+        "own_score": 0.6197353601455688,
+        "parent_score": 0.999999999
+      },
+      {
+        "path": "Root > MealPlan_Version 1 > Child > Day 2",
+        "score": 0.5878093832813618,
+        "type": "Day",
+        "own_score": 0.5878093838691711,
+        "parent_score": 0.999999999
+      },
+      {
+        "path": "Root > MealPlan_Version 1 > Child > Day 3",
+        "score": 0.5356636042006645,
+        "type": "Day",
+        "own_score": 0.5356636047363281,
+        "parent_score": 0.999999999
+      },
+      {
+        "path": "Root > MealPlan_Version 1 > Child > Day 6",
+        "score": 0.4776555891028803,
+        "type": "Day",
+        "own_score": 0.4776555895805359,
+        "parent_score": 0.999999999
+      },
+      {
+        "path": "Root > MealPlan_Version 1 > Child > Day 1",
+        "score": 0.4247378106638242,
+        "type": "Day",
+        "own_score": 0.424737811088562,
+        "parent_score": 0.999999999
+      }
+    ]
+  },
+  "matched_nodes": [
+    {
+      "tree_path": "Root > MealPlan_Version 1 > Child > Day 5",
+      "score": 0.6197353595258335,
+      "node": {
+        "type": "Day",
+        "attributes": {
+          "index": "5"
+        }
+      },
+      "children": [
+        {
+          "type": "Breakfast",
+          "attributes": {},
+          "children": [
+            {
+              "type": "Meal",
+              "attributes": {},
+              "name": "Granola & Milk — Garden Veg Bowl",
+              "short_description": "A quick granola, milk, and banana bowl offering energy, calcium, potassium, and fiber; customizable with higher-protein milk or added vegetables/fruits.",
+              "meal_suggestion": "To boost protein, use higher-protein milk or add Greek yogurt. For more vegetables, top with a handful of spinach or berries to enhance fiber and micronutrients.",
+              "ingredients": [],
+              "nutrition_note": "Carb-rich bowl with protein and calcium from milk; banana adds potassium and fiber. Monitor added sugars in granola; choose unsweetened or lower-sugar varieties and watch portion size."
+            },
+            {
+              "type": "Meal",
+              "attributes": {},
+              "name": "Avocado Toast — Smoky Skillet",
+              "short_description": "Whole-grain avocado toast with lemon and egg, smoky skillet-inspired.",
+              "meal_suggestion": "Toast the bread; mash avocado with a squeeze of lemon; spread on toast; top with a fried or poached egg. Optional: a pinch of smoked paprika to add smoky flavor.",
+              "ingredients": [],
+              "nutrition_note": "Balanced mix: complex carbs and fiber from whole-grain bread; healthy fats from avocado; high-quality protein from egg; lemon adds vitamin C. Helps with satiety and steady energy. Contains gluten and eggs."
+            },
+            {
+              "type": "Meal",
+              "attributes": {},
+              "name": "Smoothie — Berry Boost Skillet",
+              "short_description": "Creamy banana-peanut butter oat smoothie with balanced carbs, protein, and fats.",
+              "meal_suggestion": "Blend banana, milk, peanut butter, and oats until smooth for a creamy drink; add ice for a cooler consistency. Optional toppings: sliced banana, berries, or a sprinkle of extra oats.",
+              "ingredients": [],
+              "nutrition_note": "Protein- and fiber-rich smoothie from banana, oats, peanut butter, and milk; provides potassium and healthy fats. Use unsweetened milk to limit sugar, and add berries for extra antioxidants if desired."
+            }
+          ]
+        },
+        {
+          "type": "Lunch",
+          "attributes": {},
+          "children": [
+            {
+              "type": "Meal",
+              "attributes": {},
+              "name": "Caprese Sandwich — Citrus Fresh Variation",
+              "short_description": "Caprese-style sandwich on whole-grain bread with mozzarella, tomato, basil, and balsamic—a fresh, protein- and fiber-rich lunch option.",
+              "meal_suggestion": "One sandwich serves as a balanced lunch. For the Citrus Fresh Variation, add a light squeeze of lemon or orange juice over the filling or serve with citrus wedges; consider a small side salad for extra greens.",
+              "ingredients": [],
+              "nutrition_note": "Fiber from whole-grain bread and vegetables; protein from mozzarella; vitamins and antioxidants from tomato and basil; balsamic adds flavor with modest calories."
+            },
+            {
+              "type": "Meal",
+              "attributes": {},
+              "name": "Teriyaki Chicken Bowl — Garden Veg Style",
+              "short_description": "Teriyaki chicken bowl with garden vegetables over rice — a protein-rich, veggie-forward meal.",
+              "meal_suggestion": "A quick, balanced bowl of lean chicken, rice, and mixed vegetables coated in teriyaki glaze. For a lighter version, swap in brown rice and low-sodium sauce to increase fiber and lower sodium.",
+              "ingredients": [],
+              "nutrition_note": "Protein from chicken; carbohydrates from rice; fiber and micronutrients from mixed vegetables; teriyaki sauce adds flavor but can be high in sodium; to boost fiber and reduce sodium, use brown rice and/or a reduced-sodium sauce and add more vegetables as desired."
+            },
+            {
+              "type": "Meal",
+              "attributes": {},
+              "name": "Caprese Sandwich — Maple-Kissed Set",
+              "short_description": "Caprese-inspired sandwich on whole-grain bread with mozzarella, tomato, basil, and balsamic.",
+              "meal_suggestion": "Enjoy with a side salad or fruit; drizzle a teaspoon of olive oil for healthy fats if desired; keep portion size moderate to fit a balanced meal.",
+              "ingredients": [],
+              "nutrition_note": "Balanced meal with protein from mozzarella and fiber from whole-grain bread; tomato and basil provide vitamins and antioxidants; balsamic adds flavor with minimal calories; moderate sodium from cheese. For lower fat, use part-skim mozzarella."
+            }
+          ]
+        },
+        {
+          "type": "Dinner",
+          "attributes": {},
+          "children": [
+            {
+              "type": "Meal",
+              "attributes": {},
+              "name": "Beef & Veggie Stew — Mild-Spice Bake",
+              "short_description": "Beef and veggie stew inspired by a mild-spice bake, featuring tender stew beef with potatoes, carrots, and celery simmered in savory broth.",
+              "meal_suggestion": "Serve hot in bowls with a side of steamed greens or a simple salad, and optional crusty whole-grain bread. Garnish with fresh herbs (e.g., parsley) for added flavor without extra calories.",
+              "ingredients": [],
+              "nutrition_note": "Protein-rich beef provides essential amino acids; potatoes add energy-rich carbohydrates; carrots and celery supply fiber, vitamins, and minerals; broth contributes moisture and minerals. Sodium varies with broth type; to keep sodium lower, use a low-sodium broth and trim visible fat from the beef."
+            },
+            {
+              "type": "Meal",
+              "attributes": {},
+              "name": "Shrimp Fried Rice — Citrus Fresh Set",
+              "short_description": "Shrimp fried rice with peas, carrots, egg, and soy sauce—a quick, protein-rich grain dish with vegetables.",
+              "meal_suggestion": "Serve as a balanced plate: about 1 cup cooked rice with 4–6 oz shrimp and a generous portion of peas and carrots. To reduce sodium, use low-sodium soy sauce or tamari; substitute white rice with brown rice for more fiber. Pair with a citrus side to emphasize the Citrus Fresh Set.",
+              "ingredients": [],
+              "nutrition_note": "Protein-rich from shrimp and egg; carbohydrates from rice; fiber from peas and carrots. Moderate to high sodium from soy sauce; consider low-sodium soy sauce or limiting portion. The Citrus Fresh Set can add vitamin C if paired with a citrus beverage or garnish."
+            },
+            {
+              "type": "Meal",
+              "attributes": {},
+              "name": "Shrimp Fried Rice — Garlic-Ginger Bowl",
+              "short_description": "Garlic-ginger shrimp fried rice bowl with peas, carrots, and egg—protein and starch in a quick, savory dish; mindful of sodium and shellfish allergen.",
+              "meal_suggestion": "To boost fiber and reduce sodium: use brown rice or cauliflower rice; choose a low-sodium soy sauce; add more vegetables (peppers, broccoli); reduce oil and use a small amount of sesame oil for flavor.",
+              "ingredients": [],
+              "nutrition_note": "Protein-rich due to shrimp and egg; includes carbs from rice and fiber from peas and carrots; may be high in sodium from soy sauce; shellfish allergen present; cooking oil adds fat; can be made lower-sodium and higher-fiber with substitutions."
+            }
+          ]
+        }
+      ],
+      "context_trace": [
+        {
+          "node_name": "Child",
+          "predicate": "atom(content =~ \"child\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"child\") on Child (Score: 1.00)"
+        },
+        {
+          "node_name": "Day 5",
+          "predicate": "agg_exists(Meal[atom(content =~ \"portable caprese sandwich\")])",
+          "score": 0.6197353601455688,
+          "description": "Matched agg_exists(Meal[atom(content =~ \"portable caprese sandwich\")]) on Day 5 (Score: 0.62)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > MealPlan_Version 1 > Child > Day 2",
+      "score": 0.5878093832813618,
+      "node": {
+        "type": "Day",
+        "attributes": {
+          "index": "2"
+        }
+      },
+      "children": [
+        {
+          "type": "Breakfast",
+          "attributes": {},
+          "children": [
+            {
+              "type": "Meal",
+              "attributes": {},
+              "name": "Overnight Oats — Berry Boost Variation",
+              "short_description": "Creamy overnight oats with apple and cinnamon—a protein- and fiber-rich breakfast.",
+              "meal_suggestion": "Mix ingredients to make overnight oats: rolled oats, milk, plain yogurt, diced apple, and cinnamon. Refrigerate overnight and enjoy cold or warmed.",
+              "ingredients": [],
+              "nutrition_note": "A balanced, protein- and fiber-rich breakfast. Oats provide soluble fiber; yogurt adds protein and calcium; apple contributes vitamins and extra fiber. Cinnamon adds flavor with minimal calories and may help with blood sugar regulation."
+            },
+            {
+              "type": "Meal",
+              "attributes": {},
+              "name": "Smoothie — Lemon-Herb Style",
+              "short_description": "Creamy banana-milk smoothie with peanut butter and oats; balanced protein, carbs, and fats with fiber.",
+              "meal_suggestion": "Creamy, protein-forward smoothie great for breakfast or post-workout. For a lemon-herb twist, blend in lemon zest and a few fresh herbs (mint or basil) with the listed ingredients.",
+              "ingredients": [],
+              "nutrition_note": "Approx. 550–600 kcal per serving. Protein ~22–28 g; carbs ~60–70 g; fat ~22–28 g. Rich in potassium (banana), calcium/vitamin D (milk), and fiber (oats). Note: the lemon-herb flavor is not represented by the current ingredients; to add lemon/herb notes, blend in lemon zest and fresh herbs (e.g., mint or basil) — this will adjust macros slightly."
+            },
+            {
+              "type": "Meal",
+              "attributes": {},
+              "name": "Granola & Milk — Garlic-Ginger Plate",
+              "short_description": "A quick bowl combining granola, milk, and banana for a simple breakfast or snack.",
+              "meal_suggestion": "Keep as 1 serving granola + 1 cup milk + 1 medium banana. For more protein, use higher-protein milk or add yogurt; to reduce sugar, choose unsweetened granola. If you want a savory nod to the name, add a tiny pinch of minced garlic and grated ginger, but use sparingly as this will alter flavor and nutrition.",
+              "ingredients": [],
+              "nutrition_note": "Carbs from granola and banana; protein and calcium from milk. May be high in added sugars if granola is sweetened; consider unsweetened granola or smaller portions and add fiber with berries or seeds."
+            }
+          ]
+        },
+        {
+          "type": "Lunch",
+          "attributes": {},
+          "children": [
+            {
+              "type": "Meal",
+              "attributes": {},
+              "name": "Caprese Sandwich — Maple-Kissed Variation",
+              "short_description": "Caprese-inspired sandwich on whole-grain bread with mozzarella, tomato, basil, and balsamic; maple-kissed variation optional with a light maple glaze.",
+              "meal_suggestion": "A quick, balanced lunch: Caprese sandwich on whole-grain bread with mozzarella, tomato, basil, and balsamic. For the maple-kissed twist, drizzle a small amount of maple-balsamic glaze.",
+              "ingredients": [],
+              "nutrition_note": "Includes fiber from whole-grain bread and protein plus calcium from mozzarella; tomatoes and basil supply vitamins and antioxidants; balsamic adds flavor with modest sugars. A maple-kissed variation can use a light maple-balsamic glaze to introduce sweetness without heavy sugar load."
+            },
+            {
+              "type": "Meal",
+              "attributes": {},
+              "name": "Lentil Soup — Citrus Fresh Set",
+              "short_description": "A hearty, plant-based lentil soup with vegetables served alongside whole-grain bread—protein- and fiber-rich for a vegetarian lunch or dinner.",
+              "meal_suggestion": "Serve hot with warm whole-grain bread; brighten with a squeeze of lemon or lemon zest to echo the Citrus Fresh theme.",
+              "ingredients": [],
+              "nutrition_note": "Plant-based protein and fiber from lentils, plus vitamins/minerals from carrots, celery, and onion. Whole-grain bread adds extra fiber and complex carbs. For lower sodium, use a low-sodium broth; a squeeze of lemon can boost citrus brightness."
+            },
+            {
+              "type": "Meal",
+              "attributes": {},
+              "name": "Chicken Noodle Soup — Citrus Fresh Twist",
+              "short_description": "A comforting chicken noodle soup with carrots and celery in broth, offering protein, vegetables, and warmth with a suggested citrus brightness.",
+              "meal_suggestion": "Finish with lemon zest or juice to emphasize the citrus twist; for more fiber, use whole-grain noodles and pair with a small fruit serving for extra vitamin C.",
+              "ingredients": [],
+              "nutrition_note": "Protein from chicken and carbohydrates from noodles provide balanced nutrition; carrots and celery add fiber and micronutrients; using a light broth helps keep fat moderate. The citrus twist is not shown in the listed ingredients, so lemon would boost vitamin C if added."
+            }
+          ]
+        },
+        {
+          "type": "Dinner",
+          "attributes": {},
+          "children": [
+            {
+              "type": "Meal",
+              "attributes": {},
+              "name": "Creamy Tomato Soup with Grilled Cheese Dippers",
+              "short_description": "A kid-friendly classic — velvety tomato soup served with crispy whole-wheat grilled cheese strips for dunking.",
+              "meal_suggestion": "Sauté onion and garlic in olive oil, add canned crushed tomatoes and a splash of milk or cream, then blend until smooth. Season with basil, salt, and pepper. Serve in a bowl alongside whole-wheat grilled cheese cut into sticks for easy dipping. A drizzle of olive oil on top adds richness.",
+              "ingredients": [],
+              "nutrition_note": "Tomatoes are rich in lycopene and vitamin C; whole-wheat bread provides fiber and complex carbs; cheddar adds calcium and protein. Milk contributes additional calcium. Keep cream or milk portions moderate to manage fat; using part-skim cheese or reduced-fat milk can lighten the dish while preserving flavor."
+            },
+            {
+              "type": "Meal",
+              "attributes": {},
+              "name": "Teriyaki Chicken Rice Bowl",
+              "short_description": "Sweet and savory teriyaki-glazed chicken over steamed rice with steamed broccoli and shredded carrots — colorful, balanced, and easy to eat.",
+              "meal_suggestion": "Pan-sear bite-sized chicken pieces until golden, then toss in a homemade teriyaki glaze (soy sauce, honey, garlic, ginger). Serve over steamed rice with steamed broccoli florets and shredded carrots on the side. Garnish with sesame seeds and sliced scallions for a restaurant-style touch.",
+              "ingredients": [],
+              "nutrition_note": "Chicken breast provides lean protein; broccoli is rich in vitamin C, vitamin K, and fiber; carrots add beta-carotene. Rice supplies energy from carbohydrates. Homemade teriyaki lets you control sugar and sodium — use low-sodium soy sauce and moderate honey to keep it balanced."
+            },
+            {
+              "type": "Meal",
+              "attributes": {},
+              "name": "Mini Meatball Pasta Bake",
+              "short_description": "Tender turkey meatballs baked with whole-wheat penne in marinara sauce and topped with melted mozzarella — hearty comfort food with a nutritious twist.",
+              "meal_suggestion": "Mix ground turkey with breadcrumbs, egg, garlic, and Italian seasoning; roll into small meatballs and bake at 400°F for 15 minutes. Toss cooked whole-wheat penne with marinara sauce and the meatballs in a baking dish, top with shredded mozzarella, and bake 10 more minutes until bubbly. Serve with a side of steamed green beans or a small salad.",
+              "ingredients": [],
+              "nutrition_note": "Ground turkey is a leaner alternative to beef, providing protein with less saturated fat; whole-wheat pasta adds fiber for sustained energy; marinara sauce supplies lycopene from tomatoes. Mozzarella provides calcium. Watch portion sizes of cheese and pasta to manage calories; pair with vegetables for a more complete meal."
+            }
+          ]
+        }
+      ],
+      "context_trace": [
+        {
+          "node_name": "Child",
+          "predicate": "atom(content =~ \"child\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"child\") on Child (Score: 1.00)"
+        },
+        {
+          "node_name": "Day 2",
+          "predicate": "agg_exists(Meal[atom(content =~ \"portable caprese sandwich\")])",
+          "score": 0.5878093838691711,
+          "description": "Matched agg_exists(Meal[atom(content =~ \"portable caprese sandwich\")]) on Day 2 (Score: 0.59)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > MealPlan_Version 1 > Child > Day 3",
+      "score": 0.5356636042006645,
+      "node": {
+        "type": "Day",
+        "attributes": {
+          "index": "3"
+        }
+      },
+      "children": [
+        {
+          "type": "Breakfast",
+          "attributes": {},
+          "children": [
+            {
+              "type": "Meal",
+              "attributes": {},
+              "name": "Whole-Grain Pancakes — Smoky Plate",
+              "short_description": "Whole-wheat pancakes with egg and milk, topped with berries and maple syrup.",
+              "meal_suggestion": "Pair with a small serving of Greek yogurt or a handful of nuts to boost protein and healthy fats; use a modest amount of maple syrup to keep added sugars in check.",
+              "ingredients": [],
+              "nutrition_note": "Fiber-rich from whole-wheat flour; good protein from egg and milk; berries provide vitamins and antioxidants. Maple syrup adds sugars, so portion control is helpful. Contains dairy and gluten."
+            },
+            {
+              "type": "Meal",
+              "attributes": {},
+              "name": "Avocado Toast — Garlic-Ginger Combo",
+              "short_description": "Avocado toast on whole-grain bread topped with egg and a lemon finish.",
+              "meal_suggestion": "Toast the bread, mash avocado and spread on top, add a cooked egg, and finish with a squeeze of lemon and a dash of pepper. Optional flavor tweaks include adding garlic, ginger, or chili flakes if you like.",
+              "ingredients": [],
+              "nutrition_note": "Well-balanced morning option with fiber from whole-grain bread, heart-healthy fats from avocado, and protein from egg. Lemon adds vitamin C; this combo provides steady energy and satiety. Note: garlic/ginger are not included in the listed ingredients."
+            },
+            {
+              "type": "Meal",
+              "attributes": {},
+              "name": "Greek Yogurt Bowl — Maple-Kissed Combo",
+              "short_description": "A protein-rich yogurt bowl with berries, granola, and chia seeds for a balanced mix of protein, fiber, and healthy fats.",
+              "meal_suggestion": "Serving idea: 1 cup Greek yogurt, 1/2 cup berries, 1/4 cup granola, 1 tablespoon chia seeds. For added sweetness, drizzle maple lightly; for a lower-sugar version, omit maple and use unsweetened yogurt with a low-sugar granola.",
+              "ingredients": [],
+              "nutrition_note": "Protein-forward base from Greek yogurt; fiber from berries and chia; calcium and probiotics from yogurt; granola adds crunch and additional carbs and fats. Optional maple drizzle increases sugar; to keep sugar in check, choose unsweetened yogurt and a low-sugar granola."
+            }
+          ]
+        },
+        {
+          "type": "Lunch",
+          "attributes": {},
+          "children": [
+            {
+              "type": "Meal",
+              "attributes": {},
+              "name": "Bean Burrito Bowl — Berry Boost Style",
+              "short_description": "Bean Burrito Bowl with black beans, rice, corn, lettuce, salsa, and cheddar. Protein- and fiber-rich with calcium from cheese; Berry Boost-style variation suggested via addition of fresh berries for antioxidant boost.",
+              "meal_suggestion": "Enjoy as-is, then add a Berry Boost by topping with fresh berries or serving a berry salsa alongside. For extra healthy fats, include sliced avocado and a squeeze of lime for brightness.",
+              "ingredients": [],
+              "nutrition_note": "Highlights: good plant-based protein from black beans; fiber from beans, rice, and corn; calcium from cheddar; fat content depends on cheese amount; sodium varies with salsa and cheese. Berry Boost style: add fresh berries (e.g., strawberries, blueberries) on top or mix into salsa to boost antioxidants with minimal extra calories. For a lighter option, consider part-skim cheddar or reducing cheese and adding avocado for healthy fats."
+            },
+            {
+              "type": "Meal",
+              "attributes": {},
+              "name": "Tuna Pasta Salad — Smoky Wrap",
+              "short_description": "Protein-rich tuna pasta salad with cucumber and cherry tomatoes tossed in olive oil; versatile for wraps or quick bowls.",
+              "meal_suggestion": "Serve as a smoky wrap by spooning the tuna pasta salad into a whole-grain tortilla with a handful of greens, or enjoy as a ready-to-eat pasta salad in a bowl.",
+              "ingredients": [],
+              "nutrition_note": "Protein from tuna, complex carbohydrates from pasta, and healthy fats from olive oil provide a balanced base. Cucumber and cherry tomatoes add fiber and micronutrients. Canned tuna can be high in sodium, so consider tuna in water and drain well or control portion size to manage sodium and calories."
+            },
+            {
+              "type": "Meal",
+              "attributes": {},
+              "name": "Turkey Sandwich — Garden Veg Combo",
+              "short_description": "A lean turkey sandwich on whole-grain bread with lettuce, tomato, and mustard—protein-rich, fiber-forward, veggie-packed.",
+              "meal_suggestion": "Great grab-and-go lunch; pair with a fruit (apple/banana) and a glass of water for a balanced meal.",
+              "ingredients": [],
+              "nutrition_note": "Lean protein from turkey + fiber from whole-grain bread; adds veggies (lettuce, tomato) for vitamins and fullness; mustard adds flavor with minimal fat; monitor sodium if using processed turkey or condiments."
+            }
+          ]
+        },
+        {
+          "type": "Dinner",
+          "attributes": {},
+          "children": [
+            {
+              "type": "Meal",
+              "attributes": {},
+              "name": "Roast Chicken Dinner — Sesame Bake",
+              "short_description": "Roast chicken thighs with quinoa, broccoli, and carrots in a sesame style bake for a protein-rich, veggie-forward dinner.",
+              "meal_suggestion": "Great for a satisfying, make ahead dinner. For extra flavor, consider topping with sesame seeds before roasting. Serve with a simple side salad to boost greens.",
+              "ingredients": [],
+              "nutrition_note": "Protein-dense meal from chicken thighs and quinoa; includes fiber from quinoa and vegetables. Provides vitamins A and C from broccoli and carrots, plus minerals like iron and potassium. Moderate fat from chicken thighs; balanced carbohydrates from quinoa and vegetables; low in added sugars."
+            },
+            {
+              "type": "Meal",
+              "attributes": {},
+              "name": "Pasta Primavera — Classic Style",
+              "short_description": "Classic Pasta Primavera featuring pasta, zucchini, mushrooms, tomato, olive oil, and parmesan—a light, veggie-forward Italian-inspired dish.",
+              "meal_suggestion": "Add a lean protein such as grilled chicken, shrimp, or chickpeas to increase protein; use whole-grain pasta for extra fiber; serve with a side salad to boost vegetables.",
+              "ingredients": [],
+              "nutrition_note": "Balanced carbohydrate-forward dish with vegetables for fiber and micronutrients, healthy fats from olive oil, and calcium from parmesan. To boost protein, add grilled chicken, shrimp, or legumes. Consider using whole-grain pasta for more fiber; monitor sodium from cheese."
+            },
+            {
+              "type": "Meal",
+              "attributes": {},
+              "name": "Teriyaki Chicken Dinner — Smoky Style",
+              "short_description": "Smoky teriyaki chicken with vegetables and rice",
+              "meal_suggestion": "Grill the chicken with a smoky spice rub (paprika or chipotle), serve with 1 cup cooked brown rice and 1.5–2 cups mixed vegetables; use low-sodium teriyaki or homemade to limit sodium المحتوى.",
+              "ingredients": [],
+              "nutrition_note": "Protein-rich chicken with carbs from rice and fiber from vegetables. Teriyaki sauce adds sugars and sodium, so consider a low-sodium or homemade sauce to reduce salt; portion control helps manage calories."
+            }
+          ]
+        }
+      ],
+      "context_trace": [
+        {
+          "node_name": "Child",
+          "predicate": "atom(content =~ \"child\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"child\") on Child (Score: 1.00)"
+        },
+        {
+          "node_name": "Day 3",
+          "predicate": "agg_exists(Meal[atom(content =~ \"portable caprese sandwich\")])",
+          "score": 0.5356636047363281,
+          "description": "Matched agg_exists(Meal[atom(content =~ \"portable caprese sandwich\")]) on Day 3 (Score: 0.54)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > MealPlan_Version 1 > Child > Day 6",
+      "score": 0.4776555891028803,
+      "node": {
+        "type": "Day",
+        "attributes": {
+          "index": "6"
+        }
+      },
+      "children": [
+        {
+          "type": "Breakfast",
+          "attributes": {},
+          "children": [
+            {
+              "type": "Meal",
+              "attributes": {},
+              "name": "Apple-Cinnamon Porridge — Mild-Spice Bowl",
+              "short_description": "Creamy apple-cinnamon porridge made with oats and milk, lightly spiced for a cozy breakfast.",
+              "meal_suggestion": "Serve warm as a creamy porridge; sprinkle with extra cinnamon and diced apple. Add nuts or yogurt for extra protein if desired.",
+              "ingredients": [],
+              "nutrition_note": "Fiber-rich oats and apple provide fullness; milk contributes calcium and protein; cinnamon adds flavor with minimal added sugar."
+            },
+            {
+              "type": "Meal",
+              "attributes": {},
+              "name": "Overnight Oats — Maple-Kissed Style",
+              "short_description": "Creamy apple-cinnamon overnight oats with milk and yogurt for a quick, fiber-rich breakfast.",
+              "meal_suggestion": "Mix rolled oats, milk, plain yogurt, diced apple, and cinnamon in a jar and refrigerate overnight. In the morning, stir and enjoy cold or warm; add extra cinnamon or chopped apple for texture.",
+              "ingredients": [],
+              "nutrition_note": "Balanced breakfast with complex carbohydrates from oats, and protein+calcium from yogurt and milk. Fiber from oats and apple; cinnamon adds flavor with minimal calories. If using plain yogurt and unsweetened milk, the total added sugar is low."
+            },
+            {
+              "type": "Meal",
+              "attributes": {},
+              "name": "Ricotta Toast — Garlic-Ginger Twist",
+              "short_description": "Whole-grain toast topped with ricotta, honey, and berries — a protein- and fiber-rich, naturally sweet snack or breakfast.",
+              "meal_suggestion": "Toast the whole-grain bread, spread ricotta on top, drizzle with honey, and finish with fresh berries for a simple, balanced meal.",
+              "ingredients": [],
+              "nutrition_note": "Protein and calcium from ricotta; fiber and complex carbs from whole-grain bread; natural sugars from honey and berries. This combination makes a balanced breakfast or snack with a moderate amount of fat from dairy. Note: garlic and ginger are not included in the ingredients, so the 'Garlic-Ginger Twist' flavor isn't present in this version."
+            }
+          ]
+        },
+        {
+          "type": "Lunch",
+          "attributes": {},
+          "children": [
+            {
+              "type": "Meal",
+              "attributes": {},
+              "name": "Mediterranean Grain Bowl — Garlic-Ginger Twist",
+              "short_description": "Mediterranean-inspired grain bowl with quinoa, chickpeas, cucumber, tomato, feta, and olive oil, featuring a garlic-ginger flavor twist.",
+              "meal_suggestion": "Mix cooked quinoa with chickpeas, cucumber, and tomato. Top with feta and drizzle with olive oil. Optional: finish with a garlic-ginger twist dressing or a squeeze of lemon and fresh herbs.",
+              "ingredients": [],
+              "nutrition_note": "Protein- and fiber-rich base from quinoa and chickpeas, plus veggies for hydration. Healthy fats come from feta and olive oil; flavor inspired by a garlic-ginger twist."
+            },
+            {
+              "type": "Meal",
+              "attributes": {},
+              "name": "Chickpea Salad Pita — Lemon-Herb Set",
+              "short_description": "Chickpea salad with cucumber, tomato, and lemon tucked into a whole-wheat pita for a fresh, fiber-rich meal.",
+              "meal_suggestion": "Great as a quick vegetarian lunch. Drizzle with olive oil and herbs for healthy fats, or add feta/t Tahini for extra protein; pair with a side greens for balance.",
+              "ingredients": [],
+              "nutrition_note": "High-fiber, plant-based meal with chickpeas as a protein source, cucumber and tomato for vitamins, and a whole-wheat pita for complex carbs. Lemon adds vitamin C; naturally low in saturated fat."
+            },
+            {
+              "type": "Meal",
+              "attributes": {},
+              "name": "Chickpea Salad Pita — Citrus Fresh Plate",
+              "short_description": "Chickpea salad with cucumber and tomato tucked into a whole-wheat pita, brightened by lemon.",
+              "meal_suggestion": "Serve with a side of fruit or a light yogurt. For extra protein, add a spoonful of tahini or a sprinkle of feta; or swap the pita for a gluten-free wrap.",
+              "ingredients": [],
+              "nutrition_note": "High in fiber and plant-based protein from chickpeas; provides complex carbs from whole-wheat pita and vitamins from cucumber, tomato, and lemon (notably vitamin C). Low added fat; sodium varies with canned chickpeas (rinsing helps). Gluten-free option: use gluten-free pita."
+            }
+          ]
+        },
+        {
+          "type": "Dinner",
+          "attributes": {},
+          "children": [
+            {
+              "type": "Meal",
+              "attributes": {},
+              "name": "Tofu Veggie Curry — Citrus Fresh Wrap",
+              "short_description": "Tofu with mixed vegetables in curry sauce served with rice; a protein-rich, veggie-forward plant-based meal with a citrus-inspired fresh note.",
+              "meal_suggestion": "To boost fiber, swap white rice for brown rice or quinoa. Opt for a low-sodium curry sauce and add a side of leafy greens for extra volume and micronutrients. A squeeze of lemon or lime can enhance the citrus freshness mentioned in the name.",
+              "ingredients": [],
+              "nutrition_note": "Protein-rich tofu provides plant-based protein; fiber from vegetables and rice supports fullness. Carbohydrates mainly come from rice. Depending on the curry sauce, sodium and added sugars may be high; check for dairy and gluten content if you have sensitivities."
+            },
+            {
+              "type": "Meal",
+              "attributes": {},
+              "name": "Stuffed Bell Peppers — Citrus Fresh Wrap",
+              "short_description": "Stuffed bell peppers filled with lean ground turkey, rice, and tomato sauce, topped with cheddar for a savory, protein-rich dish.",
+              "meal_suggestion": "Serve with a bright citrus side salad (greens with orange or lemon vinaigrette) to fit the Citrus Fresh Wrap theme, and consider swapping in brown rice and reduced-fat cheese for extra fiber and lower fat.",
+              "ingredients": [],
+              "nutrition_note": "Lean ground turkey provides protein; peppers and rice contribute fiber and carbohydrates; cheddar adds calcium and fat; tomato sauce supplies lycopene. Overall a balanced meal with protein, fiber, and modest fat. For a lighter version, use lean turkey, brown rice, and low-sodium sauce."
+            },
+            {
+              "type": "Meal",
+              "attributes": {},
+              "name": "Baked Cod Plate — Lemon-Herb Skillet",
+              "short_description": "Baked cod with lemon-herb flavor, served with roasted sweet potato and broccoli for a light, balanced meal.",
+              "meal_suggestion": "Bake cod and vegetables in a lemon-herb skillet; 25–30 minutes total. Pair with a small portion of quinoa or brown rice for extra whole grains, and a drizzle of olive oil if desired.",
+              "ingredients": [],
+              "nutrition_note": "Lean cod provides high-quality protein with low fat; sweet potato and broccoli add fiber, vitamins A, C, and K, and minerals. Lemon adds vitamin C and fresh flavor. Balanced plate with protein, complex carbs, and vegetables."
+            }
+          ]
+        }
+      ],
+      "context_trace": [
+        {
+          "node_name": "Child",
+          "predicate": "atom(content =~ \"child\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"child\") on Child (Score: 1.00)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > MealPlan_Version 1 > Child > Day 1",
+      "score": 0.4247378106638242,
+      "node": {
+        "type": "Day",
+        "attributes": {
+          "index": "1"
+        }
+      },
+      "children": [
+        {
+          "type": "Breakfast",
+          "attributes": {},
+          "children": [
+            {
+              "type": "Meal",
+              "attributes": {},
+              "name": "Ricotta Toast — Garden Veg Variation",
+              "short_description": "Fiber-rich ricotta toast topped with berries and a touch of honey for a balanced breakfast or snack.",
+              "meal_suggestion": "Toast whole-grain bread, spread with ricotta, drizzle with a small amount of honey, and top with fresh berries. Garden Veg Variation: add thin cucumber slices, tomato wedges, or a handful of greens under the ricotta for extra vegetables.",
+              "ingredients": [],
+              "nutrition_note": "Whole-grain bread provides fiber and sustained energy; ricotta adds protein and calcium; berries deliver vitamins and antioxidants; honey contributes natural sweetness. Suitable as a balanced breakfast or snack; for lower sugar, reduce honey portion."
+            },
+            {
+              "type": "Meal",
+              "attributes": {},
+              "name": "Smoothie — Smoky Variation",
+              "short_description": "Creamy banana peanut butter oat smoothie; a protein- and fiber-rich option with potential smoky flavor tweaks.",
+              "meal_suggestion": "Serving idea: enjoy as a balanced breakfast or post-workout snack. To adjust macros, use dairy-free milk or lower-fat milk; to boost protein, add Greek yogurt or a protein powder; to introduce a smoky note, blend in a pinch of smoked paprika or a dash of cinnamon.",
+              "ingredients": [],
+              "nutrition_note": "Creamy smoothie built from banana, milk, peanut butter and oats. Rich in protein from peanut butter and milk, with fiber from banana and oats, and healthy fats from peanut butter. Calorie content varies by milk type and portion, but a typical 12–16 oz serving is about 400–480 kcal with roughly 14–22 g protein, 40–60 g carbohydrates and 12–20 g fat."
+            },
+            {
+              "type": "Meal",
+              "attributes": {},
+              "name": "Greek Yogurt Bowl — Garden Veg Style",
+              "short_description": "A creamy Greek yogurt bowl with berries, granola, and chia seeds offering protein, fiber, and healthy fats; easily adaptable to a garden-vegetable theme with a simple veggie garnish.",
+              "meal_suggestion": "To emphasize the Garden Veg Style, add a small side of chopped cucumber or tomato or top with fresh herbs. For a veggie boost, stir in a handful of spinach or arugula before serving. Opt for lower-sugar granola if desired.",
+              "ingredients": [],
+              "nutrition_note": "Protein-rich Greek yogurt provides calcium and probiotics; berries add fiber and antioxidants; chia seeds contribute omega-3 fats and extra fiber; granola adds complex carbohydrates and crunch. If watching sugar, choose a lower-sugar granola."
+            }
+          ]
+        },
+        {
+          "type": "Lunch",
+          "attributes": {},
+          "children": [
+            {
+              "type": "Meal",
+              "attributes": {},
+              "name": "Veggie Quesadilla — Smoky Combo",
+              "short_description": "Veggie quesadilla with a whole-wheat tortilla, cheddar, bell pepper, spinach, and salsa for a smoky, veggie-forward meal.",
+              "meal_suggestion": "To lighten it, use reduced-fat cheddar or part-skim cheese; serve with a side of fruit or a simple bean salad for extra fiber and protein.",
+              "ingredients": [],
+              "nutrition_note": "Fiber from the whole-wheat tortilla and vegetables; calcium and protein from cheddar; moderate fat from cheese; sodium may be elevated from cheddar and salsa."
+            },
+            {
+              "type": "Meal",
+              "attributes": {},
+              "name": "Veggie Quesadilla — Sesame Wrap",
+              "short_description": "A warm veggie quesadilla on a whole-wheat tortilla filled with cheddar, bell pepper, spinach, and salsa.",
+              "meal_suggestion": "Pair with a side of fruit or a light yogurt. For more protein in a vegetarian option, add black beans or use bean-based alternative; consider reduced-fat cheddar to lower fat. Optional additions: avocado for healthy fats or a green salad to increase volume and micronutrients.",
+              "ingredients": [],
+              "nutrition_note": "Fiber from whole-wheat tortilla and vegetables; calcium from cheddar; iron from spinach; vitamins A and C from bell pepper. Moderate sodium from cheese and salsa. To reduce fat and calories, use reduced-fat cheddar and a smaller amount of salsa."
+            },
+            {
+              "type": "Meal",
+              "attributes": {},
+              "name": "Salmon Salad Wrap — Classic Wrap",
+              "short_description": "A classic Salmon Salad Wrap made with canned salmon, Greek yogurt, celery, greens, and a whole-wheat tortilla.",
+              "meal_suggestion": "Great for a portable lunch. Use one whole-wheat tortilla and fill with the salmon-yogurt mixture and greens; pair with fruit or veggie sticks for balance. For make-ahead prep, store the filling separately and assemble the wrap just before eating to prevent sogginess.",
+              "ingredients": [],
+              "nutrition_note": "Protein-packed and rich in omega-3s from salmon and Greek yogurt. Includes fiber from greens, celery, and whole-wheat tortilla. Be mindful of sodium from canned salmon; opt for low-sodium salmon and yogurt if you monitor salt intake."
+            }
+          ]
+        },
+        {
+          "type": "Dinner",
+          "attributes": {},
+          "children": [
+            {
+              "type": "Meal",
+              "attributes": {},
+              "name": "Shrimp Fried Rice — Lemon-Herb Combo",
+              "short_description": "Stir-fried shrimp, egg, peas, carrots, and rice with soy sauce—protein-packed, veggie-rich, and easily customizable with whole-grain rice or lower-sodium seasoning.",
+              "meal_suggestion": "Balanced quick meal. To reduce sodium, use low-sodium soy sauce; for more fiber, use brown rice; add a squeeze of lemon and fresh herbs to emphasize the lemon-herb note.",
+              "ingredients": [],
+              "nutrition_note": "Protein-rich from shrimp and egg; includes veggies (peas, carrots) and carbs from rice. Soy sauce adds sodium, so consider low-sodium soy sauce or tamari. For more fiber, swap white rice for brown rice; gluten-free option with a gluten-free soy sauce. Lemon zest/herbs can boost flavor without many calories."
+            },
+            {
+              "type": "Meal",
+              "attributes": {},
+              "name": "Homemade Pizza Night — Garden Veg Combo",
+              "short_description": "Homemade garden-veggie pizza with whole-wheat crust, tomato sauce, mozzarella, mushrooms, and bell pepper—colorful and fiber-rich.",
+              "meal_suggestion": "Serve a personal 8–12 inch pizza with a side salad. For a lighter version, use part-skim mozzarella and low-sodium tomato sauce, and consider adding more vegetables or a lean protein if desired.",
+              "ingredients": [],
+              "nutrition_note": "Balanced: whole-wheat crust (fiber) + mozzarella (protein/calcium) + veggies (vitamins/minerals). Carbs mainly from crust; monitor sodium from cheese/sauce; consider portion control and optional low-sodium ingredients or extra veggies for fiber."
+            },
+            {
+              "type": "Meal",
+              "attributes": {},
+              "name": "DIY Taco Night — Mild-Spice Style",
+              "short_description": "A customizable DIY taco night featuring lean beef, corn tortillas, fresh veggies, cheddar, and salsa with mild spice.",
+              "meal_suggestion": "Cook lean ground beef with mild taco seasoning; warm corn tortillas; assemble with lettuce, tomato, cheddar, and salsa. For extra fiber and fats, add beans or avocado. Typical portion: 1–2 tortillas, ~4 oz beef, generous veggies, 1/4 cup cheese.",
+              "ingredients": [],
+              "nutrition_note": "Lean beef provides high-quality protein; corn tortillas supply carbohydrates and some fiber; lettuce and tomato add vitamins and additional fiber; cheddar contributes calcium and fat. Monitor sodium from salsa and seasoning—use low-sodium salsa and moderate cheese, and consider adding beans or avocado to boost fiber and heart-healthy fats."
+            }
+          ]
+        }
+      ],
+      "context_trace": [
+        {
+          "node_name": "Child",
+          "predicate": "atom(content =~ \"child\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"child\") on Child (Score: 1.00)"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total_steps": 4,
+    "total_scoring_calls": 2,
+    "matched_count": 5,
+    "execution_time_ms": 548.7592502031475,
+    "has_score_fusion": true,
+    "num_nodes_before_filter": 7,
+    "num_nodes_after_filter": 5
+  }
+}

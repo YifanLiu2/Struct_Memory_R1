@@ -1,0 +1,126 @@
+name: "todolist_multiturn"
+
+queries:
+  - name: "mt1"
+    use_versions: "true"
+    tree_path: "storage/memory/todo_list/todolist.xml"
+    queries:
+      # Multi-turn 1: Delete → Update → Read → Create → Update → Delete → Create
+      - "Delete the task read attention is all you need from my learning project"
+      - "Update the deadline to renew my passport the correct date of July 3, 2026"
+      - "Show me all high priority tasks related to my research."
+      - "Add a task to my groceries to buy eggs and orange juice, i need it for tomorrow morning"
+      - "Im trying to eat better, change ramen on my grocery list to be a salad instead"
+      - "Remove all high priority work related tasks from my todo list"
+      - "Add a task to the 'Garage Repair' project called 'Fix the leaky faucet'."
+
+  - name: "mt2"
+    use_versions: "true"
+    tree_path: "storage/memory/todo_list/todolist.xml"
+    queries:
+      # Multi-turn 2: Update → Delete → Create → Update → Read → Delete → Create
+      - "Update the grade midterm exams status to done"
+      - "Delete the repair man task from the 'Garage Repair' project."
+      - "Add a new project called 'Garage Repair' under the 'Household' category."
+      - "Update buy milk to done"
+      - "Which projects are currently stuck or blocked?"
+      - "Delete office hours from my todo list"
+      - "Add a task to read the paper DeepSeekMath to my work project. High priority."
+
+  - name: "mt3"
+    use_versions: "true"
+    tree_path: "storage/memory/todo_list/todolist.xml"
+    queries:
+      # Multi-turn 3: Create → Read → Update → Delete → Create → Update → Delete
+      - "I want to get better at playing piano. Add a new learning project called 'Piano Practice' and add a task to practice scales for 30 minutes every day."
+      - "What are my learning goals for this semester?"
+      - "Update all tasks in fix garage door to done"
+      - "Delete projects with a 2027 deadline from my todo list"
+      - "Add a task to my groceries to buy eggs and orange juice, i need it for tomorrow morning"
+      - "Update the deadline to renew my passport the correct date of July 3, 2026"
+      - "Delete the task read attention is all you need from my learning project"
+
+  - name: "mt4"
+    use_versions: "true"
+    tree_path: "storage/memory/todo_list/todolist.xml"
+    queries:
+      # Multi-turn 4: Delete → Create → Update → Read → Delete → Update → Create
+      - "Remove all high priority work related tasks from my todo list"
+      - "Add a new project called 'Garage Repair' under the 'Household' category."
+      - "Update the grade midterm exams status to done"
+      - "Find the last task I added to the Garage Repair project."
+      - "Delete office hours from my todo list"
+      - "Im trying to eat better, change ramen on my grocery list to be a salad instead"
+      - "Add a task to read the paper DeepSeekMath to my work project. High priority."
+
+  - name: "mt5"
+    use_versions: "true"
+    tree_path: "storage/memory/todo_list/todolist.xml"
+    queries:
+      # Multi-turn 5: Update → Delete → Create → Update → Create → Read → Delete
+      - "Update buy milk to done"
+      - "Delete the repair man task from the 'Garage Repair' project."
+      - "I want to get better at playing piano. Add a new learning project called 'Piano Practice' and add a task to practice scales for 30 minutes every day."
+      - "Update all tasks in fix garage door to done"
+      - "Add a task to the 'Garage Repair' project called 'Fix the leaky faucet'."
+      - "What tasks do I have that are related to travel"
+      - "Delete projects with a 2027 deadline from my todo list"
+
+# =============================================================================
+# EXPERIMENT CONFIGURATION
+# All parameters for this experiment are defined below
+# =============================================================================
+
+config:
+  # Schema configuration
+  # Choose which schema and data file to use
+  active_schema: "todolist" # Options: itinerary, todolist, session_recommendation
+  active_data: "todolist" # Options: todolist, travel_toronto_10day
+
+ # LLM Client configuration
+  # Model options: "gpt-4o", "gpt-5", "gpt-5-mini", "o1", "o3-mini", etc.
+  # openai:
+  #   api_key: "${OPENAI_API_KEY}"
+  #   model: "gpt-5-mini"
+  #   max_tokens: 128000
+  #   # For GPT-4 series: temperature controls creativity (0-1)
+  #   temperature: 0
+  #   # For GPT-5/o1/o3 series: reasoning_effort controls reasoning depth
+  #   # Options: none (fastest), low, medium (default), high, xhigh (deepest)
+  #   reasoning_effort: "low"
+
+  openai:
+    api_key: "${OPENROUTER_API_KEY}" # or point this env var to your OpenRouter key
+    # api_key: "${OPENAI_API_KEY}"
+    base_url: "https://openrouter.ai/api/v1"
+    model: "google/gemini-3-flash-preview" # or whatever Qwen model ID OpenRouter uses
+    max_tokens: 128000
+    temperature: 0
+    reasoning_effort: "low"
+
+  # XPath executor settings
+  xpath_executor:
+    top_k: 5
+    score_threshold: 0.05
+    # Scoring method: "llm", "entailment", or "cosine"
+    scoring_method: "entailment"
+
+  # In-context pipeline settings (single LLM call with full tree)
+  incontext_pipeline:
+    temperature: 0
+    max_tokens: 128000
+
+  # Entailment scorer settings
+  entailment:
+    model: "facebook/bart-large-mnli"
+    hypothesis_template: "This is related to {predicate}."
+    # device: auto-detected if not set (cuda > mps > cpu)
+
+  # Cosine similarity scorer settings
+  cosine:
+    model: "qwen/qwen3-embedding-8b"  
+    predicate_template: "{predicate}"
+    openai:
+      api_key: "${OPENROUTER_API_KEY}"
+      base_url: "https://openrouter.ai/api/v1"
+    # device: auto-detected if not set (cuda > mps > cpu)

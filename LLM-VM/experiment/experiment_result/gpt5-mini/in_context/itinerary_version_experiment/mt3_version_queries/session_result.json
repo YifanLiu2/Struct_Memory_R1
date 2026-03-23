@@ -1,0 +1,63 @@
+{
+  "session_id": "mt3_version_queries",
+  "queries": [
+    {
+      "query_id": "Query_001",
+      "user_query": "What day was modified to add a coffee break? Check the previous itinerary versions",
+      "selected_nodes": [
+        "Root > Itinerary_Version 2 > Day 3 > Balzac's Coffee Roasters (near AGO)",
+        "Root > Itinerary_Version 3 > Day 3 > Balzac's Coffee Roasters (near AGO)"
+      ],
+      "related_nodes": [
+        "Balzac's Coffee Roasters (near AGO)",
+        "Balzac's Coffee Roasters (near AGO)"
+      ],
+      "downstream_task_result": {
+        "operation": "READ",
+        "success": true,
+        "version_used": 5,
+        "reasoning": "The coffee-break restaurant (Balzac's) was added in Itinerary_Version 2 to Day 3; it appears in both versions 2 and 3. Returning the Restaurant nodes that show the added coffee break.",
+        "token_usage": {
+          "prompt_tokens": 29172,
+          "completion_tokens": 817,
+          "total_tokens": 29989
+        },
+        "error": null
+      },
+      "execution_time_ms": 12827.62
+    },
+    {
+      "query_id": "Query_002",
+      "user_query": "What was the original activity on Day 3? Check the previous itinerary versions",
+      "selected_nodes": [
+        "Root > Itinerary_Version 1 > Day 3 > Art Gallery of Ontario",
+        "Root > Itinerary_Version 2 > Day 3 > Art Gallery of Ontario",
+        "Root > Itinerary_Version 3 > Day 3 > Royal Ontario Museum",
+        "Root > Itinerary_Version 4 > Day 3 > Royal Ontario Museum",
+        "Root > Itinerary_Version 5 > Day 3 > Royal Ontario Museum"
+      ],
+      "related_nodes": [
+        "results > Art Gallery of Ontario",
+        "results > Art Gallery of Ontario",
+        "results > Royal Ontario Museum",
+        "results > Royal Ontario Museum",
+        "results > Royal Ontario Museum"
+      ],
+      "downstream_task_result": {
+        "operation": "READ",
+        "success": true,
+        "version_used": 5,
+        "reasoning": "User asked for the original Day 3 activity and to check previous itinerary versions; returned the Day 3 POI entries from versions 1–5 to show the original activity (Art Gallery of Ontario in Version 1) and how it changed.",
+        "token_usage": {
+          "prompt_tokens": 29172,
+          "completion_tokens": 1379,
+          "total_tokens": 30551
+        },
+        "error": null
+      },
+      "execution_time_ms": 16064.57
+    }
+  ],
+  "final_tree_version": 1,
+  "total_execution_time_ms": 28892.19
+}

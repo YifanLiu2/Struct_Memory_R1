@@ -1,0 +1,5640 @@
+{
+  "timestamp": "20260322_151545_761354",
+  "query": "/Root/Conversation_Version[1]/Speaker[atom(content =~ \"Gina\")]/Session[atom(content =~ \"studio Jon opened\")]/Observation[atom(content =~ \"describe studio\")]",
+  "canonical_query": "/Root/Conversation_Version[1]/Speaker[content =~ \"Gina\"]/Session[content =~ \"studio Jon opened\"]/Observation[content =~ \"describe studio\"]",
+  "data_file": "tree.xml",
+  "execution_time_ms": 874.0622000004805,
+  "parsed_ast": {
+    "steps": [
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Root",
+            "span": {
+              "start": 1,
+              "end": 5
+            }
+          },
+          "span": {
+            "start": 1,
+            "end": 5
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Conversation_Version",
+            "index": {
+              "start": 1,
+              "type": "single",
+              "span": {
+                "start": 26,
+                "end": 29
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 29
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 29
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Speaker",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "Gina",
+              "operator": "=~",
+              "span": {
+                "start": 38,
+                "end": 61
+              }
+            },
+            "predicate_str": "atom(content =~ \"Gina\")",
+            "span": {
+              "start": 30,
+              "end": 62
+            }
+          },
+          "span": {
+            "start": 30,
+            "end": 62
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Session",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "studio Jon opened",
+              "operator": "=~",
+              "span": {
+                "start": 71,
+                "end": 107
+              }
+            },
+            "predicate_str": "atom(content =~ \"studio Jon opened\")",
+            "span": {
+              "start": 63,
+              "end": 108
+            }
+          },
+          "span": {
+            "start": 63,
+            "end": 108
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Observation",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "describe studio",
+              "operator": "=~",
+              "span": {
+                "start": 121,
+                "end": 155
+              }
+            },
+            "predicate_str": "atom(content =~ \"describe studio\")",
+            "span": {
+              "start": 109,
+              "end": 156
+            }
+          },
+          "span": {
+            "start": 109,
+            "end": 156
+          }
+        }
+      }
+    ],
+    "global_index": null
+  },
+  "parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: Conversation_Version[1]\n├── Step 2: Speaker[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"Gina\")\n├── Step 3: Session[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"studio Jon opened\")\n└── Step 4: Observation[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"describe studio\")",
+  "canonical_parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: Conversation_Version[1]\n├── Step 2: Speaker[content =~ \"Gina\"]\n├── Step 3: Session[content =~ \"studio Jon opened\"]\n└── Step 4: Observation[content =~ \"describe studio\"]",
+  "execution_log": [
+    "[20260322_151545_761354] Executing query: /Root/Conversation_Version[1]/Speaker[atom(content =~ \"Gina\")]/Session[atom(content =~ \"studio Jon opened\")]/Observation[atom(content =~ \"describe studio\")]",
+    "Data file: tree.xml",
+    "Parsed steps: [Root, Conversation_Version[1], Speaker[atom(content =~ \"Gina\")], Session[atom(content =~ \"studio Jon opened\")], Observation[atom(content =~ \"describe studio\")]]",
+    "",
+    "Query AST:\n├── Step 0: Root\n├── Step 1: Conversation_Version[1]\n├── Step 2: Speaker[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"Gina\")\n├── Step 3: Session[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"studio Jon opened\")\n└── Step 4: Observation[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"describe studio\")",
+    "\n--- Step 1: Root ---",
+    "Matched Root root",
+    "\n--- Step 2: Conversation_Version[1] ---",
+    "Selected node at index 1 (0-based: 0)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 3: Speaker[atom(content =~ \"Gina\")] ---",
+    "Scoring predicate: atom(content =~ \"Gina\") (atomic values: ['Gina'])",
+    "  Node 0 (Jon): score = 0.0000 (exact match)",
+    "  Node 1 (Gina): score = 1.0000 (exact match)",
+    "  Exact attribute match on @name: 1/2 nodes matched",
+    "  Top-K Pruning: Reduced from 2 to 1 nodes (K=5)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 4: Session[atom(content =~ \"studio Jon opened\")] ---",
+    "Scoring predicate: atom(content =~ \"studio Jon opened\") (atomic values: ['studio Jon opened'])",
+    "  Collected 19 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 19 total descriptions",
+    "  Node 0 (Session): score = 0.8977",
+    "  Node 1 (Session): score = 0.5733",
+    "  Node 2 (Session): score = 0.9822",
+    "  Node 3 (Session): score = 0.7298",
+    "  Node 4 (Session): score = 0.8905",
+    "  Node 5 (Session): score = 0.6610",
+    "  Node 6 (Session): score = 0.9591",
+    "  Node 7 (Session): score = 0.0107",
+    "  Node 8 (Session): score = 0.9990",
+    "  Node 9 (Session): score = 0.9986",
+    "  Node 10 (Session): score = 0.9990",
+    "  Node 11 (Session): score = 0.9677",
+    "  Node 12 (Session): score = 0.9995",
+    "  Node 13 (Session): score = 0.4422",
+    "  Node 14 (Session): score = 0.9994",
+    "  Node 15 (Session): score = 0.2749",
+    "  Node 16 (Session): score = 0.4718",
+    "  Node 17 (Session): score = 0.9445",
+    "  Node 18 (Session): score = 0.9981",
+    "  Top-K Pruning: Reduced from 19 to 5 nodes (K=5)",
+    "After step: 5 nodes remaining",
+    "\n--- Step 5: Observation[atom(content =~ \"describe studio\")] ---",
+    "Scoring predicate: atom(content =~ \"describe studio\") (atomic values: ['describe studio'])",
+    "  Collected 5 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 5 total descriptions",
+    "  Node 0 (Observation): score = 0.6695",
+    "  Node 1 (Observation): score = 0.5488",
+    "  Node 2 (Observation): score = 0.6319",
+    "  Node 3 (Observation): score = 0.5507",
+    "  Node 4 (Observation): score = 0.4331",
+    "Scoring predicate: atom(content =~ \"describe studio\") (atomic values: ['describe studio'])",
+    "  Collected 2 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 2 total descriptions",
+    "  Node 0 (Observation): score = 0.9859",
+    "  Node 1 (Observation): score = 0.3840",
+    "Scoring predicate: atom(content =~ \"describe studio\") (atomic values: ['describe studio'])",
+    "  Collected 5 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 5 total descriptions",
+    "  Node 0 (Observation): score = 0.8555",
+    "  Node 1 (Observation): score = 0.4031",
+    "  Node 2 (Observation): score = 0.9892",
+    "  Node 3 (Observation): score = 0.6668",
+    "  Node 4 (Observation): score = 0.5298",
+    "Scoring predicate: atom(content =~ \"describe studio\") (atomic values: ['describe studio'])",
+    "  Collected 4 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 4 total descriptions",
+    "  Node 0 (Observation): score = 0.6095",
+    "  Node 1 (Observation): score = 0.4491",
+    "  Node 2 (Observation): score = 0.7224",
+    "  Node 3 (Observation): score = 0.9737",
+    "Scoring predicate: atom(content =~ \"describe studio\") (atomic values: ['describe studio'])",
+    "  Collected 5 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 5 total descriptions",
+    "  Node 0 (Observation): score = 0.3066",
+    "  Node 1 (Observation): score = 0.2837",
+    "  Node 2 (Observation): score = 0.6773",
+    "  Node 3 (Observation): score = 0.6579",
+    "  Node 4 (Observation): score = 0.3635",
+    "After step: 21 nodes remaining",
+    "\n=== Score Fusion ===",
+    "  Root > Conversation_Version 1 > Gina > Session 13 > Observation 1: product=0.6695 → score=0.6695",
+    "  Root > Conversation_Version 1 > Gina > Session 13 > Observation 3: product=0.6319 → score=0.6319",
+    "  Root > Conversation_Version 1 > Gina > Session 13 > Observation 4: product=0.5507 → score=0.5507",
+    "  Root > Conversation_Version 1 > Gina > Session 13 > Observation 2: product=0.5488 → score=0.5488",
+    "  Root > Conversation_Version 1 > Gina > Session 13 > Observation 5: product=0.4331 → score=0.4331",
+    "  Root > Conversation_Version 1 > Gina > Session 15 > Observation 1: product=0.9859 → score=0.9859",
+    "  Root > Conversation_Version 1 > Gina > Session 15 > Observation 2: product=0.3840 → score=0.3840",
+    "  Root > Conversation_Version 1 > Gina > Session 9 > Observation 3: product=0.9892 → score=0.9892",
+    "  Root > Conversation_Version 1 > Gina > Session 9 > Observation 1: product=0.8555 → score=0.8555",
+    "  Root > Conversation_Version 1 > Gina > Session 9 > Observation 4: product=0.6668 → score=0.6668",
+    "  Root > Conversation_Version 1 > Gina > Session 9 > Observation 5: product=0.5298 → score=0.5298",
+    "  Root > Conversation_Version 1 > Gina > Session 9 > Observation 2: product=0.4031 → score=0.4031",
+    "  Root > Conversation_Version 1 > Gina > Session 11 > Observation 4: product=0.9737 → score=0.9737",
+    "  Root > Conversation_Version 1 > Gina > Session 11 > Observation 3: product=0.7224 → score=0.7224",
+    "  Root > Conversation_Version 1 > Gina > Session 11 > Observation 1: product=0.6095 → score=0.6095",
+    "  Root > Conversation_Version 1 > Gina > Session 11 > Observation 2: product=0.4491 → score=0.4491",
+    "  Root > Conversation_Version 1 > Gina > Session 10 > Observation 3: product=0.6773 → score=0.6773",
+    "  Root > Conversation_Version 1 > Gina > Session 10 > Observation 4: product=0.6579 → score=0.6579",
+    "  Root > Conversation_Version 1 > Gina > Session 10 > Observation 5: product=0.3635 → score=0.3635",
+    "  Root > Conversation_Version 1 > Gina > Session 10 > Observation 1: product=0.3066 → score=0.3066",
+    "  Root > Conversation_Version 1 > Gina > Session 10 > Observation 2: product=0.2837 → score=0.2837",
+    "  Parent propagation: Root > Conversation_Version 1 > Gina > Session 13 > Observation 1: own=0.6695 × parent=0.9995 → 0.6691",
+    "  Parent propagation: Root > Conversation_Version 1 > Gina > Session 13 > Observation 3: own=0.6319 × parent=0.9995 → 0.6315",
+    "  Parent propagation: Root > Conversation_Version 1 > Gina > Session 13 > Observation 4: own=0.5507 × parent=0.9995 → 0.5504",
+    "  Parent propagation: Root > Conversation_Version 1 > Gina > Session 13 > Observation 2: own=0.5488 × parent=0.9995 → 0.5485",
+    "  Parent propagation: Root > Conversation_Version 1 > Gina > Session 13 > Observation 5: own=0.4331 × parent=0.9995 → 0.4329",
+    "  Parent propagation: Root > Conversation_Version 1 > Gina > Session 15 > Observation 1: own=0.9859 × parent=0.9994 → 0.9853",
+    "  Parent propagation: Root > Conversation_Version 1 > Gina > Session 15 > Observation 2: own=0.3840 × parent=0.9994 → 0.3837",
+    "  Parent propagation: Root > Conversation_Version 1 > Gina > Session 9 > Observation 3: own=0.9892 × parent=0.9990 → 0.9883",
+    "  Parent propagation: Root > Conversation_Version 1 > Gina > Session 9 > Observation 1: own=0.8555 × parent=0.9990 → 0.8547",
+    "  Parent propagation: Root > Conversation_Version 1 > Gina > Session 9 > Observation 4: own=0.6668 × parent=0.9990 → 0.6662",
+    "  Parent propagation: Root > Conversation_Version 1 > Gina > Session 9 > Observation 5: own=0.5298 × parent=0.9990 → 0.5293",
+    "  Parent propagation: Root > Conversation_Version 1 > Gina > Session 9 > Observation 2: own=0.4031 × parent=0.9990 → 0.4027",
+    "  Parent propagation: Root > Conversation_Version 1 > Gina > Session 11 > Observation 4: own=0.9737 × parent=0.9990 → 0.9727",
+    "  Parent propagation: Root > Conversation_Version 1 > Gina > Session 11 > Observation 3: own=0.7224 × parent=0.9990 → 0.7217",
+    "  Parent propagation: Root > Conversation_Version 1 > Gina > Session 11 > Observation 1: own=0.6095 × parent=0.9990 → 0.6089",
+    "  Parent propagation: Root > Conversation_Version 1 > Gina > Session 11 > Observation 2: own=0.4491 × parent=0.9990 → 0.4486",
+    "  Parent propagation: Root > Conversation_Version 1 > Gina > Session 10 > Observation 3: own=0.6773 × parent=0.9986 → 0.6763",
+    "  Parent propagation: Root > Conversation_Version 1 > Gina > Session 10 > Observation 4: own=0.6579 × parent=0.9986 → 0.6570",
+    "  Parent propagation: Root > Conversation_Version 1 > Gina > Session 10 > Observation 5: own=0.3635 × parent=0.9986 → 0.3630",
+    "  Parent propagation: Root > Conversation_Version 1 > Gina > Session 10 > Observation 1: own=0.3066 × parent=0.9986 → 0.3062",
+    "  Parent propagation: Root > Conversation_Version 1 > Gina > Session 10 > Observation 2: own=0.2837 × parent=0.9986 → 0.2834",
+    "\n=== Parent Score Propagation: 21 nodes updated ===",
+    "\n=== Threshold Filtering (threshold=0.05) ===",
+    "  Filtered: 21 → 21 nodes",
+    "\n=== Final Filtering (top_k=10) ===",
+    "  After top_k: 21 → 10 nodes",
+    "\nFinal result: 10 nodes (sorted by score)",
+    "⏱️  Query execution time: 874.06ms"
+  ],
+  "traversal_steps": [
+    {
+      "step_index": 0,
+      "step_query": "Root",
+      "action": "root_match",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "type": "root"
+        }
+      ],
+      "nodes_after": [
+        {
+          "type": "Root",
+          "path": "Root"
+        }
+      ],
+      "details": {
+        "matched": true
+      }
+    },
+    {
+      "step_index": 1,
+      "step_query": "Conversation_Version[1]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root",
+          "name": "Root",
+          "type": "Root",
+          "score": 1.0,
+          "node_id": 1903082315968
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Conversation_Version 1",
+          "name": "Conversation_Version 1",
+          "type": "Conversation_Version",
+          "score": 1.0,
+          "node_id": 1903082315568
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Conversation_Version",
+            "index": {
+              "start": 1,
+              "type": "single",
+              "span": {
+                "start": 26,
+                "end": 29
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 29
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 29
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 2,
+      "step_query": "Speaker[atom(content =~ \"Gina\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root > Conversation_Version 1",
+          "name": "Conversation_Version 1",
+          "type": "Conversation_Version",
+          "score": 1.0,
+          "node_id": 1903082315568
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Conversation_Version 1 > Gina",
+          "name": "Gina",
+          "type": "Speaker",
+          "score": 1.0,
+          "node_id": 1906158371600
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Speaker",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "Gina",
+              "operator": "=~",
+              "span": {
+                "start": 38,
+                "end": 61
+              }
+            },
+            "predicate_str": "atom(content =~ \"Gina\")",
+            "span": {
+              "start": 30,
+              "end": 62
+            }
+          },
+          "span": {
+            "start": 30,
+            "end": 62
+          }
+        },
+        "found_count": 2,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"Gina\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "Gina",
+              "operator": "=~",
+              "span": {
+                "start": 38,
+                "end": 61
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 1903082321248,
+                "node_name": "Jon",
+                "node_type": "Speaker",
+                "final_score": 0.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Jon",
+                    "query_value": "Gina",
+                    "matched": false,
+                    "score": 0.0
+                  }
+                ]
+              },
+              {
+                "node_idx": 1,
+                "node_id": 1906158371600,
+                "node_name": "Gina",
+                "node_type": "Speaker",
+                "final_score": 1.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Gina",
+                    "query_value": "Gina",
+                    "matched": true,
+                    "score": 1.0
+                  }
+                ]
+              }
+            ],
+            "batch_scoring": {
+              "exact_match": true,
+              "matched_attribute": "name",
+              "query_value": "Gina",
+              "matched_count": 1
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 1,
+                "score": 1.0,
+                "name": "Gina"
+              },
+              {
+                "idx": 0,
+                "score": 0.0,
+                "name": "Jon"
+              }
+            ]
+          }
+        ],
+        "pruned_count": 1
+      }
+    },
+    {
+      "step_index": 3,
+      "step_query": "Session[atom(content =~ \"studio Jon opened\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 5,
+      "nodes_before": [
+        {
+          "path": "Root > Conversation_Version 1 > Gina",
+          "name": "Gina",
+          "type": "Speaker",
+          "score": 1.0,
+          "node_id": 1906158371600
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Conversation_Version 1 > Gina > Session 13",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.9994531273841858,
+          "node_id": 1902741273424
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Gina > Session 15",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.9993883371353149,
+          "node_id": 1902743241888
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Gina > Session 9",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.9990491271018982,
+          "node_id": 1902741271824
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Gina > Session 11",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.9989769458770752,
+          "node_id": 1902741268864
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Gina > Session 10",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.998610258102417,
+          "node_id": 1902741267824
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Session",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "studio Jon opened",
+              "operator": "=~",
+              "span": {
+                "start": 71,
+                "end": 107
+              }
+            },
+            "predicate_str": "atom(content =~ \"studio Jon opened\")",
+            "span": {
+              "start": 63,
+              "end": 108
+            }
+          },
+          "span": {
+            "start": 63,
+            "end": 108
+          }
+        },
+        "found_count": 19,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"studio Jon opened\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "studio Jon opened",
+              "operator": "=~",
+              "span": {
+                "start": 71,
+                "end": 107
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 1906158373360,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "studio Jon opened",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.8976524472236633,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.8976524472236633
+              },
+              {
+                "node_idx": 1,
+                "node_id": 1906158386960,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "studio Jon opened",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.5733420848846436,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.5733420848846436
+              },
+              {
+                "node_idx": 2,
+                "node_id": 1902934100224,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "studio Jon opened",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.9821664690971375,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.9821664690971375
+              },
+              {
+                "node_idx": 3,
+                "node_id": 1902933958048,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "studio Jon opened",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.7297832369804382,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.7297832369804382
+              },
+              {
+                "node_idx": 4,
+                "node_id": 1902741259904,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "studio Jon opened",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.8905435800552368,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.8905435800552368
+              },
+              {
+                "node_idx": 5,
+                "node_id": 1902741273024,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "studio Jon opened",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.6610297560691833,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.6610297560691833
+              },
+              {
+                "node_idx": 6,
+                "node_id": 1902741262544,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "studio Jon opened",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.959063708782196,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.959063708782196
+              },
+              {
+                "node_idx": 7,
+                "node_id": 1902741258784,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "studio Jon opened",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.01073096040636301,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.01073096040636301
+              },
+              {
+                "node_idx": 8,
+                "node_id": 1902741271824,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "studio Jon opened",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.9990491271018982,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.9990491271018982
+              },
+              {
+                "node_idx": 9,
+                "node_id": 1902741267824,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "studio Jon opened",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.998610258102417,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.998610258102417
+              },
+              {
+                "node_idx": 10,
+                "node_id": 1902741268864,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "studio Jon opened",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.9989769458770752,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.9989769458770752
+              },
+              {
+                "node_idx": 11,
+                "node_id": 1902741269424,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "studio Jon opened",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.9677231907844543,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.9677231907844543
+              },
+              {
+                "node_idx": 12,
+                "node_id": 1902741273424,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "studio Jon opened",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.9994531273841858,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.9994531273841858
+              },
+              {
+                "node_idx": 13,
+                "node_id": 1902741269184,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "studio Jon opened",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.44223371148109436,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.44223371148109436
+              },
+              {
+                "node_idx": 14,
+                "node_id": 1902743241888,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "studio Jon opened",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.9993883371353149,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.9993883371353149
+              },
+              {
+                "node_idx": 15,
+                "node_id": 1902743255408,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "studio Jon opened",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.2749050557613373,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.2749050557613373
+              },
+              {
+                "node_idx": 16,
+                "node_id": 1902743241728,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "studio Jon opened",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.4717600643634796,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.4717600643634796
+              },
+              {
+                "node_idx": 17,
+                "node_id": 1902743245728,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "studio Jon opened",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.944483757019043,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.944483757019043
+              },
+              {
+                "node_idx": 18,
+                "node_id": 1902743245808,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "studio Jon opened",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 107
+                      }
+                    },
+                    "score": 0.9981427192687988,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.9981427192687988
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "studio Jon opened"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "studio Jon opened",
+                  "num_descriptions": 19,
+                  "call_time_ms": 652.27
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 19
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 12,
+                "score": 0.9994531273841858,
+                "name": "Session"
+              },
+              {
+                "idx": 14,
+                "score": 0.9993883371353149,
+                "name": "Session"
+              },
+              {
+                "idx": 8,
+                "score": 0.9990491271018982,
+                "name": "Session"
+              },
+              {
+                "idx": 10,
+                "score": 0.9989769458770752,
+                "name": "Session"
+              },
+              {
+                "idx": 9,
+                "score": 0.998610258102417,
+                "name": "Session"
+              },
+              {
+                "idx": 18,
+                "score": 0.9981427192687988,
+                "name": "Session"
+              },
+              {
+                "idx": 2,
+                "score": 0.9821664690971375,
+                "name": "Session"
+              },
+              {
+                "idx": 11,
+                "score": 0.9677231907844543,
+                "name": "Session"
+              },
+              {
+                "idx": 6,
+                "score": 0.959063708782196,
+                "name": "Session"
+              },
+              {
+                "idx": 17,
+                "score": 0.944483757019043,
+                "name": "Session"
+              },
+              {
+                "idx": 0,
+                "score": 0.8976524472236633,
+                "name": "Session"
+              },
+              {
+                "idx": 4,
+                "score": 0.8905435800552368,
+                "name": "Session"
+              },
+              {
+                "idx": 3,
+                "score": 0.7297832369804382,
+                "name": "Session"
+              },
+              {
+                "idx": 5,
+                "score": 0.6610297560691833,
+                "name": "Session"
+              },
+              {
+                "idx": 1,
+                "score": 0.5733420848846436,
+                "name": "Session"
+              },
+              {
+                "idx": 16,
+                "score": 0.4717600643634796,
+                "name": "Session"
+              },
+              {
+                "idx": 13,
+                "score": 0.44223371148109436,
+                "name": "Session"
+              },
+              {
+                "idx": 15,
+                "score": 0.2749050557613373,
+                "name": "Session"
+              },
+              {
+                "idx": 7,
+                "score": 0.01073096040636301,
+                "name": "Session"
+              }
+            ]
+          }
+        ],
+        "pruned_count": 14
+      }
+    },
+    {
+      "step_index": 4,
+      "step_query": "Observation[atom(content =~ \"describe studio\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 5,
+      "nodes_after_count": 21,
+      "nodes_before": [
+        {
+          "path": "Root > Conversation_Version 1 > Gina > Session 13",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.9994531273841858,
+          "node_id": 1902741273424
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Gina > Session 15",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.9993883371353149,
+          "node_id": 1902743241888
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Gina > Session 9",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.9990491271018982,
+          "node_id": 1902741271824
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Gina > Session 11",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.9989769458770752,
+          "node_id": 1902741268864
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Gina > Session 10",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.998610258102417,
+          "node_id": 1902741267824
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Conversation_Version 1 > Gina > Session 13 > Observation 1",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.6694697141647339,
+          "node_id": 1902741271104
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Gina > Session 13 > Observation 3",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.6318926811218262,
+          "node_id": 1902741262864
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Gina > Session 13 > Observation 4",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.5507214665412903,
+          "node_id": 1902741266384
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Gina > Session 13 > Observation 2",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.5487858057022095,
+          "node_id": 1902741259424
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Gina > Session 13 > Observation 5",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.43311169743537903,
+          "node_id": 1902741268784
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Gina > Session 15 > Observation 1",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.9859206080436707,
+          "node_id": 1902743248688
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Gina > Session 15 > Observation 2",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.3839573562145233,
+          "node_id": 1902743250928
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Gina > Session 9 > Observation 3",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.9892138838768005,
+          "node_id": 1902741268144
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Gina > Session 9 > Observation 1",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.8555373549461365,
+          "node_id": 1902741266784
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Gina > Session 9 > Observation 4",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.6668359041213989,
+          "node_id": 1902741263344
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Gina > Session 9 > Observation 5",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.5298469662666321,
+          "node_id": 1902741260544
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Gina > Session 9 > Observation 2",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.40308791399002075,
+          "node_id": 1902741261264
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Gina > Session 11 > Observation 4",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.97367924451828,
+          "node_id": 1902741260384
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Gina > Session 11 > Observation 3",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.7224169969558716,
+          "node_id": 1902741267264
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Gina > Session 11 > Observation 1",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.6094850897789001,
+          "node_id": 1902741262464
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Gina > Session 11 > Observation 2",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.44909927248954773,
+          "node_id": 1902741262624
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Gina > Session 10 > Observation 3",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.6772589683532715,
+          "node_id": 1902741265424
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Gina > Session 10 > Observation 4",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.6578811407089233,
+          "node_id": 1902741265264
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Gina > Session 10 > Observation 5",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.3634791672229767,
+          "node_id": 1902741266944
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Gina > Session 10 > Observation 1",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.306580126285553,
+          "node_id": 1902741259344
+        },
+        {
+          "path": "Root > Conversation_Version 1 > Gina > Session 10 > Observation 2",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.2837487459182739,
+          "node_id": 1902741271184
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Observation",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "describe studio",
+              "operator": "=~",
+              "span": {
+                "start": 121,
+                "end": 155
+              }
+            },
+            "predicate_str": "atom(content =~ \"describe studio\")",
+            "span": {
+              "start": 109,
+              "end": 156
+            }
+          },
+          "span": {
+            "start": 109,
+            "end": 156
+          }
+        },
+        "found_count": 21,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"describe studio\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "describe studio",
+              "operator": "=~",
+              "span": {
+                "start": 121,
+                "end": 155
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 1902741271104,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "describe studio",
+                      "operator": "=~",
+                      "span": {
+                        "start": 121,
+                        "end": 155
+                      }
+                    },
+                    "score": 0.6694697141647339,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.6694697141647339
+              },
+              {
+                "node_idx": 1,
+                "node_id": 1902741259424,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "describe studio",
+                      "operator": "=~",
+                      "span": {
+                        "start": 121,
+                        "end": 155
+                      }
+                    },
+                    "score": 0.5487858057022095,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.5487858057022095
+              },
+              {
+                "node_idx": 2,
+                "node_id": 1902741262864,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "describe studio",
+                      "operator": "=~",
+                      "span": {
+                        "start": 121,
+                        "end": 155
+                      }
+                    },
+                    "score": 0.6318926811218262,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.6318926811218262
+              },
+              {
+                "node_idx": 3,
+                "node_id": 1902741266384,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "describe studio",
+                      "operator": "=~",
+                      "span": {
+                        "start": 121,
+                        "end": 155
+                      }
+                    },
+                    "score": 0.5507214665412903,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.5507214665412903
+              },
+              {
+                "node_idx": 4,
+                "node_id": 1902741268784,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "describe studio",
+                      "operator": "=~",
+                      "span": {
+                        "start": 121,
+                        "end": 155
+                      }
+                    },
+                    "score": 0.43311169743537903,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.43311169743537903
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "describe studio"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "describe studio",
+                  "num_descriptions": 5,
+                  "call_time_ms": 47.04
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 5
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 0,
+                "score": 0.6694697141647339,
+                "name": "Observation"
+              },
+              {
+                "idx": 2,
+                "score": 0.6318926811218262,
+                "name": "Observation"
+              },
+              {
+                "idx": 3,
+                "score": 0.5507214665412903,
+                "name": "Observation"
+              },
+              {
+                "idx": 1,
+                "score": 0.5487858057022095,
+                "name": "Observation"
+              },
+              {
+                "idx": 4,
+                "score": 0.43311169743537903,
+                "name": "Observation"
+              }
+            ]
+          },
+          {
+            "predicate": "atom(content =~ \"describe studio\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "describe studio",
+              "operator": "=~",
+              "span": {
+                "start": 121,
+                "end": 155
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 1902743248688,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "describe studio",
+                      "operator": "=~",
+                      "span": {
+                        "start": 121,
+                        "end": 155
+                      }
+                    },
+                    "score": 0.9859206080436707,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.9859206080436707
+              },
+              {
+                "node_idx": 1,
+                "node_id": 1902743250928,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "describe studio",
+                      "operator": "=~",
+                      "span": {
+                        "start": 121,
+                        "end": 155
+                      }
+                    },
+                    "score": 0.3839573562145233,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.3839573562145233
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "describe studio"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "describe studio",
+                  "num_descriptions": 2,
+                  "call_time_ms": 35.46
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 2
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 0,
+                "score": 0.9859206080436707,
+                "name": "Observation"
+              },
+              {
+                "idx": 1,
+                "score": 0.3839573562145233,
+                "name": "Observation"
+              }
+            ]
+          },
+          {
+            "predicate": "atom(content =~ \"describe studio\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "describe studio",
+              "operator": "=~",
+              "span": {
+                "start": 121,
+                "end": 155
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 1902741266784,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "describe studio",
+                      "operator": "=~",
+                      "span": {
+                        "start": 121,
+                        "end": 155
+                      }
+                    },
+                    "score": 0.8555373549461365,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.8555373549461365
+              },
+              {
+                "node_idx": 1,
+                "node_id": 1902741261264,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "describe studio",
+                      "operator": "=~",
+                      "span": {
+                        "start": 121,
+                        "end": 155
+                      }
+                    },
+                    "score": 0.40308791399002075,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.40308791399002075
+              },
+              {
+                "node_idx": 2,
+                "node_id": 1902741268144,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "describe studio",
+                      "operator": "=~",
+                      "span": {
+                        "start": 121,
+                        "end": 155
+                      }
+                    },
+                    "score": 0.9892138838768005,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.9892138838768005
+              },
+              {
+                "node_idx": 3,
+                "node_id": 1902741263344,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "describe studio",
+                      "operator": "=~",
+                      "span": {
+                        "start": 121,
+                        "end": 155
+                      }
+                    },
+                    "score": 0.6668359041213989,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.6668359041213989
+              },
+              {
+                "node_idx": 4,
+                "node_id": 1902741260544,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "describe studio",
+                      "operator": "=~",
+                      "span": {
+                        "start": 121,
+                        "end": 155
+                      }
+                    },
+                    "score": 0.5298469662666321,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.5298469662666321
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "describe studio"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "describe studio",
+                  "num_descriptions": 5,
+                  "call_time_ms": 48.96
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 5
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 2,
+                "score": 0.9892138838768005,
+                "name": "Observation"
+              },
+              {
+                "idx": 0,
+                "score": 0.8555373549461365,
+                "name": "Observation"
+              },
+              {
+                "idx": 3,
+                "score": 0.6668359041213989,
+                "name": "Observation"
+              },
+              {
+                "idx": 4,
+                "score": 0.5298469662666321,
+                "name": "Observation"
+              },
+              {
+                "idx": 1,
+                "score": 0.40308791399002075,
+                "name": "Observation"
+              }
+            ]
+          },
+          {
+            "predicate": "atom(content =~ \"describe studio\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "describe studio",
+              "operator": "=~",
+              "span": {
+                "start": 121,
+                "end": 155
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 1902741262464,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "describe studio",
+                      "operator": "=~",
+                      "span": {
+                        "start": 121,
+                        "end": 155
+                      }
+                    },
+                    "score": 0.6094850897789001,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.6094850897789001
+              },
+              {
+                "node_idx": 1,
+                "node_id": 1902741262624,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "describe studio",
+                      "operator": "=~",
+                      "span": {
+                        "start": 121,
+                        "end": 155
+                      }
+                    },
+                    "score": 0.44909927248954773,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.44909927248954773
+              },
+              {
+                "node_idx": 2,
+                "node_id": 1902741267264,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "describe studio",
+                      "operator": "=~",
+                      "span": {
+                        "start": 121,
+                        "end": 155
+                      }
+                    },
+                    "score": 0.7224169969558716,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.7224169969558716
+              },
+              {
+                "node_idx": 3,
+                "node_id": 1902741260384,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "describe studio",
+                      "operator": "=~",
+                      "span": {
+                        "start": 121,
+                        "end": 155
+                      }
+                    },
+                    "score": 0.97367924451828,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.97367924451828
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "describe studio"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "describe studio",
+                  "num_descriptions": 4,
+                  "call_time_ms": 39.73
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 4
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 3,
+                "score": 0.97367924451828,
+                "name": "Observation"
+              },
+              {
+                "idx": 2,
+                "score": 0.7224169969558716,
+                "name": "Observation"
+              },
+              {
+                "idx": 0,
+                "score": 0.6094850897789001,
+                "name": "Observation"
+              },
+              {
+                "idx": 1,
+                "score": 0.44909927248954773,
+                "name": "Observation"
+              }
+            ]
+          },
+          {
+            "predicate": "atom(content =~ \"describe studio\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "describe studio",
+              "operator": "=~",
+              "span": {
+                "start": 121,
+                "end": 155
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 1902741259344,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "describe studio",
+                      "operator": "=~",
+                      "span": {
+                        "start": 121,
+                        "end": 155
+                      }
+                    },
+                    "score": 0.306580126285553,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.306580126285553
+              },
+              {
+                "node_idx": 1,
+                "node_id": 1902741271184,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "describe studio",
+                      "operator": "=~",
+                      "span": {
+                        "start": 121,
+                        "end": 155
+                      }
+                    },
+                    "score": 0.2837487459182739,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.2837487459182739
+              },
+              {
+                "node_idx": 2,
+                "node_id": 1902741265424,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "describe studio",
+                      "operator": "=~",
+                      "span": {
+                        "start": 121,
+                        "end": 155
+                      }
+                    },
+                    "score": 0.6772589683532715,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.6772589683532715
+              },
+              {
+                "node_idx": 3,
+                "node_id": 1902741265264,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "describe studio",
+                      "operator": "=~",
+                      "span": {
+                        "start": 121,
+                        "end": 155
+                      }
+                    },
+                    "score": 0.6578811407089233,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.6578811407089233
+              },
+              {
+                "node_idx": 4,
+                "node_id": 1902741266944,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "describe studio",
+                      "operator": "=~",
+                      "span": {
+                        "start": 121,
+                        "end": 155
+                      }
+                    },
+                    "score": 0.3634791672229767,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.3634791672229767
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "describe studio"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "describe studio",
+                  "num_descriptions": 5,
+                  "call_time_ms": 48.09
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 5
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 2,
+                "score": 0.6772589683532715,
+                "name": "Observation"
+              },
+              {
+                "idx": 3,
+                "score": 0.6578811407089233,
+                "name": "Observation"
+              },
+              {
+                "idx": 4,
+                "score": 0.3634791672229767,
+                "name": "Observation"
+              },
+              {
+                "idx": 0,
+                "score": 0.306580126285553,
+                "name": "Observation"
+              },
+              {
+                "idx": 1,
+                "score": 0.2837487459182739,
+                "name": "Observation"
+              }
+            ]
+          }
+        ],
+        "pruned_count": 0
+      }
+    }
+  ],
+  "scoring_traces": [
+    {
+      "predicate": "atom(content =~ \"Gina\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "Gina",
+        "operator": "=~",
+        "span": {
+          "start": 38,
+          "end": 61
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 1903082321248,
+          "node_name": "Jon",
+          "node_type": "Speaker",
+          "final_score": 0.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Jon",
+              "query_value": "Gina",
+              "matched": false,
+              "score": 0.0
+            }
+          ]
+        },
+        {
+          "node_idx": 1,
+          "node_id": 1906158371600,
+          "node_name": "Gina",
+          "node_type": "Speaker",
+          "final_score": 1.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Gina",
+              "query_value": "Gina",
+              "matched": true,
+              "score": 1.0
+            }
+          ]
+        }
+      ],
+      "batch_scoring": {
+        "exact_match": true,
+        "matched_attribute": "name",
+        "query_value": "Gina",
+        "matched_count": 1
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 1,
+          "score": 1.0,
+          "name": "Gina"
+        },
+        {
+          "idx": 0,
+          "score": 0.0,
+          "name": "Jon"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"studio Jon opened\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "studio Jon opened",
+        "operator": "=~",
+        "span": {
+          "start": 71,
+          "end": 107
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 1906158373360,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "studio Jon opened",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 107
+                }
+              },
+              "score": 0.8976524472236633,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.8976524472236633
+        },
+        {
+          "node_idx": 1,
+          "node_id": 1906158386960,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "studio Jon opened",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 107
+                }
+              },
+              "score": 0.5733420848846436,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.5733420848846436
+        },
+        {
+          "node_idx": 2,
+          "node_id": 1902934100224,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "studio Jon opened",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 107
+                }
+              },
+              "score": 0.9821664690971375,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.9821664690971375
+        },
+        {
+          "node_idx": 3,
+          "node_id": 1902933958048,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "studio Jon opened",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 107
+                }
+              },
+              "score": 0.7297832369804382,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.7297832369804382
+        },
+        {
+          "node_idx": 4,
+          "node_id": 1902741259904,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "studio Jon opened",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 107
+                }
+              },
+              "score": 0.8905435800552368,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.8905435800552368
+        },
+        {
+          "node_idx": 5,
+          "node_id": 1902741273024,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "studio Jon opened",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 107
+                }
+              },
+              "score": 0.6610297560691833,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.6610297560691833
+        },
+        {
+          "node_idx": 6,
+          "node_id": 1902741262544,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "studio Jon opened",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 107
+                }
+              },
+              "score": 0.959063708782196,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.959063708782196
+        },
+        {
+          "node_idx": 7,
+          "node_id": 1902741258784,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "studio Jon opened",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 107
+                }
+              },
+              "score": 0.01073096040636301,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.01073096040636301
+        },
+        {
+          "node_idx": 8,
+          "node_id": 1902741271824,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "studio Jon opened",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 107
+                }
+              },
+              "score": 0.9990491271018982,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.9990491271018982
+        },
+        {
+          "node_idx": 9,
+          "node_id": 1902741267824,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "studio Jon opened",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 107
+                }
+              },
+              "score": 0.998610258102417,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.998610258102417
+        },
+        {
+          "node_idx": 10,
+          "node_id": 1902741268864,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "studio Jon opened",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 107
+                }
+              },
+              "score": 0.9989769458770752,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.9989769458770752
+        },
+        {
+          "node_idx": 11,
+          "node_id": 1902741269424,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "studio Jon opened",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 107
+                }
+              },
+              "score": 0.9677231907844543,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.9677231907844543
+        },
+        {
+          "node_idx": 12,
+          "node_id": 1902741273424,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "studio Jon opened",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 107
+                }
+              },
+              "score": 0.9994531273841858,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.9994531273841858
+        },
+        {
+          "node_idx": 13,
+          "node_id": 1902741269184,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "studio Jon opened",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 107
+                }
+              },
+              "score": 0.44223371148109436,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.44223371148109436
+        },
+        {
+          "node_idx": 14,
+          "node_id": 1902743241888,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "studio Jon opened",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 107
+                }
+              },
+              "score": 0.9993883371353149,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.9993883371353149
+        },
+        {
+          "node_idx": 15,
+          "node_id": 1902743255408,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "studio Jon opened",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 107
+                }
+              },
+              "score": 0.2749050557613373,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.2749050557613373
+        },
+        {
+          "node_idx": 16,
+          "node_id": 1902743241728,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "studio Jon opened",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 107
+                }
+              },
+              "score": 0.4717600643634796,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.4717600643634796
+        },
+        {
+          "node_idx": 17,
+          "node_id": 1902743245728,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "studio Jon opened",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 107
+                }
+              },
+              "score": 0.944483757019043,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.944483757019043
+        },
+        {
+          "node_idx": 18,
+          "node_id": 1902743245808,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "studio Jon opened",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 107
+                }
+              },
+              "score": 0.9981427192687988,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.9981427192687988
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "studio Jon opened"
+        ],
+        "per_value_stats": [
+          {
+            "value": "studio Jon opened",
+            "num_descriptions": 19,
+            "call_time_ms": 652.27
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 19
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 12,
+          "score": 0.9994531273841858,
+          "name": "Session"
+        },
+        {
+          "idx": 14,
+          "score": 0.9993883371353149,
+          "name": "Session"
+        },
+        {
+          "idx": 8,
+          "score": 0.9990491271018982,
+          "name": "Session"
+        },
+        {
+          "idx": 10,
+          "score": 0.9989769458770752,
+          "name": "Session"
+        },
+        {
+          "idx": 9,
+          "score": 0.998610258102417,
+          "name": "Session"
+        },
+        {
+          "idx": 18,
+          "score": 0.9981427192687988,
+          "name": "Session"
+        },
+        {
+          "idx": 2,
+          "score": 0.9821664690971375,
+          "name": "Session"
+        },
+        {
+          "idx": 11,
+          "score": 0.9677231907844543,
+          "name": "Session"
+        },
+        {
+          "idx": 6,
+          "score": 0.959063708782196,
+          "name": "Session"
+        },
+        {
+          "idx": 17,
+          "score": 0.944483757019043,
+          "name": "Session"
+        },
+        {
+          "idx": 0,
+          "score": 0.8976524472236633,
+          "name": "Session"
+        },
+        {
+          "idx": 4,
+          "score": 0.8905435800552368,
+          "name": "Session"
+        },
+        {
+          "idx": 3,
+          "score": 0.7297832369804382,
+          "name": "Session"
+        },
+        {
+          "idx": 5,
+          "score": 0.6610297560691833,
+          "name": "Session"
+        },
+        {
+          "idx": 1,
+          "score": 0.5733420848846436,
+          "name": "Session"
+        },
+        {
+          "idx": 16,
+          "score": 0.4717600643634796,
+          "name": "Session"
+        },
+        {
+          "idx": 13,
+          "score": 0.44223371148109436,
+          "name": "Session"
+        },
+        {
+          "idx": 15,
+          "score": 0.2749050557613373,
+          "name": "Session"
+        },
+        {
+          "idx": 7,
+          "score": 0.01073096040636301,
+          "name": "Session"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"describe studio\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "describe studio",
+        "operator": "=~",
+        "span": {
+          "start": 121,
+          "end": 155
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 1902741271104,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "describe studio",
+                "operator": "=~",
+                "span": {
+                  "start": 121,
+                  "end": 155
+                }
+              },
+              "score": 0.6694697141647339,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.6694697141647339
+        },
+        {
+          "node_idx": 1,
+          "node_id": 1902741259424,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "describe studio",
+                "operator": "=~",
+                "span": {
+                  "start": 121,
+                  "end": 155
+                }
+              },
+              "score": 0.5487858057022095,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.5487858057022095
+        },
+        {
+          "node_idx": 2,
+          "node_id": 1902741262864,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "describe studio",
+                "operator": "=~",
+                "span": {
+                  "start": 121,
+                  "end": 155
+                }
+              },
+              "score": 0.6318926811218262,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.6318926811218262
+        },
+        {
+          "node_idx": 3,
+          "node_id": 1902741266384,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "describe studio",
+                "operator": "=~",
+                "span": {
+                  "start": 121,
+                  "end": 155
+                }
+              },
+              "score": 0.5507214665412903,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.5507214665412903
+        },
+        {
+          "node_idx": 4,
+          "node_id": 1902741268784,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "describe studio",
+                "operator": "=~",
+                "span": {
+                  "start": 121,
+                  "end": 155
+                }
+              },
+              "score": 0.43311169743537903,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.43311169743537903
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "describe studio"
+        ],
+        "per_value_stats": [
+          {
+            "value": "describe studio",
+            "num_descriptions": 5,
+            "call_time_ms": 47.04
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 5
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 0,
+          "score": 0.6694697141647339,
+          "name": "Observation"
+        },
+        {
+          "idx": 2,
+          "score": 0.6318926811218262,
+          "name": "Observation"
+        },
+        {
+          "idx": 3,
+          "score": 0.5507214665412903,
+          "name": "Observation"
+        },
+        {
+          "idx": 1,
+          "score": 0.5487858057022095,
+          "name": "Observation"
+        },
+        {
+          "idx": 4,
+          "score": 0.43311169743537903,
+          "name": "Observation"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"describe studio\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "describe studio",
+        "operator": "=~",
+        "span": {
+          "start": 121,
+          "end": 155
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 1902743248688,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "describe studio",
+                "operator": "=~",
+                "span": {
+                  "start": 121,
+                  "end": 155
+                }
+              },
+              "score": 0.9859206080436707,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.9859206080436707
+        },
+        {
+          "node_idx": 1,
+          "node_id": 1902743250928,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "describe studio",
+                "operator": "=~",
+                "span": {
+                  "start": 121,
+                  "end": 155
+                }
+              },
+              "score": 0.3839573562145233,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.3839573562145233
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "describe studio"
+        ],
+        "per_value_stats": [
+          {
+            "value": "describe studio",
+            "num_descriptions": 2,
+            "call_time_ms": 35.46
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 2
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 0,
+          "score": 0.9859206080436707,
+          "name": "Observation"
+        },
+        {
+          "idx": 1,
+          "score": 0.3839573562145233,
+          "name": "Observation"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"describe studio\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "describe studio",
+        "operator": "=~",
+        "span": {
+          "start": 121,
+          "end": 155
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 1902741266784,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "describe studio",
+                "operator": "=~",
+                "span": {
+                  "start": 121,
+                  "end": 155
+                }
+              },
+              "score": 0.8555373549461365,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.8555373549461365
+        },
+        {
+          "node_idx": 1,
+          "node_id": 1902741261264,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "describe studio",
+                "operator": "=~",
+                "span": {
+                  "start": 121,
+                  "end": 155
+                }
+              },
+              "score": 0.40308791399002075,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.40308791399002075
+        },
+        {
+          "node_idx": 2,
+          "node_id": 1902741268144,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "describe studio",
+                "operator": "=~",
+                "span": {
+                  "start": 121,
+                  "end": 155
+                }
+              },
+              "score": 0.9892138838768005,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.9892138838768005
+        },
+        {
+          "node_idx": 3,
+          "node_id": 1902741263344,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "describe studio",
+                "operator": "=~",
+                "span": {
+                  "start": 121,
+                  "end": 155
+                }
+              },
+              "score": 0.6668359041213989,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.6668359041213989
+        },
+        {
+          "node_idx": 4,
+          "node_id": 1902741260544,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "describe studio",
+                "operator": "=~",
+                "span": {
+                  "start": 121,
+                  "end": 155
+                }
+              },
+              "score": 0.5298469662666321,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.5298469662666321
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "describe studio"
+        ],
+        "per_value_stats": [
+          {
+            "value": "describe studio",
+            "num_descriptions": 5,
+            "call_time_ms": 48.96
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 5
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 2,
+          "score": 0.9892138838768005,
+          "name": "Observation"
+        },
+        {
+          "idx": 0,
+          "score": 0.8555373549461365,
+          "name": "Observation"
+        },
+        {
+          "idx": 3,
+          "score": 0.6668359041213989,
+          "name": "Observation"
+        },
+        {
+          "idx": 4,
+          "score": 0.5298469662666321,
+          "name": "Observation"
+        },
+        {
+          "idx": 1,
+          "score": 0.40308791399002075,
+          "name": "Observation"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"describe studio\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "describe studio",
+        "operator": "=~",
+        "span": {
+          "start": 121,
+          "end": 155
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 1902741262464,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "describe studio",
+                "operator": "=~",
+                "span": {
+                  "start": 121,
+                  "end": 155
+                }
+              },
+              "score": 0.6094850897789001,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.6094850897789001
+        },
+        {
+          "node_idx": 1,
+          "node_id": 1902741262624,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "describe studio",
+                "operator": "=~",
+                "span": {
+                  "start": 121,
+                  "end": 155
+                }
+              },
+              "score": 0.44909927248954773,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.44909927248954773
+        },
+        {
+          "node_idx": 2,
+          "node_id": 1902741267264,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "describe studio",
+                "operator": "=~",
+                "span": {
+                  "start": 121,
+                  "end": 155
+                }
+              },
+              "score": 0.7224169969558716,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.7224169969558716
+        },
+        {
+          "node_idx": 3,
+          "node_id": 1902741260384,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "describe studio",
+                "operator": "=~",
+                "span": {
+                  "start": 121,
+                  "end": 155
+                }
+              },
+              "score": 0.97367924451828,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.97367924451828
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "describe studio"
+        ],
+        "per_value_stats": [
+          {
+            "value": "describe studio",
+            "num_descriptions": 4,
+            "call_time_ms": 39.73
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 4
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 3,
+          "score": 0.97367924451828,
+          "name": "Observation"
+        },
+        {
+          "idx": 2,
+          "score": 0.7224169969558716,
+          "name": "Observation"
+        },
+        {
+          "idx": 0,
+          "score": 0.6094850897789001,
+          "name": "Observation"
+        },
+        {
+          "idx": 1,
+          "score": 0.44909927248954773,
+          "name": "Observation"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"describe studio\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "describe studio",
+        "operator": "=~",
+        "span": {
+          "start": 121,
+          "end": 155
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 1902741259344,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "describe studio",
+                "operator": "=~",
+                "span": {
+                  "start": 121,
+                  "end": 155
+                }
+              },
+              "score": 0.306580126285553,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.306580126285553
+        },
+        {
+          "node_idx": 1,
+          "node_id": 1902741271184,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "describe studio",
+                "operator": "=~",
+                "span": {
+                  "start": 121,
+                  "end": 155
+                }
+              },
+              "score": 0.2837487459182739,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.2837487459182739
+        },
+        {
+          "node_idx": 2,
+          "node_id": 1902741265424,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "describe studio",
+                "operator": "=~",
+                "span": {
+                  "start": 121,
+                  "end": 155
+                }
+              },
+              "score": 0.6772589683532715,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.6772589683532715
+        },
+        {
+          "node_idx": 3,
+          "node_id": 1902741265264,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "describe studio",
+                "operator": "=~",
+                "span": {
+                  "start": 121,
+                  "end": 155
+                }
+              },
+              "score": 0.6578811407089233,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.6578811407089233
+        },
+        {
+          "node_idx": 4,
+          "node_id": 1902741266944,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "describe studio",
+                "operator": "=~",
+                "span": {
+                  "start": 121,
+                  "end": 155
+                }
+              },
+              "score": 0.3634791672229767,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.3634791672229767
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "describe studio"
+        ],
+        "per_value_stats": [
+          {
+            "value": "describe studio",
+            "num_descriptions": 5,
+            "call_time_ms": 48.09
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 5
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 2,
+          "score": 0.6772589683532715,
+          "name": "Observation"
+        },
+        {
+          "idx": 3,
+          "score": 0.6578811407089233,
+          "name": "Observation"
+        },
+        {
+          "idx": 4,
+          "score": 0.3634791672229767,
+          "name": "Observation"
+        },
+        {
+          "idx": 0,
+          "score": 0.306580126285553,
+          "name": "Observation"
+        },
+        {
+          "idx": 1,
+          "score": 0.2837487459182739,
+          "name": "Observation"
+        }
+      ]
+    }
+  ],
+  "scoring_details": {
+    "step_scores": [
+      {
+        "step_index": 0,
+        "predicate": "atom(content =~ \"Gina\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "Gina",
+          "operator": "=~",
+          "span": {
+            "start": 38,
+            "end": 61
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 1903082321248,
+            "node_name": "Jon",
+            "node_type": "Speaker",
+            "final_score": 0.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Jon",
+                "query_value": "Gina",
+                "matched": false,
+                "score": 0.0
+              }
+            ]
+          },
+          {
+            "node_idx": 1,
+            "node_id": 1906158371600,
+            "node_name": "Gina",
+            "node_type": "Speaker",
+            "final_score": 1.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Gina",
+                "query_value": "Gina",
+                "matched": true,
+                "score": 1.0
+              }
+            ]
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 1,
+            "score": 1.0,
+            "name": "Gina"
+          },
+          {
+            "idx": 0,
+            "score": 0.0,
+            "name": "Jon"
+          }
+        ]
+      },
+      {
+        "step_index": 1,
+        "predicate": "atom(content =~ \"studio Jon opened\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "studio Jon opened",
+          "operator": "=~",
+          "span": {
+            "start": 71,
+            "end": 107
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 1906158373360,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "studio Jon opened",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 107
+                  }
+                },
+                "score": 0.8976524472236633,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.8976524472236633
+          },
+          {
+            "node_idx": 1,
+            "node_id": 1906158386960,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "studio Jon opened",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 107
+                  }
+                },
+                "score": 0.5733420848846436,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.5733420848846436
+          },
+          {
+            "node_idx": 2,
+            "node_id": 1902934100224,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "studio Jon opened",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 107
+                  }
+                },
+                "score": 0.9821664690971375,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.9821664690971375
+          },
+          {
+            "node_idx": 3,
+            "node_id": 1902933958048,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "studio Jon opened",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 107
+                  }
+                },
+                "score": 0.7297832369804382,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.7297832369804382
+          },
+          {
+            "node_idx": 4,
+            "node_id": 1902741259904,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "studio Jon opened",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 107
+                  }
+                },
+                "score": 0.8905435800552368,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.8905435800552368
+          },
+          {
+            "node_idx": 5,
+            "node_id": 1902741273024,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "studio Jon opened",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 107
+                  }
+                },
+                "score": 0.6610297560691833,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.6610297560691833
+          },
+          {
+            "node_idx": 6,
+            "node_id": 1902741262544,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "studio Jon opened",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 107
+                  }
+                },
+                "score": 0.959063708782196,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.959063708782196
+          },
+          {
+            "node_idx": 7,
+            "node_id": 1902741258784,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "studio Jon opened",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 107
+                  }
+                },
+                "score": 0.01073096040636301,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.01073096040636301
+          },
+          {
+            "node_idx": 8,
+            "node_id": 1902741271824,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "studio Jon opened",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 107
+                  }
+                },
+                "score": 0.9990491271018982,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.9990491271018982
+          },
+          {
+            "node_idx": 9,
+            "node_id": 1902741267824,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "studio Jon opened",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 107
+                  }
+                },
+                "score": 0.998610258102417,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.998610258102417
+          },
+          {
+            "node_idx": 10,
+            "node_id": 1902741268864,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "studio Jon opened",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 107
+                  }
+                },
+                "score": 0.9989769458770752,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.9989769458770752
+          },
+          {
+            "node_idx": 11,
+            "node_id": 1902741269424,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "studio Jon opened",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 107
+                  }
+                },
+                "score": 0.9677231907844543,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.9677231907844543
+          },
+          {
+            "node_idx": 12,
+            "node_id": 1902741273424,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "studio Jon opened",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 107
+                  }
+                },
+                "score": 0.9994531273841858,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.9994531273841858
+          },
+          {
+            "node_idx": 13,
+            "node_id": 1902741269184,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "studio Jon opened",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 107
+                  }
+                },
+                "score": 0.44223371148109436,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.44223371148109436
+          },
+          {
+            "node_idx": 14,
+            "node_id": 1902743241888,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "studio Jon opened",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 107
+                  }
+                },
+                "score": 0.9993883371353149,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.9993883371353149
+          },
+          {
+            "node_idx": 15,
+            "node_id": 1902743255408,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "studio Jon opened",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 107
+                  }
+                },
+                "score": 0.2749050557613373,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.2749050557613373
+          },
+          {
+            "node_idx": 16,
+            "node_id": 1902743241728,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "studio Jon opened",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 107
+                  }
+                },
+                "score": 0.4717600643634796,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.4717600643634796
+          },
+          {
+            "node_idx": 17,
+            "node_id": 1902743245728,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "studio Jon opened",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 107
+                  }
+                },
+                "score": 0.944483757019043,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.944483757019043
+          },
+          {
+            "node_idx": 18,
+            "node_id": 1902743245808,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "studio Jon opened",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 107
+                  }
+                },
+                "score": 0.9981427192687988,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.9981427192687988
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 12,
+            "score": 0.9994531273841858,
+            "name": "Session"
+          },
+          {
+            "idx": 14,
+            "score": 0.9993883371353149,
+            "name": "Session"
+          },
+          {
+            "idx": 8,
+            "score": 0.9990491271018982,
+            "name": "Session"
+          },
+          {
+            "idx": 10,
+            "score": 0.9989769458770752,
+            "name": "Session"
+          },
+          {
+            "idx": 9,
+            "score": 0.998610258102417,
+            "name": "Session"
+          },
+          {
+            "idx": 18,
+            "score": 0.9981427192687988,
+            "name": "Session"
+          },
+          {
+            "idx": 2,
+            "score": 0.9821664690971375,
+            "name": "Session"
+          },
+          {
+            "idx": 11,
+            "score": 0.9677231907844543,
+            "name": "Session"
+          },
+          {
+            "idx": 6,
+            "score": 0.959063708782196,
+            "name": "Session"
+          },
+          {
+            "idx": 17,
+            "score": 0.944483757019043,
+            "name": "Session"
+          },
+          {
+            "idx": 0,
+            "score": 0.8976524472236633,
+            "name": "Session"
+          },
+          {
+            "idx": 4,
+            "score": 0.8905435800552368,
+            "name": "Session"
+          },
+          {
+            "idx": 3,
+            "score": 0.7297832369804382,
+            "name": "Session"
+          },
+          {
+            "idx": 5,
+            "score": 0.6610297560691833,
+            "name": "Session"
+          },
+          {
+            "idx": 1,
+            "score": 0.5733420848846436,
+            "name": "Session"
+          },
+          {
+            "idx": 16,
+            "score": 0.4717600643634796,
+            "name": "Session"
+          },
+          {
+            "idx": 13,
+            "score": 0.44223371148109436,
+            "name": "Session"
+          },
+          {
+            "idx": 15,
+            "score": 0.2749050557613373,
+            "name": "Session"
+          },
+          {
+            "idx": 7,
+            "score": 0.01073096040636301,
+            "name": "Session"
+          }
+        ]
+      },
+      {
+        "step_index": 2,
+        "predicate": "atom(content =~ \"describe studio\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "describe studio",
+          "operator": "=~",
+          "span": {
+            "start": 121,
+            "end": 155
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 1902741271104,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "describe studio",
+                  "operator": "=~",
+                  "span": {
+                    "start": 121,
+                    "end": 155
+                  }
+                },
+                "score": 0.6694697141647339,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.6694697141647339
+          },
+          {
+            "node_idx": 1,
+            "node_id": 1902741259424,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "describe studio",
+                  "operator": "=~",
+                  "span": {
+                    "start": 121,
+                    "end": 155
+                  }
+                },
+                "score": 0.5487858057022095,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.5487858057022095
+          },
+          {
+            "node_idx": 2,
+            "node_id": 1902741262864,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "describe studio",
+                  "operator": "=~",
+                  "span": {
+                    "start": 121,
+                    "end": 155
+                  }
+                },
+                "score": 0.6318926811218262,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.6318926811218262
+          },
+          {
+            "node_idx": 3,
+            "node_id": 1902741266384,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "describe studio",
+                  "operator": "=~",
+                  "span": {
+                    "start": 121,
+                    "end": 155
+                  }
+                },
+                "score": 0.5507214665412903,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.5507214665412903
+          },
+          {
+            "node_idx": 4,
+            "node_id": 1902741268784,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "describe studio",
+                  "operator": "=~",
+                  "span": {
+                    "start": 121,
+                    "end": 155
+                  }
+                },
+                "score": 0.43311169743537903,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.43311169743537903
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 0,
+            "score": 0.6694697141647339,
+            "name": "Observation"
+          },
+          {
+            "idx": 2,
+            "score": 0.6318926811218262,
+            "name": "Observation"
+          },
+          {
+            "idx": 3,
+            "score": 0.5507214665412903,
+            "name": "Observation"
+          },
+          {
+            "idx": 1,
+            "score": 0.5487858057022095,
+            "name": "Observation"
+          },
+          {
+            "idx": 4,
+            "score": 0.43311169743537903,
+            "name": "Observation"
+          }
+        ]
+      },
+      {
+        "step_index": 3,
+        "predicate": "atom(content =~ \"describe studio\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "describe studio",
+          "operator": "=~",
+          "span": {
+            "start": 121,
+            "end": 155
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 1902743248688,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "describe studio",
+                  "operator": "=~",
+                  "span": {
+                    "start": 121,
+                    "end": 155
+                  }
+                },
+                "score": 0.9859206080436707,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.9859206080436707
+          },
+          {
+            "node_idx": 1,
+            "node_id": 1902743250928,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "describe studio",
+                  "operator": "=~",
+                  "span": {
+                    "start": 121,
+                    "end": 155
+                  }
+                },
+                "score": 0.3839573562145233,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.3839573562145233
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 0,
+            "score": 0.9859206080436707,
+            "name": "Observation"
+          },
+          {
+            "idx": 1,
+            "score": 0.3839573562145233,
+            "name": "Observation"
+          }
+        ]
+      },
+      {
+        "step_index": 4,
+        "predicate": "atom(content =~ \"describe studio\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "describe studio",
+          "operator": "=~",
+          "span": {
+            "start": 121,
+            "end": 155
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 1902741266784,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "describe studio",
+                  "operator": "=~",
+                  "span": {
+                    "start": 121,
+                    "end": 155
+                  }
+                },
+                "score": 0.8555373549461365,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.8555373549461365
+          },
+          {
+            "node_idx": 1,
+            "node_id": 1902741261264,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "describe studio",
+                  "operator": "=~",
+                  "span": {
+                    "start": 121,
+                    "end": 155
+                  }
+                },
+                "score": 0.40308791399002075,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.40308791399002075
+          },
+          {
+            "node_idx": 2,
+            "node_id": 1902741268144,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "describe studio",
+                  "operator": "=~",
+                  "span": {
+                    "start": 121,
+                    "end": 155
+                  }
+                },
+                "score": 0.9892138838768005,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.9892138838768005
+          },
+          {
+            "node_idx": 3,
+            "node_id": 1902741263344,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "describe studio",
+                  "operator": "=~",
+                  "span": {
+                    "start": 121,
+                    "end": 155
+                  }
+                },
+                "score": 0.6668359041213989,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.6668359041213989
+          },
+          {
+            "node_idx": 4,
+            "node_id": 1902741260544,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "describe studio",
+                  "operator": "=~",
+                  "span": {
+                    "start": 121,
+                    "end": 155
+                  }
+                },
+                "score": 0.5298469662666321,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.5298469662666321
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 2,
+            "score": 0.9892138838768005,
+            "name": "Observation"
+          },
+          {
+            "idx": 0,
+            "score": 0.8555373549461365,
+            "name": "Observation"
+          },
+          {
+            "idx": 3,
+            "score": 0.6668359041213989,
+            "name": "Observation"
+          },
+          {
+            "idx": 4,
+            "score": 0.5298469662666321,
+            "name": "Observation"
+          },
+          {
+            "idx": 1,
+            "score": 0.40308791399002075,
+            "name": "Observation"
+          }
+        ]
+      },
+      {
+        "step_index": 5,
+        "predicate": "atom(content =~ \"describe studio\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "describe studio",
+          "operator": "=~",
+          "span": {
+            "start": 121,
+            "end": 155
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 1902741262464,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "describe studio",
+                  "operator": "=~",
+                  "span": {
+                    "start": 121,
+                    "end": 155
+                  }
+                },
+                "score": 0.6094850897789001,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.6094850897789001
+          },
+          {
+            "node_idx": 1,
+            "node_id": 1902741262624,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "describe studio",
+                  "operator": "=~",
+                  "span": {
+                    "start": 121,
+                    "end": 155
+                  }
+                },
+                "score": 0.44909927248954773,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.44909927248954773
+          },
+          {
+            "node_idx": 2,
+            "node_id": 1902741267264,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "describe studio",
+                  "operator": "=~",
+                  "span": {
+                    "start": 121,
+                    "end": 155
+                  }
+                },
+                "score": 0.7224169969558716,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.7224169969558716
+          },
+          {
+            "node_idx": 3,
+            "node_id": 1902741260384,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "describe studio",
+                  "operator": "=~",
+                  "span": {
+                    "start": 121,
+                    "end": 155
+                  }
+                },
+                "score": 0.97367924451828,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.97367924451828
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 3,
+            "score": 0.97367924451828,
+            "name": "Observation"
+          },
+          {
+            "idx": 2,
+            "score": 0.7224169969558716,
+            "name": "Observation"
+          },
+          {
+            "idx": 0,
+            "score": 0.6094850897789001,
+            "name": "Observation"
+          },
+          {
+            "idx": 1,
+            "score": 0.44909927248954773,
+            "name": "Observation"
+          }
+        ]
+      },
+      {
+        "step_index": 6,
+        "predicate": "atom(content =~ \"describe studio\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "describe studio",
+          "operator": "=~",
+          "span": {
+            "start": 121,
+            "end": 155
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 1902741259344,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "describe studio",
+                  "operator": "=~",
+                  "span": {
+                    "start": 121,
+                    "end": 155
+                  }
+                },
+                "score": 0.306580126285553,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.306580126285553
+          },
+          {
+            "node_idx": 1,
+            "node_id": 1902741271184,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "describe studio",
+                  "operator": "=~",
+                  "span": {
+                    "start": 121,
+                    "end": 155
+                  }
+                },
+                "score": 0.2837487459182739,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.2837487459182739
+          },
+          {
+            "node_idx": 2,
+            "node_id": 1902741265424,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "describe studio",
+                  "operator": "=~",
+                  "span": {
+                    "start": 121,
+                    "end": 155
+                  }
+                },
+                "score": 0.6772589683532715,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.6772589683532715
+          },
+          {
+            "node_idx": 3,
+            "node_id": 1902741265264,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "describe studio",
+                  "operator": "=~",
+                  "span": {
+                    "start": 121,
+                    "end": 155
+                  }
+                },
+                "score": 0.6578811407089233,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.6578811407089233
+          },
+          {
+            "node_idx": 4,
+            "node_id": 1902741266944,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "describe studio",
+                  "operator": "=~",
+                  "span": {
+                    "start": 121,
+                    "end": 155
+                  }
+                },
+                "score": 0.3634791672229767,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.3634791672229767
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 2,
+            "score": 0.6772589683532715,
+            "name": "Observation"
+          },
+          {
+            "idx": 3,
+            "score": 0.6578811407089233,
+            "name": "Observation"
+          },
+          {
+            "idx": 4,
+            "score": 0.3634791672229767,
+            "name": "Observation"
+          },
+          {
+            "idx": 0,
+            "score": 0.306580126285553,
+            "name": "Observation"
+          },
+          {
+            "idx": 1,
+            "score": 0.2837487459182739,
+            "name": "Observation"
+          }
+        ]
+      }
+    ],
+    "score_fusion": {
+      "per_node": [
+        {
+          "node_path": "Root > Conversation_Version 1 > Gina > Session 13 > Observation 1",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"describe studio\")]",
+              "score": 0.6694697141647339
+            }
+          ],
+          "accumulated_product": 0.6694697141647339,
+          "final_score": 0.6691035988418367
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Gina > Session 13 > Observation 3",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"describe studio\")]",
+              "score": 0.6318926811218262
+            }
+          ],
+          "accumulated_product": 0.6318926811218262,
+          "final_score": 0.6315471156868402
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Gina > Session 13 > Observation 4",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"describe studio\")]",
+              "score": 0.5507214665412903
+            }
+          ],
+          "accumulated_product": 0.5507214665412903,
+          "final_score": 0.5504202915018775
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Gina > Session 13 > Observation 2",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"describe studio\")]",
+              "score": 0.5487858057022095
+            }
+          ],
+          "accumulated_product": 0.5487858057022095,
+          "final_score": 0.5484856892246377
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Gina > Session 13 > Observation 5",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"describe studio\")]",
+              "score": 0.43311169743537903
+            }
+          ],
+          "accumulated_product": 0.43311169743537903,
+          "final_score": 0.432874840075588
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Gina > Session 15 > Observation 1",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"describe studio\")]",
+              "score": 0.9859206080436707
+            }
+          ],
+          "accumulated_product": 0.9859206080436707,
+          "final_score": 0.985317556034885
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Gina > Session 15 > Observation 2",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"describe studio\")]",
+              "score": 0.3839573562145233
+            }
+          ],
+          "accumulated_product": 0.3839573562145233,
+          "final_score": 0.38372250337438174
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Gina > Session 9 > Observation 3",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"describe studio\")]",
+              "score": 0.9892138838768005
+            }
+          ],
+          "accumulated_product": 0.9892138838768005,
+          "final_score": 0.9882732662159228
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Gina > Session 9 > Observation 1",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"describe studio\")]",
+              "score": 0.8555373549461365
+            }
+          ],
+          "accumulated_product": 0.8555373549461365,
+          "final_score": 0.8547238468072806
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Gina > Session 9 > Observation 4",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"describe studio\")]",
+              "score": 0.6668359041213989
+            }
+          ],
+          "accumulated_product": 0.6668359041213989,
+          "final_score": 0.6662018272664869
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Gina > Session 9 > Observation 5",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"describe studio\")]",
+              "score": 0.5298469662666321
+            }
+          ],
+          "accumulated_product": 0.5298469662666321,
+          "final_score": 0.5293431486169246
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Gina > Session 9 > Observation 2",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"describe studio\")]",
+              "score": 0.40308791399002075
+            }
+          ],
+          "accumulated_product": 0.40308791399002075,
+          "final_score": 0.40270462821435066
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Gina > Session 11 > Observation 4",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"describe studio\")]",
+              "score": 0.97367924451828
+            }
+          ],
+          "accumulated_product": 0.97367924451828,
+          "final_score": 0.9726831169800862
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Gina > Session 11 > Observation 3",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"describe studio\")]",
+              "score": 0.7224169969558716
+            }
+          ],
+          "accumulated_product": 0.7224169969558716,
+          "final_score": 0.721677924546987
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Gina > Session 11 > Observation 1",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"describe studio\")]",
+              "score": 0.6094850897789001
+            }
+          ],
+          "accumulated_product": 0.6094850897789001,
+          "final_score": 0.6088615529360791
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Gina > Session 11 > Observation 2",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"describe studio\")]",
+              "score": 0.44909927248954773
+            }
+          ],
+          "accumulated_product": 0.44909927248954773,
+          "final_score": 0.448639819178585
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Gina > Session 10 > Observation 3",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"describe studio\")]",
+              "score": 0.6772589683532715
+            }
+          ],
+          "accumulated_product": 0.6772589683532715,
+          "final_score": 0.6763177525131194
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Gina > Session 10 > Observation 4",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"describe studio\")]",
+              "score": 0.6578811407089233
+            }
+          ],
+          "accumulated_product": 0.6578811407089233,
+          "final_score": 0.6569668550670836
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Gina > Session 10 > Observation 5",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"describe studio\")]",
+              "score": 0.3634791672229767
+            }
+          ],
+          "accumulated_product": 0.3634791672229767,
+          "final_score": 0.36297402463241435
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Gina > Session 10 > Observation 1",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"describe studio\")]",
+              "score": 0.306580126285553
+            }
+          ],
+          "accumulated_product": 0.306580126285553,
+          "final_score": 0.3061540587329336
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > Gina > Session 10 > Observation 2",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"describe studio\")]",
+              "score": 0.2837487459182739
+            }
+          ],
+          "accumulated_product": 0.2837487459182739,
+          "final_score": 0.28335440811433027
+        }
+      ]
+    }
+  },
+  "final_filtering": {
+    "before_filter_count": 21,
+    "threshold": 0.05,
+    "top_k": 10,
+    "after_filter_count": 10,
+    "filtered_nodes": [
+      {
+        "path": "Root > Conversation_Version 1 > Gina > Session 9 > Observation 3",
+        "score": 0.9882732662159228,
+        "type": "Observation",
+        "own_score": 0.9892138838768005,
+        "parent_score": 0.9990491261028491
+      },
+      {
+        "path": "Root > Conversation_Version 1 > Gina > Session 15 > Observation 1",
+        "score": 0.985317556034885,
+        "type": "Observation",
+        "own_score": 0.9859206080436707,
+        "parent_score": 0.9993883361359266
+      },
+      {
+        "path": "Root > Conversation_Version 1 > Gina > Session 11 > Observation 4",
+        "score": 0.9726831169800862,
+        "type": "Observation",
+        "own_score": 0.97367924451828,
+        "parent_score": 0.9989769448780983
+      },
+      {
+        "path": "Root > Conversation_Version 1 > Gina > Session 9 > Observation 1",
+        "score": 0.8547238468072806,
+        "type": "Observation",
+        "own_score": 0.8555373549461365,
+        "parent_score": 0.9990491261028491
+      },
+      {
+        "path": "Root > Conversation_Version 1 > Gina > Session 11 > Observation 3",
+        "score": 0.721677924546987,
+        "type": "Observation",
+        "own_score": 0.7224169969558716,
+        "parent_score": 0.9989769448780983
+      },
+      {
+        "path": "Root > Conversation_Version 1 > Gina > Session 10 > Observation 3",
+        "score": 0.6763177525131194,
+        "type": "Observation",
+        "own_score": 0.6772589683532715,
+        "parent_score": 0.9986102571038068
+      },
+      {
+        "path": "Root > Conversation_Version 1 > Gina > Session 13 > Observation 1",
+        "score": 0.6691035988418367,
+        "type": "Observation",
+        "own_score": 0.6694697141647339,
+        "parent_score": 0.9994531263847327
+      },
+      {
+        "path": "Root > Conversation_Version 1 > Gina > Session 9 > Observation 4",
+        "score": 0.6662018272664869,
+        "type": "Observation",
+        "own_score": 0.6668359041213989,
+        "parent_score": 0.9990491261028491
+      },
+      {
+        "path": "Root > Conversation_Version 1 > Gina > Session 10 > Observation 4",
+        "score": 0.6569668550670836,
+        "type": "Observation",
+        "own_score": 0.6578811407089233,
+        "parent_score": 0.9986102571038068
+      },
+      {
+        "path": "Root > Conversation_Version 1 > Gina > Session 13 > Observation 3",
+        "score": 0.6315471156868402,
+        "type": "Observation",
+        "own_score": 0.6318926811218262,
+        "parent_score": 0.9994531263847327
+      }
+    ]
+  },
+  "matched_nodes": [
+    {
+      "tree_path": "Root > Conversation_Version 1 > Gina > Session 9 > Observation 3",
+      "score": 0.9882732662159228,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "Gina loves spending time in the dance studio and values dance as a way to express oneself and find happiness.",
+        "source_dia_id": "D9:8"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Gina",
+          "predicate": "atom(content =~ \"Gina\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Gina\") on Gina (Score: 1.00)"
+        },
+        {
+          "node_name": "Session 9",
+          "predicate": "atom(content =~ \"studio Jon opened\")",
+          "score": 0.9990491271018982,
+          "description": "Matched atom(content =~ \"studio Jon opened\") on Session 9 (Score: 1.00)"
+        },
+        {
+          "node_name": "Observation 3",
+          "predicate": "atom(content =~ \"describe studio\")",
+          "score": 0.9892138838768005,
+          "description": "Matched atom(content =~ \"describe studio\") on Observation 3 (Score: 0.99)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > Gina > Session 15 > Observation 1",
+      "score": 0.985317556034885,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "Gina supports Jon's opening of the dance studio and expresses excitement for the launch.",
+        "source_dia_id": "D15:6"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Gina",
+          "predicate": "atom(content =~ \"Gina\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Gina\") on Gina (Score: 1.00)"
+        },
+        {
+          "node_name": "Session 15",
+          "predicate": "atom(content =~ \"studio Jon opened\")",
+          "score": 0.9993883371353149,
+          "description": "Matched atom(content =~ \"studio Jon opened\") on Session 15 (Score: 1.00)"
+        },
+        {
+          "node_name": "Observation 1",
+          "predicate": "atom(content =~ \"describe studio\")",
+          "score": 0.9859206080436707,
+          "description": "Matched atom(content =~ \"describe studio\") on Observation 1 (Score: 0.99)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > Gina > Session 11 > Observation 4",
+      "score": 0.9726831169800862,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "Gina is proud of Jon and is excited about his dance studio project.",
+        "source_dia_id": "D11:20"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Gina",
+          "predicate": "atom(content =~ \"Gina\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Gina\") on Gina (Score: 1.00)"
+        },
+        {
+          "node_name": "Session 11",
+          "predicate": "atom(content =~ \"studio Jon opened\")",
+          "score": 0.9989769458770752,
+          "description": "Matched atom(content =~ \"studio Jon opened\") on Session 11 (Score: 1.00)"
+        },
+        {
+          "node_name": "Observation 4",
+          "predicate": "atom(content =~ \"describe studio\")",
+          "score": 0.97367924451828,
+          "description": "Matched atom(content =~ \"describe studio\") on Observation 4 (Score: 0.97)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > Gina > Session 9 > Observation 1",
+      "score": 0.8547238468072806,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "Gina admires Jon for turning his passion for dance into a business.",
+        "source_dia_id": "D9:2"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Gina",
+          "predicate": "atom(content =~ \"Gina\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Gina\") on Gina (Score: 1.00)"
+        },
+        {
+          "node_name": "Session 9",
+          "predicate": "atom(content =~ \"studio Jon opened\")",
+          "score": 0.9990491271018982,
+          "description": "Matched atom(content =~ \"studio Jon opened\") on Session 9 (Score: 1.00)"
+        },
+        {
+          "node_name": "Observation 1",
+          "predicate": "atom(content =~ \"describe studio\")",
+          "score": 0.8555373549461365,
+          "description": "Matched atom(content =~ \"describe studio\") on Observation 1 (Score: 0.86)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > Gina > Session 11 > Observation 3",
+      "score": 0.721677924546987,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "Gina had an interview for a design internship and found it to be great.",
+        "source_dia_id": "D11:14"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Gina",
+          "predicate": "atom(content =~ \"Gina\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Gina\") on Gina (Score: 1.00)"
+        },
+        {
+          "node_name": "Session 11",
+          "predicate": "atom(content =~ \"studio Jon opened\")",
+          "score": 0.9989769458770752,
+          "description": "Matched atom(content =~ \"studio Jon opened\") on Session 11 (Score: 1.00)"
+        },
+        {
+          "node_name": "Observation 3",
+          "predicate": "atom(content =~ \"describe studio\")",
+          "score": 0.7224169969558716,
+          "description": "Matched atom(content =~ \"describe studio\") on Observation 3 (Score: 0.72)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > Gina > Session 10 > Observation 3",
+      "score": 0.6763177525131194,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "Gina advises Jon to focus on the big goal, get support, and dance it out to stay motivated during tough times in business.",
+        "source_dia_id": "D10:6"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Gina",
+          "predicate": "atom(content =~ \"Gina\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Gina\") on Gina (Score: 1.00)"
+        },
+        {
+          "node_name": "Session 10",
+          "predicate": "atom(content =~ \"studio Jon opened\")",
+          "score": 0.998610258102417,
+          "description": "Matched atom(content =~ \"studio Jon opened\") on Session 10 (Score: 1.00)"
+        },
+        {
+          "node_name": "Observation 3",
+          "predicate": "atom(content =~ \"describe studio\")",
+          "score": 0.6772589683532715,
+          "description": "Matched atom(content =~ \"describe studio\") on Observation 3 (Score: 0.68)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > Gina > Session 13 > Observation 1",
+      "score": 0.6691035988418367,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "Gina has developed a video presentation to teach how to style her fashion pieces.",
+        "source_dia_id": "D13:4"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Gina",
+          "predicate": "atom(content =~ \"Gina\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Gina\") on Gina (Score: 1.00)"
+        },
+        {
+          "node_name": "Session 13",
+          "predicate": "atom(content =~ \"studio Jon opened\")",
+          "score": 0.9994531273841858,
+          "description": "Matched atom(content =~ \"studio Jon opened\") on Session 13 (Score: 1.00)"
+        },
+        {
+          "node_name": "Observation 1",
+          "predicate": "atom(content =~ \"describe studio\")",
+          "score": 0.6694697141647339,
+          "description": "Matched atom(content =~ \"describe studio\") on Observation 1 (Score: 0.67)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > Gina > Session 9 > Observation 4",
+      "score": 0.6662018272664869,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "Gina has a trophy from a dance contest as a reminder of the hard work, dedication, and joy dance brings.",
+        "source_dia_id": "D9:10"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Gina",
+          "predicate": "atom(content =~ \"Gina\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Gina\") on Gina (Score: 1.00)"
+        },
+        {
+          "node_name": "Session 9",
+          "predicate": "atom(content =~ \"studio Jon opened\")",
+          "score": 0.9990491271018982,
+          "description": "Matched atom(content =~ \"studio Jon opened\") on Session 9 (Score: 1.00)"
+        },
+        {
+          "node_name": "Observation 4",
+          "predicate": "atom(content =~ \"describe studio\")",
+          "score": 0.6668359041213989,
+          "description": "Matched atom(content =~ \"describe studio\") on Observation 4 (Score: 0.67)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > Gina > Session 10 > Observation 4",
+      "score": 0.6569668550670836,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "Gina gives Jon tips to stay confident in business by reminding of successes and progress, having a good support system, and having faith in oneself.",
+        "source_dia_id": "D10:8"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Gina",
+          "predicate": "atom(content =~ \"Gina\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Gina\") on Gina (Score: 1.00)"
+        },
+        {
+          "node_name": "Session 10",
+          "predicate": "atom(content =~ \"studio Jon opened\")",
+          "score": 0.998610258102417,
+          "description": "Matched atom(content =~ \"studio Jon opened\") on Session 10 (Score: 1.00)"
+        },
+        {
+          "node_name": "Observation 4",
+          "predicate": "atom(content =~ \"describe studio\")",
+          "score": 0.6578811407089233,
+          "description": "Matched atom(content =~ \"describe studio\") on Observation 4 (Score: 0.66)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > Gina > Session 13 > Observation 3",
+      "score": 0.6315471156868402,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "Gina values mentorship, having had a mentor herself when learning how to dance.",
+        "source_dia_id": "D13:8"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Gina",
+          "predicate": "atom(content =~ \"Gina\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Gina\") on Gina (Score: 1.00)"
+        },
+        {
+          "node_name": "Session 13",
+          "predicate": "atom(content =~ \"studio Jon opened\")",
+          "score": 0.9994531273841858,
+          "description": "Matched atom(content =~ \"studio Jon opened\") on Session 13 (Score: 1.00)"
+        },
+        {
+          "node_name": "Observation 3",
+          "predicate": "atom(content =~ \"describe studio\")",
+          "score": 0.6318926811218262,
+          "description": "Matched atom(content =~ \"describe studio\") on Observation 3 (Score: 0.63)"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total_steps": 5,
+    "total_scoring_calls": 7,
+    "matched_count": 10,
+    "execution_time_ms": 874.0622000004805,
+    "has_score_fusion": true,
+    "num_nodes_before_filter": 21,
+    "num_nodes_after_filter": 10
+  }
+}

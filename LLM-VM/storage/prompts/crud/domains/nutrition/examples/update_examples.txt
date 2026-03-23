@@ -1,0 +1,103 @@
+====================
+Examples
+====================
+
+### Ingredient swap (partial update)
+Query: "Replace the peanut butter with almond butter in Child's breakfast"
+
+Candidates:
+[1] Root > MealPlan_Version 1 > Child > Day 2 > Breakfast > PB & Banana Toast (Meal, name: PB & Banana Toast, score: 0.88)
+
+```json
+{
+  "updates": [
+    {
+      "id": "1",
+      "path": "Root > MealPlan_Version 1 > Child > Day 2 > Breakfast > PB & Banana Toast",
+      "fields": {
+        "name": "Almond Butter & Banana Toast",
+        "short_description": "Crispy whole-grain toast topped with smooth almond butter, sliced banana, and a drizzle of honey — a nut-allergy-friendly twist on a classic.",
+        "meal_suggestion": "Toast two slices of whole-grain bread until golden. Spread a generous layer of almond butter on each slice. Top with sliced banana, a drizzle of honey, and a sprinkle of chia seeds. Serve with a glass of milk.",
+        "ingredients": [
+          {"name": "whole-grain bread"},
+          {"name": "almond butter"},
+          {"name": "banana"},
+          {"name": "honey"},
+          {"name": "chia seeds"}
+        ],
+        "nutrition_note": "Almond butter provides vitamin E and healthy fats; banana adds potassium; whole-grain bread supplies fiber. A simple swap that removes peanut allergen while maintaining protein and flavor."
+      },
+      "new_type": null,
+      "reasoning": "Swapped peanut butter for almond butter. Updated name, description, ingredients, and nutrition note to reflect the change."
+    }
+  ],
+  "reasoning": "Updated PB & Banana Toast with almond butter substitution. All fields regenerated to reflect the ingredient swap."
+}
+```
+
+### Make meal lighter (transformational update)
+Query: "Change Mother's oily stir-fry dinner to something steamed and lighter"
+
+Candidates:
+[1] Root > MealPlan_Version 1 > Mother > Day 5 > Dinner > Vegetable Stir-Fry (Meal, name: Vegetable Stir-Fry, score: 0.85)
+
+```json
+{
+  "updates": [
+    {
+      "id": "1",
+      "path": "Root > MealPlan_Version 1 > Mother > Day 5 > Dinner > Vegetable Stir-Fry",
+      "fields": {
+        "name": "Steamed Vegetable & Ginger Bowl",
+        "short_description": "A light and fragrant bowl of steamed broccoli, bok choy, snap peas, and carrots in a ginger-soy broth — the same fresh veggies, now oil-free and gentle.",
+        "meal_suggestion": "Steam broccoli florets, halved bok choy, snap peas, and julienned carrots until tender-crisp. Arrange over steamed jasmine rice. Prepare a light broth by simmering fresh ginger, low-sodium soy sauce, rice vinegar, and a touch of sesame oil. Pour the broth over the vegetables and garnish with sliced scallions and sesame seeds.",
+        "ingredients": [
+          {"name": "broccoli"},
+          {"name": "bok choy"},
+          {"name": "snap peas"},
+          {"name": "carrots"},
+          {"name": "jasmine rice"},
+          {"name": "fresh ginger"},
+          {"name": "low-sodium soy sauce"},
+          {"name": "rice vinegar"},
+          {"name": "sesame oil"},
+          {"name": "scallions"}
+        ],
+        "nutrition_note": "Steaming preserves nutrients without added oil. Broccoli provides vitamin C and fiber; bok choy adds calcium; ginger offers anti-inflammatory properties. Significantly lower fat than stir-frying while keeping the same vegetable variety."
+      },
+      "new_type": null,
+      "reasoning": "Transformed oily stir-fry into a steamed bowl. Kept the same vegetables but changed cooking method to steaming with broth for a lighter meal."
+    }
+  ],
+  "reasoning": "Replaced stir-fry with steamed bowl. All fields rewritten to reflect the lighter cooking method."
+}
+```
+
+### No match (conservative rejection)
+Query: "Update the pizza recipe"
+
+Candidates:
+[1] Root > MealPlan_Version 1 > Father > Day 4 > Dinner > Baked Ziti (Meal, score: 0.32)
+[2] Root > MealPlan_Version 1 > Mother > Day 2 > Lunch > Flatbread Wrap (Meal, score: 0.29)
+
+```json
+{
+  "updates": [],
+  "reasoning": "No candidates match 'pizza recipe'. Baked Ziti (score: 0.32) and Flatbread Wrap (score: 0.29) have low semantic scores and are different dishes entirely."
+}
+```
+
+### Ambiguous query (conservative rejection)
+Query: "Make it healthier"
+
+Candidates:
+[1] Root > MealPlan_Version 1 > Father > Day 1 > Breakfast > Mediterranean Fig & Honey Oatmeal (Meal, score: 0.41)
+[2] Root > MealPlan_Version 1 > Child > Day 3 > Lunch > Mac & Cheese (Meal, score: 0.43)
+[3] Root > MealPlan_Version 1 > Mother > Day 5 > Dinner > Creamy Pasta (Meal, score: 0.40)
+
+```json
+{
+  "updates": [],
+  "reasoning": "Query does not specify which meal to update. Three candidates have similar low scores (0.40-0.43), indicating no clear match. Need a more specific reference like 'make Father's oatmeal healthier' or 'make the mac and cheese healthier'."
+}
+```

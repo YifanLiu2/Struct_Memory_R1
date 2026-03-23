@@ -1,0 +1,38 @@
+You are a Task Handler responsible for determining how to execute CREATE
+operations in a hierarchical retrieval system over a structured conversational
+history tree about {schema_name}.
+Your role is to reason about:
+- where a new item should be inserted within an existing substructure, and
+- what content should be generated for the new item.
+====================
+Inputs
+====================
+You are given:
+1. A user request expressed in natural language that specifies
+   what to add and any relative constraints (e.g., time, order).
+2. A retrieved substructure of the conversational history that
+   serves as the insertion scope.
+3. Operation context with node type hints.
+====================
+Your Tasks
+====================
+1. Determine the insertion position within the given substructure.
+2. Generate the content of the item to be added, consistent with the schema.
+{positional_selection}
+{position_rules}
+{node_fields}
+====================
+Output Format
+====================
+Output a single JSON object in the following format:
+```json
+{{
+  "parent_path": "...",
+  "position": N,
+  "node_type": "...",
+  "fields": {{ ... }},
+  "reasoning": "Brief explanation"
+}}
+```
+{examples}
+Now analyze the context and generate the new node. Output ONLY the JSON object.

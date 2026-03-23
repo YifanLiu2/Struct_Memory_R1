@@ -1,0 +1,4319 @@
+{
+  "timestamp": "20260322_231300_963087",
+  "query": "/Root/Conversation_Version[1]/Speaker[atom(content =~ \"James\")]/Session[atom(content =~ \"kitten clinic visit\")]/Observation[atom(content =~ \"kitten\")]",
+  "canonical_query": "/Root/Conversation_Version[1]/Speaker[content =~ \"James\"]/Session[content =~ \"kitten clinic visit\"]/Observation[content =~ \"kitten\"]",
+  "data_file": "tree.xml",
+  "execution_time_ms": 1001.3191999969422,
+  "parsed_ast": {
+    "steps": [
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Root",
+            "span": {
+              "start": 1,
+              "end": 5
+            }
+          },
+          "span": {
+            "start": 1,
+            "end": 5
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Conversation_Version",
+            "index": {
+              "start": 1,
+              "type": "single",
+              "span": {
+                "start": 26,
+                "end": 29
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 29
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 29
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Speaker",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "James",
+              "operator": "=~",
+              "span": {
+                "start": 38,
+                "end": 62
+              }
+            },
+            "predicate_str": "atom(content =~ \"James\")",
+            "span": {
+              "start": 30,
+              "end": 63
+            }
+          },
+          "span": {
+            "start": 30,
+            "end": 63
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Session",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "kitten clinic visit",
+              "operator": "=~",
+              "span": {
+                "start": 72,
+                "end": 110
+              }
+            },
+            "predicate_str": "atom(content =~ \"kitten clinic visit\")",
+            "span": {
+              "start": 64,
+              "end": 111
+            }
+          },
+          "span": {
+            "start": 64,
+            "end": 111
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Observation",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "kitten",
+              "operator": "=~",
+              "span": {
+                "start": 124,
+                "end": 149
+              }
+            },
+            "predicate_str": "atom(content =~ \"kitten\")",
+            "span": {
+              "start": 112,
+              "end": 150
+            }
+          },
+          "span": {
+            "start": 112,
+            "end": 150
+          }
+        }
+      }
+    ],
+    "global_index": null
+  },
+  "parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: Conversation_Version[1]\n├── Step 2: Speaker[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"James\")\n├── Step 3: Session[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"kitten clinic visit\")\n└── Step 4: Observation[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"kitten\")",
+  "canonical_parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: Conversation_Version[1]\n├── Step 2: Speaker[content =~ \"James\"]\n├── Step 3: Session[content =~ \"kitten clinic visit\"]\n└── Step 4: Observation[content =~ \"kitten\"]",
+  "execution_log": [
+    "[20260322_231300_963087] Executing query: /Root/Conversation_Version[1]/Speaker[atom(content =~ \"James\")]/Session[atom(content =~ \"kitten clinic visit\")]/Observation[atom(content =~ \"kitten\")]",
+    "Data file: tree.xml",
+    "Parsed steps: [Root, Conversation_Version[1], Speaker[atom(content =~ \"James\")], Session[atom(content =~ \"kitten clinic visit\")], Observation[atom(content =~ \"kitten\")]]",
+    "",
+    "Query AST:\n├── Step 0: Root\n├── Step 1: Conversation_Version[1]\n├── Step 2: Speaker[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"James\")\n├── Step 3: Session[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"kitten clinic visit\")\n└── Step 4: Observation[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"kitten\")",
+    "\n--- Step 1: Root ---",
+    "Matched Root root",
+    "\n--- Step 2: Conversation_Version[1] ---",
+    "Selected node at index 1 (0-based: 0)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 3: Speaker[atom(content =~ \"James\")] ---",
+    "Scoring predicate: atom(content =~ \"James\") (atomic values: ['James'])",
+    "  Node 0 (James): score = 1.0000 (exact match)",
+    "  Node 1 (John): score = 0.0000 (exact match)",
+    "  Exact attribute match on @name: 1/2 nodes matched",
+    "  Top-K Pruning: Reduced from 2 to 1 nodes (K=5)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 4: Session[atom(content =~ \"kitten clinic visit\")] ---",
+    "Scoring predicate: atom(content =~ \"kitten clinic visit\") (atomic values: ['kitten clinic visit'])",
+    "  Collected 31 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 31 total descriptions",
+    "  Node 0 (Session): score = 0.0030",
+    "  Node 1 (Session): score = 0.0009",
+    "  Node 2 (Session): score = 0.0035",
+    "  Node 3 (Session): score = 0.0033",
+    "  Node 4 (Session): score = 0.0040",
+    "  Node 5 (Session): score = 0.0049",
+    "  Node 6 (Session): score = 0.0014",
+    "  Node 7 (Session): score = 0.0016",
+    "  Node 8 (Session): score = 0.0057",
+    "  Node 9 (Session): score = 0.0310",
+    "  Node 10 (Session): score = 0.0343",
+    "  Node 11 (Session): score = 0.0006",
+    "  Node 12 (Session): score = 0.0026",
+    "  Node 13 (Session): score = 0.0015",
+    "  Node 14 (Session): score = 0.3907",
+    "  Node 15 (Session): score = 0.0039",
+    "  Node 16 (Session): score = 0.0013",
+    "  Node 17 (Session): score = 0.0021",
+    "  Node 18 (Session): score = 0.0010",
+    "  Node 19 (Session): score = 0.0009",
+    "  Node 20 (Session): score = 0.0058",
+    "  Node 21 (Session): score = 0.0031",
+    "  Node 22 (Session): score = 0.0008",
+    "  Node 23 (Session): score = 0.0005",
+    "  Node 24 (Session): score = 0.0043",
+    "  Node 25 (Session): score = 0.0030",
+    "  Node 26 (Session): score = 0.0023",
+    "  Node 27 (Session): score = 0.0016",
+    "  Node 28 (Session): score = 0.0010",
+    "  Node 29 (Session): score = 0.0012",
+    "  Node 30 (Session): score = 0.0005",
+    "  Top-K Pruning: Reduced from 31 to 1 nodes (K=5)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 5: Observation[atom(content =~ \"kitten\")] ---",
+    "Scoring predicate: atom(content =~ \"kitten\") (atomic values: ['kitten'])",
+    "  Collected 7 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 7 total descriptions",
+    "  Node 0 (Observation): score = 0.6292",
+    "  Node 1 (Observation): score = 0.4447",
+    "  Node 2 (Observation): score = 0.0145",
+    "  Node 3 (Observation): score = 0.0360",
+    "  Node 4 (Observation): score = 0.1152",
+    "  Node 5 (Observation): score = 0.0460",
+    "  Node 6 (Observation): score = 0.0368",
+    "  Top-K Pruning: Reduced from 7 to 3 nodes (K=5)",
+    "After step: 3 nodes remaining",
+    "\n=== Score Fusion ===",
+    "  Root > Conversation_Version 1 > James > Session 15 > Observation 1: product=0.6292 → score=0.6292",
+    "  Root > Conversation_Version 1 > James > Session 15 > Observation 2: product=0.4447 → score=0.4447",
+    "  Root > Conversation_Version 1 > James > Session 15 > Observation 5: product=0.1152 → score=0.1152",
+    "  Parent propagation: Root > Conversation_Version 1 > James > Session 15 > Observation 1: own=0.6292 × parent=0.3907 → 0.2458",
+    "  Parent propagation: Root > Conversation_Version 1 > James > Session 15 > Observation 2: own=0.4447 × parent=0.3907 → 0.1738",
+    "  Parent propagation: Root > Conversation_Version 1 > James > Session 15 > Observation 5: own=0.1152 × parent=0.3907 → 0.0450",
+    "\n=== Parent Score Propagation: 3 nodes updated ===",
+    "\n=== Threshold Filtering (threshold=0.05) ===",
+    "  Filtered: 3 → 2 nodes",
+    "\n=== Final Filtering (top_k=10) ===",
+    "  After top_k: 2 → 2 nodes",
+    "\nFinal result: 2 nodes (sorted by score)",
+    "⏱️  Query execution time: 1001.32ms"
+  ],
+  "traversal_steps": [
+    {
+      "step_index": 0,
+      "step_query": "Root",
+      "action": "root_match",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "type": "root"
+        }
+      ],
+      "nodes_after": [
+        {
+          "type": "Root",
+          "path": "Root"
+        }
+      ],
+      "details": {
+        "matched": true
+      }
+    },
+    {
+      "step_index": 1,
+      "step_query": "Conversation_Version[1]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root",
+          "name": "Root",
+          "type": "Root",
+          "score": 1.0,
+          "node_id": 3001249365216
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Conversation_Version 1",
+          "name": "Conversation_Version 1",
+          "type": "Conversation_Version",
+          "score": 1.0,
+          "node_id": 3001249363696
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Conversation_Version",
+            "index": {
+              "start": 1,
+              "type": "single",
+              "span": {
+                "start": 26,
+                "end": 29
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 29
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 29
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 2,
+      "step_query": "Speaker[atom(content =~ \"James\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root > Conversation_Version 1",
+          "name": "Conversation_Version 1",
+          "type": "Conversation_Version",
+          "score": 1.0,
+          "node_id": 3001249363696
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Conversation_Version 1 > James",
+          "name": "James",
+          "type": "Speaker",
+          "score": 1.0,
+          "node_id": 3001249357216
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Speaker",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "James",
+              "operator": "=~",
+              "span": {
+                "start": 38,
+                "end": 62
+              }
+            },
+            "predicate_str": "atom(content =~ \"James\")",
+            "span": {
+              "start": 30,
+              "end": 63
+            }
+          },
+          "span": {
+            "start": 30,
+            "end": 63
+          }
+        },
+        "found_count": 2,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"James\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "James",
+              "operator": "=~",
+              "span": {
+                "start": 38,
+                "end": 62
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 3001249357216,
+                "node_name": "James",
+                "node_type": "Speaker",
+                "final_score": 1.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "James",
+                    "query_value": "James",
+                    "matched": true,
+                    "score": 1.0
+                  }
+                ]
+              },
+              {
+                "node_idx": 1,
+                "node_id": 3000586928672,
+                "node_name": "John",
+                "node_type": "Speaker",
+                "final_score": 0.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "John",
+                    "query_value": "James",
+                    "matched": false,
+                    "score": 0.0
+                  }
+                ]
+              }
+            ],
+            "batch_scoring": {
+              "exact_match": true,
+              "matched_attribute": "name",
+              "query_value": "James",
+              "matched_count": 1
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 0,
+                "score": 1.0,
+                "name": "James"
+              },
+              {
+                "idx": 1,
+                "score": 0.0,
+                "name": "John"
+              }
+            ]
+          }
+        ],
+        "pruned_count": 1
+      }
+    },
+    {
+      "step_index": 3,
+      "step_query": "Session[atom(content =~ \"kitten clinic visit\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root > Conversation_Version 1 > James",
+          "name": "James",
+          "type": "Speaker",
+          "score": 1.0,
+          "node_id": 3001249357216
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Conversation_Version 1 > James > Session 15",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.39074933528900146,
+          "node_id": 3001249252032
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Session",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "kitten clinic visit",
+              "operator": "=~",
+              "span": {
+                "start": 72,
+                "end": 110
+              }
+            },
+            "predicate_str": "atom(content =~ \"kitten clinic visit\")",
+            "span": {
+              "start": 64,
+              "end": 111
+            }
+          },
+          "span": {
+            "start": 64,
+            "end": 111
+          }
+        },
+        "found_count": 31,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"kitten clinic visit\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "kitten clinic visit",
+              "operator": "=~",
+              "span": {
+                "start": 72,
+                "end": 110
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 3001249363936,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "kitten clinic visit",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 110
+                      }
+                    },
+                    "score": 0.002970231929793954,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.002970231929793954
+              },
+              {
+                "node_idx": 1,
+                "node_id": 3001249358336,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "kitten clinic visit",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 110
+                      }
+                    },
+                    "score": 0.0009310626774094999,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0009310626774094999
+              },
+              {
+                "node_idx": 2,
+                "node_id": 3001249361216,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "kitten clinic visit",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 110
+                      }
+                    },
+                    "score": 0.0034873029217123985,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0034873029217123985
+              },
+              {
+                "node_idx": 3,
+                "node_id": 3001249350416,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "kitten clinic visit",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 110
+                      }
+                    },
+                    "score": 0.003325252328068018,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.003325252328068018
+              },
+              {
+                "node_idx": 4,
+                "node_id": 3001249365696,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "kitten clinic visit",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 110
+                      }
+                    },
+                    "score": 0.003970792982727289,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.003970792982727289
+              },
+              {
+                "node_idx": 5,
+                "node_id": 3001249353696,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "kitten clinic visit",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 110
+                      }
+                    },
+                    "score": 0.004937530495226383,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.004937530495226383
+              },
+              {
+                "node_idx": 6,
+                "node_id": 3001249354816,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "kitten clinic visit",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 110
+                      }
+                    },
+                    "score": 0.0014374781167134643,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0014374781167134643
+              },
+              {
+                "node_idx": 7,
+                "node_id": 3001249364736,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "kitten clinic visit",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 110
+                      }
+                    },
+                    "score": 0.0016103122616186738,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0016103122616186738
+              },
+              {
+                "node_idx": 8,
+                "node_id": 3001249363056,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "kitten clinic visit",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 110
+                      }
+                    },
+                    "score": 0.005736000370234251,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.005736000370234251
+              },
+              {
+                "node_idx": 9,
+                "node_id": 3001250429776,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "kitten clinic visit",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 110
+                      }
+                    },
+                    "score": 0.031023800373077393,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.031023800373077393
+              },
+              {
+                "node_idx": 10,
+                "node_id": 3001186765776,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "kitten clinic visit",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 110
+                      }
+                    },
+                    "score": 0.03425585851073265,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.03425585851073265
+              },
+              {
+                "node_idx": 11,
+                "node_id": 3001249262912,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "kitten clinic visit",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 110
+                      }
+                    },
+                    "score": 0.0005775611498393118,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0005775611498393118
+              },
+              {
+                "node_idx": 12,
+                "node_id": 3001249265552,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "kitten clinic visit",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 110
+                      }
+                    },
+                    "score": 0.0026065227575600147,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0026065227575600147
+              },
+              {
+                "node_idx": 13,
+                "node_id": 3001249262832,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "kitten clinic visit",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 110
+                      }
+                    },
+                    "score": 0.0014687883667647839,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0014687883667647839
+              },
+              {
+                "node_idx": 14,
+                "node_id": 3001249252032,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "kitten clinic visit",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 110
+                      }
+                    },
+                    "score": 0.39074933528900146,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.39074933528900146
+              },
+              {
+                "node_idx": 15,
+                "node_id": 3001249262752,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "kitten clinic visit",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 110
+                      }
+                    },
+                    "score": 0.003926764242351055,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.003926764242351055
+              },
+              {
+                "node_idx": 16,
+                "node_id": 3001249267392,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "kitten clinic visit",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 110
+                      }
+                    },
+                    "score": 0.0012733363546431065,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0012733363546431065
+              },
+              {
+                "node_idx": 17,
+                "node_id": 3001249256592,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "kitten clinic visit",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 110
+                      }
+                    },
+                    "score": 0.0021068628411740065,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0021068628411740065
+              },
+              {
+                "node_idx": 18,
+                "node_id": 3001249262432,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "kitten clinic visit",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 110
+                      }
+                    },
+                    "score": 0.0009910374647006392,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0009910374647006392
+              },
+              {
+                "node_idx": 19,
+                "node_id": 3001249255712,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "kitten clinic visit",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 110
+                      }
+                    },
+                    "score": 0.0009393082582391798,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0009393082582391798
+              },
+              {
+                "node_idx": 20,
+                "node_id": 3001249256832,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "kitten clinic visit",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 110
+                      }
+                    },
+                    "score": 0.005830453243106604,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.005830453243106604
+              },
+              {
+                "node_idx": 21,
+                "node_id": 3001249252192,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "kitten clinic visit",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 110
+                      }
+                    },
+                    "score": 0.003144448157399893,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.003144448157399893
+              },
+              {
+                "node_idx": 22,
+                "node_id": 3001249264832,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "kitten clinic visit",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 110
+                      }
+                    },
+                    "score": 0.0007551803137175739,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0007551803137175739
+              },
+              {
+                "node_idx": 23,
+                "node_id": 3001250372304,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "kitten clinic visit",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 110
+                      }
+                    },
+                    "score": 0.0005013378686271608,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0005013378686271608
+              },
+              {
+                "node_idx": 24,
+                "node_id": 3001250372464,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "kitten clinic visit",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 110
+                      }
+                    },
+                    "score": 0.004292514640837908,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.004292514640837908
+              },
+              {
+                "node_idx": 25,
+                "node_id": 3001250376704,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "kitten clinic visit",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 110
+                      }
+                    },
+                    "score": 0.0029849072452634573,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0029849072452634573
+              },
+              {
+                "node_idx": 26,
+                "node_id": 3001250376464,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "kitten clinic visit",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 110
+                      }
+                    },
+                    "score": 0.002263647736981511,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.002263647736981511
+              },
+              {
+                "node_idx": 27,
+                "node_id": 3001250373664,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "kitten clinic visit",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 110
+                      }
+                    },
+                    "score": 0.0016165666747838259,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0016165666747838259
+              },
+              {
+                "node_idx": 28,
+                "node_id": 3001250374544,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "kitten clinic visit",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 110
+                      }
+                    },
+                    "score": 0.001033481676131487,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.001033481676131487
+              },
+              {
+                "node_idx": 29,
+                "node_id": 3001250376784,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "kitten clinic visit",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 110
+                      }
+                    },
+                    "score": 0.0012313236948102713,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0012313236948102713
+              },
+              {
+                "node_idx": 30,
+                "node_id": 3000586930432,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "kitten clinic visit",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 110
+                      }
+                    },
+                    "score": 0.0005055661895312369,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0005055661895312369
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "kitten clinic visit"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "kitten clinic visit",
+                  "num_descriptions": 31,
+                  "call_time_ms": 938.72
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 31
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 14,
+                "score": 0.39074933528900146,
+                "name": "Session"
+              },
+              {
+                "idx": 10,
+                "score": 0.03425585851073265,
+                "name": "Session"
+              },
+              {
+                "idx": 9,
+                "score": 0.031023800373077393,
+                "name": "Session"
+              },
+              {
+                "idx": 20,
+                "score": 0.005830453243106604,
+                "name": "Session"
+              },
+              {
+                "idx": 8,
+                "score": 0.005736000370234251,
+                "name": "Session"
+              },
+              {
+                "idx": 5,
+                "score": 0.004937530495226383,
+                "name": "Session"
+              },
+              {
+                "idx": 24,
+                "score": 0.004292514640837908,
+                "name": "Session"
+              },
+              {
+                "idx": 4,
+                "score": 0.003970792982727289,
+                "name": "Session"
+              },
+              {
+                "idx": 15,
+                "score": 0.003926764242351055,
+                "name": "Session"
+              },
+              {
+                "idx": 2,
+                "score": 0.0034873029217123985,
+                "name": "Session"
+              },
+              {
+                "idx": 3,
+                "score": 0.003325252328068018,
+                "name": "Session"
+              },
+              {
+                "idx": 21,
+                "score": 0.003144448157399893,
+                "name": "Session"
+              },
+              {
+                "idx": 25,
+                "score": 0.0029849072452634573,
+                "name": "Session"
+              },
+              {
+                "idx": 0,
+                "score": 0.002970231929793954,
+                "name": "Session"
+              },
+              {
+                "idx": 12,
+                "score": 0.0026065227575600147,
+                "name": "Session"
+              },
+              {
+                "idx": 26,
+                "score": 0.002263647736981511,
+                "name": "Session"
+              },
+              {
+                "idx": 17,
+                "score": 0.0021068628411740065,
+                "name": "Session"
+              },
+              {
+                "idx": 27,
+                "score": 0.0016165666747838259,
+                "name": "Session"
+              },
+              {
+                "idx": 7,
+                "score": 0.0016103122616186738,
+                "name": "Session"
+              },
+              {
+                "idx": 13,
+                "score": 0.0014687883667647839,
+                "name": "Session"
+              },
+              {
+                "idx": 6,
+                "score": 0.0014374781167134643,
+                "name": "Session"
+              },
+              {
+                "idx": 16,
+                "score": 0.0012733363546431065,
+                "name": "Session"
+              },
+              {
+                "idx": 29,
+                "score": 0.0012313236948102713,
+                "name": "Session"
+              },
+              {
+                "idx": 28,
+                "score": 0.001033481676131487,
+                "name": "Session"
+              },
+              {
+                "idx": 18,
+                "score": 0.0009910374647006392,
+                "name": "Session"
+              },
+              {
+                "idx": 19,
+                "score": 0.0009393082582391798,
+                "name": "Session"
+              },
+              {
+                "idx": 1,
+                "score": 0.0009310626774094999,
+                "name": "Session"
+              },
+              {
+                "idx": 22,
+                "score": 0.0007551803137175739,
+                "name": "Session"
+              },
+              {
+                "idx": 11,
+                "score": 0.0005775611498393118,
+                "name": "Session"
+              },
+              {
+                "idx": 30,
+                "score": 0.0005055661895312369,
+                "name": "Session"
+              },
+              {
+                "idx": 23,
+                "score": 0.0005013378686271608,
+                "name": "Session"
+              }
+            ]
+          }
+        ],
+        "pruned_count": 30
+      }
+    },
+    {
+      "step_index": 4,
+      "step_query": "Observation[atom(content =~ \"kitten\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 3,
+      "nodes_before": [
+        {
+          "path": "Root > Conversation_Version 1 > James > Session 15",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.39074933528900146,
+          "node_id": 3001249252032
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Conversation_Version 1 > James > Session 15 > Observation 1",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.6291606426239014,
+          "node_id": 3001249253792
+        },
+        {
+          "path": "Root > Conversation_Version 1 > James > Session 15 > Observation 2",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.4446684420108795,
+          "node_id": 3001249257152
+        },
+        {
+          "path": "Root > Conversation_Version 1 > James > Session 15 > Observation 5",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.11521657556295395,
+          "node_id": 3001249267472
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Observation",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "kitten",
+              "operator": "=~",
+              "span": {
+                "start": 124,
+                "end": 149
+              }
+            },
+            "predicate_str": "atom(content =~ \"kitten\")",
+            "span": {
+              "start": 112,
+              "end": 150
+            }
+          },
+          "span": {
+            "start": 112,
+            "end": 150
+          }
+        },
+        "found_count": 7,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"kitten\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "kitten",
+              "operator": "=~",
+              "span": {
+                "start": 124,
+                "end": 149
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 3001249253792,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "kitten",
+                      "operator": "=~",
+                      "span": {
+                        "start": 124,
+                        "end": 149
+                      }
+                    },
+                    "score": 0.6291606426239014,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.6291606426239014
+              },
+              {
+                "node_idx": 1,
+                "node_id": 3001249257152,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "kitten",
+                      "operator": "=~",
+                      "span": {
+                        "start": 124,
+                        "end": 149
+                      }
+                    },
+                    "score": 0.4446684420108795,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.4446684420108795
+              },
+              {
+                "node_idx": 2,
+                "node_id": 3001249260672,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "kitten",
+                      "operator": "=~",
+                      "span": {
+                        "start": 124,
+                        "end": 149
+                      }
+                    },
+                    "score": 0.014450364746153355,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.014450364746153355
+              },
+              {
+                "node_idx": 3,
+                "node_id": 3001249256032,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "kitten",
+                      "operator": "=~",
+                      "span": {
+                        "start": 124,
+                        "end": 149
+                      }
+                    },
+                    "score": 0.035995591431856155,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.035995591431856155
+              },
+              {
+                "node_idx": 4,
+                "node_id": 3001249267472,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "kitten",
+                      "operator": "=~",
+                      "span": {
+                        "start": 124,
+                        "end": 149
+                      }
+                    },
+                    "score": 0.11521657556295395,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.11521657556295395
+              },
+              {
+                "node_idx": 5,
+                "node_id": 3001249264352,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "kitten",
+                      "operator": "=~",
+                      "span": {
+                        "start": 124,
+                        "end": 149
+                      }
+                    },
+                    "score": 0.04601620137691498,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.04601620137691498
+              },
+              {
+                "node_idx": 6,
+                "node_id": 3001249253392,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "kitten",
+                      "operator": "=~",
+                      "span": {
+                        "start": 124,
+                        "end": 149
+                      }
+                    },
+                    "score": 0.036810170859098434,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.036810170859098434
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "kitten"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "kitten",
+                  "num_descriptions": 7,
+                  "call_time_ms": 61.11
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 7
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 0,
+                "score": 0.6291606426239014,
+                "name": "Observation"
+              },
+              {
+                "idx": 1,
+                "score": 0.4446684420108795,
+                "name": "Observation"
+              },
+              {
+                "idx": 4,
+                "score": 0.11521657556295395,
+                "name": "Observation"
+              },
+              {
+                "idx": 5,
+                "score": 0.04601620137691498,
+                "name": "Observation"
+              },
+              {
+                "idx": 6,
+                "score": 0.036810170859098434,
+                "name": "Observation"
+              },
+              {
+                "idx": 3,
+                "score": 0.035995591431856155,
+                "name": "Observation"
+              },
+              {
+                "idx": 2,
+                "score": 0.014450364746153355,
+                "name": "Observation"
+              }
+            ]
+          }
+        ],
+        "pruned_count": 4
+      }
+    }
+  ],
+  "scoring_traces": [
+    {
+      "predicate": "atom(content =~ \"James\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "James",
+        "operator": "=~",
+        "span": {
+          "start": 38,
+          "end": 62
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 3001249357216,
+          "node_name": "James",
+          "node_type": "Speaker",
+          "final_score": 1.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "James",
+              "query_value": "James",
+              "matched": true,
+              "score": 1.0
+            }
+          ]
+        },
+        {
+          "node_idx": 1,
+          "node_id": 3000586928672,
+          "node_name": "John",
+          "node_type": "Speaker",
+          "final_score": 0.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "John",
+              "query_value": "James",
+              "matched": false,
+              "score": 0.0
+            }
+          ]
+        }
+      ],
+      "batch_scoring": {
+        "exact_match": true,
+        "matched_attribute": "name",
+        "query_value": "James",
+        "matched_count": 1
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 0,
+          "score": 1.0,
+          "name": "James"
+        },
+        {
+          "idx": 1,
+          "score": 0.0,
+          "name": "John"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"kitten clinic visit\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "kitten clinic visit",
+        "operator": "=~",
+        "span": {
+          "start": 72,
+          "end": 110
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 3001249363936,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "kitten clinic visit",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 110
+                }
+              },
+              "score": 0.002970231929793954,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.002970231929793954
+        },
+        {
+          "node_idx": 1,
+          "node_id": 3001249358336,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "kitten clinic visit",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 110
+                }
+              },
+              "score": 0.0009310626774094999,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0009310626774094999
+        },
+        {
+          "node_idx": 2,
+          "node_id": 3001249361216,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "kitten clinic visit",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 110
+                }
+              },
+              "score": 0.0034873029217123985,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0034873029217123985
+        },
+        {
+          "node_idx": 3,
+          "node_id": 3001249350416,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "kitten clinic visit",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 110
+                }
+              },
+              "score": 0.003325252328068018,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.003325252328068018
+        },
+        {
+          "node_idx": 4,
+          "node_id": 3001249365696,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "kitten clinic visit",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 110
+                }
+              },
+              "score": 0.003970792982727289,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.003970792982727289
+        },
+        {
+          "node_idx": 5,
+          "node_id": 3001249353696,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "kitten clinic visit",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 110
+                }
+              },
+              "score": 0.004937530495226383,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.004937530495226383
+        },
+        {
+          "node_idx": 6,
+          "node_id": 3001249354816,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "kitten clinic visit",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 110
+                }
+              },
+              "score": 0.0014374781167134643,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0014374781167134643
+        },
+        {
+          "node_idx": 7,
+          "node_id": 3001249364736,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "kitten clinic visit",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 110
+                }
+              },
+              "score": 0.0016103122616186738,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0016103122616186738
+        },
+        {
+          "node_idx": 8,
+          "node_id": 3001249363056,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "kitten clinic visit",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 110
+                }
+              },
+              "score": 0.005736000370234251,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.005736000370234251
+        },
+        {
+          "node_idx": 9,
+          "node_id": 3001250429776,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "kitten clinic visit",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 110
+                }
+              },
+              "score": 0.031023800373077393,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.031023800373077393
+        },
+        {
+          "node_idx": 10,
+          "node_id": 3001186765776,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "kitten clinic visit",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 110
+                }
+              },
+              "score": 0.03425585851073265,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.03425585851073265
+        },
+        {
+          "node_idx": 11,
+          "node_id": 3001249262912,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "kitten clinic visit",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 110
+                }
+              },
+              "score": 0.0005775611498393118,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0005775611498393118
+        },
+        {
+          "node_idx": 12,
+          "node_id": 3001249265552,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "kitten clinic visit",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 110
+                }
+              },
+              "score": 0.0026065227575600147,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0026065227575600147
+        },
+        {
+          "node_idx": 13,
+          "node_id": 3001249262832,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "kitten clinic visit",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 110
+                }
+              },
+              "score": 0.0014687883667647839,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0014687883667647839
+        },
+        {
+          "node_idx": 14,
+          "node_id": 3001249252032,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "kitten clinic visit",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 110
+                }
+              },
+              "score": 0.39074933528900146,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.39074933528900146
+        },
+        {
+          "node_idx": 15,
+          "node_id": 3001249262752,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "kitten clinic visit",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 110
+                }
+              },
+              "score": 0.003926764242351055,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.003926764242351055
+        },
+        {
+          "node_idx": 16,
+          "node_id": 3001249267392,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "kitten clinic visit",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 110
+                }
+              },
+              "score": 0.0012733363546431065,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0012733363546431065
+        },
+        {
+          "node_idx": 17,
+          "node_id": 3001249256592,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "kitten clinic visit",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 110
+                }
+              },
+              "score": 0.0021068628411740065,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0021068628411740065
+        },
+        {
+          "node_idx": 18,
+          "node_id": 3001249262432,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "kitten clinic visit",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 110
+                }
+              },
+              "score": 0.0009910374647006392,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0009910374647006392
+        },
+        {
+          "node_idx": 19,
+          "node_id": 3001249255712,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "kitten clinic visit",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 110
+                }
+              },
+              "score": 0.0009393082582391798,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0009393082582391798
+        },
+        {
+          "node_idx": 20,
+          "node_id": 3001249256832,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "kitten clinic visit",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 110
+                }
+              },
+              "score": 0.005830453243106604,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.005830453243106604
+        },
+        {
+          "node_idx": 21,
+          "node_id": 3001249252192,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "kitten clinic visit",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 110
+                }
+              },
+              "score": 0.003144448157399893,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.003144448157399893
+        },
+        {
+          "node_idx": 22,
+          "node_id": 3001249264832,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "kitten clinic visit",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 110
+                }
+              },
+              "score": 0.0007551803137175739,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0007551803137175739
+        },
+        {
+          "node_idx": 23,
+          "node_id": 3001250372304,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "kitten clinic visit",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 110
+                }
+              },
+              "score": 0.0005013378686271608,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0005013378686271608
+        },
+        {
+          "node_idx": 24,
+          "node_id": 3001250372464,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "kitten clinic visit",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 110
+                }
+              },
+              "score": 0.004292514640837908,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.004292514640837908
+        },
+        {
+          "node_idx": 25,
+          "node_id": 3001250376704,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "kitten clinic visit",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 110
+                }
+              },
+              "score": 0.0029849072452634573,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0029849072452634573
+        },
+        {
+          "node_idx": 26,
+          "node_id": 3001250376464,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "kitten clinic visit",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 110
+                }
+              },
+              "score": 0.002263647736981511,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.002263647736981511
+        },
+        {
+          "node_idx": 27,
+          "node_id": 3001250373664,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "kitten clinic visit",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 110
+                }
+              },
+              "score": 0.0016165666747838259,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0016165666747838259
+        },
+        {
+          "node_idx": 28,
+          "node_id": 3001250374544,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "kitten clinic visit",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 110
+                }
+              },
+              "score": 0.001033481676131487,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.001033481676131487
+        },
+        {
+          "node_idx": 29,
+          "node_id": 3001250376784,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "kitten clinic visit",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 110
+                }
+              },
+              "score": 0.0012313236948102713,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0012313236948102713
+        },
+        {
+          "node_idx": 30,
+          "node_id": 3000586930432,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "kitten clinic visit",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 110
+                }
+              },
+              "score": 0.0005055661895312369,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0005055661895312369
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "kitten clinic visit"
+        ],
+        "per_value_stats": [
+          {
+            "value": "kitten clinic visit",
+            "num_descriptions": 31,
+            "call_time_ms": 938.72
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 31
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 14,
+          "score": 0.39074933528900146,
+          "name": "Session"
+        },
+        {
+          "idx": 10,
+          "score": 0.03425585851073265,
+          "name": "Session"
+        },
+        {
+          "idx": 9,
+          "score": 0.031023800373077393,
+          "name": "Session"
+        },
+        {
+          "idx": 20,
+          "score": 0.005830453243106604,
+          "name": "Session"
+        },
+        {
+          "idx": 8,
+          "score": 0.005736000370234251,
+          "name": "Session"
+        },
+        {
+          "idx": 5,
+          "score": 0.004937530495226383,
+          "name": "Session"
+        },
+        {
+          "idx": 24,
+          "score": 0.004292514640837908,
+          "name": "Session"
+        },
+        {
+          "idx": 4,
+          "score": 0.003970792982727289,
+          "name": "Session"
+        },
+        {
+          "idx": 15,
+          "score": 0.003926764242351055,
+          "name": "Session"
+        },
+        {
+          "idx": 2,
+          "score": 0.0034873029217123985,
+          "name": "Session"
+        },
+        {
+          "idx": 3,
+          "score": 0.003325252328068018,
+          "name": "Session"
+        },
+        {
+          "idx": 21,
+          "score": 0.003144448157399893,
+          "name": "Session"
+        },
+        {
+          "idx": 25,
+          "score": 0.0029849072452634573,
+          "name": "Session"
+        },
+        {
+          "idx": 0,
+          "score": 0.002970231929793954,
+          "name": "Session"
+        },
+        {
+          "idx": 12,
+          "score": 0.0026065227575600147,
+          "name": "Session"
+        },
+        {
+          "idx": 26,
+          "score": 0.002263647736981511,
+          "name": "Session"
+        },
+        {
+          "idx": 17,
+          "score": 0.0021068628411740065,
+          "name": "Session"
+        },
+        {
+          "idx": 27,
+          "score": 0.0016165666747838259,
+          "name": "Session"
+        },
+        {
+          "idx": 7,
+          "score": 0.0016103122616186738,
+          "name": "Session"
+        },
+        {
+          "idx": 13,
+          "score": 0.0014687883667647839,
+          "name": "Session"
+        },
+        {
+          "idx": 6,
+          "score": 0.0014374781167134643,
+          "name": "Session"
+        },
+        {
+          "idx": 16,
+          "score": 0.0012733363546431065,
+          "name": "Session"
+        },
+        {
+          "idx": 29,
+          "score": 0.0012313236948102713,
+          "name": "Session"
+        },
+        {
+          "idx": 28,
+          "score": 0.001033481676131487,
+          "name": "Session"
+        },
+        {
+          "idx": 18,
+          "score": 0.0009910374647006392,
+          "name": "Session"
+        },
+        {
+          "idx": 19,
+          "score": 0.0009393082582391798,
+          "name": "Session"
+        },
+        {
+          "idx": 1,
+          "score": 0.0009310626774094999,
+          "name": "Session"
+        },
+        {
+          "idx": 22,
+          "score": 0.0007551803137175739,
+          "name": "Session"
+        },
+        {
+          "idx": 11,
+          "score": 0.0005775611498393118,
+          "name": "Session"
+        },
+        {
+          "idx": 30,
+          "score": 0.0005055661895312369,
+          "name": "Session"
+        },
+        {
+          "idx": 23,
+          "score": 0.0005013378686271608,
+          "name": "Session"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"kitten\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "kitten",
+        "operator": "=~",
+        "span": {
+          "start": 124,
+          "end": 149
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 3001249253792,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "kitten",
+                "operator": "=~",
+                "span": {
+                  "start": 124,
+                  "end": 149
+                }
+              },
+              "score": 0.6291606426239014,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.6291606426239014
+        },
+        {
+          "node_idx": 1,
+          "node_id": 3001249257152,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "kitten",
+                "operator": "=~",
+                "span": {
+                  "start": 124,
+                  "end": 149
+                }
+              },
+              "score": 0.4446684420108795,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.4446684420108795
+        },
+        {
+          "node_idx": 2,
+          "node_id": 3001249260672,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "kitten",
+                "operator": "=~",
+                "span": {
+                  "start": 124,
+                  "end": 149
+                }
+              },
+              "score": 0.014450364746153355,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.014450364746153355
+        },
+        {
+          "node_idx": 3,
+          "node_id": 3001249256032,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "kitten",
+                "operator": "=~",
+                "span": {
+                  "start": 124,
+                  "end": 149
+                }
+              },
+              "score": 0.035995591431856155,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.035995591431856155
+        },
+        {
+          "node_idx": 4,
+          "node_id": 3001249267472,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "kitten",
+                "operator": "=~",
+                "span": {
+                  "start": 124,
+                  "end": 149
+                }
+              },
+              "score": 0.11521657556295395,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.11521657556295395
+        },
+        {
+          "node_idx": 5,
+          "node_id": 3001249264352,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "kitten",
+                "operator": "=~",
+                "span": {
+                  "start": 124,
+                  "end": 149
+                }
+              },
+              "score": 0.04601620137691498,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.04601620137691498
+        },
+        {
+          "node_idx": 6,
+          "node_id": 3001249253392,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "kitten",
+                "operator": "=~",
+                "span": {
+                  "start": 124,
+                  "end": 149
+                }
+              },
+              "score": 0.036810170859098434,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.036810170859098434
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "kitten"
+        ],
+        "per_value_stats": [
+          {
+            "value": "kitten",
+            "num_descriptions": 7,
+            "call_time_ms": 61.11
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 7
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 0,
+          "score": 0.6291606426239014,
+          "name": "Observation"
+        },
+        {
+          "idx": 1,
+          "score": 0.4446684420108795,
+          "name": "Observation"
+        },
+        {
+          "idx": 4,
+          "score": 0.11521657556295395,
+          "name": "Observation"
+        },
+        {
+          "idx": 5,
+          "score": 0.04601620137691498,
+          "name": "Observation"
+        },
+        {
+          "idx": 6,
+          "score": 0.036810170859098434,
+          "name": "Observation"
+        },
+        {
+          "idx": 3,
+          "score": 0.035995591431856155,
+          "name": "Observation"
+        },
+        {
+          "idx": 2,
+          "score": 0.014450364746153355,
+          "name": "Observation"
+        }
+      ]
+    }
+  ],
+  "scoring_details": {
+    "step_scores": [
+      {
+        "step_index": 0,
+        "predicate": "atom(content =~ \"James\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "James",
+          "operator": "=~",
+          "span": {
+            "start": 38,
+            "end": 62
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 3001249357216,
+            "node_name": "James",
+            "node_type": "Speaker",
+            "final_score": 1.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "James",
+                "query_value": "James",
+                "matched": true,
+                "score": 1.0
+              }
+            ]
+          },
+          {
+            "node_idx": 1,
+            "node_id": 3000586928672,
+            "node_name": "John",
+            "node_type": "Speaker",
+            "final_score": 0.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "John",
+                "query_value": "James",
+                "matched": false,
+                "score": 0.0
+              }
+            ]
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 0,
+            "score": 1.0,
+            "name": "James"
+          },
+          {
+            "idx": 1,
+            "score": 0.0,
+            "name": "John"
+          }
+        ]
+      },
+      {
+        "step_index": 1,
+        "predicate": "atom(content =~ \"kitten clinic visit\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "kitten clinic visit",
+          "operator": "=~",
+          "span": {
+            "start": 72,
+            "end": 110
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 3001249363936,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "kitten clinic visit",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 110
+                  }
+                },
+                "score": 0.002970231929793954,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.002970231929793954
+          },
+          {
+            "node_idx": 1,
+            "node_id": 3001249358336,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "kitten clinic visit",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 110
+                  }
+                },
+                "score": 0.0009310626774094999,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0009310626774094999
+          },
+          {
+            "node_idx": 2,
+            "node_id": 3001249361216,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "kitten clinic visit",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 110
+                  }
+                },
+                "score": 0.0034873029217123985,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0034873029217123985
+          },
+          {
+            "node_idx": 3,
+            "node_id": 3001249350416,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "kitten clinic visit",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 110
+                  }
+                },
+                "score": 0.003325252328068018,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.003325252328068018
+          },
+          {
+            "node_idx": 4,
+            "node_id": 3001249365696,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "kitten clinic visit",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 110
+                  }
+                },
+                "score": 0.003970792982727289,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.003970792982727289
+          },
+          {
+            "node_idx": 5,
+            "node_id": 3001249353696,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "kitten clinic visit",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 110
+                  }
+                },
+                "score": 0.004937530495226383,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.004937530495226383
+          },
+          {
+            "node_idx": 6,
+            "node_id": 3001249354816,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "kitten clinic visit",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 110
+                  }
+                },
+                "score": 0.0014374781167134643,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0014374781167134643
+          },
+          {
+            "node_idx": 7,
+            "node_id": 3001249364736,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "kitten clinic visit",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 110
+                  }
+                },
+                "score": 0.0016103122616186738,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0016103122616186738
+          },
+          {
+            "node_idx": 8,
+            "node_id": 3001249363056,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "kitten clinic visit",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 110
+                  }
+                },
+                "score": 0.005736000370234251,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.005736000370234251
+          },
+          {
+            "node_idx": 9,
+            "node_id": 3001250429776,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "kitten clinic visit",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 110
+                  }
+                },
+                "score": 0.031023800373077393,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.031023800373077393
+          },
+          {
+            "node_idx": 10,
+            "node_id": 3001186765776,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "kitten clinic visit",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 110
+                  }
+                },
+                "score": 0.03425585851073265,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.03425585851073265
+          },
+          {
+            "node_idx": 11,
+            "node_id": 3001249262912,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "kitten clinic visit",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 110
+                  }
+                },
+                "score": 0.0005775611498393118,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0005775611498393118
+          },
+          {
+            "node_idx": 12,
+            "node_id": 3001249265552,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "kitten clinic visit",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 110
+                  }
+                },
+                "score": 0.0026065227575600147,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0026065227575600147
+          },
+          {
+            "node_idx": 13,
+            "node_id": 3001249262832,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "kitten clinic visit",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 110
+                  }
+                },
+                "score": 0.0014687883667647839,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0014687883667647839
+          },
+          {
+            "node_idx": 14,
+            "node_id": 3001249252032,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "kitten clinic visit",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 110
+                  }
+                },
+                "score": 0.39074933528900146,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.39074933528900146
+          },
+          {
+            "node_idx": 15,
+            "node_id": 3001249262752,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "kitten clinic visit",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 110
+                  }
+                },
+                "score": 0.003926764242351055,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.003926764242351055
+          },
+          {
+            "node_idx": 16,
+            "node_id": 3001249267392,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "kitten clinic visit",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 110
+                  }
+                },
+                "score": 0.0012733363546431065,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0012733363546431065
+          },
+          {
+            "node_idx": 17,
+            "node_id": 3001249256592,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "kitten clinic visit",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 110
+                  }
+                },
+                "score": 0.0021068628411740065,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0021068628411740065
+          },
+          {
+            "node_idx": 18,
+            "node_id": 3001249262432,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "kitten clinic visit",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 110
+                  }
+                },
+                "score": 0.0009910374647006392,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0009910374647006392
+          },
+          {
+            "node_idx": 19,
+            "node_id": 3001249255712,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "kitten clinic visit",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 110
+                  }
+                },
+                "score": 0.0009393082582391798,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0009393082582391798
+          },
+          {
+            "node_idx": 20,
+            "node_id": 3001249256832,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "kitten clinic visit",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 110
+                  }
+                },
+                "score": 0.005830453243106604,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.005830453243106604
+          },
+          {
+            "node_idx": 21,
+            "node_id": 3001249252192,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "kitten clinic visit",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 110
+                  }
+                },
+                "score": 0.003144448157399893,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.003144448157399893
+          },
+          {
+            "node_idx": 22,
+            "node_id": 3001249264832,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "kitten clinic visit",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 110
+                  }
+                },
+                "score": 0.0007551803137175739,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0007551803137175739
+          },
+          {
+            "node_idx": 23,
+            "node_id": 3001250372304,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "kitten clinic visit",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 110
+                  }
+                },
+                "score": 0.0005013378686271608,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0005013378686271608
+          },
+          {
+            "node_idx": 24,
+            "node_id": 3001250372464,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "kitten clinic visit",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 110
+                  }
+                },
+                "score": 0.004292514640837908,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.004292514640837908
+          },
+          {
+            "node_idx": 25,
+            "node_id": 3001250376704,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "kitten clinic visit",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 110
+                  }
+                },
+                "score": 0.0029849072452634573,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0029849072452634573
+          },
+          {
+            "node_idx": 26,
+            "node_id": 3001250376464,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "kitten clinic visit",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 110
+                  }
+                },
+                "score": 0.002263647736981511,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.002263647736981511
+          },
+          {
+            "node_idx": 27,
+            "node_id": 3001250373664,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "kitten clinic visit",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 110
+                  }
+                },
+                "score": 0.0016165666747838259,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0016165666747838259
+          },
+          {
+            "node_idx": 28,
+            "node_id": 3001250374544,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "kitten clinic visit",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 110
+                  }
+                },
+                "score": 0.001033481676131487,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.001033481676131487
+          },
+          {
+            "node_idx": 29,
+            "node_id": 3001250376784,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "kitten clinic visit",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 110
+                  }
+                },
+                "score": 0.0012313236948102713,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0012313236948102713
+          },
+          {
+            "node_idx": 30,
+            "node_id": 3000586930432,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "kitten clinic visit",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 110
+                  }
+                },
+                "score": 0.0005055661895312369,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0005055661895312369
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 14,
+            "score": 0.39074933528900146,
+            "name": "Session"
+          },
+          {
+            "idx": 10,
+            "score": 0.03425585851073265,
+            "name": "Session"
+          },
+          {
+            "idx": 9,
+            "score": 0.031023800373077393,
+            "name": "Session"
+          },
+          {
+            "idx": 20,
+            "score": 0.005830453243106604,
+            "name": "Session"
+          },
+          {
+            "idx": 8,
+            "score": 0.005736000370234251,
+            "name": "Session"
+          },
+          {
+            "idx": 5,
+            "score": 0.004937530495226383,
+            "name": "Session"
+          },
+          {
+            "idx": 24,
+            "score": 0.004292514640837908,
+            "name": "Session"
+          },
+          {
+            "idx": 4,
+            "score": 0.003970792982727289,
+            "name": "Session"
+          },
+          {
+            "idx": 15,
+            "score": 0.003926764242351055,
+            "name": "Session"
+          },
+          {
+            "idx": 2,
+            "score": 0.0034873029217123985,
+            "name": "Session"
+          },
+          {
+            "idx": 3,
+            "score": 0.003325252328068018,
+            "name": "Session"
+          },
+          {
+            "idx": 21,
+            "score": 0.003144448157399893,
+            "name": "Session"
+          },
+          {
+            "idx": 25,
+            "score": 0.0029849072452634573,
+            "name": "Session"
+          },
+          {
+            "idx": 0,
+            "score": 0.002970231929793954,
+            "name": "Session"
+          },
+          {
+            "idx": 12,
+            "score": 0.0026065227575600147,
+            "name": "Session"
+          },
+          {
+            "idx": 26,
+            "score": 0.002263647736981511,
+            "name": "Session"
+          },
+          {
+            "idx": 17,
+            "score": 0.0021068628411740065,
+            "name": "Session"
+          },
+          {
+            "idx": 27,
+            "score": 0.0016165666747838259,
+            "name": "Session"
+          },
+          {
+            "idx": 7,
+            "score": 0.0016103122616186738,
+            "name": "Session"
+          },
+          {
+            "idx": 13,
+            "score": 0.0014687883667647839,
+            "name": "Session"
+          },
+          {
+            "idx": 6,
+            "score": 0.0014374781167134643,
+            "name": "Session"
+          },
+          {
+            "idx": 16,
+            "score": 0.0012733363546431065,
+            "name": "Session"
+          },
+          {
+            "idx": 29,
+            "score": 0.0012313236948102713,
+            "name": "Session"
+          },
+          {
+            "idx": 28,
+            "score": 0.001033481676131487,
+            "name": "Session"
+          },
+          {
+            "idx": 18,
+            "score": 0.0009910374647006392,
+            "name": "Session"
+          },
+          {
+            "idx": 19,
+            "score": 0.0009393082582391798,
+            "name": "Session"
+          },
+          {
+            "idx": 1,
+            "score": 0.0009310626774094999,
+            "name": "Session"
+          },
+          {
+            "idx": 22,
+            "score": 0.0007551803137175739,
+            "name": "Session"
+          },
+          {
+            "idx": 11,
+            "score": 0.0005775611498393118,
+            "name": "Session"
+          },
+          {
+            "idx": 30,
+            "score": 0.0005055661895312369,
+            "name": "Session"
+          },
+          {
+            "idx": 23,
+            "score": 0.0005013378686271608,
+            "name": "Session"
+          }
+        ]
+      },
+      {
+        "step_index": 2,
+        "predicate": "atom(content =~ \"kitten\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "kitten",
+          "operator": "=~",
+          "span": {
+            "start": 124,
+            "end": 149
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 3001249253792,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "kitten",
+                  "operator": "=~",
+                  "span": {
+                    "start": 124,
+                    "end": 149
+                  }
+                },
+                "score": 0.6291606426239014,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.6291606426239014
+          },
+          {
+            "node_idx": 1,
+            "node_id": 3001249257152,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "kitten",
+                  "operator": "=~",
+                  "span": {
+                    "start": 124,
+                    "end": 149
+                  }
+                },
+                "score": 0.4446684420108795,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.4446684420108795
+          },
+          {
+            "node_idx": 2,
+            "node_id": 3001249260672,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "kitten",
+                  "operator": "=~",
+                  "span": {
+                    "start": 124,
+                    "end": 149
+                  }
+                },
+                "score": 0.014450364746153355,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.014450364746153355
+          },
+          {
+            "node_idx": 3,
+            "node_id": 3001249256032,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "kitten",
+                  "operator": "=~",
+                  "span": {
+                    "start": 124,
+                    "end": 149
+                  }
+                },
+                "score": 0.035995591431856155,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.035995591431856155
+          },
+          {
+            "node_idx": 4,
+            "node_id": 3001249267472,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "kitten",
+                  "operator": "=~",
+                  "span": {
+                    "start": 124,
+                    "end": 149
+                  }
+                },
+                "score": 0.11521657556295395,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.11521657556295395
+          },
+          {
+            "node_idx": 5,
+            "node_id": 3001249264352,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "kitten",
+                  "operator": "=~",
+                  "span": {
+                    "start": 124,
+                    "end": 149
+                  }
+                },
+                "score": 0.04601620137691498,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.04601620137691498
+          },
+          {
+            "node_idx": 6,
+            "node_id": 3001249253392,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "kitten",
+                  "operator": "=~",
+                  "span": {
+                    "start": 124,
+                    "end": 149
+                  }
+                },
+                "score": 0.036810170859098434,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.036810170859098434
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 0,
+            "score": 0.6291606426239014,
+            "name": "Observation"
+          },
+          {
+            "idx": 1,
+            "score": 0.4446684420108795,
+            "name": "Observation"
+          },
+          {
+            "idx": 4,
+            "score": 0.11521657556295395,
+            "name": "Observation"
+          },
+          {
+            "idx": 5,
+            "score": 0.04601620137691498,
+            "name": "Observation"
+          },
+          {
+            "idx": 6,
+            "score": 0.036810170859098434,
+            "name": "Observation"
+          },
+          {
+            "idx": 3,
+            "score": 0.035995591431856155,
+            "name": "Observation"
+          },
+          {
+            "idx": 2,
+            "score": 0.014450364746153355,
+            "name": "Observation"
+          }
+        ]
+      }
+    ],
+    "score_fusion": {
+      "per_node": [
+        {
+          "node_path": "Root > Conversation_Version 1 > James > Session 15 > Observation 1",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"kitten\")]",
+              "score": 0.6291606426239014
+            }
+          ],
+          "accumulated_product": 0.6291606426239014,
+          "final_score": 0.24584410264944637
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > James > Session 15 > Observation 2",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"kitten\")]",
+              "score": 0.4446684420108795
+            }
+          ],
+          "accumulated_product": 0.4446684420108795,
+          "final_score": 0.17375389796599316
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > James > Session 15 > Observation 5",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"kitten\")]",
+              "score": 0.11521657556295395
+            }
+          ],
+          "accumulated_product": 0.11521657556295395,
+          "final_score": 0.045020800270478466
+        }
+      ]
+    }
+  },
+  "final_filtering": {
+    "before_filter_count": 3,
+    "threshold": 0.05,
+    "top_k": 10,
+    "after_filter_count": 2,
+    "filtered_nodes": [
+      {
+        "path": "Root > Conversation_Version 1 > James > Session 15 > Observation 1",
+        "score": 0.24584410264944637,
+        "type": "Observation",
+        "own_score": 0.6291606426239014,
+        "parent_score": 0.39074933489825214
+      },
+      {
+        "path": "Root > Conversation_Version 1 > James > Session 15 > Observation 2",
+        "score": 0.17375389796599316,
+        "type": "Observation",
+        "own_score": 0.4446684420108795,
+        "parent_score": 0.39074933489825214
+      }
+    ]
+  },
+  "matched_nodes": [
+    {
+      "tree_path": "Root > Conversation_Version 1 > James > Session 15 > Observation 1",
+      "score": 0.24584410264944637,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "James introduced three pets - Max, Daisy, and a new pup named Ned, who are slowly adapting and bonding together.",
+        "source_dia_id": "D15:1"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "James",
+          "predicate": "atom(content =~ \"James\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"James\") on James (Score: 1.00)"
+        },
+        {
+          "node_name": "Observation 1",
+          "predicate": "atom(content =~ \"kitten\")",
+          "score": 0.6291606426239014,
+          "description": "Matched atom(content =~ \"kitten\") on Observation 1 (Score: 0.63)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > James > Session 15 > Observation 2",
+      "score": 0.17375389796599316,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "James took a great photo of his pets bonding together.",
+        "source_dia_id": "D15:3"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "James",
+          "predicate": "atom(content =~ \"James\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"James\") on James (Score: 1.00)"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total_steps": 5,
+    "total_scoring_calls": 3,
+    "matched_count": 2,
+    "execution_time_ms": 1001.3191999969422,
+    "has_score_fusion": true,
+    "num_nodes_before_filter": 3,
+    "num_nodes_after_filter": 2
+  }
+}

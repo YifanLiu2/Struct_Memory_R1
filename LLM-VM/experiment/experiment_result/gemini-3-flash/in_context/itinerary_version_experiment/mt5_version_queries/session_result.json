@@ -1,0 +1,54 @@
+{
+  "session_id": "mt5_version_queries",
+  "queries": [
+    {
+      "query_id": "Query_001",
+      "user_query": "What outdoor activities did we cancel earlier? Check the previous itinerary versions",
+      "selected_nodes": [
+        "Root > Itinerary_Version 2 > patch_info",
+        "Root > Itinerary_Version 1 > Day 7 > Distillery District Walk"
+      ],
+      "related_nodes": [
+        "Distillery District Walk"
+      ],
+      "downstream_task_result": {
+        "operation": "READ",
+        "success": true,
+        "version_used": 2,
+        "reasoning": "The user asked to identify cancelled outdoor activities from previous versions. Version 2 contains the record of cancelling outdoor activities due to rain on Day 7, specifically removing the 'Distillery District Walk'.",
+        "token_usage": {
+          "prompt_tokens": 25606,
+          "completion_tokens": 267,
+          "total_tokens": 25873
+        },
+        "error": null
+      },
+      "execution_time_ms": 3012.28
+    },
+    {
+      "query_id": "Query_002",
+      "user_query": "What was the restaurant on day 5 before we changed it? Check the previous itinerary versions",
+      "selected_nodes": [
+        "Root > Itinerary_Version 2 > Day 5 > Kaiseki Kaji"
+      ],
+      "related_nodes": [
+        "Kaiseki Kaji"
+      ],
+      "downstream_task_result": {
+        "operation": "READ",
+        "success": true,
+        "version_used": 2,
+        "reasoning": "The user asked for the restaurant on Day 5 before it was changed. In Version 3, the expensive restaurant 'Kaiseki Kaji' was removed. Therefore, Version 2 contains the state of Day 5 before that specific modification.",
+        "token_usage": {
+          "prompt_tokens": 25611,
+          "completion_tokens": 273,
+          "total_tokens": 25884
+        },
+        "error": null
+      },
+      "execution_time_ms": 2570.71
+    }
+  ],
+  "final_tree_version": 1,
+  "total_execution_time_ms": 5583.0
+}

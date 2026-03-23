@@ -1,0 +1,4422 @@
+{
+  "timestamp": "20260322_225755_593628",
+  "query": "/Root/Conversation_Version[1]/Speaker[atom(content =~ \"James\")]/Session[atom(content =~ \"baseball game\")]/Observation[atom(content =~ \"went to baseball game together\")]",
+  "canonical_query": "/Root/Conversation_Version[1]/Speaker[content =~ \"James\"]/Session[content =~ \"baseball game\"]/Observation[content =~ \"went to baseball game together\"]",
+  "data_file": "tree.xml",
+  "execution_time_ms": 811.1828999972204,
+  "parsed_ast": {
+    "steps": [
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Root",
+            "span": {
+              "start": 1,
+              "end": 5
+            }
+          },
+          "span": {
+            "start": 1,
+            "end": 5
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Conversation_Version",
+            "index": {
+              "start": 1,
+              "type": "single",
+              "span": {
+                "start": 26,
+                "end": 29
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 29
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 29
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Speaker",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "James",
+              "operator": "=~",
+              "span": {
+                "start": 38,
+                "end": 62
+              }
+            },
+            "predicate_str": "atom(content =~ \"James\")",
+            "span": {
+              "start": 30,
+              "end": 63
+            }
+          },
+          "span": {
+            "start": 30,
+            "end": 63
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Session",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "baseball game",
+              "operator": "=~",
+              "span": {
+                "start": 72,
+                "end": 104
+              }
+            },
+            "predicate_str": "atom(content =~ \"baseball game\")",
+            "span": {
+              "start": 64,
+              "end": 105
+            }
+          },
+          "span": {
+            "start": 64,
+            "end": 105
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Observation",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "went to baseball game together",
+              "operator": "=~",
+              "span": {
+                "start": 118,
+                "end": 167
+              }
+            },
+            "predicate_str": "atom(content =~ \"went to baseball game together\")",
+            "span": {
+              "start": 106,
+              "end": 168
+            }
+          },
+          "span": {
+            "start": 106,
+            "end": 168
+          }
+        }
+      }
+    ],
+    "global_index": null
+  },
+  "parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: Conversation_Version[1]\n├── Step 2: Speaker[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"James\")\n├── Step 3: Session[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"baseball game\")\n└── Step 4: Observation[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"went to baseball game together\")",
+  "canonical_parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: Conversation_Version[1]\n├── Step 2: Speaker[content =~ \"James\"]\n├── Step 3: Session[content =~ \"baseball game\"]\n└── Step 4: Observation[content =~ \"went to baseball game together\"]",
+  "execution_log": [
+    "[20260322_225755_593628] Executing query: /Root/Conversation_Version[1]/Speaker[atom(content =~ \"James\")]/Session[atom(content =~ \"baseball game\")]/Observation[atom(content =~ \"went to baseball game together\")]",
+    "Data file: tree.xml",
+    "Parsed steps: [Root, Conversation_Version[1], Speaker[atom(content =~ \"James\")], Session[atom(content =~ \"baseball game\")], Observation[atom(content =~ \"went to baseball game together\")]]",
+    "",
+    "Query AST:\n├── Step 0: Root\n├── Step 1: Conversation_Version[1]\n├── Step 2: Speaker[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"James\")\n├── Step 3: Session[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"baseball game\")\n└── Step 4: Observation[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"went to baseball game together\")",
+    "\n--- Step 1: Root ---",
+    "Matched Root root",
+    "\n--- Step 2: Conversation_Version[1] ---",
+    "Selected node at index 1 (0-based: 0)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 3: Speaker[atom(content =~ \"James\")] ---",
+    "Scoring predicate: atom(content =~ \"James\") (atomic values: ['James'])",
+    "  Node 0 (James): score = 1.0000 (exact match)",
+    "  Node 1 (John): score = 0.0000 (exact match)",
+    "  Exact attribute match on @name: 1/2 nodes matched",
+    "  Top-K Pruning: Reduced from 2 to 1 nodes (K=5)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 4: Session[atom(content =~ \"baseball game\")] ---",
+    "Scoring predicate: atom(content =~ \"baseball game\") (atomic values: ['baseball game'])",
+    "  Collected 31 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 31 total descriptions",
+    "  Node 0 (Session): score = 0.0228",
+    "  Node 1 (Session): score = 0.0223",
+    "  Node 2 (Session): score = 0.0635",
+    "  Node 3 (Session): score = 0.0380",
+    "  Node 4 (Session): score = 0.0031",
+    "  Node 5 (Session): score = 0.0095",
+    "  Node 6 (Session): score = 0.0033",
+    "  Node 7 (Session): score = 0.0010",
+    "  Node 8 (Session): score = 0.0204",
+    "  Node 9 (Session): score = 0.0100",
+    "  Node 10 (Session): score = 0.0732",
+    "  Node 11 (Session): score = 0.0104",
+    "  Node 12 (Session): score = 0.0007",
+    "  Node 13 (Session): score = 0.0051",
+    "  Node 14 (Session): score = 0.0234",
+    "  Node 15 (Session): score = 0.0328",
+    "  Node 16 (Session): score = 0.0006",
+    "  Node 17 (Session): score = 0.0039",
+    "  Node 18 (Session): score = 0.0046",
+    "  Node 19 (Session): score = 0.0117",
+    "  Node 20 (Session): score = 0.0097",
+    "  Node 21 (Session): score = 0.0004",
+    "  Node 22 (Session): score = 0.2364",
+    "  Node 23 (Session): score = 0.0005",
+    "  Node 24 (Session): score = 0.0559",
+    "  Node 25 (Session): score = 0.0240",
+    "  Node 26 (Session): score = 0.0070",
+    "  Node 27 (Session): score = 0.0628",
+    "  Node 28 (Session): score = 0.0051",
+    "  Node 29 (Session): score = 0.0014",
+    "  Node 30 (Session): score = 0.0039",
+    "  Top-K Pruning: Reduced from 31 to 5 nodes (K=5)",
+    "After step: 5 nodes remaining",
+    "\n--- Step 5: Observation[atom(content =~ \"went to baseball game together\")] ---",
+    "Scoring predicate: atom(content =~ \"went to baseball game together\") (atomic values: ['went to baseball game together'])",
+    "  Collected 6 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 6 total descriptions",
+    "  Node 0 (Observation): score = 0.0003",
+    "  Node 1 (Observation): score = 0.0005",
+    "  Node 2 (Observation): score = 0.0002",
+    "  Node 3 (Observation): score = 0.0003",
+    "  Node 4 (Observation): score = 0.0005",
+    "  Node 5 (Observation): score = 0.0002",
+    "Scoring predicate: atom(content =~ \"went to baseball game together\") (atomic values: ['went to baseball game together'])",
+    "  Collected 4 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 4 total descriptions",
+    "  Node 0 (Observation): score = 0.0017",
+    "  Node 1 (Observation): score = 0.0014",
+    "  Node 2 (Observation): score = 0.0095",
+    "  Node 3 (Observation): score = 0.0015",
+    "Scoring predicate: atom(content =~ \"went to baseball game together\") (atomic values: ['went to baseball game together'])",
+    "  Collected 3 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 3 total descriptions",
+    "  Node 0 (Observation): score = 0.0002",
+    "  Node 1 (Observation): score = 0.0004",
+    "  Node 2 (Observation): score = 0.0009",
+    "Scoring predicate: atom(content =~ \"went to baseball game together\") (atomic values: ['went to baseball game together'])",
+    "  Collected 5 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 5 total descriptions",
+    "  Node 0 (Observation): score = 0.0008",
+    "  Node 1 (Observation): score = 0.0101",
+    "  Node 2 (Observation): score = 0.0011",
+    "  Node 3 (Observation): score = 0.0005",
+    "  Node 4 (Observation): score = 0.0001",
+    "Scoring predicate: atom(content =~ \"went to baseball game together\") (atomic values: ['went to baseball game together'])",
+    "  Collected 5 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 5 total descriptions",
+    "  Node 0 (Observation): score = 0.0003",
+    "  Node 1 (Observation): score = 0.0006",
+    "  Node 2 (Observation): score = 0.0007",
+    "  Node 3 (Observation): score = 0.0009",
+    "  Node 4 (Observation): score = 0.0095",
+    "  Top-K Pruning: Reduced from 23 to 0 nodes (K=5)",
+    "No matching nodes for step expression",
+    "\n=== Score Fusion ===",
+    "\n=== Threshold Filtering (threshold=0.05) ===",
+    "  Filtered: 0 → 0 nodes",
+    "\n=== Final Filtering (top_k=10) ===",
+    "  After top_k: 0 → 0 nodes",
+    "\nFinal result: 0 nodes (sorted by score)",
+    "⏱️  Query execution time: 811.18ms"
+  ],
+  "traversal_steps": [
+    {
+      "step_index": 0,
+      "step_query": "Root",
+      "action": "root_match",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "type": "root"
+        }
+      ],
+      "nodes_after": [
+        {
+          "type": "Root",
+          "path": "Root"
+        }
+      ],
+      "details": {
+        "matched": true
+      }
+    },
+    {
+      "step_index": 1,
+      "step_query": "Conversation_Version[1]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root",
+          "name": "Root",
+          "type": "Root",
+          "score": 1.0,
+          "node_id": 3000607207200
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Conversation_Version 1",
+          "name": "Conversation_Version 1",
+          "type": "Conversation_Version",
+          "score": 1.0,
+          "node_id": 3000607204160
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Conversation_Version",
+            "index": {
+              "start": 1,
+              "type": "single",
+              "span": {
+                "start": 26,
+                "end": 29
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 29
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 29
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 2,
+      "step_query": "Speaker[atom(content =~ \"James\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root > Conversation_Version 1",
+          "name": "Conversation_Version 1",
+          "type": "Conversation_Version",
+          "score": 1.0,
+          "node_id": 3000607204160
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Conversation_Version 1 > James",
+          "name": "James",
+          "type": "Speaker",
+          "score": 1.0,
+          "node_id": 3000607205200
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Speaker",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "James",
+              "operator": "=~",
+              "span": {
+                "start": 38,
+                "end": 62
+              }
+            },
+            "predicate_str": "atom(content =~ \"James\")",
+            "span": {
+              "start": 30,
+              "end": 63
+            }
+          },
+          "span": {
+            "start": 30,
+            "end": 63
+          }
+        },
+        "found_count": 2,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"James\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "James",
+              "operator": "=~",
+              "span": {
+                "start": 38,
+                "end": 62
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 3000607205200,
+                "node_name": "James",
+                "node_type": "Speaker",
+                "final_score": 1.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "James",
+                    "query_value": "James",
+                    "matched": true,
+                    "score": 1.0
+                  }
+                ]
+              },
+              {
+                "node_idx": 1,
+                "node_id": 3001249300080,
+                "node_name": "John",
+                "node_type": "Speaker",
+                "final_score": 0.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "John",
+                    "query_value": "James",
+                    "matched": false,
+                    "score": 0.0
+                  }
+                ]
+              }
+            ],
+            "batch_scoring": {
+              "exact_match": true,
+              "matched_attribute": "name",
+              "query_value": "James",
+              "matched_count": 1
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 0,
+                "score": 1.0,
+                "name": "James"
+              },
+              {
+                "idx": 1,
+                "score": 0.0,
+                "name": "John"
+              }
+            ]
+          }
+        ],
+        "pruned_count": 1
+      }
+    },
+    {
+      "step_index": 3,
+      "step_query": "Session[atom(content =~ \"baseball game\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 5,
+      "nodes_before": [
+        {
+          "path": "Root > Conversation_Version 1 > James",
+          "name": "James",
+          "type": "Speaker",
+          "score": 1.0,
+          "node_id": 3000607205200
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Conversation_Version 1 > James > Session 23",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.23639348149299622,
+          "node_id": 3001249245248
+        },
+        {
+          "path": "Root > Conversation_Version 1 > James > Session 11",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.07323098927736282,
+          "node_id": 3003526167856
+        },
+        {
+          "path": "Root > Conversation_Version 1 > James > Session 3",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.06354451924562454,
+          "node_id": 3003526152816
+        },
+        {
+          "path": "Root > Conversation_Version 1 > James > Session 28",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.06282582879066467,
+          "node_id": 3001249296160
+        },
+        {
+          "path": "Root > Conversation_Version 1 > James > Session 25",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.05589579418301582,
+          "node_id": 3001249284240
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Session",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "baseball game",
+              "operator": "=~",
+              "span": {
+                "start": 72,
+                "end": 104
+              }
+            },
+            "predicate_str": "atom(content =~ \"baseball game\")",
+            "span": {
+              "start": 64,
+              "end": 105
+            }
+          },
+          "span": {
+            "start": 64,
+            "end": 105
+          }
+        },
+        "found_count": 31,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"baseball game\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "baseball game",
+              "operator": "=~",
+              "span": {
+                "start": 72,
+                "end": 104
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 3000607207120,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "baseball game",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 104
+                      }
+                    },
+                    "score": 0.02275903895497322,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.02275903895497322
+              },
+              {
+                "node_idx": 1,
+                "node_id": 3003526160656,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "baseball game",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 104
+                      }
+                    },
+                    "score": 0.022280490025877953,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.022280490025877953
+              },
+              {
+                "node_idx": 2,
+                "node_id": 3003526152816,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "baseball game",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 104
+                      }
+                    },
+                    "score": 0.06354451924562454,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.06354451924562454
+              },
+              {
+                "node_idx": 3,
+                "node_id": 3003526167776,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "baseball game",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 104
+                      }
+                    },
+                    "score": 0.038039058446884155,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.038039058446884155
+              },
+              {
+                "node_idx": 4,
+                "node_id": 3003526156576,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "baseball game",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 104
+                      }
+                    },
+                    "score": 0.003050071420148015,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.003050071420148015
+              },
+              {
+                "node_idx": 5,
+                "node_id": 3003526166736,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "baseball game",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 104
+                      }
+                    },
+                    "score": 0.009514549747109413,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.009514549747109413
+              },
+              {
+                "node_idx": 6,
+                "node_id": 3003526160896,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "baseball game",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 104
+                      }
+                    },
+                    "score": 0.003270278451964259,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.003270278451964259
+              },
+              {
+                "node_idx": 7,
+                "node_id": 3003526165936,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "baseball game",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 104
+                      }
+                    },
+                    "score": 0.0009723693365231156,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0009723693365231156
+              },
+              {
+                "node_idx": 8,
+                "node_id": 3003526165536,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "baseball game",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 104
+                      }
+                    },
+                    "score": 0.020438697189092636,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.020438697189092636
+              },
+              {
+                "node_idx": 9,
+                "node_id": 3003526162016,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "baseball game",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 104
+                      }
+                    },
+                    "score": 0.010049057193100452,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.010049057193100452
+              },
+              {
+                "node_idx": 10,
+                "node_id": 3003526167856,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "baseball game",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 104
+                      }
+                    },
+                    "score": 0.07323098927736282,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.07323098927736282
+              },
+              {
+                "node_idx": 11,
+                "node_id": 3001249247328,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "baseball game",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 104
+                      }
+                    },
+                    "score": 0.010420486330986023,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.010420486330986023
+              },
+              {
+                "node_idx": 12,
+                "node_id": 3001249250208,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "baseball game",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 104
+                      }
+                    },
+                    "score": 0.0006881796289235353,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0006881796289235353
+              },
+              {
+                "node_idx": 13,
+                "node_id": 3001249238528,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "baseball game",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 104
+                      }
+                    },
+                    "score": 0.0050511532463133335,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0050511532463133335
+              },
+              {
+                "node_idx": 14,
+                "node_id": 3001249240288,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "baseball game",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 104
+                      }
+                    },
+                    "score": 0.023357786238193512,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.023357786238193512
+              },
+              {
+                "node_idx": 15,
+                "node_id": 3001249244128,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "baseball game",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 104
+                      }
+                    },
+                    "score": 0.032817792147397995,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.032817792147397995
+              },
+              {
+                "node_idx": 16,
+                "node_id": 3001249242848,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "baseball game",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 104
+                      }
+                    },
+                    "score": 0.0006255032494664192,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0006255032494664192
+              },
+              {
+                "node_idx": 17,
+                "node_id": 3001249243728,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "baseball game",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 104
+                      }
+                    },
+                    "score": 0.003883412340655923,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.003883412340655923
+              },
+              {
+                "node_idx": 18,
+                "node_id": 3001249239808,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "baseball game",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 104
+                      }
+                    },
+                    "score": 0.0046370062045753,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0046370062045753
+              },
+              {
+                "node_idx": 19,
+                "node_id": 3001249236128,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "baseball game",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 104
+                      }
+                    },
+                    "score": 0.011702414602041245,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.011702414602041245
+              },
+              {
+                "node_idx": 20,
+                "node_id": 3001249245408,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "baseball game",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 104
+                      }
+                    },
+                    "score": 0.009728181175887585,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.009728181175887585
+              },
+              {
+                "node_idx": 21,
+                "node_id": 3001249248288,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "baseball game",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 104
+                      }
+                    },
+                    "score": 0.00043625663965940475,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.00043625663965940475
+              },
+              {
+                "node_idx": 22,
+                "node_id": 3001249245248,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "baseball game",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 104
+                      }
+                    },
+                    "score": 0.23639348149299622,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.23639348149299622
+              },
+              {
+                "node_idx": 23,
+                "node_id": 3001249298640,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "baseball game",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 104
+                      }
+                    },
+                    "score": 0.0004909221897833049,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0004909221897833049
+              },
+              {
+                "node_idx": 24,
+                "node_id": 3001249284240,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "baseball game",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 104
+                      }
+                    },
+                    "score": 0.05589579418301582,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.05589579418301582
+              },
+              {
+                "node_idx": 25,
+                "node_id": 3001249287840,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "baseball game",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 104
+                      }
+                    },
+                    "score": 0.023979980498552322,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.023979980498552322
+              },
+              {
+                "node_idx": 26,
+                "node_id": 3001249299280,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "baseball game",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 104
+                      }
+                    },
+                    "score": 0.006990919820964336,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.006990919820964336
+              },
+              {
+                "node_idx": 27,
+                "node_id": 3001249296160,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "baseball game",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 104
+                      }
+                    },
+                    "score": 0.06282582879066467,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.06282582879066467
+              },
+              {
+                "node_idx": 28,
+                "node_id": 3001249295120,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "baseball game",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 104
+                      }
+                    },
+                    "score": 0.005088017787784338,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.005088017787784338
+              },
+              {
+                "node_idx": 29,
+                "node_id": 3001249293280,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "baseball game",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 104
+                      }
+                    },
+                    "score": 0.0013944507809355855,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0013944507809355855
+              },
+              {
+                "node_idx": 30,
+                "node_id": 3001249285600,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "baseball game",
+                      "operator": "=~",
+                      "span": {
+                        "start": 72,
+                        "end": 104
+                      }
+                    },
+                    "score": 0.00392368296161294,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.00392368296161294
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "baseball game"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "baseball game",
+                  "num_descriptions": 31,
+                  "call_time_ms": 581.43
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 31
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 22,
+                "score": 0.23639348149299622,
+                "name": "Session"
+              },
+              {
+                "idx": 10,
+                "score": 0.07323098927736282,
+                "name": "Session"
+              },
+              {
+                "idx": 2,
+                "score": 0.06354451924562454,
+                "name": "Session"
+              },
+              {
+                "idx": 27,
+                "score": 0.06282582879066467,
+                "name": "Session"
+              },
+              {
+                "idx": 24,
+                "score": 0.05589579418301582,
+                "name": "Session"
+              },
+              {
+                "idx": 3,
+                "score": 0.038039058446884155,
+                "name": "Session"
+              },
+              {
+                "idx": 15,
+                "score": 0.032817792147397995,
+                "name": "Session"
+              },
+              {
+                "idx": 25,
+                "score": 0.023979980498552322,
+                "name": "Session"
+              },
+              {
+                "idx": 14,
+                "score": 0.023357786238193512,
+                "name": "Session"
+              },
+              {
+                "idx": 0,
+                "score": 0.02275903895497322,
+                "name": "Session"
+              },
+              {
+                "idx": 1,
+                "score": 0.022280490025877953,
+                "name": "Session"
+              },
+              {
+                "idx": 8,
+                "score": 0.020438697189092636,
+                "name": "Session"
+              },
+              {
+                "idx": 19,
+                "score": 0.011702414602041245,
+                "name": "Session"
+              },
+              {
+                "idx": 11,
+                "score": 0.010420486330986023,
+                "name": "Session"
+              },
+              {
+                "idx": 9,
+                "score": 0.010049057193100452,
+                "name": "Session"
+              },
+              {
+                "idx": 20,
+                "score": 0.009728181175887585,
+                "name": "Session"
+              },
+              {
+                "idx": 5,
+                "score": 0.009514549747109413,
+                "name": "Session"
+              },
+              {
+                "idx": 26,
+                "score": 0.006990919820964336,
+                "name": "Session"
+              },
+              {
+                "idx": 28,
+                "score": 0.005088017787784338,
+                "name": "Session"
+              },
+              {
+                "idx": 13,
+                "score": 0.0050511532463133335,
+                "name": "Session"
+              },
+              {
+                "idx": 18,
+                "score": 0.0046370062045753,
+                "name": "Session"
+              },
+              {
+                "idx": 30,
+                "score": 0.00392368296161294,
+                "name": "Session"
+              },
+              {
+                "idx": 17,
+                "score": 0.003883412340655923,
+                "name": "Session"
+              },
+              {
+                "idx": 6,
+                "score": 0.003270278451964259,
+                "name": "Session"
+              },
+              {
+                "idx": 4,
+                "score": 0.003050071420148015,
+                "name": "Session"
+              },
+              {
+                "idx": 29,
+                "score": 0.0013944507809355855,
+                "name": "Session"
+              },
+              {
+                "idx": 7,
+                "score": 0.0009723693365231156,
+                "name": "Session"
+              },
+              {
+                "idx": 12,
+                "score": 0.0006881796289235353,
+                "name": "Session"
+              },
+              {
+                "idx": 16,
+                "score": 0.0006255032494664192,
+                "name": "Session"
+              },
+              {
+                "idx": 23,
+                "score": 0.0004909221897833049,
+                "name": "Session"
+              },
+              {
+                "idx": 21,
+                "score": 0.00043625663965940475,
+                "name": "Session"
+              }
+            ]
+          }
+        ],
+        "pruned_count": 26
+      }
+    },
+    {
+      "step_index": 4,
+      "step_query": "Observation[atom(content =~ \"went to baseball game together\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 5,
+      "nodes_after_count": 0,
+      "nodes_before": [
+        {
+          "path": "Root > Conversation_Version 1 > James > Session 23",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.23639348149299622,
+          "node_id": 3001249245248
+        },
+        {
+          "path": "Root > Conversation_Version 1 > James > Session 11",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.07323098927736282,
+          "node_id": 3003526167856
+        },
+        {
+          "path": "Root > Conversation_Version 1 > James > Session 3",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.06354451924562454,
+          "node_id": 3003526152816
+        },
+        {
+          "path": "Root > Conversation_Version 1 > James > Session 28",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.06282582879066467,
+          "node_id": 3001249296160
+        },
+        {
+          "path": "Root > Conversation_Version 1 > James > Session 25",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.05589579418301582,
+          "node_id": 3001249284240
+        }
+      ],
+      "nodes_after": [],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Observation",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "went to baseball game together",
+              "operator": "=~",
+              "span": {
+                "start": 118,
+                "end": 167
+              }
+            },
+            "predicate_str": "atom(content =~ \"went to baseball game together\")",
+            "span": {
+              "start": 106,
+              "end": 168
+            }
+          },
+          "span": {
+            "start": 106,
+            "end": 168
+          }
+        },
+        "found_count": 23,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"went to baseball game together\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "went to baseball game together",
+              "operator": "=~",
+              "span": {
+                "start": 118,
+                "end": 167
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 3001249248048,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "went to baseball game together",
+                      "operator": "=~",
+                      "span": {
+                        "start": 118,
+                        "end": 167
+                      }
+                    },
+                    "score": 0.0002611328091006726,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0002611328091006726
+              },
+              {
+                "node_idx": 1,
+                "node_id": 3001059607152,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "went to baseball game together",
+                      "operator": "=~",
+                      "span": {
+                        "start": 118,
+                        "end": 167
+                      }
+                    },
+                    "score": 0.0005239082383923233,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0005239082383923233
+              },
+              {
+                "node_idx": 2,
+                "node_id": 3001186766976,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "went to baseball game together",
+                      "operator": "=~",
+                      "span": {
+                        "start": 118,
+                        "end": 167
+                      }
+                    },
+                    "score": 0.00024365460558328778,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.00024365460558328778
+              },
+              {
+                "node_idx": 3,
+                "node_id": 3001249296640,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "went to baseball game together",
+                      "operator": "=~",
+                      "span": {
+                        "start": 118,
+                        "end": 167
+                      }
+                    },
+                    "score": 0.00025734014343470335,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.00025734014343470335
+              },
+              {
+                "node_idx": 4,
+                "node_id": 3001249289840,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "went to baseball game together",
+                      "operator": "=~",
+                      "span": {
+                        "start": 118,
+                        "end": 167
+                      }
+                    },
+                    "score": 0.00047719248686917126,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.00047719248686917126
+              },
+              {
+                "node_idx": 5,
+                "node_id": 3001249292560,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "went to baseball game together",
+                      "operator": "=~",
+                      "span": {
+                        "start": 118,
+                        "end": 167
+                      }
+                    },
+                    "score": 0.00020560318080242723,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.00020560318080242723
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "went to baseball game together"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "went to baseball game together",
+                  "num_descriptions": 6,
+                  "call_time_ms": 48.91
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 6
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 1,
+                "score": 0.0005239082383923233,
+                "name": "Observation"
+              },
+              {
+                "idx": 4,
+                "score": 0.00047719248686917126,
+                "name": "Observation"
+              },
+              {
+                "idx": 0,
+                "score": 0.0002611328091006726,
+                "name": "Observation"
+              },
+              {
+                "idx": 3,
+                "score": 0.00025734014343470335,
+                "name": "Observation"
+              },
+              {
+                "idx": 2,
+                "score": 0.00024365460558328778,
+                "name": "Observation"
+              },
+              {
+                "idx": 5,
+                "score": 0.00020560318080242723,
+                "name": "Observation"
+              }
+            ]
+          },
+          {
+            "predicate": "atom(content =~ \"went to baseball game together\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "went to baseball game together",
+              "operator": "=~",
+              "span": {
+                "start": 118,
+                "end": 167
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 3003526165456,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "went to baseball game together",
+                      "operator": "=~",
+                      "span": {
+                        "start": 118,
+                        "end": 167
+                      }
+                    },
+                    "score": 0.0017392939189448953,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0017392939189448953
+              },
+              {
+                "node_idx": 1,
+                "node_id": 3003526162976,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "went to baseball game together",
+                      "operator": "=~",
+                      "span": {
+                        "start": 118,
+                        "end": 167
+                      }
+                    },
+                    "score": 0.0013784070033580065,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0013784070033580065
+              },
+              {
+                "node_idx": 2,
+                "node_id": 3003526163856,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "went to baseball game together",
+                      "operator": "=~",
+                      "span": {
+                        "start": 118,
+                        "end": 167
+                      }
+                    },
+                    "score": 0.009543826803565025,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.009543826803565025
+              },
+              {
+                "node_idx": 3,
+                "node_id": 3001181048240,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "went to baseball game together",
+                      "operator": "=~",
+                      "span": {
+                        "start": 118,
+                        "end": 167
+                      }
+                    },
+                    "score": 0.0015301811508834362,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0015301811508834362
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "went to baseball game together"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "went to baseball game together",
+                  "num_descriptions": 4,
+                  "call_time_ms": 43.97
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 4
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 2,
+                "score": 0.009543826803565025,
+                "name": "Observation"
+              },
+              {
+                "idx": 0,
+                "score": 0.0017392939189448953,
+                "name": "Observation"
+              },
+              {
+                "idx": 3,
+                "score": 0.0015301811508834362,
+                "name": "Observation"
+              },
+              {
+                "idx": 1,
+                "score": 0.0013784070033580065,
+                "name": "Observation"
+              }
+            ]
+          },
+          {
+            "predicate": "atom(content =~ \"went to baseball game together\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "went to baseball game together",
+              "operator": "=~",
+              "span": {
+                "start": 118,
+                "end": 167
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 3003526155536,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "went to baseball game together",
+                      "operator": "=~",
+                      "span": {
+                        "start": 118,
+                        "end": 167
+                      }
+                    },
+                    "score": 0.00020508980378508568,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.00020508980378508568
+              },
+              {
+                "node_idx": 1,
+                "node_id": 3003526155856,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "went to baseball game together",
+                      "operator": "=~",
+                      "span": {
+                        "start": 118,
+                        "end": 167
+                      }
+                    },
+                    "score": 0.0004104138060938567,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0004104138060938567
+              },
+              {
+                "node_idx": 2,
+                "node_id": 3003526167536,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "went to baseball game together",
+                      "operator": "=~",
+                      "span": {
+                        "start": 118,
+                        "end": 167
+                      }
+                    },
+                    "score": 0.000934122537728399,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.000934122537728399
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "went to baseball game together"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "went to baseball game together",
+                  "num_descriptions": 3,
+                  "call_time_ms": 38.75
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 3
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 2,
+                "score": 0.000934122537728399,
+                "name": "Observation"
+              },
+              {
+                "idx": 1,
+                "score": 0.0004104138060938567,
+                "name": "Observation"
+              },
+              {
+                "idx": 0,
+                "score": 0.00020508980378508568,
+                "name": "Observation"
+              }
+            ]
+          },
+          {
+            "predicate": "atom(content =~ \"went to baseball game together\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "went to baseball game together",
+              "operator": "=~",
+              "span": {
+                "start": 118,
+                "end": 167
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 3001249288640,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "went to baseball game together",
+                      "operator": "=~",
+                      "span": {
+                        "start": 118,
+                        "end": 167
+                      }
+                    },
+                    "score": 0.0008075559744611382,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0008075559744611382
+              },
+              {
+                "node_idx": 1,
+                "node_id": 3001249295040,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "went to baseball game together",
+                      "operator": "=~",
+                      "span": {
+                        "start": 118,
+                        "end": 167
+                      }
+                    },
+                    "score": 0.010087591595947742,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.010087591595947742
+              },
+              {
+                "node_idx": 2,
+                "node_id": 3001249299200,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "went to baseball game together",
+                      "operator": "=~",
+                      "span": {
+                        "start": 118,
+                        "end": 167
+                      }
+                    },
+                    "score": 0.0011350363492965698,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0011350363492965698
+              },
+              {
+                "node_idx": 3,
+                "node_id": 3001249287520,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "went to baseball game together",
+                      "operator": "=~",
+                      "span": {
+                        "start": 118,
+                        "end": 167
+                      }
+                    },
+                    "score": 0.0005496589001268148,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0005496589001268148
+              },
+              {
+                "node_idx": 4,
+                "node_id": 3001249298880,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "went to baseball game together",
+                      "operator": "=~",
+                      "span": {
+                        "start": 118,
+                        "end": 167
+                      }
+                    },
+                    "score": 0.00012379362306091934,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.00012379362306091934
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "went to baseball game together"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "went to baseball game together",
+                  "num_descriptions": 5,
+                  "call_time_ms": 47.88
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 5
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 1,
+                "score": 0.010087591595947742,
+                "name": "Observation"
+              },
+              {
+                "idx": 2,
+                "score": 0.0011350363492965698,
+                "name": "Observation"
+              },
+              {
+                "idx": 0,
+                "score": 0.0008075559744611382,
+                "name": "Observation"
+              },
+              {
+                "idx": 3,
+                "score": 0.0005496589001268148,
+                "name": "Observation"
+              },
+              {
+                "idx": 4,
+                "score": 0.00012379362306091934,
+                "name": "Observation"
+              }
+            ]
+          },
+          {
+            "predicate": "atom(content =~ \"went to baseball game together\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "went to baseball game together",
+              "operator": "=~",
+              "span": {
+                "start": 118,
+                "end": 167
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 3001249290000,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "went to baseball game together",
+                      "operator": "=~",
+                      "span": {
+                        "start": 118,
+                        "end": 167
+                      }
+                    },
+                    "score": 0.0003250516310799867,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0003250516310799867
+              },
+              {
+                "node_idx": 1,
+                "node_id": 3001249290080,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "went to baseball game together",
+                      "operator": "=~",
+                      "span": {
+                        "start": 118,
+                        "end": 167
+                      }
+                    },
+                    "score": 0.0006374611984938383,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0006374611984938383
+              },
+              {
+                "node_idx": 2,
+                "node_id": 3001249285920,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "went to baseball game together",
+                      "operator": "=~",
+                      "span": {
+                        "start": 118,
+                        "end": 167
+                      }
+                    },
+                    "score": 0.0007009485852904618,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0007009485852904618
+              },
+              {
+                "node_idx": 3,
+                "node_id": 3001249291520,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "went to baseball game together",
+                      "operator": "=~",
+                      "span": {
+                        "start": 118,
+                        "end": 167
+                      }
+                    },
+                    "score": 0.0008893874473869801,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0008893874473869801
+              },
+              {
+                "node_idx": 4,
+                "node_id": 3001249289280,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "went to baseball game together",
+                      "operator": "=~",
+                      "span": {
+                        "start": 118,
+                        "end": 167
+                      }
+                    },
+                    "score": 0.009538357146084309,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.009538357146084309
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "went to baseball game together"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "went to baseball game together",
+                  "num_descriptions": 5,
+                  "call_time_ms": 48.27
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 5
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 4,
+                "score": 0.009538357146084309,
+                "name": "Observation"
+              },
+              {
+                "idx": 3,
+                "score": 0.0008893874473869801,
+                "name": "Observation"
+              },
+              {
+                "idx": 2,
+                "score": 0.0007009485852904618,
+                "name": "Observation"
+              },
+              {
+                "idx": 1,
+                "score": 0.0006374611984938383,
+                "name": "Observation"
+              },
+              {
+                "idx": 0,
+                "score": 0.0003250516310799867,
+                "name": "Observation"
+              }
+            ]
+          }
+        ],
+        "pruned_count": 23
+      }
+    }
+  ],
+  "scoring_traces": [
+    {
+      "predicate": "atom(content =~ \"James\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "James",
+        "operator": "=~",
+        "span": {
+          "start": 38,
+          "end": 62
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 3000607205200,
+          "node_name": "James",
+          "node_type": "Speaker",
+          "final_score": 1.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "James",
+              "query_value": "James",
+              "matched": true,
+              "score": 1.0
+            }
+          ]
+        },
+        {
+          "node_idx": 1,
+          "node_id": 3001249300080,
+          "node_name": "John",
+          "node_type": "Speaker",
+          "final_score": 0.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "John",
+              "query_value": "James",
+              "matched": false,
+              "score": 0.0
+            }
+          ]
+        }
+      ],
+      "batch_scoring": {
+        "exact_match": true,
+        "matched_attribute": "name",
+        "query_value": "James",
+        "matched_count": 1
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 0,
+          "score": 1.0,
+          "name": "James"
+        },
+        {
+          "idx": 1,
+          "score": 0.0,
+          "name": "John"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"baseball game\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "baseball game",
+        "operator": "=~",
+        "span": {
+          "start": 72,
+          "end": 104
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 3000607207120,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "baseball game",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 104
+                }
+              },
+              "score": 0.02275903895497322,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.02275903895497322
+        },
+        {
+          "node_idx": 1,
+          "node_id": 3003526160656,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "baseball game",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 104
+                }
+              },
+              "score": 0.022280490025877953,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.022280490025877953
+        },
+        {
+          "node_idx": 2,
+          "node_id": 3003526152816,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "baseball game",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 104
+                }
+              },
+              "score": 0.06354451924562454,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.06354451924562454
+        },
+        {
+          "node_idx": 3,
+          "node_id": 3003526167776,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "baseball game",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 104
+                }
+              },
+              "score": 0.038039058446884155,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.038039058446884155
+        },
+        {
+          "node_idx": 4,
+          "node_id": 3003526156576,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "baseball game",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 104
+                }
+              },
+              "score": 0.003050071420148015,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.003050071420148015
+        },
+        {
+          "node_idx": 5,
+          "node_id": 3003526166736,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "baseball game",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 104
+                }
+              },
+              "score": 0.009514549747109413,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.009514549747109413
+        },
+        {
+          "node_idx": 6,
+          "node_id": 3003526160896,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "baseball game",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 104
+                }
+              },
+              "score": 0.003270278451964259,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.003270278451964259
+        },
+        {
+          "node_idx": 7,
+          "node_id": 3003526165936,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "baseball game",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 104
+                }
+              },
+              "score": 0.0009723693365231156,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0009723693365231156
+        },
+        {
+          "node_idx": 8,
+          "node_id": 3003526165536,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "baseball game",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 104
+                }
+              },
+              "score": 0.020438697189092636,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.020438697189092636
+        },
+        {
+          "node_idx": 9,
+          "node_id": 3003526162016,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "baseball game",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 104
+                }
+              },
+              "score": 0.010049057193100452,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.010049057193100452
+        },
+        {
+          "node_idx": 10,
+          "node_id": 3003526167856,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "baseball game",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 104
+                }
+              },
+              "score": 0.07323098927736282,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.07323098927736282
+        },
+        {
+          "node_idx": 11,
+          "node_id": 3001249247328,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "baseball game",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 104
+                }
+              },
+              "score": 0.010420486330986023,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.010420486330986023
+        },
+        {
+          "node_idx": 12,
+          "node_id": 3001249250208,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "baseball game",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 104
+                }
+              },
+              "score": 0.0006881796289235353,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0006881796289235353
+        },
+        {
+          "node_idx": 13,
+          "node_id": 3001249238528,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "baseball game",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 104
+                }
+              },
+              "score": 0.0050511532463133335,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0050511532463133335
+        },
+        {
+          "node_idx": 14,
+          "node_id": 3001249240288,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "baseball game",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 104
+                }
+              },
+              "score": 0.023357786238193512,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.023357786238193512
+        },
+        {
+          "node_idx": 15,
+          "node_id": 3001249244128,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "baseball game",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 104
+                }
+              },
+              "score": 0.032817792147397995,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.032817792147397995
+        },
+        {
+          "node_idx": 16,
+          "node_id": 3001249242848,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "baseball game",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 104
+                }
+              },
+              "score": 0.0006255032494664192,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0006255032494664192
+        },
+        {
+          "node_idx": 17,
+          "node_id": 3001249243728,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "baseball game",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 104
+                }
+              },
+              "score": 0.003883412340655923,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.003883412340655923
+        },
+        {
+          "node_idx": 18,
+          "node_id": 3001249239808,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "baseball game",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 104
+                }
+              },
+              "score": 0.0046370062045753,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0046370062045753
+        },
+        {
+          "node_idx": 19,
+          "node_id": 3001249236128,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "baseball game",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 104
+                }
+              },
+              "score": 0.011702414602041245,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.011702414602041245
+        },
+        {
+          "node_idx": 20,
+          "node_id": 3001249245408,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "baseball game",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 104
+                }
+              },
+              "score": 0.009728181175887585,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.009728181175887585
+        },
+        {
+          "node_idx": 21,
+          "node_id": 3001249248288,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "baseball game",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 104
+                }
+              },
+              "score": 0.00043625663965940475,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.00043625663965940475
+        },
+        {
+          "node_idx": 22,
+          "node_id": 3001249245248,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "baseball game",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 104
+                }
+              },
+              "score": 0.23639348149299622,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.23639348149299622
+        },
+        {
+          "node_idx": 23,
+          "node_id": 3001249298640,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "baseball game",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 104
+                }
+              },
+              "score": 0.0004909221897833049,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0004909221897833049
+        },
+        {
+          "node_idx": 24,
+          "node_id": 3001249284240,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "baseball game",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 104
+                }
+              },
+              "score": 0.05589579418301582,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.05589579418301582
+        },
+        {
+          "node_idx": 25,
+          "node_id": 3001249287840,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "baseball game",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 104
+                }
+              },
+              "score": 0.023979980498552322,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.023979980498552322
+        },
+        {
+          "node_idx": 26,
+          "node_id": 3001249299280,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "baseball game",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 104
+                }
+              },
+              "score": 0.006990919820964336,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.006990919820964336
+        },
+        {
+          "node_idx": 27,
+          "node_id": 3001249296160,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "baseball game",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 104
+                }
+              },
+              "score": 0.06282582879066467,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.06282582879066467
+        },
+        {
+          "node_idx": 28,
+          "node_id": 3001249295120,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "baseball game",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 104
+                }
+              },
+              "score": 0.005088017787784338,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.005088017787784338
+        },
+        {
+          "node_idx": 29,
+          "node_id": 3001249293280,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "baseball game",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 104
+                }
+              },
+              "score": 0.0013944507809355855,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0013944507809355855
+        },
+        {
+          "node_idx": 30,
+          "node_id": 3001249285600,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "baseball game",
+                "operator": "=~",
+                "span": {
+                  "start": 72,
+                  "end": 104
+                }
+              },
+              "score": 0.00392368296161294,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.00392368296161294
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "baseball game"
+        ],
+        "per_value_stats": [
+          {
+            "value": "baseball game",
+            "num_descriptions": 31,
+            "call_time_ms": 581.43
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 31
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 22,
+          "score": 0.23639348149299622,
+          "name": "Session"
+        },
+        {
+          "idx": 10,
+          "score": 0.07323098927736282,
+          "name": "Session"
+        },
+        {
+          "idx": 2,
+          "score": 0.06354451924562454,
+          "name": "Session"
+        },
+        {
+          "idx": 27,
+          "score": 0.06282582879066467,
+          "name": "Session"
+        },
+        {
+          "idx": 24,
+          "score": 0.05589579418301582,
+          "name": "Session"
+        },
+        {
+          "idx": 3,
+          "score": 0.038039058446884155,
+          "name": "Session"
+        },
+        {
+          "idx": 15,
+          "score": 0.032817792147397995,
+          "name": "Session"
+        },
+        {
+          "idx": 25,
+          "score": 0.023979980498552322,
+          "name": "Session"
+        },
+        {
+          "idx": 14,
+          "score": 0.023357786238193512,
+          "name": "Session"
+        },
+        {
+          "idx": 0,
+          "score": 0.02275903895497322,
+          "name": "Session"
+        },
+        {
+          "idx": 1,
+          "score": 0.022280490025877953,
+          "name": "Session"
+        },
+        {
+          "idx": 8,
+          "score": 0.020438697189092636,
+          "name": "Session"
+        },
+        {
+          "idx": 19,
+          "score": 0.011702414602041245,
+          "name": "Session"
+        },
+        {
+          "idx": 11,
+          "score": 0.010420486330986023,
+          "name": "Session"
+        },
+        {
+          "idx": 9,
+          "score": 0.010049057193100452,
+          "name": "Session"
+        },
+        {
+          "idx": 20,
+          "score": 0.009728181175887585,
+          "name": "Session"
+        },
+        {
+          "idx": 5,
+          "score": 0.009514549747109413,
+          "name": "Session"
+        },
+        {
+          "idx": 26,
+          "score": 0.006990919820964336,
+          "name": "Session"
+        },
+        {
+          "idx": 28,
+          "score": 0.005088017787784338,
+          "name": "Session"
+        },
+        {
+          "idx": 13,
+          "score": 0.0050511532463133335,
+          "name": "Session"
+        },
+        {
+          "idx": 18,
+          "score": 0.0046370062045753,
+          "name": "Session"
+        },
+        {
+          "idx": 30,
+          "score": 0.00392368296161294,
+          "name": "Session"
+        },
+        {
+          "idx": 17,
+          "score": 0.003883412340655923,
+          "name": "Session"
+        },
+        {
+          "idx": 6,
+          "score": 0.003270278451964259,
+          "name": "Session"
+        },
+        {
+          "idx": 4,
+          "score": 0.003050071420148015,
+          "name": "Session"
+        },
+        {
+          "idx": 29,
+          "score": 0.0013944507809355855,
+          "name": "Session"
+        },
+        {
+          "idx": 7,
+          "score": 0.0009723693365231156,
+          "name": "Session"
+        },
+        {
+          "idx": 12,
+          "score": 0.0006881796289235353,
+          "name": "Session"
+        },
+        {
+          "idx": 16,
+          "score": 0.0006255032494664192,
+          "name": "Session"
+        },
+        {
+          "idx": 23,
+          "score": 0.0004909221897833049,
+          "name": "Session"
+        },
+        {
+          "idx": 21,
+          "score": 0.00043625663965940475,
+          "name": "Session"
+        }
+      ]
+    }
+  ],
+  "scoring_details": {
+    "step_scores": [
+      {
+        "step_index": 0,
+        "predicate": "atom(content =~ \"James\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "James",
+          "operator": "=~",
+          "span": {
+            "start": 38,
+            "end": 62
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 3000607205200,
+            "node_name": "James",
+            "node_type": "Speaker",
+            "final_score": 1.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "James",
+                "query_value": "James",
+                "matched": true,
+                "score": 1.0
+              }
+            ]
+          },
+          {
+            "node_idx": 1,
+            "node_id": 3001249300080,
+            "node_name": "John",
+            "node_type": "Speaker",
+            "final_score": 0.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "John",
+                "query_value": "James",
+                "matched": false,
+                "score": 0.0
+              }
+            ]
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 0,
+            "score": 1.0,
+            "name": "James"
+          },
+          {
+            "idx": 1,
+            "score": 0.0,
+            "name": "John"
+          }
+        ]
+      },
+      {
+        "step_index": 1,
+        "predicate": "atom(content =~ \"baseball game\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "baseball game",
+          "operator": "=~",
+          "span": {
+            "start": 72,
+            "end": 104
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 3000607207120,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "baseball game",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 104
+                  }
+                },
+                "score": 0.02275903895497322,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.02275903895497322
+          },
+          {
+            "node_idx": 1,
+            "node_id": 3003526160656,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "baseball game",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 104
+                  }
+                },
+                "score": 0.022280490025877953,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.022280490025877953
+          },
+          {
+            "node_idx": 2,
+            "node_id": 3003526152816,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "baseball game",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 104
+                  }
+                },
+                "score": 0.06354451924562454,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.06354451924562454
+          },
+          {
+            "node_idx": 3,
+            "node_id": 3003526167776,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "baseball game",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 104
+                  }
+                },
+                "score": 0.038039058446884155,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.038039058446884155
+          },
+          {
+            "node_idx": 4,
+            "node_id": 3003526156576,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "baseball game",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 104
+                  }
+                },
+                "score": 0.003050071420148015,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.003050071420148015
+          },
+          {
+            "node_idx": 5,
+            "node_id": 3003526166736,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "baseball game",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 104
+                  }
+                },
+                "score": 0.009514549747109413,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.009514549747109413
+          },
+          {
+            "node_idx": 6,
+            "node_id": 3003526160896,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "baseball game",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 104
+                  }
+                },
+                "score": 0.003270278451964259,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.003270278451964259
+          },
+          {
+            "node_idx": 7,
+            "node_id": 3003526165936,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "baseball game",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 104
+                  }
+                },
+                "score": 0.0009723693365231156,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0009723693365231156
+          },
+          {
+            "node_idx": 8,
+            "node_id": 3003526165536,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "baseball game",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 104
+                  }
+                },
+                "score": 0.020438697189092636,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.020438697189092636
+          },
+          {
+            "node_idx": 9,
+            "node_id": 3003526162016,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "baseball game",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 104
+                  }
+                },
+                "score": 0.010049057193100452,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.010049057193100452
+          },
+          {
+            "node_idx": 10,
+            "node_id": 3003526167856,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "baseball game",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 104
+                  }
+                },
+                "score": 0.07323098927736282,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.07323098927736282
+          },
+          {
+            "node_idx": 11,
+            "node_id": 3001249247328,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "baseball game",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 104
+                  }
+                },
+                "score": 0.010420486330986023,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.010420486330986023
+          },
+          {
+            "node_idx": 12,
+            "node_id": 3001249250208,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "baseball game",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 104
+                  }
+                },
+                "score": 0.0006881796289235353,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0006881796289235353
+          },
+          {
+            "node_idx": 13,
+            "node_id": 3001249238528,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "baseball game",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 104
+                  }
+                },
+                "score": 0.0050511532463133335,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0050511532463133335
+          },
+          {
+            "node_idx": 14,
+            "node_id": 3001249240288,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "baseball game",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 104
+                  }
+                },
+                "score": 0.023357786238193512,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.023357786238193512
+          },
+          {
+            "node_idx": 15,
+            "node_id": 3001249244128,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "baseball game",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 104
+                  }
+                },
+                "score": 0.032817792147397995,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.032817792147397995
+          },
+          {
+            "node_idx": 16,
+            "node_id": 3001249242848,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "baseball game",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 104
+                  }
+                },
+                "score": 0.0006255032494664192,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0006255032494664192
+          },
+          {
+            "node_idx": 17,
+            "node_id": 3001249243728,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "baseball game",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 104
+                  }
+                },
+                "score": 0.003883412340655923,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.003883412340655923
+          },
+          {
+            "node_idx": 18,
+            "node_id": 3001249239808,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "baseball game",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 104
+                  }
+                },
+                "score": 0.0046370062045753,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0046370062045753
+          },
+          {
+            "node_idx": 19,
+            "node_id": 3001249236128,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "baseball game",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 104
+                  }
+                },
+                "score": 0.011702414602041245,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.011702414602041245
+          },
+          {
+            "node_idx": 20,
+            "node_id": 3001249245408,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "baseball game",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 104
+                  }
+                },
+                "score": 0.009728181175887585,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.009728181175887585
+          },
+          {
+            "node_idx": 21,
+            "node_id": 3001249248288,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "baseball game",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 104
+                  }
+                },
+                "score": 0.00043625663965940475,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.00043625663965940475
+          },
+          {
+            "node_idx": 22,
+            "node_id": 3001249245248,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "baseball game",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 104
+                  }
+                },
+                "score": 0.23639348149299622,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.23639348149299622
+          },
+          {
+            "node_idx": 23,
+            "node_id": 3001249298640,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "baseball game",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 104
+                  }
+                },
+                "score": 0.0004909221897833049,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0004909221897833049
+          },
+          {
+            "node_idx": 24,
+            "node_id": 3001249284240,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "baseball game",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 104
+                  }
+                },
+                "score": 0.05589579418301582,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.05589579418301582
+          },
+          {
+            "node_idx": 25,
+            "node_id": 3001249287840,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "baseball game",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 104
+                  }
+                },
+                "score": 0.023979980498552322,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.023979980498552322
+          },
+          {
+            "node_idx": 26,
+            "node_id": 3001249299280,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "baseball game",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 104
+                  }
+                },
+                "score": 0.006990919820964336,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.006990919820964336
+          },
+          {
+            "node_idx": 27,
+            "node_id": 3001249296160,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "baseball game",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 104
+                  }
+                },
+                "score": 0.06282582879066467,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.06282582879066467
+          },
+          {
+            "node_idx": 28,
+            "node_id": 3001249295120,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "baseball game",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 104
+                  }
+                },
+                "score": 0.005088017787784338,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.005088017787784338
+          },
+          {
+            "node_idx": 29,
+            "node_id": 3001249293280,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "baseball game",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 104
+                  }
+                },
+                "score": 0.0013944507809355855,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0013944507809355855
+          },
+          {
+            "node_idx": 30,
+            "node_id": 3001249285600,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "baseball game",
+                  "operator": "=~",
+                  "span": {
+                    "start": 72,
+                    "end": 104
+                  }
+                },
+                "score": 0.00392368296161294,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.00392368296161294
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 22,
+            "score": 0.23639348149299622,
+            "name": "Session"
+          },
+          {
+            "idx": 10,
+            "score": 0.07323098927736282,
+            "name": "Session"
+          },
+          {
+            "idx": 2,
+            "score": 0.06354451924562454,
+            "name": "Session"
+          },
+          {
+            "idx": 27,
+            "score": 0.06282582879066467,
+            "name": "Session"
+          },
+          {
+            "idx": 24,
+            "score": 0.05589579418301582,
+            "name": "Session"
+          },
+          {
+            "idx": 3,
+            "score": 0.038039058446884155,
+            "name": "Session"
+          },
+          {
+            "idx": 15,
+            "score": 0.032817792147397995,
+            "name": "Session"
+          },
+          {
+            "idx": 25,
+            "score": 0.023979980498552322,
+            "name": "Session"
+          },
+          {
+            "idx": 14,
+            "score": 0.023357786238193512,
+            "name": "Session"
+          },
+          {
+            "idx": 0,
+            "score": 0.02275903895497322,
+            "name": "Session"
+          },
+          {
+            "idx": 1,
+            "score": 0.022280490025877953,
+            "name": "Session"
+          },
+          {
+            "idx": 8,
+            "score": 0.020438697189092636,
+            "name": "Session"
+          },
+          {
+            "idx": 19,
+            "score": 0.011702414602041245,
+            "name": "Session"
+          },
+          {
+            "idx": 11,
+            "score": 0.010420486330986023,
+            "name": "Session"
+          },
+          {
+            "idx": 9,
+            "score": 0.010049057193100452,
+            "name": "Session"
+          },
+          {
+            "idx": 20,
+            "score": 0.009728181175887585,
+            "name": "Session"
+          },
+          {
+            "idx": 5,
+            "score": 0.009514549747109413,
+            "name": "Session"
+          },
+          {
+            "idx": 26,
+            "score": 0.006990919820964336,
+            "name": "Session"
+          },
+          {
+            "idx": 28,
+            "score": 0.005088017787784338,
+            "name": "Session"
+          },
+          {
+            "idx": 13,
+            "score": 0.0050511532463133335,
+            "name": "Session"
+          },
+          {
+            "idx": 18,
+            "score": 0.0046370062045753,
+            "name": "Session"
+          },
+          {
+            "idx": 30,
+            "score": 0.00392368296161294,
+            "name": "Session"
+          },
+          {
+            "idx": 17,
+            "score": 0.003883412340655923,
+            "name": "Session"
+          },
+          {
+            "idx": 6,
+            "score": 0.003270278451964259,
+            "name": "Session"
+          },
+          {
+            "idx": 4,
+            "score": 0.003050071420148015,
+            "name": "Session"
+          },
+          {
+            "idx": 29,
+            "score": 0.0013944507809355855,
+            "name": "Session"
+          },
+          {
+            "idx": 7,
+            "score": 0.0009723693365231156,
+            "name": "Session"
+          },
+          {
+            "idx": 12,
+            "score": 0.0006881796289235353,
+            "name": "Session"
+          },
+          {
+            "idx": 16,
+            "score": 0.0006255032494664192,
+            "name": "Session"
+          },
+          {
+            "idx": 23,
+            "score": 0.0004909221897833049,
+            "name": "Session"
+          },
+          {
+            "idx": 21,
+            "score": 0.00043625663965940475,
+            "name": "Session"
+          }
+        ]
+      }
+    ],
+    "score_fusion": {
+      "per_node": []
+    }
+  },
+  "final_filtering": {
+    "before_filter_count": 0,
+    "threshold": 0.05,
+    "top_k": 10,
+    "after_filter_count": 0,
+    "filtered_nodes": []
+  },
+  "matched_nodes": [],
+  "summary": {
+    "total_steps": 5,
+    "total_scoring_calls": 2,
+    "matched_count": 0,
+    "execution_time_ms": 811.1828999972204,
+    "has_score_fusion": true,
+    "num_nodes_before_filter": 0,
+    "num_nodes_after_filter": 0
+  }
+}

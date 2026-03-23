@@ -1,0 +1,6145 @@
+{
+  "timestamp": "20260322_225650_258812",
+  "query": "/Root/Conversation_Version[1]/Speaker[atom(content =~ \"John\")]/Session[atom(content =~ \"job situation 2022\")]/Observation[atom(content =~ \"job situation\")]",
+  "canonical_query": "/Root/Conversation_Version[1]/Speaker[content =~ \"John\"]/Session[content =~ \"job situation 2022\"]/Observation[content =~ \"job situation\"]",
+  "data_file": "tree.xml",
+  "execution_time_ms": 768.0538999993587,
+  "parsed_ast": {
+    "steps": [
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Root",
+            "span": {
+              "start": 1,
+              "end": 5
+            }
+          },
+          "span": {
+            "start": 1,
+            "end": 5
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Conversation_Version",
+            "index": {
+              "start": 1,
+              "type": "single",
+              "span": {
+                "start": 26,
+                "end": 29
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 29
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 29
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Speaker",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "John",
+              "operator": "=~",
+              "span": {
+                "start": 38,
+                "end": 61
+              }
+            },
+            "predicate_str": "atom(content =~ \"John\")",
+            "span": {
+              "start": 30,
+              "end": 62
+            }
+          },
+          "span": {
+            "start": 30,
+            "end": 62
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Session",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "job situation 2022",
+              "operator": "=~",
+              "span": {
+                "start": 71,
+                "end": 108
+              }
+            },
+            "predicate_str": "atom(content =~ \"job situation 2022\")",
+            "span": {
+              "start": 63,
+              "end": 109
+            }
+          },
+          "span": {
+            "start": 63,
+            "end": 109
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Observation",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "job situation",
+              "operator": "=~",
+              "span": {
+                "start": 122,
+                "end": 154
+              }
+            },
+            "predicate_str": "atom(content =~ \"job situation\")",
+            "span": {
+              "start": 110,
+              "end": 155
+            }
+          },
+          "span": {
+            "start": 110,
+            "end": 155
+          }
+        }
+      }
+    ],
+    "global_index": null
+  },
+  "parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: Conversation_Version[1]\n├── Step 2: Speaker[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"John\")\n├── Step 3: Session[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"job situation 2022\")\n└── Step 4: Observation[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"job situation\")",
+  "canonical_parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: Conversation_Version[1]\n├── Step 2: Speaker[content =~ \"John\"]\n├── Step 3: Session[content =~ \"job situation 2022\"]\n└── Step 4: Observation[content =~ \"job situation\"]",
+  "execution_log": [
+    "[20260322_225650_258812] Executing query: /Root/Conversation_Version[1]/Speaker[atom(content =~ \"John\")]/Session[atom(content =~ \"job situation 2022\")]/Observation[atom(content =~ \"job situation\")]",
+    "Data file: tree.xml",
+    "Parsed steps: [Root, Conversation_Version[1], Speaker[atom(content =~ \"John\")], Session[atom(content =~ \"job situation 2022\")], Observation[atom(content =~ \"job situation\")]]",
+    "",
+    "Query AST:\n├── Step 0: Root\n├── Step 1: Conversation_Version[1]\n├── Step 2: Speaker[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"John\")\n├── Step 3: Session[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"job situation 2022\")\n└── Step 4: Observation[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"job situation\")",
+    "\n--- Step 1: Root ---",
+    "Matched Root root",
+    "\n--- Step 2: Conversation_Version[1] ---",
+    "Selected node at index 1 (0-based: 0)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 3: Speaker[atom(content =~ \"John\")] ---",
+    "Scoring predicate: atom(content =~ \"John\") (atomic values: ['John'])",
+    "  Node 0 (James): score = 0.0000 (exact match)",
+    "  Node 1 (John): score = 1.0000 (exact match)",
+    "  Exact attribute match on @name: 1/2 nodes matched",
+    "  Top-K Pruning: Reduced from 2 to 1 nodes (K=5)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 4: Session[atom(content =~ \"job situation 2022\")] ---",
+    "Scoring predicate: atom(content =~ \"job situation 2022\") (atomic values: ['job situation 2022'])",
+    "  Collected 31 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 31 total descriptions",
+    "  Node 0 (Session): score = 0.0238",
+    "  Node 1 (Session): score = 0.0025",
+    "  Node 2 (Session): score = 0.0130",
+    "  Node 3 (Session): score = 0.0095",
+    "  Node 4 (Session): score = 0.0559",
+    "  Node 5 (Session): score = 0.0377",
+    "  Node 6 (Session): score = 0.0080",
+    "  Node 7 (Session): score = 0.1074",
+    "  Node 8 (Session): score = 0.3086",
+    "  Node 9 (Session): score = 0.2350",
+    "  Node 10 (Session): score = 0.8309",
+    "  Node 11 (Session): score = 0.0040",
+    "  Node 12 (Session): score = 0.9891",
+    "  Node 13 (Session): score = 0.0144",
+    "  Node 14 (Session): score = 0.8410",
+    "  Node 15 (Session): score = 0.0504",
+    "  Node 16 (Session): score = 0.0022",
+    "  Node 17 (Session): score = 0.8934",
+    "  Node 18 (Session): score = 0.0179",
+    "  Node 19 (Session): score = 0.0019",
+    "  Node 20 (Session): score = 0.0842",
+    "  Node 21 (Session): score = 0.1987",
+    "  Node 22 (Session): score = 0.0020",
+    "  Node 23 (Session): score = 0.0035",
+    "  Node 24 (Session): score = 0.0009",
+    "  Node 25 (Session): score = 0.4624",
+    "  Node 26 (Session): score = 0.3164",
+    "  Node 27 (Session): score = 0.0119",
+    "  Node 28 (Session): score = 0.0012",
+    "  Node 29 (Session): score = 0.0011",
+    "  Node 30 (Session): score = 0.0356",
+    "  Top-K Pruning: Reduced from 31 to 5 nodes (K=5)",
+    "After step: 5 nodes remaining",
+    "\n--- Step 5: Observation[atom(content =~ \"job situation\")] ---",
+    "Scoring predicate: atom(content =~ \"job situation\") (atomic values: ['job situation'])",
+    "  Collected 3 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 3 total descriptions",
+    "  Node 0 (Observation): score = 0.9982",
+    "  Node 1 (Observation): score = 0.9996",
+    "  Node 2 (Observation): score = 0.1171",
+    "Scoring predicate: atom(content =~ \"job situation\") (atomic values: ['job situation'])",
+    "  Collected 3 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 3 total descriptions",
+    "  Node 0 (Observation): score = 0.9985",
+    "  Node 1 (Observation): score = 0.3774",
+    "  Node 2 (Observation): score = 0.9845",
+    "Scoring predicate: atom(content =~ \"job situation\") (atomic values: ['job situation'])",
+    "  Collected 4 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 4 total descriptions",
+    "  Node 0 (Observation): score = 0.9725",
+    "  Node 1 (Observation): score = 0.1728",
+    "  Node 2 (Observation): score = 0.0074",
+    "  Node 3 (Observation): score = 0.3494",
+    "Scoring predicate: atom(content =~ \"job situation\") (atomic values: ['job situation'])",
+    "  Collected 4 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 4 total descriptions",
+    "  Node 0 (Observation): score = 0.0320",
+    "  Node 1 (Observation): score = 0.0131",
+    "  Node 2 (Observation): score = 0.7203",
+    "  Node 3 (Observation): score = 0.3160",
+    "Scoring predicate: atom(content =~ \"job situation\") (atomic values: ['job situation'])",
+    "  Collected 3 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 3 total descriptions",
+    "  Node 0 (Observation): score = 0.7990",
+    "  Node 1 (Observation): score = 0.1015",
+    "  Node 2 (Observation): score = 0.0100",
+    "  Top-K Pruning: Reduced from 17 to 13 nodes (K=5)",
+    "After step: 13 nodes remaining",
+    "\n=== Score Fusion ===",
+    "  Root > Conversation_Version 1 > John > Session 13 > Observation 2: product=0.9996 → score=0.9996",
+    "  Root > Conversation_Version 1 > John > Session 13 > Observation 1: product=0.9982 → score=0.9982",
+    "  Root > Conversation_Version 1 > John > Session 13 > Observation 3: product=0.1171 → score=0.1171",
+    "  Root > Conversation_Version 1 > John > Session 18 > Observation 1: product=0.9985 → score=0.9985",
+    "  Root > Conversation_Version 1 > John > Session 18 > Observation 3: product=0.9845 → score=0.9845",
+    "  Root > Conversation_Version 1 > John > Session 18 > Observation 2: product=0.3774 → score=0.3774",
+    "  Root > Conversation_Version 1 > John > Session 15 > Observation 1: product=0.9725 → score=0.9725",
+    "  Root > Conversation_Version 1 > John > Session 15 > Observation 4: product=0.3494 → score=0.3494",
+    "  Root > Conversation_Version 1 > John > Session 15 > Observation 2: product=0.1728 → score=0.1728",
+    "  Root > Conversation_Version 1 > John > Session 11 > Observation 3: product=0.7203 → score=0.7203",
+    "  Root > Conversation_Version 1 > John > Session 11 > Observation 4: product=0.3160 → score=0.3160",
+    "  Root > Conversation_Version 1 > John > Session 26 > Observation 1: product=0.7990 → score=0.7990",
+    "  Root > Conversation_Version 1 > John > Session 26 > Observation 2: product=0.1015 → score=0.1015",
+    "  Parent propagation: Root > Conversation_Version 1 > John > Session 13 > Observation 2: own=0.9996 × parent=0.9891 → 0.9887",
+    "  Parent propagation: Root > Conversation_Version 1 > John > Session 13 > Observation 1: own=0.9982 × parent=0.9891 → 0.9873",
+    "  Parent propagation: Root > Conversation_Version 1 > John > Session 13 > Observation 3: own=0.1171 × parent=0.9891 → 0.1158",
+    "  Parent propagation: Root > Conversation_Version 1 > John > Session 18 > Observation 1: own=0.9985 × parent=0.8934 → 0.8921",
+    "  Parent propagation: Root > Conversation_Version 1 > John > Session 18 > Observation 3: own=0.9845 × parent=0.8934 → 0.8796",
+    "  Parent propagation: Root > Conversation_Version 1 > John > Session 18 > Observation 2: own=0.3774 × parent=0.8934 → 0.3372",
+    "  Parent propagation: Root > Conversation_Version 1 > John > Session 15 > Observation 1: own=0.9725 × parent=0.8410 → 0.8179",
+    "  Parent propagation: Root > Conversation_Version 1 > John > Session 15 > Observation 4: own=0.3494 × parent=0.8410 → 0.2938",
+    "  Parent propagation: Root > Conversation_Version 1 > John > Session 15 > Observation 2: own=0.1728 × parent=0.8410 → 0.1454",
+    "  Parent propagation: Root > Conversation_Version 1 > John > Session 11 > Observation 3: own=0.7203 × parent=0.8309 → 0.5985",
+    "  Parent propagation: Root > Conversation_Version 1 > John > Session 11 > Observation 4: own=0.3160 × parent=0.8309 → 0.2625",
+    "  Parent propagation: Root > Conversation_Version 1 > John > Session 26 > Observation 1: own=0.7990 × parent=0.4624 → 0.3695",
+    "  Parent propagation: Root > Conversation_Version 1 > John > Session 26 > Observation 2: own=0.1015 × parent=0.4624 → 0.0469",
+    "\n=== Parent Score Propagation: 13 nodes updated ===",
+    "\n=== Threshold Filtering (threshold=0.05) ===",
+    "  Filtered: 13 → 12 nodes",
+    "\n=== Final Filtering (top_k=10) ===",
+    "  After top_k: 12 → 10 nodes",
+    "\nFinal result: 10 nodes (sorted by score)",
+    "⏱️  Query execution time: 768.05ms"
+  ],
+  "traversal_steps": [
+    {
+      "step_index": 0,
+      "step_query": "Root",
+      "action": "root_match",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "type": "root"
+        }
+      ],
+      "nodes_after": [
+        {
+          "type": "Root",
+          "path": "Root"
+        }
+      ],
+      "details": {
+        "matched": true
+      }
+    },
+    {
+      "step_index": 1,
+      "step_query": "Conversation_Version[1]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root",
+          "name": "Root",
+          "type": "Root",
+          "score": 1.0,
+          "node_id": 3001249035776
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Conversation_Version 1",
+          "name": "Conversation_Version 1",
+          "type": "Conversation_Version",
+          "score": 1.0,
+          "node_id": 3001249037696
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Conversation_Version",
+            "index": {
+              "start": 1,
+              "type": "single",
+              "span": {
+                "start": 26,
+                "end": 29
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 29
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 29
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 2,
+      "step_query": "Speaker[atom(content =~ \"John\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root > Conversation_Version 1",
+          "name": "Conversation_Version 1",
+          "type": "Conversation_Version",
+          "score": 1.0,
+          "node_id": 3001249037696
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Conversation_Version 1 > John",
+          "name": "John",
+          "type": "Speaker",
+          "score": 1.0,
+          "node_id": 3001249289040
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Speaker",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "John",
+              "operator": "=~",
+              "span": {
+                "start": 38,
+                "end": 61
+              }
+            },
+            "predicate_str": "atom(content =~ \"John\")",
+            "span": {
+              "start": 30,
+              "end": 62
+            }
+          },
+          "span": {
+            "start": 30,
+            "end": 62
+          }
+        },
+        "found_count": 2,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"John\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "John",
+              "operator": "=~",
+              "span": {
+                "start": 38,
+                "end": 61
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 3001249032736,
+                "node_name": "James",
+                "node_type": "Speaker",
+                "final_score": 0.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "James",
+                    "query_value": "John",
+                    "matched": false,
+                    "score": 0.0
+                  }
+                ]
+              },
+              {
+                "node_idx": 1,
+                "node_id": 3001249289040,
+                "node_name": "John",
+                "node_type": "Speaker",
+                "final_score": 1.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "John",
+                    "query_value": "John",
+                    "matched": true,
+                    "score": 1.0
+                  }
+                ]
+              }
+            ],
+            "batch_scoring": {
+              "exact_match": true,
+              "matched_attribute": "name",
+              "query_value": "John",
+              "matched_count": 1
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 1,
+                "score": 1.0,
+                "name": "John"
+              },
+              {
+                "idx": 0,
+                "score": 0.0,
+                "name": "James"
+              }
+            ]
+          }
+        ],
+        "pruned_count": 1
+      }
+    },
+    {
+      "step_index": 3,
+      "step_query": "Session[atom(content =~ \"job situation 2022\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 5,
+      "nodes_before": [
+        {
+          "path": "Root > Conversation_Version 1 > John",
+          "name": "John",
+          "type": "Speaker",
+          "score": 1.0,
+          "node_id": 3001249289040
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Conversation_Version 1 > John > Session 13",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.9890977144241333,
+          "node_id": 3001250475488
+        },
+        {
+          "path": "Root > Conversation_Version 1 > John > Session 18",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.8934147357940674,
+          "node_id": 3001250473968
+        },
+        {
+          "path": "Root > Conversation_Version 1 > John > Session 15",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.8410236835479736,
+          "node_id": 3001250467488
+        },
+        {
+          "path": "Root > Conversation_Version 1 > John > Session 11",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.8308677673339844,
+          "node_id": 3001249290720
+        },
+        {
+          "path": "Root > Conversation_Version 1 > John > Session 26",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.462435245513916,
+          "node_id": 3001250782144
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Session",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "job situation 2022",
+              "operator": "=~",
+              "span": {
+                "start": 71,
+                "end": 108
+              }
+            },
+            "predicate_str": "atom(content =~ \"job situation 2022\")",
+            "span": {
+              "start": 63,
+              "end": 109
+            }
+          },
+          "span": {
+            "start": 63,
+            "end": 109
+          }
+        },
+        "found_count": 31,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"job situation 2022\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "job situation 2022",
+              "operator": "=~",
+              "span": {
+                "start": 71,
+                "end": 108
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 3001249298800,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "job situation 2022",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.02380479872226715,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.02380479872226715
+              },
+              {
+                "node_idx": 1,
+                "node_id": 3001249284640,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "job situation 2022",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.0025491693522781134,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0025491693522781134
+              },
+              {
+                "node_idx": 2,
+                "node_id": 3001249285440,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "job situation 2022",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.013019772246479988,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.013019772246479988
+              },
+              {
+                "node_idx": 3,
+                "node_id": 3001249294720,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "job situation 2022",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.009492467157542706,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.009492467157542706
+              },
+              {
+                "node_idx": 4,
+                "node_id": 3001249286480,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "job situation 2022",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.055885910987854004,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.055885910987854004
+              },
+              {
+                "node_idx": 5,
+                "node_id": 3001249298720,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "job situation 2022",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.03772113472223282,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.03772113472223282
+              },
+              {
+                "node_idx": 6,
+                "node_id": 3001249298880,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "job situation 2022",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.008006643503904343,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.008006643503904343
+              },
+              {
+                "node_idx": 7,
+                "node_id": 3001249289520,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "job situation 2022",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.10740821808576584,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.10740821808576584
+              },
+              {
+                "node_idx": 8,
+                "node_id": 3001249293440,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "job situation 2022",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.308563232421875,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.308563232421875
+              },
+              {
+                "node_idx": 9,
+                "node_id": 3001249292320,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "job situation 2022",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.23502057790756226,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.23502057790756226
+              },
+              {
+                "node_idx": 10,
+                "node_id": 3001249290720,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "job situation 2022",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.8308677673339844,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.8308677673339844
+              },
+              {
+                "node_idx": 11,
+                "node_id": 3001186766976,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "job situation 2022",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.004020619671791792,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.004020619671791792
+              },
+              {
+                "node_idx": 12,
+                "node_id": 3001250475488,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "job situation 2022",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.9890977144241333,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.9890977144241333
+              },
+              {
+                "node_idx": 13,
+                "node_id": 3001250479888,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "job situation 2022",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.01440390758216381,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.01440390758216381
+              },
+              {
+                "node_idx": 14,
+                "node_id": 3001250467488,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "job situation 2022",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.8410236835479736,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.8410236835479736
+              },
+              {
+                "node_idx": 15,
+                "node_id": 3001250466848,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "job situation 2022",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.05042269080877304,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.05042269080877304
+              },
+              {
+                "node_idx": 16,
+                "node_id": 3001250468768,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "job situation 2022",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.0022286195307970047,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0022286195307970047
+              },
+              {
+                "node_idx": 17,
+                "node_id": 3001250473968,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "job situation 2022",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.8934147357940674,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.8934147357940674
+              },
+              {
+                "node_idx": 18,
+                "node_id": 3001250478128,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "job situation 2022",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.0179167240858078,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0179167240858078
+              },
+              {
+                "node_idx": 19,
+                "node_id": 3001250479728,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "job situation 2022",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.001907514175400138,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.001907514175400138
+              },
+              {
+                "node_idx": 20,
+                "node_id": 3001250783504,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "job situation 2022",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.0842360407114029,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0842360407114029
+              },
+              {
+                "node_idx": 21,
+                "node_id": 3001250787584,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "job situation 2022",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.1987268030643463,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.1987268030643463
+              },
+              {
+                "node_idx": 22,
+                "node_id": 3001250776304,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "job situation 2022",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.0020061200484633446,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0020061200484633446
+              },
+              {
+                "node_idx": 23,
+                "node_id": 3001250780304,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "job situation 2022",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.003547310596331954,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.003547310596331954
+              },
+              {
+                "node_idx": 24,
+                "node_id": 3001250781744,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "job situation 2022",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.0008938995306380093,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0008938995306380093
+              },
+              {
+                "node_idx": 25,
+                "node_id": 3001250782144,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "job situation 2022",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.462435245513916,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.462435245513916
+              },
+              {
+                "node_idx": 26,
+                "node_id": 3001250780784,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "job situation 2022",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.3163670301437378,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.3163670301437378
+              },
+              {
+                "node_idx": 27,
+                "node_id": 3001250776464,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "job situation 2022",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.011937137693166733,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.011937137693166733
+              },
+              {
+                "node_idx": 28,
+                "node_id": 3001250787744,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "job situation 2022",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.0011589879868552089,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0011589879868552089
+              },
+              {
+                "node_idx": 29,
+                "node_id": 3001250790944,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "job situation 2022",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.0011147732147946954,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0011147732147946954
+              },
+              {
+                "node_idx": 30,
+                "node_id": 3001250775184,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "job situation 2022",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 108
+                      }
+                    },
+                    "score": 0.03562244400382042,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.03562244400382042
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "job situation 2022"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "job situation 2022",
+                  "num_descriptions": 31,
+                  "call_time_ms": 575.7
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 31
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 12,
+                "score": 0.9890977144241333,
+                "name": "Session"
+              },
+              {
+                "idx": 17,
+                "score": 0.8934147357940674,
+                "name": "Session"
+              },
+              {
+                "idx": 14,
+                "score": 0.8410236835479736,
+                "name": "Session"
+              },
+              {
+                "idx": 10,
+                "score": 0.8308677673339844,
+                "name": "Session"
+              },
+              {
+                "idx": 25,
+                "score": 0.462435245513916,
+                "name": "Session"
+              },
+              {
+                "idx": 26,
+                "score": 0.3163670301437378,
+                "name": "Session"
+              },
+              {
+                "idx": 8,
+                "score": 0.308563232421875,
+                "name": "Session"
+              },
+              {
+                "idx": 9,
+                "score": 0.23502057790756226,
+                "name": "Session"
+              },
+              {
+                "idx": 21,
+                "score": 0.1987268030643463,
+                "name": "Session"
+              },
+              {
+                "idx": 7,
+                "score": 0.10740821808576584,
+                "name": "Session"
+              },
+              {
+                "idx": 20,
+                "score": 0.0842360407114029,
+                "name": "Session"
+              },
+              {
+                "idx": 4,
+                "score": 0.055885910987854004,
+                "name": "Session"
+              },
+              {
+                "idx": 15,
+                "score": 0.05042269080877304,
+                "name": "Session"
+              },
+              {
+                "idx": 5,
+                "score": 0.03772113472223282,
+                "name": "Session"
+              },
+              {
+                "idx": 30,
+                "score": 0.03562244400382042,
+                "name": "Session"
+              },
+              {
+                "idx": 0,
+                "score": 0.02380479872226715,
+                "name": "Session"
+              },
+              {
+                "idx": 18,
+                "score": 0.0179167240858078,
+                "name": "Session"
+              },
+              {
+                "idx": 13,
+                "score": 0.01440390758216381,
+                "name": "Session"
+              },
+              {
+                "idx": 2,
+                "score": 0.013019772246479988,
+                "name": "Session"
+              },
+              {
+                "idx": 27,
+                "score": 0.011937137693166733,
+                "name": "Session"
+              },
+              {
+                "idx": 3,
+                "score": 0.009492467157542706,
+                "name": "Session"
+              },
+              {
+                "idx": 6,
+                "score": 0.008006643503904343,
+                "name": "Session"
+              },
+              {
+                "idx": 11,
+                "score": 0.004020619671791792,
+                "name": "Session"
+              },
+              {
+                "idx": 23,
+                "score": 0.003547310596331954,
+                "name": "Session"
+              },
+              {
+                "idx": 1,
+                "score": 0.0025491693522781134,
+                "name": "Session"
+              },
+              {
+                "idx": 16,
+                "score": 0.0022286195307970047,
+                "name": "Session"
+              },
+              {
+                "idx": 22,
+                "score": 0.0020061200484633446,
+                "name": "Session"
+              },
+              {
+                "idx": 19,
+                "score": 0.001907514175400138,
+                "name": "Session"
+              },
+              {
+                "idx": 28,
+                "score": 0.0011589879868552089,
+                "name": "Session"
+              },
+              {
+                "idx": 29,
+                "score": 0.0011147732147946954,
+                "name": "Session"
+              },
+              {
+                "idx": 24,
+                "score": 0.0008938995306380093,
+                "name": "Session"
+              }
+            ]
+          }
+        ],
+        "pruned_count": 26
+      }
+    },
+    {
+      "step_index": 4,
+      "step_query": "Observation[atom(content =~ \"job situation\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 5,
+      "nodes_after_count": 13,
+      "nodes_before": [
+        {
+          "path": "Root > Conversation_Version 1 > John > Session 13",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.9890977144241333,
+          "node_id": 3001250475488
+        },
+        {
+          "path": "Root > Conversation_Version 1 > John > Session 18",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.8934147357940674,
+          "node_id": 3001250473968
+        },
+        {
+          "path": "Root > Conversation_Version 1 > John > Session 15",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.8410236835479736,
+          "node_id": 3001250467488
+        },
+        {
+          "path": "Root > Conversation_Version 1 > John > Session 11",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.8308677673339844,
+          "node_id": 3001249290720
+        },
+        {
+          "path": "Root > Conversation_Version 1 > John > Session 26",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.462435245513916,
+          "node_id": 3001250782144
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Conversation_Version 1 > John > Session 13 > Observation 2",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.9995874762535095,
+          "node_id": 3001250473008
+        },
+        {
+          "path": "Root > Conversation_Version 1 > John > Session 13 > Observation 1",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.9982032775878906,
+          "node_id": 3001250467328
+        },
+        {
+          "path": "Root > Conversation_Version 1 > John > Session 13 > Observation 3",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.11705673485994339,
+          "node_id": 3001250470128
+        },
+        {
+          "path": "Root > Conversation_Version 1 > John > Session 18 > Observation 1",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.998514711856842,
+          "node_id": 3001250466928
+        },
+        {
+          "path": "Root > Conversation_Version 1 > John > Session 18 > Observation 3",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.9845280051231384,
+          "node_id": 3001250476928
+        },
+        {
+          "path": "Root > Conversation_Version 1 > John > Session 18 > Observation 2",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.3774433434009552,
+          "node_id": 3001250476128
+        },
+        {
+          "path": "Root > Conversation_Version 1 > John > Session 15 > Observation 1",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.9725268483161926,
+          "node_id": 3001250465488
+        },
+        {
+          "path": "Root > Conversation_Version 1 > John > Session 15 > Observation 4",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.34936800599098206,
+          "node_id": 3001250465248
+        },
+        {
+          "path": "Root > Conversation_Version 1 > John > Session 15 > Observation 2",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.1728266328573227,
+          "node_id": 3001250479568
+        },
+        {
+          "path": "Root > Conversation_Version 1 > John > Session 11 > Observation 3",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.7203029990196228,
+          "node_id": 3001249293920
+        },
+        {
+          "path": "Root > Conversation_Version 1 > John > Session 11 > Observation 4",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.31596818566322327,
+          "node_id": 3001227465072
+        },
+        {
+          "path": "Root > Conversation_Version 1 > John > Session 26 > Observation 1",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.7989535331726074,
+          "node_id": 3001250777424
+        },
+        {
+          "path": "Root > Conversation_Version 1 > John > Session 26 > Observation 2",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.10151174664497375,
+          "node_id": 3001250779984
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Observation",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "job situation",
+              "operator": "=~",
+              "span": {
+                "start": 122,
+                "end": 154
+              }
+            },
+            "predicate_str": "atom(content =~ \"job situation\")",
+            "span": {
+              "start": 110,
+              "end": 155
+            }
+          },
+          "span": {
+            "start": 110,
+            "end": 155
+          }
+        },
+        "found_count": 17,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"job situation\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "job situation",
+              "operator": "=~",
+              "span": {
+                "start": 122,
+                "end": 154
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 3001250467328,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "job situation",
+                      "operator": "=~",
+                      "span": {
+                        "start": 122,
+                        "end": 154
+                      }
+                    },
+                    "score": 0.9982032775878906,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.9982032775878906
+              },
+              {
+                "node_idx": 1,
+                "node_id": 3001250473008,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "job situation",
+                      "operator": "=~",
+                      "span": {
+                        "start": 122,
+                        "end": 154
+                      }
+                    },
+                    "score": 0.9995874762535095,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.9995874762535095
+              },
+              {
+                "node_idx": 2,
+                "node_id": 3001250470128,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "job situation",
+                      "operator": "=~",
+                      "span": {
+                        "start": 122,
+                        "end": 154
+                      }
+                    },
+                    "score": 0.11705673485994339,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.11705673485994339
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "job situation"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "job situation",
+                  "num_descriptions": 3,
+                  "call_time_ms": 35.0
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 3
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 1,
+                "score": 0.9995874762535095,
+                "name": "Observation"
+              },
+              {
+                "idx": 0,
+                "score": 0.9982032775878906,
+                "name": "Observation"
+              },
+              {
+                "idx": 2,
+                "score": 0.11705673485994339,
+                "name": "Observation"
+              }
+            ]
+          },
+          {
+            "predicate": "atom(content =~ \"job situation\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "job situation",
+              "operator": "=~",
+              "span": {
+                "start": 122,
+                "end": 154
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 3001250466928,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "job situation",
+                      "operator": "=~",
+                      "span": {
+                        "start": 122,
+                        "end": 154
+                      }
+                    },
+                    "score": 0.998514711856842,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.998514711856842
+              },
+              {
+                "node_idx": 1,
+                "node_id": 3001250476128,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "job situation",
+                      "operator": "=~",
+                      "span": {
+                        "start": 122,
+                        "end": 154
+                      }
+                    },
+                    "score": 0.3774433434009552,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.3774433434009552
+              },
+              {
+                "node_idx": 2,
+                "node_id": 3001250476928,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "job situation",
+                      "operator": "=~",
+                      "span": {
+                        "start": 122,
+                        "end": 154
+                      }
+                    },
+                    "score": 0.9845280051231384,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.9845280051231384
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "job situation"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "job situation",
+                  "num_descriptions": 3,
+                  "call_time_ms": 36.01
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 3
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 0,
+                "score": 0.998514711856842,
+                "name": "Observation"
+              },
+              {
+                "idx": 2,
+                "score": 0.9845280051231384,
+                "name": "Observation"
+              },
+              {
+                "idx": 1,
+                "score": 0.3774433434009552,
+                "name": "Observation"
+              }
+            ]
+          },
+          {
+            "predicate": "atom(content =~ \"job situation\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "job situation",
+              "operator": "=~",
+              "span": {
+                "start": 122,
+                "end": 154
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 3001250465488,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "job situation",
+                      "operator": "=~",
+                      "span": {
+                        "start": 122,
+                        "end": 154
+                      }
+                    },
+                    "score": 0.9725268483161926,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.9725268483161926
+              },
+              {
+                "node_idx": 1,
+                "node_id": 3001250479568,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "job situation",
+                      "operator": "=~",
+                      "span": {
+                        "start": 122,
+                        "end": 154
+                      }
+                    },
+                    "score": 0.1728266328573227,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.1728266328573227
+              },
+              {
+                "node_idx": 2,
+                "node_id": 3001250465328,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "job situation",
+                      "operator": "=~",
+                      "span": {
+                        "start": 122,
+                        "end": 154
+                      }
+                    },
+                    "score": 0.007433253340423107,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.007433253340423107
+              },
+              {
+                "node_idx": 3,
+                "node_id": 3001250465248,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "job situation",
+                      "operator": "=~",
+                      "span": {
+                        "start": 122,
+                        "end": 154
+                      }
+                    },
+                    "score": 0.34936800599098206,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.34936800599098206
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "job situation"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "job situation",
+                  "num_descriptions": 4,
+                  "call_time_ms": 42.38
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 4
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 0,
+                "score": 0.9725268483161926,
+                "name": "Observation"
+              },
+              {
+                "idx": 3,
+                "score": 0.34936800599098206,
+                "name": "Observation"
+              },
+              {
+                "idx": 1,
+                "score": 0.1728266328573227,
+                "name": "Observation"
+              },
+              {
+                "idx": 2,
+                "score": 0.007433253340423107,
+                "name": "Observation"
+              }
+            ]
+          },
+          {
+            "predicate": "atom(content =~ \"job situation\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "job situation",
+              "operator": "=~",
+              "span": {
+                "start": 122,
+                "end": 154
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 3001249289840,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "job situation",
+                      "operator": "=~",
+                      "span": {
+                        "start": 122,
+                        "end": 154
+                      }
+                    },
+                    "score": 0.032005056738853455,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.032005056738853455
+              },
+              {
+                "node_idx": 1,
+                "node_id": 3001249297600,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "job situation",
+                      "operator": "=~",
+                      "span": {
+                        "start": 122,
+                        "end": 154
+                      }
+                    },
+                    "score": 0.013065275736153126,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.013065275736153126
+              },
+              {
+                "node_idx": 2,
+                "node_id": 3001249293920,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "job situation",
+                      "operator": "=~",
+                      "span": {
+                        "start": 122,
+                        "end": 154
+                      }
+                    },
+                    "score": 0.7203029990196228,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.7203029990196228
+              },
+              {
+                "node_idx": 3,
+                "node_id": 3001227465072,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "job situation",
+                      "operator": "=~",
+                      "span": {
+                        "start": 122,
+                        "end": 154
+                      }
+                    },
+                    "score": 0.31596818566322327,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.31596818566322327
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "job situation"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "job situation",
+                  "num_descriptions": 4,
+                  "call_time_ms": 42.19
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 4
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 2,
+                "score": 0.7203029990196228,
+                "name": "Observation"
+              },
+              {
+                "idx": 3,
+                "score": 0.31596818566322327,
+                "name": "Observation"
+              },
+              {
+                "idx": 0,
+                "score": 0.032005056738853455,
+                "name": "Observation"
+              },
+              {
+                "idx": 1,
+                "score": 0.013065275736153126,
+                "name": "Observation"
+              }
+            ]
+          },
+          {
+            "predicate": "atom(content =~ \"job situation\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "job situation",
+              "operator": "=~",
+              "span": {
+                "start": 122,
+                "end": 154
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 3001250777424,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "job situation",
+                      "operator": "=~",
+                      "span": {
+                        "start": 122,
+                        "end": 154
+                      }
+                    },
+                    "score": 0.7989535331726074,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.7989535331726074
+              },
+              {
+                "node_idx": 1,
+                "node_id": 3001250779984,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "job situation",
+                      "operator": "=~",
+                      "span": {
+                        "start": 122,
+                        "end": 154
+                      }
+                    },
+                    "score": 0.10151174664497375,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.10151174664497375
+              },
+              {
+                "node_idx": 2,
+                "node_id": 3001250775824,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "job situation",
+                      "operator": "=~",
+                      "span": {
+                        "start": 122,
+                        "end": 154
+                      }
+                    },
+                    "score": 0.010035262443125248,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.010035262443125248
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "job situation"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "job situation",
+                  "num_descriptions": 3,
+                  "call_time_ms": 34.43
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 3
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 0,
+                "score": 0.7989535331726074,
+                "name": "Observation"
+              },
+              {
+                "idx": 1,
+                "score": 0.10151174664497375,
+                "name": "Observation"
+              },
+              {
+                "idx": 2,
+                "score": 0.010035262443125248,
+                "name": "Observation"
+              }
+            ]
+          }
+        ],
+        "pruned_count": 4
+      }
+    }
+  ],
+  "scoring_traces": [
+    {
+      "predicate": "atom(content =~ \"John\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "John",
+        "operator": "=~",
+        "span": {
+          "start": 38,
+          "end": 61
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 3001249032736,
+          "node_name": "James",
+          "node_type": "Speaker",
+          "final_score": 0.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "James",
+              "query_value": "John",
+              "matched": false,
+              "score": 0.0
+            }
+          ]
+        },
+        {
+          "node_idx": 1,
+          "node_id": 3001249289040,
+          "node_name": "John",
+          "node_type": "Speaker",
+          "final_score": 1.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "John",
+              "query_value": "John",
+              "matched": true,
+              "score": 1.0
+            }
+          ]
+        }
+      ],
+      "batch_scoring": {
+        "exact_match": true,
+        "matched_attribute": "name",
+        "query_value": "John",
+        "matched_count": 1
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 1,
+          "score": 1.0,
+          "name": "John"
+        },
+        {
+          "idx": 0,
+          "score": 0.0,
+          "name": "James"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"job situation 2022\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "job situation 2022",
+        "operator": "=~",
+        "span": {
+          "start": 71,
+          "end": 108
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 3001249298800,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "job situation 2022",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 108
+                }
+              },
+              "score": 0.02380479872226715,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.02380479872226715
+        },
+        {
+          "node_idx": 1,
+          "node_id": 3001249284640,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "job situation 2022",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 108
+                }
+              },
+              "score": 0.0025491693522781134,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0025491693522781134
+        },
+        {
+          "node_idx": 2,
+          "node_id": 3001249285440,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "job situation 2022",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 108
+                }
+              },
+              "score": 0.013019772246479988,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.013019772246479988
+        },
+        {
+          "node_idx": 3,
+          "node_id": 3001249294720,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "job situation 2022",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 108
+                }
+              },
+              "score": 0.009492467157542706,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.009492467157542706
+        },
+        {
+          "node_idx": 4,
+          "node_id": 3001249286480,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "job situation 2022",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 108
+                }
+              },
+              "score": 0.055885910987854004,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.055885910987854004
+        },
+        {
+          "node_idx": 5,
+          "node_id": 3001249298720,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "job situation 2022",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 108
+                }
+              },
+              "score": 0.03772113472223282,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.03772113472223282
+        },
+        {
+          "node_idx": 6,
+          "node_id": 3001249298880,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "job situation 2022",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 108
+                }
+              },
+              "score": 0.008006643503904343,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.008006643503904343
+        },
+        {
+          "node_idx": 7,
+          "node_id": 3001249289520,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "job situation 2022",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 108
+                }
+              },
+              "score": 0.10740821808576584,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.10740821808576584
+        },
+        {
+          "node_idx": 8,
+          "node_id": 3001249293440,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "job situation 2022",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 108
+                }
+              },
+              "score": 0.308563232421875,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.308563232421875
+        },
+        {
+          "node_idx": 9,
+          "node_id": 3001249292320,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "job situation 2022",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 108
+                }
+              },
+              "score": 0.23502057790756226,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.23502057790756226
+        },
+        {
+          "node_idx": 10,
+          "node_id": 3001249290720,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "job situation 2022",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 108
+                }
+              },
+              "score": 0.8308677673339844,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.8308677673339844
+        },
+        {
+          "node_idx": 11,
+          "node_id": 3001186766976,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "job situation 2022",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 108
+                }
+              },
+              "score": 0.004020619671791792,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.004020619671791792
+        },
+        {
+          "node_idx": 12,
+          "node_id": 3001250475488,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "job situation 2022",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 108
+                }
+              },
+              "score": 0.9890977144241333,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.9890977144241333
+        },
+        {
+          "node_idx": 13,
+          "node_id": 3001250479888,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "job situation 2022",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 108
+                }
+              },
+              "score": 0.01440390758216381,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.01440390758216381
+        },
+        {
+          "node_idx": 14,
+          "node_id": 3001250467488,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "job situation 2022",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 108
+                }
+              },
+              "score": 0.8410236835479736,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.8410236835479736
+        },
+        {
+          "node_idx": 15,
+          "node_id": 3001250466848,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "job situation 2022",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 108
+                }
+              },
+              "score": 0.05042269080877304,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.05042269080877304
+        },
+        {
+          "node_idx": 16,
+          "node_id": 3001250468768,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "job situation 2022",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 108
+                }
+              },
+              "score": 0.0022286195307970047,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0022286195307970047
+        },
+        {
+          "node_idx": 17,
+          "node_id": 3001250473968,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "job situation 2022",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 108
+                }
+              },
+              "score": 0.8934147357940674,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.8934147357940674
+        },
+        {
+          "node_idx": 18,
+          "node_id": 3001250478128,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "job situation 2022",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 108
+                }
+              },
+              "score": 0.0179167240858078,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0179167240858078
+        },
+        {
+          "node_idx": 19,
+          "node_id": 3001250479728,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "job situation 2022",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 108
+                }
+              },
+              "score": 0.001907514175400138,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.001907514175400138
+        },
+        {
+          "node_idx": 20,
+          "node_id": 3001250783504,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "job situation 2022",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 108
+                }
+              },
+              "score": 0.0842360407114029,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0842360407114029
+        },
+        {
+          "node_idx": 21,
+          "node_id": 3001250787584,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "job situation 2022",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 108
+                }
+              },
+              "score": 0.1987268030643463,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.1987268030643463
+        },
+        {
+          "node_idx": 22,
+          "node_id": 3001250776304,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "job situation 2022",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 108
+                }
+              },
+              "score": 0.0020061200484633446,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0020061200484633446
+        },
+        {
+          "node_idx": 23,
+          "node_id": 3001250780304,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "job situation 2022",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 108
+                }
+              },
+              "score": 0.003547310596331954,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.003547310596331954
+        },
+        {
+          "node_idx": 24,
+          "node_id": 3001250781744,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "job situation 2022",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 108
+                }
+              },
+              "score": 0.0008938995306380093,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0008938995306380093
+        },
+        {
+          "node_idx": 25,
+          "node_id": 3001250782144,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "job situation 2022",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 108
+                }
+              },
+              "score": 0.462435245513916,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.462435245513916
+        },
+        {
+          "node_idx": 26,
+          "node_id": 3001250780784,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "job situation 2022",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 108
+                }
+              },
+              "score": 0.3163670301437378,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.3163670301437378
+        },
+        {
+          "node_idx": 27,
+          "node_id": 3001250776464,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "job situation 2022",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 108
+                }
+              },
+              "score": 0.011937137693166733,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.011937137693166733
+        },
+        {
+          "node_idx": 28,
+          "node_id": 3001250787744,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "job situation 2022",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 108
+                }
+              },
+              "score": 0.0011589879868552089,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0011589879868552089
+        },
+        {
+          "node_idx": 29,
+          "node_id": 3001250790944,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "job situation 2022",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 108
+                }
+              },
+              "score": 0.0011147732147946954,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0011147732147946954
+        },
+        {
+          "node_idx": 30,
+          "node_id": 3001250775184,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "job situation 2022",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 108
+                }
+              },
+              "score": 0.03562244400382042,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.03562244400382042
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "job situation 2022"
+        ],
+        "per_value_stats": [
+          {
+            "value": "job situation 2022",
+            "num_descriptions": 31,
+            "call_time_ms": 575.7
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 31
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 12,
+          "score": 0.9890977144241333,
+          "name": "Session"
+        },
+        {
+          "idx": 17,
+          "score": 0.8934147357940674,
+          "name": "Session"
+        },
+        {
+          "idx": 14,
+          "score": 0.8410236835479736,
+          "name": "Session"
+        },
+        {
+          "idx": 10,
+          "score": 0.8308677673339844,
+          "name": "Session"
+        },
+        {
+          "idx": 25,
+          "score": 0.462435245513916,
+          "name": "Session"
+        },
+        {
+          "idx": 26,
+          "score": 0.3163670301437378,
+          "name": "Session"
+        },
+        {
+          "idx": 8,
+          "score": 0.308563232421875,
+          "name": "Session"
+        },
+        {
+          "idx": 9,
+          "score": 0.23502057790756226,
+          "name": "Session"
+        },
+        {
+          "idx": 21,
+          "score": 0.1987268030643463,
+          "name": "Session"
+        },
+        {
+          "idx": 7,
+          "score": 0.10740821808576584,
+          "name": "Session"
+        },
+        {
+          "idx": 20,
+          "score": 0.0842360407114029,
+          "name": "Session"
+        },
+        {
+          "idx": 4,
+          "score": 0.055885910987854004,
+          "name": "Session"
+        },
+        {
+          "idx": 15,
+          "score": 0.05042269080877304,
+          "name": "Session"
+        },
+        {
+          "idx": 5,
+          "score": 0.03772113472223282,
+          "name": "Session"
+        },
+        {
+          "idx": 30,
+          "score": 0.03562244400382042,
+          "name": "Session"
+        },
+        {
+          "idx": 0,
+          "score": 0.02380479872226715,
+          "name": "Session"
+        },
+        {
+          "idx": 18,
+          "score": 0.0179167240858078,
+          "name": "Session"
+        },
+        {
+          "idx": 13,
+          "score": 0.01440390758216381,
+          "name": "Session"
+        },
+        {
+          "idx": 2,
+          "score": 0.013019772246479988,
+          "name": "Session"
+        },
+        {
+          "idx": 27,
+          "score": 0.011937137693166733,
+          "name": "Session"
+        },
+        {
+          "idx": 3,
+          "score": 0.009492467157542706,
+          "name": "Session"
+        },
+        {
+          "idx": 6,
+          "score": 0.008006643503904343,
+          "name": "Session"
+        },
+        {
+          "idx": 11,
+          "score": 0.004020619671791792,
+          "name": "Session"
+        },
+        {
+          "idx": 23,
+          "score": 0.003547310596331954,
+          "name": "Session"
+        },
+        {
+          "idx": 1,
+          "score": 0.0025491693522781134,
+          "name": "Session"
+        },
+        {
+          "idx": 16,
+          "score": 0.0022286195307970047,
+          "name": "Session"
+        },
+        {
+          "idx": 22,
+          "score": 0.0020061200484633446,
+          "name": "Session"
+        },
+        {
+          "idx": 19,
+          "score": 0.001907514175400138,
+          "name": "Session"
+        },
+        {
+          "idx": 28,
+          "score": 0.0011589879868552089,
+          "name": "Session"
+        },
+        {
+          "idx": 29,
+          "score": 0.0011147732147946954,
+          "name": "Session"
+        },
+        {
+          "idx": 24,
+          "score": 0.0008938995306380093,
+          "name": "Session"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"job situation\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "job situation",
+        "operator": "=~",
+        "span": {
+          "start": 122,
+          "end": 154
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 3001250467328,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "job situation",
+                "operator": "=~",
+                "span": {
+                  "start": 122,
+                  "end": 154
+                }
+              },
+              "score": 0.9982032775878906,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.9982032775878906
+        },
+        {
+          "node_idx": 1,
+          "node_id": 3001250473008,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "job situation",
+                "operator": "=~",
+                "span": {
+                  "start": 122,
+                  "end": 154
+                }
+              },
+              "score": 0.9995874762535095,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.9995874762535095
+        },
+        {
+          "node_idx": 2,
+          "node_id": 3001250470128,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "job situation",
+                "operator": "=~",
+                "span": {
+                  "start": 122,
+                  "end": 154
+                }
+              },
+              "score": 0.11705673485994339,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.11705673485994339
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "job situation"
+        ],
+        "per_value_stats": [
+          {
+            "value": "job situation",
+            "num_descriptions": 3,
+            "call_time_ms": 35.0
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 3
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 1,
+          "score": 0.9995874762535095,
+          "name": "Observation"
+        },
+        {
+          "idx": 0,
+          "score": 0.9982032775878906,
+          "name": "Observation"
+        },
+        {
+          "idx": 2,
+          "score": 0.11705673485994339,
+          "name": "Observation"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"job situation\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "job situation",
+        "operator": "=~",
+        "span": {
+          "start": 122,
+          "end": 154
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 3001250466928,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "job situation",
+                "operator": "=~",
+                "span": {
+                  "start": 122,
+                  "end": 154
+                }
+              },
+              "score": 0.998514711856842,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.998514711856842
+        },
+        {
+          "node_idx": 1,
+          "node_id": 3001250476128,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "job situation",
+                "operator": "=~",
+                "span": {
+                  "start": 122,
+                  "end": 154
+                }
+              },
+              "score": 0.3774433434009552,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.3774433434009552
+        },
+        {
+          "node_idx": 2,
+          "node_id": 3001250476928,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "job situation",
+                "operator": "=~",
+                "span": {
+                  "start": 122,
+                  "end": 154
+                }
+              },
+              "score": 0.9845280051231384,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.9845280051231384
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "job situation"
+        ],
+        "per_value_stats": [
+          {
+            "value": "job situation",
+            "num_descriptions": 3,
+            "call_time_ms": 36.01
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 3
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 0,
+          "score": 0.998514711856842,
+          "name": "Observation"
+        },
+        {
+          "idx": 2,
+          "score": 0.9845280051231384,
+          "name": "Observation"
+        },
+        {
+          "idx": 1,
+          "score": 0.3774433434009552,
+          "name": "Observation"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"job situation\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "job situation",
+        "operator": "=~",
+        "span": {
+          "start": 122,
+          "end": 154
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 3001250465488,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "job situation",
+                "operator": "=~",
+                "span": {
+                  "start": 122,
+                  "end": 154
+                }
+              },
+              "score": 0.9725268483161926,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.9725268483161926
+        },
+        {
+          "node_idx": 1,
+          "node_id": 3001250479568,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "job situation",
+                "operator": "=~",
+                "span": {
+                  "start": 122,
+                  "end": 154
+                }
+              },
+              "score": 0.1728266328573227,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.1728266328573227
+        },
+        {
+          "node_idx": 2,
+          "node_id": 3001250465328,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "job situation",
+                "operator": "=~",
+                "span": {
+                  "start": 122,
+                  "end": 154
+                }
+              },
+              "score": 0.007433253340423107,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.007433253340423107
+        },
+        {
+          "node_idx": 3,
+          "node_id": 3001250465248,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "job situation",
+                "operator": "=~",
+                "span": {
+                  "start": 122,
+                  "end": 154
+                }
+              },
+              "score": 0.34936800599098206,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.34936800599098206
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "job situation"
+        ],
+        "per_value_stats": [
+          {
+            "value": "job situation",
+            "num_descriptions": 4,
+            "call_time_ms": 42.38
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 4
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 0,
+          "score": 0.9725268483161926,
+          "name": "Observation"
+        },
+        {
+          "idx": 3,
+          "score": 0.34936800599098206,
+          "name": "Observation"
+        },
+        {
+          "idx": 1,
+          "score": 0.1728266328573227,
+          "name": "Observation"
+        },
+        {
+          "idx": 2,
+          "score": 0.007433253340423107,
+          "name": "Observation"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"job situation\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "job situation",
+        "operator": "=~",
+        "span": {
+          "start": 122,
+          "end": 154
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 3001249289840,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "job situation",
+                "operator": "=~",
+                "span": {
+                  "start": 122,
+                  "end": 154
+                }
+              },
+              "score": 0.032005056738853455,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.032005056738853455
+        },
+        {
+          "node_idx": 1,
+          "node_id": 3001249297600,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "job situation",
+                "operator": "=~",
+                "span": {
+                  "start": 122,
+                  "end": 154
+                }
+              },
+              "score": 0.013065275736153126,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.013065275736153126
+        },
+        {
+          "node_idx": 2,
+          "node_id": 3001249293920,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "job situation",
+                "operator": "=~",
+                "span": {
+                  "start": 122,
+                  "end": 154
+                }
+              },
+              "score": 0.7203029990196228,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.7203029990196228
+        },
+        {
+          "node_idx": 3,
+          "node_id": 3001227465072,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "job situation",
+                "operator": "=~",
+                "span": {
+                  "start": 122,
+                  "end": 154
+                }
+              },
+              "score": 0.31596818566322327,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.31596818566322327
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "job situation"
+        ],
+        "per_value_stats": [
+          {
+            "value": "job situation",
+            "num_descriptions": 4,
+            "call_time_ms": 42.19
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 4
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 2,
+          "score": 0.7203029990196228,
+          "name": "Observation"
+        },
+        {
+          "idx": 3,
+          "score": 0.31596818566322327,
+          "name": "Observation"
+        },
+        {
+          "idx": 0,
+          "score": 0.032005056738853455,
+          "name": "Observation"
+        },
+        {
+          "idx": 1,
+          "score": 0.013065275736153126,
+          "name": "Observation"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"job situation\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "job situation",
+        "operator": "=~",
+        "span": {
+          "start": 122,
+          "end": 154
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 3001250777424,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "job situation",
+                "operator": "=~",
+                "span": {
+                  "start": 122,
+                  "end": 154
+                }
+              },
+              "score": 0.7989535331726074,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.7989535331726074
+        },
+        {
+          "node_idx": 1,
+          "node_id": 3001250779984,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "job situation",
+                "operator": "=~",
+                "span": {
+                  "start": 122,
+                  "end": 154
+                }
+              },
+              "score": 0.10151174664497375,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.10151174664497375
+        },
+        {
+          "node_idx": 2,
+          "node_id": 3001250775824,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "job situation",
+                "operator": "=~",
+                "span": {
+                  "start": 122,
+                  "end": 154
+                }
+              },
+              "score": 0.010035262443125248,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.010035262443125248
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "job situation"
+        ],
+        "per_value_stats": [
+          {
+            "value": "job situation",
+            "num_descriptions": 3,
+            "call_time_ms": 34.43
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 3
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 0,
+          "score": 0.7989535331726074,
+          "name": "Observation"
+        },
+        {
+          "idx": 1,
+          "score": 0.10151174664497375,
+          "name": "Observation"
+        },
+        {
+          "idx": 2,
+          "score": 0.010035262443125248,
+          "name": "Observation"
+        }
+      ]
+    }
+  ],
+  "scoring_details": {
+    "step_scores": [
+      {
+        "step_index": 0,
+        "predicate": "atom(content =~ \"John\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "John",
+          "operator": "=~",
+          "span": {
+            "start": 38,
+            "end": 61
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 3001249032736,
+            "node_name": "James",
+            "node_type": "Speaker",
+            "final_score": 0.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "James",
+                "query_value": "John",
+                "matched": false,
+                "score": 0.0
+              }
+            ]
+          },
+          {
+            "node_idx": 1,
+            "node_id": 3001249289040,
+            "node_name": "John",
+            "node_type": "Speaker",
+            "final_score": 1.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "John",
+                "query_value": "John",
+                "matched": true,
+                "score": 1.0
+              }
+            ]
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 1,
+            "score": 1.0,
+            "name": "John"
+          },
+          {
+            "idx": 0,
+            "score": 0.0,
+            "name": "James"
+          }
+        ]
+      },
+      {
+        "step_index": 1,
+        "predicate": "atom(content =~ \"job situation 2022\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "job situation 2022",
+          "operator": "=~",
+          "span": {
+            "start": 71,
+            "end": 108
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 3001249298800,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "job situation 2022",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 108
+                  }
+                },
+                "score": 0.02380479872226715,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.02380479872226715
+          },
+          {
+            "node_idx": 1,
+            "node_id": 3001249284640,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "job situation 2022",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 108
+                  }
+                },
+                "score": 0.0025491693522781134,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0025491693522781134
+          },
+          {
+            "node_idx": 2,
+            "node_id": 3001249285440,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "job situation 2022",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 108
+                  }
+                },
+                "score": 0.013019772246479988,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.013019772246479988
+          },
+          {
+            "node_idx": 3,
+            "node_id": 3001249294720,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "job situation 2022",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 108
+                  }
+                },
+                "score": 0.009492467157542706,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.009492467157542706
+          },
+          {
+            "node_idx": 4,
+            "node_id": 3001249286480,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "job situation 2022",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 108
+                  }
+                },
+                "score": 0.055885910987854004,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.055885910987854004
+          },
+          {
+            "node_idx": 5,
+            "node_id": 3001249298720,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "job situation 2022",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 108
+                  }
+                },
+                "score": 0.03772113472223282,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.03772113472223282
+          },
+          {
+            "node_idx": 6,
+            "node_id": 3001249298880,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "job situation 2022",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 108
+                  }
+                },
+                "score": 0.008006643503904343,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.008006643503904343
+          },
+          {
+            "node_idx": 7,
+            "node_id": 3001249289520,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "job situation 2022",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 108
+                  }
+                },
+                "score": 0.10740821808576584,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.10740821808576584
+          },
+          {
+            "node_idx": 8,
+            "node_id": 3001249293440,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "job situation 2022",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 108
+                  }
+                },
+                "score": 0.308563232421875,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.308563232421875
+          },
+          {
+            "node_idx": 9,
+            "node_id": 3001249292320,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "job situation 2022",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 108
+                  }
+                },
+                "score": 0.23502057790756226,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.23502057790756226
+          },
+          {
+            "node_idx": 10,
+            "node_id": 3001249290720,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "job situation 2022",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 108
+                  }
+                },
+                "score": 0.8308677673339844,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.8308677673339844
+          },
+          {
+            "node_idx": 11,
+            "node_id": 3001186766976,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "job situation 2022",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 108
+                  }
+                },
+                "score": 0.004020619671791792,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.004020619671791792
+          },
+          {
+            "node_idx": 12,
+            "node_id": 3001250475488,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "job situation 2022",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 108
+                  }
+                },
+                "score": 0.9890977144241333,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.9890977144241333
+          },
+          {
+            "node_idx": 13,
+            "node_id": 3001250479888,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "job situation 2022",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 108
+                  }
+                },
+                "score": 0.01440390758216381,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.01440390758216381
+          },
+          {
+            "node_idx": 14,
+            "node_id": 3001250467488,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "job situation 2022",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 108
+                  }
+                },
+                "score": 0.8410236835479736,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.8410236835479736
+          },
+          {
+            "node_idx": 15,
+            "node_id": 3001250466848,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "job situation 2022",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 108
+                  }
+                },
+                "score": 0.05042269080877304,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.05042269080877304
+          },
+          {
+            "node_idx": 16,
+            "node_id": 3001250468768,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "job situation 2022",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 108
+                  }
+                },
+                "score": 0.0022286195307970047,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0022286195307970047
+          },
+          {
+            "node_idx": 17,
+            "node_id": 3001250473968,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "job situation 2022",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 108
+                  }
+                },
+                "score": 0.8934147357940674,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.8934147357940674
+          },
+          {
+            "node_idx": 18,
+            "node_id": 3001250478128,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "job situation 2022",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 108
+                  }
+                },
+                "score": 0.0179167240858078,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0179167240858078
+          },
+          {
+            "node_idx": 19,
+            "node_id": 3001250479728,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "job situation 2022",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 108
+                  }
+                },
+                "score": 0.001907514175400138,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.001907514175400138
+          },
+          {
+            "node_idx": 20,
+            "node_id": 3001250783504,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "job situation 2022",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 108
+                  }
+                },
+                "score": 0.0842360407114029,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0842360407114029
+          },
+          {
+            "node_idx": 21,
+            "node_id": 3001250787584,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "job situation 2022",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 108
+                  }
+                },
+                "score": 0.1987268030643463,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.1987268030643463
+          },
+          {
+            "node_idx": 22,
+            "node_id": 3001250776304,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "job situation 2022",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 108
+                  }
+                },
+                "score": 0.0020061200484633446,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0020061200484633446
+          },
+          {
+            "node_idx": 23,
+            "node_id": 3001250780304,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "job situation 2022",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 108
+                  }
+                },
+                "score": 0.003547310596331954,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.003547310596331954
+          },
+          {
+            "node_idx": 24,
+            "node_id": 3001250781744,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "job situation 2022",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 108
+                  }
+                },
+                "score": 0.0008938995306380093,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0008938995306380093
+          },
+          {
+            "node_idx": 25,
+            "node_id": 3001250782144,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "job situation 2022",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 108
+                  }
+                },
+                "score": 0.462435245513916,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.462435245513916
+          },
+          {
+            "node_idx": 26,
+            "node_id": 3001250780784,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "job situation 2022",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 108
+                  }
+                },
+                "score": 0.3163670301437378,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.3163670301437378
+          },
+          {
+            "node_idx": 27,
+            "node_id": 3001250776464,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "job situation 2022",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 108
+                  }
+                },
+                "score": 0.011937137693166733,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.011937137693166733
+          },
+          {
+            "node_idx": 28,
+            "node_id": 3001250787744,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "job situation 2022",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 108
+                  }
+                },
+                "score": 0.0011589879868552089,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0011589879868552089
+          },
+          {
+            "node_idx": 29,
+            "node_id": 3001250790944,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "job situation 2022",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 108
+                  }
+                },
+                "score": 0.0011147732147946954,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0011147732147946954
+          },
+          {
+            "node_idx": 30,
+            "node_id": 3001250775184,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "job situation 2022",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 108
+                  }
+                },
+                "score": 0.03562244400382042,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.03562244400382042
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 12,
+            "score": 0.9890977144241333,
+            "name": "Session"
+          },
+          {
+            "idx": 17,
+            "score": 0.8934147357940674,
+            "name": "Session"
+          },
+          {
+            "idx": 14,
+            "score": 0.8410236835479736,
+            "name": "Session"
+          },
+          {
+            "idx": 10,
+            "score": 0.8308677673339844,
+            "name": "Session"
+          },
+          {
+            "idx": 25,
+            "score": 0.462435245513916,
+            "name": "Session"
+          },
+          {
+            "idx": 26,
+            "score": 0.3163670301437378,
+            "name": "Session"
+          },
+          {
+            "idx": 8,
+            "score": 0.308563232421875,
+            "name": "Session"
+          },
+          {
+            "idx": 9,
+            "score": 0.23502057790756226,
+            "name": "Session"
+          },
+          {
+            "idx": 21,
+            "score": 0.1987268030643463,
+            "name": "Session"
+          },
+          {
+            "idx": 7,
+            "score": 0.10740821808576584,
+            "name": "Session"
+          },
+          {
+            "idx": 20,
+            "score": 0.0842360407114029,
+            "name": "Session"
+          },
+          {
+            "idx": 4,
+            "score": 0.055885910987854004,
+            "name": "Session"
+          },
+          {
+            "idx": 15,
+            "score": 0.05042269080877304,
+            "name": "Session"
+          },
+          {
+            "idx": 5,
+            "score": 0.03772113472223282,
+            "name": "Session"
+          },
+          {
+            "idx": 30,
+            "score": 0.03562244400382042,
+            "name": "Session"
+          },
+          {
+            "idx": 0,
+            "score": 0.02380479872226715,
+            "name": "Session"
+          },
+          {
+            "idx": 18,
+            "score": 0.0179167240858078,
+            "name": "Session"
+          },
+          {
+            "idx": 13,
+            "score": 0.01440390758216381,
+            "name": "Session"
+          },
+          {
+            "idx": 2,
+            "score": 0.013019772246479988,
+            "name": "Session"
+          },
+          {
+            "idx": 27,
+            "score": 0.011937137693166733,
+            "name": "Session"
+          },
+          {
+            "idx": 3,
+            "score": 0.009492467157542706,
+            "name": "Session"
+          },
+          {
+            "idx": 6,
+            "score": 0.008006643503904343,
+            "name": "Session"
+          },
+          {
+            "idx": 11,
+            "score": 0.004020619671791792,
+            "name": "Session"
+          },
+          {
+            "idx": 23,
+            "score": 0.003547310596331954,
+            "name": "Session"
+          },
+          {
+            "idx": 1,
+            "score": 0.0025491693522781134,
+            "name": "Session"
+          },
+          {
+            "idx": 16,
+            "score": 0.0022286195307970047,
+            "name": "Session"
+          },
+          {
+            "idx": 22,
+            "score": 0.0020061200484633446,
+            "name": "Session"
+          },
+          {
+            "idx": 19,
+            "score": 0.001907514175400138,
+            "name": "Session"
+          },
+          {
+            "idx": 28,
+            "score": 0.0011589879868552089,
+            "name": "Session"
+          },
+          {
+            "idx": 29,
+            "score": 0.0011147732147946954,
+            "name": "Session"
+          },
+          {
+            "idx": 24,
+            "score": 0.0008938995306380093,
+            "name": "Session"
+          }
+        ]
+      },
+      {
+        "step_index": 2,
+        "predicate": "atom(content =~ \"job situation\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "job situation",
+          "operator": "=~",
+          "span": {
+            "start": 122,
+            "end": 154
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 3001250467328,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "job situation",
+                  "operator": "=~",
+                  "span": {
+                    "start": 122,
+                    "end": 154
+                  }
+                },
+                "score": 0.9982032775878906,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.9982032775878906
+          },
+          {
+            "node_idx": 1,
+            "node_id": 3001250473008,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "job situation",
+                  "operator": "=~",
+                  "span": {
+                    "start": 122,
+                    "end": 154
+                  }
+                },
+                "score": 0.9995874762535095,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.9995874762535095
+          },
+          {
+            "node_idx": 2,
+            "node_id": 3001250470128,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "job situation",
+                  "operator": "=~",
+                  "span": {
+                    "start": 122,
+                    "end": 154
+                  }
+                },
+                "score": 0.11705673485994339,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.11705673485994339
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 1,
+            "score": 0.9995874762535095,
+            "name": "Observation"
+          },
+          {
+            "idx": 0,
+            "score": 0.9982032775878906,
+            "name": "Observation"
+          },
+          {
+            "idx": 2,
+            "score": 0.11705673485994339,
+            "name": "Observation"
+          }
+        ]
+      },
+      {
+        "step_index": 3,
+        "predicate": "atom(content =~ \"job situation\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "job situation",
+          "operator": "=~",
+          "span": {
+            "start": 122,
+            "end": 154
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 3001250466928,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "job situation",
+                  "operator": "=~",
+                  "span": {
+                    "start": 122,
+                    "end": 154
+                  }
+                },
+                "score": 0.998514711856842,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.998514711856842
+          },
+          {
+            "node_idx": 1,
+            "node_id": 3001250476128,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "job situation",
+                  "operator": "=~",
+                  "span": {
+                    "start": 122,
+                    "end": 154
+                  }
+                },
+                "score": 0.3774433434009552,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.3774433434009552
+          },
+          {
+            "node_idx": 2,
+            "node_id": 3001250476928,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "job situation",
+                  "operator": "=~",
+                  "span": {
+                    "start": 122,
+                    "end": 154
+                  }
+                },
+                "score": 0.9845280051231384,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.9845280051231384
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 0,
+            "score": 0.998514711856842,
+            "name": "Observation"
+          },
+          {
+            "idx": 2,
+            "score": 0.9845280051231384,
+            "name": "Observation"
+          },
+          {
+            "idx": 1,
+            "score": 0.3774433434009552,
+            "name": "Observation"
+          }
+        ]
+      },
+      {
+        "step_index": 4,
+        "predicate": "atom(content =~ \"job situation\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "job situation",
+          "operator": "=~",
+          "span": {
+            "start": 122,
+            "end": 154
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 3001250465488,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "job situation",
+                  "operator": "=~",
+                  "span": {
+                    "start": 122,
+                    "end": 154
+                  }
+                },
+                "score": 0.9725268483161926,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.9725268483161926
+          },
+          {
+            "node_idx": 1,
+            "node_id": 3001250479568,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "job situation",
+                  "operator": "=~",
+                  "span": {
+                    "start": 122,
+                    "end": 154
+                  }
+                },
+                "score": 0.1728266328573227,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.1728266328573227
+          },
+          {
+            "node_idx": 2,
+            "node_id": 3001250465328,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "job situation",
+                  "operator": "=~",
+                  "span": {
+                    "start": 122,
+                    "end": 154
+                  }
+                },
+                "score": 0.007433253340423107,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.007433253340423107
+          },
+          {
+            "node_idx": 3,
+            "node_id": 3001250465248,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "job situation",
+                  "operator": "=~",
+                  "span": {
+                    "start": 122,
+                    "end": 154
+                  }
+                },
+                "score": 0.34936800599098206,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.34936800599098206
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 0,
+            "score": 0.9725268483161926,
+            "name": "Observation"
+          },
+          {
+            "idx": 3,
+            "score": 0.34936800599098206,
+            "name": "Observation"
+          },
+          {
+            "idx": 1,
+            "score": 0.1728266328573227,
+            "name": "Observation"
+          },
+          {
+            "idx": 2,
+            "score": 0.007433253340423107,
+            "name": "Observation"
+          }
+        ]
+      },
+      {
+        "step_index": 5,
+        "predicate": "atom(content =~ \"job situation\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "job situation",
+          "operator": "=~",
+          "span": {
+            "start": 122,
+            "end": 154
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 3001249289840,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "job situation",
+                  "operator": "=~",
+                  "span": {
+                    "start": 122,
+                    "end": 154
+                  }
+                },
+                "score": 0.032005056738853455,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.032005056738853455
+          },
+          {
+            "node_idx": 1,
+            "node_id": 3001249297600,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "job situation",
+                  "operator": "=~",
+                  "span": {
+                    "start": 122,
+                    "end": 154
+                  }
+                },
+                "score": 0.013065275736153126,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.013065275736153126
+          },
+          {
+            "node_idx": 2,
+            "node_id": 3001249293920,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "job situation",
+                  "operator": "=~",
+                  "span": {
+                    "start": 122,
+                    "end": 154
+                  }
+                },
+                "score": 0.7203029990196228,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.7203029990196228
+          },
+          {
+            "node_idx": 3,
+            "node_id": 3001227465072,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "job situation",
+                  "operator": "=~",
+                  "span": {
+                    "start": 122,
+                    "end": 154
+                  }
+                },
+                "score": 0.31596818566322327,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.31596818566322327
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 2,
+            "score": 0.7203029990196228,
+            "name": "Observation"
+          },
+          {
+            "idx": 3,
+            "score": 0.31596818566322327,
+            "name": "Observation"
+          },
+          {
+            "idx": 0,
+            "score": 0.032005056738853455,
+            "name": "Observation"
+          },
+          {
+            "idx": 1,
+            "score": 0.013065275736153126,
+            "name": "Observation"
+          }
+        ]
+      },
+      {
+        "step_index": 6,
+        "predicate": "atom(content =~ \"job situation\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "job situation",
+          "operator": "=~",
+          "span": {
+            "start": 122,
+            "end": 154
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 3001250777424,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "job situation",
+                  "operator": "=~",
+                  "span": {
+                    "start": 122,
+                    "end": 154
+                  }
+                },
+                "score": 0.7989535331726074,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.7989535331726074
+          },
+          {
+            "node_idx": 1,
+            "node_id": 3001250779984,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "job situation",
+                  "operator": "=~",
+                  "span": {
+                    "start": 122,
+                    "end": 154
+                  }
+                },
+                "score": 0.10151174664497375,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.10151174664497375
+          },
+          {
+            "node_idx": 2,
+            "node_id": 3001250775824,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "job situation",
+                  "operator": "=~",
+                  "span": {
+                    "start": 122,
+                    "end": 154
+                  }
+                },
+                "score": 0.010035262443125248,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.010035262443125248
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 0,
+            "score": 0.7989535331726074,
+            "name": "Observation"
+          },
+          {
+            "idx": 1,
+            "score": 0.10151174664497375,
+            "name": "Observation"
+          },
+          {
+            "idx": 2,
+            "score": 0.010035262443125248,
+            "name": "Observation"
+          }
+        ]
+      }
+    ],
+    "score_fusion": {
+      "per_node": [
+        {
+          "node_path": "Root > Conversation_Version 1 > John > Session 13 > Observation 2",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"job situation\")]",
+              "score": 0.9995874762535095
+            }
+          ],
+          "accumulated_product": 0.9995874762535095,
+          "final_score": 0.9886896871406442
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > John > Session 13 > Observation 1",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"job situation\")]",
+              "score": 0.9982032775878906
+            }
+          ],
+          "accumulated_product": 0.9982032775878906,
+          "final_score": 0.9873205794055407
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > John > Session 13 > Observation 3",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"job situation\")]",
+              "score": 0.11705673485994339
+            }
+          ],
+          "accumulated_product": 0.11705673485994339,
+          "final_score": 0.11578054879214122
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > John > Session 18 > Observation 1",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"job situation\")]",
+              "score": 0.998514711856842
+            }
+          ],
+          "accumulated_product": 0.998514711856842,
+          "final_score": 0.8920877565879821
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > John > Session 18 > Observation 3",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"job situation\")]",
+              "score": 0.9845280051231384
+            }
+          ],
+          "accumulated_product": 0.9845280051231384,
+          "final_score": 0.8795918266993572
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > John > Session 18 > Observation 2",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"job situation\")]",
+              "score": 0.3774433434009552
+            }
+          ],
+          "accumulated_product": 0.3774433434009552,
+          "final_score": 0.3372134445845804
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > John > Session 15 > Observation 1",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"job situation\")]",
+              "score": 0.9725268483161926
+            }
+          ],
+          "accumulated_product": 0.9725268483161926,
+          "final_score": 0.8179181115022676
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > John > Session 15 > Observation 4",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"job situation\")]",
+              "score": 0.34936800599098206
+            }
+          ],
+          "accumulated_product": 0.34936800599098206,
+          "final_score": 0.29382676701851945
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > John > Session 15 > Observation 2",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"job situation\")]",
+              "score": 0.1728266328573227
+            }
+          ],
+          "accumulated_product": 0.1728266328573227,
+          "final_score": 0.1453512912355075
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > John > Session 11 > Observation 3",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"job situation\")]",
+              "score": 0.7203029990196228
+            }
+          ],
+          "accumulated_product": 0.7203029990196228,
+          "final_score": 0.5984765440009306
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > John > Session 11 > Observation 4",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"job situation\")]",
+              "score": 0.31596818566322327
+            }
+          ],
+          "accumulated_product": 0.31596818566322327,
+          "final_score": 0.2625277807080444
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > John > Session 26 > Observation 1",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"job situation\")]",
+              "score": 0.7989535331726074
+            }
+          ],
+          "accumulated_product": 0.7989535331726074,
+          "final_score": 0.36946427289742106
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > John > Session 26 > Observation 2",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"job situation\")]",
+              "score": 0.10151174664497375
+            }
+          ],
+          "accumulated_product": 0.10151174664497375,
+          "final_score": 0.04694260943537227
+        }
+      ]
+    }
+  },
+  "final_filtering": {
+    "before_filter_count": 13,
+    "threshold": 0.05,
+    "top_k": 10,
+    "after_filter_count": 10,
+    "filtered_nodes": [
+      {
+        "path": "Root > Conversation_Version 1 > John > Session 13 > Observation 2",
+        "score": 0.9886896871406442,
+        "type": "Observation",
+        "own_score": 0.9995874762535095,
+        "parent_score": 0.9890977134350356
+      },
+      {
+        "path": "Root > Conversation_Version 1 > John > Session 13 > Observation 1",
+        "score": 0.9873205794055407,
+        "type": "Observation",
+        "own_score": 0.9982032775878906,
+        "parent_score": 0.9890977134350356
+      },
+      {
+        "path": "Root > Conversation_Version 1 > John > Session 18 > Observation 1",
+        "score": 0.8920877565879821,
+        "type": "Observation",
+        "own_score": 0.998514711856842,
+        "parent_score": 0.8934147349006527
+      },
+      {
+        "path": "Root > Conversation_Version 1 > John > Session 18 > Observation 3",
+        "score": 0.8795918266993572,
+        "type": "Observation",
+        "own_score": 0.9845280051231384,
+        "parent_score": 0.8934147349006527
+      },
+      {
+        "path": "Root > Conversation_Version 1 > John > Session 15 > Observation 1",
+        "score": 0.8179181115022676,
+        "type": "Observation",
+        "own_score": 0.9725268483161926,
+        "parent_score": 0.8410236827069499
+      },
+      {
+        "path": "Root > Conversation_Version 1 > John > Session 11 > Observation 3",
+        "score": 0.5984765440009306,
+        "type": "Observation",
+        "own_score": 0.7203029990196228,
+        "parent_score": 0.8308677665031167
+      },
+      {
+        "path": "Root > Conversation_Version 1 > John > Session 26 > Observation 1",
+        "score": 0.36946427289742106,
+        "type": "Observation",
+        "own_score": 0.7989535331726074,
+        "parent_score": 0.46243524505148076
+      },
+      {
+        "path": "Root > Conversation_Version 1 > John > Session 18 > Observation 2",
+        "score": 0.3372134445845804,
+        "type": "Observation",
+        "own_score": 0.3774433434009552,
+        "parent_score": 0.8934147349006527
+      },
+      {
+        "path": "Root > Conversation_Version 1 > John > Session 15 > Observation 4",
+        "score": 0.29382676701851945,
+        "type": "Observation",
+        "own_score": 0.34936800599098206,
+        "parent_score": 0.8410236827069499
+      },
+      {
+        "path": "Root > Conversation_Version 1 > John > Session 11 > Observation 4",
+        "score": 0.2625277807080444,
+        "type": "Observation",
+        "own_score": 0.31596818566322327,
+        "parent_score": 0.8308677665031167
+      }
+    ]
+  },
+  "matched_nodes": [
+    {
+      "tree_path": "Root > Conversation_Version 1 > John > Session 13 > Observation 2",
+      "score": 0.9886896871406442,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "John is starting his new job next month.",
+        "source_dia_id": "D13:5"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "John",
+          "predicate": "atom(content =~ \"John\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"John\") on John (Score: 1.00)"
+        },
+        {
+          "node_name": "Session 13",
+          "predicate": "atom(content =~ \"job situation 2022\")",
+          "score": 0.9890977144241333,
+          "description": "Matched atom(content =~ \"job situation 2022\") on Session 13 (Score: 0.99)"
+        },
+        {
+          "node_name": "Observation 2",
+          "predicate": "atom(content =~ \"job situation\")",
+          "score": 0.9995874762535095,
+          "description": "Matched atom(content =~ \"job situation\") on Observation 2 (Score: 1.00)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > John > Session 13 > Observation 1",
+      "score": 0.9873205794055407,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "John recently got his dream job after many interviews and late nights.",
+        "source_dia_id": "D13:3"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "John",
+          "predicate": "atom(content =~ \"John\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"John\") on John (Score: 1.00)"
+        },
+        {
+          "node_name": "Session 13",
+          "predicate": "atom(content =~ \"job situation 2022\")",
+          "score": 0.9890977144241333,
+          "description": "Matched atom(content =~ \"job situation 2022\") on Session 13 (Score: 0.99)"
+        },
+        {
+          "node_name": "Observation 1",
+          "predicate": "atom(content =~ \"job situation\")",
+          "score": 0.9982032775878906,
+          "description": "Matched atom(content =~ \"job situation\") on Observation 1 (Score: 1.00)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > John > Session 18 > Observation 1",
+      "score": 0.8920877565879821,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "John recently left his IT job after 3 years because he wanted something that made a difference.",
+        "source_dia_id": "D18:1"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "John",
+          "predicate": "atom(content =~ \"John\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"John\") on John (Score: 1.00)"
+        },
+        {
+          "node_name": "Session 18",
+          "predicate": "atom(content =~ \"job situation 2022\")",
+          "score": 0.8934147357940674,
+          "description": "Matched atom(content =~ \"job situation 2022\") on Session 18 (Score: 0.89)"
+        },
+        {
+          "node_name": "Observation 1",
+          "predicate": "atom(content =~ \"job situation\")",
+          "score": 0.998514711856842,
+          "description": "Matched atom(content =~ \"job situation\") on Observation 1 (Score: 1.00)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > John > Session 18 > Observation 3",
+      "score": 0.8795918266993572,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "John values support and is grateful for the support he receives from James in his new career endeavor.",
+        "source_dia_id": "D18:11"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "John",
+          "predicate": "atom(content =~ \"John\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"John\") on John (Score: 1.00)"
+        },
+        {
+          "node_name": "Session 18",
+          "predicate": "atom(content =~ \"job situation 2022\")",
+          "score": 0.8934147357940674,
+          "description": "Matched atom(content =~ \"job situation 2022\") on Session 18 (Score: 0.89)"
+        },
+        {
+          "node_name": "Observation 3",
+          "predicate": "atom(content =~ \"job situation\")",
+          "score": 0.9845280051231384,
+          "description": "Matched atom(content =~ \"job situation\") on Observation 3 (Score: 0.98)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > John > Session 15 > Observation 1",
+      "score": 0.8179181115022676,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "John is contemplating his career and desires to make a positive impact on the world.",
+        "source_dia_id": "D15:6"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "John",
+          "predicate": "atom(content =~ \"John\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"John\") on John (Score: 1.00)"
+        },
+        {
+          "node_name": "Session 15",
+          "predicate": "atom(content =~ \"job situation 2022\")",
+          "score": 0.8410236835479736,
+          "description": "Matched atom(content =~ \"job situation 2022\") on Session 15 (Score: 0.84)"
+        },
+        {
+          "node_name": "Observation 1",
+          "predicate": "atom(content =~ \"job situation\")",
+          "score": 0.9725268483161926,
+          "description": "Matched atom(content =~ \"job situation\") on Observation 1 (Score: 0.97)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > John > Session 11 > Observation 3",
+      "score": 0.5984765440009306,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "This experience gave John a clearer sense of purpose and motivated him to potentially pursue a career in the non-profit sector.",
+        "source_dia_id": "D11:11"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "John",
+          "predicate": "atom(content =~ \"John\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"John\") on John (Score: 1.00)"
+        },
+        {
+          "node_name": "Session 11",
+          "predicate": "atom(content =~ \"job situation 2022\")",
+          "score": 0.8308677673339844,
+          "description": "Matched atom(content =~ \"job situation 2022\") on Session 11 (Score: 0.83)"
+        },
+        {
+          "node_name": "Observation 3",
+          "predicate": "atom(content =~ \"job situation\")",
+          "score": 0.7203029990196228,
+          "description": "Matched atom(content =~ \"job situation\") on Observation 3 (Score: 0.72)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > John > Session 26 > Observation 1",
+      "score": 0.36946427289742106,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "John received an email about a volunteer gig at a game dev non-profit to be a programming mentor for game developers.",
+        "source_dia_id": "D26:1"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "John",
+          "predicate": "atom(content =~ \"John\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"John\") on John (Score: 1.00)"
+        },
+        {
+          "node_name": "Observation 1",
+          "predicate": "atom(content =~ \"job situation\")",
+          "score": 0.7989535331726074,
+          "description": "Matched atom(content =~ \"job situation\") on Observation 1 (Score: 0.80)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > John > Session 18 > Observation 2",
+      "score": 0.3372134445845804,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "John is passionate about the gaming industry and wants to become an organizer for gaming tournaments, starting with CS:GO and Fortnite.",
+        "source_dia_id": "D18:7"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "John",
+          "predicate": "atom(content =~ \"John\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"John\") on John (Score: 1.00)"
+        },
+        {
+          "node_name": "Session 18",
+          "predicate": "atom(content =~ \"job situation 2022\")",
+          "score": 0.8934147357940674,
+          "description": "Matched atom(content =~ \"job situation 2022\") on Session 18 (Score: 0.89)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > John > Session 15 > Observation 4",
+      "score": 0.29382676701851945,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "John is determined to make a positive impact with James's support.",
+        "source_dia_id": "D15:18"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "John",
+          "predicate": "atom(content =~ \"John\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"John\") on John (Score: 1.00)"
+        },
+        {
+          "node_name": "Session 15",
+          "predicate": "atom(content =~ \"job situation 2022\")",
+          "score": 0.8410236835479736,
+          "description": "Matched atom(content =~ \"job situation 2022\") on Session 15 (Score: 0.84)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > John > Session 11 > Observation 4",
+      "score": 0.2625277807080444,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "John is considering volunteer roles and potentially a career in the non-profit sector.",
+        "source_dia_id": "D11:11"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "John",
+          "predicate": "atom(content =~ \"John\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"John\") on John (Score: 1.00)"
+        },
+        {
+          "node_name": "Session 11",
+          "predicate": "atom(content =~ \"job situation 2022\")",
+          "score": 0.8308677673339844,
+          "description": "Matched atom(content =~ \"job situation 2022\") on Session 11 (Score: 0.83)"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total_steps": 5,
+    "total_scoring_calls": 7,
+    "matched_count": 10,
+    "execution_time_ms": 768.0538999993587,
+    "has_score_fusion": true,
+    "num_nodes_before_filter": 13,
+    "num_nodes_after_filter": 10
+  }
+}

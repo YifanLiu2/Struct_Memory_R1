@@ -1,0 +1,292 @@
+{
+  "timestamp": "20260322_151627_853314",
+  "query": "/Root/Conversation_Version[1]/Session[atom(content =~ \"grand opening event\")]/Observation[atom(content =~ \"sentiment about grand opening\")]",
+  "canonical_query": "/Root/Conversation_Version[1]/Session[content =~ \"grand opening event\"]/Observation[content =~ \"sentiment about grand opening\"]",
+  "data_file": "tree.xml",
+  "execution_time_ms": 0.4119000004720874,
+  "parsed_ast": {
+    "steps": [
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Root",
+            "span": {
+              "start": 1,
+              "end": 5
+            }
+          },
+          "span": {
+            "start": 1,
+            "end": 5
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Conversation_Version",
+            "index": {
+              "start": 1,
+              "type": "single",
+              "span": {
+                "start": 26,
+                "end": 29
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 29
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 29
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Session",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "grand opening event",
+              "operator": "=~",
+              "span": {
+                "start": 38,
+                "end": 76
+              }
+            },
+            "predicate_str": "atom(content =~ \"grand opening event\")",
+            "span": {
+              "start": 30,
+              "end": 77
+            }
+          },
+          "span": {
+            "start": 30,
+            "end": 77
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Observation",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "sentiment about grand opening",
+              "operator": "=~",
+              "span": {
+                "start": 90,
+                "end": 138
+              }
+            },
+            "predicate_str": "atom(content =~ \"sentiment about grand opening\")",
+            "span": {
+              "start": 78,
+              "end": 139
+            }
+          },
+          "span": {
+            "start": 78,
+            "end": 139
+          }
+        }
+      }
+    ],
+    "global_index": null
+  },
+  "parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: Conversation_Version[1]\n├── Step 2: Session[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"grand opening event\")\n└── Step 3: Observation[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"sentiment about grand opening\")",
+  "canonical_parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: Conversation_Version[1]\n├── Step 2: Session[content =~ \"grand opening event\"]\n└── Step 3: Observation[content =~ \"sentiment about grand opening\"]",
+  "execution_log": [
+    "[20260322_151627_853314] Executing query: /Root/Conversation_Version[1]/Session[atom(content =~ \"grand opening event\")]/Observation[atom(content =~ \"sentiment about grand opening\")]",
+    "Data file: tree.xml",
+    "Parsed steps: [Root, Conversation_Version[1], Session[atom(content =~ \"grand opening event\")], Observation[atom(content =~ \"sentiment about grand opening\")]]",
+    "",
+    "Query AST:\n├── Step 0: Root\n├── Step 1: Conversation_Version[1]\n├── Step 2: Session[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"grand opening event\")\n└── Step 3: Observation[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"sentiment about grand opening\")",
+    "\n--- Step 1: Root ---",
+    "Matched Root root",
+    "\n--- Step 2: Conversation_Version[1] ---",
+    "Selected node at index 1 (0-based: 0)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 3: Session[atom(content =~ \"grand opening event\")] ---",
+    "No matching nodes for step expression",
+    "\n=== Score Fusion ===",
+    "\n=== Threshold Filtering (threshold=0.05) ===",
+    "  Filtered: 0 → 0 nodes",
+    "\n=== Final Filtering (top_k=10) ===",
+    "  After top_k: 0 → 0 nodes",
+    "\nFinal result: 0 nodes (sorted by score)",
+    "⏱️  Query execution time: 0.41ms"
+  ],
+  "traversal_steps": [
+    {
+      "step_index": 0,
+      "step_query": "Root",
+      "action": "root_match",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "type": "root"
+        }
+      ],
+      "nodes_after": [
+        {
+          "type": "Root",
+          "path": "Root"
+        }
+      ],
+      "details": {
+        "matched": true
+      }
+    },
+    {
+      "step_index": 1,
+      "step_query": "Conversation_Version[1]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root",
+          "name": "Root",
+          "type": "Root",
+          "score": 1.0,
+          "node_id": 1904420872704
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Conversation_Version 1",
+          "name": "Conversation_Version 1",
+          "type": "Conversation_Version",
+          "score": 1.0,
+          "node_id": 1904420874784
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Conversation_Version",
+            "index": {
+              "start": 1,
+              "type": "single",
+              "span": {
+                "start": 26,
+                "end": 29
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 29
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 29
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 2,
+      "step_query": "Session[atom(content =~ \"grand opening event\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 0,
+      "nodes_before": [
+        {
+          "path": "Root > Conversation_Version 1",
+          "name": "Conversation_Version 1",
+          "type": "Conversation_Version",
+          "score": 1.0,
+          "node_id": 1904420874784
+        }
+      ],
+      "nodes_after": [],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Session",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "grand opening event",
+              "operator": "=~",
+              "span": {
+                "start": 38,
+                "end": 76
+              }
+            },
+            "predicate_str": "atom(content =~ \"grand opening event\")",
+            "span": {
+              "start": 30,
+              "end": 77
+            }
+          },
+          "span": {
+            "start": 30,
+            "end": 77
+          }
+        },
+        "found_count": 0,
+        "scoring_trace": [],
+        "pruned_count": 0
+      }
+    }
+  ],
+  "scoring_traces": [],
+  "scoring_details": {
+    "step_scores": [],
+    "score_fusion": {
+      "per_node": []
+    }
+  },
+  "final_filtering": {
+    "before_filter_count": 0,
+    "threshold": 0.05,
+    "top_k": 10,
+    "after_filter_count": 0,
+    "filtered_nodes": []
+  },
+  "matched_nodes": [],
+  "summary": {
+    "total_steps": 3,
+    "total_scoring_calls": 0,
+    "matched_count": 0,
+    "execution_time_ms": 0.4119000004720874,
+    "has_score_fusion": true,
+    "num_nodes_before_filter": 0,
+    "num_nodes_after_filter": 0
+  }
+}

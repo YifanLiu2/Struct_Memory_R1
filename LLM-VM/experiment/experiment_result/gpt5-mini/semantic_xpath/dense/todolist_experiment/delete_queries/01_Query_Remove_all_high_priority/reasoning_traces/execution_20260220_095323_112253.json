@@ -1,0 +1,2578 @@
+{
+  "timestamp": "20260220_095323_112253",
+  "query": "/Root/ToDoList_Version[1]/Category[atom(content =~ \"Work\")]/Project/Task[atom(content =~ \"high priority\")]",
+  "canonical_query": "/Root/ToDoList_Version[1]/Category[content =~ \"Work\"]/Project/Task[content =~ \"high priority\"]",
+  "data_file": "tree.xml",
+  "execution_time_ms": 29.335540952160954,
+  "parsed_ast": {
+    "steps": [
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Root",
+            "span": {
+              "start": 1,
+              "end": 5
+            }
+          },
+          "span": {
+            "start": 1,
+            "end": 5
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "ToDoList_Version",
+            "index": {
+              "start": 1,
+              "type": "single",
+              "span": {
+                "start": 22,
+                "end": 25
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 25
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 25
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Category",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "Work",
+              "operator": "=~",
+              "span": {
+                "start": 35,
+                "end": 58
+              }
+            },
+            "predicate_str": "atom(content =~ \"Work\")",
+            "span": {
+              "start": 26,
+              "end": 59
+            }
+          },
+          "span": {
+            "start": 26,
+            "end": 59
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Project",
+            "span": {
+              "start": 60,
+              "end": 67
+            }
+          },
+          "span": {
+            "start": 60,
+            "end": 67
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Task",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "high priority",
+              "operator": "=~",
+              "span": {
+                "start": 73,
+                "end": 105
+              }
+            },
+            "predicate_str": "atom(content =~ \"high priority\")",
+            "span": {
+              "start": 68,
+              "end": 106
+            }
+          },
+          "span": {
+            "start": 68,
+            "end": 106
+          }
+        }
+      }
+    ],
+    "global_index": null
+  },
+  "parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: ToDoList_Version[1]\n├── Step 2: Category[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"Work\")\n├── Step 3: Project\n└── Step 4: Task[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"high priority\")",
+  "canonical_parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: ToDoList_Version[1]\n├── Step 2: Category[content =~ \"Work\"]\n├── Step 3: Project\n└── Step 4: Task[content =~ \"high priority\"]",
+  "execution_log": [
+    "[20260220_095323_112253] Executing query: /Root/ToDoList_Version[1]/Category[atom(content =~ \"Work\")]/Project/Task[atom(content =~ \"high priority\")]",
+    "Data file: tree.xml",
+    "Parsed steps: [Root, ToDoList_Version[1], Category[atom(content =~ \"Work\")], Project, Task[atom(content =~ \"high priority\")]]",
+    "",
+    "Query AST:\n├── Step 0: Root\n├── Step 1: ToDoList_Version[1]\n├── Step 2: Category[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"Work\")\n├── Step 3: Project\n└── Step 4: Task[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"high priority\")",
+    "\n--- Step 1: Root ---",
+    "Matched Root root",
+    "\n--- Step 2: ToDoList_Version[1] ---",
+    "Selected node at index 1 (0-based: 0)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 3: Category[atom(content =~ \"Work\")] ---",
+    "Scoring predicate: atom(content =~ \"Work\") (atomic values: ['Work'])",
+    "  Node 0 (Work): score = 1.0000 (exact match)",
+    "  Node 1 (Personal): score = 0.0000 (exact match)",
+    "  Node 2 (Household): score = 0.0000 (exact match)",
+    "  Node 3 (Health): score = 0.0000 (exact match)",
+    "  Node 4 (Learning): score = 0.0000 (exact match)",
+    "  Exact attribute match on @name: 1/5 nodes matched",
+    "After step: 5 nodes remaining",
+    "\n--- Step 4: Project ---",
+    "  Zero-score pruning: skipping 4 items (Personal, Household, Health, Learning)",
+    "After step: 4 nodes remaining",
+    "\n--- Step 5: Task[atom(content =~ \"high priority\")] ---",
+    "Scoring predicate: atom(content =~ \"high priority\") (atomic values: ['high priority'])",
+    "  Collected 3 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 3 total descriptions",
+    "  Node 0 (Task): score = 0.4898",
+    "  Node 1 (Task): score = 0.5229",
+    "  Node 2 (Task): score = 0.4878",
+    "Scoring predicate: atom(content =~ \"high priority\") (atomic values: ['high priority'])",
+    "  Collected 3 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 3 total descriptions",
+    "  Node 0 (Task): score = 0.4837",
+    "  Node 1 (Task): score = 0.4584",
+    "  Node 2 (Task): score = 0.5609",
+    "Scoring predicate: atom(content =~ \"high priority\") (atomic values: ['high priority'])",
+    "  Collected 2 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 2 total descriptions",
+    "  Node 0 (Task): score = 0.5666",
+    "  Node 1 (Task): score = 0.5605",
+    "Scoring predicate: atom(content =~ \"high priority\") (atomic values: ['high priority'])",
+    "  Collected 2 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 2 total descriptions",
+    "  Node 0 (Task): score = 0.4376",
+    "  Node 1 (Task): score = 0.5071",
+    "After step: 10 nodes remaining",
+    "\n=== Score Fusion ===",
+    "  Root > ToDoList_Version 1 > Work > NSERC CGS-M Grant Application > Task 1: product=0.4898 → score=0.4898",
+    "  Root > ToDoList_Version 1 > Work > NSERC CGS-M Grant Application > Task 2: product=0.5229 → score=0.5229",
+    "  Root > ToDoList_Version 1 > Work > NSERC CGS-M Grant Application > Task 3: product=0.4878 → score=0.4878",
+    "  Root > ToDoList_Version 1 > Work > Thesis: Solve AI > Task 1: product=0.4837 → score=0.4837",
+    "  Root > ToDoList_Version 1 > Work > Thesis: Solve AI > Task 2: product=0.4584 → score=0.4584",
+    "  Root > ToDoList_Version 1 > Work > Thesis: Solve AI > Task 3: product=0.5609 → score=0.5609",
+    "  Root > ToDoList_Version 1 > Work > TA: Intro to ML (CS480) > Task 1: product=0.5666 → score=0.5666",
+    "  Root > ToDoList_Version 1 > Work > TA: Intro to ML (CS480) > Task 2: product=0.5605 → score=0.5605",
+    "  Root > ToDoList_Version 1 > Work > Probabilistic Graphical Models Assignment > Task 1: product=0.4376 → score=0.4376",
+    "  Root > ToDoList_Version 1 > Work > Probabilistic Graphical Models Assignment > Task 2: product=0.5071 → score=0.5071",
+    "  Parent propagation: Root > ToDoList_Version 1 > Work > NSERC CGS-M Grant Application > Task 1: own=0.4898 × parent=1.0000 → 0.4898",
+    "  Parent propagation: Root > ToDoList_Version 1 > Work > NSERC CGS-M Grant Application > Task 2: own=0.5229 × parent=1.0000 → 0.5229",
+    "  Parent propagation: Root > ToDoList_Version 1 > Work > NSERC CGS-M Grant Application > Task 3: own=0.4878 × parent=1.0000 → 0.4878",
+    "  Parent propagation: Root > ToDoList_Version 1 > Work > Thesis: Solve AI > Task 1: own=0.4837 × parent=1.0000 → 0.4837",
+    "  Parent propagation: Root > ToDoList_Version 1 > Work > Thesis: Solve AI > Task 2: own=0.4584 × parent=1.0000 → 0.4584",
+    "  Parent propagation: Root > ToDoList_Version 1 > Work > Thesis: Solve AI > Task 3: own=0.5609 × parent=1.0000 → 0.5609",
+    "  Parent propagation: Root > ToDoList_Version 1 > Work > TA: Intro to ML (CS480) > Task 1: own=0.5666 × parent=1.0000 → 0.5666",
+    "  Parent propagation: Root > ToDoList_Version 1 > Work > TA: Intro to ML (CS480) > Task 2: own=0.5605 × parent=1.0000 → 0.5605",
+    "  Parent propagation: Root > ToDoList_Version 1 > Work > Probabilistic Graphical Models Assignment > Task 1: own=0.4376 × parent=1.0000 → 0.4376",
+    "  Parent propagation: Root > ToDoList_Version 1 > Work > Probabilistic Graphical Models Assignment > Task 2: own=0.5071 × parent=1.0000 → 0.5071",
+    "\n=== Parent Score Propagation: 10 nodes updated ===",
+    "\n=== Threshold Filtering (threshold=0.05) ===",
+    "  Filtered: 10 → 10 nodes",
+    "\n=== Final Filtering (top_k=5) ===",
+    "  After top_k: 10 → 5 nodes",
+    "\nFinal result: 5 nodes (sorted by score)",
+    "⏱️  Query execution time: 29.34ms"
+  ],
+  "traversal_steps": [
+    {
+      "step_index": 0,
+      "step_query": "Root",
+      "action": "root_match",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "type": "root"
+        }
+      ],
+      "nodes_after": [
+        {
+          "type": "Root",
+          "path": "Root"
+        }
+      ],
+      "details": {
+        "matched": true
+      }
+    },
+    {
+      "step_index": 1,
+      "step_query": "ToDoList_Version[1]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root",
+          "name": "Root",
+          "type": "Root",
+          "score": 1.0,
+          "node_id": 6129819440
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > ToDoList_Version 1",
+          "name": "ToDoList_Version 1",
+          "type": "ToDoList_Version",
+          "score": 1.0,
+          "node_id": 6129818880
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "ToDoList_Version",
+            "index": {
+              "start": 1,
+              "type": "single",
+              "span": {
+                "start": 22,
+                "end": 25
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 25
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 25
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 2,
+      "step_query": "Category[atom(content =~ \"Work\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 5,
+      "nodes_before": [
+        {
+          "path": "Root > ToDoList_Version 1",
+          "name": "ToDoList_Version 1",
+          "type": "ToDoList_Version",
+          "score": 1.0,
+          "node_id": 6129818880
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > ToDoList_Version 1 > Work",
+          "name": "Work",
+          "type": "Category",
+          "score": 1.0,
+          "node_id": 6129819360
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Personal",
+          "name": "Personal",
+          "type": "Category",
+          "score": 0.0,
+          "node_id": 6129817840
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Household",
+          "name": "Household",
+          "type": "Category",
+          "score": 0.0,
+          "node_id": 6130151920
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Health",
+          "name": "Health",
+          "type": "Category",
+          "score": 0.0,
+          "node_id": 6129925984
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Learning",
+          "name": "Learning",
+          "type": "Category",
+          "score": 0.0,
+          "node_id": 6129833904
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Category",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "Work",
+              "operator": "=~",
+              "span": {
+                "start": 35,
+                "end": 58
+              }
+            },
+            "predicate_str": "atom(content =~ \"Work\")",
+            "span": {
+              "start": 26,
+              "end": 59
+            }
+          },
+          "span": {
+            "start": 26,
+            "end": 59
+          }
+        },
+        "found_count": 5,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"Work\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "Work",
+              "operator": "=~",
+              "span": {
+                "start": 35,
+                "end": 58
+              }
+            },
+            "config": {
+              "top_k": 5,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 6129819360,
+                "node_name": "Work",
+                "node_type": "Category",
+                "final_score": 1.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Work",
+                    "query_value": "Work",
+                    "matched": true,
+                    "score": 1.0
+                  }
+                ]
+              },
+              {
+                "node_idx": 1,
+                "node_id": 6129817840,
+                "node_name": "Personal",
+                "node_type": "Category",
+                "final_score": 0.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Personal",
+                    "query_value": "Work",
+                    "matched": false,
+                    "score": 0.0
+                  }
+                ]
+              },
+              {
+                "node_idx": 2,
+                "node_id": 6130151920,
+                "node_name": "Household",
+                "node_type": "Category",
+                "final_score": 0.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Household",
+                    "query_value": "Work",
+                    "matched": false,
+                    "score": 0.0
+                  }
+                ]
+              },
+              {
+                "node_idx": 3,
+                "node_id": 6129925984,
+                "node_name": "Health",
+                "node_type": "Category",
+                "final_score": 0.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Health",
+                    "query_value": "Work",
+                    "matched": false,
+                    "score": 0.0
+                  }
+                ]
+              },
+              {
+                "node_idx": 4,
+                "node_id": 6129833904,
+                "node_name": "Learning",
+                "node_type": "Category",
+                "final_score": 0.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Learning",
+                    "query_value": "Work",
+                    "matched": false,
+                    "score": 0.0
+                  }
+                ]
+              }
+            ],
+            "batch_scoring": {
+              "exact_match": true,
+              "matched_attribute": "name",
+              "query_value": "Work",
+              "matched_count": 1
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 0,
+                "score": 1.0,
+                "name": "Work"
+              },
+              {
+                "idx": 1,
+                "score": 0.0,
+                "name": "Personal"
+              },
+              {
+                "idx": 2,
+                "score": 0.0,
+                "name": "Household"
+              },
+              {
+                "idx": 3,
+                "score": 0.0,
+                "name": "Health"
+              },
+              {
+                "idx": 4,
+                "score": 0.0,
+                "name": "Learning"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "step_index": 3,
+      "step_query": "Project",
+      "action": "node_test_expr",
+      "nodes_before_count": 5,
+      "nodes_after_count": 4,
+      "nodes_before": [
+        {
+          "path": "Root > ToDoList_Version 1 > Work",
+          "name": "Work",
+          "type": "Category",
+          "score": 1.0,
+          "node_id": 6129819360
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Personal",
+          "name": "Personal",
+          "type": "Category",
+          "score": 0.0,
+          "node_id": 6129817840
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Household",
+          "name": "Household",
+          "type": "Category",
+          "score": 0.0,
+          "node_id": 6130151920
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Health",
+          "name": "Health",
+          "type": "Category",
+          "score": 0.0,
+          "node_id": 6129925984
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Learning",
+          "name": "Learning",
+          "type": "Category",
+          "score": 0.0,
+          "node_id": 6129833904
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > ToDoList_Version 1 > Work > NSERC CGS-M Grant Application",
+          "name": "NSERC CGS-M Grant Application",
+          "type": "Project",
+          "score": 1.0,
+          "node_id": 6129820640
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Work > Thesis: Solve AI",
+          "name": "Thesis: Solve AI",
+          "type": "Project",
+          "score": 1.0,
+          "node_id": 6129826080
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Work > TA: Intro to ML (CS480)",
+          "name": "TA: Intro to ML (CS480)",
+          "type": "Project",
+          "score": 1.0,
+          "node_id": 6129814160
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Work > Probabilistic Graphical Models Assignment",
+          "name": "Probabilistic Graphical Models Assignment",
+          "type": "Project",
+          "score": 1.0,
+          "node_id": 6129816880
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Project",
+            "span": {
+              "start": 60,
+              "end": 67
+            }
+          },
+          "span": {
+            "start": 60,
+            "end": 67
+          }
+        },
+        "found_count": 4,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 4,
+      "step_query": "Task[atom(content =~ \"high priority\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 4,
+      "nodes_after_count": 10,
+      "nodes_before": [
+        {
+          "path": "Root > ToDoList_Version 1 > Work > NSERC CGS-M Grant Application",
+          "name": "NSERC CGS-M Grant Application",
+          "type": "Project",
+          "score": 1.0,
+          "node_id": 6129820640
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Work > Thesis: Solve AI",
+          "name": "Thesis: Solve AI",
+          "type": "Project",
+          "score": 1.0,
+          "node_id": 6129826080
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Work > TA: Intro to ML (CS480)",
+          "name": "TA: Intro to ML (CS480)",
+          "type": "Project",
+          "score": 1.0,
+          "node_id": 6129814160
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Work > Probabilistic Graphical Models Assignment",
+          "name": "Probabilistic Graphical Models Assignment",
+          "type": "Project",
+          "score": 1.0,
+          "node_id": 6129816880
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > ToDoList_Version 1 > Work > NSERC CGS-M Grant Application > Task 1",
+          "name": "Task",
+          "type": "Task",
+          "score": 0.48977211117744446,
+          "node_id": 6129812160
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Work > NSERC CGS-M Grant Application > Task 2",
+          "name": "Task",
+          "type": "Task",
+          "score": 0.5229365825653076,
+          "node_id": 6129812320
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Work > NSERC CGS-M Grant Application > Task 3",
+          "name": "Task",
+          "type": "Task",
+          "score": 0.4877883195877075,
+          "node_id": 6129819760
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Work > Thesis: Solve AI > Task 1",
+          "name": "Task",
+          "type": "Task",
+          "score": 0.48367124795913696,
+          "node_id": 6129821760
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Work > Thesis: Solve AI > Task 2",
+          "name": "Task",
+          "type": "Task",
+          "score": 0.4584287405014038,
+          "node_id": 6129815360
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Work > Thesis: Solve AI > Task 3",
+          "name": "Task",
+          "type": "Task",
+          "score": 0.5608669519424438,
+          "node_id": 6129819520
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Work > TA: Intro to ML (CS480) > Task 1",
+          "name": "Task",
+          "type": "Task",
+          "score": 0.566573441028595,
+          "node_id": 6129826800
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Work > TA: Intro to ML (CS480) > Task 2",
+          "name": "Task",
+          "type": "Task",
+          "score": 0.5604569911956787,
+          "node_id": 6129822880
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Work > Probabilistic Graphical Models Assignment > Task 1",
+          "name": "Task",
+          "type": "Task",
+          "score": 0.43760985136032104,
+          "node_id": 6129821920
+        },
+        {
+          "path": "Root > ToDoList_Version 1 > Work > Probabilistic Graphical Models Assignment > Task 2",
+          "name": "Task",
+          "type": "Task",
+          "score": 0.507131814956665,
+          "node_id": 6129825200
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Task",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "high priority",
+              "operator": "=~",
+              "span": {
+                "start": 73,
+                "end": 105
+              }
+            },
+            "predicate_str": "atom(content =~ \"high priority\")",
+            "span": {
+              "start": 68,
+              "end": 106
+            }
+          },
+          "span": {
+            "start": 68,
+            "end": 106
+          }
+        },
+        "found_count": 10,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"high priority\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "high priority",
+              "operator": "=~",
+              "span": {
+                "start": 73,
+                "end": 105
+              }
+            },
+            "config": {
+              "top_k": 5,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 6129812160,
+                "node_name": "Task",
+                "node_type": "Task",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "high priority",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 105
+                      }
+                    },
+                    "score": 0.48977211117744446,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.48977211117744446
+              },
+              {
+                "node_idx": 1,
+                "node_id": 6129812320,
+                "node_name": "Task",
+                "node_type": "Task",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "high priority",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 105
+                      }
+                    },
+                    "score": 0.5229365825653076,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.5229365825653076
+              },
+              {
+                "node_idx": 2,
+                "node_id": 6129819760,
+                "node_name": "Task",
+                "node_type": "Task",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "high priority",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 105
+                      }
+                    },
+                    "score": 0.4877883195877075,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.4877883195877075
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "high priority"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "high priority",
+                  "num_descriptions": 3,
+                  "call_time_ms": 24.7
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 3
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 1,
+                "score": 0.5229365825653076,
+                "name": "Task"
+              },
+              {
+                "idx": 0,
+                "score": 0.48977211117744446,
+                "name": "Task"
+              },
+              {
+                "idx": 2,
+                "score": 0.4877883195877075,
+                "name": "Task"
+              }
+            ]
+          },
+          {
+            "predicate": "atom(content =~ \"high priority\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "high priority",
+              "operator": "=~",
+              "span": {
+                "start": 73,
+                "end": 105
+              }
+            },
+            "config": {
+              "top_k": 5,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 6129821760,
+                "node_name": "Task",
+                "node_type": "Task",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "high priority",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 105
+                      }
+                    },
+                    "score": 0.48367124795913696,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.48367124795913696
+              },
+              {
+                "node_idx": 1,
+                "node_id": 6129815360,
+                "node_name": "Task",
+                "node_type": "Task",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "high priority",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 105
+                      }
+                    },
+                    "score": 0.4584287405014038,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.4584287405014038
+              },
+              {
+                "node_idx": 2,
+                "node_id": 6129819520,
+                "node_name": "Task",
+                "node_type": "Task",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "high priority",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 105
+                      }
+                    },
+                    "score": 0.5608669519424438,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.5608669519424438
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "high priority"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "high priority",
+                  "num_descriptions": 3,
+                  "call_time_ms": 2.15
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 3
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 2,
+                "score": 0.5608669519424438,
+                "name": "Task"
+              },
+              {
+                "idx": 0,
+                "score": 0.48367124795913696,
+                "name": "Task"
+              },
+              {
+                "idx": 1,
+                "score": 0.4584287405014038,
+                "name": "Task"
+              }
+            ]
+          },
+          {
+            "predicate": "atom(content =~ \"high priority\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "high priority",
+              "operator": "=~",
+              "span": {
+                "start": 73,
+                "end": 105
+              }
+            },
+            "config": {
+              "top_k": 5,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 6129826800,
+                "node_name": "Task",
+                "node_type": "Task",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "high priority",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 105
+                      }
+                    },
+                    "score": 0.566573441028595,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.566573441028595
+              },
+              {
+                "node_idx": 1,
+                "node_id": 6129822880,
+                "node_name": "Task",
+                "node_type": "Task",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "high priority",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 105
+                      }
+                    },
+                    "score": 0.5604569911956787,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.5604569911956787
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "high priority"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "high priority",
+                  "num_descriptions": 2,
+                  "call_time_ms": 0.67
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 2
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 0,
+                "score": 0.566573441028595,
+                "name": "Task"
+              },
+              {
+                "idx": 1,
+                "score": 0.5604569911956787,
+                "name": "Task"
+              }
+            ]
+          },
+          {
+            "predicate": "atom(content =~ \"high priority\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "high priority",
+              "operator": "=~",
+              "span": {
+                "start": 73,
+                "end": 105
+              }
+            },
+            "config": {
+              "top_k": 5,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 6129821920,
+                "node_name": "Task",
+                "node_type": "Task",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "high priority",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 105
+                      }
+                    },
+                    "score": 0.43760985136032104,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.43760985136032104
+              },
+              {
+                "node_idx": 1,
+                "node_id": 6129825200,
+                "node_name": "Task",
+                "node_type": "Task",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "high priority",
+                      "operator": "=~",
+                      "span": {
+                        "start": 73,
+                        "end": 105
+                      }
+                    },
+                    "score": 0.507131814956665,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.507131814956665
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "high priority"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "high priority",
+                  "num_descriptions": 2,
+                  "call_time_ms": 0.52
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 2
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 1,
+                "score": 0.507131814956665,
+                "name": "Task"
+              },
+              {
+                "idx": 0,
+                "score": 0.43760985136032104,
+                "name": "Task"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "scoring_traces": [
+    {
+      "predicate": "atom(content =~ \"Work\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "Work",
+        "operator": "=~",
+        "span": {
+          "start": 35,
+          "end": 58
+        }
+      },
+      "config": {
+        "top_k": 5,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 6129819360,
+          "node_name": "Work",
+          "node_type": "Category",
+          "final_score": 1.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Work",
+              "query_value": "Work",
+              "matched": true,
+              "score": 1.0
+            }
+          ]
+        },
+        {
+          "node_idx": 1,
+          "node_id": 6129817840,
+          "node_name": "Personal",
+          "node_type": "Category",
+          "final_score": 0.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Personal",
+              "query_value": "Work",
+              "matched": false,
+              "score": 0.0
+            }
+          ]
+        },
+        {
+          "node_idx": 2,
+          "node_id": 6130151920,
+          "node_name": "Household",
+          "node_type": "Category",
+          "final_score": 0.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Household",
+              "query_value": "Work",
+              "matched": false,
+              "score": 0.0
+            }
+          ]
+        },
+        {
+          "node_idx": 3,
+          "node_id": 6129925984,
+          "node_name": "Health",
+          "node_type": "Category",
+          "final_score": 0.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Health",
+              "query_value": "Work",
+              "matched": false,
+              "score": 0.0
+            }
+          ]
+        },
+        {
+          "node_idx": 4,
+          "node_id": 6129833904,
+          "node_name": "Learning",
+          "node_type": "Category",
+          "final_score": 0.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Learning",
+              "query_value": "Work",
+              "matched": false,
+              "score": 0.0
+            }
+          ]
+        }
+      ],
+      "batch_scoring": {
+        "exact_match": true,
+        "matched_attribute": "name",
+        "query_value": "Work",
+        "matched_count": 1
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 0,
+          "score": 1.0,
+          "name": "Work"
+        },
+        {
+          "idx": 1,
+          "score": 0.0,
+          "name": "Personal"
+        },
+        {
+          "idx": 2,
+          "score": 0.0,
+          "name": "Household"
+        },
+        {
+          "idx": 3,
+          "score": 0.0,
+          "name": "Health"
+        },
+        {
+          "idx": 4,
+          "score": 0.0,
+          "name": "Learning"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"high priority\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "high priority",
+        "operator": "=~",
+        "span": {
+          "start": 73,
+          "end": 105
+        }
+      },
+      "config": {
+        "top_k": 5,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 6129812160,
+          "node_name": "Task",
+          "node_type": "Task",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "high priority",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 105
+                }
+              },
+              "score": 0.48977211117744446,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.48977211117744446
+        },
+        {
+          "node_idx": 1,
+          "node_id": 6129812320,
+          "node_name": "Task",
+          "node_type": "Task",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "high priority",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 105
+                }
+              },
+              "score": 0.5229365825653076,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.5229365825653076
+        },
+        {
+          "node_idx": 2,
+          "node_id": 6129819760,
+          "node_name": "Task",
+          "node_type": "Task",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "high priority",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 105
+                }
+              },
+              "score": 0.4877883195877075,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.4877883195877075
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "high priority"
+        ],
+        "per_value_stats": [
+          {
+            "value": "high priority",
+            "num_descriptions": 3,
+            "call_time_ms": 24.7
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 3
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 1,
+          "score": 0.5229365825653076,
+          "name": "Task"
+        },
+        {
+          "idx": 0,
+          "score": 0.48977211117744446,
+          "name": "Task"
+        },
+        {
+          "idx": 2,
+          "score": 0.4877883195877075,
+          "name": "Task"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"high priority\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "high priority",
+        "operator": "=~",
+        "span": {
+          "start": 73,
+          "end": 105
+        }
+      },
+      "config": {
+        "top_k": 5,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 6129821760,
+          "node_name": "Task",
+          "node_type": "Task",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "high priority",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 105
+                }
+              },
+              "score": 0.48367124795913696,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.48367124795913696
+        },
+        {
+          "node_idx": 1,
+          "node_id": 6129815360,
+          "node_name": "Task",
+          "node_type": "Task",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "high priority",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 105
+                }
+              },
+              "score": 0.4584287405014038,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.4584287405014038
+        },
+        {
+          "node_idx": 2,
+          "node_id": 6129819520,
+          "node_name": "Task",
+          "node_type": "Task",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "high priority",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 105
+                }
+              },
+              "score": 0.5608669519424438,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.5608669519424438
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "high priority"
+        ],
+        "per_value_stats": [
+          {
+            "value": "high priority",
+            "num_descriptions": 3,
+            "call_time_ms": 2.15
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 3
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 2,
+          "score": 0.5608669519424438,
+          "name": "Task"
+        },
+        {
+          "idx": 0,
+          "score": 0.48367124795913696,
+          "name": "Task"
+        },
+        {
+          "idx": 1,
+          "score": 0.4584287405014038,
+          "name": "Task"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"high priority\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "high priority",
+        "operator": "=~",
+        "span": {
+          "start": 73,
+          "end": 105
+        }
+      },
+      "config": {
+        "top_k": 5,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 6129826800,
+          "node_name": "Task",
+          "node_type": "Task",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "high priority",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 105
+                }
+              },
+              "score": 0.566573441028595,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.566573441028595
+        },
+        {
+          "node_idx": 1,
+          "node_id": 6129822880,
+          "node_name": "Task",
+          "node_type": "Task",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "high priority",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 105
+                }
+              },
+              "score": 0.5604569911956787,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.5604569911956787
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "high priority"
+        ],
+        "per_value_stats": [
+          {
+            "value": "high priority",
+            "num_descriptions": 2,
+            "call_time_ms": 0.67
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 2
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 0,
+          "score": 0.566573441028595,
+          "name": "Task"
+        },
+        {
+          "idx": 1,
+          "score": 0.5604569911956787,
+          "name": "Task"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"high priority\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "high priority",
+        "operator": "=~",
+        "span": {
+          "start": 73,
+          "end": 105
+        }
+      },
+      "config": {
+        "top_k": 5,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 6129821920,
+          "node_name": "Task",
+          "node_type": "Task",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "high priority",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 105
+                }
+              },
+              "score": 0.43760985136032104,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.43760985136032104
+        },
+        {
+          "node_idx": 1,
+          "node_id": 6129825200,
+          "node_name": "Task",
+          "node_type": "Task",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "high priority",
+                "operator": "=~",
+                "span": {
+                  "start": 73,
+                  "end": 105
+                }
+              },
+              "score": 0.507131814956665,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.507131814956665
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "high priority"
+        ],
+        "per_value_stats": [
+          {
+            "value": "high priority",
+            "num_descriptions": 2,
+            "call_time_ms": 0.52
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 2
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 1,
+          "score": 0.507131814956665,
+          "name": "Task"
+        },
+        {
+          "idx": 0,
+          "score": 0.43760985136032104,
+          "name": "Task"
+        }
+      ]
+    }
+  ],
+  "scoring_details": {
+    "step_scores": [
+      {
+        "step_index": 0,
+        "predicate": "atom(content =~ \"Work\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "Work",
+          "operator": "=~",
+          "span": {
+            "start": 35,
+            "end": 58
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 6129819360,
+            "node_name": "Work",
+            "node_type": "Category",
+            "final_score": 1.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Work",
+                "query_value": "Work",
+                "matched": true,
+                "score": 1.0
+              }
+            ]
+          },
+          {
+            "node_idx": 1,
+            "node_id": 6129817840,
+            "node_name": "Personal",
+            "node_type": "Category",
+            "final_score": 0.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Personal",
+                "query_value": "Work",
+                "matched": false,
+                "score": 0.0
+              }
+            ]
+          },
+          {
+            "node_idx": 2,
+            "node_id": 6130151920,
+            "node_name": "Household",
+            "node_type": "Category",
+            "final_score": 0.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Household",
+                "query_value": "Work",
+                "matched": false,
+                "score": 0.0
+              }
+            ]
+          },
+          {
+            "node_idx": 3,
+            "node_id": 6129925984,
+            "node_name": "Health",
+            "node_type": "Category",
+            "final_score": 0.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Health",
+                "query_value": "Work",
+                "matched": false,
+                "score": 0.0
+              }
+            ]
+          },
+          {
+            "node_idx": 4,
+            "node_id": 6129833904,
+            "node_name": "Learning",
+            "node_type": "Category",
+            "final_score": 0.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Learning",
+                "query_value": "Work",
+                "matched": false,
+                "score": 0.0
+              }
+            ]
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 0,
+            "score": 1.0,
+            "name": "Work"
+          },
+          {
+            "idx": 1,
+            "score": 0.0,
+            "name": "Personal"
+          },
+          {
+            "idx": 2,
+            "score": 0.0,
+            "name": "Household"
+          },
+          {
+            "idx": 3,
+            "score": 0.0,
+            "name": "Health"
+          },
+          {
+            "idx": 4,
+            "score": 0.0,
+            "name": "Learning"
+          }
+        ]
+      },
+      {
+        "step_index": 1,
+        "predicate": "atom(content =~ \"high priority\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "high priority",
+          "operator": "=~",
+          "span": {
+            "start": 73,
+            "end": 105
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 6129812160,
+            "node_name": "Task",
+            "node_type": "Task",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "high priority",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 105
+                  }
+                },
+                "score": 0.48977211117744446,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.48977211117744446
+          },
+          {
+            "node_idx": 1,
+            "node_id": 6129812320,
+            "node_name": "Task",
+            "node_type": "Task",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "high priority",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 105
+                  }
+                },
+                "score": 0.5229365825653076,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.5229365825653076
+          },
+          {
+            "node_idx": 2,
+            "node_id": 6129819760,
+            "node_name": "Task",
+            "node_type": "Task",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "high priority",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 105
+                  }
+                },
+                "score": 0.4877883195877075,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.4877883195877075
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 1,
+            "score": 0.5229365825653076,
+            "name": "Task"
+          },
+          {
+            "idx": 0,
+            "score": 0.48977211117744446,
+            "name": "Task"
+          },
+          {
+            "idx": 2,
+            "score": 0.4877883195877075,
+            "name": "Task"
+          }
+        ]
+      },
+      {
+        "step_index": 2,
+        "predicate": "atom(content =~ \"high priority\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "high priority",
+          "operator": "=~",
+          "span": {
+            "start": 73,
+            "end": 105
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 6129821760,
+            "node_name": "Task",
+            "node_type": "Task",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "high priority",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 105
+                  }
+                },
+                "score": 0.48367124795913696,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.48367124795913696
+          },
+          {
+            "node_idx": 1,
+            "node_id": 6129815360,
+            "node_name": "Task",
+            "node_type": "Task",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "high priority",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 105
+                  }
+                },
+                "score": 0.4584287405014038,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.4584287405014038
+          },
+          {
+            "node_idx": 2,
+            "node_id": 6129819520,
+            "node_name": "Task",
+            "node_type": "Task",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "high priority",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 105
+                  }
+                },
+                "score": 0.5608669519424438,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.5608669519424438
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 2,
+            "score": 0.5608669519424438,
+            "name": "Task"
+          },
+          {
+            "idx": 0,
+            "score": 0.48367124795913696,
+            "name": "Task"
+          },
+          {
+            "idx": 1,
+            "score": 0.4584287405014038,
+            "name": "Task"
+          }
+        ]
+      },
+      {
+        "step_index": 3,
+        "predicate": "atom(content =~ \"high priority\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "high priority",
+          "operator": "=~",
+          "span": {
+            "start": 73,
+            "end": 105
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 6129826800,
+            "node_name": "Task",
+            "node_type": "Task",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "high priority",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 105
+                  }
+                },
+                "score": 0.566573441028595,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.566573441028595
+          },
+          {
+            "node_idx": 1,
+            "node_id": 6129822880,
+            "node_name": "Task",
+            "node_type": "Task",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "high priority",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 105
+                  }
+                },
+                "score": 0.5604569911956787,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.5604569911956787
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 0,
+            "score": 0.566573441028595,
+            "name": "Task"
+          },
+          {
+            "idx": 1,
+            "score": 0.5604569911956787,
+            "name": "Task"
+          }
+        ]
+      },
+      {
+        "step_index": 4,
+        "predicate": "atom(content =~ \"high priority\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "high priority",
+          "operator": "=~",
+          "span": {
+            "start": 73,
+            "end": 105
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 6129821920,
+            "node_name": "Task",
+            "node_type": "Task",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "high priority",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 105
+                  }
+                },
+                "score": 0.43760985136032104,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.43760985136032104
+          },
+          {
+            "node_idx": 1,
+            "node_id": 6129825200,
+            "node_name": "Task",
+            "node_type": "Task",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "high priority",
+                  "operator": "=~",
+                  "span": {
+                    "start": 73,
+                    "end": 105
+                  }
+                },
+                "score": 0.507131814956665,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.507131814956665
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 1,
+            "score": 0.507131814956665,
+            "name": "Task"
+          },
+          {
+            "idx": 0,
+            "score": 0.43760985136032104,
+            "name": "Task"
+          }
+        ]
+      }
+    ],
+    "score_fusion": {
+      "per_node": [
+        {
+          "node_path": "Root > ToDoList_Version 1 > Work > NSERC CGS-M Grant Application > Task 1",
+          "node_type": "Task",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Task[atom(content =~ \"high priority\")]",
+              "score": 0.48977211117744446
+            }
+          ],
+          "accumulated_product": 0.48977211117744446,
+          "final_score": 0.48977211068767235
+        },
+        {
+          "node_path": "Root > ToDoList_Version 1 > Work > NSERC CGS-M Grant Application > Task 2",
+          "node_type": "Task",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Task[atom(content =~ \"high priority\")]",
+              "score": 0.5229365825653076
+            }
+          ],
+          "accumulated_product": 0.5229365825653076,
+          "final_score": 0.522936582042371
+        },
+        {
+          "node_path": "Root > ToDoList_Version 1 > Work > NSERC CGS-M Grant Application > Task 3",
+          "node_type": "Task",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Task[atom(content =~ \"high priority\")]",
+              "score": 0.4877883195877075
+            }
+          ],
+          "accumulated_product": 0.4877883195877075,
+          "final_score": 0.4877883190999192
+        },
+        {
+          "node_path": "Root > ToDoList_Version 1 > Work > Thesis: Solve AI > Task 1",
+          "node_type": "Task",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Task[atom(content =~ \"high priority\")]",
+              "score": 0.48367124795913696
+            }
+          ],
+          "accumulated_product": 0.48367124795913696,
+          "final_score": 0.48367124747546575
+        },
+        {
+          "node_path": "Root > ToDoList_Version 1 > Work > Thesis: Solve AI > Task 2",
+          "node_type": "Task",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Task[atom(content =~ \"high priority\")]",
+              "score": 0.4584287405014038
+            }
+          ],
+          "accumulated_product": 0.4584287405014038,
+          "final_score": 0.45842874004297507
+        },
+        {
+          "node_path": "Root > ToDoList_Version 1 > Work > Thesis: Solve AI > Task 3",
+          "node_type": "Task",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Task[atom(content =~ \"high priority\")]",
+              "score": 0.5608669519424438
+            }
+          ],
+          "accumulated_product": 0.5608669519424438,
+          "final_score": 0.5608669513815769
+        },
+        {
+          "node_path": "Root > ToDoList_Version 1 > Work > TA: Intro to ML (CS480) > Task 1",
+          "node_type": "Task",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Task[atom(content =~ \"high priority\")]",
+              "score": 0.566573441028595
+            }
+          ],
+          "accumulated_product": 0.566573441028595,
+          "final_score": 0.5665734404620215
+        },
+        {
+          "node_path": "Root > ToDoList_Version 1 > Work > TA: Intro to ML (CS480) > Task 2",
+          "node_type": "Task",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Task[atom(content =~ \"high priority\")]",
+              "score": 0.5604569911956787
+            }
+          ],
+          "accumulated_product": 0.5604569911956787,
+          "final_score": 0.5604569906352217
+        },
+        {
+          "node_path": "Root > ToDoList_Version 1 > Work > Probabilistic Graphical Models Assignment > Task 1",
+          "node_type": "Task",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Task[atom(content =~ \"high priority\")]",
+              "score": 0.43760985136032104
+            }
+          ],
+          "accumulated_product": 0.43760985136032104,
+          "final_score": 0.4376098509227112
+        },
+        {
+          "node_path": "Root > ToDoList_Version 1 > Work > Probabilistic Graphical Models Assignment > Task 2",
+          "node_type": "Task",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Task[atom(content =~ \"high priority\")]",
+              "score": 0.507131814956665
+            }
+          ],
+          "accumulated_product": 0.507131814956665,
+          "final_score": 0.5071318144495333
+        }
+      ]
+    }
+  },
+  "final_filtering": {
+    "before_filter_count": 10,
+    "threshold": 0.05,
+    "top_k": 5,
+    "after_filter_count": 5,
+    "filtered_nodes": [
+      {
+        "path": "Root > ToDoList_Version 1 > Work > TA: Intro to ML (CS480) > Task 1",
+        "score": 0.5665734404620215,
+        "type": "Task",
+        "own_score": 0.566573441028595,
+        "parent_score": 0.999999999
+      },
+      {
+        "path": "Root > ToDoList_Version 1 > Work > Thesis: Solve AI > Task 3",
+        "score": 0.5608669513815769,
+        "type": "Task",
+        "own_score": 0.5608669519424438,
+        "parent_score": 0.999999999
+      },
+      {
+        "path": "Root > ToDoList_Version 1 > Work > TA: Intro to ML (CS480) > Task 2",
+        "score": 0.5604569906352217,
+        "type": "Task",
+        "own_score": 0.5604569911956787,
+        "parent_score": 0.999999999
+      },
+      {
+        "path": "Root > ToDoList_Version 1 > Work > NSERC CGS-M Grant Application > Task 2",
+        "score": 0.522936582042371,
+        "type": "Task",
+        "own_score": 0.5229365825653076,
+        "parent_score": 0.999999999
+      },
+      {
+        "path": "Root > ToDoList_Version 1 > Work > Probabilistic Graphical Models Assignment > Task 2",
+        "score": 0.5071318144495333,
+        "type": "Task",
+        "own_score": 0.507131814956665,
+        "parent_score": 0.999999999
+      }
+    ]
+  },
+  "matched_nodes": [
+    {
+      "tree_path": "Root > ToDoList_Version 1 > Work > TA: Intro to ML (CS480) > Task 1",
+      "score": 0.5665734404620215,
+      "node": {
+        "type": "Task",
+        "attributes": {},
+        "description": "Grade midterm exams (Batch 1 of 3)",
+        "status": "Todo",
+        "priority": "Medium",
+        "due_date": "2026-02-14"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Work",
+          "predicate": "atom(content =~ \"Work\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Work\") on Work (Score: 1.00)"
+        },
+        {
+          "node_name": "Task 1",
+          "predicate": "atom(content =~ \"high priority\")",
+          "score": 0.566573441028595,
+          "description": "Matched atom(content =~ \"high priority\") on Task 1 (Score: 0.57)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > ToDoList_Version 1 > Work > Thesis: Solve AI > Task 3",
+      "score": 0.5608669513815769,
+      "node": {
+        "type": "Task",
+        "attributes": {},
+        "description": "Weekly meeting prep: Slides on experiments",
+        "status": "Todo",
+        "priority": "High",
+        "due_date": "2026-02-10"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Work",
+          "predicate": "atom(content =~ \"Work\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Work\") on Work (Score: 1.00)"
+        },
+        {
+          "node_name": "Task 3",
+          "predicate": "atom(content =~ \"high priority\")",
+          "score": 0.5608669519424438,
+          "description": "Matched atom(content =~ \"high priority\") on Task 3 (Score: 0.56)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > ToDoList_Version 1 > Work > TA: Intro to ML (CS480) > Task 2",
+      "score": 0.5604569906352217,
+      "node": {
+        "type": "Task",
+        "attributes": {},
+        "description": "Hold office hours",
+        "status": "Done",
+        "priority": "Low",
+        "due_date": "2026-02-08"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Work",
+          "predicate": "atom(content =~ \"Work\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Work\") on Work (Score: 1.00)"
+        },
+        {
+          "node_name": "Task 2",
+          "predicate": "atom(content =~ \"high priority\")",
+          "score": 0.5604569911956787,
+          "description": "Matched atom(content =~ \"high priority\") on Task 2 (Score: 0.56)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > ToDoList_Version 1 > Work > NSERC CGS-M Grant Application > Task 2",
+      "score": 0.522936582042371,
+      "node": {
+        "type": "Task",
+        "attributes": {},
+        "description": "Request reference letters",
+        "status": "Done",
+        "priority": "High",
+        "due_date": "2025-10-30"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Work",
+          "predicate": "atom(content =~ \"Work\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Work\") on Work (Score: 1.00)"
+        },
+        {
+          "node_name": "Task 2",
+          "predicate": "atom(content =~ \"high priority\")",
+          "score": 0.5229365825653076,
+          "description": "Matched atom(content =~ \"high priority\") on Task 2 (Score: 0.52)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > ToDoList_Version 1 > Work > Probabilistic Graphical Models Assignment > Task 2",
+      "score": 0.5071318144495333,
+      "node": {
+        "type": "Task",
+        "attributes": {},
+        "description": "Tune hyperparameters",
+        "status": "Todo",
+        "priority": "Medium",
+        "due_date": "2026-02-20"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Work",
+          "predicate": "atom(content =~ \"Work\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Work\") on Work (Score: 1.00)"
+        },
+        {
+          "node_name": "Task 2",
+          "predicate": "atom(content =~ \"high priority\")",
+          "score": 0.507131814956665,
+          "description": "Matched atom(content =~ \"high priority\") on Task 2 (Score: 0.51)"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total_steps": 5,
+    "total_scoring_calls": 5,
+    "matched_count": 5,
+    "execution_time_ms": 29.335540952160954,
+    "has_score_fusion": true,
+    "num_nodes_before_filter": 10,
+    "num_nodes_after_filter": 5
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "session_id": "version_query4",
+  "queries": [
+    {
+      "query_id": "Query_001",
+      "user_query": "What tasks were in the Mental Health project before it was deleted? Check previous versions.",
+      "selected_nodes": [
+        "Root > ToDoList_Version 2 > Health > Mental Health"
+      ],
+      "related_nodes": [
+        "Mental Health",
+        "Mental Health > Task"
+      ],
+      "downstream_task_result": {
+        "operation": "READ",
+        "success": true,
+        "version_used": 2,
+        "reasoning": "The user asked for tasks in the 'Mental Health' project before it was deleted. Version 3 deleted this project, so I retrieved the content from Version 2.",
+        "token_usage": {
+          "prompt_tokens": 27732,
+          "completion_tokens": 191,
+          "total_tokens": 27923
+        },
+        "error": null
+      },
+      "execution_time_ms": 2438.55
+    },
+    {
+      "query_id": "Query_002",
+      "user_query": "What was the previous due date for the Rust programming task? Check previous versions.",
+      "selected_nodes": [
+        "Root > ToDoList_Version 3 > Learning > Skill Acquisition > Task 1"
+      ],
+      "related_nodes": [
+        "Task"
+      ],
+      "downstream_task_result": {
+        "operation": "READ",
+        "success": true,
+        "version_used": 3,
+        "reasoning": "The user asked for the previous due date of the Rust programming task. Version 4 updated this date to 2026-06-01. I checked Version 3 to find the value prior to that change.",
+        "token_usage": {
+          "prompt_tokens": 27731,
+          "completion_tokens": 178,
+          "total_tokens": 27909
+        },
+        "error": null
+      },
+      "execution_time_ms": 2166.68
+    }
+  ],
+  "final_tree_version": 1,
+  "total_execution_time_ms": 4605.22
+}

@@ -1,0 +1,57 @@
+{
+  "session_id": "mt1_version_queries",
+  "queries": [
+    {
+      "query_id": "Query_001",
+      "user_query": "What was flight time before we updated it? Check the previous itinerary versions",
+      "selected_nodes": [
+        "Root > Itinerary_Version 2 > Day 10 > YYZ Departure"
+      ],
+      "related_nodes": [
+        "YYZ Departure"
+      ],
+      "downstream_task_result": {
+        "operation": "READ",
+        "success": true,
+        "version_used": 2,
+        "reasoning": "The user asked for the flight time before the update. Version 3 updated the departure to 10:00 PM. Version 2 contains the original departure time.",
+        "token_usage": {
+          "prompt_tokens": 32609,
+          "completion_tokens": 216,
+          "total_tokens": 32825
+        },
+        "error": null
+      },
+      "execution_time_ms": 2616.64
+    },
+    {
+      "query_id": "Query_002",
+      "user_query": "What work events did we cancel? Check the previous itinerary versions",
+      "selected_nodes": [
+        "Root > Itinerary_Version 4 > Day 5 > Client Check-in Call",
+        "Root > Itinerary_Version 4 > Day 5 > Email Catch-up Block",
+        "Root > Itinerary_Version 4 > Day 5 > Networking Drinks"
+      ],
+      "related_nodes": [
+        "results > Client Check-in Call",
+        "results > Email Catch-up Block",
+        "results > Networking Drinks"
+      ],
+      "downstream_task_result": {
+        "operation": "READ",
+        "success": true,
+        "version_used": 5,
+        "reasoning": "The user asked to identify canceled work events by checking previous versions. Version 5 explicitly removed three work-related nodes from Day 5 as noted in its patch_info and conversation_history.",
+        "token_usage": {
+          "prompt_tokens": 32607,
+          "completion_tokens": 547,
+          "total_tokens": 33154
+        },
+        "error": null
+      },
+      "execution_time_ms": 4163.8
+    }
+  ],
+  "final_tree_version": 1,
+  "total_execution_time_ms": 6780.44
+}

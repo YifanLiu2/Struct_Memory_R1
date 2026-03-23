@@ -1,0 +1,4073 @@
+{
+  "timestamp": "20260220_002949_055299",
+  "query": "/Root/MealPlan_Version[2]/Person[atom(content =~ \"Mother\")]/Day/Dinner/Meal[atom(content =~ \"fish\")]",
+  "canonical_query": "/Root/MealPlan_Version[2]/Person[content =~ \"Mother\"]/Day/Dinner/Meal[content =~ \"fish\"]",
+  "data_file": "tree.xml",
+  "execution_time_ms": 86.860875133425,
+  "parsed_ast": {
+    "steps": [
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Root",
+            "span": {
+              "start": 1,
+              "end": 5
+            }
+          },
+          "span": {
+            "start": 1,
+            "end": 5
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "MealPlan_Version",
+            "index": {
+              "start": 2,
+              "type": "single",
+              "span": {
+                "start": 22,
+                "end": 25
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 25
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 25
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Person",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "Mother",
+              "operator": "=~",
+              "span": {
+                "start": 33,
+                "end": 58
+              }
+            },
+            "predicate_str": "atom(content =~ \"Mother\")",
+            "span": {
+              "start": 26,
+              "end": 59
+            }
+          },
+          "span": {
+            "start": 26,
+            "end": 59
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Day",
+            "span": {
+              "start": 60,
+              "end": 63
+            }
+          },
+          "span": {
+            "start": 60,
+            "end": 63
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Dinner",
+            "span": {
+              "start": 64,
+              "end": 70
+            }
+          },
+          "span": {
+            "start": 64,
+            "end": 70
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Meal",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "fish",
+              "operator": "=~",
+              "span": {
+                "start": 76,
+                "end": 99
+              }
+            },
+            "predicate_str": "atom(content =~ \"fish\")",
+            "span": {
+              "start": 71,
+              "end": 100
+            }
+          },
+          "span": {
+            "start": 71,
+            "end": 100
+          }
+        }
+      }
+    ],
+    "global_index": null
+  },
+  "parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: MealPlan_Version[2]\n├── Step 2: Person[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"Mother\")\n├── Step 3: Day\n├── Step 4: Dinner\n└── Step 5: Meal[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"fish\")",
+  "canonical_parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: MealPlan_Version[2]\n├── Step 2: Person[content =~ \"Mother\"]\n├── Step 3: Day\n├── Step 4: Dinner\n└── Step 5: Meal[content =~ \"fish\"]",
+  "execution_log": [
+    "[20260220_002949_055299] Executing query: /Root/MealPlan_Version[2]/Person[atom(content =~ \"Mother\")]/Day/Dinner/Meal[atom(content =~ \"fish\")]",
+    "Data file: tree.xml",
+    "Parsed steps: [Root, MealPlan_Version[2], Person[atom(content =~ \"Mother\")], Day, Dinner, Meal[atom(content =~ \"fish\")]]",
+    "",
+    "Query AST:\n├── Step 0: Root\n├── Step 1: MealPlan_Version[2]\n├── Step 2: Person[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"Mother\")\n├── Step 3: Day\n├── Step 4: Dinner\n└── Step 5: Meal[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"fish\")",
+    "\n--- Step 1: Root ---",
+    "Matched Root root",
+    "\n--- Step 2: MealPlan_Version[2] ---",
+    "Selected node at index 2 (0-based: 1)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 3: Person[atom(content =~ \"Mother\")] ---",
+    "Scoring predicate: atom(content =~ \"Mother\") (atomic values: ['Mother'])",
+    "  Node 0 (Father): score = 0.0000 (exact match)",
+    "  Node 1 (Mother): score = 1.0000 (exact match)",
+    "  Node 2 (Child): score = 0.0000 (exact match)",
+    "  Exact attribute match on @name: 1/3 nodes matched",
+    "After step: 3 nodes remaining",
+    "\n--- Step 4: Day ---",
+    "  Zero-score pruning: skipping 2 items (Father, Child)",
+    "After step: 7 nodes remaining",
+    "\n--- Step 5: Dinner ---",
+    "After step: 7 nodes remaining",
+    "\n--- Step 6: Meal[atom(content =~ \"fish\")] ---",
+    "Scoring predicate: atom(content =~ \"fish\") (atomic values: ['fish'])",
+    "  Collected 3 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 3 total descriptions",
+    "  Node 0 (Sheet-Pan Pork Dinner — Maple-Kissed Skillet): score = 0.1874",
+    "  Node 1 (Roast Chicken Dinner — Garden Veg Combo): score = 0.2675",
+    "  Node 2 (Teriyaki Chicken Dinner — Maple-Kissed Bake): score = 0.2073",
+    "Scoring predicate: atom(content =~ \"fish\") (atomic values: ['fish'])",
+    "  Collected 3 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 3 total descriptions",
+    "  Node 0 (Mapo Tofu with Steamed Rice): score = 0.1400",
+    "  Node 1 (Vietnamese Pho Bo (Beef Pho)): score = 0.1960",
+    "  Node 2 (Miso-Glazed Black Cod with Bok Choy): score = 0.2263",
+    "Scoring predicate: atom(content =~ \"fish\") (atomic values: ['fish'])",
+    "  Collected 3 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 3 total descriptions",
+    "  Node 0 (Chicken Fajita Bowl — Berry Boost Plate): score = 0.2916",
+    "  Node 1 (Stuffed Bell Peppers — Classic Wrap): score = 0.2287",
+    "  Node 2 (Baked Salmon Plate — Berry Boost Twist): score = 0.2936",
+    "Scoring predicate: atom(content =~ \"fish\") (atomic values: ['fish'])",
+    "  Collected 3 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 3 total descriptions",
+    "  Node 0 (Vegetable Soup & Bread — Garden Veg Variation): score = 0.2049",
+    "  Node 1 (Stuffed Bell Peppers — Citrus Fresh Combo): score = 0.2104",
+    "  Node 2 (DIY Taco Night — Garden Veg Wrap): score = 0.1884",
+    "Scoring predicate: atom(content =~ \"fish\") (atomic values: ['fish'])",
+    "  Collected 3 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 3 total descriptions",
+    "  Node 0 (Chicken Stir-Fry — Garlic-Ginger Skillet): score = 0.1910",
+    "  Node 1 (Teriyaki Chicken Dinner — Berry Boost Set): score = 0.1739",
+    "  Node 2 (Tofu Veggie Curry — Smoky Bake): score = 0.1835",
+    "Scoring predicate: atom(content =~ \"fish\") (atomic values: ['fish'])",
+    "  Collected 3 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 3 total descriptions",
+    "  Node 0 (Sheet-Pan Pork Dinner — Classic Set): score = 0.2041",
+    "  Node 1 (Baked Cod Plate — Sesame Twist): score = 0.3086",
+    "  Node 2 (Turkey Meatballs & Pasta — Mild-Spice Set): score = 0.2605",
+    "Scoring predicate: atom(content =~ \"fish\") (atomic values: ['fish'])",
+    "  Collected 3 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 3 total descriptions",
+    "  Node 0 (Vegetable Soup & Bread — Citrus Fresh Twist): score = 0.2203",
+    "  Node 1 (Roast Chicken Dinner — Smoky Plate): score = 0.2065",
+    "  Node 2 (Sheet-Pan Pork Dinner — Berry Boost Skillet): score = 0.1854",
+    "After step: 21 nodes remaining",
+    "\n=== Score Fusion ===",
+    "  Root > MealPlan_Version 2 > Mother > Day 1 > Dinner > Sheet-Pan Pork Dinner — Maple-Kissed Skillet: product=0.1874 → score=0.1874",
+    "  Root > MealPlan_Version 2 > Mother > Day 1 > Dinner > Roast Chicken Dinner — Garden Veg Combo: product=0.2675 → score=0.2675",
+    "  Root > MealPlan_Version 2 > Mother > Day 1 > Dinner > Teriyaki Chicken Dinner — Maple-Kissed Bake: product=0.2073 → score=0.2073",
+    "  Root > MealPlan_Version 2 > Mother > Day 2 > Dinner > Mapo Tofu with Steamed Rice: product=0.1400 → score=0.1400",
+    "  Root > MealPlan_Version 2 > Mother > Day 2 > Dinner > Vietnamese Pho Bo (Beef Pho): product=0.1960 → score=0.1960",
+    "  Root > MealPlan_Version 2 > Mother > Day 2 > Dinner > Miso-Glazed Black Cod with Bok Choy: product=0.2263 → score=0.2263",
+    "  Root > MealPlan_Version 2 > Mother > Day 3 > Dinner > Chicken Fajita Bowl — Berry Boost Plate: product=0.2916 → score=0.2916",
+    "  Root > MealPlan_Version 2 > Mother > Day 3 > Dinner > Stuffed Bell Peppers — Classic Wrap: product=0.2287 → score=0.2287",
+    "  Root > MealPlan_Version 2 > Mother > Day 3 > Dinner > Baked Salmon Plate — Berry Boost Twist: product=0.2936 → score=0.2936",
+    "  Root > MealPlan_Version 2 > Mother > Day 4 > Dinner > Vegetable Soup & Bread — Garden Veg Variation: product=0.2049 → score=0.2049",
+    "  Root > MealPlan_Version 2 > Mother > Day 4 > Dinner > Stuffed Bell Peppers — Citrus Fresh Combo: product=0.2104 → score=0.2104",
+    "  Root > MealPlan_Version 2 > Mother > Day 4 > Dinner > DIY Taco Night — Garden Veg Wrap: product=0.1884 → score=0.1884",
+    "  Root > MealPlan_Version 2 > Mother > Day 5 > Dinner > Chicken Stir-Fry — Garlic-Ginger Skillet: product=0.1910 → score=0.1910",
+    "  Root > MealPlan_Version 2 > Mother > Day 5 > Dinner > Teriyaki Chicken Dinner — Berry Boost Set: product=0.1739 → score=0.1739",
+    "  Root > MealPlan_Version 2 > Mother > Day 5 > Dinner > Tofu Veggie Curry — Smoky Bake: product=0.1835 → score=0.1835",
+    "  Root > MealPlan_Version 2 > Mother > Day 6 > Dinner > Sheet-Pan Pork Dinner — Classic Set: product=0.2041 → score=0.2041",
+    "  Root > MealPlan_Version 2 > Mother > Day 6 > Dinner > Baked Cod Plate — Sesame Twist: product=0.3086 → score=0.3086",
+    "  Root > MealPlan_Version 2 > Mother > Day 6 > Dinner > Turkey Meatballs & Pasta — Mild-Spice Set: product=0.2605 → score=0.2605",
+    "  Root > MealPlan_Version 2 > Mother > Day 7 > Dinner > Vegetable Soup & Bread — Citrus Fresh Twist: product=0.2203 → score=0.2203",
+    "  Root > MealPlan_Version 2 > Mother > Day 7 > Dinner > Roast Chicken Dinner — Smoky Plate: product=0.2065 → score=0.2065",
+    "  Root > MealPlan_Version 2 > Mother > Day 7 > Dinner > Sheet-Pan Pork Dinner — Berry Boost Skillet: product=0.1854 → score=0.1854",
+    "  Parent propagation: Root > MealPlan_Version 2 > Mother > Day 1 > Dinner > Sheet-Pan Pork Dinner — Maple-Kissed Skillet: own=0.1874 × parent=1.0000 → 0.1874",
+    "  Parent propagation: Root > MealPlan_Version 2 > Mother > Day 1 > Dinner > Roast Chicken Dinner — Garden Veg Combo: own=0.2675 × parent=1.0000 → 0.2675",
+    "  Parent propagation: Root > MealPlan_Version 2 > Mother > Day 1 > Dinner > Teriyaki Chicken Dinner — Maple-Kissed Bake: own=0.2073 × parent=1.0000 → 0.2073",
+    "  Parent propagation: Root > MealPlan_Version 2 > Mother > Day 2 > Dinner > Mapo Tofu with Steamed Rice: own=0.1400 × parent=1.0000 → 0.1400",
+    "  Parent propagation: Root > MealPlan_Version 2 > Mother > Day 2 > Dinner > Vietnamese Pho Bo (Beef Pho): own=0.1960 × parent=1.0000 → 0.1960",
+    "  Parent propagation: Root > MealPlan_Version 2 > Mother > Day 2 > Dinner > Miso-Glazed Black Cod with Bok Choy: own=0.2263 × parent=1.0000 → 0.2263",
+    "  Parent propagation: Root > MealPlan_Version 2 > Mother > Day 3 > Dinner > Chicken Fajita Bowl — Berry Boost Plate: own=0.2916 × parent=1.0000 → 0.2916",
+    "  Parent propagation: Root > MealPlan_Version 2 > Mother > Day 3 > Dinner > Stuffed Bell Peppers — Classic Wrap: own=0.2287 × parent=1.0000 → 0.2287",
+    "  Parent propagation: Root > MealPlan_Version 2 > Mother > Day 3 > Dinner > Baked Salmon Plate — Berry Boost Twist: own=0.2936 × parent=1.0000 → 0.2936",
+    "  Parent propagation: Root > MealPlan_Version 2 > Mother > Day 4 > Dinner > Vegetable Soup & Bread — Garden Veg Variation: own=0.2049 × parent=1.0000 → 0.2049",
+    "  Parent propagation: Root > MealPlan_Version 2 > Mother > Day 4 > Dinner > Stuffed Bell Peppers — Citrus Fresh Combo: own=0.2104 × parent=1.0000 → 0.2104",
+    "  Parent propagation: Root > MealPlan_Version 2 > Mother > Day 4 > Dinner > DIY Taco Night — Garden Veg Wrap: own=0.1884 × parent=1.0000 → 0.1884",
+    "  Parent propagation: Root > MealPlan_Version 2 > Mother > Day 5 > Dinner > Chicken Stir-Fry — Garlic-Ginger Skillet: own=0.1910 × parent=1.0000 → 0.1910",
+    "  Parent propagation: Root > MealPlan_Version 2 > Mother > Day 5 > Dinner > Teriyaki Chicken Dinner — Berry Boost Set: own=0.1739 × parent=1.0000 → 0.1739",
+    "  Parent propagation: Root > MealPlan_Version 2 > Mother > Day 5 > Dinner > Tofu Veggie Curry — Smoky Bake: own=0.1835 × parent=1.0000 → 0.1835",
+    "  Parent propagation: Root > MealPlan_Version 2 > Mother > Day 6 > Dinner > Sheet-Pan Pork Dinner — Classic Set: own=0.2041 × parent=1.0000 → 0.2041",
+    "  Parent propagation: Root > MealPlan_Version 2 > Mother > Day 6 > Dinner > Baked Cod Plate — Sesame Twist: own=0.3086 × parent=1.0000 → 0.3086",
+    "  Parent propagation: Root > MealPlan_Version 2 > Mother > Day 6 > Dinner > Turkey Meatballs & Pasta — Mild-Spice Set: own=0.2605 × parent=1.0000 → 0.2605",
+    "  Parent propagation: Root > MealPlan_Version 2 > Mother > Day 7 > Dinner > Vegetable Soup & Bread — Citrus Fresh Twist: own=0.2203 × parent=1.0000 → 0.2203",
+    "  Parent propagation: Root > MealPlan_Version 2 > Mother > Day 7 > Dinner > Roast Chicken Dinner — Smoky Plate: own=0.2065 × parent=1.0000 → 0.2065",
+    "  Parent propagation: Root > MealPlan_Version 2 > Mother > Day 7 > Dinner > Sheet-Pan Pork Dinner — Berry Boost Skillet: own=0.1854 × parent=1.0000 → 0.1854",
+    "\n=== Parent Score Propagation: 21 nodes updated ===",
+    "\n=== Threshold Filtering (threshold=0.05) ===",
+    "  Filtered: 21 → 21 nodes",
+    "\n=== Final Filtering (top_k=5) ===",
+    "  After top_k: 21 → 5 nodes",
+    "\nFinal result: 5 nodes (sorted by score)",
+    "⏱️  Query execution time: 86.86ms"
+  ],
+  "traversal_steps": [
+    {
+      "step_index": 0,
+      "step_query": "Root",
+      "action": "root_match",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "type": "root"
+        }
+      ],
+      "nodes_after": [
+        {
+          "type": "Root",
+          "path": "Root"
+        }
+      ],
+      "details": {
+        "matched": true
+      }
+    },
+    {
+      "step_index": 1,
+      "step_query": "MealPlan_Version[2]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root",
+          "name": "Root",
+          "type": "Root",
+          "score": 1.0,
+          "node_id": 6436705744
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > MealPlan_Version 2",
+          "name": "MealPlan_Version 2",
+          "type": "MealPlan_Version",
+          "score": 1.0,
+          "node_id": 6439902464
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "MealPlan_Version",
+            "index": {
+              "start": 2,
+              "type": "single",
+              "span": {
+                "start": 22,
+                "end": 25
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 25
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 25
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 2,
+      "step_query": "Person[atom(content =~ \"Mother\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 3,
+      "nodes_before": [
+        {
+          "path": "Root > MealPlan_Version 2",
+          "name": "MealPlan_Version 2",
+          "type": "MealPlan_Version",
+          "score": 1.0,
+          "node_id": 6439902464
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > MealPlan_Version 2 > Father",
+          "name": "Father",
+          "type": "Person",
+          "score": 0.0,
+          "node_id": 6439902704
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Mother",
+          "name": "Mother",
+          "type": "Person",
+          "score": 1.0,
+          "node_id": 6436505056
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Child",
+          "name": "Child",
+          "type": "Person",
+          "score": 0.0,
+          "node_id": 6436463024
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Person",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "Mother",
+              "operator": "=~",
+              "span": {
+                "start": 33,
+                "end": 58
+              }
+            },
+            "predicate_str": "atom(content =~ \"Mother\")",
+            "span": {
+              "start": 26,
+              "end": 59
+            }
+          },
+          "span": {
+            "start": 26,
+            "end": 59
+          }
+        },
+        "found_count": 3,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"Mother\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "Mother",
+              "operator": "=~",
+              "span": {
+                "start": 33,
+                "end": 58
+              }
+            },
+            "config": {
+              "top_k": 5,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 6439902704,
+                "node_name": "Father",
+                "node_type": "Person",
+                "final_score": 0.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Father",
+                    "query_value": "Mother",
+                    "matched": false,
+                    "score": 0.0
+                  }
+                ]
+              },
+              {
+                "node_idx": 1,
+                "node_id": 6436505056,
+                "node_name": "Mother",
+                "node_type": "Person",
+                "final_score": 1.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Mother",
+                    "query_value": "Mother",
+                    "matched": true,
+                    "score": 1.0
+                  }
+                ]
+              },
+              {
+                "node_idx": 2,
+                "node_id": 6436463024,
+                "node_name": "Child",
+                "node_type": "Person",
+                "final_score": 0.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Child",
+                    "query_value": "Mother",
+                    "matched": false,
+                    "score": 0.0
+                  }
+                ]
+              }
+            ],
+            "batch_scoring": {
+              "exact_match": true,
+              "matched_attribute": "name",
+              "query_value": "Mother",
+              "matched_count": 1
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 1,
+                "score": 1.0,
+                "name": "Mother"
+              },
+              {
+                "idx": 0,
+                "score": 0.0,
+                "name": "Father"
+              },
+              {
+                "idx": 2,
+                "score": 0.0,
+                "name": "Child"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "step_index": 3,
+      "step_query": "Day",
+      "action": "node_test_expr",
+      "nodes_before_count": 3,
+      "nodes_after_count": 7,
+      "nodes_before": [
+        {
+          "path": "Root > MealPlan_Version 2 > Father",
+          "name": "Father",
+          "type": "Person",
+          "score": 0.0,
+          "node_id": 6439902704
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Mother",
+          "name": "Mother",
+          "type": "Person",
+          "score": 1.0,
+          "node_id": 6436505056
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Child",
+          "name": "Child",
+          "type": "Person",
+          "score": 0.0,
+          "node_id": 6436463024
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > MealPlan_Version 2 > Mother > Day 1",
+          "name": "Day 1",
+          "type": "Day",
+          "score": 1.0,
+          "node_id": 6436505136
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Mother > Day 2",
+          "name": "Day 2",
+          "type": "Day",
+          "score": 1.0,
+          "node_id": 6436511376
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Mother > Day 3",
+          "name": "Day 3",
+          "type": "Day",
+          "score": 1.0,
+          "node_id": 6436276080
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Mother > Day 4",
+          "name": "Day 4",
+          "type": "Day",
+          "score": 1.0,
+          "node_id": 6436284160
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Mother > Day 5",
+          "name": "Day 5",
+          "type": "Day",
+          "score": 1.0,
+          "node_id": 6436390528
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Mother > Day 6",
+          "name": "Day 6",
+          "type": "Day",
+          "score": 1.0,
+          "node_id": 6436398368
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Mother > Day 7",
+          "name": "Day 7",
+          "type": "Day",
+          "score": 1.0,
+          "node_id": 6436455184
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Day",
+            "span": {
+              "start": 60,
+              "end": 63
+            }
+          },
+          "span": {
+            "start": 60,
+            "end": 63
+          }
+        },
+        "found_count": 7,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 4,
+      "step_query": "Dinner",
+      "action": "node_test_expr",
+      "nodes_before_count": 7,
+      "nodes_after_count": 7,
+      "nodes_before": [
+        {
+          "path": "Root > MealPlan_Version 2 > Mother > Day 1",
+          "name": "Day 1",
+          "type": "Day",
+          "score": 1.0,
+          "node_id": 6436505136
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Mother > Day 2",
+          "name": "Day 2",
+          "type": "Day",
+          "score": 1.0,
+          "node_id": 6436511376
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Mother > Day 3",
+          "name": "Day 3",
+          "type": "Day",
+          "score": 1.0,
+          "node_id": 6436276080
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Mother > Day 4",
+          "name": "Day 4",
+          "type": "Day",
+          "score": 1.0,
+          "node_id": 6436284160
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Mother > Day 5",
+          "name": "Day 5",
+          "type": "Day",
+          "score": 1.0,
+          "node_id": 6436390528
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Mother > Day 6",
+          "name": "Day 6",
+          "type": "Day",
+          "score": 1.0,
+          "node_id": 6436398368
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Mother > Day 7",
+          "name": "Day 7",
+          "type": "Day",
+          "score": 1.0,
+          "node_id": 6436455184
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > MealPlan_Version 2 > Mother > Day 1 > Dinner",
+          "name": "Dinner",
+          "type": "Dinner",
+          "score": 1.0,
+          "node_id": 6436508896
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Mother > Day 2 > Dinner",
+          "name": "Dinner",
+          "type": "Dinner",
+          "score": 1.0,
+          "node_id": 6436518016
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Mother > Day 3 > Dinner",
+          "name": "Dinner",
+          "type": "Dinner",
+          "score": 1.0,
+          "node_id": 6436281520
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Mother > Day 4 > Dinner",
+          "name": "Dinner",
+          "type": "Dinner",
+          "score": 1.0,
+          "node_id": 6436289520
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Mother > Day 5 > Dinner",
+          "name": "Dinner",
+          "type": "Dinner",
+          "score": 1.0,
+          "node_id": 6436395808
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Mother > Day 6 > Dinner",
+          "name": "Dinner",
+          "type": "Dinner",
+          "score": 1.0,
+          "node_id": 6436403488
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Mother > Day 7 > Dinner",
+          "name": "Dinner",
+          "type": "Dinner",
+          "score": 1.0,
+          "node_id": 6436460624
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Dinner",
+            "span": {
+              "start": 64,
+              "end": 70
+            }
+          },
+          "span": {
+            "start": 64,
+            "end": 70
+          }
+        },
+        "found_count": 7,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 5,
+      "step_query": "Meal[atom(content =~ \"fish\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 7,
+      "nodes_after_count": 21,
+      "nodes_before": [
+        {
+          "path": "Root > MealPlan_Version 2 > Mother > Day 1 > Dinner",
+          "name": "Dinner",
+          "type": "Dinner",
+          "score": 1.0,
+          "node_id": 6436508896
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Mother > Day 2 > Dinner",
+          "name": "Dinner",
+          "type": "Dinner",
+          "score": 1.0,
+          "node_id": 6436518016
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Mother > Day 3 > Dinner",
+          "name": "Dinner",
+          "type": "Dinner",
+          "score": 1.0,
+          "node_id": 6436281520
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Mother > Day 4 > Dinner",
+          "name": "Dinner",
+          "type": "Dinner",
+          "score": 1.0,
+          "node_id": 6436289520
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Mother > Day 5 > Dinner",
+          "name": "Dinner",
+          "type": "Dinner",
+          "score": 1.0,
+          "node_id": 6436395808
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Mother > Day 6 > Dinner",
+          "name": "Dinner",
+          "type": "Dinner",
+          "score": 1.0,
+          "node_id": 6436403488
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Mother > Day 7 > Dinner",
+          "name": "Dinner",
+          "type": "Dinner",
+          "score": 1.0,
+          "node_id": 6436460624
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > MealPlan_Version 2 > Mother > Day 1 > Dinner > Sheet-Pan Pork Dinner — Maple-Kissed Skillet",
+          "name": "Sheet-Pan Pork Dinner — Maple-Kissed Skillet",
+          "type": "Meal",
+          "score": 0.18737226724624634,
+          "node_id": 6436508976
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Mother > Day 1 > Dinner > Roast Chicken Dinner — Garden Veg Combo",
+          "name": "Roast Chicken Dinner — Garden Veg Combo",
+          "type": "Meal",
+          "score": 0.26754510402679443,
+          "node_id": 6436509776
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Mother > Day 1 > Dinner > Teriyaki Chicken Dinner — Maple-Kissed Bake",
+          "name": "Teriyaki Chicken Dinner — Maple-Kissed Bake",
+          "type": "Meal",
+          "score": 0.20726031064987183,
+          "node_id": 6436510576
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Mother > Day 2 > Dinner > Mapo Tofu with Steamed Rice",
+          "name": "Mapo Tofu with Steamed Rice",
+          "type": "Meal",
+          "score": 0.14003783464431763,
+          "node_id": 6436518096
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Mother > Day 2 > Dinner > Vietnamese Pho Bo (Beef Pho)",
+          "name": "Vietnamese Pho Bo (Beef Pho)",
+          "type": "Meal",
+          "score": 0.1960342526435852,
+          "node_id": 6436519296
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Mother > Day 2 > Dinner > Miso-Glazed Black Cod with Bok Choy",
+          "name": "Miso-Glazed Black Cod with Bok Choy",
+          "type": "Meal",
+          "score": 0.22634698450565338,
+          "node_id": 6436274880
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Mother > Day 3 > Dinner > Chicken Fajita Bowl — Berry Boost Plate",
+          "name": "Chicken Fajita Bowl — Berry Boost Plate",
+          "type": "Meal",
+          "score": 0.2916025221347809,
+          "node_id": 6436281600
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Mother > Day 3 > Dinner > Stuffed Bell Peppers — Classic Wrap",
+          "name": "Stuffed Bell Peppers — Classic Wrap",
+          "type": "Meal",
+          "score": 0.22874416410923004,
+          "node_id": 6436282480
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Mother > Day 3 > Dinner > Baked Salmon Plate — Berry Boost Twist",
+          "name": "Baked Salmon Plate — Berry Boost Twist",
+          "type": "Meal",
+          "score": 0.29360508918762207,
+          "node_id": 6436283360
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Mother > Day 4 > Dinner > Vegetable Soup & Bread — Garden Veg Variation",
+          "name": "Vegetable Soup & Bread — Garden Veg Variation",
+          "type": "Meal",
+          "score": 0.2048797607421875,
+          "node_id": 6436289600
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Mother > Day 4 > Dinner > Stuffed Bell Peppers — Citrus Fresh Combo",
+          "name": "Stuffed Bell Peppers — Citrus Fresh Combo",
+          "type": "Meal",
+          "score": 0.21035821735858917,
+          "node_id": 6436290320
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Mother > Day 4 > Dinner > DIY Taco Night — Garden Veg Wrap",
+          "name": "DIY Taco Night — Garden Veg Wrap",
+          "type": "Meal",
+          "score": 0.1884113848209381,
+          "node_id": 6436389568
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Mother > Day 5 > Dinner > Chicken Stir-Fry — Garlic-Ginger Skillet",
+          "name": "Chicken Stir-Fry — Garlic-Ginger Skillet",
+          "type": "Meal",
+          "score": 0.19100362062454224,
+          "node_id": 6436395888
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Mother > Day 5 > Dinner > Teriyaki Chicken Dinner — Berry Boost Set",
+          "name": "Teriyaki Chicken Dinner — Berry Boost Set",
+          "type": "Meal",
+          "score": 0.17392925918102264,
+          "node_id": 6436396768
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Mother > Day 5 > Dinner > Tofu Veggie Curry — Smoky Bake",
+          "name": "Tofu Veggie Curry — Smoky Bake",
+          "type": "Meal",
+          "score": 0.18350014090538025,
+          "node_id": 6436397568
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Mother > Day 6 > Dinner > Sheet-Pan Pork Dinner — Classic Set",
+          "name": "Sheet-Pan Pork Dinner — Classic Set",
+          "type": "Meal",
+          "score": 0.20408380031585693,
+          "node_id": 6436403568
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Mother > Day 6 > Dinner > Baked Cod Plate — Sesame Twist",
+          "name": "Baked Cod Plate — Sesame Twist",
+          "type": "Meal",
+          "score": 0.3085711598396301,
+          "node_id": 6436404368
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Mother > Day 6 > Dinner > Turkey Meatballs & Pasta — Mild-Spice Set",
+          "name": "Turkey Meatballs & Pasta — Mild-Spice Set",
+          "type": "Meal",
+          "score": 0.2605096995830536,
+          "node_id": 6436405168
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Mother > Day 7 > Dinner > Vegetable Soup & Bread — Citrus Fresh Twist",
+          "name": "Vegetable Soup & Bread — Citrus Fresh Twist",
+          "type": "Meal",
+          "score": 0.2202787697315216,
+          "node_id": 6436460704
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Mother > Day 7 > Dinner > Roast Chicken Dinner — Smoky Plate",
+          "name": "Roast Chicken Dinner — Smoky Plate",
+          "type": "Meal",
+          "score": 0.2065175473690033,
+          "node_id": 6436461424
+        },
+        {
+          "path": "Root > MealPlan_Version 2 > Mother > Day 7 > Dinner > Sheet-Pan Pork Dinner — Berry Boost Skillet",
+          "name": "Sheet-Pan Pork Dinner — Berry Boost Skillet",
+          "type": "Meal",
+          "score": 0.18543076515197754,
+          "node_id": 6436462224
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Meal",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "fish",
+              "operator": "=~",
+              "span": {
+                "start": 76,
+                "end": 99
+              }
+            },
+            "predicate_str": "atom(content =~ \"fish\")",
+            "span": {
+              "start": 71,
+              "end": 100
+            }
+          },
+          "span": {
+            "start": 71,
+            "end": 100
+          }
+        },
+        "found_count": 21,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"fish\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "fish",
+              "operator": "=~",
+              "span": {
+                "start": 76,
+                "end": 99
+              }
+            },
+            "config": {
+              "top_k": 5,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 6436508976,
+                "node_name": "Sheet-Pan Pork Dinner — Maple-Kissed Skillet",
+                "node_type": "Meal",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "fish",
+                      "operator": "=~",
+                      "span": {
+                        "start": 76,
+                        "end": 99
+                      }
+                    },
+                    "score": 0.18737226724624634,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.18737226724624634
+              },
+              {
+                "node_idx": 1,
+                "node_id": 6436509776,
+                "node_name": "Roast Chicken Dinner — Garden Veg Combo",
+                "node_type": "Meal",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "fish",
+                      "operator": "=~",
+                      "span": {
+                        "start": 76,
+                        "end": 99
+                      }
+                    },
+                    "score": 0.26754510402679443,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.26754510402679443
+              },
+              {
+                "node_idx": 2,
+                "node_id": 6436510576,
+                "node_name": "Teriyaki Chicken Dinner — Maple-Kissed Bake",
+                "node_type": "Meal",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "fish",
+                      "operator": "=~",
+                      "span": {
+                        "start": 76,
+                        "end": 99
+                      }
+                    },
+                    "score": 0.20726031064987183,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.20726031064987183
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "fish"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "fish",
+                  "num_descriptions": 3,
+                  "call_time_ms": 20.82
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 3
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 1,
+                "score": 0.26754510402679443,
+                "name": "Roast Chicken Dinner — Garden Veg Combo"
+              },
+              {
+                "idx": 2,
+                "score": 0.20726031064987183,
+                "name": "Teriyaki Chicken Dinner — Maple-Kissed Bake"
+              },
+              {
+                "idx": 0,
+                "score": 0.18737226724624634,
+                "name": "Sheet-Pan Pork Dinner — Maple-Kissed Skillet"
+              }
+            ]
+          },
+          {
+            "predicate": "atom(content =~ \"fish\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "fish",
+              "operator": "=~",
+              "span": {
+                "start": 76,
+                "end": 99
+              }
+            },
+            "config": {
+              "top_k": 5,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 6436518096,
+                "node_name": "Mapo Tofu with Steamed Rice",
+                "node_type": "Meal",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "fish",
+                      "operator": "=~",
+                      "span": {
+                        "start": 76,
+                        "end": 99
+                      }
+                    },
+                    "score": 0.14003783464431763,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.14003783464431763
+              },
+              {
+                "node_idx": 1,
+                "node_id": 6436519296,
+                "node_name": "Vietnamese Pho Bo (Beef Pho)",
+                "node_type": "Meal",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "fish",
+                      "operator": "=~",
+                      "span": {
+                        "start": 76,
+                        "end": 99
+                      }
+                    },
+                    "score": 0.1960342526435852,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.1960342526435852
+              },
+              {
+                "node_idx": 2,
+                "node_id": 6436274880,
+                "node_name": "Miso-Glazed Black Cod with Bok Choy",
+                "node_type": "Meal",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "fish",
+                      "operator": "=~",
+                      "span": {
+                        "start": 76,
+                        "end": 99
+                      }
+                    },
+                    "score": 0.22634698450565338,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.22634698450565338
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "fish"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "fish",
+                  "num_descriptions": 3,
+                  "call_time_ms": 12.01
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 3
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 2,
+                "score": 0.22634698450565338,
+                "name": "Miso-Glazed Black Cod with Bok Choy"
+              },
+              {
+                "idx": 1,
+                "score": 0.1960342526435852,
+                "name": "Vietnamese Pho Bo (Beef Pho)"
+              },
+              {
+                "idx": 0,
+                "score": 0.14003783464431763,
+                "name": "Mapo Tofu with Steamed Rice"
+              }
+            ]
+          },
+          {
+            "predicate": "atom(content =~ \"fish\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "fish",
+              "operator": "=~",
+              "span": {
+                "start": 76,
+                "end": 99
+              }
+            },
+            "config": {
+              "top_k": 5,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 6436281600,
+                "node_name": "Chicken Fajita Bowl — Berry Boost Plate",
+                "node_type": "Meal",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "fish",
+                      "operator": "=~",
+                      "span": {
+                        "start": 76,
+                        "end": 99
+                      }
+                    },
+                    "score": 0.2916025221347809,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.2916025221347809
+              },
+              {
+                "node_idx": 1,
+                "node_id": 6436282480,
+                "node_name": "Stuffed Bell Peppers — Classic Wrap",
+                "node_type": "Meal",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "fish",
+                      "operator": "=~",
+                      "span": {
+                        "start": 76,
+                        "end": 99
+                      }
+                    },
+                    "score": 0.22874416410923004,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.22874416410923004
+              },
+              {
+                "node_idx": 2,
+                "node_id": 6436283360,
+                "node_name": "Baked Salmon Plate — Berry Boost Twist",
+                "node_type": "Meal",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "fish",
+                      "operator": "=~",
+                      "span": {
+                        "start": 76,
+                        "end": 99
+                      }
+                    },
+                    "score": 0.29360508918762207,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.29360508918762207
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "fish"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "fish",
+                  "num_descriptions": 3,
+                  "call_time_ms": 4.38
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 3
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 2,
+                "score": 0.29360508918762207,
+                "name": "Baked Salmon Plate — Berry Boost Twist"
+              },
+              {
+                "idx": 0,
+                "score": 0.2916025221347809,
+                "name": "Chicken Fajita Bowl — Berry Boost Plate"
+              },
+              {
+                "idx": 1,
+                "score": 0.22874416410923004,
+                "name": "Stuffed Bell Peppers — Classic Wrap"
+              }
+            ]
+          },
+          {
+            "predicate": "atom(content =~ \"fish\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "fish",
+              "operator": "=~",
+              "span": {
+                "start": 76,
+                "end": 99
+              }
+            },
+            "config": {
+              "top_k": 5,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 6436289600,
+                "node_name": "Vegetable Soup & Bread — Garden Veg Variation",
+                "node_type": "Meal",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "fish",
+                      "operator": "=~",
+                      "span": {
+                        "start": 76,
+                        "end": 99
+                      }
+                    },
+                    "score": 0.2048797607421875,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.2048797607421875
+              },
+              {
+                "node_idx": 1,
+                "node_id": 6436290320,
+                "node_name": "Stuffed Bell Peppers — Citrus Fresh Combo",
+                "node_type": "Meal",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "fish",
+                      "operator": "=~",
+                      "span": {
+                        "start": 76,
+                        "end": 99
+                      }
+                    },
+                    "score": 0.21035821735858917,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.21035821735858917
+              },
+              {
+                "node_idx": 2,
+                "node_id": 6436389568,
+                "node_name": "DIY Taco Night — Garden Veg Wrap",
+                "node_type": "Meal",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "fish",
+                      "operator": "=~",
+                      "span": {
+                        "start": 76,
+                        "end": 99
+                      }
+                    },
+                    "score": 0.1884113848209381,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.1884113848209381
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "fish"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "fish",
+                  "num_descriptions": 3,
+                  "call_time_ms": 4.51
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 3
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 1,
+                "score": 0.21035821735858917,
+                "name": "Stuffed Bell Peppers — Citrus Fresh Combo"
+              },
+              {
+                "idx": 0,
+                "score": 0.2048797607421875,
+                "name": "Vegetable Soup & Bread — Garden Veg Variation"
+              },
+              {
+                "idx": 2,
+                "score": 0.1884113848209381,
+                "name": "DIY Taco Night — Garden Veg Wrap"
+              }
+            ]
+          },
+          {
+            "predicate": "atom(content =~ \"fish\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "fish",
+              "operator": "=~",
+              "span": {
+                "start": 76,
+                "end": 99
+              }
+            },
+            "config": {
+              "top_k": 5,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 6436395888,
+                "node_name": "Chicken Stir-Fry — Garlic-Ginger Skillet",
+                "node_type": "Meal",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "fish",
+                      "operator": "=~",
+                      "span": {
+                        "start": 76,
+                        "end": 99
+                      }
+                    },
+                    "score": 0.19100362062454224,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.19100362062454224
+              },
+              {
+                "node_idx": 1,
+                "node_id": 6436396768,
+                "node_name": "Teriyaki Chicken Dinner — Berry Boost Set",
+                "node_type": "Meal",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "fish",
+                      "operator": "=~",
+                      "span": {
+                        "start": 76,
+                        "end": 99
+                      }
+                    },
+                    "score": 0.17392925918102264,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.17392925918102264
+              },
+              {
+                "node_idx": 2,
+                "node_id": 6436397568,
+                "node_name": "Tofu Veggie Curry — Smoky Bake",
+                "node_type": "Meal",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "fish",
+                      "operator": "=~",
+                      "span": {
+                        "start": 76,
+                        "end": 99
+                      }
+                    },
+                    "score": 0.18350014090538025,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.18350014090538025
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "fish"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "fish",
+                  "num_descriptions": 3,
+                  "call_time_ms": 2.82
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 3
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 0,
+                "score": 0.19100362062454224,
+                "name": "Chicken Stir-Fry — Garlic-Ginger Skillet"
+              },
+              {
+                "idx": 2,
+                "score": 0.18350014090538025,
+                "name": "Tofu Veggie Curry — Smoky Bake"
+              },
+              {
+                "idx": 1,
+                "score": 0.17392925918102264,
+                "name": "Teriyaki Chicken Dinner — Berry Boost Set"
+              }
+            ]
+          },
+          {
+            "predicate": "atom(content =~ \"fish\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "fish",
+              "operator": "=~",
+              "span": {
+                "start": 76,
+                "end": 99
+              }
+            },
+            "config": {
+              "top_k": 5,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 6436403568,
+                "node_name": "Sheet-Pan Pork Dinner — Classic Set",
+                "node_type": "Meal",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "fish",
+                      "operator": "=~",
+                      "span": {
+                        "start": 76,
+                        "end": 99
+                      }
+                    },
+                    "score": 0.20408380031585693,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.20408380031585693
+              },
+              {
+                "node_idx": 1,
+                "node_id": 6436404368,
+                "node_name": "Baked Cod Plate — Sesame Twist",
+                "node_type": "Meal",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "fish",
+                      "operator": "=~",
+                      "span": {
+                        "start": 76,
+                        "end": 99
+                      }
+                    },
+                    "score": 0.3085711598396301,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.3085711598396301
+              },
+              {
+                "node_idx": 2,
+                "node_id": 6436405168,
+                "node_name": "Turkey Meatballs & Pasta — Mild-Spice Set",
+                "node_type": "Meal",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "fish",
+                      "operator": "=~",
+                      "span": {
+                        "start": 76,
+                        "end": 99
+                      }
+                    },
+                    "score": 0.2605096995830536,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.2605096995830536
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "fish"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "fish",
+                  "num_descriptions": 3,
+                  "call_time_ms": 10.48
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 3
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 1,
+                "score": 0.3085711598396301,
+                "name": "Baked Cod Plate — Sesame Twist"
+              },
+              {
+                "idx": 2,
+                "score": 0.2605096995830536,
+                "name": "Turkey Meatballs & Pasta — Mild-Spice Set"
+              },
+              {
+                "idx": 0,
+                "score": 0.20408380031585693,
+                "name": "Sheet-Pan Pork Dinner — Classic Set"
+              }
+            ]
+          },
+          {
+            "predicate": "atom(content =~ \"fish\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "fish",
+              "operator": "=~",
+              "span": {
+                "start": 76,
+                "end": 99
+              }
+            },
+            "config": {
+              "top_k": 5,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 6436460704,
+                "node_name": "Vegetable Soup & Bread — Citrus Fresh Twist",
+                "node_type": "Meal",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "fish",
+                      "operator": "=~",
+                      "span": {
+                        "start": 76,
+                        "end": 99
+                      }
+                    },
+                    "score": 0.2202787697315216,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.2202787697315216
+              },
+              {
+                "node_idx": 1,
+                "node_id": 6436461424,
+                "node_name": "Roast Chicken Dinner — Smoky Plate",
+                "node_type": "Meal",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "fish",
+                      "operator": "=~",
+                      "span": {
+                        "start": 76,
+                        "end": 99
+                      }
+                    },
+                    "score": 0.2065175473690033,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.2065175473690033
+              },
+              {
+                "node_idx": 2,
+                "node_id": 6436462224,
+                "node_name": "Sheet-Pan Pork Dinner — Berry Boost Skillet",
+                "node_type": "Meal",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "fish",
+                      "operator": "=~",
+                      "span": {
+                        "start": 76,
+                        "end": 99
+                      }
+                    },
+                    "score": 0.18543076515197754,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.18543076515197754
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "fish"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "fish",
+                  "num_descriptions": 3,
+                  "call_time_ms": 18.9
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 3
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 0,
+                "score": 0.2202787697315216,
+                "name": "Vegetable Soup & Bread — Citrus Fresh Twist"
+              },
+              {
+                "idx": 1,
+                "score": 0.2065175473690033,
+                "name": "Roast Chicken Dinner — Smoky Plate"
+              },
+              {
+                "idx": 2,
+                "score": 0.18543076515197754,
+                "name": "Sheet-Pan Pork Dinner — Berry Boost Skillet"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "scoring_traces": [
+    {
+      "predicate": "atom(content =~ \"Mother\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "Mother",
+        "operator": "=~",
+        "span": {
+          "start": 33,
+          "end": 58
+        }
+      },
+      "config": {
+        "top_k": 5,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 6439902704,
+          "node_name": "Father",
+          "node_type": "Person",
+          "final_score": 0.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Father",
+              "query_value": "Mother",
+              "matched": false,
+              "score": 0.0
+            }
+          ]
+        },
+        {
+          "node_idx": 1,
+          "node_id": 6436505056,
+          "node_name": "Mother",
+          "node_type": "Person",
+          "final_score": 1.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Mother",
+              "query_value": "Mother",
+              "matched": true,
+              "score": 1.0
+            }
+          ]
+        },
+        {
+          "node_idx": 2,
+          "node_id": 6436463024,
+          "node_name": "Child",
+          "node_type": "Person",
+          "final_score": 0.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Child",
+              "query_value": "Mother",
+              "matched": false,
+              "score": 0.0
+            }
+          ]
+        }
+      ],
+      "batch_scoring": {
+        "exact_match": true,
+        "matched_attribute": "name",
+        "query_value": "Mother",
+        "matched_count": 1
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 1,
+          "score": 1.0,
+          "name": "Mother"
+        },
+        {
+          "idx": 0,
+          "score": 0.0,
+          "name": "Father"
+        },
+        {
+          "idx": 2,
+          "score": 0.0,
+          "name": "Child"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"fish\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "fish",
+        "operator": "=~",
+        "span": {
+          "start": 76,
+          "end": 99
+        }
+      },
+      "config": {
+        "top_k": 5,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 6436508976,
+          "node_name": "Sheet-Pan Pork Dinner — Maple-Kissed Skillet",
+          "node_type": "Meal",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "fish",
+                "operator": "=~",
+                "span": {
+                  "start": 76,
+                  "end": 99
+                }
+              },
+              "score": 0.18737226724624634,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.18737226724624634
+        },
+        {
+          "node_idx": 1,
+          "node_id": 6436509776,
+          "node_name": "Roast Chicken Dinner — Garden Veg Combo",
+          "node_type": "Meal",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "fish",
+                "operator": "=~",
+                "span": {
+                  "start": 76,
+                  "end": 99
+                }
+              },
+              "score": 0.26754510402679443,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.26754510402679443
+        },
+        {
+          "node_idx": 2,
+          "node_id": 6436510576,
+          "node_name": "Teriyaki Chicken Dinner — Maple-Kissed Bake",
+          "node_type": "Meal",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "fish",
+                "operator": "=~",
+                "span": {
+                  "start": 76,
+                  "end": 99
+                }
+              },
+              "score": 0.20726031064987183,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.20726031064987183
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "fish"
+        ],
+        "per_value_stats": [
+          {
+            "value": "fish",
+            "num_descriptions": 3,
+            "call_time_ms": 20.82
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 3
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 1,
+          "score": 0.26754510402679443,
+          "name": "Roast Chicken Dinner — Garden Veg Combo"
+        },
+        {
+          "idx": 2,
+          "score": 0.20726031064987183,
+          "name": "Teriyaki Chicken Dinner — Maple-Kissed Bake"
+        },
+        {
+          "idx": 0,
+          "score": 0.18737226724624634,
+          "name": "Sheet-Pan Pork Dinner — Maple-Kissed Skillet"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"fish\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "fish",
+        "operator": "=~",
+        "span": {
+          "start": 76,
+          "end": 99
+        }
+      },
+      "config": {
+        "top_k": 5,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 6436518096,
+          "node_name": "Mapo Tofu with Steamed Rice",
+          "node_type": "Meal",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "fish",
+                "operator": "=~",
+                "span": {
+                  "start": 76,
+                  "end": 99
+                }
+              },
+              "score": 0.14003783464431763,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.14003783464431763
+        },
+        {
+          "node_idx": 1,
+          "node_id": 6436519296,
+          "node_name": "Vietnamese Pho Bo (Beef Pho)",
+          "node_type": "Meal",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "fish",
+                "operator": "=~",
+                "span": {
+                  "start": 76,
+                  "end": 99
+                }
+              },
+              "score": 0.1960342526435852,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.1960342526435852
+        },
+        {
+          "node_idx": 2,
+          "node_id": 6436274880,
+          "node_name": "Miso-Glazed Black Cod with Bok Choy",
+          "node_type": "Meal",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "fish",
+                "operator": "=~",
+                "span": {
+                  "start": 76,
+                  "end": 99
+                }
+              },
+              "score": 0.22634698450565338,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.22634698450565338
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "fish"
+        ],
+        "per_value_stats": [
+          {
+            "value": "fish",
+            "num_descriptions": 3,
+            "call_time_ms": 12.01
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 3
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 2,
+          "score": 0.22634698450565338,
+          "name": "Miso-Glazed Black Cod with Bok Choy"
+        },
+        {
+          "idx": 1,
+          "score": 0.1960342526435852,
+          "name": "Vietnamese Pho Bo (Beef Pho)"
+        },
+        {
+          "idx": 0,
+          "score": 0.14003783464431763,
+          "name": "Mapo Tofu with Steamed Rice"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"fish\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "fish",
+        "operator": "=~",
+        "span": {
+          "start": 76,
+          "end": 99
+        }
+      },
+      "config": {
+        "top_k": 5,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 6436281600,
+          "node_name": "Chicken Fajita Bowl — Berry Boost Plate",
+          "node_type": "Meal",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "fish",
+                "operator": "=~",
+                "span": {
+                  "start": 76,
+                  "end": 99
+                }
+              },
+              "score": 0.2916025221347809,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.2916025221347809
+        },
+        {
+          "node_idx": 1,
+          "node_id": 6436282480,
+          "node_name": "Stuffed Bell Peppers — Classic Wrap",
+          "node_type": "Meal",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "fish",
+                "operator": "=~",
+                "span": {
+                  "start": 76,
+                  "end": 99
+                }
+              },
+              "score": 0.22874416410923004,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.22874416410923004
+        },
+        {
+          "node_idx": 2,
+          "node_id": 6436283360,
+          "node_name": "Baked Salmon Plate — Berry Boost Twist",
+          "node_type": "Meal",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "fish",
+                "operator": "=~",
+                "span": {
+                  "start": 76,
+                  "end": 99
+                }
+              },
+              "score": 0.29360508918762207,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.29360508918762207
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "fish"
+        ],
+        "per_value_stats": [
+          {
+            "value": "fish",
+            "num_descriptions": 3,
+            "call_time_ms": 4.38
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 3
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 2,
+          "score": 0.29360508918762207,
+          "name": "Baked Salmon Plate — Berry Boost Twist"
+        },
+        {
+          "idx": 0,
+          "score": 0.2916025221347809,
+          "name": "Chicken Fajita Bowl — Berry Boost Plate"
+        },
+        {
+          "idx": 1,
+          "score": 0.22874416410923004,
+          "name": "Stuffed Bell Peppers — Classic Wrap"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"fish\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "fish",
+        "operator": "=~",
+        "span": {
+          "start": 76,
+          "end": 99
+        }
+      },
+      "config": {
+        "top_k": 5,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 6436289600,
+          "node_name": "Vegetable Soup & Bread — Garden Veg Variation",
+          "node_type": "Meal",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "fish",
+                "operator": "=~",
+                "span": {
+                  "start": 76,
+                  "end": 99
+                }
+              },
+              "score": 0.2048797607421875,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.2048797607421875
+        },
+        {
+          "node_idx": 1,
+          "node_id": 6436290320,
+          "node_name": "Stuffed Bell Peppers — Citrus Fresh Combo",
+          "node_type": "Meal",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "fish",
+                "operator": "=~",
+                "span": {
+                  "start": 76,
+                  "end": 99
+                }
+              },
+              "score": 0.21035821735858917,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.21035821735858917
+        },
+        {
+          "node_idx": 2,
+          "node_id": 6436389568,
+          "node_name": "DIY Taco Night — Garden Veg Wrap",
+          "node_type": "Meal",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "fish",
+                "operator": "=~",
+                "span": {
+                  "start": 76,
+                  "end": 99
+                }
+              },
+              "score": 0.1884113848209381,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.1884113848209381
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "fish"
+        ],
+        "per_value_stats": [
+          {
+            "value": "fish",
+            "num_descriptions": 3,
+            "call_time_ms": 4.51
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 3
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 1,
+          "score": 0.21035821735858917,
+          "name": "Stuffed Bell Peppers — Citrus Fresh Combo"
+        },
+        {
+          "idx": 0,
+          "score": 0.2048797607421875,
+          "name": "Vegetable Soup & Bread — Garden Veg Variation"
+        },
+        {
+          "idx": 2,
+          "score": 0.1884113848209381,
+          "name": "DIY Taco Night — Garden Veg Wrap"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"fish\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "fish",
+        "operator": "=~",
+        "span": {
+          "start": 76,
+          "end": 99
+        }
+      },
+      "config": {
+        "top_k": 5,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 6436395888,
+          "node_name": "Chicken Stir-Fry — Garlic-Ginger Skillet",
+          "node_type": "Meal",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "fish",
+                "operator": "=~",
+                "span": {
+                  "start": 76,
+                  "end": 99
+                }
+              },
+              "score": 0.19100362062454224,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.19100362062454224
+        },
+        {
+          "node_idx": 1,
+          "node_id": 6436396768,
+          "node_name": "Teriyaki Chicken Dinner — Berry Boost Set",
+          "node_type": "Meal",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "fish",
+                "operator": "=~",
+                "span": {
+                  "start": 76,
+                  "end": 99
+                }
+              },
+              "score": 0.17392925918102264,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.17392925918102264
+        },
+        {
+          "node_idx": 2,
+          "node_id": 6436397568,
+          "node_name": "Tofu Veggie Curry — Smoky Bake",
+          "node_type": "Meal",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "fish",
+                "operator": "=~",
+                "span": {
+                  "start": 76,
+                  "end": 99
+                }
+              },
+              "score": 0.18350014090538025,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.18350014090538025
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "fish"
+        ],
+        "per_value_stats": [
+          {
+            "value": "fish",
+            "num_descriptions": 3,
+            "call_time_ms": 2.82
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 3
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 0,
+          "score": 0.19100362062454224,
+          "name": "Chicken Stir-Fry — Garlic-Ginger Skillet"
+        },
+        {
+          "idx": 2,
+          "score": 0.18350014090538025,
+          "name": "Tofu Veggie Curry — Smoky Bake"
+        },
+        {
+          "idx": 1,
+          "score": 0.17392925918102264,
+          "name": "Teriyaki Chicken Dinner — Berry Boost Set"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"fish\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "fish",
+        "operator": "=~",
+        "span": {
+          "start": 76,
+          "end": 99
+        }
+      },
+      "config": {
+        "top_k": 5,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 6436403568,
+          "node_name": "Sheet-Pan Pork Dinner — Classic Set",
+          "node_type": "Meal",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "fish",
+                "operator": "=~",
+                "span": {
+                  "start": 76,
+                  "end": 99
+                }
+              },
+              "score": 0.20408380031585693,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.20408380031585693
+        },
+        {
+          "node_idx": 1,
+          "node_id": 6436404368,
+          "node_name": "Baked Cod Plate — Sesame Twist",
+          "node_type": "Meal",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "fish",
+                "operator": "=~",
+                "span": {
+                  "start": 76,
+                  "end": 99
+                }
+              },
+              "score": 0.3085711598396301,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.3085711598396301
+        },
+        {
+          "node_idx": 2,
+          "node_id": 6436405168,
+          "node_name": "Turkey Meatballs & Pasta — Mild-Spice Set",
+          "node_type": "Meal",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "fish",
+                "operator": "=~",
+                "span": {
+                  "start": 76,
+                  "end": 99
+                }
+              },
+              "score": 0.2605096995830536,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.2605096995830536
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "fish"
+        ],
+        "per_value_stats": [
+          {
+            "value": "fish",
+            "num_descriptions": 3,
+            "call_time_ms": 10.48
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 3
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 1,
+          "score": 0.3085711598396301,
+          "name": "Baked Cod Plate — Sesame Twist"
+        },
+        {
+          "idx": 2,
+          "score": 0.2605096995830536,
+          "name": "Turkey Meatballs & Pasta — Mild-Spice Set"
+        },
+        {
+          "idx": 0,
+          "score": 0.20408380031585693,
+          "name": "Sheet-Pan Pork Dinner — Classic Set"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"fish\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "fish",
+        "operator": "=~",
+        "span": {
+          "start": 76,
+          "end": 99
+        }
+      },
+      "config": {
+        "top_k": 5,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 6436460704,
+          "node_name": "Vegetable Soup & Bread — Citrus Fresh Twist",
+          "node_type": "Meal",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "fish",
+                "operator": "=~",
+                "span": {
+                  "start": 76,
+                  "end": 99
+                }
+              },
+              "score": 0.2202787697315216,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.2202787697315216
+        },
+        {
+          "node_idx": 1,
+          "node_id": 6436461424,
+          "node_name": "Roast Chicken Dinner — Smoky Plate",
+          "node_type": "Meal",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "fish",
+                "operator": "=~",
+                "span": {
+                  "start": 76,
+                  "end": 99
+                }
+              },
+              "score": 0.2065175473690033,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.2065175473690033
+        },
+        {
+          "node_idx": 2,
+          "node_id": 6436462224,
+          "node_name": "Sheet-Pan Pork Dinner — Berry Boost Skillet",
+          "node_type": "Meal",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "fish",
+                "operator": "=~",
+                "span": {
+                  "start": 76,
+                  "end": 99
+                }
+              },
+              "score": 0.18543076515197754,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.18543076515197754
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "fish"
+        ],
+        "per_value_stats": [
+          {
+            "value": "fish",
+            "num_descriptions": 3,
+            "call_time_ms": 18.9
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 3
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 0,
+          "score": 0.2202787697315216,
+          "name": "Vegetable Soup & Bread — Citrus Fresh Twist"
+        },
+        {
+          "idx": 1,
+          "score": 0.2065175473690033,
+          "name": "Roast Chicken Dinner — Smoky Plate"
+        },
+        {
+          "idx": 2,
+          "score": 0.18543076515197754,
+          "name": "Sheet-Pan Pork Dinner — Berry Boost Skillet"
+        }
+      ]
+    }
+  ],
+  "scoring_details": {
+    "step_scores": [
+      {
+        "step_index": 0,
+        "predicate": "atom(content =~ \"Mother\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "Mother",
+          "operator": "=~",
+          "span": {
+            "start": 33,
+            "end": 58
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 6439902704,
+            "node_name": "Father",
+            "node_type": "Person",
+            "final_score": 0.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Father",
+                "query_value": "Mother",
+                "matched": false,
+                "score": 0.0
+              }
+            ]
+          },
+          {
+            "node_idx": 1,
+            "node_id": 6436505056,
+            "node_name": "Mother",
+            "node_type": "Person",
+            "final_score": 1.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Mother",
+                "query_value": "Mother",
+                "matched": true,
+                "score": 1.0
+              }
+            ]
+          },
+          {
+            "node_idx": 2,
+            "node_id": 6436463024,
+            "node_name": "Child",
+            "node_type": "Person",
+            "final_score": 0.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Child",
+                "query_value": "Mother",
+                "matched": false,
+                "score": 0.0
+              }
+            ]
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 1,
+            "score": 1.0,
+            "name": "Mother"
+          },
+          {
+            "idx": 0,
+            "score": 0.0,
+            "name": "Father"
+          },
+          {
+            "idx": 2,
+            "score": 0.0,
+            "name": "Child"
+          }
+        ]
+      },
+      {
+        "step_index": 1,
+        "predicate": "atom(content =~ \"fish\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "fish",
+          "operator": "=~",
+          "span": {
+            "start": 76,
+            "end": 99
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 6436508976,
+            "node_name": "Sheet-Pan Pork Dinner — Maple-Kissed Skillet",
+            "node_type": "Meal",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "fish",
+                  "operator": "=~",
+                  "span": {
+                    "start": 76,
+                    "end": 99
+                  }
+                },
+                "score": 0.18737226724624634,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.18737226724624634
+          },
+          {
+            "node_idx": 1,
+            "node_id": 6436509776,
+            "node_name": "Roast Chicken Dinner — Garden Veg Combo",
+            "node_type": "Meal",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "fish",
+                  "operator": "=~",
+                  "span": {
+                    "start": 76,
+                    "end": 99
+                  }
+                },
+                "score": 0.26754510402679443,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.26754510402679443
+          },
+          {
+            "node_idx": 2,
+            "node_id": 6436510576,
+            "node_name": "Teriyaki Chicken Dinner — Maple-Kissed Bake",
+            "node_type": "Meal",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "fish",
+                  "operator": "=~",
+                  "span": {
+                    "start": 76,
+                    "end": 99
+                  }
+                },
+                "score": 0.20726031064987183,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.20726031064987183
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 1,
+            "score": 0.26754510402679443,
+            "name": "Roast Chicken Dinner — Garden Veg Combo"
+          },
+          {
+            "idx": 2,
+            "score": 0.20726031064987183,
+            "name": "Teriyaki Chicken Dinner — Maple-Kissed Bake"
+          },
+          {
+            "idx": 0,
+            "score": 0.18737226724624634,
+            "name": "Sheet-Pan Pork Dinner — Maple-Kissed Skillet"
+          }
+        ]
+      },
+      {
+        "step_index": 2,
+        "predicate": "atom(content =~ \"fish\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "fish",
+          "operator": "=~",
+          "span": {
+            "start": 76,
+            "end": 99
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 6436518096,
+            "node_name": "Mapo Tofu with Steamed Rice",
+            "node_type": "Meal",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "fish",
+                  "operator": "=~",
+                  "span": {
+                    "start": 76,
+                    "end": 99
+                  }
+                },
+                "score": 0.14003783464431763,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.14003783464431763
+          },
+          {
+            "node_idx": 1,
+            "node_id": 6436519296,
+            "node_name": "Vietnamese Pho Bo (Beef Pho)",
+            "node_type": "Meal",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "fish",
+                  "operator": "=~",
+                  "span": {
+                    "start": 76,
+                    "end": 99
+                  }
+                },
+                "score": 0.1960342526435852,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.1960342526435852
+          },
+          {
+            "node_idx": 2,
+            "node_id": 6436274880,
+            "node_name": "Miso-Glazed Black Cod with Bok Choy",
+            "node_type": "Meal",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "fish",
+                  "operator": "=~",
+                  "span": {
+                    "start": 76,
+                    "end": 99
+                  }
+                },
+                "score": 0.22634698450565338,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.22634698450565338
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 2,
+            "score": 0.22634698450565338,
+            "name": "Miso-Glazed Black Cod with Bok Choy"
+          },
+          {
+            "idx": 1,
+            "score": 0.1960342526435852,
+            "name": "Vietnamese Pho Bo (Beef Pho)"
+          },
+          {
+            "idx": 0,
+            "score": 0.14003783464431763,
+            "name": "Mapo Tofu with Steamed Rice"
+          }
+        ]
+      },
+      {
+        "step_index": 3,
+        "predicate": "atom(content =~ \"fish\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "fish",
+          "operator": "=~",
+          "span": {
+            "start": 76,
+            "end": 99
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 6436281600,
+            "node_name": "Chicken Fajita Bowl — Berry Boost Plate",
+            "node_type": "Meal",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "fish",
+                  "operator": "=~",
+                  "span": {
+                    "start": 76,
+                    "end": 99
+                  }
+                },
+                "score": 0.2916025221347809,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.2916025221347809
+          },
+          {
+            "node_idx": 1,
+            "node_id": 6436282480,
+            "node_name": "Stuffed Bell Peppers — Classic Wrap",
+            "node_type": "Meal",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "fish",
+                  "operator": "=~",
+                  "span": {
+                    "start": 76,
+                    "end": 99
+                  }
+                },
+                "score": 0.22874416410923004,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.22874416410923004
+          },
+          {
+            "node_idx": 2,
+            "node_id": 6436283360,
+            "node_name": "Baked Salmon Plate — Berry Boost Twist",
+            "node_type": "Meal",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "fish",
+                  "operator": "=~",
+                  "span": {
+                    "start": 76,
+                    "end": 99
+                  }
+                },
+                "score": 0.29360508918762207,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.29360508918762207
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 2,
+            "score": 0.29360508918762207,
+            "name": "Baked Salmon Plate — Berry Boost Twist"
+          },
+          {
+            "idx": 0,
+            "score": 0.2916025221347809,
+            "name": "Chicken Fajita Bowl — Berry Boost Plate"
+          },
+          {
+            "idx": 1,
+            "score": 0.22874416410923004,
+            "name": "Stuffed Bell Peppers — Classic Wrap"
+          }
+        ]
+      },
+      {
+        "step_index": 4,
+        "predicate": "atom(content =~ \"fish\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "fish",
+          "operator": "=~",
+          "span": {
+            "start": 76,
+            "end": 99
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 6436289600,
+            "node_name": "Vegetable Soup & Bread — Garden Veg Variation",
+            "node_type": "Meal",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "fish",
+                  "operator": "=~",
+                  "span": {
+                    "start": 76,
+                    "end": 99
+                  }
+                },
+                "score": 0.2048797607421875,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.2048797607421875
+          },
+          {
+            "node_idx": 1,
+            "node_id": 6436290320,
+            "node_name": "Stuffed Bell Peppers — Citrus Fresh Combo",
+            "node_type": "Meal",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "fish",
+                  "operator": "=~",
+                  "span": {
+                    "start": 76,
+                    "end": 99
+                  }
+                },
+                "score": 0.21035821735858917,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.21035821735858917
+          },
+          {
+            "node_idx": 2,
+            "node_id": 6436389568,
+            "node_name": "DIY Taco Night — Garden Veg Wrap",
+            "node_type": "Meal",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "fish",
+                  "operator": "=~",
+                  "span": {
+                    "start": 76,
+                    "end": 99
+                  }
+                },
+                "score": 0.1884113848209381,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.1884113848209381
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 1,
+            "score": 0.21035821735858917,
+            "name": "Stuffed Bell Peppers — Citrus Fresh Combo"
+          },
+          {
+            "idx": 0,
+            "score": 0.2048797607421875,
+            "name": "Vegetable Soup & Bread — Garden Veg Variation"
+          },
+          {
+            "idx": 2,
+            "score": 0.1884113848209381,
+            "name": "DIY Taco Night — Garden Veg Wrap"
+          }
+        ]
+      },
+      {
+        "step_index": 5,
+        "predicate": "atom(content =~ \"fish\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "fish",
+          "operator": "=~",
+          "span": {
+            "start": 76,
+            "end": 99
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 6436395888,
+            "node_name": "Chicken Stir-Fry — Garlic-Ginger Skillet",
+            "node_type": "Meal",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "fish",
+                  "operator": "=~",
+                  "span": {
+                    "start": 76,
+                    "end": 99
+                  }
+                },
+                "score": 0.19100362062454224,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.19100362062454224
+          },
+          {
+            "node_idx": 1,
+            "node_id": 6436396768,
+            "node_name": "Teriyaki Chicken Dinner — Berry Boost Set",
+            "node_type": "Meal",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "fish",
+                  "operator": "=~",
+                  "span": {
+                    "start": 76,
+                    "end": 99
+                  }
+                },
+                "score": 0.17392925918102264,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.17392925918102264
+          },
+          {
+            "node_idx": 2,
+            "node_id": 6436397568,
+            "node_name": "Tofu Veggie Curry — Smoky Bake",
+            "node_type": "Meal",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "fish",
+                  "operator": "=~",
+                  "span": {
+                    "start": 76,
+                    "end": 99
+                  }
+                },
+                "score": 0.18350014090538025,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.18350014090538025
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 0,
+            "score": 0.19100362062454224,
+            "name": "Chicken Stir-Fry — Garlic-Ginger Skillet"
+          },
+          {
+            "idx": 2,
+            "score": 0.18350014090538025,
+            "name": "Tofu Veggie Curry — Smoky Bake"
+          },
+          {
+            "idx": 1,
+            "score": 0.17392925918102264,
+            "name": "Teriyaki Chicken Dinner — Berry Boost Set"
+          }
+        ]
+      },
+      {
+        "step_index": 6,
+        "predicate": "atom(content =~ \"fish\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "fish",
+          "operator": "=~",
+          "span": {
+            "start": 76,
+            "end": 99
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 6436403568,
+            "node_name": "Sheet-Pan Pork Dinner — Classic Set",
+            "node_type": "Meal",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "fish",
+                  "operator": "=~",
+                  "span": {
+                    "start": 76,
+                    "end": 99
+                  }
+                },
+                "score": 0.20408380031585693,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.20408380031585693
+          },
+          {
+            "node_idx": 1,
+            "node_id": 6436404368,
+            "node_name": "Baked Cod Plate — Sesame Twist",
+            "node_type": "Meal",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "fish",
+                  "operator": "=~",
+                  "span": {
+                    "start": 76,
+                    "end": 99
+                  }
+                },
+                "score": 0.3085711598396301,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.3085711598396301
+          },
+          {
+            "node_idx": 2,
+            "node_id": 6436405168,
+            "node_name": "Turkey Meatballs & Pasta — Mild-Spice Set",
+            "node_type": "Meal",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "fish",
+                  "operator": "=~",
+                  "span": {
+                    "start": 76,
+                    "end": 99
+                  }
+                },
+                "score": 0.2605096995830536,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.2605096995830536
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 1,
+            "score": 0.3085711598396301,
+            "name": "Baked Cod Plate — Sesame Twist"
+          },
+          {
+            "idx": 2,
+            "score": 0.2605096995830536,
+            "name": "Turkey Meatballs & Pasta — Mild-Spice Set"
+          },
+          {
+            "idx": 0,
+            "score": 0.20408380031585693,
+            "name": "Sheet-Pan Pork Dinner — Classic Set"
+          }
+        ]
+      },
+      {
+        "step_index": 7,
+        "predicate": "atom(content =~ \"fish\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "fish",
+          "operator": "=~",
+          "span": {
+            "start": 76,
+            "end": 99
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 6436460704,
+            "node_name": "Vegetable Soup & Bread — Citrus Fresh Twist",
+            "node_type": "Meal",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "fish",
+                  "operator": "=~",
+                  "span": {
+                    "start": 76,
+                    "end": 99
+                  }
+                },
+                "score": 0.2202787697315216,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.2202787697315216
+          },
+          {
+            "node_idx": 1,
+            "node_id": 6436461424,
+            "node_name": "Roast Chicken Dinner — Smoky Plate",
+            "node_type": "Meal",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "fish",
+                  "operator": "=~",
+                  "span": {
+                    "start": 76,
+                    "end": 99
+                  }
+                },
+                "score": 0.2065175473690033,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.2065175473690033
+          },
+          {
+            "node_idx": 2,
+            "node_id": 6436462224,
+            "node_name": "Sheet-Pan Pork Dinner — Berry Boost Skillet",
+            "node_type": "Meal",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "fish",
+                  "operator": "=~",
+                  "span": {
+                    "start": 76,
+                    "end": 99
+                  }
+                },
+                "score": 0.18543076515197754,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.18543076515197754
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 0,
+            "score": 0.2202787697315216,
+            "name": "Vegetable Soup & Bread — Citrus Fresh Twist"
+          },
+          {
+            "idx": 1,
+            "score": 0.2065175473690033,
+            "name": "Roast Chicken Dinner — Smoky Plate"
+          },
+          {
+            "idx": 2,
+            "score": 0.18543076515197754,
+            "name": "Sheet-Pan Pork Dinner — Berry Boost Skillet"
+          }
+        ]
+      }
+    ],
+    "score_fusion": {
+      "per_node": [
+        {
+          "node_path": "Root > MealPlan_Version 2 > Mother > Day 1 > Dinner > Sheet-Pan Pork Dinner — Maple-Kissed Skillet",
+          "node_type": "Meal",
+          "step_contributions": [
+            {
+              "step_index": 5,
+              "predicate": "Meal[atom(content =~ \"fish\")]",
+              "score": 0.18737226724624634
+            }
+          ],
+          "accumulated_product": 0.18737226724624634,
+          "final_score": 0.18737226705887408
+        },
+        {
+          "node_path": "Root > MealPlan_Version 2 > Mother > Day 1 > Dinner > Roast Chicken Dinner — Garden Veg Combo",
+          "node_type": "Meal",
+          "step_contributions": [
+            {
+              "step_index": 5,
+              "predicate": "Meal[atom(content =~ \"fish\")]",
+              "score": 0.26754510402679443
+            }
+          ],
+          "accumulated_product": 0.26754510402679443,
+          "final_score": 0.26754510375924934
+        },
+        {
+          "node_path": "Root > MealPlan_Version 2 > Mother > Day 1 > Dinner > Teriyaki Chicken Dinner — Maple-Kissed Bake",
+          "node_type": "Meal",
+          "step_contributions": [
+            {
+              "step_index": 5,
+              "predicate": "Meal[atom(content =~ \"fish\")]",
+              "score": 0.20726031064987183
+            }
+          ],
+          "accumulated_product": 0.20726031064987183,
+          "final_score": 0.20726031044261153
+        },
+        {
+          "node_path": "Root > MealPlan_Version 2 > Mother > Day 2 > Dinner > Mapo Tofu with Steamed Rice",
+          "node_type": "Meal",
+          "step_contributions": [
+            {
+              "step_index": 5,
+              "predicate": "Meal[atom(content =~ \"fish\")]",
+              "score": 0.14003783464431763
+            }
+          ],
+          "accumulated_product": 0.14003783464431763,
+          "final_score": 0.14003783450427978
+        },
+        {
+          "node_path": "Root > MealPlan_Version 2 > Mother > Day 2 > Dinner > Vietnamese Pho Bo (Beef Pho)",
+          "node_type": "Meal",
+          "step_contributions": [
+            {
+              "step_index": 5,
+              "predicate": "Meal[atom(content =~ \"fish\")]",
+              "score": 0.1960342526435852
+            }
+          ],
+          "accumulated_product": 0.1960342526435852,
+          "final_score": 0.19603425244755096
+        },
+        {
+          "node_path": "Root > MealPlan_Version 2 > Mother > Day 2 > Dinner > Miso-Glazed Black Cod with Bok Choy",
+          "node_type": "Meal",
+          "step_contributions": [
+            {
+              "step_index": 5,
+              "predicate": "Meal[atom(content =~ \"fish\")]",
+              "score": 0.22634698450565338
+            }
+          ],
+          "accumulated_product": 0.22634698450565338,
+          "final_score": 0.2263469842793064
+        },
+        {
+          "node_path": "Root > MealPlan_Version 2 > Mother > Day 3 > Dinner > Chicken Fajita Bowl — Berry Boost Plate",
+          "node_type": "Meal",
+          "step_contributions": [
+            {
+              "step_index": 5,
+              "predicate": "Meal[atom(content =~ \"fish\")]",
+              "score": 0.2916025221347809
+            }
+          ],
+          "accumulated_product": 0.2916025221347809,
+          "final_score": 0.29160252184317836
+        },
+        {
+          "node_path": "Root > MealPlan_Version 2 > Mother > Day 3 > Dinner > Stuffed Bell Peppers — Classic Wrap",
+          "node_type": "Meal",
+          "step_contributions": [
+            {
+              "step_index": 5,
+              "predicate": "Meal[atom(content =~ \"fish\")]",
+              "score": 0.22874416410923004
+            }
+          ],
+          "accumulated_product": 0.22874416410923004,
+          "final_score": 0.22874416388048588
+        },
+        {
+          "node_path": "Root > MealPlan_Version 2 > Mother > Day 3 > Dinner > Baked Salmon Plate — Berry Boost Twist",
+          "node_type": "Meal",
+          "step_contributions": [
+            {
+              "step_index": 5,
+              "predicate": "Meal[atom(content =~ \"fish\")]",
+              "score": 0.29360508918762207
+            }
+          ],
+          "accumulated_product": 0.29360508918762207,
+          "final_score": 0.293605088894017
+        },
+        {
+          "node_path": "Root > MealPlan_Version 2 > Mother > Day 4 > Dinner > Vegetable Soup & Bread — Garden Veg Variation",
+          "node_type": "Meal",
+          "step_contributions": [
+            {
+              "step_index": 5,
+              "predicate": "Meal[atom(content =~ \"fish\")]",
+              "score": 0.2048797607421875
+            }
+          ],
+          "accumulated_product": 0.2048797607421875,
+          "final_score": 0.20487976053730775
+        },
+        {
+          "node_path": "Root > MealPlan_Version 2 > Mother > Day 4 > Dinner > Stuffed Bell Peppers — Citrus Fresh Combo",
+          "node_type": "Meal",
+          "step_contributions": [
+            {
+              "step_index": 5,
+              "predicate": "Meal[atom(content =~ \"fish\")]",
+              "score": 0.21035821735858917
+            }
+          ],
+          "accumulated_product": 0.21035821735858917,
+          "final_score": 0.21035821714823097
+        },
+        {
+          "node_path": "Root > MealPlan_Version 2 > Mother > Day 4 > Dinner > DIY Taco Night — Garden Veg Wrap",
+          "node_type": "Meal",
+          "step_contributions": [
+            {
+              "step_index": 5,
+              "predicate": "Meal[atom(content =~ \"fish\")]",
+              "score": 0.1884113848209381
+            }
+          ],
+          "accumulated_product": 0.1884113848209381,
+          "final_score": 0.18841138463252674
+        },
+        {
+          "node_path": "Root > MealPlan_Version 2 > Mother > Day 5 > Dinner > Chicken Stir-Fry — Garlic-Ginger Skillet",
+          "node_type": "Meal",
+          "step_contributions": [
+            {
+              "step_index": 5,
+              "predicate": "Meal[atom(content =~ \"fish\")]",
+              "score": 0.19100362062454224
+            }
+          ],
+          "accumulated_product": 0.19100362062454224,
+          "final_score": 0.19100362043353863
+        },
+        {
+          "node_path": "Root > MealPlan_Version 2 > Mother > Day 5 > Dinner > Teriyaki Chicken Dinner — Berry Boost Set",
+          "node_type": "Meal",
+          "step_contributions": [
+            {
+              "step_index": 5,
+              "predicate": "Meal[atom(content =~ \"fish\")]",
+              "score": 0.17392925918102264
+            }
+          ],
+          "accumulated_product": 0.17392925918102264,
+          "final_score": 0.17392925900709338
+        },
+        {
+          "node_path": "Root > MealPlan_Version 2 > Mother > Day 5 > Dinner > Tofu Veggie Curry — Smoky Bake",
+          "node_type": "Meal",
+          "step_contributions": [
+            {
+              "step_index": 5,
+              "predicate": "Meal[atom(content =~ \"fish\")]",
+              "score": 0.18350014090538025
+            }
+          ],
+          "accumulated_product": 0.18350014090538025,
+          "final_score": 0.18350014072188012
+        },
+        {
+          "node_path": "Root > MealPlan_Version 2 > Mother > Day 6 > Dinner > Sheet-Pan Pork Dinner — Classic Set",
+          "node_type": "Meal",
+          "step_contributions": [
+            {
+              "step_index": 5,
+              "predicate": "Meal[atom(content =~ \"fish\")]",
+              "score": 0.20408380031585693
+            }
+          ],
+          "accumulated_product": 0.20408380031585693,
+          "final_score": 0.20408380011177313
+        },
+        {
+          "node_path": "Root > MealPlan_Version 2 > Mother > Day 6 > Dinner > Baked Cod Plate — Sesame Twist",
+          "node_type": "Meal",
+          "step_contributions": [
+            {
+              "step_index": 5,
+              "predicate": "Meal[atom(content =~ \"fish\")]",
+              "score": 0.3085711598396301
+            }
+          ],
+          "accumulated_product": 0.3085711598396301,
+          "final_score": 0.30857115953105896
+        },
+        {
+          "node_path": "Root > MealPlan_Version 2 > Mother > Day 6 > Dinner > Turkey Meatballs & Pasta — Mild-Spice Set",
+          "node_type": "Meal",
+          "step_contributions": [
+            {
+              "step_index": 5,
+              "predicate": "Meal[atom(content =~ \"fish\")]",
+              "score": 0.2605096995830536
+            }
+          ],
+          "accumulated_product": 0.2605096995830536,
+          "final_score": 0.2605096993225439
+        },
+        {
+          "node_path": "Root > MealPlan_Version 2 > Mother > Day 7 > Dinner > Vegetable Soup & Bread — Citrus Fresh Twist",
+          "node_type": "Meal",
+          "step_contributions": [
+            {
+              "step_index": 5,
+              "predicate": "Meal[atom(content =~ \"fish\")]",
+              "score": 0.2202787697315216
+            }
+          ],
+          "accumulated_product": 0.2202787697315216,
+          "final_score": 0.22027876951124284
+        },
+        {
+          "node_path": "Root > MealPlan_Version 2 > Mother > Day 7 > Dinner > Roast Chicken Dinner — Smoky Plate",
+          "node_type": "Meal",
+          "step_contributions": [
+            {
+              "step_index": 5,
+              "predicate": "Meal[atom(content =~ \"fish\")]",
+              "score": 0.2065175473690033
+            }
+          ],
+          "accumulated_product": 0.2065175473690033,
+          "final_score": 0.20651754716248574
+        },
+        {
+          "node_path": "Root > MealPlan_Version 2 > Mother > Day 7 > Dinner > Sheet-Pan Pork Dinner — Berry Boost Skillet",
+          "node_type": "Meal",
+          "step_contributions": [
+            {
+              "step_index": 5,
+              "predicate": "Meal[atom(content =~ \"fish\")]",
+              "score": 0.18543076515197754
+            }
+          ],
+          "accumulated_product": 0.18543076515197754,
+          "final_score": 0.18543076496654678
+        }
+      ]
+    }
+  },
+  "final_filtering": {
+    "before_filter_count": 21,
+    "threshold": 0.05,
+    "top_k": 5,
+    "after_filter_count": 5,
+    "filtered_nodes": [
+      {
+        "path": "Root > MealPlan_Version 2 > Mother > Day 6 > Dinner > Baked Cod Plate — Sesame Twist",
+        "score": 0.30857115953105896,
+        "type": "Meal",
+        "own_score": 0.3085711598396301,
+        "parent_score": 0.999999999
+      },
+      {
+        "path": "Root > MealPlan_Version 2 > Mother > Day 3 > Dinner > Baked Salmon Plate — Berry Boost Twist",
+        "score": 0.293605088894017,
+        "type": "Meal",
+        "own_score": 0.29360508918762207,
+        "parent_score": 0.999999999
+      },
+      {
+        "path": "Root > MealPlan_Version 2 > Mother > Day 3 > Dinner > Chicken Fajita Bowl — Berry Boost Plate",
+        "score": 0.29160252184317836,
+        "type": "Meal",
+        "own_score": 0.2916025221347809,
+        "parent_score": 0.999999999
+      },
+      {
+        "path": "Root > MealPlan_Version 2 > Mother > Day 1 > Dinner > Roast Chicken Dinner — Garden Veg Combo",
+        "score": 0.26754510375924934,
+        "type": "Meal",
+        "own_score": 0.26754510402679443,
+        "parent_score": 0.999999999
+      },
+      {
+        "path": "Root > MealPlan_Version 2 > Mother > Day 6 > Dinner > Turkey Meatballs & Pasta — Mild-Spice Set",
+        "score": 0.2605096993225439,
+        "type": "Meal",
+        "own_score": 0.2605096995830536,
+        "parent_score": 0.999999999
+      }
+    ]
+  },
+  "matched_nodes": [
+    {
+      "tree_path": "Root > MealPlan_Version 2 > Mother > Day 6 > Dinner > Baked Cod Plate — Sesame Twist",
+      "score": 0.30857115953105896,
+      "node": {
+        "type": "Meal",
+        "attributes": {},
+        "name": "Baked Cod Plate — Sesame Twist",
+        "short_description": "Baked cod with roasted sweet potato and broccoli, finished with lemon for a bright, protein-rich plate.",
+        "meal_suggestion": "Serve with quinoa or brown rice for extra fiber. If desired, garnish with sesame seeds or a light sesame oil drizzle to mirror the twist.",
+        "ingredients": [],
+        "nutrition_note": "Lean cod provides high-quality protein; sweet potato offers complex carbs and beta-carotene; broccoli adds fiber and micronutrients; lemon contributes vitamin C. Optional sesame seeds/oil can add healthy fats to match the 'Sesame Twist'."
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Mother",
+          "predicate": "atom(content =~ \"Mother\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Mother\") on Mother (Score: 1.00)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > MealPlan_Version 2 > Mother > Day 3 > Dinner > Baked Salmon Plate — Berry Boost Twist",
+      "score": 0.293605088894017,
+      "node": {
+        "type": "Meal",
+        "attributes": {},
+        "name": "Baked Salmon Plate — Berry Boost Twist",
+        "short_description": "A baked salmon plate with lemon, vegetables, and rice, plus an optional Berry Boost Twist by adding berries for extra antioxidants.",
+        "meal_suggestion": "Bake a 4–6 oz salmon fillet with lemon. Serve with 1 cup cooked rice and 1–2 cups mixed vegetables. For the Berry Boost Twist, add a handful of fresh berries on the side or a light berry glaze.",
+        "ingredients": [],
+        "nutrition_note": "Protein-rich salmon provides omega-3 fats (EPA/DHA) and high-quality protein. Mixed vegetables supply fiber and micronutrients; lemon adds vitamin C. Rice contributes carbohydrates for energy; brown rice can boost fiber. Berry Boost Twist suggests adding berries (blueberries, strawberries, etc.) for antioxidant benefits."
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Mother",
+          "predicate": "atom(content =~ \"Mother\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Mother\") on Mother (Score: 1.00)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > MealPlan_Version 2 > Mother > Day 3 > Dinner > Chicken Fajita Bowl — Berry Boost Plate",
+      "score": 0.29160252184317836,
+      "node": {
+        "type": "Meal",
+        "attributes": {},
+        "name": "Chicken Fajita Bowl — Berry Boost Plate",
+        "short_description": "Protein-forward fajita bowl with chicken, peppers, onions, rice, and avocado; optional berries boost antioxidants for a Berry Boost.",
+        "meal_suggestion": "Grill or sauté chicken with peppers and onions, serve over cooked rice, and top with sliced avocado. Add a side of berries to boost antioxidants and fiber if desired.",
+        "ingredients": [],
+        "nutrition_note": "Protein-rich chicken with peppers and onions offers lean protein and fiber; rice provides carbohydrates; avocado adds heart-healthy fats. For extra fiber and antioxidants, consider adding a side of berries (Berry Boost)."
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Mother",
+          "predicate": "atom(content =~ \"Mother\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Mother\") on Mother (Score: 1.00)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > MealPlan_Version 2 > Mother > Day 1 > Dinner > Roast Chicken Dinner — Garden Veg Combo",
+      "score": 0.26754510375924934,
+      "node": {
+        "type": "Meal",
+        "attributes": {},
+        "name": "Roast Chicken Dinner — Garden Veg Combo",
+        "short_description": "A balanced roast dinner with protein-rich chicken, wholesome quinoa, and colorful garden vegetables.",
+        "meal_suggestion": "Roast chicken thighs (skinless if preferred), cook quinoa, and steam or roast broccoli and carrots. Plate together and finish with a squeeze of lemon and a light drizzle of olive oil for flavor.",
+        "ingredients": [],
+        "nutrition_note": "Protein from chicken thighs; quinoa adds complete protein and fiber; broccoli and carrots provide vitamins, minerals, and additional fiber. For a leaner option, use skinless thighs."
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Mother",
+          "predicate": "atom(content =~ \"Mother\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Mother\") on Mother (Score: 1.00)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > MealPlan_Version 2 > Mother > Day 6 > Dinner > Turkey Meatballs & Pasta — Mild-Spice Set",
+      "score": 0.2605096993225439,
+      "node": {
+        "type": "Meal",
+        "attributes": {},
+        "name": "Turkey Meatballs & Pasta — Mild-Spice Set",
+        "short_description": "Lean turkey meatballs with whole-wheat pasta in tomato sauce, finished with parmesan for calcium and a mild spice profile.",
+        "meal_suggestion": "Serve with steamed greens (e.g., broccoli or spinach) to add color and fiber. A typical portion: pasta with turkey meatballs in marinara, topped with parmesan.",
+        "ingredients": [],
+        "nutrition_note": "Lean turkey provides protein; whole-wheat pasta offers fiber and complex carbs; parmesan adds calcium. Tomato marinara adds micronutrients but can be high in sodium—use low-sodium sauce and moderate cheese for a lighter option; pair with vegetables for balance."
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Mother",
+          "predicate": "atom(content =~ \"Mother\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Mother\") on Mother (Score: 1.00)"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total_steps": 6,
+    "total_scoring_calls": 8,
+    "matched_count": 5,
+    "execution_time_ms": 86.860875133425,
+    "has_score_fusion": true,
+    "num_nodes_before_filter": 21,
+    "num_nodes_after_filter": 5
+  }
+}

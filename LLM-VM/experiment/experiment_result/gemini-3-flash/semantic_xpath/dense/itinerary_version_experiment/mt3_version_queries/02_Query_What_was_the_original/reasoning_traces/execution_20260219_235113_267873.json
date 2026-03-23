@@ -1,0 +1,723 @@
+{
+  "timestamp": "20260219_235113_267873",
+  "query": "/Root/Itinerary_Version[2]/Day[3]/POI[atom(content =~ \"Royal Ontario Museum\")]",
+  "canonical_query": "/Root/Itinerary_Version[2]/Day[3]/POI[content =~ \"Royal Ontario Museum\"]",
+  "data_file": "tree.xml",
+  "execution_time_ms": 756.3803340308368,
+  "parsed_ast": {
+    "steps": [
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Root",
+            "span": {
+              "start": 1,
+              "end": 5
+            }
+          },
+          "span": {
+            "start": 1,
+            "end": 5
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Itinerary_Version",
+            "index": {
+              "start": 2,
+              "type": "single",
+              "span": {
+                "start": 23,
+                "end": 26
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 26
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 26
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Day",
+            "index": {
+              "start": 3,
+              "type": "single",
+              "span": {
+                "start": 30,
+                "end": 33
+              }
+            },
+            "span": {
+              "start": 27,
+              "end": 33
+            }
+          },
+          "span": {
+            "start": 27,
+            "end": 33
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "POI",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "Royal Ontario Museum",
+              "operator": "=~",
+              "span": {
+                "start": 38,
+                "end": 77
+              }
+            },
+            "predicate_str": "atom(content =~ \"Royal Ontario Museum\")",
+            "span": {
+              "start": 34,
+              "end": 78
+            }
+          },
+          "span": {
+            "start": 34,
+            "end": 78
+          }
+        }
+      }
+    ],
+    "global_index": null
+  },
+  "parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: Itinerary_Version[2]\n├── Step 2: Day[3]\n└── Step 3: POI[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"Royal Ontario Museum\")",
+  "canonical_parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: Itinerary_Version[2]\n├── Step 2: Day[3]\n└── Step 3: POI[content =~ \"Royal Ontario Museum\"]",
+  "execution_log": [
+    "[20260219_235113_267873] Executing query: /Root/Itinerary_Version[2]/Day[3]/POI[atom(content =~ \"Royal Ontario Museum\")]",
+    "Data file: tree.xml",
+    "Parsed steps: [Root, Itinerary_Version[2], Day[3], POI[atom(content =~ \"Royal Ontario Museum\")]]",
+    "",
+    "Query AST:\n├── Step 0: Root\n├── Step 1: Itinerary_Version[2]\n├── Step 2: Day[3]\n└── Step 3: POI[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"Royal Ontario Museum\")",
+    "\n--- Step 1: Root ---",
+    "Matched Root root",
+    "\n--- Step 2: Itinerary_Version[2] ---",
+    "Selected node at index 2 (0-based: 1)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 3: Day[3] ---",
+    "Selected node at index 3 (0-based: 2)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 4: POI[atom(content =~ \"Royal Ontario Museum\")] ---",
+    "Scoring predicate: atom(content =~ \"Royal Ontario Museum\") (atomic values: ['Royal Ontario Museum'])",
+    "  Collected 2 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 2 total descriptions",
+    "  Node 0 (Stakeholder Presentation): score = 0.3497",
+    "  Node 1 (Art Gallery of Ontario): score = 0.5600",
+    "After step: 2 nodes remaining",
+    "\n=== Score Fusion ===",
+    "  Root > Itinerary_Version 2 > Day 3 > Stakeholder Presentation: product=0.3497 → score=0.3497",
+    "  Root > Itinerary_Version 2 > Day 3 > Art Gallery of Ontario: product=0.5600 → score=0.5600",
+    "\n=== Threshold Filtering (threshold=0.05) ===",
+    "  Filtered: 2 → 2 nodes",
+    "\n=== Final Filtering (top_k=5) ===",
+    "  After top_k: 2 → 2 nodes",
+    "\nFinal result: 2 nodes (sorted by score)",
+    "⏱️  Query execution time: 756.38ms"
+  ],
+  "traversal_steps": [
+    {
+      "step_index": 0,
+      "step_query": "Root",
+      "action": "root_match",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "type": "root"
+        }
+      ],
+      "nodes_after": [
+        {
+          "type": "Root",
+          "path": "Root"
+        }
+      ],
+      "details": {
+        "matched": true
+      }
+    },
+    {
+      "step_index": 1,
+      "step_query": "Itinerary_Version[2]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root",
+          "name": "Root",
+          "type": "Root",
+          "score": 1.0,
+          "node_id": 6309068720
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Itinerary_Version 2",
+          "name": "Itinerary_Version 2",
+          "type": "Itinerary_Version",
+          "score": 1.0,
+          "node_id": 6310283360
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Itinerary_Version",
+            "index": {
+              "start": 2,
+              "type": "single",
+              "span": {
+                "start": 23,
+                "end": 26
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 26
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 26
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 2,
+      "step_query": "Day[3]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root > Itinerary_Version 2",
+          "name": "Itinerary_Version 2",
+          "type": "Itinerary_Version",
+          "score": 1.0,
+          "node_id": 6310283360
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Itinerary_Version 2 > Day 3",
+          "name": "Day 3",
+          "type": "Day",
+          "score": 1.0,
+          "node_id": 6310291280
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Day",
+            "index": {
+              "start": 3,
+              "type": "single",
+              "span": {
+                "start": 30,
+                "end": 33
+              }
+            },
+            "span": {
+              "start": 27,
+              "end": 33
+            }
+          },
+          "span": {
+            "start": 27,
+            "end": 33
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 3,
+      "step_query": "POI[atom(content =~ \"Royal Ontario Museum\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 2,
+      "nodes_before": [
+        {
+          "path": "Root > Itinerary_Version 2 > Day 3",
+          "name": "Day 3",
+          "type": "Day",
+          "score": 1.0,
+          "node_id": 6310291280
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Itinerary_Version 2 > Day 3 > Stakeholder Presentation",
+          "name": "Stakeholder Presentation",
+          "type": "POI",
+          "score": 0.3497403860092163,
+          "node_id": 6310288160
+        },
+        {
+          "path": "Root > Itinerary_Version 2 > Day 3 > Art Gallery of Ontario",
+          "name": "Art Gallery of Ontario",
+          "type": "POI",
+          "score": 0.5599679350852966,
+          "node_id": 6310292000
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "POI",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "Royal Ontario Museum",
+              "operator": "=~",
+              "span": {
+                "start": 38,
+                "end": 77
+              }
+            },
+            "predicate_str": "atom(content =~ \"Royal Ontario Museum\")",
+            "span": {
+              "start": 34,
+              "end": 78
+            }
+          },
+          "span": {
+            "start": 34,
+            "end": 78
+          }
+        },
+        "found_count": 2,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"Royal Ontario Museum\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "Royal Ontario Museum",
+              "operator": "=~",
+              "span": {
+                "start": 38,
+                "end": 77
+              }
+            },
+            "config": {
+              "top_k": 5,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 6310288160,
+                "node_name": "Stakeholder Presentation",
+                "node_type": "POI",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "Royal Ontario Museum",
+                      "operator": "=~",
+                      "span": {
+                        "start": 38,
+                        "end": 77
+                      }
+                    },
+                    "score": 0.3497403860092163,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.3497403860092163
+              },
+              {
+                "node_idx": 1,
+                "node_id": 6310292000,
+                "node_name": "Art Gallery of Ontario",
+                "node_type": "POI",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "Royal Ontario Museum",
+                      "operator": "=~",
+                      "span": {
+                        "start": 38,
+                        "end": 77
+                      }
+                    },
+                    "score": 0.5599679350852966,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.5599679350852966
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "Royal Ontario Museum"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "Royal Ontario Museum",
+                  "num_descriptions": 2,
+                  "call_time_ms": 754.63
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 2
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 1,
+                "score": 0.5599679350852966,
+                "name": "Art Gallery of Ontario"
+              },
+              {
+                "idx": 0,
+                "score": 0.3497403860092163,
+                "name": "Stakeholder Presentation"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "scoring_traces": [
+    {
+      "predicate": "atom(content =~ \"Royal Ontario Museum\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "Royal Ontario Museum",
+        "operator": "=~",
+        "span": {
+          "start": 38,
+          "end": 77
+        }
+      },
+      "config": {
+        "top_k": 5,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 6310288160,
+          "node_name": "Stakeholder Presentation",
+          "node_type": "POI",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "Royal Ontario Museum",
+                "operator": "=~",
+                "span": {
+                  "start": 38,
+                  "end": 77
+                }
+              },
+              "score": 0.3497403860092163,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.3497403860092163
+        },
+        {
+          "node_idx": 1,
+          "node_id": 6310292000,
+          "node_name": "Art Gallery of Ontario",
+          "node_type": "POI",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "Royal Ontario Museum",
+                "operator": "=~",
+                "span": {
+                  "start": 38,
+                  "end": 77
+                }
+              },
+              "score": 0.5599679350852966,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.5599679350852966
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "Royal Ontario Museum"
+        ],
+        "per_value_stats": [
+          {
+            "value": "Royal Ontario Museum",
+            "num_descriptions": 2,
+            "call_time_ms": 754.63
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 2
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 1,
+          "score": 0.5599679350852966,
+          "name": "Art Gallery of Ontario"
+        },
+        {
+          "idx": 0,
+          "score": 0.3497403860092163,
+          "name": "Stakeholder Presentation"
+        }
+      ]
+    }
+  ],
+  "scoring_details": {
+    "step_scores": [
+      {
+        "step_index": 0,
+        "predicate": "atom(content =~ \"Royal Ontario Museum\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "Royal Ontario Museum",
+          "operator": "=~",
+          "span": {
+            "start": 38,
+            "end": 77
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 6310288160,
+            "node_name": "Stakeholder Presentation",
+            "node_type": "POI",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "Royal Ontario Museum",
+                  "operator": "=~",
+                  "span": {
+                    "start": 38,
+                    "end": 77
+                  }
+                },
+                "score": 0.3497403860092163,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.3497403860092163
+          },
+          {
+            "node_idx": 1,
+            "node_id": 6310292000,
+            "node_name": "Art Gallery of Ontario",
+            "node_type": "POI",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "Royal Ontario Museum",
+                  "operator": "=~",
+                  "span": {
+                    "start": 38,
+                    "end": 77
+                  }
+                },
+                "score": 0.5599679350852966,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.5599679350852966
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 1,
+            "score": 0.5599679350852966,
+            "name": "Art Gallery of Ontario"
+          },
+          {
+            "idx": 0,
+            "score": 0.3497403860092163,
+            "name": "Stakeholder Presentation"
+          }
+        ]
+      }
+    ],
+    "score_fusion": {
+      "per_node": [
+        {
+          "node_path": "Root > Itinerary_Version 2 > Day 3 > Stakeholder Presentation",
+          "node_type": "POI",
+          "step_contributions": [
+            {
+              "step_index": 3,
+              "predicate": "POI[atom(content =~ \"Royal Ontario Museum\")]",
+              "score": 0.3497403860092163
+            }
+          ],
+          "accumulated_product": 0.3497403860092163,
+          "final_score": 0.3497403860092163
+        },
+        {
+          "node_path": "Root > Itinerary_Version 2 > Day 3 > Art Gallery of Ontario",
+          "node_type": "POI",
+          "step_contributions": [
+            {
+              "step_index": 3,
+              "predicate": "POI[atom(content =~ \"Royal Ontario Museum\")]",
+              "score": 0.5599679350852966
+            }
+          ],
+          "accumulated_product": 0.5599679350852966,
+          "final_score": 0.5599679350852966
+        }
+      ]
+    }
+  },
+  "final_filtering": {
+    "before_filter_count": 2,
+    "threshold": 0.05,
+    "top_k": 5,
+    "after_filter_count": 2,
+    "filtered_nodes": [
+      {
+        "path": "Root > Itinerary_Version 2 > Day 3 > Art Gallery of Ontario",
+        "score": 0.5599679350852966,
+        "type": "POI",
+        "own_score": 0.5599679350852966,
+        "parent_score": 1.0
+      },
+      {
+        "path": "Root > Itinerary_Version 2 > Day 3 > Stakeholder Presentation",
+        "score": 0.3497403860092163,
+        "type": "POI",
+        "own_score": 0.3497403860092163,
+        "parent_score": 1.0
+      }
+    ]
+  },
+  "matched_nodes": [
+    {
+      "tree_path": "Root > Itinerary_Version 2 > Day 3 > Art Gallery of Ontario",
+      "score": 0.5599679350852966,
+      "node": {
+        "type": "POI",
+        "attributes": {},
+        "name": "Art Gallery of Ontario",
+        "time_block": "12:00 PM - 2:00 PM",
+        "description": "World-class art museum with Canadian and international collections. Indoor cultural experience in Frank Gehry-designed building. Quiet and contemplative atmosphere.",
+        "travel_method": "Walk",
+        "expected_cost": "CAD 25",
+        "highlights": [
+          "Indoor museum",
+          "Cultural experience",
+          "Art gallery"
+        ]
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "Art Gallery of Ontario",
+          "predicate": "atom(content =~ \"Royal Ontario Museum\")",
+          "score": 0.5599679350852966,
+          "description": "Matched atom(content =~ \"Royal Ontario Museum\") on Art Gallery of Ontario (Score: 0.56)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Itinerary_Version 2 > Day 3 > Stakeholder Presentation",
+      "score": 0.3497403860092163,
+      "node": {
+        "type": "POI",
+        "attributes": {},
+        "name": "Stakeholder Presentation",
+        "time_block": "9:00 AM - 11:00 AM",
+        "description": "Morning work session presenting quarterly results to stakeholders. High-pressure meeting requiring focus and preparation.",
+        "travel_method": "Walk",
+        "expected_cost": "Work",
+        "highlights": [
+          "Work meeting",
+          "Business presentation"
+        ]
+      },
+      "children": [],
+      "context_trace": []
+    }
+  ],
+  "summary": {
+    "total_steps": 4,
+    "total_scoring_calls": 1,
+    "matched_count": 2,
+    "execution_time_ms": 756.3803340308368,
+    "has_score_fusion": true,
+    "num_nodes_before_filter": 2,
+    "num_nodes_after_filter": 2
+  }
+}

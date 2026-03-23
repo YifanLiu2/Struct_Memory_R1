@@ -1,0 +1,61 @@
+====================
+Examples
+====================
+
+### Add task to project
+User: "Add a task to review code in the Backend project"
+Context: - Backend project children: [0] Setup database (Done), [1] Create API endpoints (In Progress)
+Output:
+```json
+{
+  "parent_path": "TodoList > Version[-1] > Backend",
+  "position": -1,
+  "node_type": "Task",
+  "fields": {
+    "title": "Review code",
+    "description": "Conduct code review for recent changes",
+    "status": "Todo",
+    "priority": "Medium",
+    "due_date": null
+  },
+  "reasoning": "Appending new task to Backend project. No specific position requested."
+}
+```
+
+### Add high priority task at start
+User: "Add urgent bug fix at start of Frontend project"
+Context: - Frontend project children: [0] Design mockups (Done), [1] Implement components (In Progress)
+Output:
+```json
+{
+  "parent_path": "TodoList > Version[-1] > Frontend",
+  "position": 0,
+  "node_type": "Task",
+  "fields": {
+    "title": "Fix critical bug",
+    "description": "Address urgent bug reported by users",
+    "status": "Todo",
+    "priority": "High",
+    "due_date": null
+  },
+  "reasoning": "Position 0 places at start. Marked high priority per user request."
+}
+```
+
+### Add subtask
+User: "Add subtask 'write unit tests' to the API task"
+Context: - API task children: [0] Define routes (Done), [1] Implement handlers (In Progress)
+Output:
+```json
+{
+  "parent_path": "TodoList > Version[-1] > Backend > Create API endpoints",
+  "position": -1,
+  "node_type": "SubTask",
+  "fields": {
+    "title": "Write unit tests",
+    "description": "Create unit tests for API endpoints",
+    "status": "Todo"
+  },
+  "reasoning": "Adding subtask to API task. Appending at end."
+}
+```

@@ -1,0 +1,5851 @@
+{
+  "timestamp": "20260322_225233_344748",
+  "query": "/Root/Conversation_Version[1]/Speaker[atom(content =~ \"John\")]/Session[atom(content =~ \"health problems\")]/Observation[atom(content =~ \"suspected health problems\")]",
+  "canonical_query": "/Root/Conversation_Version[1]/Speaker[content =~ \"John\"]/Session[content =~ \"health problems\"]/Observation[content =~ \"suspected health problems\"]",
+  "data_file": "tree.xml",
+  "execution_time_ms": 9212.455399996543,
+  "parsed_ast": {
+    "steps": [
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Root",
+            "span": {
+              "start": 1,
+              "end": 5
+            }
+          },
+          "span": {
+            "start": 1,
+            "end": 5
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Conversation_Version",
+            "index": {
+              "start": 1,
+              "type": "single",
+              "span": {
+                "start": 26,
+                "end": 29
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 29
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 29
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Speaker",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "John",
+              "operator": "=~",
+              "span": {
+                "start": 38,
+                "end": 61
+              }
+            },
+            "predicate_str": "atom(content =~ \"John\")",
+            "span": {
+              "start": 30,
+              "end": 62
+            }
+          },
+          "span": {
+            "start": 30,
+            "end": 62
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Session",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "health problems",
+              "operator": "=~",
+              "span": {
+                "start": 71,
+                "end": 105
+              }
+            },
+            "predicate_str": "atom(content =~ \"health problems\")",
+            "span": {
+              "start": 63,
+              "end": 106
+            }
+          },
+          "span": {
+            "start": 63,
+            "end": 106
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Observation",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "suspected health problems",
+              "operator": "=~",
+              "span": {
+                "start": 119,
+                "end": 163
+              }
+            },
+            "predicate_str": "atom(content =~ \"suspected health problems\")",
+            "span": {
+              "start": 107,
+              "end": 164
+            }
+          },
+          "span": {
+            "start": 107,
+            "end": 164
+          }
+        }
+      }
+    ],
+    "global_index": null
+  },
+  "parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: Conversation_Version[1]\n├── Step 2: Speaker[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"John\")\n├── Step 3: Session[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"health problems\")\n└── Step 4: Observation[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"suspected health problems\")",
+  "canonical_parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: Conversation_Version[1]\n├── Step 2: Speaker[content =~ \"John\"]\n├── Step 3: Session[content =~ \"health problems\"]\n└── Step 4: Observation[content =~ \"suspected health problems\"]",
+  "execution_log": [
+    "[20260322_225233_344748] Executing query: /Root/Conversation_Version[1]/Speaker[atom(content =~ \"John\")]/Session[atom(content =~ \"health problems\")]/Observation[atom(content =~ \"suspected health problems\")]",
+    "Data file: tree.xml",
+    "Parsed steps: [Root, Conversation_Version[1], Speaker[atom(content =~ \"John\")], Session[atom(content =~ \"health problems\")], Observation[atom(content =~ \"suspected health problems\")]]",
+    "",
+    "Query AST:\n├── Step 0: Root\n├── Step 1: Conversation_Version[1]\n├── Step 2: Speaker[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"John\")\n├── Step 3: Session[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"health problems\")\n└── Step 4: Observation[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"suspected health problems\")",
+    "\n--- Step 1: Root ---",
+    "Matched Root root",
+    "\n--- Step 2: Conversation_Version[1] ---",
+    "Selected node at index 1 (0-based: 0)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 3: Speaker[atom(content =~ \"John\")] ---",
+    "Scoring predicate: atom(content =~ \"John\") (atomic values: ['John'])",
+    "  Node 0 (James): score = 0.0000 (exact match)",
+    "  Node 1 (John): score = 1.0000 (exact match)",
+    "  Exact attribute match on @name: 1/2 nodes matched",
+    "  Top-K Pruning: Reduced from 2 to 1 nodes (K=5)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 4: Session[atom(content =~ \"health problems\")] ---",
+    "Scoring predicate: atom(content =~ \"health problems\") (atomic values: ['health problems'])",
+    "  Collected 31 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 31 total descriptions",
+    "  Node 0 (Session): score = 0.0565",
+    "  Node 1 (Session): score = 0.2516",
+    "  Node 2 (Session): score = 0.0756",
+    "  Node 3 (Session): score = 0.0179",
+    "  Node 4 (Session): score = 0.1289",
+    "  Node 5 (Session): score = 0.0414",
+    "  Node 6 (Session): score = 0.0234",
+    "  Node 7 (Session): score = 0.0059",
+    "  Node 8 (Session): score = 0.0527",
+    "  Node 9 (Session): score = 0.2820",
+    "  Node 10 (Session): score = 0.6348",
+    "  Node 11 (Session): score = 0.0057",
+    "  Node 12 (Session): score = 0.0698",
+    "  Node 13 (Session): score = 0.0931",
+    "  Node 14 (Session): score = 0.1973",
+    "  Node 15 (Session): score = 0.1073",
+    "  Node 16 (Session): score = 0.0038",
+    "  Node 17 (Session): score = 0.0265",
+    "  Node 18 (Session): score = 0.0402",
+    "  Node 19 (Session): score = 0.0019",
+    "  Node 20 (Session): score = 0.1513",
+    "  Node 21 (Session): score = 0.1078",
+    "  Node 22 (Session): score = 0.0036",
+    "  Node 23 (Session): score = 0.0009",
+    "  Node 24 (Session): score = 0.0665",
+    "  Node 25 (Session): score = 0.0158",
+    "  Node 26 (Session): score = 0.0165",
+    "  Node 27 (Session): score = 0.1475",
+    "  Node 28 (Session): score = 0.1145",
+    "  Node 29 (Session): score = 0.0081",
+    "  Node 30 (Session): score = 0.0213",
+    "  Top-K Pruning: Reduced from 31 to 5 nodes (K=5)",
+    "After step: 5 nodes remaining",
+    "\n--- Step 5: Observation[atom(content =~ \"suspected health problems\")] ---",
+    "Scoring predicate: atom(content =~ \"suspected health problems\") (atomic values: ['suspected health problems'])",
+    "  Collected 4 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 4 total descriptions",
+    "  Node 0 (Observation): score = 0.0017",
+    "  Node 1 (Observation): score = 0.0015",
+    "  Node 2 (Observation): score = 0.0014",
+    "  Node 3 (Observation): score = 0.0182",
+    "Scoring predicate: atom(content =~ \"suspected health problems\") (atomic values: ['suspected health problems'])",
+    "  Collected 4 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 4 total descriptions",
+    "  Node 0 (Observation): score = 0.0019",
+    "  Node 1 (Observation): score = 0.3182",
+    "  Node 2 (Observation): score = 0.0293",
+    "  Node 3 (Observation): score = 0.0047",
+    "Scoring predicate: atom(content =~ \"suspected health problems\") (atomic values: ['suspected health problems'])",
+    "  Collected 3 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 3 total descriptions",
+    "  Node 0 (Observation): score = 0.0126",
+    "  Node 1 (Observation): score = 0.0238",
+    "  Node 2 (Observation): score = 0.0095",
+    "Scoring predicate: atom(content =~ \"suspected health problems\") (atomic values: ['suspected health problems'])",
+    "  Collected 4 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 4 total descriptions",
+    "  Node 0 (Observation): score = 0.0019",
+    "  Node 1 (Observation): score = 0.0236",
+    "  Node 2 (Observation): score = 0.0317",
+    "  Node 3 (Observation): score = 0.0521",
+    "Scoring predicate: atom(content =~ \"suspected health problems\") (atomic values: ['suspected health problems'])",
+    "  Collected 4 descriptions for 1 unique semantic value(s)",
+    "  Made 1 scorer call(s) for 4 total descriptions",
+    "  Node 0 (Observation): score = 0.0012",
+    "  Node 1 (Observation): score = 0.0005",
+    "  Node 2 (Observation): score = 0.4818",
+    "  Node 3 (Observation): score = 0.7074",
+    "  Top-K Pruning: Reduced from 19 to 4 nodes (K=5)",
+    "After step: 4 nodes remaining",
+    "\n=== Score Fusion ===",
+    "  Root > Conversation_Version 1 > John > Session 10 > Observation 2: product=0.3182 → score=0.3182",
+    "  Root > Conversation_Version 1 > John > Session 15 > Observation 4: product=0.0521 → score=0.0521",
+    "  Root > Conversation_Version 1 > John > Session 21 > Observation 4: product=0.7074 → score=0.7074",
+    "  Root > Conversation_Version 1 > John > Session 21 > Observation 3: product=0.4818 → score=0.4818",
+    "  Parent propagation: Root > Conversation_Version 1 > John > Session 10 > Observation 2: own=0.3182 × parent=0.2820 → 0.0897",
+    "  Parent propagation: Root > Conversation_Version 1 > John > Session 15 > Observation 4: own=0.0521 × parent=0.1973 → 0.0103",
+    "  Parent propagation: Root > Conversation_Version 1 > John > Session 21 > Observation 4: own=0.7074 × parent=0.1513 → 0.1070",
+    "  Parent propagation: Root > Conversation_Version 1 > John > Session 21 > Observation 3: own=0.4818 × parent=0.1513 → 0.0729",
+    "\n=== Parent Score Propagation: 4 nodes updated ===",
+    "\n=== Threshold Filtering (threshold=0.05) ===",
+    "  Filtered: 4 → 3 nodes",
+    "\n=== Final Filtering (top_k=10) ===",
+    "  After top_k: 3 → 3 nodes",
+    "\nFinal result: 3 nodes (sorted by score)",
+    "⏱️  Query execution time: 9212.46ms"
+  ],
+  "traversal_steps": [
+    {
+      "step_index": 0,
+      "step_query": "Root",
+      "action": "root_match",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "type": "root"
+        }
+      ],
+      "nodes_after": [
+        {
+          "type": "Root",
+          "path": "Root"
+        }
+      ],
+      "details": {
+        "matched": true
+      }
+    },
+    {
+      "step_index": 1,
+      "step_query": "Conversation_Version[1]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root",
+          "name": "Root",
+          "type": "Root",
+          "score": 1.0,
+          "node_id": 3002179717056
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Conversation_Version 1",
+          "name": "Conversation_Version 1",
+          "type": "Conversation_Version",
+          "score": 1.0,
+          "node_id": 3002179970256
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Conversation_Version",
+            "index": {
+              "start": 1,
+              "type": "single",
+              "span": {
+                "start": 26,
+                "end": 29
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 29
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 29
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 2,
+      "step_query": "Speaker[atom(content =~ \"John\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root > Conversation_Version 1",
+          "name": "Conversation_Version 1",
+          "type": "Conversation_Version",
+          "score": 1.0,
+          "node_id": 3002179970256
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Conversation_Version 1 > John",
+          "name": "John",
+          "type": "Speaker",
+          "score": 1.0,
+          "node_id": 3001056938080
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Speaker",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "John",
+              "operator": "=~",
+              "span": {
+                "start": 38,
+                "end": 61
+              }
+            },
+            "predicate_str": "atom(content =~ \"John\")",
+            "span": {
+              "start": 30,
+              "end": 62
+            }
+          },
+          "span": {
+            "start": 30,
+            "end": 62
+          }
+        },
+        "found_count": 2,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"John\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "John",
+              "operator": "=~",
+              "span": {
+                "start": 38,
+                "end": 61
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 3002179971136,
+                "node_name": "James",
+                "node_type": "Speaker",
+                "final_score": 0.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "James",
+                    "query_value": "John",
+                    "matched": false,
+                    "score": 0.0
+                  }
+                ]
+              },
+              {
+                "node_idx": 1,
+                "node_id": 3001056938080,
+                "node_name": "John",
+                "node_type": "Speaker",
+                "final_score": 1.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "John",
+                    "query_value": "John",
+                    "matched": true,
+                    "score": 1.0
+                  }
+                ]
+              }
+            ],
+            "batch_scoring": {
+              "exact_match": true,
+              "matched_attribute": "name",
+              "query_value": "John",
+              "matched_count": 1
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 1,
+                "score": 1.0,
+                "name": "John"
+              },
+              {
+                "idx": 0,
+                "score": 0.0,
+                "name": "James"
+              }
+            ]
+          }
+        ],
+        "pruned_count": 1
+      }
+    },
+    {
+      "step_index": 3,
+      "step_query": "Session[atom(content =~ \"health problems\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 5,
+      "nodes_before": [
+        {
+          "path": "Root > Conversation_Version 1 > John",
+          "name": "John",
+          "type": "Speaker",
+          "score": 1.0,
+          "node_id": 3001056938080
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Conversation_Version 1 > John > Session 11",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.6348286271095276,
+          "node_id": 3001056949040
+        },
+        {
+          "path": "Root > Conversation_Version 1 > John > Session 10",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.2819749712944031,
+          "node_id": 3001056948000
+        },
+        {
+          "path": "Root > Conversation_Version 1 > John > Session 2",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.2515583336353302,
+          "node_id": 3001056939120
+        },
+        {
+          "path": "Root > Conversation_Version 1 > John > Session 15",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.19725459814071655,
+          "node_id": 3001056806128
+        },
+        {
+          "path": "Root > Conversation_Version 1 > John > Session 21",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.15129852294921875,
+          "node_id": 3001056814048
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Session",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "health problems",
+              "operator": "=~",
+              "span": {
+                "start": 71,
+                "end": 105
+              }
+            },
+            "predicate_str": "atom(content =~ \"health problems\")",
+            "span": {
+              "start": 63,
+              "end": 106
+            }
+          },
+          "span": {
+            "start": 63,
+            "end": 106
+          }
+        },
+        "found_count": 31,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"health problems\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "health problems",
+              "operator": "=~",
+              "span": {
+                "start": 71,
+                "end": 105
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 3001056938240,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "health problems",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 105
+                      }
+                    },
+                    "score": 0.05653896555304527,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.05653896555304527
+              },
+              {
+                "node_idx": 1,
+                "node_id": 3001056939120,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "health problems",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 105
+                      }
+                    },
+                    "score": 0.2515583336353302,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.2515583336353302
+              },
+              {
+                "node_idx": 2,
+                "node_id": 3001056940000,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "health problems",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 105
+                      }
+                    },
+                    "score": 0.07561653107404709,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.07561653107404709
+              },
+              {
+                "node_idx": 3,
+                "node_id": 3001056941120,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "health problems",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 105
+                      }
+                    },
+                    "score": 0.017858857288956642,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.017858857288956642
+              },
+              {
+                "node_idx": 4,
+                "node_id": 3001056942960,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "health problems",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 105
+                      }
+                    },
+                    "score": 0.12893322110176086,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.12893322110176086
+              },
+              {
+                "node_idx": 5,
+                "node_id": 3001056943600,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "health problems",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 105
+                      }
+                    },
+                    "score": 0.0413864329457283,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0413864329457283
+              },
+              {
+                "node_idx": 6,
+                "node_id": 3001056944480,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "health problems",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 105
+                      }
+                    },
+                    "score": 0.023421023041009903,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.023421023041009903
+              },
+              {
+                "node_idx": 7,
+                "node_id": 3001056945360,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "health problems",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 105
+                      }
+                    },
+                    "score": 0.00590188754722476,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.00590188754722476
+              },
+              {
+                "node_idx": 8,
+                "node_id": 3001056946960,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "health problems",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 105
+                      }
+                    },
+                    "score": 0.05274830758571625,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.05274830758571625
+              },
+              {
+                "node_idx": 9,
+                "node_id": 3001056948000,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "health problems",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 105
+                      }
+                    },
+                    "score": 0.2819749712944031,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.2819749712944031
+              },
+              {
+                "node_idx": 10,
+                "node_id": 3001056949040,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "health problems",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 105
+                      }
+                    },
+                    "score": 0.6348286271095276,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.6348286271095276
+              },
+              {
+                "node_idx": 11,
+                "node_id": 3001056950080,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "health problems",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 105
+                      }
+                    },
+                    "score": 0.005710877012461424,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.005710877012461424
+              },
+              {
+                "node_idx": 12,
+                "node_id": 3001056950720,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "health problems",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 105
+                      }
+                    },
+                    "score": 0.06981880962848663,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.06981880962848663
+              },
+              {
+                "node_idx": 13,
+                "node_id": 3001056951680,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "health problems",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 105
+                      }
+                    },
+                    "score": 0.09307176619768143,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.09307176619768143
+              },
+              {
+                "node_idx": 14,
+                "node_id": 3001056806128,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "health problems",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 105
+                      }
+                    },
+                    "score": 0.19725459814071655,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.19725459814071655
+              },
+              {
+                "node_idx": 15,
+                "node_id": 3001056807168,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "health problems",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 105
+                      }
+                    },
+                    "score": 0.10727989673614502,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.10727989673614502
+              },
+              {
+                "node_idx": 16,
+                "node_id": 3001056808288,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "health problems",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 105
+                      }
+                    },
+                    "score": 0.003800054546445608,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.003800054546445608
+              },
+              {
+                "node_idx": 17,
+                "node_id": 3001056810128,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "health problems",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 105
+                      }
+                    },
+                    "score": 0.026545381173491478,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.026545381173491478
+              },
+              {
+                "node_idx": 18,
+                "node_id": 3001056811008,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "health problems",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 105
+                      }
+                    },
+                    "score": 0.040198031812906265,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.040198031812906265
+              },
+              {
+                "node_idx": 19,
+                "node_id": 3001056812448,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "health problems",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 105
+                      }
+                    },
+                    "score": 0.0018971782410517335,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0018971782410517335
+              },
+              {
+                "node_idx": 20,
+                "node_id": 3001056814048,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "health problems",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 105
+                      }
+                    },
+                    "score": 0.15129852294921875,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.15129852294921875
+              },
+              {
+                "node_idx": 21,
+                "node_id": 3001056815168,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "health problems",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 105
+                      }
+                    },
+                    "score": 0.10781075805425644,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.10781075805425644
+              },
+              {
+                "node_idx": 22,
+                "node_id": 3001056816288,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "health problems",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 105
+                      }
+                    },
+                    "score": 0.003560086013749242,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.003560086013749242
+              },
+              {
+                "node_idx": 23,
+                "node_id": 3001056816928,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "health problems",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 105
+                      }
+                    },
+                    "score": 0.0008919967222027481,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0008919967222027481
+              },
+              {
+                "node_idx": 24,
+                "node_id": 3001056818048,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "health problems",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 105
+                      }
+                    },
+                    "score": 0.06649253517389297,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.06649253517389297
+              },
+              {
+                "node_idx": 25,
+                "node_id": 3001056819648,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "health problems",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 105
+                      }
+                    },
+                    "score": 0.015779931098222733,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.015779931098222733
+              },
+              {
+                "node_idx": 26,
+                "node_id": 3001056820528,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "health problems",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 105
+                      }
+                    },
+                    "score": 0.01654495857656002,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.01654495857656002
+              },
+              {
+                "node_idx": 27,
+                "node_id": 3001056838576,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "health problems",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 105
+                      }
+                    },
+                    "score": 0.14752288162708282,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.14752288162708282
+              },
+              {
+                "node_idx": 28,
+                "node_id": 3001056840416,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "health problems",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 105
+                      }
+                    },
+                    "score": 0.11448949575424194,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.11448949575424194
+              },
+              {
+                "node_idx": 29,
+                "node_id": 3001056841536,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "health problems",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 105
+                      }
+                    },
+                    "score": 0.008146140724420547,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.008146140724420547
+              },
+              {
+                "node_idx": 30,
+                "node_id": 3001056842896,
+                "node_name": "Session",
+                "node_type": "Session",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "health problems",
+                      "operator": "=~",
+                      "span": {
+                        "start": 71,
+                        "end": 105
+                      }
+                    },
+                    "score": 0.02132740430533886,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.02132740430533886
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "health problems"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "health problems",
+                  "num_descriptions": 31,
+                  "call_time_ms": 8982.38
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 31
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 10,
+                "score": 0.6348286271095276,
+                "name": "Session"
+              },
+              {
+                "idx": 9,
+                "score": 0.2819749712944031,
+                "name": "Session"
+              },
+              {
+                "idx": 1,
+                "score": 0.2515583336353302,
+                "name": "Session"
+              },
+              {
+                "idx": 14,
+                "score": 0.19725459814071655,
+                "name": "Session"
+              },
+              {
+                "idx": 20,
+                "score": 0.15129852294921875,
+                "name": "Session"
+              },
+              {
+                "idx": 27,
+                "score": 0.14752288162708282,
+                "name": "Session"
+              },
+              {
+                "idx": 4,
+                "score": 0.12893322110176086,
+                "name": "Session"
+              },
+              {
+                "idx": 28,
+                "score": 0.11448949575424194,
+                "name": "Session"
+              },
+              {
+                "idx": 21,
+                "score": 0.10781075805425644,
+                "name": "Session"
+              },
+              {
+                "idx": 15,
+                "score": 0.10727989673614502,
+                "name": "Session"
+              },
+              {
+                "idx": 13,
+                "score": 0.09307176619768143,
+                "name": "Session"
+              },
+              {
+                "idx": 2,
+                "score": 0.07561653107404709,
+                "name": "Session"
+              },
+              {
+                "idx": 12,
+                "score": 0.06981880962848663,
+                "name": "Session"
+              },
+              {
+                "idx": 24,
+                "score": 0.06649253517389297,
+                "name": "Session"
+              },
+              {
+                "idx": 0,
+                "score": 0.05653896555304527,
+                "name": "Session"
+              },
+              {
+                "idx": 8,
+                "score": 0.05274830758571625,
+                "name": "Session"
+              },
+              {
+                "idx": 5,
+                "score": 0.0413864329457283,
+                "name": "Session"
+              },
+              {
+                "idx": 18,
+                "score": 0.040198031812906265,
+                "name": "Session"
+              },
+              {
+                "idx": 17,
+                "score": 0.026545381173491478,
+                "name": "Session"
+              },
+              {
+                "idx": 6,
+                "score": 0.023421023041009903,
+                "name": "Session"
+              },
+              {
+                "idx": 30,
+                "score": 0.02132740430533886,
+                "name": "Session"
+              },
+              {
+                "idx": 3,
+                "score": 0.017858857288956642,
+                "name": "Session"
+              },
+              {
+                "idx": 26,
+                "score": 0.01654495857656002,
+                "name": "Session"
+              },
+              {
+                "idx": 25,
+                "score": 0.015779931098222733,
+                "name": "Session"
+              },
+              {
+                "idx": 29,
+                "score": 0.008146140724420547,
+                "name": "Session"
+              },
+              {
+                "idx": 7,
+                "score": 0.00590188754722476,
+                "name": "Session"
+              },
+              {
+                "idx": 11,
+                "score": 0.005710877012461424,
+                "name": "Session"
+              },
+              {
+                "idx": 16,
+                "score": 0.003800054546445608,
+                "name": "Session"
+              },
+              {
+                "idx": 22,
+                "score": 0.003560086013749242,
+                "name": "Session"
+              },
+              {
+                "idx": 19,
+                "score": 0.0018971782410517335,
+                "name": "Session"
+              },
+              {
+                "idx": 23,
+                "score": 0.0008919967222027481,
+                "name": "Session"
+              }
+            ]
+          }
+        ],
+        "pruned_count": 26
+      }
+    },
+    {
+      "step_index": 4,
+      "step_query": "Observation[atom(content =~ \"suspected health problems\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 5,
+      "nodes_after_count": 4,
+      "nodes_before": [
+        {
+          "path": "Root > Conversation_Version 1 > John > Session 11",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.6348286271095276,
+          "node_id": 3001056949040
+        },
+        {
+          "path": "Root > Conversation_Version 1 > John > Session 10",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.2819749712944031,
+          "node_id": 3001056948000
+        },
+        {
+          "path": "Root > Conversation_Version 1 > John > Session 2",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.2515583336353302,
+          "node_id": 3001056939120
+        },
+        {
+          "path": "Root > Conversation_Version 1 > John > Session 15",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.19725459814071655,
+          "node_id": 3001056806128
+        },
+        {
+          "path": "Root > Conversation_Version 1 > John > Session 21",
+          "name": "Session",
+          "type": "Session",
+          "score": 0.15129852294921875,
+          "node_id": 3001056814048
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > Conversation_Version 1 > John > Session 10 > Observation 2",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.31821611523628235,
+          "node_id": 3001056948320
+        },
+        {
+          "path": "Root > Conversation_Version 1 > John > Session 15 > Observation 4",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.052088089287281036,
+          "node_id": 3001056806928
+        },
+        {
+          "path": "Root > Conversation_Version 1 > John > Session 21 > Observation 4",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.707404375076294,
+          "node_id": 3001056814848
+        },
+        {
+          "path": "Root > Conversation_Version 1 > John > Session 21 > Observation 3",
+          "name": "Observation",
+          "type": "Observation",
+          "score": 0.48175618052482605,
+          "node_id": 3001056814608
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Observation",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "suspected health problems",
+              "operator": "=~",
+              "span": {
+                "start": 119,
+                "end": 163
+              }
+            },
+            "predicate_str": "atom(content =~ \"suspected health problems\")",
+            "span": {
+              "start": 107,
+              "end": 164
+            }
+          },
+          "span": {
+            "start": 107,
+            "end": 164
+          }
+        },
+        "found_count": 19,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"suspected health problems\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "suspected health problems",
+              "operator": "=~",
+              "span": {
+                "start": 119,
+                "end": 163
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 3001056949120,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "suspected health problems",
+                      "operator": "=~",
+                      "span": {
+                        "start": 119,
+                        "end": 163
+                      }
+                    },
+                    "score": 0.0017258197767660022,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0017258197767660022
+              },
+              {
+                "node_idx": 1,
+                "node_id": 3001056949360,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "suspected health problems",
+                      "operator": "=~",
+                      "span": {
+                        "start": 119,
+                        "end": 163
+                      }
+                    },
+                    "score": 0.0015165971126407385,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0015165971126407385
+              },
+              {
+                "node_idx": 2,
+                "node_id": 3001056949600,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "suspected health problems",
+                      "operator": "=~",
+                      "span": {
+                        "start": 119,
+                        "end": 163
+                      }
+                    },
+                    "score": 0.0013632163172587752,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0013632163172587752
+              },
+              {
+                "node_idx": 3,
+                "node_id": 3001056949840,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "suspected health problems",
+                      "operator": "=~",
+                      "span": {
+                        "start": 119,
+                        "end": 163
+                      }
+                    },
+                    "score": 0.018235845491290092,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.018235845491290092
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "suspected health problems"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "suspected health problems",
+                  "num_descriptions": 4,
+                  "call_time_ms": 44.78
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 4
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 3,
+                "score": 0.018235845491290092,
+                "name": "Observation"
+              },
+              {
+                "idx": 0,
+                "score": 0.0017258197767660022,
+                "name": "Observation"
+              },
+              {
+                "idx": 1,
+                "score": 0.0015165971126407385,
+                "name": "Observation"
+              },
+              {
+                "idx": 2,
+                "score": 0.0013632163172587752,
+                "name": "Observation"
+              }
+            ]
+          },
+          {
+            "predicate": "atom(content =~ \"suspected health problems\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "suspected health problems",
+              "operator": "=~",
+              "span": {
+                "start": 119,
+                "end": 163
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 3001056948080,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "suspected health problems",
+                      "operator": "=~",
+                      "span": {
+                        "start": 119,
+                        "end": 163
+                      }
+                    },
+                    "score": 0.0019076166208833456,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0019076166208833456
+              },
+              {
+                "node_idx": 1,
+                "node_id": 3001056948320,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "suspected health problems",
+                      "operator": "=~",
+                      "span": {
+                        "start": 119,
+                        "end": 163
+                      }
+                    },
+                    "score": 0.31821611523628235,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.31821611523628235
+              },
+              {
+                "node_idx": 2,
+                "node_id": 3001056948560,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "suspected health problems",
+                      "operator": "=~",
+                      "span": {
+                        "start": 119,
+                        "end": 163
+                      }
+                    },
+                    "score": 0.029261240735650063,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.029261240735650063
+              },
+              {
+                "node_idx": 3,
+                "node_id": 3001056948800,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "suspected health problems",
+                      "operator": "=~",
+                      "span": {
+                        "start": 119,
+                        "end": 163
+                      }
+                    },
+                    "score": 0.0046752700582146645,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0046752700582146645
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "suspected health problems"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "suspected health problems",
+                  "num_descriptions": 4,
+                  "call_time_ms": 55.32
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 4
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 1,
+                "score": 0.31821611523628235,
+                "name": "Observation"
+              },
+              {
+                "idx": 2,
+                "score": 0.029261240735650063,
+                "name": "Observation"
+              },
+              {
+                "idx": 3,
+                "score": 0.0046752700582146645,
+                "name": "Observation"
+              },
+              {
+                "idx": 0,
+                "score": 0.0019076166208833456,
+                "name": "Observation"
+              }
+            ]
+          },
+          {
+            "predicate": "atom(content =~ \"suspected health problems\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "suspected health problems",
+              "operator": "=~",
+              "span": {
+                "start": 119,
+                "end": 163
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 3001056939200,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "suspected health problems",
+                      "operator": "=~",
+                      "span": {
+                        "start": 119,
+                        "end": 163
+                      }
+                    },
+                    "score": 0.012642603367567062,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.012642603367567062
+              },
+              {
+                "node_idx": 1,
+                "node_id": 3001056939440,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "suspected health problems",
+                      "operator": "=~",
+                      "span": {
+                        "start": 119,
+                        "end": 163
+                      }
+                    },
+                    "score": 0.023830275982618332,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.023830275982618332
+              },
+              {
+                "node_idx": 2,
+                "node_id": 3001056939680,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "suspected health problems",
+                      "operator": "=~",
+                      "span": {
+                        "start": 119,
+                        "end": 163
+                      }
+                    },
+                    "score": 0.009454072453081608,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.009454072453081608
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "suspected health problems"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "suspected health problems",
+                  "num_descriptions": 3,
+                  "call_time_ms": 41.0
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 3
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 1,
+                "score": 0.023830275982618332,
+                "name": "Observation"
+              },
+              {
+                "idx": 0,
+                "score": 0.012642603367567062,
+                "name": "Observation"
+              },
+              {
+                "idx": 2,
+                "score": 0.009454072453081608,
+                "name": "Observation"
+              }
+            ]
+          },
+          {
+            "predicate": "atom(content =~ \"suspected health problems\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "suspected health problems",
+              "operator": "=~",
+              "span": {
+                "start": 119,
+                "end": 163
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 3001056806208,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "suspected health problems",
+                      "operator": "=~",
+                      "span": {
+                        "start": 119,
+                        "end": 163
+                      }
+                    },
+                    "score": 0.0019416246796026826,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0019416246796026826
+              },
+              {
+                "node_idx": 1,
+                "node_id": 3001056806448,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "suspected health problems",
+                      "operator": "=~",
+                      "span": {
+                        "start": 119,
+                        "end": 163
+                      }
+                    },
+                    "score": 0.023644087836146355,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.023644087836146355
+              },
+              {
+                "node_idx": 2,
+                "node_id": 3001056806688,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "suspected health problems",
+                      "operator": "=~",
+                      "span": {
+                        "start": 119,
+                        "end": 163
+                      }
+                    },
+                    "score": 0.03171546757221222,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.03171546757221222
+              },
+              {
+                "node_idx": 3,
+                "node_id": 3001056806928,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "suspected health problems",
+                      "operator": "=~",
+                      "span": {
+                        "start": 119,
+                        "end": 163
+                      }
+                    },
+                    "score": 0.052088089287281036,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.052088089287281036
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "suspected health problems"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "suspected health problems",
+                  "num_descriptions": 4,
+                  "call_time_ms": 42.23
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 4
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 3,
+                "score": 0.052088089287281036,
+                "name": "Observation"
+              },
+              {
+                "idx": 2,
+                "score": 0.03171546757221222,
+                "name": "Observation"
+              },
+              {
+                "idx": 1,
+                "score": 0.023644087836146355,
+                "name": "Observation"
+              },
+              {
+                "idx": 0,
+                "score": 0.0019416246796026826,
+                "name": "Observation"
+              }
+            ]
+          },
+          {
+            "predicate": "atom(content =~ \"suspected health problems\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "suspected health problems",
+              "operator": "=~",
+              "span": {
+                "start": 119,
+                "end": 163
+              }
+            },
+            "config": {
+              "top_k": 10,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 3001056814128,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "suspected health problems",
+                      "operator": "=~",
+                      "span": {
+                        "start": 119,
+                        "end": 163
+                      }
+                    },
+                    "score": 0.0012005938915535808,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0012005938915535808
+              },
+              {
+                "node_idx": 1,
+                "node_id": 3001056814368,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "suspected health problems",
+                      "operator": "=~",
+                      "span": {
+                        "start": 119,
+                        "end": 163
+                      }
+                    },
+                    "score": 0.0004566585994325578,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.0004566585994325578
+              },
+              {
+                "node_idx": 2,
+                "node_id": 3001056814608,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "suspected health problems",
+                      "operator": "=~",
+                      "span": {
+                        "start": 119,
+                        "end": 163
+                      }
+                    },
+                    "score": 0.48175618052482605,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.48175618052482605
+              },
+              {
+                "node_idx": 3,
+                "node_id": 3001056814848,
+                "node_name": "Observation",
+                "node_type": "Observation",
+                "scoring_steps": [
+                  {
+                    "type": "atom",
+                    "condition": {
+                      "type": "atom",
+                      "field": "content",
+                      "value": "suspected health problems",
+                      "operator": "=~",
+                      "span": {
+                        "start": 119,
+                        "end": 163
+                      }
+                    },
+                    "score": 0.707404375076294,
+                    "note": "Atom(u, φ) - local node content from attr(u)"
+                  }
+                ],
+                "final_score": 0.707404375076294
+              }
+            ],
+            "batch_scoring": {
+              "semantic_values": [
+                "suspected health problems"
+              ],
+              "per_value_stats": [
+                {
+                  "value": "suspected health problems",
+                  "num_descriptions": 4,
+                  "call_time_ms": 41.64
+                }
+              ],
+              "total_scorer_calls": 1,
+              "total_descriptions_scored": 4
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 3,
+                "score": 0.707404375076294,
+                "name": "Observation"
+              },
+              {
+                "idx": 2,
+                "score": 0.48175618052482605,
+                "name": "Observation"
+              },
+              {
+                "idx": 0,
+                "score": 0.0012005938915535808,
+                "name": "Observation"
+              },
+              {
+                "idx": 1,
+                "score": 0.0004566585994325578,
+                "name": "Observation"
+              }
+            ]
+          }
+        ],
+        "pruned_count": 15
+      }
+    }
+  ],
+  "scoring_traces": [
+    {
+      "predicate": "atom(content =~ \"John\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "John",
+        "operator": "=~",
+        "span": {
+          "start": 38,
+          "end": 61
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 3002179971136,
+          "node_name": "James",
+          "node_type": "Speaker",
+          "final_score": 0.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "James",
+              "query_value": "John",
+              "matched": false,
+              "score": 0.0
+            }
+          ]
+        },
+        {
+          "node_idx": 1,
+          "node_id": 3001056938080,
+          "node_name": "John",
+          "node_type": "Speaker",
+          "final_score": 1.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "John",
+              "query_value": "John",
+              "matched": true,
+              "score": 1.0
+            }
+          ]
+        }
+      ],
+      "batch_scoring": {
+        "exact_match": true,
+        "matched_attribute": "name",
+        "query_value": "John",
+        "matched_count": 1
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 1,
+          "score": 1.0,
+          "name": "John"
+        },
+        {
+          "idx": 0,
+          "score": 0.0,
+          "name": "James"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"health problems\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "health problems",
+        "operator": "=~",
+        "span": {
+          "start": 71,
+          "end": 105
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 3001056938240,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "health problems",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 105
+                }
+              },
+              "score": 0.05653896555304527,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.05653896555304527
+        },
+        {
+          "node_idx": 1,
+          "node_id": 3001056939120,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "health problems",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 105
+                }
+              },
+              "score": 0.2515583336353302,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.2515583336353302
+        },
+        {
+          "node_idx": 2,
+          "node_id": 3001056940000,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "health problems",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 105
+                }
+              },
+              "score": 0.07561653107404709,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.07561653107404709
+        },
+        {
+          "node_idx": 3,
+          "node_id": 3001056941120,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "health problems",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 105
+                }
+              },
+              "score": 0.017858857288956642,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.017858857288956642
+        },
+        {
+          "node_idx": 4,
+          "node_id": 3001056942960,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "health problems",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 105
+                }
+              },
+              "score": 0.12893322110176086,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.12893322110176086
+        },
+        {
+          "node_idx": 5,
+          "node_id": 3001056943600,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "health problems",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 105
+                }
+              },
+              "score": 0.0413864329457283,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0413864329457283
+        },
+        {
+          "node_idx": 6,
+          "node_id": 3001056944480,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "health problems",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 105
+                }
+              },
+              "score": 0.023421023041009903,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.023421023041009903
+        },
+        {
+          "node_idx": 7,
+          "node_id": 3001056945360,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "health problems",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 105
+                }
+              },
+              "score": 0.00590188754722476,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.00590188754722476
+        },
+        {
+          "node_idx": 8,
+          "node_id": 3001056946960,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "health problems",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 105
+                }
+              },
+              "score": 0.05274830758571625,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.05274830758571625
+        },
+        {
+          "node_idx": 9,
+          "node_id": 3001056948000,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "health problems",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 105
+                }
+              },
+              "score": 0.2819749712944031,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.2819749712944031
+        },
+        {
+          "node_idx": 10,
+          "node_id": 3001056949040,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "health problems",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 105
+                }
+              },
+              "score": 0.6348286271095276,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.6348286271095276
+        },
+        {
+          "node_idx": 11,
+          "node_id": 3001056950080,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "health problems",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 105
+                }
+              },
+              "score": 0.005710877012461424,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.005710877012461424
+        },
+        {
+          "node_idx": 12,
+          "node_id": 3001056950720,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "health problems",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 105
+                }
+              },
+              "score": 0.06981880962848663,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.06981880962848663
+        },
+        {
+          "node_idx": 13,
+          "node_id": 3001056951680,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "health problems",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 105
+                }
+              },
+              "score": 0.09307176619768143,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.09307176619768143
+        },
+        {
+          "node_idx": 14,
+          "node_id": 3001056806128,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "health problems",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 105
+                }
+              },
+              "score": 0.19725459814071655,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.19725459814071655
+        },
+        {
+          "node_idx": 15,
+          "node_id": 3001056807168,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "health problems",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 105
+                }
+              },
+              "score": 0.10727989673614502,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.10727989673614502
+        },
+        {
+          "node_idx": 16,
+          "node_id": 3001056808288,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "health problems",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 105
+                }
+              },
+              "score": 0.003800054546445608,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.003800054546445608
+        },
+        {
+          "node_idx": 17,
+          "node_id": 3001056810128,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "health problems",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 105
+                }
+              },
+              "score": 0.026545381173491478,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.026545381173491478
+        },
+        {
+          "node_idx": 18,
+          "node_id": 3001056811008,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "health problems",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 105
+                }
+              },
+              "score": 0.040198031812906265,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.040198031812906265
+        },
+        {
+          "node_idx": 19,
+          "node_id": 3001056812448,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "health problems",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 105
+                }
+              },
+              "score": 0.0018971782410517335,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0018971782410517335
+        },
+        {
+          "node_idx": 20,
+          "node_id": 3001056814048,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "health problems",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 105
+                }
+              },
+              "score": 0.15129852294921875,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.15129852294921875
+        },
+        {
+          "node_idx": 21,
+          "node_id": 3001056815168,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "health problems",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 105
+                }
+              },
+              "score": 0.10781075805425644,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.10781075805425644
+        },
+        {
+          "node_idx": 22,
+          "node_id": 3001056816288,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "health problems",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 105
+                }
+              },
+              "score": 0.003560086013749242,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.003560086013749242
+        },
+        {
+          "node_idx": 23,
+          "node_id": 3001056816928,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "health problems",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 105
+                }
+              },
+              "score": 0.0008919967222027481,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0008919967222027481
+        },
+        {
+          "node_idx": 24,
+          "node_id": 3001056818048,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "health problems",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 105
+                }
+              },
+              "score": 0.06649253517389297,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.06649253517389297
+        },
+        {
+          "node_idx": 25,
+          "node_id": 3001056819648,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "health problems",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 105
+                }
+              },
+              "score": 0.015779931098222733,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.015779931098222733
+        },
+        {
+          "node_idx": 26,
+          "node_id": 3001056820528,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "health problems",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 105
+                }
+              },
+              "score": 0.01654495857656002,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.01654495857656002
+        },
+        {
+          "node_idx": 27,
+          "node_id": 3001056838576,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "health problems",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 105
+                }
+              },
+              "score": 0.14752288162708282,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.14752288162708282
+        },
+        {
+          "node_idx": 28,
+          "node_id": 3001056840416,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "health problems",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 105
+                }
+              },
+              "score": 0.11448949575424194,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.11448949575424194
+        },
+        {
+          "node_idx": 29,
+          "node_id": 3001056841536,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "health problems",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 105
+                }
+              },
+              "score": 0.008146140724420547,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.008146140724420547
+        },
+        {
+          "node_idx": 30,
+          "node_id": 3001056842896,
+          "node_name": "Session",
+          "node_type": "Session",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "health problems",
+                "operator": "=~",
+                "span": {
+                  "start": 71,
+                  "end": 105
+                }
+              },
+              "score": 0.02132740430533886,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.02132740430533886
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "health problems"
+        ],
+        "per_value_stats": [
+          {
+            "value": "health problems",
+            "num_descriptions": 31,
+            "call_time_ms": 8982.38
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 31
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 10,
+          "score": 0.6348286271095276,
+          "name": "Session"
+        },
+        {
+          "idx": 9,
+          "score": 0.2819749712944031,
+          "name": "Session"
+        },
+        {
+          "idx": 1,
+          "score": 0.2515583336353302,
+          "name": "Session"
+        },
+        {
+          "idx": 14,
+          "score": 0.19725459814071655,
+          "name": "Session"
+        },
+        {
+          "idx": 20,
+          "score": 0.15129852294921875,
+          "name": "Session"
+        },
+        {
+          "idx": 27,
+          "score": 0.14752288162708282,
+          "name": "Session"
+        },
+        {
+          "idx": 4,
+          "score": 0.12893322110176086,
+          "name": "Session"
+        },
+        {
+          "idx": 28,
+          "score": 0.11448949575424194,
+          "name": "Session"
+        },
+        {
+          "idx": 21,
+          "score": 0.10781075805425644,
+          "name": "Session"
+        },
+        {
+          "idx": 15,
+          "score": 0.10727989673614502,
+          "name": "Session"
+        },
+        {
+          "idx": 13,
+          "score": 0.09307176619768143,
+          "name": "Session"
+        },
+        {
+          "idx": 2,
+          "score": 0.07561653107404709,
+          "name": "Session"
+        },
+        {
+          "idx": 12,
+          "score": 0.06981880962848663,
+          "name": "Session"
+        },
+        {
+          "idx": 24,
+          "score": 0.06649253517389297,
+          "name": "Session"
+        },
+        {
+          "idx": 0,
+          "score": 0.05653896555304527,
+          "name": "Session"
+        },
+        {
+          "idx": 8,
+          "score": 0.05274830758571625,
+          "name": "Session"
+        },
+        {
+          "idx": 5,
+          "score": 0.0413864329457283,
+          "name": "Session"
+        },
+        {
+          "idx": 18,
+          "score": 0.040198031812906265,
+          "name": "Session"
+        },
+        {
+          "idx": 17,
+          "score": 0.026545381173491478,
+          "name": "Session"
+        },
+        {
+          "idx": 6,
+          "score": 0.023421023041009903,
+          "name": "Session"
+        },
+        {
+          "idx": 30,
+          "score": 0.02132740430533886,
+          "name": "Session"
+        },
+        {
+          "idx": 3,
+          "score": 0.017858857288956642,
+          "name": "Session"
+        },
+        {
+          "idx": 26,
+          "score": 0.01654495857656002,
+          "name": "Session"
+        },
+        {
+          "idx": 25,
+          "score": 0.015779931098222733,
+          "name": "Session"
+        },
+        {
+          "idx": 29,
+          "score": 0.008146140724420547,
+          "name": "Session"
+        },
+        {
+          "idx": 7,
+          "score": 0.00590188754722476,
+          "name": "Session"
+        },
+        {
+          "idx": 11,
+          "score": 0.005710877012461424,
+          "name": "Session"
+        },
+        {
+          "idx": 16,
+          "score": 0.003800054546445608,
+          "name": "Session"
+        },
+        {
+          "idx": 22,
+          "score": 0.003560086013749242,
+          "name": "Session"
+        },
+        {
+          "idx": 19,
+          "score": 0.0018971782410517335,
+          "name": "Session"
+        },
+        {
+          "idx": 23,
+          "score": 0.0008919967222027481,
+          "name": "Session"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"suspected health problems\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "suspected health problems",
+        "operator": "=~",
+        "span": {
+          "start": 119,
+          "end": 163
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 3001056949120,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "suspected health problems",
+                "operator": "=~",
+                "span": {
+                  "start": 119,
+                  "end": 163
+                }
+              },
+              "score": 0.0017258197767660022,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0017258197767660022
+        },
+        {
+          "node_idx": 1,
+          "node_id": 3001056949360,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "suspected health problems",
+                "operator": "=~",
+                "span": {
+                  "start": 119,
+                  "end": 163
+                }
+              },
+              "score": 0.0015165971126407385,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0015165971126407385
+        },
+        {
+          "node_idx": 2,
+          "node_id": 3001056949600,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "suspected health problems",
+                "operator": "=~",
+                "span": {
+                  "start": 119,
+                  "end": 163
+                }
+              },
+              "score": 0.0013632163172587752,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0013632163172587752
+        },
+        {
+          "node_idx": 3,
+          "node_id": 3001056949840,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "suspected health problems",
+                "operator": "=~",
+                "span": {
+                  "start": 119,
+                  "end": 163
+                }
+              },
+              "score": 0.018235845491290092,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.018235845491290092
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "suspected health problems"
+        ],
+        "per_value_stats": [
+          {
+            "value": "suspected health problems",
+            "num_descriptions": 4,
+            "call_time_ms": 44.78
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 4
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 3,
+          "score": 0.018235845491290092,
+          "name": "Observation"
+        },
+        {
+          "idx": 0,
+          "score": 0.0017258197767660022,
+          "name": "Observation"
+        },
+        {
+          "idx": 1,
+          "score": 0.0015165971126407385,
+          "name": "Observation"
+        },
+        {
+          "idx": 2,
+          "score": 0.0013632163172587752,
+          "name": "Observation"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"suspected health problems\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "suspected health problems",
+        "operator": "=~",
+        "span": {
+          "start": 119,
+          "end": 163
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 3001056948080,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "suspected health problems",
+                "operator": "=~",
+                "span": {
+                  "start": 119,
+                  "end": 163
+                }
+              },
+              "score": 0.0019076166208833456,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0019076166208833456
+        },
+        {
+          "node_idx": 1,
+          "node_id": 3001056948320,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "suspected health problems",
+                "operator": "=~",
+                "span": {
+                  "start": 119,
+                  "end": 163
+                }
+              },
+              "score": 0.31821611523628235,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.31821611523628235
+        },
+        {
+          "node_idx": 2,
+          "node_id": 3001056948560,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "suspected health problems",
+                "operator": "=~",
+                "span": {
+                  "start": 119,
+                  "end": 163
+                }
+              },
+              "score": 0.029261240735650063,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.029261240735650063
+        },
+        {
+          "node_idx": 3,
+          "node_id": 3001056948800,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "suspected health problems",
+                "operator": "=~",
+                "span": {
+                  "start": 119,
+                  "end": 163
+                }
+              },
+              "score": 0.0046752700582146645,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0046752700582146645
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "suspected health problems"
+        ],
+        "per_value_stats": [
+          {
+            "value": "suspected health problems",
+            "num_descriptions": 4,
+            "call_time_ms": 55.32
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 4
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 1,
+          "score": 0.31821611523628235,
+          "name": "Observation"
+        },
+        {
+          "idx": 2,
+          "score": 0.029261240735650063,
+          "name": "Observation"
+        },
+        {
+          "idx": 3,
+          "score": 0.0046752700582146645,
+          "name": "Observation"
+        },
+        {
+          "idx": 0,
+          "score": 0.0019076166208833456,
+          "name": "Observation"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"suspected health problems\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "suspected health problems",
+        "operator": "=~",
+        "span": {
+          "start": 119,
+          "end": 163
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 3001056939200,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "suspected health problems",
+                "operator": "=~",
+                "span": {
+                  "start": 119,
+                  "end": 163
+                }
+              },
+              "score": 0.012642603367567062,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.012642603367567062
+        },
+        {
+          "node_idx": 1,
+          "node_id": 3001056939440,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "suspected health problems",
+                "operator": "=~",
+                "span": {
+                  "start": 119,
+                  "end": 163
+                }
+              },
+              "score": 0.023830275982618332,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.023830275982618332
+        },
+        {
+          "node_idx": 2,
+          "node_id": 3001056939680,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "suspected health problems",
+                "operator": "=~",
+                "span": {
+                  "start": 119,
+                  "end": 163
+                }
+              },
+              "score": 0.009454072453081608,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.009454072453081608
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "suspected health problems"
+        ],
+        "per_value_stats": [
+          {
+            "value": "suspected health problems",
+            "num_descriptions": 3,
+            "call_time_ms": 41.0
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 3
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 1,
+          "score": 0.023830275982618332,
+          "name": "Observation"
+        },
+        {
+          "idx": 0,
+          "score": 0.012642603367567062,
+          "name": "Observation"
+        },
+        {
+          "idx": 2,
+          "score": 0.009454072453081608,
+          "name": "Observation"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"suspected health problems\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "suspected health problems",
+        "operator": "=~",
+        "span": {
+          "start": 119,
+          "end": 163
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 3001056806208,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "suspected health problems",
+                "operator": "=~",
+                "span": {
+                  "start": 119,
+                  "end": 163
+                }
+              },
+              "score": 0.0019416246796026826,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0019416246796026826
+        },
+        {
+          "node_idx": 1,
+          "node_id": 3001056806448,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "suspected health problems",
+                "operator": "=~",
+                "span": {
+                  "start": 119,
+                  "end": 163
+                }
+              },
+              "score": 0.023644087836146355,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.023644087836146355
+        },
+        {
+          "node_idx": 2,
+          "node_id": 3001056806688,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "suspected health problems",
+                "operator": "=~",
+                "span": {
+                  "start": 119,
+                  "end": 163
+                }
+              },
+              "score": 0.03171546757221222,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.03171546757221222
+        },
+        {
+          "node_idx": 3,
+          "node_id": 3001056806928,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "suspected health problems",
+                "operator": "=~",
+                "span": {
+                  "start": 119,
+                  "end": 163
+                }
+              },
+              "score": 0.052088089287281036,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.052088089287281036
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "suspected health problems"
+        ],
+        "per_value_stats": [
+          {
+            "value": "suspected health problems",
+            "num_descriptions": 4,
+            "call_time_ms": 42.23
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 4
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 3,
+          "score": 0.052088089287281036,
+          "name": "Observation"
+        },
+        {
+          "idx": 2,
+          "score": 0.03171546757221222,
+          "name": "Observation"
+        },
+        {
+          "idx": 1,
+          "score": 0.023644087836146355,
+          "name": "Observation"
+        },
+        {
+          "idx": 0,
+          "score": 0.0019416246796026826,
+          "name": "Observation"
+        }
+      ]
+    },
+    {
+      "predicate": "atom(content =~ \"suspected health problems\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "suspected health problems",
+        "operator": "=~",
+        "span": {
+          "start": 119,
+          "end": 163
+        }
+      },
+      "config": {
+        "top_k": 10,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 3001056814128,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "suspected health problems",
+                "operator": "=~",
+                "span": {
+                  "start": 119,
+                  "end": 163
+                }
+              },
+              "score": 0.0012005938915535808,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0012005938915535808
+        },
+        {
+          "node_idx": 1,
+          "node_id": 3001056814368,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "suspected health problems",
+                "operator": "=~",
+                "span": {
+                  "start": 119,
+                  "end": 163
+                }
+              },
+              "score": 0.0004566585994325578,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.0004566585994325578
+        },
+        {
+          "node_idx": 2,
+          "node_id": 3001056814608,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "suspected health problems",
+                "operator": "=~",
+                "span": {
+                  "start": 119,
+                  "end": 163
+                }
+              },
+              "score": 0.48175618052482605,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.48175618052482605
+        },
+        {
+          "node_idx": 3,
+          "node_id": 3001056814848,
+          "node_name": "Observation",
+          "node_type": "Observation",
+          "scoring_steps": [
+            {
+              "type": "atom",
+              "condition": {
+                "type": "atom",
+                "field": "content",
+                "value": "suspected health problems",
+                "operator": "=~",
+                "span": {
+                  "start": 119,
+                  "end": 163
+                }
+              },
+              "score": 0.707404375076294,
+              "note": "Atom(u, φ) - local node content from attr(u)"
+            }
+          ],
+          "final_score": 0.707404375076294
+        }
+      ],
+      "batch_scoring": {
+        "semantic_values": [
+          "suspected health problems"
+        ],
+        "per_value_stats": [
+          {
+            "value": "suspected health problems",
+            "num_descriptions": 4,
+            "call_time_ms": 41.64
+          }
+        ],
+        "total_scorer_calls": 1,
+        "total_descriptions_scored": 4
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 3,
+          "score": 0.707404375076294,
+          "name": "Observation"
+        },
+        {
+          "idx": 2,
+          "score": 0.48175618052482605,
+          "name": "Observation"
+        },
+        {
+          "idx": 0,
+          "score": 0.0012005938915535808,
+          "name": "Observation"
+        },
+        {
+          "idx": 1,
+          "score": 0.0004566585994325578,
+          "name": "Observation"
+        }
+      ]
+    }
+  ],
+  "scoring_details": {
+    "step_scores": [
+      {
+        "step_index": 0,
+        "predicate": "atom(content =~ \"John\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "John",
+          "operator": "=~",
+          "span": {
+            "start": 38,
+            "end": 61
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 3002179971136,
+            "node_name": "James",
+            "node_type": "Speaker",
+            "final_score": 0.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "James",
+                "query_value": "John",
+                "matched": false,
+                "score": 0.0
+              }
+            ]
+          },
+          {
+            "node_idx": 1,
+            "node_id": 3001056938080,
+            "node_name": "John",
+            "node_type": "Speaker",
+            "final_score": 1.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "John",
+                "query_value": "John",
+                "matched": true,
+                "score": 1.0
+              }
+            ]
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 1,
+            "score": 1.0,
+            "name": "John"
+          },
+          {
+            "idx": 0,
+            "score": 0.0,
+            "name": "James"
+          }
+        ]
+      },
+      {
+        "step_index": 1,
+        "predicate": "atom(content =~ \"health problems\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "health problems",
+          "operator": "=~",
+          "span": {
+            "start": 71,
+            "end": 105
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 3001056938240,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "health problems",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 105
+                  }
+                },
+                "score": 0.05653896555304527,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.05653896555304527
+          },
+          {
+            "node_idx": 1,
+            "node_id": 3001056939120,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "health problems",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 105
+                  }
+                },
+                "score": 0.2515583336353302,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.2515583336353302
+          },
+          {
+            "node_idx": 2,
+            "node_id": 3001056940000,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "health problems",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 105
+                  }
+                },
+                "score": 0.07561653107404709,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.07561653107404709
+          },
+          {
+            "node_idx": 3,
+            "node_id": 3001056941120,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "health problems",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 105
+                  }
+                },
+                "score": 0.017858857288956642,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.017858857288956642
+          },
+          {
+            "node_idx": 4,
+            "node_id": 3001056942960,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "health problems",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 105
+                  }
+                },
+                "score": 0.12893322110176086,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.12893322110176086
+          },
+          {
+            "node_idx": 5,
+            "node_id": 3001056943600,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "health problems",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 105
+                  }
+                },
+                "score": 0.0413864329457283,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0413864329457283
+          },
+          {
+            "node_idx": 6,
+            "node_id": 3001056944480,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "health problems",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 105
+                  }
+                },
+                "score": 0.023421023041009903,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.023421023041009903
+          },
+          {
+            "node_idx": 7,
+            "node_id": 3001056945360,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "health problems",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 105
+                  }
+                },
+                "score": 0.00590188754722476,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.00590188754722476
+          },
+          {
+            "node_idx": 8,
+            "node_id": 3001056946960,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "health problems",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 105
+                  }
+                },
+                "score": 0.05274830758571625,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.05274830758571625
+          },
+          {
+            "node_idx": 9,
+            "node_id": 3001056948000,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "health problems",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 105
+                  }
+                },
+                "score": 0.2819749712944031,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.2819749712944031
+          },
+          {
+            "node_idx": 10,
+            "node_id": 3001056949040,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "health problems",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 105
+                  }
+                },
+                "score": 0.6348286271095276,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.6348286271095276
+          },
+          {
+            "node_idx": 11,
+            "node_id": 3001056950080,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "health problems",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 105
+                  }
+                },
+                "score": 0.005710877012461424,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.005710877012461424
+          },
+          {
+            "node_idx": 12,
+            "node_id": 3001056950720,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "health problems",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 105
+                  }
+                },
+                "score": 0.06981880962848663,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.06981880962848663
+          },
+          {
+            "node_idx": 13,
+            "node_id": 3001056951680,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "health problems",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 105
+                  }
+                },
+                "score": 0.09307176619768143,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.09307176619768143
+          },
+          {
+            "node_idx": 14,
+            "node_id": 3001056806128,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "health problems",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 105
+                  }
+                },
+                "score": 0.19725459814071655,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.19725459814071655
+          },
+          {
+            "node_idx": 15,
+            "node_id": 3001056807168,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "health problems",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 105
+                  }
+                },
+                "score": 0.10727989673614502,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.10727989673614502
+          },
+          {
+            "node_idx": 16,
+            "node_id": 3001056808288,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "health problems",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 105
+                  }
+                },
+                "score": 0.003800054546445608,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.003800054546445608
+          },
+          {
+            "node_idx": 17,
+            "node_id": 3001056810128,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "health problems",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 105
+                  }
+                },
+                "score": 0.026545381173491478,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.026545381173491478
+          },
+          {
+            "node_idx": 18,
+            "node_id": 3001056811008,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "health problems",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 105
+                  }
+                },
+                "score": 0.040198031812906265,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.040198031812906265
+          },
+          {
+            "node_idx": 19,
+            "node_id": 3001056812448,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "health problems",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 105
+                  }
+                },
+                "score": 0.0018971782410517335,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0018971782410517335
+          },
+          {
+            "node_idx": 20,
+            "node_id": 3001056814048,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "health problems",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 105
+                  }
+                },
+                "score": 0.15129852294921875,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.15129852294921875
+          },
+          {
+            "node_idx": 21,
+            "node_id": 3001056815168,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "health problems",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 105
+                  }
+                },
+                "score": 0.10781075805425644,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.10781075805425644
+          },
+          {
+            "node_idx": 22,
+            "node_id": 3001056816288,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "health problems",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 105
+                  }
+                },
+                "score": 0.003560086013749242,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.003560086013749242
+          },
+          {
+            "node_idx": 23,
+            "node_id": 3001056816928,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "health problems",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 105
+                  }
+                },
+                "score": 0.0008919967222027481,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0008919967222027481
+          },
+          {
+            "node_idx": 24,
+            "node_id": 3001056818048,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "health problems",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 105
+                  }
+                },
+                "score": 0.06649253517389297,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.06649253517389297
+          },
+          {
+            "node_idx": 25,
+            "node_id": 3001056819648,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "health problems",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 105
+                  }
+                },
+                "score": 0.015779931098222733,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.015779931098222733
+          },
+          {
+            "node_idx": 26,
+            "node_id": 3001056820528,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "health problems",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 105
+                  }
+                },
+                "score": 0.01654495857656002,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.01654495857656002
+          },
+          {
+            "node_idx": 27,
+            "node_id": 3001056838576,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "health problems",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 105
+                  }
+                },
+                "score": 0.14752288162708282,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.14752288162708282
+          },
+          {
+            "node_idx": 28,
+            "node_id": 3001056840416,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "health problems",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 105
+                  }
+                },
+                "score": 0.11448949575424194,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.11448949575424194
+          },
+          {
+            "node_idx": 29,
+            "node_id": 3001056841536,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "health problems",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 105
+                  }
+                },
+                "score": 0.008146140724420547,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.008146140724420547
+          },
+          {
+            "node_idx": 30,
+            "node_id": 3001056842896,
+            "node_name": "Session",
+            "node_type": "Session",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "health problems",
+                  "operator": "=~",
+                  "span": {
+                    "start": 71,
+                    "end": 105
+                  }
+                },
+                "score": 0.02132740430533886,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.02132740430533886
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 10,
+            "score": 0.6348286271095276,
+            "name": "Session"
+          },
+          {
+            "idx": 9,
+            "score": 0.2819749712944031,
+            "name": "Session"
+          },
+          {
+            "idx": 1,
+            "score": 0.2515583336353302,
+            "name": "Session"
+          },
+          {
+            "idx": 14,
+            "score": 0.19725459814071655,
+            "name": "Session"
+          },
+          {
+            "idx": 20,
+            "score": 0.15129852294921875,
+            "name": "Session"
+          },
+          {
+            "idx": 27,
+            "score": 0.14752288162708282,
+            "name": "Session"
+          },
+          {
+            "idx": 4,
+            "score": 0.12893322110176086,
+            "name": "Session"
+          },
+          {
+            "idx": 28,
+            "score": 0.11448949575424194,
+            "name": "Session"
+          },
+          {
+            "idx": 21,
+            "score": 0.10781075805425644,
+            "name": "Session"
+          },
+          {
+            "idx": 15,
+            "score": 0.10727989673614502,
+            "name": "Session"
+          },
+          {
+            "idx": 13,
+            "score": 0.09307176619768143,
+            "name": "Session"
+          },
+          {
+            "idx": 2,
+            "score": 0.07561653107404709,
+            "name": "Session"
+          },
+          {
+            "idx": 12,
+            "score": 0.06981880962848663,
+            "name": "Session"
+          },
+          {
+            "idx": 24,
+            "score": 0.06649253517389297,
+            "name": "Session"
+          },
+          {
+            "idx": 0,
+            "score": 0.05653896555304527,
+            "name": "Session"
+          },
+          {
+            "idx": 8,
+            "score": 0.05274830758571625,
+            "name": "Session"
+          },
+          {
+            "idx": 5,
+            "score": 0.0413864329457283,
+            "name": "Session"
+          },
+          {
+            "idx": 18,
+            "score": 0.040198031812906265,
+            "name": "Session"
+          },
+          {
+            "idx": 17,
+            "score": 0.026545381173491478,
+            "name": "Session"
+          },
+          {
+            "idx": 6,
+            "score": 0.023421023041009903,
+            "name": "Session"
+          },
+          {
+            "idx": 30,
+            "score": 0.02132740430533886,
+            "name": "Session"
+          },
+          {
+            "idx": 3,
+            "score": 0.017858857288956642,
+            "name": "Session"
+          },
+          {
+            "idx": 26,
+            "score": 0.01654495857656002,
+            "name": "Session"
+          },
+          {
+            "idx": 25,
+            "score": 0.015779931098222733,
+            "name": "Session"
+          },
+          {
+            "idx": 29,
+            "score": 0.008146140724420547,
+            "name": "Session"
+          },
+          {
+            "idx": 7,
+            "score": 0.00590188754722476,
+            "name": "Session"
+          },
+          {
+            "idx": 11,
+            "score": 0.005710877012461424,
+            "name": "Session"
+          },
+          {
+            "idx": 16,
+            "score": 0.003800054546445608,
+            "name": "Session"
+          },
+          {
+            "idx": 22,
+            "score": 0.003560086013749242,
+            "name": "Session"
+          },
+          {
+            "idx": 19,
+            "score": 0.0018971782410517335,
+            "name": "Session"
+          },
+          {
+            "idx": 23,
+            "score": 0.0008919967222027481,
+            "name": "Session"
+          }
+        ]
+      },
+      {
+        "step_index": 2,
+        "predicate": "atom(content =~ \"suspected health problems\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "suspected health problems",
+          "operator": "=~",
+          "span": {
+            "start": 119,
+            "end": 163
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 3001056949120,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "suspected health problems",
+                  "operator": "=~",
+                  "span": {
+                    "start": 119,
+                    "end": 163
+                  }
+                },
+                "score": 0.0017258197767660022,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0017258197767660022
+          },
+          {
+            "node_idx": 1,
+            "node_id": 3001056949360,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "suspected health problems",
+                  "operator": "=~",
+                  "span": {
+                    "start": 119,
+                    "end": 163
+                  }
+                },
+                "score": 0.0015165971126407385,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0015165971126407385
+          },
+          {
+            "node_idx": 2,
+            "node_id": 3001056949600,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "suspected health problems",
+                  "operator": "=~",
+                  "span": {
+                    "start": 119,
+                    "end": 163
+                  }
+                },
+                "score": 0.0013632163172587752,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0013632163172587752
+          },
+          {
+            "node_idx": 3,
+            "node_id": 3001056949840,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "suspected health problems",
+                  "operator": "=~",
+                  "span": {
+                    "start": 119,
+                    "end": 163
+                  }
+                },
+                "score": 0.018235845491290092,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.018235845491290092
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 3,
+            "score": 0.018235845491290092,
+            "name": "Observation"
+          },
+          {
+            "idx": 0,
+            "score": 0.0017258197767660022,
+            "name": "Observation"
+          },
+          {
+            "idx": 1,
+            "score": 0.0015165971126407385,
+            "name": "Observation"
+          },
+          {
+            "idx": 2,
+            "score": 0.0013632163172587752,
+            "name": "Observation"
+          }
+        ]
+      },
+      {
+        "step_index": 3,
+        "predicate": "atom(content =~ \"suspected health problems\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "suspected health problems",
+          "operator": "=~",
+          "span": {
+            "start": 119,
+            "end": 163
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 3001056948080,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "suspected health problems",
+                  "operator": "=~",
+                  "span": {
+                    "start": 119,
+                    "end": 163
+                  }
+                },
+                "score": 0.0019076166208833456,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0019076166208833456
+          },
+          {
+            "node_idx": 1,
+            "node_id": 3001056948320,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "suspected health problems",
+                  "operator": "=~",
+                  "span": {
+                    "start": 119,
+                    "end": 163
+                  }
+                },
+                "score": 0.31821611523628235,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.31821611523628235
+          },
+          {
+            "node_idx": 2,
+            "node_id": 3001056948560,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "suspected health problems",
+                  "operator": "=~",
+                  "span": {
+                    "start": 119,
+                    "end": 163
+                  }
+                },
+                "score": 0.029261240735650063,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.029261240735650063
+          },
+          {
+            "node_idx": 3,
+            "node_id": 3001056948800,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "suspected health problems",
+                  "operator": "=~",
+                  "span": {
+                    "start": 119,
+                    "end": 163
+                  }
+                },
+                "score": 0.0046752700582146645,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0046752700582146645
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 1,
+            "score": 0.31821611523628235,
+            "name": "Observation"
+          },
+          {
+            "idx": 2,
+            "score": 0.029261240735650063,
+            "name": "Observation"
+          },
+          {
+            "idx": 3,
+            "score": 0.0046752700582146645,
+            "name": "Observation"
+          },
+          {
+            "idx": 0,
+            "score": 0.0019076166208833456,
+            "name": "Observation"
+          }
+        ]
+      },
+      {
+        "step_index": 4,
+        "predicate": "atom(content =~ \"suspected health problems\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "suspected health problems",
+          "operator": "=~",
+          "span": {
+            "start": 119,
+            "end": 163
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 3001056939200,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "suspected health problems",
+                  "operator": "=~",
+                  "span": {
+                    "start": 119,
+                    "end": 163
+                  }
+                },
+                "score": 0.012642603367567062,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.012642603367567062
+          },
+          {
+            "node_idx": 1,
+            "node_id": 3001056939440,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "suspected health problems",
+                  "operator": "=~",
+                  "span": {
+                    "start": 119,
+                    "end": 163
+                  }
+                },
+                "score": 0.023830275982618332,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.023830275982618332
+          },
+          {
+            "node_idx": 2,
+            "node_id": 3001056939680,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "suspected health problems",
+                  "operator": "=~",
+                  "span": {
+                    "start": 119,
+                    "end": 163
+                  }
+                },
+                "score": 0.009454072453081608,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.009454072453081608
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 1,
+            "score": 0.023830275982618332,
+            "name": "Observation"
+          },
+          {
+            "idx": 0,
+            "score": 0.012642603367567062,
+            "name": "Observation"
+          },
+          {
+            "idx": 2,
+            "score": 0.009454072453081608,
+            "name": "Observation"
+          }
+        ]
+      },
+      {
+        "step_index": 5,
+        "predicate": "atom(content =~ \"suspected health problems\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "suspected health problems",
+          "operator": "=~",
+          "span": {
+            "start": 119,
+            "end": 163
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 3001056806208,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "suspected health problems",
+                  "operator": "=~",
+                  "span": {
+                    "start": 119,
+                    "end": 163
+                  }
+                },
+                "score": 0.0019416246796026826,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0019416246796026826
+          },
+          {
+            "node_idx": 1,
+            "node_id": 3001056806448,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "suspected health problems",
+                  "operator": "=~",
+                  "span": {
+                    "start": 119,
+                    "end": 163
+                  }
+                },
+                "score": 0.023644087836146355,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.023644087836146355
+          },
+          {
+            "node_idx": 2,
+            "node_id": 3001056806688,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "suspected health problems",
+                  "operator": "=~",
+                  "span": {
+                    "start": 119,
+                    "end": 163
+                  }
+                },
+                "score": 0.03171546757221222,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.03171546757221222
+          },
+          {
+            "node_idx": 3,
+            "node_id": 3001056806928,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "suspected health problems",
+                  "operator": "=~",
+                  "span": {
+                    "start": 119,
+                    "end": 163
+                  }
+                },
+                "score": 0.052088089287281036,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.052088089287281036
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 3,
+            "score": 0.052088089287281036,
+            "name": "Observation"
+          },
+          {
+            "idx": 2,
+            "score": 0.03171546757221222,
+            "name": "Observation"
+          },
+          {
+            "idx": 1,
+            "score": 0.023644087836146355,
+            "name": "Observation"
+          },
+          {
+            "idx": 0,
+            "score": 0.0019416246796026826,
+            "name": "Observation"
+          }
+        ]
+      },
+      {
+        "step_index": 6,
+        "predicate": "atom(content =~ \"suspected health problems\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "suspected health problems",
+          "operator": "=~",
+          "span": {
+            "start": 119,
+            "end": 163
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 3001056814128,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "suspected health problems",
+                  "operator": "=~",
+                  "span": {
+                    "start": 119,
+                    "end": 163
+                  }
+                },
+                "score": 0.0012005938915535808,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0012005938915535808
+          },
+          {
+            "node_idx": 1,
+            "node_id": 3001056814368,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "suspected health problems",
+                  "operator": "=~",
+                  "span": {
+                    "start": 119,
+                    "end": 163
+                  }
+                },
+                "score": 0.0004566585994325578,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.0004566585994325578
+          },
+          {
+            "node_idx": 2,
+            "node_id": 3001056814608,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "suspected health problems",
+                  "operator": "=~",
+                  "span": {
+                    "start": 119,
+                    "end": 163
+                  }
+                },
+                "score": 0.48175618052482605,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.48175618052482605
+          },
+          {
+            "node_idx": 3,
+            "node_id": 3001056814848,
+            "node_name": "Observation",
+            "node_type": "Observation",
+            "scoring_steps": [
+              {
+                "type": "atom",
+                "condition": {
+                  "type": "atom",
+                  "field": "content",
+                  "value": "suspected health problems",
+                  "operator": "=~",
+                  "span": {
+                    "start": 119,
+                    "end": 163
+                  }
+                },
+                "score": 0.707404375076294,
+                "note": "Atom(u, φ) - local node content from attr(u)"
+              }
+            ],
+            "final_score": 0.707404375076294
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 3,
+            "score": 0.707404375076294,
+            "name": "Observation"
+          },
+          {
+            "idx": 2,
+            "score": 0.48175618052482605,
+            "name": "Observation"
+          },
+          {
+            "idx": 0,
+            "score": 0.0012005938915535808,
+            "name": "Observation"
+          },
+          {
+            "idx": 1,
+            "score": 0.0004566585994325578,
+            "name": "Observation"
+          }
+        ]
+      }
+    ],
+    "score_fusion": {
+      "per_node": [
+        {
+          "node_path": "Root > Conversation_Version 1 > John > Session 10 > Observation 2",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"suspected health problems\")]",
+              "score": 0.31821611523628235
+            }
+          ],
+          "accumulated_product": 0.31821611523628235,
+          "final_score": 0.0897289798694382
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > John > Session 15 > Observation 4",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"suspected health problems\")]",
+              "score": 0.052088089287281036
+            }
+          ],
+          "accumulated_product": 0.052088089287281036,
+          "final_score": 0.01027461511000577
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > John > Session 21 > Observation 4",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"suspected health problems\")]",
+              "score": 0.707404375076294
+            }
+          ],
+          "accumulated_product": 0.707404375076294,
+          "final_score": 0.10702923696982916
+        },
+        {
+          "node_path": "Root > Conversation_Version 1 > John > Session 21 > Observation 3",
+          "node_type": "Observation",
+          "step_contributions": [
+            {
+              "step_index": 4,
+              "predicate": "Observation[atom(content =~ \"suspected health problems\")]",
+              "score": 0.48175618052482605
+            }
+          ],
+          "accumulated_product": 0.48175618052482605,
+          "final_score": 0.07288899846217436
+        }
+      ]
+    }
+  },
+  "final_filtering": {
+    "before_filter_count": 4,
+    "threshold": 0.05,
+    "top_k": 10,
+    "after_filter_count": 3,
+    "filtered_nodes": [
+      {
+        "path": "Root > Conversation_Version 1 > John > Session 21 > Observation 4",
+        "score": 0.10702923696982916,
+        "type": "Observation",
+        "own_score": 0.707404375076294,
+        "parent_score": 0.15129852279792022
+      },
+      {
+        "path": "Root > Conversation_Version 1 > John > Session 10 > Observation 2",
+        "score": 0.0897289798694382,
+        "type": "Observation",
+        "own_score": 0.31821611523628235,
+        "parent_score": 0.28197497101242813
+      },
+      {
+        "path": "Root > Conversation_Version 1 > John > Session 21 > Observation 3",
+        "score": 0.07288899846217436,
+        "type": "Observation",
+        "own_score": 0.48175618052482605,
+        "parent_score": 0.15129852279792022
+      }
+    ]
+  },
+  "matched_nodes": [
+    {
+      "tree_path": "Root > Conversation_Version 1 > John > Session 21 > Observation 4",
+      "score": 0.10702923696982916,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "John agreed to meet James at McGee's Pub after discussing different options.",
+        "source_dia_id": "D21:18"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "John",
+          "predicate": "atom(content =~ \"John\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"John\") on John (Score: 1.00)"
+        },
+        {
+          "node_name": "Observation 4",
+          "predicate": "atom(content =~ \"suspected health problems\")",
+          "score": 0.707404375076294,
+          "description": "Matched atom(content =~ \"suspected health problems\") on Observation 4 (Score: 0.71)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > John > Session 10 > Observation 2",
+      "score": 0.0897289798694382,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "John sent the collected money to a dog shelter near his home.",
+        "source_dia_id": "D10:10"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "John",
+          "predicate": "atom(content =~ \"John\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"John\") on John (Score: 1.00)"
+        }
+      ]
+    },
+    {
+      "tree_path": "Root > Conversation_Version 1 > John > Session 21 > Observation 3",
+      "score": 0.07288899846217436,
+      "node": {
+        "type": "Observation",
+        "attributes": {},
+        "text": "John prefers light beers over dark beers when going out.",
+        "source_dia_id": "D21:16"
+      },
+      "children": [],
+      "context_trace": [
+        {
+          "node_name": "John",
+          "predicate": "atom(content =~ \"John\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"John\") on John (Score: 1.00)"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total_steps": 5,
+    "total_scoring_calls": 7,
+    "matched_count": 3,
+    "execution_time_ms": 9212.455399996543,
+    "has_score_fusion": true,
+    "num_nodes_before_filter": 4,
+    "num_nodes_after_filter": 3
+  }
+}

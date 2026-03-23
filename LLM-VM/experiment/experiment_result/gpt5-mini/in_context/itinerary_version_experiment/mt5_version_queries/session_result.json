@@ -1,0 +1,55 @@
+{
+  "session_id": "mt5_version_queries",
+  "queries": [
+    {
+      "query_id": "Query_001",
+      "user_query": "What outdoor activities did we cancel earlier? Check the previous itinerary versions",
+      "selected_nodes": [
+        "Root > Itinerary_Version 1 > Day 7 > Distillery District Walk"
+      ],
+      "related_nodes": [
+        "Distillery District Walk"
+      ],
+      "downstream_task_result": {
+        "operation": "READ",
+        "success": true,
+        "version_used": 4,
+        "reasoning": "Searched previous versions and found one explicitly deleted outdoor activity: the Distillery District Walk was removed in Itinerary_Version 2 (originally present in Version 1 Day 7). Returning the original POI node from Version 1.",
+        "token_usage": {
+          "prompt_tokens": 22361,
+          "completion_tokens": 700,
+          "total_tokens": 23061
+        },
+        "error": null
+      },
+      "execution_time_ms": 17377.75
+    },
+    {
+      "query_id": "Query_002",
+      "user_query": "What was the restaurant on day 5 before we changed it? Check the previous itinerary versions",
+      "selected_nodes": [
+        "Root > Itinerary_Version 1 > Day 5 > Kaiseki Kaji",
+        "Root > Itinerary_Version 2 > Day 5 > Kaiseki Kaji"
+      ],
+      "related_nodes": [
+        "results > Kaiseki Kaji",
+        "results > Kaiseki Kaji"
+      ],
+      "downstream_task_result": {
+        "operation": "READ",
+        "success": true,
+        "version_used": 4,
+        "reasoning": "Searched previous itinerary versions and found the Day 5 restaurant 'Kaiseki Kaji' present in versions 1 and 2 (it was deleted in version 3). Returned the Restaurant nodes from those earlier versions.",
+        "token_usage": {
+          "prompt_tokens": 22366,
+          "completion_tokens": 876,
+          "total_tokens": 23242
+        },
+        "error": null
+      },
+      "execution_time_ms": 26947.45
+    }
+  ],
+  "final_tree_version": 1,
+  "total_execution_time_ms": 44325.2
+}

@@ -1,0 +1,92 @@
+## Examples
+
+### Basic Queries (always specify the meal type: Breakfast, Lunch, or Dinner)
+User: show me all breakfast meals
+Output: /Person/Day/Breakfast/Meal
+
+User: find Father's lunch on day 1
+Output: /Person[atom(content =~ "Father")]/Day[1]/Lunch/Meal
+
+User: what is planned for dinner on day 3?
+Output: /Person/Day[3]/Dinner/Meal
+
+User: show mothers breakfast options on day 5
+Output: /Person[atom(content =~ "Mother")]/Day[5]/Breakfast/Meal
+
+### Filtering with Predicates (always include Person filter when a person is mentioned)
+User: find a vegetarian dinner for Father
+Output: /Person[atom(content =~ "Father")]/Day/Dinner/Meal[atom(content =~ "vegetarian")]
+
+User: find a high protein breakfast for child
+Output: /Person[atom(content =~ "child")]/Day/Breakfast/Meal[atom(content =~ "high protein")]
+
+User: what dinner for Mother has fish?
+Output: /Person[atom(content =~ "Mother")]/Day/Dinner/Meal[atom(content =~ "fish")]
+
+User: find a fun finger food dinner for child
+Output: /Person[atom(content =~ "child")]/Day/Dinner/Meal[atom(content =~ "fun finger food")]
+
+User: find all soup dinners
+Output: /Person/Day/Dinner/Meal[atom(content =~ "soup")]
+
+### Aggregation (always specify the meal type container inside the aggregation)
+User: which day has a greek breakfast for Father?
+Output: /Person[atom(content =~ "Father")]/Day[agg_exists(Breakfast/Meal[atom(content =~ "greek")])]
+
+User: which day has a high protein lunch?
+Output: /Person/Day[agg_exists(Lunch/Meal[atom(content =~ "high protein")])]
+
+User: on childs day with the pizza dinner, show the breakfast
+Output: /Person[atom(content =~ "child")]/Day[agg_exists(Dinner/Meal[atom(content =~ "pizza")])]/Breakfast/Meal
+
+User: on fathers day with the shrimp dinner, show the lunch
+Output: /Person[atom(content =~ "Father")]/Day[agg_exists(Dinner/Meal[atom(content =~ "shrimp")])]/Lunch/Meal
+
+User: on mothers healthiest day, show the dinner
+Output: /Person[atom(content =~ "Mother")]/Day[agg_prev(Breakfast/Meal[atom(content =~ "healthy")]) OR agg_prev(Lunch/Meal[atom(content =~ "healthy")]) OR agg_prev(Dinner/Meal[atom(content =~ "healthy")])]/Dinner/Meal
+
+### Indexing
+User: Father's first breakfast option
+Output: /Person[atom(content =~ "Father")]/Day/Breakfast/Meal[1]
+
+User: the last dinner option on day 7 for Mother
+Output: /Person[atom(content =~ "Mother")]/Day[7]/Dinner/Meal[-1]
+
+### CRUD Operations
+Operation: CREATE
+User: add a smoothie bowl to Father's breakfast on day 1
+Output: /Person[atom(content =~ "Father")]/Day[1]/Breakfast, Meal, smoothie bowl
+
+User: add a salad for child's lunch on day 2
+Output: /Person[atom(content =~ "child")]/Day[2]/Lunch, Meal, salad
+
+User: on fathers day with the greek dinner, add a classic breakfast
+Output: /Person[atom(content =~ "Father")]/Day[agg_exists(Dinner/Meal[atom(content =~ "greek")])]/Breakfast, Meal, classic breakfast
+
+Operation: UPDATE
+User: change Father's first breakfast on day 1 to oatmeal
+Output: /Person[atom(content =~ "Father")]/Day[1]/Breakfast/Meal[1], short_description: oatmeal
+
+User: update the teriyaki salmon lunch for Mother to tofu
+Output: /Person[atom(content =~ "Mother")]/Day/Lunch/Meal[atom(content =~ "teriyaki salmon")], short_description: tofu dish
+
+User: update the pasta dinner on day 3 nutrition note
+Output: /Person/Day[3]/Dinner/Meal[atom(content =~ "pasta")], nutrition_note: updated calcium content
+
+Operation: DELETE
+User: remove the last lunch option from Father's day 1
+Output: /Person[atom(content =~ "Father")]/Day[1]/Lunch/Meal[-1]
+
+User: remove all peanut meals from childs dinners
+Output: /Person[atom(content =~ "child")]/Day/Dinner/Meal[atom(content =~ "peanut")]
+
+User: delete meatless dinner options for child
+Output: /Person[atom(content =~ "child")]/Day/Dinner/Meal[atom(content =~ "no meat")]
+
+### Common Mistakes (DO NOT generate queries like these)
+# WRONG: /Person/Day//Meal[...] — never use // from Day, always specify Breakfast, Lunch, or Dinner
+# WRONG: /Person//Meal[...] — never use // from Person
+# WRONG: /Person/Day/Meal[...] — Meal is NOT a direct child of Day
+# WRONG: Day[agg_exists(//Meal[...])] — never use // inside aggregation, use Breakfast/Meal, Lunch/Meal, or Dinner/Meal
+# WRONG: Day[agg_exists(Meal[...])] — Meal is not a child of Day, must go through Breakfast, Lunch, or Dinner
+# WRONG: /Person/Day/Dinner/Meal[...] without Person filter when a specific person is mentioned

@@ -1,0 +1,20 @@
+{
+  "system_prompt": "You are an assistant that helps identify potentially relevant items from a Toronto travel itinerary manifest.\n\nYour job is to do a QUICK SCAN of the manifest to find items that MIGHT be related to the user's query.\n\nThe manifest contains scheduled items with their IDs in angle brackets like \u27e8poi_001\u27e9 or \u27e8rest_002\u27e9.\n\nAt this stage, you should be INCLUSIVE - include any item that could potentially relate to the query, even if you're not certain. It's better to include something questionable than to miss something relevant.\n\nReturn your response as valid JSON with this structure:\n{\n    \"candidate_ids\": [\"poi_001\", \"rest_002\"],\n    \"stage1_reasoning\": \"Brief explanation of why these items might be relevant based on the manifest text alone\"\n}\n\nOnly return the JSON, no other text.\n\n",
+  "user_prompt": "User Request: find all the place that relate to eating\n\n=== ITINERARY MANIFEST ===\n[Day 1] [8:30 AM - 10:00 AM] St. Lawrence Market \u27e8poi_001\u27e9 (poi)\n[Day 1] [10:30 AM - 12:00 PM] CN Tower \u27e8poi_002\u27e9 (poi)\n[Day 1] [12:30 PM - 2:00 PM] Queen Street West \u27e8poi_003\u27e9 (poi)\n[Day 1] [2:30 PM - 3:00 PM] Picnic Lunch from Sud Forno at Trinity Bellwoods Park \u27e8rest_001\u27e9 (restaurant)\n[Day 1] [3:30 PM - 5:30 PM] Art Gallery of Ontario \u27e8poi_004\u27e9 (poi)\n[Day 1] [6:00 PM - 8:00 PM] Dinner at The Rex Jazz & Blues Bar \u27e8rest_002\u27e9 (restaurant)\n[Day 2] [9:30 AM - 10:30 AM] Kensington Market \u27e8poi_005\u27e9 (poi)\n[Day 2] [11:00 AM - 1:00 PM] Royal Ontario Museum \u27e8poi_006\u27e9 (poi)\n[Day 2] [3:00 PM - 4:30 PM] Toronto Music Garden \u27e8poi_007\u27e9 (poi)\n[Day 2] [5:00 PM - 6:30 PM] Distillery District \u27e8poi_008\u27e9 (poi)\n[Day 2] [1:20 PM - 2:30 PM] Lunch at Museum Tavern \u27e8rest_003\u27e9 (restaurant)\n[Day 2] [7:00 PM - 9:00 PM] Dinner at The Reservoir Lounge \u27e8rest_004\u27e9 (restaurant)\n[Day 3] [9:10 AM - 10:00 AM] Hula Girl Espresso \u27e8rest_005\u27e9 (restaurant)\n[Day 3] [10:30 AM - 2:00 PM] Toronto Islands \u27e8poi_009\u27e9 (poi)\n[Day 3] [12:30 PM - 2:00 PM] Lunch at Toronto Island BBQ & Beer Co. \u27e8rest_006\u27e9 (restaurant)\n[Day 3] [3:00 PM - 5:00 PM] Ripley's Aquarium of Canada \u27e8poi_010\u27e9 (poi)\n[Day 3] [5:30 PM - 6:30 PM] Vinyl Underground \u27e8poi_011\u27e9 (poi)\n[Day 3] [7:00 PM - 10:00 PM] Dinner at Lula Lounge \u27e8rest_007\u27e9 (restaurant)\n\n\nBased ONLY on the manifest above (names, times, and types), which items might be relevant to this request?\nIdentify all candidate IDs that could potentially match.\n\n",
+  "raw_response": "```json\n{\n    \"candidate_ids\": [\"poi_001\", \"rest_001\", \"rest_002\", \"poi_005\", \"rest_003\", \"rest_004\", \"rest_005\", \"rest_006\", \"rest_007\"],\n    \"stage1_reasoning\": \"Items related to eating include any labeled as 'restaurant' and potentially places like St. Lawrence Market \u27e8poi_001\u27e9 and Kensington Market \u27e8poi_005\u27e9, where food or dining might be involved.\"\n}\n```",
+  "parsed_result": {
+    "candidate_ids": [
+      "poi_001",
+      "rest_001",
+      "rest_002",
+      "poi_005",
+      "rest_003",
+      "rest_004",
+      "rest_005",
+      "rest_006",
+      "rest_007"
+    ],
+    "stage1_reasoning": "Items related to eating include any labeled as 'restaurant' and potentially places like St. Lawrence Market \u27e8poi_001\u27e9 and Kensington Market \u27e8poi_005\u27e9, where food or dining might be involved."
+  },
+  "parse_error": null
+}

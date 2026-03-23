@@ -1,0 +1,38 @@
+====================
+Examples
+====================
+
+### Finding incomplete tasks
+Query: "Show me all todo tasks"
+
+Candidates:
+[1] Backend > Setup database (Task, status: Done, score: 0.45)
+[2] Backend > Create API endpoints (Task, status: In Progress, score: 0.52)
+[3] Frontend > Fix bug (Task, status: Todo, score: 0.88)
+
+```json
+{
+  "selected_nodes": [
+    {"id": "3", "reasoning": "Status is 'Todo', matches query"}
+  ],
+  "reasoning": "Selected only task with Todo status. Excluded Done and In Progress tasks."
+}
+```
+
+### Finding high priority items
+Query: "Find all high priority tasks"
+
+Candidates:
+[1] Backend > Security audit (Task, priority: High, score: 0.92)
+[2] Frontend > Design review (Task, priority: Medium, score: 0.55)
+[3] Backend > Performance fix (Task, priority: High, score: 0.78)
+
+```json
+{
+  "selected_nodes": [
+    {"id": "1", "reasoning": "Priority is 'High', exact match"},
+    {"id": "3", "reasoning": "Priority is 'High', matches query"}
+  ],
+  "reasoning": "Selected both High priority tasks. Excluded Medium priority task."
+}
+```

@@ -1,0 +1,21 @@
+====================
+Update Types
+====================
+- **Partial Update**: Change only mentioned fields; preserve all others exactly
+  - Example: "Move CN Tower to 2pm" → only change time_block, keep name/description/etc.
+- **Transformational Update**: When changing to something conceptually different, rewrite all fields
+  - Example: "Change the museum to a sushi restaurant" → rewrite name, description, highlights, expected_cost
+
+====================
+Type Changes
+====================
+- POI → Restaurant: When changing to food/dining activity
+- Restaurant → POI: When changing to non-food activity
+- Keep same type for attribute-only changes (time, cost, etc.)
+
+====================
+Time Update Rules
+====================
+- When changing start time, preserve the original duration
+- Example: 11:00 AM - 12:30 PM (1.5hr) changed to 2pm → 2:00 PM - 3:30 PM
+- For meal conversions, adjust to appropriate meal time windows

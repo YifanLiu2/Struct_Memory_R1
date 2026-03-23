@@ -1,0 +1,794 @@
+{
+  "timestamp": "20260226_141956_386478",
+  "query": "/Root/MealPlan_Version[3]/Person[atom(content =~ \"Mother\")]/Day[4]/Dinner",
+  "canonical_query": "/Root/MealPlan_Version[3]/Person[content =~ \"Mother\"]/Day[4]/Dinner",
+  "data_file": "tree.xml",
+  "execution_time_ms": 1.5312919858843088,
+  "parsed_ast": {
+    "steps": [
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Root",
+            "span": {
+              "start": 1,
+              "end": 5
+            }
+          },
+          "span": {
+            "start": 1,
+            "end": 5
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "MealPlan_Version",
+            "index": {
+              "start": 3,
+              "type": "single",
+              "span": {
+                "start": 22,
+                "end": 25
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 25
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 25
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Person",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "Mother",
+              "operator": "=~",
+              "span": {
+                "start": 33,
+                "end": 58
+              }
+            },
+            "predicate_str": "atom(content =~ \"Mother\")",
+            "span": {
+              "start": 26,
+              "end": 59
+            }
+          },
+          "span": {
+            "start": 26,
+            "end": 59
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Day",
+            "index": {
+              "start": 4,
+              "type": "single",
+              "span": {
+                "start": 63,
+                "end": 66
+              }
+            },
+            "span": {
+              "start": 60,
+              "end": 66
+            }
+          },
+          "span": {
+            "start": 60,
+            "end": 66
+          }
+        }
+      },
+      {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Dinner",
+            "span": {
+              "start": 67,
+              "end": 73
+            }
+          },
+          "span": {
+            "start": 67,
+            "end": 73
+          }
+        }
+      }
+    ],
+    "global_index": null
+  },
+  "parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: MealPlan_Version[3]\n├── Step 2: Person[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"Mother\")\n├── Step 3: Day[4]\n└── Step 4: Dinner",
+  "canonical_parsed_ast_tree": "Query AST:\n├── Step 0: Root\n├── Step 1: MealPlan_Version[3]\n├── Step 2: Person[content =~ \"Mother\"]\n├── Step 3: Day[4]\n└── Step 4: Dinner",
+  "execution_log": [
+    "[20260226_141956_386478] Executing query: /Root/MealPlan_Version[3]/Person[atom(content =~ \"Mother\")]/Day[4]/Dinner",
+    "Data file: tree.xml",
+    "Parsed steps: [Root, MealPlan_Version[3], Person[atom(content =~ \"Mother\")], Day[4], Dinner]",
+    "",
+    "Query AST:\n├── Step 0: Root\n├── Step 1: MealPlan_Version[3]\n├── Step 2: Person[predicate]\n    │   predicate:\n        │   └── ATOM(content =~ \"Mother\")\n├── Step 3: Day[4]\n└── Step 4: Dinner",
+    "\n--- Step 1: Root ---",
+    "Matched Root root",
+    "\n--- Step 2: MealPlan_Version[3] ---",
+    "Selected node at index 3 (0-based: 2)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 3: Person[atom(content =~ \"Mother\")] ---",
+    "Scoring predicate: atom(content =~ \"Mother\") (atomic values: ['Mother'])",
+    "  Node 0 (Father): score = 0.0000 (exact match)",
+    "  Node 1 (Mother): score = 1.0000 (exact match)",
+    "  Node 2 (Child): score = 0.0000 (exact match)",
+    "  Exact attribute match on @name: 1/3 nodes matched",
+    "After step: 3 nodes remaining",
+    "\n--- Step 4: Day[4] ---",
+    "  Zero-score pruning: skipping 2 items (Father, Child)",
+    "Selected node at index 4 (0-based: 3)",
+    "After step: 1 nodes remaining",
+    "\n--- Step 5: Dinner ---",
+    "After step: 1 nodes remaining",
+    "\n=== Score Fusion ===",
+    "  Root > MealPlan_Version 3 > Mother > Day 4 > Dinner: product=1.0000 → score=1.0000",
+    "  Parent propagation: Root > MealPlan_Version 3 > Mother > Day 4 > Dinner: own=1.0000 × parent=1.0000 → 1.0000",
+    "\n=== Parent Score Propagation: 1 nodes updated ===",
+    "\n=== Threshold Filtering (threshold=0.05) ===",
+    "  Filtered: 1 → 1 nodes",
+    "\n=== Final Filtering (top_k=5) ===",
+    "  After top_k: 1 → 1 nodes",
+    "\nFinal result: 1 nodes (sorted by score)",
+    "⏱️  Query execution time: 1.53ms"
+  ],
+  "traversal_steps": [
+    {
+      "step_index": 0,
+      "step_query": "Root",
+      "action": "root_match",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "type": "root"
+        }
+      ],
+      "nodes_after": [
+        {
+          "type": "Root",
+          "path": "Root"
+        }
+      ],
+      "details": {
+        "matched": true
+      }
+    },
+    {
+      "step_index": 1,
+      "step_query": "MealPlan_Version[3]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root",
+          "name": "Root",
+          "type": "Root",
+          "score": 1.0,
+          "node_id": 13492704160
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > MealPlan_Version 3",
+          "name": "MealPlan_Version 3",
+          "type": "MealPlan_Version",
+          "score": 1.0,
+          "node_id": 13493505216
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "MealPlan_Version",
+            "index": {
+              "start": 3,
+              "type": "single",
+              "span": {
+                "start": 22,
+                "end": 25
+              }
+            },
+            "span": {
+              "start": 6,
+              "end": 25
+            }
+          },
+          "span": {
+            "start": 6,
+            "end": 25
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 2,
+      "step_query": "Person[atom(content =~ \"Mother\")]",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 3,
+      "nodes_before": [
+        {
+          "path": "Root > MealPlan_Version 3",
+          "name": "MealPlan_Version 3",
+          "type": "MealPlan_Version",
+          "score": 1.0,
+          "node_id": 13493505216
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > MealPlan_Version 3 > Father",
+          "name": "Father",
+          "type": "Person",
+          "score": 0.0,
+          "node_id": 13493502976
+        },
+        {
+          "path": "Root > MealPlan_Version 3 > Mother",
+          "name": "Mother",
+          "type": "Person",
+          "score": 1.0,
+          "node_id": 13485621552
+        },
+        {
+          "path": "Root > MealPlan_Version 3 > Child",
+          "name": "Child",
+          "type": "Person",
+          "score": 0.0,
+          "node_id": 13492856336
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Person",
+            "predicate": {
+              "type": "atom",
+              "field": "content",
+              "value": "Mother",
+              "operator": "=~",
+              "span": {
+                "start": 33,
+                "end": 58
+              }
+            },
+            "predicate_str": "atom(content =~ \"Mother\")",
+            "span": {
+              "start": 26,
+              "end": 59
+            }
+          },
+          "span": {
+            "start": 26,
+            "end": 59
+          }
+        },
+        "found_count": 3,
+        "scoring_trace": [
+          {
+            "predicate": "atom(content =~ \"Mother\")",
+            "predicate_ast": {
+              "type": "atom",
+              "field": "content",
+              "value": "Mother",
+              "operator": "=~",
+              "span": {
+                "start": 33,
+                "end": 58
+              }
+            },
+            "config": {
+              "top_k": 5,
+              "score_threshold": 0.05
+            },
+            "node_scores": [
+              {
+                "node_idx": 0,
+                "node_id": 13493502976,
+                "node_name": "Father",
+                "node_type": "Person",
+                "final_score": 0.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Father",
+                    "query_value": "Mother",
+                    "matched": false,
+                    "score": 0.0
+                  }
+                ]
+              },
+              {
+                "node_idx": 1,
+                "node_id": 13485621552,
+                "node_name": "Mother",
+                "node_type": "Person",
+                "final_score": 1.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Mother",
+                    "query_value": "Mother",
+                    "matched": true,
+                    "score": 1.0
+                  }
+                ]
+              },
+              {
+                "node_idx": 2,
+                "node_id": 13492856336,
+                "node_name": "Child",
+                "node_type": "Person",
+                "final_score": 0.0,
+                "scoring_steps": [
+                  {
+                    "type": "exact_attribute_match",
+                    "attribute": "name",
+                    "attribute_value": "Child",
+                    "query_value": "Mother",
+                    "matched": false,
+                    "score": 0.0
+                  }
+                ]
+              }
+            ],
+            "batch_scoring": {
+              "exact_match": true,
+              "matched_attribute": "name",
+              "query_value": "Mother",
+              "matched_count": 1
+            },
+            "token_usage": null,
+            "ranking": [
+              {
+                "idx": 1,
+                "score": 1.0,
+                "name": "Mother"
+              },
+              {
+                "idx": 0,
+                "score": 0.0,
+                "name": "Father"
+              },
+              {
+                "idx": 2,
+                "score": 0.0,
+                "name": "Child"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "step_index": 3,
+      "step_query": "Day[4]",
+      "action": "node_test_expr",
+      "nodes_before_count": 3,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root > MealPlan_Version 3 > Father",
+          "name": "Father",
+          "type": "Person",
+          "score": 0.0,
+          "node_id": 13493502976
+        },
+        {
+          "path": "Root > MealPlan_Version 3 > Mother",
+          "name": "Mother",
+          "type": "Person",
+          "score": 1.0,
+          "node_id": 13485621552
+        },
+        {
+          "path": "Root > MealPlan_Version 3 > Child",
+          "name": "Child",
+          "type": "Person",
+          "score": 0.0,
+          "node_id": 13492856336
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > MealPlan_Version 3 > Mother > Day 4",
+          "name": "Day 4",
+          "type": "Day",
+          "score": 1.0,
+          "node_id": 13493400048
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Day",
+            "index": {
+              "start": 4,
+              "type": "single",
+              "span": {
+                "start": 63,
+                "end": 66
+              }
+            },
+            "span": {
+              "start": 60,
+              "end": 66
+            }
+          },
+          "span": {
+            "start": 60,
+            "end": 66
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": []
+      }
+    },
+    {
+      "step_index": 4,
+      "step_query": "Dinner",
+      "action": "node_test_expr",
+      "nodes_before_count": 1,
+      "nodes_after_count": 1,
+      "nodes_before": [
+        {
+          "path": "Root > MealPlan_Version 3 > Mother > Day 4",
+          "name": "Day 4",
+          "type": "Day",
+          "score": 1.0,
+          "node_id": 13493400048
+        }
+      ],
+      "nodes_after": [
+        {
+          "path": "Root > MealPlan_Version 3 > Mother > Day 4 > Dinner",
+          "name": "Dinner",
+          "type": "Dinner",
+          "score": 1.0,
+          "node_id": 13493390688
+        }
+      ],
+      "details": {
+        "axis": "none",
+        "node_test_expr": {
+          "type": "leaf",
+          "test": {
+            "type": "node_test",
+            "kind": "type",
+            "name": "Dinner",
+            "span": {
+              "start": 67,
+              "end": 73
+            }
+          },
+          "span": {
+            "start": 67,
+            "end": 73
+          }
+        },
+        "found_count": 1,
+        "scoring_trace": []
+      }
+    }
+  ],
+  "scoring_traces": [
+    {
+      "predicate": "atom(content =~ \"Mother\")",
+      "predicate_ast": {
+        "type": "atom",
+        "field": "content",
+        "value": "Mother",
+        "operator": "=~",
+        "span": {
+          "start": 33,
+          "end": 58
+        }
+      },
+      "config": {
+        "top_k": 5,
+        "score_threshold": 0.05
+      },
+      "node_scores": [
+        {
+          "node_idx": 0,
+          "node_id": 13493502976,
+          "node_name": "Father",
+          "node_type": "Person",
+          "final_score": 0.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Father",
+              "query_value": "Mother",
+              "matched": false,
+              "score": 0.0
+            }
+          ]
+        },
+        {
+          "node_idx": 1,
+          "node_id": 13485621552,
+          "node_name": "Mother",
+          "node_type": "Person",
+          "final_score": 1.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Mother",
+              "query_value": "Mother",
+              "matched": true,
+              "score": 1.0
+            }
+          ]
+        },
+        {
+          "node_idx": 2,
+          "node_id": 13492856336,
+          "node_name": "Child",
+          "node_type": "Person",
+          "final_score": 0.0,
+          "scoring_steps": [
+            {
+              "type": "exact_attribute_match",
+              "attribute": "name",
+              "attribute_value": "Child",
+              "query_value": "Mother",
+              "matched": false,
+              "score": 0.0
+            }
+          ]
+        }
+      ],
+      "batch_scoring": {
+        "exact_match": true,
+        "matched_attribute": "name",
+        "query_value": "Mother",
+        "matched_count": 1
+      },
+      "token_usage": null,
+      "ranking": [
+        {
+          "idx": 1,
+          "score": 1.0,
+          "name": "Mother"
+        },
+        {
+          "idx": 0,
+          "score": 0.0,
+          "name": "Father"
+        },
+        {
+          "idx": 2,
+          "score": 0.0,
+          "name": "Child"
+        }
+      ]
+    }
+  ],
+  "scoring_details": {
+    "step_scores": [
+      {
+        "step_index": 0,
+        "predicate": "atom(content =~ \"Mother\")",
+        "predicate_ast": {
+          "type": "atom",
+          "field": "content",
+          "value": "Mother",
+          "operator": "=~",
+          "span": {
+            "start": 33,
+            "end": 58
+          }
+        },
+        "node_scores": [
+          {
+            "node_idx": 0,
+            "node_id": 13493502976,
+            "node_name": "Father",
+            "node_type": "Person",
+            "final_score": 0.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Father",
+                "query_value": "Mother",
+                "matched": false,
+                "score": 0.0
+              }
+            ]
+          },
+          {
+            "node_idx": 1,
+            "node_id": 13485621552,
+            "node_name": "Mother",
+            "node_type": "Person",
+            "final_score": 1.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Mother",
+                "query_value": "Mother",
+                "matched": true,
+                "score": 1.0
+              }
+            ]
+          },
+          {
+            "node_idx": 2,
+            "node_id": 13492856336,
+            "node_name": "Child",
+            "node_type": "Person",
+            "final_score": 0.0,
+            "scoring_steps": [
+              {
+                "type": "exact_attribute_match",
+                "attribute": "name",
+                "attribute_value": "Child",
+                "query_value": "Mother",
+                "matched": false,
+                "score": 0.0
+              }
+            ]
+          }
+        ],
+        "ranking": [
+          {
+            "idx": 1,
+            "score": 1.0,
+            "name": "Mother"
+          },
+          {
+            "idx": 0,
+            "score": 0.0,
+            "name": "Father"
+          },
+          {
+            "idx": 2,
+            "score": 0.0,
+            "name": "Child"
+          }
+        ]
+      }
+    ],
+    "score_fusion": {
+      "per_node": [
+        {
+          "node_path": "Root > MealPlan_Version 3 > Mother > Day 4 > Dinner",
+          "node_type": "Dinner",
+          "step_contributions": [],
+          "accumulated_product": 1.0,
+          "final_score": 0.999999999
+        }
+      ]
+    }
+  },
+  "final_filtering": {
+    "before_filter_count": 1,
+    "threshold": 0.05,
+    "top_k": 5,
+    "after_filter_count": 1,
+    "filtered_nodes": [
+      {
+        "path": "Root > MealPlan_Version 3 > Mother > Day 4 > Dinner",
+        "score": 0.999999999,
+        "type": "Dinner",
+        "own_score": 1.0,
+        "parent_score": 0.999999999
+      }
+    ]
+  },
+  "matched_nodes": [
+    {
+      "tree_path": "Root > MealPlan_Version 3 > Mother > Day 4 > Dinner",
+      "score": 0.999999999,
+      "node": {
+        "type": "Dinner",
+        "attributes": {}
+      },
+      "children": [
+        {
+          "type": "Meal",
+          "attributes": {},
+          "name": "Vegetable Soup & Bread — Garden Veg Variation",
+          "short_description": "A plant-forward combination of vegetable soup, whole grain bread, and a side salad for fiber, nutrients, and steady energy.",
+          "meal_suggestion": "Serve 1 cup of vegetable soup with 1 to 2 slices of whole grain bread and a side salad. For extra protein, add beans, lentils, or tofu to the soup or include a protein-rich topping on the salad.",
+          "ingredients": [],
+          "nutrition_note": "Plant-forward, fiber-rich meal with vegetables, whole grains, and greens. High in dietary fiber and vitamins; provides moderate protein from soup and bread. To keep sodium in check, choose a low-sodium vegetable soup. Optional protein boost (beans, lentils, or tofu) can be added for more protein."
+        },
+        {
+          "type": "Meal",
+          "attributes": {},
+          "name": "Stuffed Bell Peppers — Citrus Fresh Combo",
+          "short_description": "Bell peppers stuffed with lean turkey, rice, tomato sauce, and cheddar—a balanced mix of protein, starch, and vegetables.",
+          "meal_suggestion": "Serve one stuffed pepper per person with a simple side salad. For a lighter version, use brown rice and reduced-fat cheddar; choose low-sodium tomato sauce. Bake until peppers are tender.",
+          "ingredients": [],
+          "nutrition_note": "High in protein from lean ground turkey; includes complex carbs from rice and fiber from peppers. Cheddar adds fat and calcium. Tomato sauce provides lycopene; to manage sodium, use low-sodium sauce and consider brown rice for extra fiber."
+        },
+        {
+          "type": "Meal",
+          "attributes": {},
+          "name": "DIY Taco Night — Garden Veg Wrap",
+          "short_description": "DIY Taco Night Garden Veg Wrap: lean ground beef, corn tortillas, lettuce, tomato, cheddar, and salsa wrapped into a protein-rich, veggie-forward option.",
+          "meal_suggestion": "To boost nutrition: use whole-grain tortillas, add a bean or avocado side, and load with extra veggies. Choose low-sodium salsa and cheese or reduce cheese. Serve with a simple side salad or fruit.",
+          "ingredients": [],
+          "nutrition_note": "Protein-rich meal from lean ground beef and cheddar; includes veggies (lettuce, tomato) and carbs from corn tortillas. Moderate sodium from cheese and salsa. For more fiber and heart-healthy fats, swap to whole-grain tortillas and add beans or avocado, and opt for lower-sodium cheese/salsa."
+        }
+      ],
+      "context_trace": [
+        {
+          "node_name": "Mother",
+          "predicate": "atom(content =~ \"Mother\")",
+          "score": 1.0,
+          "description": "Matched atom(content =~ \"Mother\") on Mother (Score: 1.00)"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total_steps": 5,
+    "total_scoring_calls": 1,
+    "matched_count": 1,
+    "execution_time_ms": 1.5312919858843088,
+    "has_score_fusion": true,
+    "num_nodes_before_filter": 1,
+    "num_nodes_after_filter": 1
+  }
+}
