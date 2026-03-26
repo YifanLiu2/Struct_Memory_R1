@@ -4,12 +4,11 @@ OpenAI Client - Unified client for OpenAI models.
 Supports:
 - GPT-4 series: Uses temperature for creativity control
 - GPT-5 series: Uses reasoning_effort for reasoning depth control
-- o1/o3 series: Uses reasoning_effort for reasoning depth control
 
 Configuration is loaded from config.yaml:
 - model: "gpt-4o", "gpt-5", "gpt-5-mini", etc.
 - temperature: 0-1 (for GPT-4 series)
-- reasoning_effort: none/low/medium/high/xhigh (for GPT-5/o1/o3 series)
+- reasoning_effort: none/low/medium/high/ (for GPT-5 series)
 """
 
 import os
@@ -33,10 +32,11 @@ def load_config() -> dict:
     
     key = config.get("openai", {}).get("api_key")
     
-    # Manually substitute API key if it contains a known placeholder
-    if key and ("${OPENAI_API_KEY}" in key or "${OPENROUTER_API_KEY}" in key):
+    if key and ("${OPENAI_API_KEY}" in key or "${OPENROUTER_API_KEY}" in key or "${HUGGINGFACE_API_KEY}" in key):
         if "OPENROUTER_API_KEY" in key:
             env_var = "OPENROUTER_API_KEY"
+        elif "HUGGINGFACE_API_KEY" in key:
+            env_var = "HUGGINGFACE_API_KEY"
         else:
             env_var = "OPENAI_API_KEY"
         
@@ -113,9 +113,11 @@ class OpenAIClient:
         
         # Handle API key env var substitution (supports ${OPENAI_API_KEY} / ${OPENROUTER_API_KEY} placeholders)
         api_key = self.config.get("api_key", "")
-        if api_key and ("${OPENAI_API_KEY}" in api_key or "${OPENROUTER_API_KEY}" in api_key):
+        if api_key and ("${OPENAI_API_KEY}" in api_key or "${OPENROUTER_API_KEY}" in api_key or "${HUGGINGFACE_API_KEY}" in api_key):
             if "OPENROUTER_API_KEY" in api_key:
                 env_var = "OPENROUTER_API_KEY"
+            elif "HUGGINGFACE_API_KEY" in api_key:
+                env_var = "HUGGINGFACE_API_KEY"
             else:
                 env_var = "OPENAI_API_KEY"
             
