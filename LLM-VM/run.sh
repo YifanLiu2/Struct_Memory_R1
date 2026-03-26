@@ -1,6 +1,4 @@
 
-
-
 # python experiment/experiment_infra/semantic_xpath/semantic_xpath_experiment_runner.py --config /Users/joeliang/Desktop/UofT/Research/LLM-VM/experiment/queries/itinerary_experiment.yaml
 # python experiment/experiment_infra/semantic_xpath/semantic_xpath_experiment_runner.py --config /Users/joeliang/Desktop/UofT/Research/LLM-VM/experiment/queries/todolist_gt.yaml
 # python experiment/experiment_infra/semantic_xpath/semantic_xpath_experiment_runner.py --config /Users/joeliang/Desktop/UofT/Research/LLM-VM/experiment/queries/nutrition_experiment.yaml

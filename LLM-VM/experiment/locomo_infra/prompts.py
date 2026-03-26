@@ -1,23 +1,61 @@
 """
-LoCoMo Evaluation Prompts - Separated from locomo_eval.py for clarity.
+LoCoMo Evaluation Prompts 
 """
 
-# Answer Agent prompt (Memory-R1 style)
-ANSWER_PROMPT = """You are an Answer Agent. Given a question and retrieved memory observations, provide a concise, direct answer.
+# # Answer Agent prompt
+# ANSWER_PROMPT = """You are an Answer Agent. Given a question and retrieved memory observations, provide a concise, direct answer.
+
+# Question: {question}
+
+# Retrieved Observations:
+# {context}
+
+# Rules:
+# - Answer the question directly and concisely based ONLY on the provided observations.
+# - If the observations contain the answer, state it clearly in 1-2 sentences.
+# - If the observations do not contain enough information to answer, say "No relevant information found"
+# - Do NOT add speculation beyond what the observations state.
+# - For temporal questions, use specific dates/times from the observation metadata when available.
+
+# Answer:"""
+
+ANSWER_PROMPT = """You are an intelligent memory assistant tasked with retrieving accurate information from conversation memories.
+
+# CONTEXT:
+You have access to memories from two speakers in a conversation.
+These memories contain timestamped information that may be relevant to answering the question.
+
+# INSTRUCTIONS:
+1. Carefully analyze all provided memories from both speakers
+2. Pay special attention to the timestamps to determine the answer
+3. If the question asks about a specific event or fact, look for direct evidence
+4. If the memories contain contradictory information, prioritize the most recent memory
+5. If there is a question about time references (like "last year", "two months ago"), calculate the actual date based on the memory timestamp
+6. Always convert relative time references to specific dates, months, or years
+7. Focus only on the content of the memories. Do not confuse character names
+8. The answer should be less than 5-6 words
+9. IMPORTANT: Output the final answer after **Answer:**
+
+# APPROACH (Think step by step):
+1. Examine all relevant memories
+2. Examine the timestamps carefully
+3. Look for explicit mentions that answer the question
+4. Convert relative references if needed
+5. Formulate a concise answer
+6. Double-check the answer correctness
+7. Ensure the final answer is specific
+8. Answer the question based ONLY on the provided observations.
 
 Question: {question}
 
 Retrieved Observations:
 {context}
 
-Rules:
-- Answer the question directly and concisely based ONLY on the provided observations.
-- If the observations contain the answer, state it clearly in 1-2 sentences.
-- If the observations do not contain enough information to answer, say "No relevant information found"
-- Do NOT add speculation beyond what the observations state.
-- For temporal questions, use specific dates/times from the observation metadata when available.
+Answer:
+"""
 
-Answer:"""
+
+
 
 # LLM-as-Judge prompt (from LoCoMo paper)
 JUDGE_PROMPT = """Your task is to label an answer to a question as 'CORRECT' or 'WRONG'.

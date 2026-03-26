@@ -175,6 +175,7 @@ def run_evaluation(
     config_path: Optional[str] = None,
     prune_top_k: Optional[int] = None,
     start_index: Optional[int] = None,
+    out_dir: str = "",
 ):
     """
     Run evaluation: pipeline answers + scoring (LLM judge or keyword match).
@@ -227,16 +228,27 @@ def run_evaluation(
         print(f"# Categories: {', '.join(categories)}")
     print(f"{'#'*60}")
     
-    # Setup output directory — results go to experiment/locomo/
-    output_dir = PROJECT_ROOT / "experiment" / "locomo" / f"{conv_id}_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+    # Setup output directory — results go to experiment/locomo/[out_dir]/
+    base_dir = PROJECT_ROOT / "experiment" / "locomo"
+    if out_dir:
+        base_dir = base_dir / out_dir
+    output_dir = base_dir / f"{conv_id}_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
     output_dir.mkdir(parents=True, exist_ok=True)
     
     # Initialize pipeline
     from pipeline_execution.semantic_xpath_execution import get_data_path
     source_tree = get_data_path(config=app_config)
     
+    import copy
+    judge_config = copy.deepcopy(app_config)
+    if "openai" not in judge_config:
+        judge_config["openai"] = {}
+    judge_config["openai"]["model"] = "gpt-4o"
+    judge_config["openai"]["api_key"] = "${OPENAI_API_KEY}"
+    judge_config["openai"].pop("base_url", None)
+    
     # Initialize LLM client for judging (used for non-adversarial)
-    judge_client = OpenAIClient(app_config)
+    judge_client = OpenAIClient(judge_config)
     
     # Results tracking
     results = []
@@ -314,6 +326,8 @@ def run_evaluation(
             "eval_method": "keyword_match" if category == "adversarial" else "llm_judge",
             "verdict": verdict,
             "score": score,
+            "f1": judgment.get("f1", 0.0),
+            "bleu_1": judgment.get("bleu_1", 0.0),
             "reasoning": judgment.get("reasoning", ""),
         }
         with open(traces_dir / f"eval_{timestamp}.json", "w", encoding="utf-8") as f:
@@ -336,6 +350,8 @@ def run_evaluation(
             "score": score,
             "eval_method": "keyword_match" if category == "adversarial" else "llm_judge",
             "eval_reasoning": judgment.get("reasoning", ""),
+            "f1": judgment.get("f1", 0.0),
+            "bleu_1": judgment.get("bleu_1", 0.0),
             "execution_time_ms": round(exec_time, 2),
             "pipeline_success": success,
             "evidence": q.get("evidence", []),
@@ -346,9 +362,11 @@ def run_evaluation(
         
         # Update category stats
         if category not in category_stats:
-            category_stats[category] = {"correct": 0, "wrong": 0, "error": 0, "total": 0}
+            category_stats[category] = {"correct": 0, "wrong": 0, "error": 0, "total": 0, "f1_sum": 0.0, "bleu_1_sum": 0.0}
         category_stats[category]["total"] += 1
         category_stats[category][verdict.lower()] = category_stats[category].get(verdict.lower(), 0) + 1
+        category_stats[category]["f1_sum"] = category_stats[category].get("f1_sum", 0.0) + judgment.get("f1", 0.0)
+        category_stats[category]["bleu_1_sum"] = category_stats[category].get("bleu_1_sum", 0.0) + judgment.get("bleu_1", 0.0)
     
     total_time = (time.perf_counter() - total_start)
     
@@ -376,9 +394,17 @@ def run_evaluation(
     
     for cat, stats in category_stats.items():
         cat_total = stats["total"]
+        f1_avg = stats.get("f1_sum", 0.0) / cat_total if cat_total > 0 else 0
+        bleu_1_avg = stats.get("bleu_1_sum", 0.0) / cat_total if cat_total > 0 else 0
+        
+        # Create a copy so we can pop the internal sums
+        clean_stats = {k: v for k, v in stats.items() if not k.endswith("_sum")}
+        
         summary["by_category"][cat] = {
-            **stats,
+            **clean_stats,
             "accuracy": round(stats["correct"] / cat_total * 100, 1) if cat_total > 0 else 0,
+            "f1": round(f1_avg, 3),
+            "bleu_1": round(bleu_1_avg, 3),
         }
     
     # Save results
@@ -400,8 +426,10 @@ def run_evaluation(
     for cat, stats in sorted(summary["by_category"].items()):
         c = stats["correct"]
         t = stats["total"]
+        f1 = stats.get("f1", 0.0)
+        bleu = stats.get("bleu_1", 0.0)
         eval_note = " [keyword]" if cat == "adversarial" else " [judge]"
-        print(f"    {cat:15s}: {c}/{t} correct ({stats['accuracy']}%){eval_note}")
+        print(f"    {cat:15s}: {c}/{t} correct ({stats['accuracy']}%) | F1: {f1:.3f} BLEU-1: {bleu:.3f}{eval_note}")
     
     print(f"\n  Results saved to: {results_path}")
     
@@ -415,6 +443,7 @@ def run_all_evaluations(
     config_path: Optional[str] = None,
     prune_top_k: Optional[int] = None,
     start_index: Optional[int] = None,
+    out_dir: str = "",
 ):
     """
     Run evaluation across multiple conversations and produce aggregated results.
@@ -453,6 +482,7 @@ def run_all_evaluations(
                 config_path=config_path,
                 prune_top_k=prune_top_k,
                 start_index=start_index,
+                out_dir=out_dir,
             )
             per_conv_summaries[conv_id] = summary
         except Exception as e:
@@ -509,7 +539,10 @@ def run_all_evaluations(
     }
     
     # Save aggregated results
-    agg_dir = PROJECT_ROOT / "experiment" / "locomo" / f"aggregated_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+    base_dir = PROJECT_ROOT / "experiment" / "locomo"
+    if out_dir:
+        base_dir = base_dir / out_dir
+    agg_dir = base_dir / f"aggregated_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
     agg_dir.mkdir(parents=True, exist_ok=True)
     
     agg_results = {
@@ -565,6 +598,7 @@ def main():
     parser.add_argument("--max-questions", type=int, help="Max questions to evaluate per conversation")
     parser.add_argument("--config", type=str, default=None, help="Experiment config path (default: locomo_infra/conversation_experiment.yaml)")
     parser.add_argument("--prune-top-k", type=int, default=5, help="Top-K threshold for semantic pruning (default: 5)")
+    parser.add_argument("--out-dir", type=str, default="", help="Subdirectory under experiment/locomo to output results")
     
     args = parser.parse_args()
     
@@ -575,6 +609,7 @@ def main():
             config_path=args.config,
             prune_top_k=args.prune_top_k,
             start_index=args.start_index,
+            out_dir=args.out_dir,
         )
     else:
         run_evaluation(
@@ -583,7 +618,8 @@ def main():
             max_questions=args.max_questions,
             config_path=args.config,
             prune_top_k=args.prune_top_k,
-            start_index=args.start_index
+            start_index=args.start_index,
+            out_dir=args.out_dir,
         )
 
 

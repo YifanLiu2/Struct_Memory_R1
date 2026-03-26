@@ -132,6 +132,10 @@ class SemanticXPathOrchestrator:
         self._tree = None
         self._schema_name = resolved_schema_name
         self.config = config
+        
+        # XPath retry config (default: 3 for backwards compatibility)
+        xpath_cfg = config.get("xpath_executor", {})
+        self._max_xpath_retries = xpath_cfg.get("max_xpath_retries", 3)
     
     @property
     def tree(self) -> ET.ElementTree:
@@ -225,7 +229,8 @@ class SemanticXPathOrchestrator:
         parsed_query = self.query_generator.generate_and_parse(
             task_query, 
             version_result.crud_operation,
-            version_change_context=version_change_context
+            version_change_context=version_change_context,
+            max_retries=self._max_xpath_retries
         )
         timer.stop(token_usage=parsed_query.token_usage)
         

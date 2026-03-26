@@ -10,7 +10,12 @@ Reference: LoCoMo benchmark eval_question_answering()
 
 import re
 import json
+import string
+from collections import Counter
 from typing import Dict, Any
+
+import nltk
+from nltk.translate.bleu_score import sentence_bleu, SmoothingFunction
 
 from experiment.locomo_infra.prompts import JUDGE_PROMPT
 
@@ -135,10 +140,56 @@ def evaluate_answer(
         Dict with verdict, score, and reasoning.
     """
     if category == "adversarial":
-        return eval_adversarial(system_answer)
+        res = eval_adversarial(system_answer)
+    else:
+        # All non-adversarial categories use LLM judge
+        if client is None:
+            raise ValueError("LLM client required for non-adversarial evaluation")
+        res = judge_answer(question, ground_truth, system_answer, client)
     
-    # All non-adversarial categories use LLM judge
-    if client is None:
-        raise ValueError("LLM client required for non-adversarial evaluation")
+    # Remove Prompt-enforced prefixes before computing lexical metrics
+    clean_answer = system_answer.replace("**Answer:**", "").replace("Answer:", "").strip()
     
-    return judge_answer(question, ground_truth, system_answer, client)
+    # Calculate F1 and BLEU-1 for all responses based on cleaned answer
+    res["f1"] = f1_score(clean_answer, ground_truth)
+    res["bleu_1"] = bleu_1_score(clean_answer, ground_truth)
+    
+    return res
+
+# ---------------------------------------------------------------------------
+# Lexical Metric Utils: F1 and BLEU-1
+# ---------------------------------------------------------------------------
+
+def normalize_answer(s: str) -> str:
+    """Lower text and remove punctuation, articles and extra whitespace."""
+    def remove_articles(text):
+        return re.sub(r'\b(a|an|the)\b', ' ', text)
+    def white_space_fix(text):
+        return ' '.join(text.split())
+    def remove_punc(text):
+        exclude = set(string.punctuation)
+        return ''.join(ch for ch in text if ch not in exclude)
+    def lower(text):
+        return text.lower()
+    return white_space_fix(remove_articles(remove_punc(lower(s))))
+
+def f1_score(prediction: str, ground_truth: str) -> float:
+    prediction_tokens = normalize_answer(prediction).split()
+    ground_truth_tokens = normalize_answer(ground_truth).split()
+    common = Counter(prediction_tokens) & Counter(ground_truth_tokens)
+    num_same = sum(common.values())
+    if num_same == 0:
+        return 0.0
+    precision = 1.0 * num_same / len(prediction_tokens)
+    recall = 1.0 * num_same / len(ground_truth_tokens)
+    f1 = (2 * precision * recall) / (precision + recall)
+    return round(f1, 4)
+
+def bleu_1_score(prediction: str, ground_truth: str) -> float:
+    pred_tokens = normalize_answer(prediction).split()
+    ref_tokens = [normalize_answer(ground_truth).split()]
+    if not pred_tokens or not ref_tokens[0]:
+        return 0.0
+    smoothie = SmoothingFunction().method1
+    score = sentence_bleu(ref_tokens, pred_tokens, weights=(1, 0, 0, 0), smoothing_function=smoothie)
+    return round(score, 4)
