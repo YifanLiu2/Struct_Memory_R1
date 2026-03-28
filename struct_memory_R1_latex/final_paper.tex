@@ -40,7 +40,7 @@
 \newtheorem{remark}{Remark}[section]
 \newtheorem{example}{Example}[section]
 
-\title{\textsc{Struct Memory-R1}: Intermediate Implementation Report}
+\title{\textsc{Struct Memory-R1}: Empowering Large Language Model Agents with Hierarchical Memory Organization via Reinforcement Learning}
 
 \author{
   Yifan Liu \And Liam Gallagher \And David Courtis \And Jiazhou Liang
@@ -53,8 +53,39 @@
 %% =====================================================================
 %% SECTION 1: PROBLEM DEFINITION
 %% =====================================================================
+\section{Introduction}
+Large Language Models (LLM) have evolved from static text generators into interactive agents that engage in multi-turn dialogue, tool use, and long-horizon reasoning. In these settings, memory plays a central role: agents must retain user preferences, task constraints, and intermediate state in order to respond coherently and consistently over time. Consequently, recent systems increasingly augment LLMs with external memory modules, including vector databases, and interaction histories.\\
 
+Despite this progress, most existing memory-augmented LLMs treat memory access as a static or heuristic process~\citep{lewis2020retrieval}. Memory is typically retrieved via similarity search or rule-based triggers~\citep{khandelwal2020generalization}, even when memory is structured, and its usage is largely decoupled from the model’s reasoning process. As a result, current approaches often suffer from over-retrieval, under-utilization of relevant information, and brittle behavior when memory contains stale or weakly relevant entries. More fundamentally, these systems lack a mechanism to learn when, how, and at what level of structure or abstraction memory should be accessed in a task-dependent manner.\\
+
+Recent work, most notably \citet{jin2025search}, addresses this limitation by treating search as an explicit action within the model’s reasoning process and training a policy over reasoning–search trajectories using relative reinforcement learning. By comparing alternative trajectories for the same query, Search-R1 learns when search is beneficial without relying on absolute reward calibration. Motivated by this paradigm, recent efforts have begun to explore similar ideas for memory usage~\citep{yan2025memory}. However, existing approaches operate over flat or unstructured memory and do not address the challenges of structured memory access.\\
+
+In this work, we observe that memory access is structurally analogous to search, with the key difference that memory operates over an agent’s internal, persistent, and often structured state~\citep{park2023generative}, rather than an external corpus. In contrast to search over unstructured documents, memory access in practical systems involves navigating, selecting, and aggregating over structured representations, such as profiles, task hierarchies, and interaction histories. Both search and memory access involve non-differentiable decisions that trade off informativeness, cost, and downstream performance. This motivates \emph{Structured Memory-R1}, which draws direct inspiration from Search-R1 and applies relative reinforcement learning to structured memory access and manipulation. We treat memory usage as a sequence of explicit, structure-aware actions during generation and optimize these decisions by comparing alternative structured memory–interaction trajectories under relative judgments.\\
+
+\section{Related Work}
+
+\paragraph{Flat and Unstructured Memory.}
+Early memory-augmented LLMs retrieve information from flat, unstructured stores via similarity search or rule-based triggers~\citep{lewis2020retrieval, khandelwal2020generalization}.
+Agent systems such as Generative Agents~\citep{park2023generative} popularized the episodic memory stream, a flat chronological log retrieved by recency and relevance.
+These approaches decouple memory access from the model's reasoning process, leading to over-retrieval and under-utilization of relevant information.
+A compounding failure mode is the ``lost in the middle'' phenomenon~\citep{liu2024lost}, wherein serializing the full memory state into the context window causes models to neglect centrally positioned entries---motivating selective, reasoning-driven retrieval over both flat and in-context memory baselines.
+
+\paragraph{Structured Memory Access.}
+To address the limitations of flat retrieval, recent work has proposed structured memory representations that expose relational and hierarchical organization to the agent.
+\citet{semanticxpath2026} introduce \textsc{SemanticXPath}, a paradigm in which the LLM generates XPath-style queries over a structured memory tree, enabling precise, path-directed access without flat similarity search.
+While this approach exploits memory structure at inference time, it relies on heuristic query generation and does not learn an access policy from task feedback.
+
+\paragraph{RL-Based Memory and Search.}
+\citet{jin2025search} address the analogous limitation in web search by treating search as an explicit reasoning action and training a policy over reasoning--search trajectories via relative reinforcement learning (GRPO).
+Motivated by this paradigm, \citet{yan2025memory} extend the idea to flat agent memory, training a two-agent system (Memory Manager + Answer Agent) to perform ADD/UPDATE/DELETE/NOOP operations via RL.
+However, both systems operate over flat or unstructured memory and cannot exploit the hierarchical organization present in structured memory stores.
+
+In this work, we observe that memory access is structurally analogous to search, with the key difference that memory operates over an agent's internal, persistent, and hierarchically organized state~\citep{park2023generative}.
+Unlike retrieved web documents, memory entries carry structural provenance---their utility depends not only on semantic relevance but on their position within the memory tree.
+\textsc{Struct Memory-R1} addresses this gap by extending the RL-over-actions paradigm to structured memory, training agents to learn \emph{where} in the hierarchy to read and write, and \emph{when} structural reorganization is warranted, entirely through end-to-end reinforcement learning over hierarchical memory trajectories.
 \section{Problem Definition}
+
+\paragraph{Conversational Agent.}
 
 We consider an LLM-based agent augmented with an external memory system that persists across interactions:
 \begin{equation}
@@ -74,22 +105,24 @@ An \emph{interaction} is a temporally ordered sequence of turns between a user a
 \mathcal{I} = (t_1, t_2, \ldots, t_T),
 \end{equation}
 where $T$ is the total number of turns in the interaction.
-At turn $t$ ($1 \le t \le T$), the user provides an input $x_t \in \mathcal{X}$ (a query, instruction, or follow-up). The agent observes $x_t$ together with the current memory state $M_t \in \mathcal{M}$. The agent generates an action trajectory as a sequence of \emph{language actions} (reasoning steps, final answers) and \emph{environment actions} (memory queries, tool calls).
+At turn $t$ ($1 \le t \le T$), the user provides an input $x_t \in \mathcal{X}$ (a query, instruction, or follow-up). The agent observes $x_t$ together with the current memory state $M_t \in \mathcal{M}$. T
+
+The agent generates an action trajectory as a sequence of \emph{language actions} (reasoning steps, final answers) and \emph{environment actions} (memory queries, tool calls).
 The agent emits a final response $y_t \in \mathcal{Y}$ extracted from $\tau_t$. The memory state may be updated: $M_{t+1} = f_{\text{update}}(M_t, \tau_t)$, where $f_{\text{update}}$ encodes any write operations performed during the turn.
 The objective is to learn a policy $\pi_\theta$ that controls memory access when and how memory should be queried to improve downstream task performance. 
 
-\section{\textsc{Struct Memory-R1}}
+\paragraph{Memory Structures}
 
 Recent work, notably Search-R1~\citep{jin2025search}  and Memory-R1~\citep{yan2025memory}\footnote{Memory-R1 does not provide a public codebase. We built a publicly available implementation at \url{https://github.com/YifanLiu2/Struct_Memory_R1.git}.}, has shown that RL can effectively train agents to manage flat external memory banks.
 A \emph{flat memory state} is an unordered collection of $N$ memory entries:
 \begin{equation}
 M_t^{\text{flat}} = \{m_1, m_2, \ldots, m_N\}, \quad m_i = (\text{key}_i,\; \text{attributes}_i),
 \end{equation}
-where each entry $m_i$ consists of a textual key, a textual attribute, and optional metadata.
-However, flat representations treat all memory entries as independent, discarding the hierarchical and relational structure often present in real-world user state (e.g., a dietary preference nested under a user profile, or a hotel booking linked to a specific trip). We hypothesize that exposing this structure to the policy enables more selective retrieval and reduces over-retrieval of irrelevant entries. Therefore, we proposed \emph{\textsc{Struct Memory-R1}}. 
+
+
+\section{\textsc{Struct Memory-R1}}
 
 \subsection{Memory States}
-
 Building on Search-R1 and Memory-R1, our work extends reinforcement learning with verifiable rewards from external information retrieval to \emph{structured} memory for long-context conversational AI scenarios.
 Specificly, a \emph{structured memory state} at turn $t$ is a rooted tree:
 \begin{equation}
@@ -136,7 +169,10 @@ R(\tau_t) = \alpha \cdot R_{\text{syntax}}(\tau_t) + \beta \cdot R_{\text{utilit
 
 $R_{\text{syntax}}(\tau_t) = \mathbf{1}[\tau_t \text{ uses well-formed } \texttt{<memory>}\text{, } \texttt{<think>}\text{, } \texttt{<answer>} \text{ tags}]$ verifies format correctness.
 
-$R_{\text{utility}}(\tau_t) = \lambda_{\text{EM}} \cdot \mathbf{1}[y_t = y_t^*] + \lambda_{\text{sub}} \cdot \mathbf{1}[y_t^* \subseteq y_t]$ measures answer correctness against the ground truth $y_t^*$. For open-ended tasks, F1 or BLEU-1 may substitute.
+$R_{\text{utility}}(\tau_t) = \text{BERTScore-F1}(y_t, y_t^*)$ measures answer 
+correctness against the ground truth $y_t^*$ via contextual embedding similarity, 
+providing a soft, model-based alternative to exact-match metrics suitable for both 
+factoid and open-ended tasks.
 
 $R_{\text{efficiency}}(\tau_t) = -\lambda_{\text{tok}} \cdot |\text{tokens}_{\text{retrieved}}| / C - \lambda_{\text{act}} \cdot |\text{mem\_actions}|$ penalizes over-retrieval, incentivizing targeted subtree access.
 

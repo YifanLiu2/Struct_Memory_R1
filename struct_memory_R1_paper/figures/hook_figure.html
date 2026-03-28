@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Source+Code+Pro:wght@400;500;600;700&display=swap');
+  @page { size: 860px 540px; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 860px; height: 540px; margin: 0; padding: 0; overflow: hidden; }
+  body { font-family: 'Nunito', sans-serif; background: #F5F4F7; }
+  .tag { font-family:'Source Code Pro'; font-size:12px; font-weight:600; padding:3px 8px; border-radius:5px; display:inline-block; }
+</style>
+</head>
+<body>
+<div style="width:860px; padding:8px;">
+
+  <!-- ROW 1: Dialogue -->
+  <div style="display:flex;gap:6px;align-items:flex-start;margin-bottom:4px;">
+    <div style="width:28px;height:28px;border-radius:50%;background:#728AB9;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">👤</div>
+    <div style="background:#E8EAF2;border-radius:10px 10px 10px 2px;padding:6px 10px;border:1px solid #C5C8D8;flex:1;">
+      <span style="font-size:13px;color:#3A3A4A;line-height:1.4;"><b style="color:#56669E;">Alice:</b> I visited <b>Tokyo</b>! Starting a <b>new job at Google in Seattle</b>.</span>
+    </div>
+    <div style="width:28px;height:28px;border-radius:50%;background:#CEA2B5;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">👤</div>
+    <div style="background:#F5E8EE;border-radius:10px 10px 10px 2px;padding:6px 10px;border:1px solid #E0C8D5;flex:1;">
+      <span style="font-size:13px;color:#3A3A4A;line-height:1.4;"><b style="color:#8A5068;">Bob:</b> I visited <b>Kyoto</b>. My <b>daughter turned 5</b>.</span>
+    </div>
+  </div>
+
+  <!-- ROW 2: Sessions + later dialogue -->
+  <div style="display:flex;align-items:center;gap:4px;margin-bottom:4px;">
+    <span style="font-family:'Source Code Pro';font-size:10px;font-weight:700;color:#9A9AB9;background:#EDEAF5;padding:2px 7px;border-radius:4px;">Session 1</span>
+    <span style="color:#C8C8DA;font-size:12px;">···</span>
+    <span style="font-family:'Source Code Pro';font-size:10px;font-weight:700;color:#9A9AB9;background:#EDEAF5;padding:2px 7px;border-radius:4px;">Session 12</span>
+    <div style="flex:1;"></div>
+    <span style="font-size:13px;color:#3A3A4A;background:#E8EAF2;border-radius:8px;padding:4px 10px;border:1px solid #C5C8D8;"><b style="color:#56669E;">Alice:</b> Seattle is rainy. Team works on <b>LLM memory</b>.</span>
+  </div>
+
+  <!-- ROW 3: Query -->
+  <div style="background:linear-gradient(135deg,#50B9AE,#3DA89D);color:#fff;padding:7px 18px;border-radius:14px;
+    font-size:14px;font-weight:800;text-align:center;margin-bottom:6px;">
+    ❓ "What city did Alice <b>move to</b> for her <b>new job</b>?"
+  </div>
+
+  <!-- ROW 4: Two columns -->
+  <div style="display:flex;gap:8px;">
+
+    <!-- LEFT: Memory R1 -->
+    <div style="flex:1;background:#fff;border-radius:12px;padding:10px 12px;border:2px solid #D8D8E2;">
+      <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;">
+        <span style="font-size:15px;font-weight:900;color:#3A3A4A;">Memory R1</span>
+        <span style="font-size:10px;font-weight:700;color:#9A9AB9;background:#F0F0F6;padding:2px 7px;border-radius:4px;">flat · no retriever</span>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:3px;margin-bottom:6px;">
+        <span class="tag" style="background:#F5F2EE;color:#4A4A58;border:1px solid #DDD8D0;">m1: visited Tokyo</span>
+        <span class="tag" style="background:#F5F2EE;color:#4A4A58;border:1px solid #DDD8D0;">m2: cherry blossoms</span>
+        <span class="tag" style="background:#F5F2EE;color:#4A4A58;border:1px solid #DDD8D0;">m3: new job Google</span>
+        <span class="tag" style="background:#FCE8E8;color:#905050;border:1px solid #E8C0C0;">m4: starting Seattle</span>
+        <span class="tag" style="background:#F5F2EE;color:#4A4A58;border:1px solid #DDD8D0;">m5: Bob Kyoto</span>
+        <span class="tag" style="background:#F5F2EE;color:#4A4A58;border:1px solid #DDD8D0;">m6: daughter 5</span>
+        <span class="tag" style="background:#F5F2EE;color:#4A4A58;border:1px solid #DDD8D0;">m7: Seattle rainy</span>
+        <span class="tag" style="background:#F5F2EE;color:#4A4A58;border:1px solid #DDD8D0;">m8: LLM memory</span>
+      </div>
+
+      <div style="font-size:12px;font-weight:800;color:#9A9AB9;margin-bottom:4px;">↓ Similarity Search</div>
+
+      <div style="background:#FFF8F0;border:1.5px solid #E8C8A0;border-radius:8px;padding:6px 10px;margin-bottom:6px;">
+        <div style="font-size:11px;font-weight:800;color:#B08040;margin-bottom:3px;">📦 Retrieved</div>
+        <div style="display:flex;flex-wrap:wrap;gap:3px;">
+          <span class="tag" style="background:#FCE8E8;color:#905050;border:1px solid #E8C0C0;">m1: visited Tokyo</span>
+          <span class="tag" style="background:#FCE8E8;color:#905050;border:1px solid #E8C0C0;">m3: new job Google</span>
+          <span class="tag" style="background:#FCE8E8;color:#905050;border:1px solid #E8C0C0;">m5: Bob Kyoto</span>
+        </div>
+        <div style="font-size:10px;color:#B08040;margin-top:3px;font-style:italic;">"city" → Tokyo, Kyoto; "job" → m3; Seattle in m4 missed</div>
+      </div>
+
+      <div style="background:#FCE8E8;border:2px solid #C05050;border-radius:8px;padding:8px 10px;display:flex;align-items:center;gap:8px;">
+        <span style="font-size:24px;">❌</span>
+        <span style="font-family:'Source Code Pro';font-size:13px;color:#905050;font-weight:600;">"Alice moved to <b>Tokyo</b> for her new job."</span>
+      </div>
+    </div>
+
+    <!-- RIGHT: Struct Memory-R1 -->
+    <div style="flex:1;background:#fff;border-radius:12px;padding:10px 12px;border:2px solid #50B9AE;">
+      <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;">
+        <span style="font-size:15px;font-weight:900;color:#3A3A4A;">Struct Memory-R1</span>
+        <span style="font-size:10px;font-weight:700;color:#50B9AE;background:#E5F0EC;padding:2px 7px;border-radius:4px;">tree · RL retriever</span>
+      </div>
+
+      <svg width="400" height="140" viewBox="0 0 400 140" style="margin-bottom:4px;">
+        <line x1="200" y1="16" x2="104" y2="46" stroke="#D8D8E8" stroke-width="2.2"/>
+        <line x1="200" y1="16" x2="310" y2="46" stroke="#D8D8E8" stroke-width="1.8" opacity="0.4"/>
+        <line x1="104" y1="66" x2="44" y2="92" stroke="#D8D8E8" stroke-width="1.8" opacity="0.5"/>
+        <line x1="104" y1="66" x2="116" y2="92" stroke="#728AB9" stroke-width="2.2"/>
+        <line x1="104" y1="66" x2="184" y2="92" stroke="#D8D8E8" stroke-width="1.8" opacity="0.5"/>
+        <line x1="116" y1="110" x2="78" y2="130" stroke="#728AB9" stroke-width="2.2"/>
+        <line x1="116" y1="110" x2="158" y2="130" stroke="#728AB9" stroke-width="2.2"/>
+        <rect x="58" y="38" width="136" height="82" rx="8" fill="none" stroke="#728AB9" stroke-width="2.2" stroke-dasharray="6 4" opacity="0.22"/>
+        <foreignObject x="164" y="2" width="72" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="text-align:center;"><span style="font-family:Nunito;font-size:13px;font-weight:900;padding:3px 14px;border-radius:6px;background:#728AB9;color:#fff;display:inline-block;">root</span></div></foreignObject>
+        <foreignObject x="58" y="42" width="94" height="28"><div xmlns="http://www.w3.org/1999/xhtml" style="text-align:center;"><span style="font-family:Nunito;font-size:12px;font-weight:800;padding:3px 10px;border-radius:6px;background:#E8EAF2;color:#4A5068;border:1.5px solid #728AB9;display:inline-block;">👤 Alice</span></div></foreignObject>
+        <foreignObject x="268" y="42" width="86" height="28"><div xmlns="http://www.w3.org/1999/xhtml" style="text-align:center;"><span style="font-family:Nunito;font-size:12px;font-weight:800;padding:3px 10px;border-radius:6px;background:#F5E8EE;color:#7A5068;border:1px solid #E0C8D5;display:inline-block;opacity:0.4;">👤 Bob</span></div></foreignObject>
+        <foreignObject x="6" y="84" width="74" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="text-align:center;"><span style="font-family:Nunito;font-size:10px;font-weight:800;padding:2px 7px;border-radius:5px;background:#E8F0ED;color:#4A6858;border:1px solid #C0D4CA;display:inline-block;opacity:0.5;">✈ Travel</span></div></foreignObject>
+        <foreignObject x="78" y="84" width="76" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="text-align:center;"><span style="font-family:Nunito;font-size:10px;font-weight:800;padding:2px 10px;border-radius:5px;background:#E8EAF2;color:#56669E;border:1.5px solid #728AB9;display:inline-block;">💼 Work</span></div></foreignObject>
+        <foreignObject x="152" y="84" width="62" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="text-align:center;"><span style="font-family:Nunito;font-size:10px;font-weight:800;padding:2px 7px;border-radius:5px;background:#EDEAF5;color:#5E5080;border:1px solid #CCC4DE;display:inline-block;opacity:0.5;">🏠 Life</span></div></foreignObject>
+        <foreignObject x="34" y="122" width="90" height="20"><div xmlns="http://www.w3.org/1999/xhtml" style="text-align:center;"><span style="font-family:'Source Code Pro';font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px;background:#E5F0EC;color:#3A6B60;border:1px solid #50B9AE;display:inline-block;">job Google</span></div></foreignObject>
+        <foreignObject x="126" y="122" width="74" height="20"><div xmlns="http://www.w3.org/1999/xhtml" style="text-align:center;"><span style="font-family:'Source Code Pro';font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px;background:#E5F0EC;color:#3A6B60;border:1px solid #50B9AE;display:inline-block;">Seattle</span></div></foreignObject>
+      </svg>
+
+      <div style="background:#F0F0F6;border:1.5px solid #C8C8DA;border-radius:6px;padding:5px 8px;margin-bottom:4px;">
+        <div style="font-size:10px;font-weight:800;color:#56669E;margin-bottom:3px;">🔍 RL Retrieval Plan</div>
+        <div style="display:flex;align-items:center;gap:4px;">
+          <span style="font-family:'Source Code Pro';font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px;background:#E2E4F0;color:#56669E;border:1px solid #B8BCD0;">SPEAKER: Alice</span>
+          <span style="font-size:12px;color:#C8C8DA;">→</span>
+          <span style="font-family:'Source Code Pro';font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px;background:#E2E4F0;color:#56669E;border:1px solid #B8BCD0;">TOPIC: Work</span>
+          <span style="font-size:12px;color:#C8C8DA;">→</span>
+          <span style="font-family:'Source Code Pro';font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px;background:#E0EEE8;color:#408878;border:1px solid #B0D8CA;">STOP</span>
+        </div>
+      </div>
+
+      <div style="background:#E5F0EC;border:1.5px solid #50B9AE;border-radius:6px;padding:5px 8px;margin-bottom:4px;">
+        <div style="font-size:10px;font-weight:800;color:#3A6B60;margin-bottom:3px;">📦 Retrieved (Alice→Work)</div>
+        <div style="display:flex;flex-wrap:wrap;gap:3px;">
+          <span class="tag" style="background:#D0EAE0;color:#3A6B60;border:1px solid #50B9AE;">new job Google</span>
+          <span class="tag" style="background:#D0EAE0;color:#3A6B60;border:1px solid #50B9AE;">moved Seattle</span>
+          <span class="tag" style="background:#D0EAE0;color:#3A6B60;border:1px solid #50B9AE;">LLM memory</span>
+        </div>
+      </div>
+
+      <div style="background:#E5F0EC;border:2px solid #50B9AE;border-radius:8px;padding:8px 10px;display:flex;align-items:center;gap:8px;">
+        <span style="font-size:24px;">✅</span>
+        <span style="font-family:'Source Code Pro';font-size:13px;color:#3A6B60;font-weight:600;">"Alice moved to <b>Seattle</b> for her new job."</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

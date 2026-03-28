@@ -1,0 +1,63 @@
+\section{Method}
+\subsection{Overview}
+\textsc{Struct Memory-R1} is trained in stages. The Memory Manager learns to construct and maintain memory state from raw dialogue. The Retrieve Agent learns to navigate the resulting structured memory and return useful evidence. The Answer Agent learns to answer from retrieved memories. All three components are instantiated with the same base language model family, Qwen2.5-3B-Instruct, but their prompts, actions, and rewards differ.
+
+The methodological design follows from the tree structure. The Memory Manager performs updates within the tree, deciding where new facts belong in the hierarchy. The Retrieve Agent performs access over the tree, selecting branches before reading leaves. Because optimal choices for both depend on downstream answer quality, reinforcement learning serves as the training signal. We now describe each component.
+
+\subsection{Memory Manager}
+The Memory Manager observes the current dialogue turn and the current memory state, serialized as structured JSON. For stability, we restrict the manager to four operations:
+\[
+\mathcal{O} = \{\textsc{Add}, \textsc{Update}, \textsc{Delete}, \textsc{None}\}.
+\]
+Given turn $x_t$ and memory $M_t$, the manager emits a JSON object containing a set of operations over fact entries. Through these operations, the tree is constructed gradually from raw conversation history: each piece of interaction evidence is inserted, merged with existing memory, removed, or ignored. The updated memory is produced deterministically by applying these operations:
+\[
+M_{t+1} = \mathrm{Apply}(M_t, o_t), \qquad o_t \sim \pi_{\theta_M}(\cdot \mid x_t, M_t).
+\]
+Although the memory is stored as a tree, the present formulation restricts updates to stable CRUD operations on fact entries rather than arbitrary structural rewrites. This design choice isolates whether a reliable writing policy can benefit from structured memory without confounding the analysis with unrestricted topology editing.
+
+\paragraph{Reward.}
+The manager is trained with outcome-driven reward, following the core Memory-R1 intuition. After applying the manager's operations, the downstream system retrieves from the updated memory and the frozen Answer Agent answers the corresponding question. The manager reward is a function of answer quality:
+\[
+r_M = \mathrm{QAReward}\!\left(y_t, y_t^\star\right),
+\]
+optionally plus a small format-validity bonus for well-formed JSON outputs. This reward encourages the manager to write memories useful for future question answering rather than those matching local heuristics.
+
+\subsection{Retrieve Agent}
+The Retrieve Agent is a separate component operating over the structured memory produced by the Memory Manager. It does not modify memory. Instead, it receives a question $q$ and a compact schema summary of the memory tree, then outputs a search plan:
+\[
+z \sim \pi_{\theta_R}(\cdot \mid q, \mathrm{Schema}(M)).
+\]
+The plan is a JSON object of the form
+\[
+z = \{\texttt{levels}, \texttt{selected\_ids}, \texttt{stop}\},
+\]
+where \texttt{levels} specifies keys to expand level by level in the tree, \texttt{selected\_ids} optionally names leaf memories directly, and \texttt{stop} terminates search. A deterministic executor then runs the plan against the tree:
+\[
+R = \mathrm{ExecutePlan}(M, z),
+\]
+returning a set of retrieved memory leaves together with local context such as parent or sibling summaries.
+
+Instead of scoring every memory globally, the retriever selects branches of the induced hierarchy and only then exposes fact leaves, so that retrieval is conditioned on structural locality and benefits from the grouping created by the Memory Manager.
+
+\paragraph{Reward.}
+Retriever reward combines answer utility with a small evidence bonus:
+\[
+r_R = \mathrm{QAReward}\!\left(y_t, y_t^\star\right) + \lambda_{\text{ev}} \cdot \mathrm{Hit}(R, E^\star) - \lambda_{\text{cost}} \cdot C(z),
+\]
+where $E^\star$ denotes gold evidence nodes when available and $C(z)$ is a search-cost regularizer. The primary signal is the downstream answer score under a frozen Answer Agent, which ensures that retrieval is evaluated by the usefulness of the evidence it exposes rather than by path matching alone.
+
+\subsection{Answer Agent}
+The Answer Agent receives the question and the retrieved memories grouped by speaker and timestamp. It then outputs a short answer:
+\[
+y \sim \pi_{\theta_A}(\cdot \mid q, R).
+\]
+This component is trained to condition on retrieved evidence rather than on the full conversation history. During Memory Manager and Retrieve Agent training, the Answer Agent is frozen and used as the evaluator in the reward loop. This separation ensures that improvements in memory updates or retrieval plans are measured through their effect on answerability.
+
+\subsection{Staged Training}
+The full training program is staged:
+\begin{enumerate}[nosep,leftmargin=1.5em]
+\item train the Answer Agent on retrieved memories and gold answers;
+\item freeze the Answer Agent and train the Memory Manager using downstream QA reward;
+\item freeze the induced memory representation for each training instance and the Answer Agent, then train the Retrieve Agent to output search plans over the tree.
+\end{enumerate}
+This staged protocol reduces instability relative to joint optimization and clarifies the contributions of writing, retrieval, and answering.

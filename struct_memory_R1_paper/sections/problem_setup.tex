@@ -1,0 +1,28 @@
+\section{Problem Setup}
+We consider a conversational agent interacting over turns $t = 1, \dots, T$. At turn $t$, the agent observes a user utterance $x_t$, a persistent memory state $M_t$, and optionally a question $q_t$ whose answer depends on information stored in memory. The agent must update memory after interactions and answer questions from memory later.
+
+\paragraph{Structured Memory.}
+The memory state is a rooted tree
+\[
+M_t = (V_t, E_t, r),
+\]
+where $V_t$ is a set of nodes, $E_t \subseteq V_t \times V_t$ is a set of parent-child edges, and $r$ is the root. Crucially, this structure is not provided by the dataset. It is induced online from raw conversation history by the memory-writing policy. In our setting, the induced tree follows an event and topic based organization such as
+\[
+\texttt{root} \rightarrow \texttt{topic} \rightarrow \texttt{subtopic} \rightarrow \texttt{fact},
+\]
+while allowing deeper substructure as the memory grows. The tree provides an explicit structural neighborhood for every fact: each leaf has ancestors, siblings, and a path that localizes it within the broader memory state.
+
+\paragraph{Why tree structure.}
+The tree representation provides what flat memory lacks for both access and updates. For access, related facts share ancestors, so the retriever can select a branch before reading individual leaves, reducing interference from unrelated memories. For updates, the tree provides structural context: a new fact can be interpreted relative to the existing branch it belongs to rather than compared against a global pool.
+
+\paragraph{Three Component Roles.}
+We factor the full system into three mappings:
+\begin{align}
+M_{t+1} &= f_{\text{mgr}}(x_t, M_t), \\
+R_t &= f_{\text{ret}}(q_t, M_{t+1}), \\
+y_t &= f_{\text{ans}}(q_t, R_t),
+\end{align}
+where $f_{\text{mgr}}$ is the Memory Manager, $f_{\text{ret}}$ is the Retrieve Agent plus deterministic tree executor, and $f_{\text{ans}}$ is the Answer Agent.
+
+\paragraph{Learning problem.}
+The challenge is that neither the correct memory update nor the correct retrieval path is directly observed in standard conversational QA data. Supervision is available primarily at the level of final task success. We therefore optimize both writing and retrieval from downstream reward rather than assuming oracle intermediate labels.

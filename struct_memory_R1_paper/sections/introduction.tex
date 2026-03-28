@@ -1,0 +1,40 @@
+\section{Introduction}
+
+\begin{wrapfigure}{r}{0.5\textwidth}
+\vspace{-18pt}
+\centering
+\includegraphics[width=0.5\textwidth]{figures/hook_figure.pdf}
+\caption{Motivating example. \textbf{Memory R1} (left) uses flat similarity search, retrieving ``Tokyo'' for ``city'' but missing the job--Seattle link. \textbf{Struct Memory-R1} (right) navigates Alice $\rightarrow$ Work in the tree, correctly finding ``Seattle.''}
+\label{fig:hook}
+\vspace{-10pt}
+\end{wrapfigure}
+AI agents must maintain long-horizon memory over conversational history to provide relevant context for future interactions. The information in these conversations has natural structure: discussions revolve around topics, topics unfold through events, and facts relate to one another within these groupings. Most memory systems ignore this structure. They store memories as flat lists and retrieve them by similarity search.
+
+Flat retrieval treats all memories equally in a global scoring space. It cannot exploit the fact that memories about the same topic or event are semantically related. Flat updates, whether append or overwrite, have no notion of structural context: when a new fact arrives, the system cannot tell whether it extends an existing topic or starts a new one. As conversations grow longer, locality is lost, retrieval interference increases, and consistent memory maintenance becomes difficult.
+
+A tree organizes memory hierarchically. Related facts share ancestors, so retrieval can first select a relevant branch and then read leaves within it. New facts can be interpreted relative to an existing neighborhood in the tree rather than compared against a global pool. In conversational settings, however, no predefined schema exists. The tree must be induced online from raw interactions as they arrive.
+
+Once memory is a tree, both access and updates must be redesigned. For access, the retriever examines the tree schema, selects promising branches, and then reads relevant leaves. This is a search planning problem, unlike flat similarity ranking where every entry is scored independently. For updates, the writer must decide where in the hierarchy a new fact belongs and whether it extends an existing entry or creates a new branch. This is structural placement, unlike flat append where every new fact is simply added to the end. Both access and updates now involve reasoning through possible trajectories in the tree: the retriever must consider which branches to explore, and the writer must consider where a new fact fits in the hierarchy. The quality of the chosen trajectory can only be judged by the correctness of the final answer to a future question. Direct supervision for these intermediate decisions is unavailable in standard QA data. Reinforcement learning from downstream question-answering reward is therefore the natural training signal. This follows the principle established by Search-R1 and Memory-R1 that information access should be trained from task outcomes~\citep{jin2025search, yan2025memory}, and extends it from flat memory to tree-structured access and updates.
+
+\textsc{Struct Memory-R1} decomposes this problem into three coordinated components (Figure~\ref{fig:overview}):
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item A \textbf{Memory Manager} that receives a new turn and the current memory, then incrementally constructs and updates the memory tree through structural placement of new facts.
+\item A \textbf{Retrieve Agent} that operates over the induced tree and emits an explicit search plan, selecting branches and leaves rather than relying on global flat retrieval.
+\item An \textbf{Answer Agent} that reads retrieved evidence and produces the final answer.
+\end{itemize}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/struct_memory_r1_figure.pdf}
+\caption{Overview of \textsc{Struct Memory-R1}. The Memory Manager induces and updates a tree-structured memory from raw conversation. The Retrieve Agent emits a search plan over the tree to select relevant evidence. The Answer Agent produces the final response. All three components are trained with reinforcement learning from downstream question-answering reward.}
+\label{fig:overview}
+\end{figure}
+
+The decomposition follows the causal chain of the problem: the Memory Manager builds and maintains the tree, the Retrieve Agent navigates it for a given question, and the Answer Agent evaluates whether the retrieved evidence suffices. By separating these roles, \textsc{Struct Memory-R1} turns structured memory into a modular reinforcement-learning problem in which tree updates, tree access, and answering are each optimized against downstream task performance.
+
+In summary, the paper makes three contributions:
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item We argue that conversational memory has event and topic based structure that a tree captures naturally, and that tree-structured memory requires access and update operations that differ from those used on flat memory.
+\item We propose \textsc{Struct Memory-R1}, a three-component framework that induces tree structure from raw conversation and trains tree-specific access and update policies with reinforcement learning.
+\item We evaluate on the LoCoMo benchmark, showing that tree-structured memory yields substantial gains on multi-hop and temporal questions while remaining competitive overall.
+\end{itemize}
