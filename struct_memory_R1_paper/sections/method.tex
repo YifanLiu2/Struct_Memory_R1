@@ -1,61 +1,77 @@
 \section{Method}
-todo: for this section, keep the overview, but do not discuss specific model being used
-
-todo: discuss memory bank first and the tree structure. be mathmatical
-
-todo: then discuss three separate component. please refer to memory-R1 paper for method writing. be very mathematical. we are using GRPO style traning. therefore discuss things properly.
-
 
 \subsection{Overview}
-\textsc{Struct Memory-R1} is trained in stages. The Memory Manager learns to construct and maintain memory state from raw dialogue. The Retrieve Agent learns to navigate the resulting structured memory and return useful evidence. The Answer Agent learns to answer from retrieved memories. All three components are instantiated with the same base language model family, Qwen2.5-3B-Instruct, but their prompts, actions, and rewards differ.
+\textsc{Struct Memory-R1} instantiates the memory-augmented LLM framework defined in Section~2 with three learned components: a Memory Manager $\pi_{\theta_M}$, a Retrieve Agent $\pi_{\theta_R}$, and an Answer Agent $\pi_{\theta_A}$. Each component is parameterized by a language model and trained with Group Relative Policy Optimization (GRPO)~\cg{shao2024deepseekmath} using downstream question-answering reward. Training proceeds in stages: the Answer Agent is trained first, then frozen while the Retrieve Agent and Memory Manager are trained in sequence. This staged approach ensures stable reward signals at each phase.
 
-The methodological design follows from the tree structure. The Memory Manager performs updates within the tree, deciding where new facts belong in the hierarchy. The Retrieve Agent performs access over the tree, selecting branches before reading leaves. Because optimal choices for both depend on downstream answer quality, reinforcement learning serves as the training signal. We now describe each component.
+\subsection{Memory Bank and Tree Structure}
+The memory bank $\mathcal{T}_t = (V_t, E_t)$ is a rooted tree that is constructed incrementally from raw conversation. Each node $v \in V_t$ resides at a level $\ell(v) \in \{0, 1, \ldots, L\}$ and carries content $c(v)$. The tree is structured such that:
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item Level 0: the root, representing the full conversation;
+\item Levels $1$ to $L{-}1$: internal nodes representing hierarchical groupings (e.g., people, topics, events);
+\item Level $L$: leaf nodes, each containing an individual memory entry $m_i$.
+\end{itemize}
+Each internal node $v$ maintains a summary $s(v)$ that aggregates information from its children $\text{Ch}(v) = \{u \in V_t : (v, u) \in E_t\}$. The \emph{schema} of the tree, $\textsc{Schema}(\mathcal{T}_t)$, consists of node identifiers and summaries at each level without exposing full leaf content, providing a compact representation for the retrieval policy.
+
+The tree is serialized as structured JSON for input to language model policies. This serialization preserves the hierarchical relationships while remaining compatible with standard text-based LLM input formats.
 
 \subsection{Memory Manager}
-The Memory Manager observes the current dialogue turn and the current memory state, serialized as structured JSON. For stability, we restrict the manager to four operations:
-\[
+The Memory Manager observes the current dialogue turn $x_t$ and the current memory tree $\mathcal{T}_t$, and emits a set of operations to update the tree. We restrict the operation space to four stable CRUD operations:
+\begin{equation}
 \mathcal{O} = \{\textsc{Add}, \textsc{Update}, \textsc{Delete}, \textsc{None}\}.
-\]
-Given turn $x_t$ and memory $M_t$, the manager emits a JSON object containing a set of operations over fact entries. Through these operations, the tree is constructed gradually from raw conversation history: each piece of interaction evidence is inserted, merged with existing memory, removed, or ignored. The updated memory is produced deterministically by applying these operations:
-\[
-M_{t+1} = \mathrm{Apply}(M_t, o_t), \qquad o_t \sim \pi_{\theta_M}(\cdot \mid x_t, M_t).
-\]
-Although the memory is stored as a tree, the present formulation restricts updates to stable CRUD operations on fact entries rather than arbitrary structural rewrites. This design choice isolates whether a reliable writing policy can benefit from structured memory without confounding the analysis with unrestricted topology editing.
+\end{equation}
+Given turn $x_t$ and tree $\mathcal{T}_t$, the manager samples an operation sequence:
+\begin{equation}
+o_t \sim \pi_{\theta_M}(\cdot \mid x_t, \mathcal{T}_t),
+\end{equation}
+and the updated tree is obtained deterministically:
+\begin{equation}
+\mathcal{T}_{t+1} = \textsc{Apply}(\mathcal{T}_t, o_t).
+\end{equation}
+The operation $o_t$ is a JSON object specifying which entries to add, modify, or remove, along with their placement in the tree hierarchy. By restricting to CRUD operations rather than arbitrary structural rewrites, we isolate the benefit of structured memory from the complexity of unrestricted topology editing.
 
 \paragraph{Reward.}
-The manager is trained with outcome-driven reward, following the core Memory-R1 intuition. After applying the manager's operations, the downstream system retrieves from the updated memory and the frozen Answer Agent answers the corresponding question. The manager reward is a function of answer quality:
-\[
-r_M = \mathrm{QAReward}\!\left(y_t, y_t^\star\right),
-\]
-optionally plus a small format-validity bonus for well-formed JSON outputs. This reward encourages the manager to write memories useful for future question answering rather than those matching local heuristics.
+The Memory Manager is trained with outcome-driven reward. After applying the manager's operations, the downstream pipeline (Retrieve Agent + frozen Answer Agent) processes the corresponding question. The reward is:
+\begin{equation}
+r_M = \mathcal{R}(y_t, y_t^\star) + \lambda_f \cdot \mathbb{1}[\text{valid JSON}],
+\end{equation}
+where $\mathcal{R}(y_t, y_t^\star)$ measures answer quality and $\lambda_f$ is a small bonus for well-formed output. This encourages the manager to write memories that are useful for future question answering rather than those matching local heuristics.
 
 \subsection{Retrieve Agent}
-The Retrieve Agent is a separate component operating over the structured memory produced by the Memory Manager. It does not modify memory. Instead, it receives a question $q$ and a compact schema summary of the memory tree, then outputs a search plan:
-\[
-z \sim \pi_{\theta_R}(\cdot \mid q, \mathrm{Schema}(M)).
-\]
-The plan is a JSON object of the form
-\[
-z = \{\texttt{levels}, \texttt{selected\_ids}, \texttt{stop}\},
-\]
-where \texttt{levels} specifies keys to expand level by level in the tree, \texttt{selected\_ids} optionally names leaf memories directly, and \texttt{stop} terminates search. A deterministic executor then runs the plan against the tree:
-\[
-R = \mathrm{ExecutePlan}(M, z),
-\]
-returning a set of retrieved memory leaves together with local context such as parent or sibling summaries.
-
-Instead of scoring every memory globally, the retriever selects branches of the induced hierarchy and only then exposes fact leaves, so that retrieval is conditioned on structural locality and benefits from the grouping created by the Memory Manager.
+The Retrieve Agent operates over the memory tree constructed by the Memory Manager. Given a question $q$ and the tree schema $\textsc{Schema}(\mathcal{T})$, it emits a search plan:
+\begin{equation}
+z \sim \pi_{\theta_R}(\cdot \mid q, \textsc{Schema}(\mathcal{T})).
+\end{equation}
+The search plan $z$ is a JSON object of the form:
+\begin{equation}
+z = \{\texttt{levels}: [\ell_1, \ldots, \ell_k], \;\; \texttt{selected\_ids}: [id_1, \ldots, id_m], \;\; \texttt{stop}: \{0,1\}\},
+\end{equation}
+where \texttt{levels} specifies which branches to expand at each tree level, \texttt{selected\_ids} names specific leaf nodes to retrieve, and \texttt{stop} terminates search. A deterministic executor runs the plan against the tree:
+\begin{equation}
+R = \textsc{Execute}(\mathcal{T}, z),
+\end{equation}
+returning a set of retrieved memory leaves together with local context (parent summaries, sibling information). This design ensures that retrieval is conditioned on structural locality rather than global similarity scoring.
 
 \paragraph{Reward.}
-Retriever reward combines answer utility with a small evidence bonus:
-\[
-r_R = \mathrm{QAReward}\!\left(y_t, y_t^\star\right) + \lambda_{\text{ev}} \cdot \mathrm{Hit}(R, E^\star) - \lambda_{\text{cost}} \cdot C(z),
-\]
-where $E^\star$ denotes gold evidence nodes when available and $C(z)$ is a search-cost regularizer. The primary signal is the downstream answer score under a frozen Answer Agent, which ensures that retrieval is evaluated by the usefulness of the evidence it exposes rather than by path matching alone.
+The retriever reward combines answer utility with evidence quality:
+\begin{equation}
+r_R = \mathcal{R}(y_t, y_t^\star) + \lambda_{\text{ev}} \cdot \textsc{Hit}(R, E^\star) - \lambda_{\text{cost}} \cdot C(z),
+\end{equation}
+where $E^\star$ denotes gold evidence nodes (when available), $C(z)$ penalizes search cost, and the primary signal is answer quality under a frozen Answer Agent.
 
 \subsection{Answer Agent}
-The Answer Agent receives the question and the retrieved memories grouped by speaker and timestamp. It then outputs a short answer:
-\[
+The Answer Agent receives the question $q$ and retrieved memories $R$, and produces a response:
+\begin{equation}
 y \sim \pi_{\theta_A}(\cdot \mid q, R).
-\]
-This component is trained to condition on retrieved evidence rather than on the full conversation history. During Memory Manager and Retrieve Agent training, the Answer Agent is frozen and used as the evaluator in the reward loop. This separation ensures that improvements in memory updates or retrieval plans are measured through their effect on answerability.
+\end{equation}
+This component is trained to condition on retrieved evidence rather than on the full conversation history. During Memory Manager and Retrieve Agent training, the Answer Agent is frozen and serves as the evaluator in the reward loop, ensuring that improvements in upstream components are measured through their effect on answer quality.
+
+\subsection{Training with GRPO}
+All three components are trained using Group Relative Policy Optimization (GRPO)~\cg{shao2024deepseekmath}, which avoids the need for a separate value network by computing advantages from a group of sampled outputs. For a given input $x$ and policy $\pi_\theta$, GRPO samples a group of $G$ outputs $\{o_1, \ldots, o_G\}$ and computes normalized advantages:
+\begin{equation}
+\hat{A}_i = \frac{r_i - \mu(\{r_1, \ldots, r_G\})}{\sigma(\{r_1, \ldots, r_G\})},
+\end{equation}
+where $r_i$ is the reward for output $o_i$, and $\mu, \sigma$ denote the group mean and standard deviation. The policy is updated by maximizing:
+\begin{equation}
+\mathcal{L}_{\text{GRPO}}(\theta) = \mathbb{E}_{x} \left[ \frac{1}{G} \sum_{i=1}^{G} \min\!\left( \rho_i \hat{A}_i, \; \text{clip}(\rho_i, 1{-}\epsilon, 1{+}\epsilon) \hat{A}_i \right) - \beta \, D_{\text{KL}}\!\left[\pi_\theta \| \pi_{\text{ref}}\right] \right],
+\end{equation}
+where $\rho_i = \pi_\theta(o_i \mid x) / \pi_{\text{old}}(o_i \mid x)$ is the importance ratio, $\epsilon$ is the clipping parameter, and $\beta$ controls the KL penalty relative to a reference policy $\pi_{\text{ref}}$. This objective encourages the model to produce outputs that yield higher rewards relative to the group average while staying close to the reference distribution.

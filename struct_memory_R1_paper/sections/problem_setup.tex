@@ -1,35 +1,51 @@
 \section{Problem Definition}
-(todo: this section is not good). i want you to focus on memory augmented LLM. where you have LLM, which take external memory to answer question. very formally and mathmatically. 
-\paragraph{Conversational Agent.}
 
-We consider an LLM-based agent augmented with an external memory system that persists across interactions:
+We formalize the setting of a large language model augmented with external memory for long-horizon conversational question answering.
+
+\paragraph{Memory-Augmented Generation.}
+Let $\pi_\theta$ denote an LLM parameterized by $\theta$. At each turn $t$, the model receives a user query $x_t \in \mathcal{X}$ and has access to an external memory state $M_t \in \mathcal{M}$, where $\mathcal{M}$ is the space of all possible memory configurations. The model produces a response:
 \begin{equation}
-\mathcal{A} = (\pi_\theta,\; \mathcal{X},\; \mathcal{Y},\; \mathcal{M},\; \mathcal{E}),
+y_t \sim \pi_\theta(\cdot \mid x_t, R_t), \qquad R_t = \textsc{Retrieve}(x_t, M_t),
 \end{equation}
-\begin{itemize}[nosep]
-    \item \textbf{policy} $\pi_\theta$: maps an observation and a memory state to a distribution over action trajectories;
-    \item \textbf{input (observation) space}  $\mathcal{X}$: the set of all possible user queries and dialogue the agent may receive;
-    \item \textbf{output (response) space} $\mathcal{Y}$ : the set of all possible natural-language responses the agent may produce;
-    \item  \textbf{memory space} $\mathcal{M}$: the set of all possible external memory states the agent can read from and write to;
-    \item \textbf{external environment interface} $\mathcal{E}$: the set of tools through which the agent can perform actions beyond pure language generation (e.g., a memory retrieval server, a search engine, or a code executor).
-\end{itemize}
-
-
-An \emph{interaction} is a temporally ordered sequence of turns between a user and the agent:
+where $R_t \subseteq M_t$ is a subset of memories retrieved as context. The memory is updated after each turn:
 \begin{equation}
-\mathcal{I} = (t_1, t_2, \ldots, t_T),
+M_{t+1} = \textsc{Update}(M_t, x_t, y_t).
 \end{equation}
-where $T$ is the total number of turns in the interaction.
-At turn $t$ ($1 \le t \le T$), the user provides an input $x_t \in \mathcal{X}$ (a query, instruction, or follow-up). The agent observes $x_t$ together with the current memory state $M_t \in \mathcal{M}$. T
+The objective is to learn the retrieval policy $\textsc{Retrieve}$ and the update policy $\textsc{Update}$ such that $\pi_\theta$ maximizes downstream task performance across a sequence of interactions $\mathcal{I} = (x_1, x_2, \ldots, x_T)$.
 
-The agent generates an action trajectory as a sequence of \emph{language actions} (reasoning steps, final answers) and \emph{environment actions} (memory queries, tool calls).
-The agent emits a final response $y_t \in \mathcal{Y}$ extracted from $\tau_t$. The memory state may be updated: $M_{t+1} = f_{\text{update}}(M_t, \tau_t)$, where $f_{\text{update}}$ encodes any write operations performed during the turn.
-The objective is to learn a policy $\pi_\theta$ that controls memory access when and how memory should be queried to improve downstream task performance. 
-
-\paragraph{Memory Structures}
-
-Recent work, notably Search-R1~\citep{jin2025search}  and Memory-R1~\citep{yan2025memory}\footnote{Memory-R1 does not provide a public codebase. We built a publicly available implementation at \url{https://github.com/YifanLiu2/Struct_Memory_R1.git}.}, has shown that RL can effectively train agents to manage flat external memory banks.
-A \emph{flat memory state} is an unordered collection of $N$ memory entries:
+\paragraph{Flat Memory.}
+In prior work~\cg{yan2025memory, jin2025search}, the memory state is a flat, unordered collection of $N$ entries:
 \begin{equation}
-M_t^{\text{flat}} = \{m_1, m_2, \ldots, m_N\}, \quad m_i = (\text{key}_i,\; \text{attributes}_i),
+M_t^{\text{flat}} = \{m_1, m_2, \ldots, m_N\}, \qquad m_i = (\text{key}_i,\; \text{value}_i),
 \end{equation}
+where each entry $m_i$ is an independent fact. Retrieval is performed by scoring each entry against the query independently, typically via embedding similarity or keyword matching:
+\begin{equation}
+R_t = \text{Top-}k \left\{ m_i \in M_t^{\text{flat}} : \text{score}(x_t, m_i) \right\}.
+\end{equation}
+This formulation treats all memories as exchangeable and cannot exploit structural relationships among them.
+
+\paragraph{Tree-Structured Memory.}
+We propose to organize memory as a rooted tree $\mathcal{T} = (V, E)$ where vertices $V$ are organized into $L$ levels. The root $v_0$ represents the entire conversation. Internal nodes at level $\ell$ represent progressively finer groupings (e.g., people $\to$ topics $\to$ events), and leaf nodes contain individual facts:
+\begin{equation}
+M_t^{\text{tree}} = \mathcal{T}_t = (V_t, E_t), \qquad V_t = V_t^{(0)} \cup V_t^{(1)} \cup \cdots \cup V_t^{(L)},
+\end{equation}
+where $V_t^{(\ell)}$ denotes nodes at level $\ell$ and $E_t$ encodes parent-child relationships. Each node $v \in V_t$ carries a content string $c(v)$ and a summary $s(v)$ that aggregates information from its descendants.
+
+Under tree-structured memory, retrieval becomes a \emph{search planning} problem. Rather than scoring all entries globally, the retriever selects a path through the hierarchy:
+\begin{equation}\label{eq:tree_retrieve}
+R_t = \textsc{TreeRetrieve}(x_t, \mathcal{T}_t) = \textsc{Execute}\!\big(\mathcal{T}_t,\; z_t\big), \qquad z_t \sim \pi_{\theta_R}(\cdot \mid x_t, \textsc{Schema}(\mathcal{T}_t)),
+\end{equation}
+where $z_t$ is a search plan specifying which branches to expand and which leaves to read, and $\textsc{Schema}(\mathcal{T}_t)$ is a compact representation of the tree structure (node names and summaries, without full leaf content).
+
+Similarly, updates become a \emph{structural placement} problem. Given a new fact extracted from turn $x_t$, the update policy must decide where in the hierarchy it belongs:
+\begin{equation}\label{eq:tree_update}
+\mathcal{T}_{t+1} = \textsc{TreeUpdate}(\mathcal{T}_t, x_t) = \textsc{Apply}\!\big(\mathcal{T}_t,\; o_t\big), \qquad o_t \sim \pi_{\theta_M}(\cdot \mid x_t, \mathcal{T}_t),
+\end{equation}
+where $o_t$ is an update operation that places, merges, or removes facts within the tree.
+
+\paragraph{Learning Objective.}
+Both the search plan $z_t$ and the update operation $o_t$ are intermediate decisions whose quality can only be assessed through the correctness of the final answer $y_t$ to a downstream question. Given a dataset of question-answer pairs $\{(q_j, y_j^\star)\}_{j=1}^{N_q}$, we optimize:
+\begin{equation}\label{eq:objective}
+\max_{\theta_M, \theta_R, \theta_A} \;\; \mathbb{E}_{q,y^\star} \left[ \mathcal{R}(y, y^\star) \right], \qquad y \sim \pi_{\theta_A}(\cdot \mid q, R), \quad R = \textsc{TreeRetrieve}(q, \mathcal{T}),
+\end{equation}
+where $\mathcal{R}$ is a reward function measuring answer quality and $\mathcal{T}$ is the memory tree constructed by the Memory Manager policy $\pi_{\theta_M}$. This objective couples memory construction, retrieval, and answering through a shared downstream reward signal.
