@@ -1,4 +1,11 @@
 \section{Method}
+todo: for this section, keep the overview, but do not discuss specific model being used
+
+todo: discuss memory bank first and the tree structure. be mathmatical
+
+todo: then discuss three separate component. please refer to memory-R1 paper for method writing. be very mathematical. we are using GRPO style traning. therefore discuss things properly.
+
+
 \subsection{Overview}
 \textsc{Struct Memory-R1} is trained in stages. The Memory Manager learns to construct and maintain memory state from raw dialogue. The Retrieve Agent learns to navigate the resulting structured memory and return useful evidence. The Answer Agent learns to answer from retrieved memories. All three components are instantiated with the same base language model family, Qwen2.5-3B-Instruct, but their prompts, actions, and rewards differ.
 
@@ -52,12 +59,3 @@ The Answer Agent receives the question and the retrieved memories grouped by spe
 y \sim \pi_{\theta_A}(\cdot \mid q, R).
 \]
 This component is trained to condition on retrieved evidence rather than on the full conversation history. During Memory Manager and Retrieve Agent training, the Answer Agent is frozen and used as the evaluator in the reward loop. This separation ensures that improvements in memory updates or retrieval plans are measured through their effect on answerability.
-
-\subsection{Staged Training}
-The full training program is staged:
-\begin{enumerate}[nosep,leftmargin=1.5em]
-\item train the Answer Agent on retrieved memories and gold answers;
-\item freeze the Answer Agent and train the Memory Manager using downstream QA reward;
-\item freeze the induced memory representation for each training instance and the Answer Agent, then train the Retrieve Agent to output search plans over the tree.
-\end{enumerate}
-This staged protocol reduces instability relative to joint optimization and clarifies the contributions of writing, retrieval, and answering.

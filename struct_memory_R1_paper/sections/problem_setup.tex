@@ -1,28 +1,35 @@
-\section{Problem Setup}
-We consider a conversational agent interacting over turns $t = 1, \dots, T$. At turn $t$, the agent observes a user utterance $x_t$, a persistent memory state $M_t$, and optionally a question $q_t$ whose answer depends on information stored in memory. The agent must update memory after interactions and answer questions from memory later.
+\section{Problem Definition}
+(todo: this section is not good). i want you to focus on memory augmented LLM. where you have LLM, which take external memory to answer question. very formally and mathmatically. 
+\paragraph{Conversational Agent.}
 
-\paragraph{Structured Memory.}
-The memory state is a rooted tree
-\[
-M_t = (V_t, E_t, r),
-\]
-where $V_t$ is a set of nodes, $E_t \subseteq V_t \times V_t$ is a set of parent-child edges, and $r$ is the root. Crucially, this structure is not provided by the dataset. It is induced online from raw conversation history by the memory-writing policy. In our setting, the induced tree follows an event and topic based organization such as
-\[
-\texttt{root} \rightarrow \texttt{topic} \rightarrow \texttt{subtopic} \rightarrow \texttt{fact},
-\]
-while allowing deeper substructure as the memory grows. The tree provides an explicit structural neighborhood for every fact: each leaf has ancestors, siblings, and a path that localizes it within the broader memory state.
+We consider an LLM-based agent augmented with an external memory system that persists across interactions:
+\begin{equation}
+\mathcal{A} = (\pi_\theta,\; \mathcal{X},\; \mathcal{Y},\; \mathcal{M},\; \mathcal{E}),
+\end{equation}
+\begin{itemize}[nosep]
+    \item \textbf{policy} $\pi_\theta$: maps an observation and a memory state to a distribution over action trajectories;
+    \item \textbf{input (observation) space}  $\mathcal{X}$: the set of all possible user queries and dialogue the agent may receive;
+    \item \textbf{output (response) space} $\mathcal{Y}$ : the set of all possible natural-language responses the agent may produce;
+    \item  \textbf{memory space} $\mathcal{M}$: the set of all possible external memory states the agent can read from and write to;
+    \item \textbf{external environment interface} $\mathcal{E}$: the set of tools through which the agent can perform actions beyond pure language generation (e.g., a memory retrieval server, a search engine, or a code executor).
+\end{itemize}
 
-\paragraph{Why tree structure.}
-The tree representation provides what flat memory lacks for both access and updates. For access, related facts share ancestors, so the retriever can select a branch before reading individual leaves, reducing interference from unrelated memories. For updates, the tree provides structural context: a new fact can be interpreted relative to the existing branch it belongs to rather than compared against a global pool.
 
-\paragraph{Three Component Roles.}
-We factor the full system into three mappings:
-\begin{align}
-M_{t+1} &= f_{\text{mgr}}(x_t, M_t), \\
-R_t &= f_{\text{ret}}(q_t, M_{t+1}), \\
-y_t &= f_{\text{ans}}(q_t, R_t),
-\end{align}
-where $f_{\text{mgr}}$ is the Memory Manager, $f_{\text{ret}}$ is the Retrieve Agent plus deterministic tree executor, and $f_{\text{ans}}$ is the Answer Agent.
+An \emph{interaction} is a temporally ordered sequence of turns between a user and the agent:
+\begin{equation}
+\mathcal{I} = (t_1, t_2, \ldots, t_T),
+\end{equation}
+where $T$ is the total number of turns in the interaction.
+At turn $t$ ($1 \le t \le T$), the user provides an input $x_t \in \mathcal{X}$ (a query, instruction, or follow-up). The agent observes $x_t$ together with the current memory state $M_t \in \mathcal{M}$. T
 
-\paragraph{Learning problem.}
-The challenge is that neither the correct memory update nor the correct retrieval path is directly observed in standard conversational QA data. Supervision is available primarily at the level of final task success. We therefore optimize both writing and retrieval from downstream reward rather than assuming oracle intermediate labels.
+The agent generates an action trajectory as a sequence of \emph{language actions} (reasoning steps, final answers) and \emph{environment actions} (memory queries, tool calls).
+The agent emits a final response $y_t \in \mathcal{Y}$ extracted from $\tau_t$. The memory state may be updated: $M_{t+1} = f_{\text{update}}(M_t, \tau_t)$, where $f_{\text{update}}$ encodes any write operations performed during the turn.
+The objective is to learn a policy $\pi_\theta$ that controls memory access when and how memory should be queried to improve downstream task performance. 
+
+\paragraph{Memory Structures}
+
+Recent work, notably Search-R1~\citep{jin2025search}  and Memory-R1~\citep{yan2025memory}\footnote{Memory-R1 does not provide a public codebase. We built a publicly available implementation at \url{https://github.com/YifanLiu2/Struct_Memory_R1.git}.}, has shown that RL can effectively train agents to manage flat external memory banks.
+A \emph{flat memory state} is an unordered collection of $N$ memory entries:
+\begin{equation}
+M_t^{\text{flat}} = \{m_1, m_2, \ldots, m_N\}, \quad m_i = (\text{key}_i,\; \text{attributes}_i),
+\end{equation}

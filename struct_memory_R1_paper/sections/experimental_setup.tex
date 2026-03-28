@@ -1,11 +1,10 @@
 \section{Experimental Setup}
 \subsection{Dataset}
-We evaluate on LoCoMo~\citep{maharana2024evaluating}, a long-horizon conversational memory benchmark containing 10 multi-session dialogues with 1{,}540 non-adversarial QA pairs across four question categories: single-hop (282), multi-hop (321), temporal (96), and open-domain (841). We exclude the adversarial category following the Memory-R1 evaluation protocol~\citep{yan2025memory}. We use a 20/80 train/test split, yielding approximately 1{,}232 test QA pairs. LoCoMo is well matched to our setting: it requires persistent memory over many turns, supports both single-hop and multi-hop reasoning, and includes temporal and open-domain questions that test different aspects of memory access.
+We evaluate on LoCoMo~\citep{maharana2024evaluating}, a long-horizon conversational memory benchmark containing 10 multi-session dialogues with 1{,}540 non-adversarial QA pairs across four question categories: single-hop (282), multi-hop (321), temporal (96), and open-domain (841) (TODO; this is not correct, opendomain is much lesser. please check the number again). We exclude the adversarial category following the Memory-R1 evaluation protocol~\citep{yan2025memory}. We use a 20/80 train/test split (todo: do not say this, follow memroy R1 and use their number), yielding approximately 1{,}232 test QA pairs. LoCoMo is well matched to our setting: it requires persistent memory over many turns, supports both single-hop and multi-hop reasoning, and includes temporal and open-domain questions that test different aspects of memory access.
 
 \subsection{Model and Hardware}
 All trainable components use Qwen2.5-3B-Instruct as the base policy model. Experiments are run on a single NVIDIA H200 GPU with 16 CPU cores. This setup supports single-node staged GRPO training and fixed-answer-agent evaluation.
 
-\subsection{Training Details}
 We use GRPO as the default policy-optimization method, following Search-R1 and Memory-R1~\citep{jin2025search, yan2025memory}. For the Memory Manager and Retrieve Agent, prompts are formatted as one-shot JSON-generation problems with rule-based reward functions. The Answer Agent is trained to produce short answers conditioned on retrieved memories. During Memory Manager and Retrieve Agent training, the Answer Agent is frozen and used only to compute reward.
 
 \subsection{Baselines}
